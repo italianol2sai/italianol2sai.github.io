@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I colori</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf7f0; --card: #ffffff; --ink: #1f2933; --muted: #6b7280;
+    --green: #1f8a4c; --red: #c8323b; --accent: #f3ece0; --line: #e5ddd0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15181c; --card: #1f242a; --ink: #f1f3f5; --muted: #9aa3ad;
+            --accent: #2a3038; --line: #333a43; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { padding: 16px; text-align: center; }
+  header a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  h1 { margin: 6px 0 4px; font-size: 26px; }
+  .flag { display: inline-block; width: 36px; height: 6px; border-radius: 3px; vertical-align: middle;
+          background: linear-gradient(90deg, var(--green) 33%, #fff 33% 66%, var(--red) 66%); border: 1px solid var(--line); }
+  .btn { border: 1px solid var(--line); background: var(--card); color: var(--ink);
+         padding: 10px 16px; border-radius: 999px; font-size: 16px; cursor: pointer; }
+  main { max-width: 520px; margin: 0 auto; padding: 0 16px 40px; }
+
+  .scene { perspective: 1000px; margin: 8px 0 16px; }
+  .card { position: relative; width: 100%; aspect-ratio: 3/4; max-height: 62vh; margin: 0 auto;
+          transform-style: preserve-3d; transition: transform .5s; cursor: pointer; }
+  .card.flip { transform: rotateY(180deg); }
+  .face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 24px;
+          background: var(--card); border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.08);
+          display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+  .back { transform: rotateY(180deg); background: var(--accent); }
+  .swatch { width: 62%; aspect-ratio: 1; border-radius: 50%; border: 3px solid rgba(0,0,0,.12);
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,.08); }
+  .things { font-size: 44px; margin-top: 18px; letter-spacing: 6px; }
+  .hint { position: absolute; bottom: 14px; font-size: 13px; color: var(--muted); }
+  .chip { width: 64px; height: 64px; border-radius: 50%; border: 3px solid rgba(0,0,0,.12); }
+  .word { font-family: "Nunito", system-ui, sans-serif; font-size: min(14vw, 64px); font-weight: 900; margin-top: 12px; }
+  .forms { font-size: 18px; color: var(--muted); margin-top: 6px; text-align: center; }
+
+  .controls { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .play { width: 72px; height: 72px; border-radius: 50%; border: none; background: var(--green); color: #fff;
+          font-size: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(31,138,76,.35); }
+  .play:active { transform: scale(.95); }
+  .round { width: 52px; height: 52px; border-radius: 50%; font-size: 22px; padding: 0; }
+  .counter { text-align: center; color: var(--muted); margin-top: 12px; font-size: 14px; }
+
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 18px; }
+  .grid button { aspect-ratio: 1; border-radius: 50%; border: 3px solid rgba(0,0,0,.12); cursor: pointer; padding: 0; }
+  .grid button.cur { outline: 3px solid var(--green); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<header>
+  <a href="../">← Italiano L2 ETNIE</a>
+  <h1>I colori <span class="flag"></span></h1>
+</header>
+
+<main>
+  <div class="scene">
+    <div class="card" id="card">
+      <div class="face front">
+        <div class="swatch" id="swatch"></div>
+        <div class="things" id="things"></div>
+        <span class="hint">tocca per girare</span>
+      </div>
+      <div class="face back">
+        <div class="chip" id="chip"></div>
+        <div class="word" id="word"></div>
+        <div class="forms" id="forms"></div>
+      </div>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn round" id="prev" aria-label="Precedente">◀</button>
+    <button class="play" id="play" aria-label="Ascolta">🔊</button>
+    <button class="btn round" id="next" aria-label="Successivo">▶</button>
+  </div>
+  <div class="controls" style="margin-top:10px">
+    <button class="btn" id="shuffle">🔀 Mescola</button>
+    <button class="btn" id="autoplay">Audio automatico: sì</button>
+  </div>
+  <div class="counter" id="counter"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<script>
+// forms: maschile / femminile (singolare). I colori invariabili hanno una sola forma.
+const COLORS = [
+  { id: "rosso",     hex: "#d62828", things: "🍅🍓❤️", forms: "rosso · rossa" },
+  { id: "arancione", hex: "#f77f00", things: "🍊🥕🎃", forms: "arancione" },
+  { id: "giallo",    hex: "#fcbf49", things: "🍋🌻🍌", forms: "giallo · gialla" },
+  { id: "verde",     hex: "#2a9d3f", things: "🍏🥦🌿", forms: "verde" },
+  { id: "azzurro",   hex: "#5bc0eb", things: "💧🩵🧊", forms: "azzurro · azzurra" },
+  { id: "blu",       hex: "#1d3fa8", things: "🫐👖🌊", forms: "blu" },
+  { id: "viola",     hex: "#7b3fa0", things: "🍇🍆💜", forms: "viola" },
+  { id: "rosa",      hex: "#f4a6c1", things: "🌸🐷🦩", forms: "rosa" },
+  { id: "marrone",   hex: "#7b4a26", things: "🍫🐻🌰", forms: "marrone" },
+  { id: "nero",      hex: "#111111", things: "🐈‍⬛🎱🕷️", forms: "nero · nera" },
+  { id: "bianco",    hex: "#ffffff", things: "🥛☁️🐑", forms: "bianco · bianca" },
+  { id: "grigio",    hex: "#8d8d8d", things: "🐘🐭🪨", forms: "grigio · grigia" },
+];
+const EXTS = ["mp3", "opus", "m4a", "ogg", "wav"];
+const $ = (id) => document.getElementById(id);
+
+let order = COLORS.map((_, i) => i);
+let pos = 0;
+let autoplay = true;
+const foundUrl = {};
+
+/* ---------- Audio: cerca audio/rosso.mp3 (anche Rosso.mp3, ROSSO.mp3) ---------- */
+let current = null;
+function tryLoad(url) {
+  return new Promise((ok, ko) => {
+    const a = new Audio();
+    a.preload = "auto";
+    a.oncanplaythrough = () => ok(a);
+    a.onerror = ko;
+    a.src = url;
+  });
+}
+async function findAudio(item) {
+  if (item.id in foundUrl) return foundUrl[item.id];
+  const names = [item.id, item.id[0].toUpperCase() + item.id.slice(1), item.id.toUpperCase()];
+  for (const name of names) {
+    for (const ext of EXTS) {
+      for (const e of [ext, ext.toUpperCase()]) {
+        const url = `audio/${name}.${e}`;
+        try { await tryLoad(url); foundUrl[item.id] = url; return url; } catch (err) {}
+      }
+    }
+  }
+  foundUrl[item.id] = null;
+  return null;
+}
+async function play(item) {
+  if (current) { current.pause(); current = null; }
+  speechSynthesis.cancel();
+  const url = await findAudio(item);
+  if (url) {
+    current = new Audio(url);
+    current.play().catch(() => {});
+  } else {
+    const u = new SpeechSynthesisUtterance(item.id);
+    u.lang = "it-IT"; u.rate = 0.8;
+    const it = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith("it"));
+    if (it) u.voice = it;
+    speechSynthesis.speak(u);
+  }
+}
+
+/* ---------- Flashcard ---------- */
+function render() {
+  const item = COLORS[order[pos]];
+  $("card").classList.remove("flip");
+  $("swatch").style.background = item.hex;
+  $("things").textContent = item.things;
+  $("chip").style.background = item.hex;
+  $("word").textContent = item.id;
+  $("forms").textContent = item.forms;
+  $("counter").textContent = `${pos + 1} / ${order.length}`;
+  document.querySelectorAll(".grid button").forEach(b =>
+    b.classList.toggle("cur", b.dataset.i == order[pos]));
+}
+function go(d) { pos = (pos + d + order.length) % order.length; render(); if (autoplay) play(COLORS[order[pos]]); }
+
+$("card").onclick = () => $("card").classList.toggle("flip");
+$("play").onclick = () => play(COLORS[order[pos]]);
+$("prev").onclick = () => go(-1);
+$("next").onclick = () => go(1);
+$("shuffle").onclick = () => {
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]];
+  }
+  pos = 0; render();
+};
+$("autoplay").onclick = () => {
+  autoplay = !autoplay;
+  $("autoplay").textContent = "Audio automatico: " + (autoplay ? "sì" : "no");
+};
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") go(1);
+  if (e.key === "ArrowLeft") go(-1);
+  if (e.key === " ") { e.preventDefault(); $("card").classList.toggle("flip"); }
+  if (e.key === "Enter") play(COLORS[order[pos]]);
+});
+let sx = null;
+$("card").addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
+$("card").addEventListener("touchend", e => {
+  if (sx === null) return;
+  const dx = e.changedTouches[0].clientX - sx; sx = null;
+  if (Math.abs(dx) > 50) { e.preventDefault(); go(dx < 0 ? 1 : -1); }
+});
+
+COLORS.forEach((it, i) => {
+  const b = document.createElement("button");
+  b.style.background = it.hex; b.dataset.i = i;
+  b.setAttribute("aria-label", it.id);
+  b.onclick = () => { pos = order.indexOf(i); render(); play(it); };
+  $("grid").appendChild(b);
+});
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Numeri 1-100</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf7f0; --card: #ffffff; --ink: #1f2933; --muted: #6b7280;
+    --green: #1f8a4c; --red: #c8323b; --accent: #f3ece0; --line: #e5ddd0;
+    --num: #2f63ad;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15181c; --card: #1f242a; --ink: #f1f3f5; --muted: #9aa3ad;
+            --accent: #2a3038; --line: #333a43; --num: #6fa3ec; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { padding: 16px; text-align: center; }
+  header a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  h1 { margin: 6px 0 4px; font-size: 26px; }
+  .flag { display: inline-block; width: 36px; height: 6px; border-radius: 3px; vertical-align: middle;
+          background: linear-gradient(90deg, var(--green) 33%, #fff 33% 66%, var(--red) 66%); border: 1px solid var(--line); }
+  .btn { border: 1px solid var(--line); background: var(--card); color: var(--ink);
+         padding: 10px 16px; border-radius: 999px; font-size: 16px; cursor: pointer; }
+  main { max-width: 520px; margin: 0 auto; padding: 0 16px 40px; }
+
+  .scene { perspective: 1000px; margin: 8px 0 16px; }
+  .card { position: relative; width: 100%; aspect-ratio: 3/4; max-height: 62vh; margin: 0 auto;
+          transform-style: preserve-3d; transition: transform .5s; cursor: pointer; }
+  .card.flip { transform: rotateY(180deg); }
+  .face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 24px;
+          background: var(--card); border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.08);
+          display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+  .back { transform: rotateY(180deg); background: var(--accent); }
+  .big { font-family: "Nunito", system-ui, sans-serif; font-size: min(36vw, 180px); font-weight: 900;
+         line-height: 1; color: var(--num); }
+  .dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; max-width: 260px;
+          margin-top: 18px; font-size: 34px; line-height: 1; min-height: 40px; }
+  .board { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; width: min(70%, 240px); margin-top: 16px; }
+  .board i { aspect-ratio: 1; border-radius: 3px; border: 1px solid var(--line); }
+  .board i.on { background: var(--num); border-color: var(--num); }
+  .word { overflow-wrap: anywhere; text-align: center; }
+  .hint { position: absolute; bottom: 14px; font-size: 13px; color: var(--muted); }
+  .mini { font-family: "Nunito", system-ui, sans-serif; font-weight: 900; font-size: 40px; color: var(--num); }
+  .word { font-family: "Nunito", system-ui, sans-serif; font-size: min(11vw, 54px); font-weight: 900; margin-top: 8px; }
+
+  .controls { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .play { width: 72px; height: 72px; border-radius: 50%; border: none; background: var(--green); color: #fff;
+          font-size: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(31,138,76,.35); }
+  .play:active { transform: scale(.95); }
+  .round { width: 52px; height: 52px; border-radius: 50%; font-size: 22px; padding: 0; }
+  .counter { text-align: center; color: var(--muted); margin-top: 12px; font-size: 14px; }
+
+  .grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin-top: 18px; }
+  .grid button { aspect-ratio: 1; font-size: min(3.6vw, 17px); padding: 0; font-weight: 900; font-family: "Nunito", system-ui, sans-serif;
+                 border-radius: 14px; border: 1px solid var(--line); background: var(--card); color: var(--num); cursor: pointer; }
+  .grid button.cur { outline: 3px solid var(--green); }
+</style>
+</head>
+<body>
+<header>
+  <a href="../">← Italiano L2 ETNIE</a>
+  <h1>I numeri 1–100 <span class="flag"></span></h1>
+</header>
+
+<main>
+  <div class="scene">
+    <div class="card" id="card">
+      <div class="face front">
+        <div class="big" id="big"></div>
+        <div class="dots" id="dots"></div>
+        <span class="hint">tocca per girare</span>
+      </div>
+      <div class="face back">
+        <div class="mini" id="mini"></div>
+        <div class="word" id="word"></div>
+      </div>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn round" id="prev" aria-label="Precedente">◀</button>
+    <button class="play" id="play" aria-label="Ascolta">🔊</button>
+    <button class="btn round" id="next" aria-label="Successivo">▶</button>
+  </div>
+  <div class="controls" style="margin-top:10px">
+    <select class="btn" id="groupSel" aria-label="Gruppo di numeri"></select>
+    <button class="btn" id="shuffle">🔀 Mescola</button>
+    <button class="btn" id="autoplay">Audio automatico: sì</button>
+  </div>
+  <div class="counter" id="counter"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<script>
+// Nomi dei numeri da 1 a 100
+const UNITS = ["", "uno", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove"];
+const TEENS = ["dieci", "undici", "dodici", "tredici", "quattordici", "quindici",
+               "sedici", "diciassette", "diciotto", "diciannove"];
+const TENS = ["", "", "venti", "trenta", "quaranta", "cinquanta", "sessanta", "settanta", "ottanta", "novanta"];
+function nome(n) {
+  if (n === 100) return "cento";
+  if (n < 10) return UNITS[n];
+  if (n < 20) return TEENS[n - 10];
+  const t = Math.floor(n / 10), u = n % 10;
+  let tens = TENS[t];
+  if (u === 0) return tens;
+  if (u === 1 || u === 8) tens = tens.slice(0, -1);   // ventuno, ventotto
+  return tens + (u === 3 ? "tré" : UNITS[u]);          // ventitré
+}
+const NUMBERS = Array.from({ length: 100 }, (_, i) => ({ n: i + 1, word: nome(i + 1) }));
+const EXTS = ["mp3", "opus", "m4a", "ogg", "wav"];
+const $ = (id) => document.getElementById(id);
+
+let group = [0, 10];          // indici del gruppo scelto (1–10 all'inizio)
+let order = [];
+let pos = 0;
+function setGroup(from, to) {
+  group = [from, to];
+  order = [];
+  for (let i = from; i < to; i++) order.push(i);
+  pos = 0;
+}
+setGroup(0, 10);
+let autoplay = true;
+const foundUrl = {};
+
+/* ---------- Audio: cerca audio/1.mp3 oppure audio/uno.mp3 ---------- */
+let current = null;
+function tryLoad(url) {
+  return new Promise((ok, ko) => {
+    const a = new Audio();
+    a.preload = "auto";
+    a.oncanplaythrough = () => ok(a);
+    a.onerror = ko;
+    a.src = url;
+  });
+}
+async function findAudio(item) {
+  if (item.n in foundUrl) return foundUrl[item.n];
+  const names = [String(item.n), item.word, item.word.toUpperCase(),
+                 item.word[0].toUpperCase() + item.word.slice(1)];
+  for (const name of names) {
+    for (const ext of EXTS) {
+      for (const e of [ext, ext.toUpperCase()]) {
+        const url = `audio/${name}.${e}`;
+        try { await tryLoad(url); foundUrl[item.n] = url; return url; } catch (err) {}
+      }
+    }
+  }
+  foundUrl[item.n] = null;
+  return null;
+}
+async function play(item) {
+  if (current) { current.pause(); current = null; }
+  speechSynthesis.cancel();
+  const url = await findAudio(item);
+  if (url) {
+    current = new Audio(url);
+    current.play().catch(() => {});
+  } else {
+    const u = new SpeechSynthesisUtterance(item.word);
+    u.lang = "it-IT"; u.rate = 0.8;
+    const it = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith("it"));
+    if (it) u.voice = it;
+    speechSynthesis.speak(u);
+  }
+}
+
+/* ---------- Flashcard ---------- */
+function render() {
+  const item = NUMBERS[order[pos]];
+  $("card").classList.remove("flip");
+  $("big").textContent = item.n;
+  // fino a 10: mele; oltre: quadretti (decine piene + unità)
+  if (item.n <= 10) {
+    $("dots").className = "dots";
+    $("dots").textContent = "🍎".repeat(item.n);
+  } else {
+    $("dots").className = "board";
+    const rows = Math.ceil(item.n / 10);
+    $("dots").innerHTML = Array.from({ length: rows * 10 }, (_, i) =>
+      `<i class="${i < item.n ? "on" : ""}"></i>`).join("");
+  }
+  $("mini").textContent = item.n;
+  $("word").textContent = item.word;
+  $("counter").textContent = `${pos + 1} / ${order.length}`;
+  document.querySelectorAll(".grid button").forEach(b =>
+    b.classList.toggle("cur", b.dataset.i == order[pos]));
+}
+function go(d) { pos = (pos + d + order.length) % order.length; render(); if (autoplay) play(NUMBERS[order[pos]]); }
+
+$("card").onclick = () => $("card").classList.toggle("flip");
+$("play").onclick = () => play(NUMBERS[order[pos]]);
+$("prev").onclick = () => go(-1);
+$("next").onclick = () => go(1);
+$("shuffle").onclick = () => {
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]];
+  }
+  pos = 0; render();
+};
+// scelta del gruppo: 1–10, 11–20 … 91–100, tutti
+for (let g = 0; g < 10; g++) {
+  const o = document.createElement("option");
+  o.value = g; o.textContent = `${g * 10 + 1}–${g * 10 + 10}`;
+  $("groupSel").appendChild(o);
+}
+$("groupSel").insertAdjacentHTML("beforeend", `<option value="all">Tutti (1–100)</option>`);
+$("groupSel").onchange = (e) => {
+  const v = e.target.value;
+  if (v === "all") setGroup(0, 100); else setGroup(v * 10, v * 10 + 10);
+  render();
+};
+$("autoplay").onclick = () => {
+  autoplay = !autoplay;
+  $("autoplay").textContent = "Audio automatico: " + (autoplay ? "sì" : "no");
+};
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") go(1);
+  if (e.key === "ArrowLeft") go(-1);
+  if (e.key === " ") { e.preventDefault(); $("card").classList.toggle("flip"); }
+  if (e.key === "Enter") play(NUMBERS[order[pos]]);
+});
+let sx = null;
+$("card").addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
+$("card").addEventListener("touchend", e => {
+  if (sx === null) return;
+  const dx = e.changedTouches[0].clientX - sx; sx = null;
+  if (Math.abs(dx) > 50) { e.preventDefault(); go(dx < 0 ? 1 : -1); }
+});
+
+NUMBERS.forEach((it, i) => {
+  const b = document.createElement("button");
+  b.textContent = it.n; b.dataset.i = i;
+  b.onclick = () => {
+    if (!order.includes(i)) { setGroup(0, 100); $("groupSel").value = "all"; }
+    pos = order.indexOf(i); render(); play(it);
+  };
+  $("grid").appendChild(b);
+});
+
+render();
+</script>
+</body>
+</html>
