@@ -1,0 +1,5 @@
+Metti qui le registrazioni, una per lettera, chiamate con la lettera minuscola:
+a.webm, b.webm, c.webm ... (vanno bene anche .mp3, .m4a, .ogg, .wav)
+
+Lettere: a b c d e f g h i l m n o p q r s t u v z  +  j k w x y
+Se manca un file, la pagina usa la voce del computer.

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alfabeto Italiano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf7f0; --card: #ffffff; --ink: #1f2933; --muted: #6b7280;
+    --green: #1f8a4c; --red: #c8323b; --accent: #f3ece0; --line: #e5ddd0;
+    --vow: #2f63ad; --cons: #111111;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15181c; --card: #1f242a; --ink: #f1f3f5; --muted: #9aa3ad;
+            --accent: #2a3038; --line: #333a43; --vow: #6fa3ec; --cons: #f1f3f5; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { padding: 16px; text-align: center; }
+  header a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  h1 { margin: 6px 0 4px; font-size: 26px; }
+  .flag { display: inline-block; width: 36px; height: 6px; border-radius: 3px; vertical-align: middle;
+          background: linear-gradient(90deg, var(--green) 33%, #fff 33% 66%, var(--red) 66%); border: 1px solid var(--line); }
+  .tabs { display: flex; gap: 8px; justify-content: center; margin: 12px 0; }
+  .tabs button, .btn { border: 1px solid var(--line); background: var(--card); color: var(--ink);
+          padding: 10px 16px; border-radius: 999px; font-size: 16px; cursor: pointer; }
+  .tabs button.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  main { max-width: 520px; margin: 0 auto; padding: 0 16px 40px; }
+
+  /* Flashcard */
+  .scene { perspective: 1000px; margin: 8px 0 16px; }
+  .card { position: relative; width: 100%; aspect-ratio: 3/4; max-height: 62vh; margin: 0 auto;
+          transform-style: preserve-3d; transition: transform .5s; cursor: pointer; }
+  .card.flip { transform: rotateY(180deg); }
+  .face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 24px;
+          background: var(--card); border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.08);
+          display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+  .back { transform: rotateY(180deg); background: var(--accent); }
+  .big { font-family: "Nunito", system-ui, sans-serif; font-size: min(30vw, 160px); font-weight: 900;
+         line-height: 1; display: flex; align-items: baseline; gap: .12em; color: var(--cons); }
+  .big .lo { font-weight: 800; }
+  .vowel { color: var(--vow) !important; }
+  .mini { font-family: "Nunito", system-ui, sans-serif; font-weight: 900; font-size: 30px; color: var(--cons); }
+  .tag { position: absolute; top: 14px; left: 16px; font-size: 13px; color: var(--muted); }
+  .hint { position: absolute; bottom: 14px; font-size: 13px; color: var(--muted); }
+  .name { font-size: 44px; font-weight: 700; }
+  .emoji { font-size: 90px; margin: 10px 0; }
+  .word { font-size: 32px; }
+  .word b { color: var(--red); }
+
+  .controls { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .play { width: 72px; height: 72px; border-radius: 50%; border: none; background: var(--green); color: #fff;
+          font-size: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(31,138,76,.35); }
+  .play:active { transform: scale(.95); }
+  .round { width: 52px; height: 52px; border-radius: 50%; font-size: 22px; padding: 0; }
+  .counter { text-align: center; color: var(--muted); margin-top: 12px; font-size: 14px; }
+  .src { text-align: center; color: var(--muted); font-size: 12px; min-height: 16px; margin-top: 4px; }
+
+  /* Griglia */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 8px; margin-top: 18px; }
+  .grid button { aspect-ratio: 1; font-size: 24px; font-weight: 900; font-family: "Nunito", system-ui, sans-serif; border-radius: 14px;
+                 border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+  .grid button.foreign { color: var(--muted); font-style: italic; }
+  .grid button.cur { outline: 3px solid var(--green); }
+
+</style>
+</head>
+<body>
+<header>
+  <a href="../">← Italiano L2 ETNIE</a>
+  <h1>Alfabeto Italiano <span class="flag"></span></h1>
+</header>
+
+<main>
+  <!-- FLASHCARD -->
+  <section id="viewCards">
+    <div class="scene">
+      <div class="card" id="card">
+        <div class="face front">
+          <span class="tag" id="tagF"></span>
+          <div class="big" id="bigLetter"></div>
+          <span class="hint">tocca per girare</span>
+        </div>
+        <div class="face back">
+          <span class="tag" id="tagB"></span>
+          <div class="mini" id="mini"></div>
+          <div class="name" id="name"></div>
+          <div class="emoji" id="emoji"></div>
+          <div class="word" id="word"></div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn round" id="prev" aria-label="Precedente">◀</button>
+      <button class="play" id="play" aria-label="Ascolta">🔊</button>
+      <button class="btn round" id="next" aria-label="Successiva">▶</button>
+    </div>
+    <div class="controls" style="margin-top:10px">
+      <button class="btn" id="shuffle">🔀 Mescola</button>
+      <button class="btn" id="autoplay">Audio automatico: sì</button>
+    </div>
+    <div class="counter" id="counter"></div>
+    <div class="src" id="src"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<script>
+const LETTERS = [
+  { id: "a", L: "A", name: "a",      word: "ape",      emoji: "🐝" },
+  { id: "b", L: "B", name: "bi",     word: "banana",   emoji: "🍌" },
+  { id: "c", L: "C", name: "ci",     word: "casa",     emoji: "🏠" },
+  { id: "d", L: "D", name: "di",     word: "dado",     emoji: "🎲" },
+  { id: "e", L: "E", name: "e",      word: "elefante", emoji: "🐘" },
+  { id: "f", L: "F", name: "effe",   word: "fiore",    emoji: "🌸" },
+  { id: "g", L: "G", name: "gi",     word: "gatto",    emoji: "🐱" },
+  { id: "h", L: "H", name: "acca",   word: "hotel",    emoji: "🏨" },
+  { id: "i", L: "I", name: "i",      word: "isola",    emoji: "🏝️" },
+  { id: "l", L: "L", name: "elle",   word: "luna",     emoji: "🌙" },
+  { id: "m", L: "M", name: "emme",   word: "mela",     emoji: "🍎" },
+  { id: "n", L: "N", name: "enne",   word: "nave",     emoji: "🚢" },
+  { id: "o", L: "O", name: "o",      word: "occhio",   emoji: "👁️" },
+  { id: "p", L: "P", name: "pi",     word: "pane",     emoji: "🍞" },
+  { id: "q", L: "Q", name: "cu",     word: "quadro",   emoji: "🖼️" },
+  { id: "r", L: "R", name: "erre",   word: "rana",     emoji: "🐸" },
+  { id: "s", L: "S", name: "esse",   word: "sole",     emoji: "☀️" },
+  { id: "t", L: "T", name: "ti",     word: "treno",    emoji: "🚆" },
+  { id: "u", L: "U", name: "u",      word: "uva",      emoji: "🍇" },
+  { id: "v", L: "V", name: "vu",     word: "vulcano",  emoji: "🌋" },
+  { id: "z", L: "Z", name: "zeta",   word: "zebra",    emoji: "🦓" },
+  // lettere straniere
+  { id: "j", L: "J", name: "i lunga",   word: "jeans",    emoji: "👖", foreign: true },
+  { id: "k", L: "K", name: "cappa",     word: "koala",    emoji: "🐨", foreign: true },
+  { id: "w", L: "W", name: "doppia vu", word: "würstel",  emoji: "🌭", foreign: true },
+  { id: "x", L: "X", name: "ics",       word: "xilofono", emoji: "🎶", foreign: true },
+  { id: "y", L: "Y", name: "ipsilon",   word: "yogurt",   emoji: "🥛", foreign: true },
+];
+const EXTS = ["mp3", "opus", "m4a", "webm", "ogg", "wav", "mp4"];
+const $ = (id) => document.getElementById(id);
+
+let order = LETTERS.map((_, i) => i);
+let pos = 0;
+let autoplay = true;
+const foundUrl = {};      // id -> url del file trovato su server (o null)
+
+/* ---------- Audio ---------- */
+let current = null;
+function tryLoad(url) {
+  return new Promise((ok, ko) => {
+    const a = new Audio();
+    a.preload = "auto";
+    a.oncanplaythrough = () => ok(a);
+    a.onerror = ko;
+    a.src = url;
+  });
+}
+async function findAudio(id) {
+  if (id in foundUrl) return foundUrl[id];
+  // prova nomi minuscoli e maiuscoli (a.mp3 / A.mp3 / A.MP3)
+  for (const name of [id.toUpperCase(), id]) {
+    for (const ext of EXTS) {
+      for (const e of [ext, ext.toUpperCase()]) {
+        const url = `audio/${name}.${e}`;
+        try { await tryLoad(url); foundUrl[id] = url; return url; } catch (err) {}
+      }
+    }
+  }
+  foundUrl[id] = null;
+  return null;
+}
+async function play(item) {
+  if (current) { current.pause(); current = null; }
+  speechSynthesis.cancel();
+  const url = await findAudio(item.id);
+  if (url) {
+    current = new Audio(url);
+    current.play().catch(() => {});
+    $("src").textContent = "";
+  } else {
+    const u = new SpeechSynthesisUtterance(`${item.name}. ${item.word}`);
+    u.lang = "it-IT"; u.rate = 0.8;
+    const it = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith("it"));
+    if (it) u.voice = it;
+    speechSynthesis.speak(u);
+    $("src").textContent = "";
+  }
+}
+
+/* ---------- Flashcard ---------- */
+function render() {
+  const item = LETTERS[order[pos]];
+  $("card").classList.remove("flip");
+  const v = "AEIOU".includes(item.L);
+  $("bigLetter").classList.toggle("vowel", v);
+  $("bigLetter").innerHTML = `<span>${item.L}</span><span class="lo">${item.id}</span>`;
+  $("mini").classList.toggle("vowel", v);
+  $("mini").textContent = item.L + item.id;
+  const tag = item.foreign ? "lettera straniera" : "";
+  $("tagF").textContent = tag; $("tagB").textContent = tag;
+  $("name").textContent = item.name;
+  $("emoji").textContent = item.emoji;
+  $("word").innerHTML = `<b>${item.word[0]}</b>${item.word.slice(1)}`;
+  $("counter").textContent = `${pos + 1} / ${order.length}`;
+  $("src").textContent = "";
+  document.querySelectorAll(".grid button").forEach(b =>
+    b.classList.toggle("cur", b.dataset.i == order[pos]));
+}
+function go(d) { pos = (pos + d + order.length) % order.length; render(); if (autoplay) play(LETTERS[order[pos]]); }
+
+$("card").onclick = () => $("card").classList.toggle("flip");
+$("play").onclick = () => play(LETTERS[order[pos]]);
+$("prev").onclick = () => go(-1);
+$("next").onclick = () => go(1);
+$("shuffle").onclick = () => {
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]];
+  }
+  pos = 0; render();
+};
+$("autoplay").onclick = () => {
+  autoplay = !autoplay;
+  $("autoplay").textContent = "Audio automatico: " + (autoplay ? "sì" : "no");
+};
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") go(1);
+  if (e.key === "ArrowLeft") go(-1);
+  if (e.key === " ") { e.preventDefault(); $("card").classList.toggle("flip"); }
+  if (e.key === "Enter") play(LETTERS[order[pos]]);
+});
+// swipe su telefono
+let sx = null;
+$("card").addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
+$("card").addEventListener("touchend", e => {
+  if (sx === null) return;
+  const dx = e.changedTouches[0].clientX - sx; sx = null;
+  if (Math.abs(dx) > 50) { e.preventDefault(); go(dx < 0 ? 1 : -1); }
+});
+
+LETTERS.forEach((it, i) => {
+  const b = document.createElement("button");
+  b.textContent = it.L + it.id; b.dataset.i = i;
+  if (it.foreign) b.className = "foreign";
+  if ("AEIOU".includes(it.L)) b.classList.add("vowel");
+  b.onclick = () => { pos = order.indexOf(i); render(); play(it); };
+  $("grid").appendChild(b);
+});
+
+render();
+</script>
+</body>
+</html>
