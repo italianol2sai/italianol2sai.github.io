@@ -45,5 +45,7 @@ def build(path, data):
 if __name__ == "__main__":
     from unita_corpo import CORPO
     from unita_casa import CASA
+    from unita_saluti import SALUTI
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
+    build("saluti/esercizi.html", SALUTI)

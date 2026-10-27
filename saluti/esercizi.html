@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>👋 I saluti · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "👋 I saluti · Esercizi",
+ "store": "saluti",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Le parti del giorno"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che saluto usi? Scegli",
+   "short": "1 · Parti del giorno",
+   "type": "select",
+   "cons": "Guarda la parte del giorno e scegli il saluto giusto.",
+   "opts": [
+    "BUONGIORNO",
+    "BUON POMERIGGIO",
+    "BUONASERA",
+    "BUONANOTTE"
+   ],
+   "items": [
+    {
+     "q": "🌅 1. L'ALBA"
+    },
+    {
+     "q": "☀️ 2. LA MATTINA"
+    },
+    {
+     "q": "🌤️ 3. IL POMERIGGIO"
+    },
+    {
+     "q": "🌇 4. IL TRAMONTO"
+    },
+    {
+     "q": "🌆 5. LA SERA"
+    },
+    {
+     "q": "🌙 6. LA NOTTE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJCVU9OR0lPUk5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQlVPTkdJT1JOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkJVT04gUE9NRVJJR0dJTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkJVT05BU0VSQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkJVT05BU0VSQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkJVT05BTk9UVEUiXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Scrivi la parola completa",
+   "short": "2 · Lettere mancanti",
+   "type": "text",
+   "cons": "Manca una lettera. Scrivi tutta la parola.",
+   "items": [
+    {
+     "q": "1. C I _ O"
+    },
+    {
+     "q": "2. B U O N G I O R _ O"
+    },
+    {
+     "q": "3. B U O N A S E _ A"
+    },
+    {
+     "q": "4. S A L _ E"
+    },
+    {
+     "q": "5. A R R I V E D E R _ I"
+    },
+    {
+     "q": "6. B U O N A N O T _ E"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjaWFvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYnVvbmdpb3JubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImJ1b25hc2VyYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNhbHZlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYXJyaXZlZGVyY2kiXX0sIHsidCI6ICJlcSIsICJhIjogWyJidW9uYW5vdHRlIl19XQ=="
+  },
+  {
+   "part": "Formale o informale?"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Formale o informale?",
+   "short": "3 · Formale o informale",
+   "type": "choice",
+   "opts": [
+    "INFORMALE",
+    "FORMALE"
+   ],
+   "full": true,
+   "cons": "INFORMALE = con gli amici. FORMALE = con rispetto, con una persona che non conosco bene.",
+   "items": [
+    {
+     "q": "1. CIAO, LUCA!"
+    },
+    {
+     "q": "2. BUONGIORNO, SIGNOR MAFFEI."
+    },
+    {
+     "q": "3. CIAO, MARTA!"
+    },
+    {
+     "q": "4. BUONASERA, SIGNORA VERDI."
+    },
+    {
+     "q": "5. ARRIVEDERCI, DOTTORE."
+    },
+    {
+     "q": "6. CIAO, MAMMA!"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTkZPUk1BTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGT1JNQUxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSU5GT1JNQUxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRk9STUFMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZPUk1BTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTkZPUk1BTEUiXX1d"
+  },
+  {
+   "part": "Quando arrivo, quando vado via"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Arrivo o vado via?",
+   "short": "4 · Arrivo o vado via",
+   "type": "choice",
+   "opts": [
+    "ARRIVO",
+    "VADO VIA",
+    "TUTTI E DUE"
+   ],
+   "full": true,
+   "cons": "Quando dici questo saluto? Quando arrivi, quando vai via o tutti e due?",
+   "items": [
+    {
+     "q": "1. BUONGIORNO"
+    },
+    {
+     "q": "2. ARRIVEDERCI"
+    },
+    {
+     "q": "3. CIAO"
+    },
+    {
+     "q": "4. A PRESTO!"
+    },
+    {
+     "q": "5. SALVE"
+    },
+    {
+     "q": "6. CI VEDIAMO DOMANI"
+    },
+    {
+     "q": "7. BUONA GIORNATA"
+    },
+    {
+     "q": "8. BUONANOTTE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBUlJJVk8iLCAiVFVUVEkgRSBEVUUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJWQURPIFZJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlRVVFRJIEUgRFVFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkFETyBWSUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBUlJJVk8iLCAiVFVUVEkgRSBEVUUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJWQURPIFZJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZBRE8gVklBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkFETyBWSUEiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa la tabella",
+   "short": "5 · La tabella",
+   "type": "text",
+   "cons": "Scrivi un saluto. Esempio: QUANDO ARRIVO · SERA · FORMALE → BUONASERA",
+   "bank": "CIAO · BUONGIORNO · BUONASERA · ARRIVEDERCI",
+   "items": [
+    {
+     "q": "1. QUANDO ARRIVO · MATTINA · INFORMALE (un amico)"
+    },
+    {
+     "q": "2. QUANDO ARRIVO · MATTINA · FORMALE (un estraneo)"
+    },
+    {
+     "q": "3. QUANDO ARRIVO · SERA · INFORMALE (un amico)"
+    },
+    {
+     "q": "4. QUANDO VADO VIA · MATTINA · INFORMALE (un amico)"
+    },
+    {
+     "q": "5. QUANDO VADO VIA · MATTINA · FORMALE (un estraneo)"
+    },
+    {
+     "q": "6. QUANDO VADO VIA · SERA · INFORMALE (un amico)"
+    },
+    {
+     "q": "7. QUANDO VADO VIA · SERA · FORMALE (un estraneo)"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjaWFvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYnVvbmdpb3JubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNpYW8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJjaWFvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYXJyaXZlZGVyY2kiLCAiYnVvbmEgZ2lvcm5hdGEiLCAiYXJyaXZlZGVybGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjaWFvIiwgImJ1b25hbm90dGUiLCAiYSBwcmVzdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJhcnJpdmVkZXJjaSIsICJidW9uYXNlcmEiLCAiYnVvbmFub3R0ZSIsICJidW9uYSBzZXJhdGEiLCAiYXJyaXZlZGVybGEiXX1d"
+  },
+  {
+   "part": "Che cosa dici?"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Leggi e scrivi il saluto",
+   "short": "6 · Che cosa dici",
+   "type": "text",
+   "w": "m",
+   "cons": "Leggi la situazione. Che cosa dici?",
+   "items": [
+    {
+     "q": "1. 🌙 È notte. La mamma va a dormire. Dice al bambino:"
+    },
+    {
+     "q": "2. ☀️ È mattina. Entri in farmacia. Dici:"
+    },
+    {
+     "q": "3. 🧑‍🤝‍🧑 Incontri il tuo amico Ahmed per strada. Dici:"
+    },
+    {
+     "q": "4. 🌆 Sono le 19. Arrivi a casa della signora Rossi. Dici:"
+    },
+    {
+     "q": "5. 👋 La lezione è finita. Saluti l'insegnante e vai via. Dici:"
+    },
+    {
+     "q": "6. 📅 Domani vedi di nuovo i tuoi compagni. Vai via e dici: «Ci vediamo …»"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJidW9uYW5vdHRlIiwgImJ1b25hIG5vdHRlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYnVvbmdpb3JubyIsICJzYWx2ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNpYW8iLCAiY2lhbyBhaG1lZCJdfSwgeyJ0IjogImVxIiwgImEiOiBbImJ1b25hc2VyYSIsICJidW9uYXNlcmEgc2lnbm9yYSIsICJidW9uYXNlcmEgc2lnbm9yYSByb3NzaSIsICJzYWx2ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFycml2ZWRlcmNpIiwgImFycml2ZWRlcmxhIiwgImEgcHJlc3RvIiwgImJ1b25hIGdpb3JuYXRhIiwgImNpYW8iLCAiY2kgdmVkaWFtbyBkb21hbmkiLCAiYnVvbmFzZXJhIiwgImEgZG9tYW5pIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZG9tYW5pIiwgImNpIHZlZGlhbW8gZG9tYW5pIl19XQ=="
+  },
+  {
+   "part": "Mi presento"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Completa con «SONO»",
+   "short": "7 · Mi presento",
+   "type": "cloze",
+   "cons": "Leggi come si presenta l'insegnante e completa.",
+   "parts": [
+    "CIAO! ",
+    {},
+    " LUCIANA.<br>",
+    {},
+    " ITALIANA.<br>",
+    {},
+    " PUGLIESE.<br>",
+    {},
+    " BARESE."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzb25vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic29ubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNvbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzb25vIl19XQ=="
+  },
+  {
+   "id": "e8",
+   "title": "8 ✎ · E tu? Presentati",
+   "type": "free",
+   "rows": 5,
+   "items": [
+    "Saluta e presentati come Luciana: CIAO! SONO … SONO … (di che paese sei? di che città?)"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
