@@ -40,6 +40,7 @@
   details.sub summary { padding: 12px 14px; gap: 10px; }
   details.sub summary strong { font-size: 16px; }
   details.sub summary::after { font-size: 22px; }
+  details.sub:not([open]) > summary::after { content: "+"; }
   details.sub .inner { padding: 0 10px 10px; }
   details.sub a.item { background: var(--card); }
 </style>
