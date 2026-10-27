@@ -50,6 +50,10 @@ if __name__ == "__main__":
     from unita_nomi import NOMI
     from unita_aggettivi import AGGETTIVI
     from unita_possessivi import POSSESSIVI
+    from unita_frase import FRASE
+    from unita_cardinali import CARDINALI
+    from unita_domande import DOMANDE
+    from unita_passato import PASSATO
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
@@ -57,3 +61,7 @@ if __name__ == "__main__":
     build("nomi-articoli/esercizi.html", NOMI)
     build("aggettivi/esercizi.html", AGGETTIVI)
     build("possessivi/esercizi.html", POSSESSIVI)
+    build("frase-minima/esercizi.html", FRASE)
+    build("punti-cardinali/esercizi.html", CARDINALI)
+    build("domande/esercizi.html", DOMANDE)
+    build("passato-prossimo/esercizi.html", PASSATO)

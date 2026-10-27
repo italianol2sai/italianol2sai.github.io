@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IL PASSATO PROSSIMO - ITALIANO L2 (A1)</title>
+<style>
+  :root{
+    --blu:#BE185D; --blu-scuro:#13303D; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FDF2F8; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#BE185D,#F472B6); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+  .d{color:var(--no); font-weight:bold;}
+  .grid > *, .twocol2 > *{min-width:0;}
+  .foto .card{padding:10px; gap:6px; font-size:1.1rem;}
+  .foto img{width:100%; aspect-ratio:4/3; object-fit:contain; border-radius:12px; background:#fff;}
+  @media (min-width:901px){ .foto.g4, .foto.g3{grid-template-columns:repeat(6,1fr);} }
+  .foto .card b{font-size:1.15rem;}
+  @media (max-width:900px){ .card{padding:12px; overflow-wrap:anywhere;} .card .emoji{font-size:2.2rem;} }
+  table.plur td:first-child{text-align:left;}
+  @media (max-width:900px){ table.plur th, table.plur td{padding:6px 4px; font-size:.85rem;} }
+  @media (min-width:901px){ .part5{grid-template-columns:repeat(5,1fr);} .part5 .card{padding:10px 14px; font-size:1.2rem;} .part5 .card b{font-size:1.3rem;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LIVELLO A1</span>
+  <span>IL PASSATO PROSSIMO</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <!-- COPERTINA -->
+  <section class="slide center cover">
+    <div class="big">⏪</div>
+    <h1>IL PASSATO PROSSIMO</h1>
+    <p class="lead" style="margin-top:14px;">IERI HO MANGIATO &bull; SONO ANDATO A SCUOLA</p>
+    <span class="badge">AVERE O ESSERE &bull; IL PARTICIPIO PASSATO</span>
+  </section>
+
+  <!-- QUANDO -->
+  <section class="slide">
+    <h2>📅 IERI, LA SETTIMANA SCORSA...</h2>
+    <p class="lead">IL PASSATO PROSSIMO DICE CHE COSA HO FATTO <b>PRIMA</b>, NEL PASSATO.</p>
+    <div class="grid g3" style="margin-top:14px">
+      <div class="card"><b>IERI</b><span>IERI HO LAVORATO.</span></div>
+      <div class="card"><b>STAMATTINA</b><span>STAMATTINA SONO USCITO ALLE 8.</span></div>
+      <div class="card"><b>L'ANNO SCORSO</b><span>L'ANNO SCORSO SONO ARRIVATA IN ITALIA.</span></div>
+    </div>
+  </section>
+
+  <!-- FORMA -->
+  <section class="slide">
+    <h2>🧩 COME SI FORMA?</h2>
+    <div class="nota" style="font-size:1.8rem; text-align:center">AVERE o ESSERE (PRESENTE) + PARTICIPIO PASSATO</div>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card"><b>CON AVERE</b><span>IO <u>HO</u> MANGI<span class="d">ATO</span></span><span>NOI <u>ABBIAMO</u> DORM<span class="d">ITO</span></span></div>
+      <div class="card"><b>CON ESSERE</b><span>IO <u>SONO</u> AND<span class="d">ATO</span></span><span>LEI <u>È</u> PART<span class="d">ITA</span></span></div>
+    </div>
+  </section>
+
+  <!-- PARTICIPIO -->
+  <section class="slide">
+    <h2>✏️ IL PARTICIPIO PASSATO</h2>
+    <table class="plur">
+      <tr><th>-ARE → -ATO</th><th>-ERE → -UTO</th><th>-IRE → -ITO</th></tr>
+      <tr><td>MANGIARE → MANGI<span class="d">ATO</span></td><td>AVERE → AV<span class="d">UTO</span></td><td>DORMIRE → DORM<span class="d">ITO</span></td></tr>
+      <tr><td>LAVORARE → LAVOR<span class="d">ATO</span></td><td>RICEVERE → RICEV<span class="d">UTO</span></td><td>CAPIRE → CAP<span class="d">ITO</span></td></tr>
+      <tr><td>ANDARE → AND<span class="d">ATO</span></td><td>VENDERE → VEND<span class="d">UTO</span></td><td>PARTIRE → PART<span class="d">ITO</span></td></tr>
+    </table>
+    <div class="nota" style="margin-top:14px">ATTENZIONE: MOLTI VERBI IN <b>-ERE</b> SONO IRREGOLARI!</div>
+  </section>
+
+  <!-- IRREGOLARI -->
+  <section class="slide">
+    <h2>⚡ PARTICIPI IRREGOLARI</h2>
+    <div class="grid g4 part5">
+      <div class="card"><b>FARE</b><span>FATTO</span></div>
+      <div class="card"><b>DIRE</b><span>DETTO</span></div>
+      <div class="card"><b>BERE</b><span>BEVUTO</span></div>
+      <div class="card"><b>LEGGERE</b><span>LETTO</span></div>
+      <div class="card"><b>SCRIVERE</b><span>SCRITTO</span></div>
+      <div class="card"><b>PRENDERE</b><span>PRESO</span></div>
+      <div class="card"><b>METTERE</b><span>MESSO</span></div>
+      <div class="card"><b>VEDERE</b><span>VISTO</span></div>
+      <div class="card"><b>APRIRE</b><span>APERTO</span></div>
+      <div class="card"><b>CHIUDERE</b><span>CHIUSO</span></div>
+      <div class="card"><b>CHIEDERE</b><span>CHIESTO</span></div>
+      <div class="card"><b>RISPONDERE</b><span>RISPOSTO</span></div>
+      <div class="card"><b>PERDERE</b><span>PERSO</span></div>
+      <div class="card"><b>SPEGNERE</b><span>SPENTO</span></div>
+      <div class="card"><b>VENIRE</b><span>VENUTO</span></div>
+      <div class="card"><b>RIMANERE</b><span>RIMASTO</span></div>
+      <div class="card"><b>SCENDERE</b><span>SCESO</span></div>
+      <div class="card"><b>NASCERE</b><span>NATO</span></div>
+      <div class="card"><b>MORIRE</b><span>MORTO</span></div>
+      <div class="card"><b>ESSERE</b><span>STATO</span></div>
+    </div>
+  </section>
+
+  <!-- ESSERE -->
+  <section class="slide">
+    <h2>🚶 I VERBI CON ESSERE</h2>
+    <p class="lead">SONO SPESSO VERBI DI <b>MOVIMENTO</b> O DI <b>CAMBIAMENTO</b>:</p>
+    <div class="grid g3" style="margin-top:10px">
+      <div class="card"><b>ANDARE</b><span>IERI SONO ANDATO A BARI.</span></div>
+      <div class="card"><b>VENIRE</b><span>SONO VENUTI I MIEI AMICI.</span></div>
+      <div class="card"><b>ARRIVARE</b><span>IL TRENO È ARRIVATO IN RITARDO.</span></div>
+      <div class="card"><b>PARTIRE</b><span>AMIN È PARTITO IERI.</span></div>
+      <div class="card"><b>ENTRARE / USCIRE</b><span>SONO USCITO TARDI DAL LAVORO.</span></div>
+      <div class="card"><b>TORNARE</b><span>SIETE TORNATI ALLE 9.</span></div>
+      <div class="card"><b>SALIRE / SCENDERE</b><span>SIAMO SALITI IN AUTOBUS.</span></div>
+      <div class="card"><b>RIMANERE / STARE</b><span>MIA SORELLA È RIMASTA A CASA.</span></div>
+      <div class="card"><b>NASCERE / CRESCERE / CADERE</b><span>IL BAMBINO È CADUTO.</span></div>
+    </div>
+  </section>
+
+  <!-- ACCORDO -->
+  <section class="slide">
+    <h2>👦👧 CON ESSERE IL PARTICIPIO CAMBIA</h2>
+    <table class="plur">
+      <tr><th></th><th>MASCHILE</th><th>FEMMINILE</th></tr>
+      <tr><td><b>SINGOLARE</b></td><td>MARCO È AND<span class="d">ATO</span></td><td>ANNA È AND<span class="d">ATA</span></td></tr>
+      <tr><td><b>PLURALE</b></td><td>I RAGAZZI SONO AND<span class="d">ATI</span></td><td>LE RAGAZZE SONO AND<span class="d">ATE</span></td></tr>
+    </table>
+    <div class="nota" style="margin-top:14px">CON <b>AVERE</b> IL PARTICIPIO NON CAMBIA: MARCO HA MANGIATO &bull; ANNA HA MANGIATO &bull; LORO HANNO MANGIATO.</div>
+  </section>
+
+  <!-- TABELLA -->
+  <section class="slide">
+    <h2>📋 MANGIARE E ANDARE</h2>
+    <table class="plur">
+      <tr><th></th><th>MANGIARE (AVERE)</th><th>ANDARE (ESSERE)</th></tr>
+      <tr><td><b>IO</b></td><td>HO MANGIATO</td><td>SONO ANDATO/A</td></tr>
+      <tr><td><b>TU</b></td><td>HAI MANGIATO</td><td>SEI ANDATO/A</td></tr>
+      <tr><td><b>LUI / LEI</b></td><td>HA MANGIATO</td><td>È ANDATO / ANDATA</td></tr>
+      <tr><td><b>NOI</b></td><td>ABBIAMO MANGIATO</td><td>SIAMO ANDATI/E</td></tr>
+      <tr><td><b>VOI</b></td><td>AVETE MANGIATO</td><td>SIETE ANDATI/E</td></tr>
+      <tr><td><b>LORO</b></td><td>HANNO MANGIATO</td><td>SONO ANDATI/E</td></tr>
+    </table>
+  </section>
+
+  <!-- FINE -->
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA SAI PARLARE DEL PASSATO!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+</body>
+</html>
+

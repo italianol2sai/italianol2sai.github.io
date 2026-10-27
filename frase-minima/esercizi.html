@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🧱 La frase minima · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🧱 La frase minima · Esercizi",
+ "store": "frase-minima",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Soggetto e predicato"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Soggetto o predicato?",
+   "short": "1 · Soggetto o predicato",
+   "type": "choice",
+   "opts": [
+    "SOGGETTO",
+    "PREDICATO"
+   ],
+   "full": true,
+   "cons": "SOGGETTO = CHI? · PREDICATO = CHE COSA FA? Guarda la parola in grande e scegli.",
+   "items": [
+    {
+     "q": "1. <b><u>MARCO</u></b> legge un libro."
+    },
+    {
+     "q": "2. Marco <b><u>LEGGE</u></b> un libro."
+    },
+    {
+     "q": "3. <b><u>IL CANE</u></b> corre sul prato."
+    },
+    {
+     "q": "4. Il cane <b><u>CORRE</u></b> sul prato."
+    },
+    {
+     "q": "5. La mamma <b><u>CUCINA</u></b> la pasta."
+    },
+    {
+     "q": "6. <b><u>LE STELLE</u></b> brillano nel cielo."
+    },
+    {
+     "q": "7. Gli alunni <b><u>STUDIANO</u></b> in classe."
+    },
+    {
+     "q": "8. <b><u>IL MEDICO</u></b> cura i pazienti."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTT0dHRVRUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBSRURJQ0FUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNPR0dFVFRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUFJFRElDQVRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUFJFRElDQVRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU09HR0VUVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJQUkVESUNBVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJTT0dHRVRUTyJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Chi fa che cosa? Collega",
+   "short": "2 · Soggetto + predicato",
+   "type": "select",
+   "cons": "Collega ogni soggetto al suo predicato.",
+   "opts": [
+    "ABBAIANO",
+    "BRILLANO",
+    "CUCINA",
+    "NITRISCONO",
+    "PROFUMANO",
+    "SCHERZA",
+    "STRISCIA",
+    "STUDIANO",
+    "ULULA",
+    "VOLANO"
+   ],
+   "items": [
+    {
+     "q": "1. IL LUPO"
+    },
+    {
+     "q": "2. GLI ELICOTTERI"
+    },
+    {
+     "q": "3. I CAVALLI"
+    },
+    {
+     "q": "4. I FIORI"
+    },
+    {
+     "q": "5. LA MAMMA"
+    },
+    {
+     "q": "6. I CANI"
+    },
+    {
+     "q": "7. IL PAGLIACCIO"
+    },
+    {
+     "q": "8. LE STELLE"
+    },
+    {
+     "q": "9. GLI ALUNNI"
+    },
+    {
+     "q": "10. IL SERPENTE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJVTFVMQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZPTEFOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk5JVFJJU0NPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJQUk9GVU1BTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDVUNJTkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBQkJBSUFOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDSEVSWkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJCUklMTEFOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNUVURJQU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU1RSSVNDSUEiXX1d"
+  },
+  {
+   "part": "Trova la frase minima"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Scrivi la frase minima",
+   "short": "3 · Riduci la frase",
+   "type": "text",
+   "w": "w",
+   "cons": "Togli le parti che non servono. Scrivi solo SOGGETTO + PREDICATO. Esempio: MARCO LEGGE UN LIBRO → MARCO LEGGE.",
+   "items": [
+    {
+     "q": "1. I BAMBINI GIOCANO NEL GIARDINO CON IL PALLONE DA CALCIO."
+    },
+    {
+     "q": "2. IL CANE CORRE SUL PRATO DEL GIARDINO DEL VICINO."
+    },
+    {
+     "q": "3. ELISA STIRA LE CAMICIE AZZURRE DEL MARITO."
+    },
+    {
+     "q": "4. LA ZIA CUCINA UN POLLO PER GLI OSPITI."
+    },
+    {
+     "q": "5. GLI AEREI SORVOLANO I MONTI IMBIANCATI DALLA NEVE."
+    },
+    {
+     "q": "6. MARIO MANGIA UNA PERA RACCOLTA DAL NONNO."
+    },
+    {
+     "q": "7. IL GABBIANO VOLA NEL CIELO SOPRA IL MARE."
+    },
+    {
+     "q": "8. FABRIZIO PESCA LE TROTE NEL LAGO."
+    },
+    {
+     "q": "9. FRANCESCA GUIDA L'AUTO SPORTIVA DELLO ZIO."
+    },
+    {
+     "q": "10. IL BAMBINO DORME NELLA CULLA DA TRE ORE."
+    },
+    {
+     "q": "11. GLI SCOLARI ASCOLTANO ATTENTAMENTE LA LEZIONE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJpIGJhbWJpbmkgZ2lvY2FubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImlsIGNhbmUgY29ycmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJlbGlzYSBzdGlyYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxhIHppYSBjdWNpbmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnbGkgYWVyZWkgc29ydm9sYW5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibWFyaW8gbWFuZ2lhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaWwgZ2FiYmlhbm8gdm9sYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImZhYnJpemlvIHBlc2NhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZnJhbmNlc2NhIGd1aWRhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaWwgYmFtYmlubyBkb3JtZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBzY29sYXJpIGFzY29sdGFubyJdfV0="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Guarda il disegno: chi? che cosa fa?",
+   "short": "4 · Frasi e disegni",
+   "type": "text",
+   "w": "w",
+   "cons": "Scrivi la frase minima per ogni disegno. Esempio: LA BAMBINA DORME.",
+   "items": [
+    {
+     "q": "1.<br><img src=\"img/sveglia.jpg\" alt=\"\" style=\"display:block;width:100%;max-width:300px;border-radius:12px;margin:4px 0 6px\">"
+    },
+    {
+     "q": "2.<br><img src=\"img/biscotti.jpg\" alt=\"\" style=\"display:block;width:100%;max-width:300px;border-radius:12px;margin:4px 0 6px\">"
+    },
+    {
+     "q": "3.<br><img src=\"img/cucina.jpg\" alt=\"\" style=\"display:block;width:100%;max-width:300px;border-radius:12px;margin:4px 0 6px\">"
+    },
+    {
+     "q": "4.<br><img src=\"img/fiori.jpg\" alt=\"\" style=\"display:block;width:100%;max-width:300px;border-radius:12px;margin:4px 0 6px\">"
+    }
+   ],
+   "k": "W3sidCI6ICJoYXMiLCAiYSI6IFsic3ZlZ2xpYSJdfSwgeyJ0IjogImhhcyIsICJhIjogWyJtYW5naWEiXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsiY3VjaW5hIl19LCB7InQiOiAiaGFzIiwgImEiOiBbImlubmFmZmlhIiwgImFubmFmZmlhIiwgImJhZ25hIl19XQ=="
+  },
+  {
+   "part": "Espandere la frase"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa la frase",
+   "short": "5 · Le espansioni",
+   "type": "select",
+   "cons": "Collega ogni frase minima alla parte giusta.",
+   "opts": [
+    "A NASCONDINO",
+    "I PAZIENTI",
+    "I TOPI",
+    "IL BUCATO",
+    "IL GELATO",
+    "IL NIDO",
+    "IN PRIMAVERA",
+    "LA TERRA",
+    "LE AUTO",
+    "UNA STORIA"
+   ],
+   "items": [
+    {
+     "q": "1. LA MAMMA HA STESO …"
+    },
+    {
+     "q": "2. LUIGI MANGIA …"
+    },
+    {
+     "q": "3. IL NONNO RACCONTA …"
+    },
+    {
+     "q": "4. LA RONDINE COSTRUISCE …"
+    },
+    {
+     "q": "5. I BAMBINI GIOCANO …"
+    },
+    {
+     "q": "6. IL MEDICO CURA …"
+    },
+    {
+     "q": "7. LE ROSE FIORISCONO …"
+    },
+    {
+     "q": "8. IL SOLE ILLUMINA …"
+    },
+    {
+     "q": "9. IL MECCANICO RIPARA …"
+    },
+    {
+     "q": "10. I GATTI RINCORRONO …"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTCBCVUNBVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCBHRUxBVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTkEgU1RPUklBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgTklETyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkEgTkFTQ09ORElOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkkgUEFaSUVOVEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTiBQUklNQVZFUkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMQSBURVJSQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFIEFVVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJJIFRPUEkiXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 ✎ · Allunga la frase",
+   "type": "free",
+   "rows": 2,
+   "items": [
+    "1. LA RANA SALTA (DOVE?)",
+    "2. LA PRIMAVERA È ARRIVATA (QUANDO?)",
+    "3. LEONARDO PASSEGGIA (CON CHI?)",
+    "4. MARTA MANGIA (CHE COSA?)",
+    "5. ROCCO PARTE (PER DOVE?)",
+    "6. LA MAMMA TELEFONA (A CHI?)",
+    "7. LA BAMBINA PIANGE (PERCHÉ?)",
+    "8. LA TAZZA È DECORATA (COME?)"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
