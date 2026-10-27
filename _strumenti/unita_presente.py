@@ -98,6 +98,28 @@ E11_I, E11_K = righe([("NOI", ["OFFRITE", "TROVIAMO", "PENSATE"], "TROVIAMO"),
     ("IO", ["DIMENTICHIAMO", "PULISCO", "ACCENDI"], "PULISCO"),
     ("NOI", ["LAVORATE", "ASCOLTIAMO", "SENTITE"], "ASCOLTIAMO")])
 
+
+def img(nome):
+    return f'<img src="img/{nome}.jpg" alt="" style="display:block;width:100%;max-width:320px;border-radius:12px;margin:4px 0 6px">'
+
+FOTO_A = ["mangiare", "chiudere", "bere", "camminare", "cercare", "comprare", "pagare", "dormire",
+          "entrare", "leggere", "partire", "pulire", "scrivere", "studiare", "uscire", "correre"]
+FOTO_B = ["aprire", "dare", "vedere", "prendere", "perdere", "salire", "scendere", "mettere",
+          "togliere", "buttare", "cucinare", "cuocere", "aiutare", "giocare"]
+FOTO_B_OK = {"vedere": ["vedere", "guardare"], "cuocere": ["cuocere", "cucinare"], "dare": ["dare", "pagare"]}
+FRASI_FOTO = [("mangiare", "LEI (MANGIARE)", "L'INSALATA", "mangia"), ("chiudere", "IO (CHIUDERE)", "LA PORTA", "chiudo"),
+    ("bere", "LEI (BERE)", "UN BICCHIERE D'ACQUA", "beve"), ("dormire", "LEI (DORMIRE)", "NEL LETTO", "dorme"),
+    ("leggere", "NOI (LEGGERE)", "UN LIBRO", "leggiamo"), ("scrivere", "TU (SCRIVERE)", "UNA LETTERA", "scrivi"),
+    ("studiare", "GLI STUDENTI (STUDIARE)", "IN CLASSE", "studiano"), ("perdere", "IO (PERDERE)", "LE CHIAVI", "perdo"),
+    ("salire", "VOI (SALIRE)", "LE SCALE", "salite"), ("giocare", "I BAMBINI (GIOCARE)", "NEL PARCO", "giocano"),
+    ("pulire", "LEI (PULIRE)", "LA CASA", "pulisce"), ("cucinare", "TU (CUCINARE)", "LA PASTA", "cucini")]
+
+FARE_TESTO = cl("OGNI MATTINA, PRIMA DI ANDARE A LAVORO, [faccio ginnastica] NELLA PALESTRA SOTTO CASA. "
+    "A VOLTE [faccio la doccia] LÌ E MI VESTO NELLO SPOGLIATOIO, COSÌ SONO GIÀ PRONTO PER ANDARE IN UFFICIO. "
+    "QUANDO SONO IN RITARDO [faccio colazione] AL BAR SOLO CON UN CAFFÈ. "
+    "SE C'È IL SOLE [faccio due passi] PER ANDARE A LAVORO: MENTRE CAMMINO [faccio una telefonata] A MIA MADRE "
+    "PER PARLARE UN PO' E INSIEME [facciamo quattro chiacchiere].")
+
 # --- Essere e avere ---
 HO_SONO = [("🚗 LA MACCHINA", "IO HO"), ("👨‍🌾 AGRICOLTORE", "IO SONO"), ("🔑 LA CHIAVE", "IO HO"),
     ("🐕 UN CANE", "IO HO"), ("🎤 CANTANTE", "IO SONO"), ("🎸 LA CHITARRA", "IO HO"),
@@ -218,6 +240,19 @@ PRESENTE = {
   {"id": "e11", "title": "11 · Trova il verbo GIUSTO", "short": "11 · Verbo giusto", "type": "choice",
    "cons": "In ogni riga c'è solo un verbo giusto per la persona. Toccalo.", "items": E11_I, "k": E11_K},
 
+  {"part": "I verbi con le immagini"},
+  {"id": "f1", "title": "A · Che cosa fa? Scegli il verbo", "short": "A · Verbi e foto (scegli)", "type": "select",
+   "cons": "Guarda la foto e scegli il verbo giusto.", "opts": sorted(v.upper() for v in FOTO_A),
+   "items": [{"q": f"{i}.<br>" + img(v)} for i, v in enumerate(FOTO_A, 1)], "k": [eq(v.upper()) for v in FOTO_A]},
+  {"id": "f2", "title": "B · Che cosa fa? Scrivi il verbo", "short": "B · Verbi e foto (scrivi)", "type": "text",
+   "cons": "Guarda la foto e scrivi il verbo all'infinito (come nel dizionario: MANGIARE, BERE, DORMIRE…).",
+   "bank": " · ".join(v.upper() for v in sorted(FOTO_B)),
+   "items": [{"q": f"{i}.<br>" + img(v)} for i, v in enumerate(FOTO_B, 1)],
+   "k": [eq(*FOTO_B_OK.get(v, [v])) for v in FOTO_B]},
+  {"id": "f3", "title": "C · Guarda e completa la frase", "short": "C · Foto e frasi", "type": "text", "w": "s",
+   "cons": "Guarda la foto e scrivi il verbo al presente.",
+   "items": [{"q": img(f), "pre": f"{i}. {a}", "post": b} for i, (f, a, b, _) in enumerate(FRASI_FOTO, 1)],
+   "k": [eq(r) for *_, r in FRASI_FOTO]},
   {"part": "Essere e avere"},
   {"id": "e12", "title": "12 · IO HO o IO SONO?", "short": "12 · Ho o sono?", "type": "choice",
    "opts": ["IO HO", "IO SONO"], "cons": "IO HO + una cosa (IO HO LA MACCHINA). IO SONO + chi sono, il mio lavoro (IO SONO MECCANICO).",
@@ -258,6 +293,24 @@ PRESENTE = {
    "k": [frase(["lei"], "fa la bidella a scuola"), frase(["noi"], "facciamo i medici in ospedale"),
          frase(["lui"], "fa il maestro a scuola"), frase(["voi"], "fate i medici"),
          frase(["loro"], "fanno i camerieri"), frase(["noi"], "facciamo gli impiegati")]},
+  {"id": "f4", "title": "D · Facciamo i compiti con FARE", "short": "D · Espressioni con fare", "type": "cloze",
+   "cons": "Completa il testo con queste espressioni. Scrivi il verbo FARE al presente (IO … / NOI …).",
+   "bank": "FARE COLAZIONE · FARE QUATTRO CHIACCHIERE · FARE GINNASTICA · FARE UNA TELEFONATA · FARE LA DOCCIA · FARE DUE PASSI",
+   "parts": FARE_TESTO[0], "k": FARE_TESTO[1]},
+  {"id": "f5", "title": "E · Guarda le foto: che cosa fanno?", "short": "E · Fare e foto", "type": "text", "w": "m",
+   "cons": "Guarda la foto e completa con il verbo FARE.",
+   "items": [{"q": img("fare-spesa"), "pre": "1. IO", "post": "LA SPESA"},
+             {"q": img("fare-pulizie"), "pre": "2. IO E MIO FIGLIO", "post": "LE PULIZIE"},
+             {"q": img("fare-festa"), "pre": "3. NOI FACCIAMO", "post": ""},
+             {"q": img("fare-doccia"), "pre": "4. LUI", "post": ""},
+             {"q": img("fare-corsa"), "pre": "5. LUI", "post": ""},
+             {"q": img("fare-cucina"), "pre": "6. IO E LA MIA FAMIGLIA", "post": ""}],
+   "k": [eq("faccio"), eq("facciamo"), eq("festa", "una festa", "la festa", "festa insieme"),
+         eq("fa la doccia"), eq("fa jogging", "fa sport", "fa una corsa", "fa footing", "fa ginnastica", "fa running", "fa due passi"),
+         eq("facciamo da mangiare", "facciamo il pranzo", "facciamo la cena", "facciamo colazione",
+            "facciamo pranzo", "facciamo merenda", "facciamo la spesa")]},
+  {"id": "f6", "title": "F ✎ · E tu quando fai queste cose?", "type": "free", "rows": 5,
+   "items": ["Scrivi delle frasi come nell'esempio: IL SABATO POMERIGGIO FACCIO LA SPESA. LA SERA FACCIO LA DOCCIA."]},
   {"id": "e25", "title": "25 · Chi è?", "short": "25 · I mestieri", "type": "select", "opts": MESTIERI,
    "cons": "Che cosa fa? Leggi e scegli il lavoro.", "items": [{"q": q} for q, _ in E25], "k": [eq(a) for _, a in E25]},
   {"id": "e26", "title": "26 · STARE + gerundio", "short": "26 · Stare + gerundio", "type": "text", "w": "s",
@@ -304,3 +357,13 @@ PRESENTE = {
    "items": ["Scrivi la tua giornata come Matteo: ALLE 7 IO MI ALZO, FACCIO COLAZIONE, VADO A SCUOLA…"]},
  ]
 }
+
+# numera gli esercizi in ordine (1, 2, 3…)
+import re as _re
+_n = 0
+for _s in PRESENTE["sections"]:
+    if "title" in _s:
+        _n += 1
+        _s["title"] = _re.sub(r"^\S+( ✎)? ·", lambda m: f"{_n}{m.group(1) or ''} ·", _s["title"])
+        if "short" in _s:
+            _s["short"] = _re.sub(r"^\S+ ·", f"{_n} ·", _s["short"])
