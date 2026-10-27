@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'abbigliamento · Esercizi A1</title>
+<style>
+  :root { --bg:#fbf7f0; --card:#fff; --ink:#1f2933; --muted:#6b7280; --line:#e5ddd0; --soft:#f3ece0;
+          --accent:#c2410c; --ok:#15803d; --no:#b91c1c; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15181c; --card:#1f242a; --ink:#f1f3f5; --muted:#9aa3ad; --line:#333a43; --soft:#262c33;
+            --accent:#fb923c; --ok:#4ade80; --no:#f87171; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-size:18px; line-height:1.45;
+         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-transform: uppercase; }
+  main { max-width:640px; margin:0 auto; padding:20px 16px 60px; }
+  a.back { color:var(--muted); text-decoration:none; font-size:15px; }
+  h1 { font-size:28px; margin:8px 0 4px; }
+  .sub { color:var(--muted); margin:0 0 20px; font-size:15px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; margin-bottom:16px; }
+  h2 { font-size:19px; margin:0 0 12px; display:flex; gap:10px; align-items:flex-start; }
+  .n { flex:none; background:var(--accent); color:#fff; border-radius:50%; width:28px; height:28px;
+       display:inline-flex; align-items:center; justify-content:center; font-size:15px; }
+  .row { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px dashed var(--line); flex-wrap:wrap; }
+  .row:last-of-type { border-bottom:none; }
+  input[type=text], textarea, select {
+    font:inherit; text-transform:uppercase; color:var(--ink); background:var(--soft);
+    border:2px solid var(--line); border-radius:10px; padding:8px 10px; }
+  input[type=text]:focus, textarea:focus, select:focus { outline:none; border-color:var(--accent); }
+  input.short { width:4.5em; text-align:center; }
+  input.mid { width:9em; }
+  input.wide, textarea { width:100%; }
+  textarea { min-height:90px; resize:vertical; }
+  .ok { border-color:var(--ok) !important; }
+  .no { border-color:var(--no) !important; }
+  .mark { font-weight:700; min-width:1.2em; }
+  .mark.ok { color:var(--ok); } .mark.no { color:var(--no); }
+  .bank { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 10px; }
+  .bank span { background:var(--soft); border:1px solid var(--line); border-radius:99px; padding:3px 10px; font-size:15px; }
+  .btns { display:flex; gap:8px; }
+  .tog { font:inherit; font-weight:700; min-width:48px; min-height:44px; padding:6px 12px; border-radius:10px;
+         border:2px solid var(--line); background:var(--card); color:var(--ink); cursor:pointer; text-transform:uppercase; }
+  .tog[aria-pressed=true] { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .check { font:inherit; font-weight:700; margin-top:12px; padding:10px 18px; border-radius:12px; border:none;
+           background:var(--accent); color:#fff; cursor:pointer; text-transform:uppercase; min-height:48px; }
+  .fb { font-weight:700; margin:10px 0 0; min-height:1.2em; }
+  .fb.ok { color:var(--ok); } .fb.no { color:var(--no); }
+  .label { flex:1 1 9em; }
+  details.dlg { background:var(--soft); border-radius:10px; padding:8px 12px; margin-bottom:12px; font-size:16px; }
+  details.dlg summary { cursor:pointer; font-weight:700; }
+  details.dlg p { margin:6px 0; }
+  .vid { display:block; padding:12px; border-radius:12px; background:var(--soft); color:inherit; text-decoration:none;
+         border:1px solid var(--line); margin-bottom:10px; font-weight:700; }
+  .hint { color:var(--muted); font-size:15px; margin:0 0 10px; }
+  .grid5 { display:grid; gap:8px; }
+  .send { background:var(--ink); color:var(--bg); }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="../">← TUTTI I MATERIALI</a>
+  <h1>👕 L'abbigliamento</h1>
+  <p class="sub">Italiano A1 · Esercizi da fare sul telefono · Le risposte restano salvate su questo telefono</p>
+
+  <section>
+    <h2>👤 Come ti chiami?</h2>
+    <input type="text" class="wide" id="nome" placeholder="NOME E COGNOME" data-save>
+  </section>
+
+  <section>
+    <h2><span class="n">🎬</span> Guarda i video</h2>
+    <a class="vid" href="https://www.youtube.com/watch?v=1tkWXVuVfGQ" target="_blank" rel="noopener">▶️ VIDEO 1: L'ABBIGLIAMENTO</a>
+    <p class="hint">Scrivi 5 vestiti che senti.</p>
+    <div class="grid5" id="v1"></div>
+    <a class="vid" href="https://www.youtube.com/watch?v=DQWSaz38ZuI" target="_blank" rel="noopener" style="margin-top:14px">▶️ VIDEO 2: I COLORI</a>
+    <p class="hint">Scrivi 5 colori.</p>
+    <div class="grid5" id="v2"></div>
+  </section>
+
+  <section id="e1">
+    <h2><span class="n">1</span> Scrivi l'articolo: il · lo · la · i · le · gli</h2>
+  </section>
+
+  <section id="e2">
+    <h2><span class="n">2</span> Quando si mette?</h2>
+  </section>
+
+  <section id="e3">
+    <h2><span class="n">3</span> Vero o falso?</h2>
+    <details class="dlg">
+      <summary>📖 Leggi il dialogo "Al negozio"</summary>
+      <p><b>Commessa:</b> Buongiorno! Desidera?</p>
+      <p><b>Cliente:</b> Vorrei vedere quella camicetta in vetrina, per favore.</p>
+      <p><b>Commessa:</b> Che taglia porta?</p>
+      <p><b>Cliente:</b> Porto la 44.</p>
+      <p><b>Commessa:</b> Ecco. Può provarla nel camerino, in fondo a destra.</p>
+      <p><b>Cliente:</b> Mi piace il colore! Quanto costa?</p>
+      <p><b>Commessa:</b> 35 euro.</p>
+      <p><b>Cliente:</b> Va bene, la prendo. Grazie!</p>
+    </details>
+  </section>
+
+  <section id="e4">
+    <h2><span class="n">4</span> Scrivi il colore giusto</h2>
+    <p class="hint">Il colore cambia con il nome: rosso · rossa · rossi · rosse.</p>
+  </section>
+
+  <section id="e5">
+    <h2><span class="n">5</span> Inverno o estate?</h2>
+  </section>
+
+  <section id="e6">
+    <h2><span class="n">6</span> Completa le frasi</h2>
+    <div class="bank"><span>camicia</span><span>cotone</span><span>paio</span><span>maglione</span><span>cappello</span><span>pantaloni</span><span>pelle</span><span>scarpe</span></div>
+  </section>
+
+  <section>
+    <h2><span class="n">7</span> Rispondi con frasi complete</h2>
+    <p class="hint">Che cosa ti metti quando fa freddo?</p>
+    <textarea data-save id="w7a"></textarea>
+    <p class="hint">Che cosa ti metti per andare al mare?</p>
+    <textarea data-save id="w7b"></textarea>
+    <p class="hint">Che cosa ti metti per andare a una festa?</p>
+    <textarea data-save id="w7c"></textarea>
+  </section>
+
+  <section>
+    <h2><span class="n">8</span> Come sei vestito/a oggi? (3 frasi)</h2>
+    <p class="hint">Esempio: oggi indosso una maglietta bianca e i jeans blu.</p>
+    <textarea data-save id="w8"></textarea>
+  </section>
+
+  <section>
+    <h2><span class="n">9</span> Quali sono i tuoi vestiti preferiti? (2 frasi)</h2>
+    <textarea data-save id="w9"></textarea>
+  </section>
+
+  <section>
+    <h2>📤 Hai finito?</h2>
+    <p class="hint">Manda le tue risposte all'insegnante (WhatsApp, email…).</p>
+    <button class="check send" id="send">📤 Invia le risposte</button>
+    <p class="fb" id="sendfb"></p>
+  </section>
+</main>
+
+<script>
+const norm = s => s.toUpperCase().trim().replace(/\s+/g," ").replace(/[’`]/g,"'")
+  .normalize("NFD").replace(/[̀-ͯ]/g,"");
+const KEY = "abbigliamento-a1:";
+const store = {
+  get(k){ try{ return localStorage.getItem(KEY+k); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(KEY+k,v); }catch(e){} }
+};
+function saveable(el){
+  const v = store.get(el.id); if (v !== null) el.value = v;
+  el.addEventListener("input", () => store.set(el.id, el.value));
+}
+function el(tag, attrs={}, text){
+  const e = document.createElement(tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+function checker(sec, items, test){
+  const b = el("button",{class:"check"},"✅ Controlla");
+  const fb = el("p",{class:"fb","aria-live":"polite"});
+  b.onclick = () => {
+    let ok = 0;
+    items.forEach(it => { const good = test(it); if (good) ok++; it.mark.textContent = good ? "✓" : "✗";
+      it.mark.className = "mark " + (good ? "ok" : "no");
+      if (it.input) { it.input.classList.toggle("ok",good); it.input.classList.toggle("no",!good); } });
+    fb.className = "fb " + (ok === items.length ? "ok" : "no");
+    fb.textContent = ok === items.length ? "👏 Bravo/a! Tutto giusto!" : ok + " giuste su " + items.length + ". Correggi le risposte rosse.";
+  };
+  sec.append(b, fb);
+}
+
+// Video: campi liberi
+[["v1","Vestito"],["v2","Colore"]].forEach(([id,ph]) => {
+  for (let i=1;i<=5;i++){ const inp = el("input",{type:"text",class:"wide",id:id+"-"+i,placeholder:ph+" "+i}); saveable(inp); document.getElementById(id).append(inp); }
+});
+
+// 1. Articoli
+(() => {
+  const sec = document.getElementById("e1");
+  const data = [["cappotto","IL"],["gonna","LA"],["scarpe","LE"],["stivali","GLI"],["zaino","LO"],
+                ["maglione","IL"],["camicia","LA"],["pantaloni","I"],["calze","LE"],["occhiali da sole","GLI"]];
+  const items = data.map(([w,a],k) => {
+    const row = el("div",{class:"row"});
+    const inp = el("input",{type:"text",class:"short",id:"e1-"+k,autocomplete:"off",autocapitalize:"characters"});
+    saveable(inp);
+    const mark = el("span",{class:"mark"});
+    row.append(inp, el("span",{class:"label"},w), mark); sec.append(row);
+    return {input:inp, mark, a};
+  });
+  checker(sec, items, it => norm(it.input.value) === it.a);
+})();
+
+// 2. Abbinamenti
+(() => {
+  const sec = document.getElementById("e2");
+  const opts = ["Quando fa freddo","Per andare al mare","Per andare in montagna","Quando c'è il sole"];
+  const data = [["Sandali",1],["Cappotto",0],["Occhiali da sole",3],["Scarponi",2]];
+  const items = data.map(([w,a],k) => {
+    const row = el("div",{class:"row"});
+    const sel = el("select",{id:"e2-"+k});
+    sel.append(el("option",{value:""},"Scegli…"));
+    opts.forEach((o,i) => sel.append(el("option",{value:i},o)));
+    saveable(sel); sel.addEventListener("change",()=>store.set(sel.id,sel.value));
+    const mark = el("span",{class:"mark"});
+    row.append(el("span",{class:"label"},w), sel, mark); sec.append(row);
+    return {input:sel, mark, a:String(a)};
+  });
+  checker(sec, items, it => it.input.value === it.a);
+})();
+
+// pulsanti a scelta (usati in 3 e 5)
+function choice(row, id, labels){
+  const wrap = el("div",{class:"btns"}); let val = store.get(id);
+  const bs = labels.map(l => { const b = el("button",{class:"tog",type:"button","aria-pressed":String(val===l)}, l);
+    b.onclick = () => { val = l; store.set(id,l); bs.forEach(x => x.setAttribute("aria-pressed", String(x===b))); };
+    wrap.append(b); return b; });
+  row.append(wrap);
+  return () => val;
+}
+
+// 3. Vero / falso
+(() => {
+  const sec = document.getElementById("e3");
+  const data = [["Il cliente vuole vedere una camicetta","V"],["Il cliente porta la 42","F"],
+                ["Nel negozio non c'è il camerino","F"],["La camicetta costa 35 euro","V"],
+                ["Alla fine il cliente compra la camicetta","V"]];
+  const items = data.map(([t,a],k) => {
+    const row = el("div",{class:"row"}); row.append(el("span",{class:"label"},t));
+    const get = choice(row,"e3-"+k,["V","F"]);
+    const mark = el("span",{class:"mark"}); row.append(mark); sec.append(row);
+    return {get, mark, a};
+  });
+  checker(sec, items, it => it.get() === it.a);
+})();
+
+// 4. Colori
+(() => {
+  const sec = document.getElementById("e4");
+  const data = [["La gonna","(rosso)","ROSSA"],["I pantaloni","(verde)","VERDI"],["Le scarpe","(nero)","NERE"],["Il vestito","(giallo)","GIALLO"]];
+  const items = data.map(([n,h,a],k) => {
+    const row = el("div",{class:"row"});
+    const inp = el("input",{type:"text",class:"mid",id:"e4-"+k,autocomplete:"off",placeholder:h});
+    saveable(inp);
+    const mark = el("span",{class:"mark"});
+    row.append(el("span",{class:"label"},n), inp, mark); sec.append(row);
+    return {input:inp, mark, a};
+  });
+  checker(sec, items, it => norm(it.input.value) === it.a);
+})();
+
+// 5. Stagioni
+(() => {
+  const sec = document.getElementById("e5");
+  const data = [["Cappotto","❄️"],["Costume da bagno","☀️"],["Sciarpa","❄️"],["Sandali","☀️"],["Guanti","❄️"],["Pantaloncini","☀️"],
+                ["Maglione","❄️"],["T-shirt","☀️"],["Stivali","❄️"],["Occhiali da sole","☀️"],["Berretto","❄️"],["Gonna leggera","☀️"]];
+  const items = data.map(([w,a],k) => {
+    const row = el("div",{class:"row"}); row.append(el("span",{class:"label"},w));
+    const get = choice(row,"e5-"+k,["❄️","☀️"]);
+    const mark = el("span",{class:"mark"}); row.append(mark); sec.append(row);
+    return {get, mark, a};
+  });
+  checker(sec, items, it => it.get() === it.a);
+})();
+
+// 6. Completa le frasi
+(() => {
+  const sec = document.getElementById("e6");
+  const data = [["Sotto la giacca lei indossa una","","CAMICIA"],["I miei pantaloni sono di","","COTONE"],
+                ["Cerco un","di guanti.","PAIO"],["Ho un","di lana.","MAGLIONE"],
+                ["A gennaio indosso sempre sciarpa e","","CAPPELLO"],["Oggi indossi una gonna o un paio di","?","PANTALONI"],
+                ["Lei cerca i guanti in","","PELLE"],["Le","più belle sono gli stivali.","SCARPE"]];
+  const items = data.map(([pre,post,a],k) => {
+    const row = el("div",{class:"row"});
+    const inp = el("input",{type:"text",class:"mid",id:"e6-"+k,autocomplete:"off"});
+    saveable(inp);
+    const mark = el("span",{class:"mark"});
+    row.append(el("span",{},pre), inp); if (post) row.append(el("span",{},post)); row.append(mark); sec.append(row);
+    return {input:inp, mark, a};
+  });
+  checker(sec, items, it => norm(it.input.value) === it.a);
+})();
+
+document.querySelectorAll("[data-save]").forEach(saveable);
+
+// Invia
+document.getElementById("send").onclick = async () => {
+  const v = id => (document.getElementById(id) || {}).value || "";
+  const list = (pfx,n) => Array.from({length:n},(_,i)=>v(pfx+i)).join(", ");
+  const txt = [
+    "L'ABBIGLIAMENTO A1 — " + v("nome"),
+    "VIDEO 1: " + [1,2,3,4,5].map(i=>v("v1-"+i)).join(", "),
+    "VIDEO 2: " + [1,2,3,4,5].map(i=>v("v2-"+i)).join(", "),
+    "ES. 1: " + list("e1-",10),
+    "ES. 3: " + Array.from({length:5},(_,i)=>store.get("e3-"+i)||"-").join(" "),
+    "ES. 4: " + list("e4-",4),
+    "ES. 6: " + list("e6-",8),
+    "ES. 7: " + [v("w7a"),v("w7b"),v("w7c")].join(" / "),
+    "ES. 8: " + v("w8"),
+    "ES. 9: " + v("w9")
+  ].join("\n").toUpperCase();
+  const fb = document.getElementById("sendfb");
+  try {
+    if (navigator.share) { await navigator.share({title:"L'abbigliamento A1", text:txt}); return; }
+  } catch(e) { if (e.name === "AbortError") return; }
+  try { await navigator.clipboard.writeText(txt); fb.className="fb ok"; fb.textContent="📋 Risposte copiate! Incollale in un messaggio all'insegnante."; }
+  catch(e) { fb.className="fb no"; fb.textContent="Non riesco a copiare. Fai uno screenshot delle risposte."; }
+};
+</script>
+</body>
+</html>
