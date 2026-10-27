@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cercare casa a Bari · Italiano A2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2342; --bg:#FFF6EE; --paper:#FFFFFF;
+    --coral:#FF6B5E; --teal:#12B5A0; --indigo:#5B7CFA; --violet:#9B5DE5; --green:#27C281; --sun:#FFC93C;
+    --muted:#8A8198; --line:#ECE3DA;
+    --radius:24px; --shadow:0 18px 40px -18px rgba(42,35,66,.32); --shadow-sm:0 8px 22px -12px rgba(42,35,66,.28);
+    --accent:var(--coral);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Nunito",system-ui,"Trebuchet MS",sans-serif;color:var(--ink);background:var(--bg);
+    -webkit-font-smoothing:antialiased;line-height:1.5}
+  h1,h2,h3,.fred{font-family:"Fredoka",system-ui,sans-serif}
+
+  /* top bar */
+  .scrollbar{position:fixed;top:0;left:0;height:6px;width:0;background:var(--accent);z-index:60;transition:width .1s,background .4s}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,246,238,.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line)}
+  .bar{max-width:1080px;margin:0 auto;padding:.7rem 1.2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+  .brand{font-family:"Fredoka";font-weight:600;font-size:1.2rem;display:flex;align-items:center;gap:.4rem}
+  nav{display:flex;gap:.3rem;flex-wrap:wrap;margin-left:auto}
+  nav a{font-weight:700;color:var(--ink);text-decoration:none;padding:.35em .8em;border-radius:99px;font-size:.92rem;opacity:.75}
+  nav a:hover{opacity:1;background:#fff;box-shadow:var(--shadow-sm)}
+  .score{font-family:"Fredoka";font-weight:600;background:var(--sun);color:var(--ink);padding:.4em 1em;border-radius:99px;
+    box-shadow:var(--shadow-sm);white-space:nowrap}
+
+  /* layout */
+  section{max-width:1080px;margin:0 auto;padding:clamp(2.2rem,5vw,3.6rem) 1.2rem}
+  .kick{font-family:"Fredoka";font-weight:600;text-transform:uppercase;letter-spacing:.12em;
+    font-size:.85rem;color:var(--accent);margin-bottom:.5em}
+  h2{font-size:clamp(1.7rem,4.5vw,2.7rem);line-height:1.05;letter-spacing:-.01em;margin-bottom:.3em}
+  .sub{font-size:clamp(1.02rem,2vw,1.25rem);color:#5a5170;font-weight:600;max-width:60ch;margin-bottom:1.4rem}
+  .lead{font-weight:700}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#FF6B5E,#FF9F45 70%,#FFC93C);color:#fff;border-radius:0;position:relative;overflow:hidden}
+  .hero-in{max-width:1080px;margin:0 auto;padding:clamp(2.6rem,7vw,5rem) 1.2rem}
+  .hero h1{font-size:clamp(2.6rem,8vw,5.2rem);line-height:.98;letter-spacing:-.01em}
+  .hero p{font-size:clamp(1.1rem,2.6vw,1.7rem);font-weight:700;margin-top:.5em;opacity:.96}
+  .hero .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+  .chip{background:rgba(255,255,255,.22);backdrop-filter:blur(4px);padding:.5em 1em;border-radius:99px;font-weight:700}
+  .hero .scrolldown{margin-top:1.6rem;font-weight:700;opacity:.9}
+
+  /* generic cards */
+  .grid{display:grid;gap:1rem}
+  .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+  .info{background:#fff;border-radius:20px;padding:1.3rem;box-shadow:var(--shadow-sm);border-bottom:5px solid var(--accent)}
+  .info .ic{font-size:2rem;line-height:1} .info h3{font-size:1.2rem;margin:.3em 0 .2em}
+  .info p{color:#5a5170;font-weight:600;font-size:.98rem}
+
+  /* vocab reference */
+  .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+  .voc{background:#fff;border-radius:16px;padding:1rem;box-shadow:var(--shadow-sm)}
+  .voc .t{font-family:"Fredoka";font-weight:600;font-size:1.12rem}
+  .voc .d{color:#5a5170;font-weight:600;font-size:.92rem}
+
+  /* price chart */
+  .chart{background:#fff;border-radius:20px;padding:1.5rem;box-shadow:var(--shadow-sm)}
+  .row{display:flex;align-items:center;gap:1rem;margin:.7rem 0}
+  .row .lab{width:170px;font-weight:800;flex:0 0 auto}
+  .track{flex:1;background:#F3ECE3;border-radius:99px;height:30px;position:relative;overflow:hidden}
+  .barfill{height:100%;border-radius:99px;display:flex;align-items:center;justify-content:flex-end;
+    padding-right:.7em;color:#fff;font-weight:800;font-size:.9rem;min-width:60px}
+
+  /* LISTINGS */
+  .listings{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  .lc{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .15s}
+  .lc:hover{transform:translateY(-4px)}
+  .lc .photo{height:120px;display:grid;place-items:center;font-size:3.4rem;position:relative}
+  .lc .price{position:absolute;right:12px;bottom:-18px;background:var(--sun);color:var(--ink);font-family:"Fredoka";
+    font-weight:700;font-size:1.25rem;padding:.25em .7em;border-radius:14px;box-shadow:var(--shadow-sm)}
+  .lc .zone{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.92);color:var(--ink);font-weight:800;
+    padding:.25em .7em;border-radius:99px;font-size:.85rem}
+  .lc .body{padding:1.4rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+  .lc .ti{font-family:"Fredoka";font-weight:600;font-size:1.2rem}
+  .lc .specs{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+  .lc .sp{background:#FFF1E6;color:#7a5a3a;font-weight:700;padding:.35em .7em;border-radius:10px;font-size:.85rem}
+  .lc .sp.no{background:#FDE7E4;color:#c0493d}
+
+  /* EXERCISES */
+  .ex{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:1.5rem;margin-bottom:1.2rem}
+  .ex .num{font-family:"Fredoka";font-weight:700;color:var(--accent)}
+  .ex h3{font-size:1.25rem;margin:.1em 0 .2em}
+  .ex .howto{color:var(--muted);font-weight:700;font-size:.92rem;margin-bottom:1rem}
+  .q{margin:.5rem 0 1.1rem}
+  .q .ask{font-weight:800;margin-bottom:.5rem;font-size:1.05rem}
+  .opts{display:flex;flex-wrap:wrap;gap:.5rem}
+  .opt{cursor:pointer;border:2px solid var(--line);background:#fff;color:var(--ink);font-weight:700;font-family:inherit;
+    padding:.6em 1.05em;border-radius:14px;font-size:1rem;transition:transform .1s,border-color .2s,background .2s}
+  .opt:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .opt:disabled{cursor:default;transform:none}
+  .opt.right{background:#E3F8EF;border-color:var(--green);color:#16864f}
+  .opt.wrong{background:#FDE7E4;border-color:#E5685B;color:#b23b30}
+  .opt.right::after{content:" ✓"} .opt.wrong::after{content:" ✗"}
+
+  .fill input,.match select{font-family:inherit;font-weight:700;font-size:1rem;padding:.45em .7em;border:2px solid var(--line);
+    border-radius:10px;background:#fff;color:var(--ink);min-width:140px}
+  .fill input:focus,.match select:focus{outline:none;border-color:var(--accent)}
+  .fill input.ok,.match select.ok{border-color:var(--green);background:#E3F8EF}
+  .fill input.ko,.match select.ko{border-color:#E5685B;background:#FDE7E4}
+  .fline{margin:.5rem 0;font-weight:700;font-size:1.02rem;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem}
+  .match .mrow{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin:.5rem 0;font-weight:700}
+  .match .who{background:#EEF2FF;padding:.4em .8em;border-radius:12px}
+
+  .multi{display:flex;flex-direction:column;gap:.55rem}
+  .opt-check{display:flex;align-items:center;gap:.7rem;background:#FBF7F2;border:2px solid var(--line);border-radius:14px;
+    padding:.7em 1em;font-weight:700;cursor:pointer}
+  .opt-check input{width:1.2em;height:1.2em;accent-color:var(--accent)}
+  .opt-check.ok{border-color:var(--green);background:#E9FaF1}
+  .opt-check.ko{border-color:#E5685B;background:#FDEEEC}
+
+  .check{cursor:pointer;border:none;background:var(--accent);color:#fff;font-family:"Fredoka";font-weight:600;
+    padding:.55em 1.3em;border-radius:99px;font-size:1rem;margin-top:.7rem;box-shadow:var(--shadow-sm);transition:transform .12s}
+  .check:hover{transform:translateY(-2px)}
+  .fb{margin-top:.6rem;font-weight:800;display:none}
+  .fb.show{display:block}
+  .fb.good{color:#16864f} .fb.bad{color:#b23b30}
+
+  textarea{width:100%;min-height:130px;font-family:inherit;font-weight:600;font-size:1rem;padding:1rem;border:2px solid var(--line);
+    border-radius:16px;resize:vertical;color:var(--ink)}
+  textarea:focus{outline:none;border-color:var(--accent)}
+  .reveal{cursor:pointer;border:2px dashed var(--accent);background:#fff;color:var(--accent);font-weight:800;
+    padding:.5em 1.1em;border-radius:14px;margin-top:.7rem;font-family:inherit}
+  .model{display:none;margin-top:.8rem;background:#FFF7E6;border-radius:16px;padding:1rem 1.2rem;font-weight:700;border:1px solid #F2D98A}
+  .model.show{display:block}
+
+  .roleplay{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .role{border-radius:18px;padding:1.2rem;color:#fff}
+  .role.a{background:linear-gradient(135deg,var(--indigo),var(--violet))}
+  .role.b{background:linear-gradient(135deg,var(--teal),var(--green))}
+  .role h4{font-family:"Fredoka";font-weight:600;font-size:1.2rem;margin-bottom:.3em}
+  .role p{font-weight:700;opacity:.96}
+
+  .note{background:#fff;border-left:6px solid var(--accent);border-radius:0 16px 16px 0;padding:1rem 1.2rem;
+    box-shadow:var(--shadow-sm);font-weight:700;margin-top:1rem}
+
+  footer{text-align:center;padding:2.5rem 1.2rem 3rem;color:var(--muted);font-weight:700}
+
+  /* finale */
+  #finale{display:none;text-align:center}
+  #finale.show{display:block}
+  .trophy{font-size:4rem}
+
+  @media (max-width:860px){
+    .g3,.g4,.vgrid,.listings{grid-template-columns:1fr 1fr}
+    .roleplay{grid-template-columns:1fr}
+    nav{display:none}
+  }
+  @media (max-width:560px){
+    .g2,.g3,.g4,.vgrid,.listings{grid-template-columns:1fr}
+    .row .lab{width:120px;font-size:.9rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="scrollbar" id="scrollbar"></div>
+<header>
+  <div class="bar">
+    <span class="brand">🏠 Cercare casa a Bari</span>
+    <nav>
+      <a href="#parole">Parole</a>
+      <a href="#come">Come cercare</a>
+      <a href="#prezzi">Prezzi</a>
+      <a href="#annunci">Annunci veri</a>
+      <a href="#esercizi">Esercizi</a>
+    </nav>
+    <span class="score" id="score">⭐ 0 / 0</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-in">
+    <h1>Cercare casa<br>a Bari 🏙️</h1>
+    <p>Capire gli annunci · conoscere i prezzi · scrivere e telefonare</p>
+    <div class="chips">
+      <span class="chip">Italiano A2</span>
+      <span class="chip">annunci veri di Bari e provincia</span>
+      <span class="chip">9 attività con punteggio</span>
+    </div>
+    <p class="scrolldown">↓ Scorri e fai gli esercizi. Ogni risposta giusta vale 1 punto!</p>
+  </div>
+</div>
+
+<!-- PAROLE -->
+<section id="parole">
+  <p class="kick">Le parole della casa</p>
+  <h2>Prima, le parole importanti 📋</h2>
+  <p class="sub">Queste parole sono in tutti gli annunci. Leggile bene: ti servono per gli esercizi.</p>
+  <div class="vgrid">
+    <div class="voc"><div class="t">🚪 Monolocale</div><div class="d">1 stanza + bagno</div></div>
+    <div class="voc"><div class="t">🏠 Bilocale</div><div class="d">2 stanze + bagno</div></div>
+    <div class="voc"><div class="t">🏡 Trilocale</div><div class="d">3 stanze + bagno</div></div>
+    <div class="voc"><div class="t">🛋️ Arredato</div><div class="d">con i mobili dentro</div></div>
+    <div class="voc"><div class="t">🛗 Ascensore</div><div class="d">per salire ai piani alti</div></div>
+    <div class="voc"><div class="t">🔥 Risc. autonomo</div><div class="d">lo paghi tu, lo accendi tu</div></div>
+    <div class="voc"><div class="t">🏢 Spese condominiali</div><div class="d">soldi per il palazzo</div></div>
+    <div class="voc"><div class="t">💰 Cauzione</div><div class="d">soldi di garanzia (2–3 mesi)</div></div>
+    <div class="voc"><div class="t">💶 Canone</div><div class="d">= l'affitto di ogni mese</div></div>
+  </div>
+</section>
+
+<!-- COME CERCARE -->
+<section id="come">
+  <p class="kick">La guida</p>
+  <h2>Come si cerca una casa in affitto 🔎</h2>
+  <p class="sub">Quattro cose da sapere prima di cominciare.</p>
+
+  <h3 style="margin:.6em 0 .6rem">1. Dove guardo gli annunci?</h3>
+  <div class="grid g4">
+    <div class="info"><div class="ic">📱</div><h3>Idealista</h3><p>Cerchi per zona e per prezzo.</p></div>
+    <div class="info"><div class="ic">📱</div><h3>Subito.it</h3><p>Tanti annunci di privati.</p></div>
+    <div class="info"><div class="ic">📱</div><h3>Immobiliare.it</h3><p>Agenzie e privati.</p></div>
+    <div class="info"><div class="ic">📱</div><h3>Casa.it</h3><p>Filtri facili per la ricerca.</p></div>
+  </div>
+
+  <h3 style="margin:1.4em 0 .6rem">2. Quali documenti mi servono?</h3>
+  <div class="grid g4">
+    <div class="info" style="border-color:var(--teal)"><div class="ic">🪪</div><h3>Documento</h3><p>Passaporto o carta d'identità.</p></div>
+    <div class="info" style="border-color:var(--teal)"><div class="ic">🔢</div><h3>Codice fiscale</h3><p>Serve per il contratto.</p></div>
+    <div class="info" style="border-color:var(--teal)"><div class="ic">📄</div><h3>Permesso di soggiorno</h3><p>Per i cittadini non UE.</p></div>
+    <div class="info" style="border-color:var(--teal)"><div class="ic">💼</div><h3>Prova del lavoro</h3><p>Busta paga o contratto.</p></div>
+  </div>
+
+  <h3 style="margin:1.4em 0 .6rem">3. Quanto pago all'inizio?</h3>
+  <div class="grid g3">
+    <div class="info" style="border-color:var(--indigo)"><div class="ic">1️⃣</div><h3>Primo mese</h3><p>L'affitto del primo mese.</p></div>
+    <div class="info" style="border-color:var(--indigo)"><div class="ic">💰</div><h3>Cauzione</h3><p>2 o 3 mesi di garanzia. La riprendi alla fine.</p></div>
+    <div class="info" style="border-color:var(--indigo)"><div class="ic">🤝</div><h3>Agenzia</h3><p>A volte 1 mese (solo se c'è l'agenzia).</p></div>
+  </div>
+
+  <h3 style="margin:1.4em 0 .6rem">4. Parole "difficili" negli annunci</h3>
+  <div class="grid g4">
+    <div class="info" style="border-color:var(--violet)"><div class="ic">✅</div><h3>Solo referenziati</h3><p>Devi mostrare il contratto di lavoro.</p></div>
+    <div class="info" style="border-color:var(--violet)"><div class="ic">📵</div><h3>No agenzie</h3><p>Scrivi al proprietario direttamente.</p></div>
+    <div class="info" style="border-color:var(--violet)"><div class="ic">⏳</div><h3>Uso transitorio</h3><p>Contratto breve (max 18 mesi).</p></div>
+    <div class="info" style="border-color:var(--violet)"><div class="ic">📅</div><h3>Contratto 4+4</h3><p>Contratto lungo: 4 anni + 4.</p></div>
+  </div>
+</section>
+
+<!-- PREZZI -->
+<section id="prezzi">
+  <p class="kick">I numeri veri</p>
+  <h2>Quanto costa l'affitto a Bari? 💶</h2>
+  <p class="sub">Prezzi reali al mese per un bilocale o trilocale (dati 2025–2026). Il centro costa di più, la periferia e la provincia di meno.</p>
+  <div class="chart">
+    <div class="row"><span class="lab">Centro (Murat)</span><div class="track"><div class="barfill" style="width:90%;background:var(--coral)">650–750 €</div></div></div>
+    <div class="row"><span class="lab">Quartieri (San Pasquale)</span><div class="track"><div class="barfill" style="width:55%;background:var(--indigo)">400–500 €</div></div></div>
+    <div class="row"><span class="lab">Periferia (Carbonara)</span><div class="track"><div class="barfill" style="width:66%;background:var(--teal)">450–600 €</div></div></div>
+    <div class="row"><span class="lab">Provincia (Modugno)</span><div class="track"><div class="barfill" style="width:60%;background:var(--green)">400–550 €</div></div></div>
+  </div>
+  <div class="note">💡 Consiglio: in centro le case sono piccole e care. In periferia e in provincia paghi meno e la casa è più grande, ma sei più lontano dal centro.</div>
+</section>
+
+<!-- ANNUNCI -->
+<section id="annunci">
+  <p class="kick">Annunci veri · Bari e provincia</p>
+  <h2>6 case in affitto 🔑</h2>
+  <p class="sub">Annunci reali, scritti in modo semplice. Leggili: poi rispondi alle domande negli esercizi.</p>
+  <div class="listings">
+    <div class="lc">
+      <div class="photo" style="background:linear-gradient(135deg,#FF6B5E,#FF9F45)">🏙️<span class="zone">Murat · Bari</span><span class="price">690€</span></div>
+      <div class="body"><div class="ti">Bilocale arredato</div>
+        <div class="specs"><span class="sp">50 mq</span><span class="sp">piano rialzato</span><span class="sp no">no ascensore</span><span class="sp">🔥 autonomo</span><span class="sp">vicino Università</span></div>
+      </div>
+    </div>
+    <div class="lc">
+      <div class="photo" style="background:linear-gradient(135deg,#5B7CFA,#9B5DE5)">🏘️<span class="zone">San Pasquale · Bari</span><span class="price">450€</span></div>
+      <div class="body"><div class="ti">Bilocale arredato</div>
+        <div class="specs"><span class="sp">45 mq</span><span class="sp">3° piano</span><span class="sp">🛗 ascensore</span><span class="sp">spese incluse</span><span class="sp">zona tranquilla</span></div>
+      </div>
+    </div>
+    <div class="lc">
+      <div class="photo" style="background:linear-gradient(135deg,#12B5A0,#27C281)">🌳<span class="zone">Modugno · provincia</span><span class="price">480€</span></div>
+      <div class="body"><div class="ti">Bilocale arredato</div>
+        <div class="specs"><span class="sp">50 mq</span><span class="sp">piano terra</span><span class="sp">🚗 posto auto</span><span class="sp">🔥 autonomo</span><span class="sp">spese incluse</span></div>
+      </div>
+    </div>
+    <div class="lc">
+      <div class="photo" style="background:linear-gradient(135deg,#F2994A,#FFC93C)">🏡<span class="zone">Carbonara · Bari</span><span class="price">550€</span></div>
+      <div class="body"><div class="ti">Trilocale, non arredato</div>
+        <div class="specs"><span class="sp">80 mq</span><span class="sp">2° piano</span><span class="sp no">no ascensore</span><span class="sp">terrazzo + cantina</span><span class="sp">🔥 centralizzato</span></div>
+      </div>
+    </div>
+    <div class="lc">
+      <div class="photo" style="background:linear-gradient(135deg,#36C5E0,#5B7CFA)">🌊<span class="zone">Mola di Bari · provincia</span><span class="price">600€</span></div>
+      <div class="body"><div class="ti">Trilocale arredato</div>
+        <div class="specs"><span class="sp">70 mq</span><span class="sp">piano terra</span><span class="sp">2 bagni</span><span class="sp">vicino al mare</span><span class="sp">🔥 autonomo</span></div>
+      </div>
+    </div>
+    <div class="lc">
+      <div class="photo" style="background:linear-gradient(135deg,#9B5DE5,#FF6B5E)">🏠<span class="zone">Libertà · Bari</span><span class="price">420€</span></div>
+      <div class="body"><div class="ti">Monolocale arredato</div>
+        <div class="specs"><span class="sp">35 mq</span><span class="sp">1° piano</span><span class="sp no">no ascensore</span><span class="sp">per 1 persona</span><span class="sp">spese incluse</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESERCIZI -->
+<section id="esercizi">
+  <p class="kick">Attività</p>
+  <h2>Adesso tocca a te! ✏️</h2>
+  <p class="sub">Clicca, scrivi e controlla. Ogni risposta giusta ti dà un punto. Guarda gli annunci qui sopra quando ti serve.</p>
+
+  <!-- ES 1: comprensione MC -->
+  <div class="ex">
+    <h3><span class="num">Esercizio 1</span> · Leggi gli annunci e rispondi</h3>
+    <p class="howto">Clicca la risposta giusta.</p>
+    <div class="q scorable mc">
+      <div class="ask">Quale casa è in centro a Bari?</div>
+      <div class="opts">
+        <button class="opt">Modugno</button>
+        <button class="opt" data-correct>Murat</button>
+        <button class="opt">Mola di Bari</button>
+      </div>
+    </div>
+    <div class="q scorable mc">
+      <div class="ask">Quale casa costa di più?</div>
+      <div class="opts">
+        <button class="opt">Libertà (420€)</button>
+        <button class="opt">San Pasquale (450€)</button>
+        <button class="opt" data-correct>Murat (690€)</button>
+      </div>
+    </div>
+    <div class="q scorable mc">
+      <div class="ask">Quale casa è vicino al mare?</div>
+      <div class="opts">
+        <button class="opt">Carbonara</button>
+        <button class="opt" data-correct>Mola di Bari</button>
+        <button class="opt">Murat</button>
+      </div>
+    </div>
+    <div class="q scorable mc">
+      <div class="ask">Quale casa è la più grande (80 mq)?</div>
+      <div class="opts">
+        <button class="opt">Il monolocale a Libertà</button>
+        <button class="opt" data-correct>Il trilocale a Carbonara</button>
+        <button class="opt">Il bilocale a Murat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ES 2: vero/falso -->
+  <div class="ex">
+    <h3><span class="num">Esercizio 2</span> · Vero o Falso?</h3>
+    <p class="howto">Leggi gli annunci e clicca VERO o FALSO.</p>
+    <div class="q scorable mc">
+      <div class="ask">Il bilocale a Modugno ha il posto auto.</div>
+      <div class="opts"><button class="opt" data-correct>VERO</button><button class="opt">FALSO</button></div>
+    </div>
+    <div class="q scorable mc">
+      <div class="ask">Il trilocale a Carbonara è arredato.</div>
+      <div class="opts"><button class="opt">VERO</button><button class="opt" data-correct>FALSO</button></div>
+    </div>
+    <div class="q scorable mc">
+      <div class="ask">Il bilocale a San Pasquale ha l'ascensore.</div>
+      <div class="opts"><button class="opt" data-correct>VERO</button><button class="opt">FALSO</button></div>
+    </div>
+    <div class="q scorable mc">
+      <div class="ask">La casa a Murat costa 450 euro.</div>
+      <div class="opts"><button class="opt">VERO</button><button class="opt" data-correct>FALSO</button></div>
+    </div>
+  </div>
+
+  <!-- ES 3: matching person -->
+  <div class="ex">
+    <h3><span class="num">Esercizio 3</span> · Quale casa per quale persona?</h3>
+    <p class="howto">Scegli la casa giusta per ogni persona. Poi clicca «Controlla».</p>
+    <div class="scorable match" id="match1">
+      <div class="mrow"><span class="who">👩 Fatima lavora in centro e non ha la macchina.</span>
+        <select data-answer="murat"><option value="">scegli…</option><option value="murat">Murat (centro)</option><option value="mola">Mola di Bari</option><option value="modugno">Modugno</option><option value="carbonara">Carbonara</option></select></div>
+      <div class="mrow"><span class="who">👨‍👩‍👧 Ahmed ha una famiglia e vuole una casa grande.</span>
+        <select data-answer="carbonara"><option value="">scegli…</option><option value="murat">Murat (centro)</option><option value="mola">Mola di Bari</option><option value="modugno">Modugno</option><option value="carbonara">Carbonara (80 mq)</option></select></div>
+      <div class="mrow"><span class="who">🧍 Luan vive solo e ha pochi soldi.</span>
+        <select data-answer="liberta"><option value="">scegli…</option><option value="liberta">Libertà (420€)</option><option value="murat">Murat (690€)</option><option value="mola">Mola di Bari</option><option value="carbonara">Carbonara</option></select></div>
+      <div class="mrow"><span class="who">🌊 Maria ama il mare e ha la macchina.</span>
+        <select data-answer="mola"><option value="">scegli…</option><option value="mola">Mola di Bari</option><option value="murat">Murat (centro)</option><option value="liberta">Libertà</option><option value="modugno">Modugno</option></select></div>
+      <button class="check">Controlla</button>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <!-- ES 4: cheapest / most expensive -->
+  <div class="ex">
+    <h3><span class="num">Esercizio 4</span> · I prezzi</h3>
+    <p class="howto">Clicca la risposta giusta.</p>
+    <div class="q scorable mc">
+      <div class="ask">Qual è la casa più economica?</div>
+      <div class="opts">
+        <button class="opt" data-correct>Monolocale a Libertà – 420€</button>
+        <button class="opt">Bilocale a Modugno – 480€</button>
+        <button class="opt">Trilocale a Mola – 600€</button>
+      </div>
+    </div>
+    <div class="q scorable mc">
+      <div class="ask">Ho 500 € al mese. Quale casa posso prendere?</div>
+      <div class="opts">
+        <button class="opt">Murat – 690€</button>
+        <button class="opt">Mola di Bari – 600€</button>
+        <button class="opt" data-correct>San Pasquale – 450€</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ES 5: abbreviazioni MC -->
+  <div class="ex">
+    <h3><span class="num">Esercizio 5</span> · Le abbreviazioni</h3>
+    <p class="howto">Che cosa vuol dire? Clicca la risposta giusta.</p>
+    <div class="q scorable mc"><div class="ask">«bilo» =</div>
+      <div class="opts"><button class="opt" data-correct>bilocale</button><button class="opt">balcone</button><button class="opt">bagno</button></div></div>
+    <div class="q scorable mc"><div class="ask">«arred.» =</div>
+      <div class="opts"><button class="opt">arrivo</button><button class="opt" data-correct>arredato</button><button class="opt">area</button></div></div>
+    <div class="q scorable mc"><div class="ask">«mq» =</div>
+      <div class="opts"><button class="opt">mese</button><button class="opt">macchina</button><button class="opt" data-correct>metri quadri</button></div></div>
+    <div class="q scorable mc"><div class="ask">«risc. aut.» =</div>
+      <div class="opts"><button class="opt" data-correct>riscaldamento autonomo</button><button class="opt">ristorante</button><button class="opt">riservato</button></div></div>
+  </div>
+
+  <!-- ES 6: fill the gaps -->
+  <div class="ex">
+    <h3><span class="num">Esercizio 6</span> · Completa con le preposizioni</h3>
+    <p class="howto">Scrivi: <b>in · a · al · con · senza</b>. Poi clicca «Controlla».</p>
+    <div class="scorable fill" id="fill1">
+      <div class="fline">1. La casa è <input data-answer="in"> centro a Bari.</div>
+      <div class="fline">2. Abito <input data-answer="in"> via Sparano.</div>
+      <div class="fline">3. Cerco una casa <input data-answer="con"> ascensore.</div>
+      <div class="fline">4. Il trilocale è al 2° piano <input data-answer="senza"> ascensore.</div>
+      <div class="fline">5. Pago 450 euro <input data-answer="al"> mese.</div>
+      <button class="check">Controlla</button>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <!-- ES 7: documents multi-select -->
+  <div class="ex">
+    <h3><span class="num">Esercizio 7</span> · Cosa serve per affittare?</h3>
+    <p class="howto">Scegli TUTTE le cose giuste (sono 4). Poi clicca «Controlla».</p>
+    <div class="scorable multi" id="multi1">
+      <label class="opt-check"><input type="checkbox" data-correct> 🪪 Documento d'identità</label>
+      <label class="opt-check"><input type="checkbox" data-correct> 🔢 Codice fiscale</label>
+      <label class="opt-check"><input type="checkbox"> 🐕 Un cane</label>
+      <label class="opt-check"><input type="checkbox" data-correct> 📄 Permesso di soggiorno (per non UE)</label>
+      <label class="opt-check"><input type="checkbox" data-correct> 💼 Prova del lavoro (busta paga)</label>
+      <label class="opt-check"><input type="checkbox"> 🚗 La patente di guida</label>
+      <button class="check">Controlla</button>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <!-- ES 8: write message -->
+  <div class="ex">
+    <h3><span class="num">Esercizio 8</span> · Scrivi il messaggio ✍️</h3>
+    <p class="howto">Scrivi un messaggio al proprietario del <b>bilocale a Murat (690€)</b>. Usa il modello se vuoi.</p>
+    <textarea placeholder="Buongiorno, scrivo per l'annuncio della casa in zona Murat..."></textarea>
+    <button class="reveal" data-target="model8">Vedi un esempio</button>
+    <div class="model" id="model8">
+      Buongiorno,<br>
+      scrivo per l'annuncio del bilocale in zona Murat.<br>
+      Sono [Nome], ho un lavoro a tempo pieno.<br>
+      La casa è ancora disponibile? È possibile vederla questa settimana?<br>
+      Grazie e cordiali saluti, [Nome]
+    </div>
+    <div class="note">📌 Questo esercizio non dà punti: scrivi libero e fai leggere all'insegnante.</div>
+  </div>
+
+  <!-- ES 9: role play -->
+  <div class="ex">
+    <h3><span class="num">Esercizio 9</span> · Al telefono 📞 (in coppia)</h3>
+    <p class="howto">Sedetevi schiena contro schiena. Fate la telefonata, poi cambiate ruolo.</p>
+    <div class="roleplay">
+      <div class="role a"><h4>🧍 Inquilino</h4><p>Chiami per il trilocale a Mola di Bari. Chiedi: il prezzo, se è arredato, e proponi un giorno per la visita. Usa «Vorrei…» e «È possibile…?».</p></div>
+      <div class="role b"><h4>🏠 Proprietario</h4><p>Rispondi con gentilezza. La casa è arredata, ha 2 bagni, costa 600 € al mese ed è vicino al mare. Vuoi 2 mesi di cauzione.</p></div>
+    </div>
+  </div>
+
+  <!-- FINALE -->
+  <div class="ex" id="finale">
+    <div class="trophy">🏆</div>
+    <h3>Bravo/a! Hai finito gli esercizi!</h3>
+    <p class="lead" id="finaleMsg" style="margin-top:.4rem"></p>
+  </div>
+</section>
+
+<footer>
+  Cercare casa a Bari · Italiano A2 — annunci reali (Bari e provincia), semplificati per studiare.<br>
+  Controlla sempre i siti veri (Idealista, Subito, Immobiliare.it, Casa.it): i prezzi cambiano. 🏠
+</footer>
+
+<script>
+  // ---- scroll progress ----
+  const sb = document.getElementById('scrollbar');
+  addEventListener('scroll', ()=>{
+    const h = document.documentElement;
+    const p = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    sb.style.width = p + '%';
+  });
+
+  // ---- scoring ----
+  const scorables = Array.from(document.querySelectorAll('.scorable'));
+  const total = scorables.length;
+  let score = 0;
+  const solved = new Set();
+  const scoreEl = document.getElementById('score');
+  scoreEl.textContent = '⭐ 0 / ' + total;
+
+  function markSolved(node, ok){
+    if(ok && !solved.has(node)){
+      solved.add(node); score++;
+      scoreEl.textContent = '⭐ ' + score + ' / ' + total;
+      if(solved.size === total) showFinale();
+    }
+  }
+  function showFinale(){
+    const f = document.getElementById('finale');
+    const msg = document.getElementById('finaleMsg');
+    msg.textContent = 'Punteggio: ' + score + ' / ' + total + '. Ottimo lavoro! 👏';
+    f.classList.add('show');
+    f.scrollIntoView({behavior:'smooth'});
+  }
+
+  // ---- multiple choice / vero-falso ----
+  document.querySelectorAll('.scorable.mc').forEach(q=>{
+    const opts = q.querySelectorAll('.opt');
+    let done = false;
+    opts.forEach(o=>o.addEventListener('click', ()=>{
+      if(done) return; done = true;
+      const correct = o.hasAttribute('data-correct');
+      o.classList.add(correct ? 'right' : 'wrong');
+      if(!correct){ opts.forEach(x=>{ if(x.hasAttribute('data-correct')) x.classList.add('right'); }); }
+      opts.forEach(x=>x.disabled = true);
+      markSolved(q, correct);
+    }));
+  });
+
+  // ---- normalize for text answers ----
+  function norm(s){ return (s||'').toLowerCase().trim().replace(/\s+/g,' ').replace(/[.!?]+$/,''); }
+
+  // ---- fill in the gaps ----
+  document.querySelectorAll('.scorable.fill').forEach(group=>{
+    const btn = group.querySelector('.check');
+    const fb = group.querySelector('.fb');
+    btn.addEventListener('click', ()=>{
+      const inputs = group.querySelectorAll('input[data-answer]');
+      let allok = true;
+      inputs.forEach(inp=>{
+        const ok = inp.getAttribute('data-answer').split('|').map(norm).includes(norm(inp.value));
+        inp.classList.toggle('ok', ok); inp.classList.toggle('ko', !ok);
+        if(!ok) allok = false;
+      });
+      fb.className = 'fb show ' + (allok ? 'good' : 'bad');
+      fb.textContent = allok ? '✓ Tutto giusto!' : '✗ Controlla le risposte rosse e riprova.';
+      markSolved(group, allok);
+    });
+  });
+
+  // ---- matching (selects) ----
+  document.querySelectorAll('.scorable.match').forEach(group=>{
+    const btn = group.querySelector('.check');
+    const fb = group.querySelector('.fb');
+    btn.addEventListener('click', ()=>{
+      const sels = group.querySelectorAll('select[data-answer]');
+      let allok = true;
+      sels.forEach(s=>{
+        const ok = s.value === s.getAttribute('data-answer');
+        s.classList.toggle('ok', ok); s.classList.toggle('ko', !ok);
+        if(!ok) allok = false;
+      });
+      fb.className = 'fb show ' + (allok ? 'good' : 'bad');
+      fb.textContent = allok ? '✓ Perfetto!' : '✗ Qualcosa non va. Riprova!';
+      markSolved(group, allok);
+    });
+  });
+
+  // ---- multi-select (documents) ----
+  document.querySelectorAll('.scorable.multi').forEach(group=>{
+    const btn = group.querySelector('.check');
+    const fb = group.querySelector('.fb');
+    btn.addEventListener('click', ()=>{
+      const labels = group.querySelectorAll('.opt-check');
+      let allok = true;
+      labels.forEach(l=>{
+        const box = l.querySelector('input');
+        const should = box.hasAttribute('data-correct');
+        const ok = box.checked === should;
+        l.classList.toggle('ok', ok); l.classList.toggle('ko', !ok);
+        if(!ok) allok = false;
+      });
+      fb.className = 'fb show ' + (allok ? 'good' : 'bad');
+      fb.textContent = allok ? '✓ Giusto! Servono questi 4 documenti.' : '✗ Attento: scegli solo le cose giuste.';
+      markSolved(group, allok);
+    });
+  });
+
+  // ---- reveal model answer ----
+  document.querySelectorAll('.reveal').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const t = document.getElementById(b.getAttribute('data-target'));
+      t.classList.toggle('show');
+      b.textContent = t.classList.contains('show') ? 'Nascondi l\'esempio' : 'Vedi un esempio';
+    });
+  });
+</script>
+</body>
+</html>
