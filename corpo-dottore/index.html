@@ -188,15 +188,6 @@
     <p class="lead" style="margin-top:16px;">⚠️ ATTENZIONE ALLE PAROLE IN <span style="color:var(--no);">ROSSO</span>: SONO DIVERSE!</p>
   </section>
 
-  <!-- 5 ESERCIZIO 1: abbina numero -> parola -->
-  <section class="slide">
-    <span class="ex-tag">ESERCIZIO 1 &bull; ASCOLTA E CLICCA</span>
-    <h2>DOVE SI TROVA?</h2>
-    <p class="q" id="ex1-q">CLICCA SU: <b id="ex1-target">LA TESTA</b></p>
-    <div class="opts" id="ex1-opts"></div>
-    <div class="feedback" id="ex1-fb"></div>
-  </section>
-
   <!-- 6 DISTURBI: HO MAL DI -->
   <section class="slide">
     <h2>COME STAI? &bull; HO MAL DI...</h2>
@@ -223,19 +214,6 @@
       <div class="card"><span class="emoji">😩</span><b>SONO STANCO/A</b></div>
     </div>
     <p class="lead" style="margin-top:18px;">NON MI SENTO BENE &bull; MI SENTO MALE</p>
-  </section>
-
-  <!-- 8 ESERCIZIO 2: mi fa male / mi fanno male -->
-  <section class="slide">
-    <span class="ex-tag">ESERCIZIO 2 &bull; SCEGLI</span>
-    <h2>MI FA MALE / MI FANNO MALE</h2>
-    <div class="card" style="font-size:1.4rem; margin-bottom:6px;">
-      UNO → <b>MI FA MALE</b> LA TESTA &nbsp;&nbsp;|&nbsp;&nbsp; TANTI → <b>MI FANNO MALE</b> I PIEDI
-    </div>
-    <p class="q" id="ex2-q"></p>
-    <div class="opts" id="ex2-opts"></div>
-    <div class="feedback" id="ex2-fb"></div>
-    <p class="counter" id="ex2-prog" style="margin-top:8px;"></p>
   </section>
 
   <!-- 9 DAL MEDICO -->
@@ -279,18 +257,6 @@
     <p class="lead" style="margin-top:16px;">IL MEDICO DICE A LEI: <span class="tag">BEVA! PRENDA! STIA!</span></p>
   </section>
 
-  <!-- 12 ESERCIZIO 3: abbina problema -> consiglio -->
-  <section class="slide">
-    <span class="ex-tag">ESERCIZIO 3 &bull; ABBINA</span>
-    <h2>IL PROBLEMA E IL CONSIGLIO</h2>
-    <p class="hint" style="margin-bottom:10px;">CLICCA UN PROBLEMA A SINISTRA, POI IL CONSIGLIO GIUSTO A DESTRA.</p>
-    <div class="match-area">
-      <div id="m-left"></div>
-      <div id="m-right"></div>
-    </div>
-    <div class="feedback" id="ex3-fb"></div>
-  </section>
-
   <!-- 13 LUOGHI E PERSONE -->
   <section class="slide">
     <h2>DOVE VADO? &bull; CHI MI AIUTA?</h2>
@@ -317,29 +283,19 @@
     </div>
   </section>
 
-  <!-- 15 ESERCIZIO 4: quiz -->
-  <section class="slide">
-    <span class="ex-tag">ESERCIZIO 4 &bull; QUIZ FINALE</span>
-    <h2>SCEGLI LA RISPOSTA GIUSTA</h2>
-    <p class="q" id="ex4-q"></p>
-    <div class="opts" id="ex4-opts"></div>
-    <div class="feedback" id="ex4-fb"></div>
-    <p class="counter" id="ex4-prog" style="margin-top:8px;"></p>
-  </section>
-
   <!-- 16 FINE -->
   <section class="slide center cover">
     <div class="big">🎉</div>
     <h1>BRAVI!</h1>
     <p class="lead" style="margin-top:14px;">ORA SAI PARLARE DEL CORPO E ANDARE DAL DOTTORE!</p>
-    <span class="badge">ADESSO APRIAMO IL QUADERNO DEGLI ESERCIZI ✏️</span>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
   </section>
 
 </div>
 
 <div class="controls">
   <button class="btn" id="prev">◀ INDIETRO</button>
-  <span class="counter" id="counter">1 / 16</span>
+  <span class="counter" id="counter">1 / 12</span>
   <button class="btn alt" id="next">AVANTI ▶</button>
 </div>
 
@@ -400,122 +356,6 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight'||e.key===' '){show(cur+1);}
   if(e.key==='ArrowLeft'){show(cur-1);}
 });
-
-/* ====== ESERCIZIO 1: clicca la parte ====== */
-const ex1parts=['LA TESTA','LA MANO','IL PIEDE','IL NASO','LA BOCCA','LA GAMBA','GLI OCCHI','LA PANCIA'];
-let ex1target;
-function ex1new(){
-  const opts=document.getElementById('ex1-opts'); opts.innerHTML='';
-  const pool=[...ex1parts].sort(()=>Math.random()-.5).slice(0,6);
-  ex1target=pool[Math.floor(Math.random()*pool.length)];
-  document.getElementById('ex1-target').textContent=ex1target;
-  document.getElementById('ex1-fb').textContent='';
-  pool.forEach(p=>{
-    const b=document.createElement('button'); b.className='opt'; b.textContent=p;
-    b.onclick=()=>{
-      const fb=document.getElementById('ex1-fb');
-      if(p===ex1target){b.classList.add('ok'); fb.textContent='✓ BRAVO! GIUSTO!'; fb.className='feedback good'; setTimeout(ex1new,1100);}
-      else{b.classList.add('no'); fb.textContent='✗ NO, RIPROVA!'; fb.className='feedback bad';}
-    };
-    opts.appendChild(b);
-  });
-}
-ex1new();
-
-/* ====== ESERCIZIO 2: mi fa male / mi fanno male ====== */
-const ex2items=[
-  {t:'_____ LA TESTA.',a:'MI FA MALE'},
-  {t:'_____ I PIEDI.',a:'MI FANNO MALE'},
-  {t:'_____ LE GAMBE.',a:'MI FANNO MALE'},
-  {t:'_____ LO STOMACO.',a:'MI FA MALE'},
-  {t:'_____ I DENTI.',a:'MI FANNO MALE'},
-  {t:'_____ LA SCHIENA.',a:'MI FA MALE'},
-];
-let ex2i=0, ex2ok=0;
-function ex2render(){
-  const it=ex2items[ex2i];
-  document.getElementById('ex2-q').innerHTML=it.t;
-  document.getElementById('ex2-fb').textContent='';
-  document.getElementById('ex2-prog').textContent='DOMANDA '+(ex2i+1)+' / '+ex2items.length+'  •  PUNTI: '+ex2ok;
-  const opts=document.getElementById('ex2-opts'); opts.innerHTML='';
-  ['MI FA MALE','MI FANNO MALE'].forEach(o=>{
-    const b=document.createElement('button'); b.className='opt'; b.textContent=o;
-    b.onclick=()=>{
-      const fb=document.getElementById('ex2-fb');
-      if(o===it.a){b.classList.add('ok'); fb.textContent='✓ GIUSTO!'; fb.className='feedback good'; ex2ok++;
-        ex2i=(ex2i+1)%ex2items.length; setTimeout(ex2render,900);}
-      else{b.classList.add('no'); fb.textContent='✗ RIPROVA!'; fb.className='feedback bad';}
-    };
-    opts.appendChild(b);
-  });
-}
-ex2render();
-
-/* ====== ESERCIZIO 3: abbina problema -> consiglio ====== */
-const pairs=[
-  {p:'HO LA FEBBRE',c:'STIA A RIPOSO'},
-  {p:'HO MAL DI GOLA',c:'BEVA ACQUA CALDA'},
-  {p:'HO MAL DI DENTI',c:'VADA DAL DENTISTA'},
-  {p:'HO MAL DI TESTA',c:'PRENDA UNA PASTIGLIA'},
-];
-let selLeft=null, done3=0;
-function ex3render(){
-  const L=document.getElementById('m-left'), R=document.getElementById('m-right');
-  L.innerHTML='<p class="hint">PROBLEMA</p>'; R.innerHTML='<p class="hint">CONSIGLIO</p>';
-  const rights=[...pairs].sort(()=>Math.random()-.5);
-  pairs.forEach(pr=>{
-    const d=document.createElement('div'); d.className='chip'; d.textContent=pr.p; d.dataset.key=pr.p;
-    d.onclick=()=>{ if(d.classList.contains('done'))return;
-      document.querySelectorAll('#m-left .chip').forEach(x=>x.classList.remove('sel'));
-      d.classList.add('sel'); selLeft=pr.p; };
-    L.appendChild(d);
-  });
-  rights.forEach(pr=>{
-    const d=document.createElement('div'); d.className='chip'; d.textContent=pr.c; d.dataset.key=pr.p;
-    d.onclick=()=>{ if(d.classList.contains('done'))return;
-      const fb=document.getElementById('ex3-fb');
-      if(selLeft && selLeft===pr.p){
-        d.classList.add('done');
-        document.querySelector('#m-left .chip[data-key="'+CSS.escape(pr.p)+'"]').classList.add('done');
-        document.querySelector('#m-left .chip.sel')?.classList.remove('sel');
-        selLeft=null; done3++;
-        fb.textContent='✓ GIUSTO!'; fb.className='feedback good';
-        if(done3===pairs.length){fb.textContent='🎉 PERFETTO! TUTTO ABBINATO!';}
-      } else { fb.textContent='✗ PRIMA SCEGLI UN PROBLEMA A SINISTRA!'; fb.className='feedback bad'; }
-    };
-    R.appendChild(d);
-  });
-}
-ex3render();
-
-/* ====== ESERCIZIO 4: quiz finale ====== */
-const quiz=[
-  {q:'HO MAL DI TESTA. DOVE VADO?',o:['IN FARMACIA','AL SUPERMERCATO','A SCUOLA'],a:'IN FARMACIA'},
-  {q:'IL NUMERO DI EMERGENZA È...',o:['112','100','333'],a:'112'},
-  {q:'IL MEDICO DICE: "_____ MOLTA ACQUA".',o:['BEVA','MANGIA','DORME'],a:'BEVA'},
-  {q:'PORTO SEMPRE DAL MEDICO LA...',o:['TESSERA SANITARIA','PIZZA','VALIGIA'],a:'TESSERA SANITARIA'},
-  {q:'"MI FANNO MALE..." + ?',o:['I PIEDI','LA TESTA','LA PANCIA'],a:'I PIEDI'},
-];
-let q4=0, ok4=0;
-function ex4render(){
-  const it=quiz[q4];
-  document.getElementById('ex4-q').textContent=it.q;
-  document.getElementById('ex4-fb').textContent='';
-  document.getElementById('ex4-prog').textContent='DOMANDA '+(q4+1)+' / '+quiz.length+'  •  PUNTI: '+ok4;
-  const opts=document.getElementById('ex4-opts'); opts.innerHTML='';
-  [...it.o].sort(()=>Math.random()-.5).forEach(o=>{
-    const b=document.createElement('button'); b.className='opt'; b.textContent=o;
-    b.onclick=()=>{
-      const fb=document.getElementById('ex4-fb');
-      if(o===it.a){b.classList.add('ok'); fb.textContent='✓ GIUSTO!'; fb.className='feedback good'; ok4++;
-        if(q4<quiz.length-1){q4++; setTimeout(ex4render,950);}
-        else{fb.textContent='🎉 FINITO! PUNTI: '+ok4+' / '+quiz.length;}}
-      else{b.classList.add('no'); fb.textContent='✗ RIPROVA!'; fb.className='feedback bad';}
-    };
-    opts.appendChild(b);
-  });
-}
-ex4render();
 
 show(0);
 </script>

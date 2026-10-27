@@ -173,9 +173,9 @@
       <a href="#come">Come cercare</a>
       <a href="#prezzi">Prezzi</a>
       <a href="#annunci">Annunci veri</a>
-      <a href="#esercizi">Esercizi</a>
+      <a href="esercizi.html">Esercizi</a>
     </nav>
-    <span class="score" id="score">⭐ 0 / 0</span>
+    <span class="score" id="score" style="display:none"></span>
   </div>
 </header>
 
@@ -187,9 +187,9 @@
     <div class="chips">
       <span class="chip">Italiano A2</span>
       <span class="chip">annunci veri di Bari e provincia</span>
-      <span class="chip">9 attività con punteggio</span>
+      <span class="chip">esercizi sul telefono</span>
     </div>
-    <p class="scrolldown">↓ Scorri e fai gli esercizi. Ogni risposta giusta vale 1 punto!</p>
+    <p class="scrolldown">↓ Scorri e leggi. Poi fai gli esercizi.</p>
   </div>
 </div>
 
@@ -308,189 +308,10 @@
   </div>
 </section>
 
-<!-- ESERCIZI -->
-<section id="esercizi">
-  <p class="kick">Attività</p>
-  <h2>Adesso tocca a te! ✏️</h2>
-  <p class="sub">Clicca, scrivi e controlla. Ogni risposta giusta ti dà un punto. Guarda gli annunci qui sopra quando ti serve.</p>
-
-  <!-- ES 1: comprensione MC -->
-  <div class="ex">
-    <h3><span class="num">Esercizio 1</span> · Leggi gli annunci e rispondi</h3>
-    <p class="howto">Clicca la risposta giusta.</p>
-    <div class="q scorable mc">
-      <div class="ask">Quale casa è in centro a Bari?</div>
-      <div class="opts">
-        <button class="opt">Modugno</button>
-        <button class="opt" data-correct>Murat</button>
-        <button class="opt">Mola di Bari</button>
-      </div>
-    </div>
-    <div class="q scorable mc">
-      <div class="ask">Quale casa costa di più?</div>
-      <div class="opts">
-        <button class="opt">Libertà (420€)</button>
-        <button class="opt">San Pasquale (450€)</button>
-        <button class="opt" data-correct>Murat (690€)</button>
-      </div>
-    </div>
-    <div class="q scorable mc">
-      <div class="ask">Quale casa è vicino al mare?</div>
-      <div class="opts">
-        <button class="opt">Carbonara</button>
-        <button class="opt" data-correct>Mola di Bari</button>
-        <button class="opt">Murat</button>
-      </div>
-    </div>
-    <div class="q scorable mc">
-      <div class="ask">Quale casa è la più grande (80 mq)?</div>
-      <div class="opts">
-        <button class="opt">Il monolocale a Libertà</button>
-        <button class="opt" data-correct>Il trilocale a Carbonara</button>
-        <button class="opt">Il bilocale a Murat</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ES 2: vero/falso -->
-  <div class="ex">
-    <h3><span class="num">Esercizio 2</span> · Vero o Falso?</h3>
-    <p class="howto">Leggi gli annunci e clicca VERO o FALSO.</p>
-    <div class="q scorable mc">
-      <div class="ask">Il bilocale a Modugno ha il posto auto.</div>
-      <div class="opts"><button class="opt" data-correct>VERO</button><button class="opt">FALSO</button></div>
-    </div>
-    <div class="q scorable mc">
-      <div class="ask">Il trilocale a Carbonara è arredato.</div>
-      <div class="opts"><button class="opt">VERO</button><button class="opt" data-correct>FALSO</button></div>
-    </div>
-    <div class="q scorable mc">
-      <div class="ask">Il bilocale a San Pasquale ha l'ascensore.</div>
-      <div class="opts"><button class="opt" data-correct>VERO</button><button class="opt">FALSO</button></div>
-    </div>
-    <div class="q scorable mc">
-      <div class="ask">La casa a Murat costa 450 euro.</div>
-      <div class="opts"><button class="opt">VERO</button><button class="opt" data-correct>FALSO</button></div>
-    </div>
-  </div>
-
-  <!-- ES 3: matching person -->
-  <div class="ex">
-    <h3><span class="num">Esercizio 3</span> · Quale casa per quale persona?</h3>
-    <p class="howto">Scegli la casa giusta per ogni persona. Poi clicca «Controlla».</p>
-    <div class="scorable match" id="match1">
-      <div class="mrow"><span class="who">👩 Fatima lavora in centro e non ha la macchina.</span>
-        <select data-answer="murat"><option value="">scegli…</option><option value="murat">Murat (centro)</option><option value="mola">Mola di Bari</option><option value="modugno">Modugno</option><option value="carbonara">Carbonara</option></select></div>
-      <div class="mrow"><span class="who">👨‍👩‍👧 Ahmed ha una famiglia e vuole una casa grande.</span>
-        <select data-answer="carbonara"><option value="">scegli…</option><option value="murat">Murat (centro)</option><option value="mola">Mola di Bari</option><option value="modugno">Modugno</option><option value="carbonara">Carbonara (80 mq)</option></select></div>
-      <div class="mrow"><span class="who">🧍 Luan vive solo e ha pochi soldi.</span>
-        <select data-answer="liberta"><option value="">scegli…</option><option value="liberta">Libertà (420€)</option><option value="murat">Murat (690€)</option><option value="mola">Mola di Bari</option><option value="carbonara">Carbonara</option></select></div>
-      <div class="mrow"><span class="who">🌊 Maria ama il mare e ha la macchina.</span>
-        <select data-answer="mola"><option value="">scegli…</option><option value="mola">Mola di Bari</option><option value="murat">Murat (centro)</option><option value="liberta">Libertà</option><option value="modugno">Modugno</option></select></div>
-      <button class="check">Controlla</button>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <!-- ES 4: cheapest / most expensive -->
-  <div class="ex">
-    <h3><span class="num">Esercizio 4</span> · I prezzi</h3>
-    <p class="howto">Clicca la risposta giusta.</p>
-    <div class="q scorable mc">
-      <div class="ask">Qual è la casa più economica?</div>
-      <div class="opts">
-        <button class="opt" data-correct>Monolocale a Libertà – 420€</button>
-        <button class="opt">Bilocale a Modugno – 480€</button>
-        <button class="opt">Trilocale a Mola – 600€</button>
-      </div>
-    </div>
-    <div class="q scorable mc">
-      <div class="ask">Ho 500 € al mese. Quale casa posso prendere?</div>
-      <div class="opts">
-        <button class="opt">Murat – 690€</button>
-        <button class="opt">Mola di Bari – 600€</button>
-        <button class="opt" data-correct>San Pasquale – 450€</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ES 5: abbreviazioni MC -->
-  <div class="ex">
-    <h3><span class="num">Esercizio 5</span> · Le abbreviazioni</h3>
-    <p class="howto">Che cosa vuol dire? Clicca la risposta giusta.</p>
-    <div class="q scorable mc"><div class="ask">«bilo» =</div>
-      <div class="opts"><button class="opt" data-correct>bilocale</button><button class="opt">balcone</button><button class="opt">bagno</button></div></div>
-    <div class="q scorable mc"><div class="ask">«arred.» =</div>
-      <div class="opts"><button class="opt">arrivo</button><button class="opt" data-correct>arredato</button><button class="opt">area</button></div></div>
-    <div class="q scorable mc"><div class="ask">«mq» =</div>
-      <div class="opts"><button class="opt">mese</button><button class="opt">macchina</button><button class="opt" data-correct>metri quadri</button></div></div>
-    <div class="q scorable mc"><div class="ask">«risc. aut.» =</div>
-      <div class="opts"><button class="opt" data-correct>riscaldamento autonomo</button><button class="opt">ristorante</button><button class="opt">riservato</button></div></div>
-  </div>
-
-  <!-- ES 6: fill the gaps -->
-  <div class="ex">
-    <h3><span class="num">Esercizio 6</span> · Completa con le preposizioni</h3>
-    <p class="howto">Scrivi: <b>in · a · al · con · senza</b>. Poi clicca «Controlla».</p>
-    <div class="scorable fill" id="fill1">
-      <div class="fline">1. La casa è <input data-answer="in"> centro a Bari.</div>
-      <div class="fline">2. Abito <input data-answer="in"> via Sparano.</div>
-      <div class="fline">3. Cerco una casa <input data-answer="con"> ascensore.</div>
-      <div class="fline">4. Il trilocale è al 2° piano <input data-answer="senza"> ascensore.</div>
-      <div class="fline">5. Pago 450 euro <input data-answer="al"> mese.</div>
-      <button class="check">Controlla</button>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <!-- ES 7: documents multi-select -->
-  <div class="ex">
-    <h3><span class="num">Esercizio 7</span> · Cosa serve per affittare?</h3>
-    <p class="howto">Scegli TUTTE le cose giuste (sono 4). Poi clicca «Controlla».</p>
-    <div class="scorable multi" id="multi1">
-      <label class="opt-check"><input type="checkbox" data-correct> 🪪 Documento d'identità</label>
-      <label class="opt-check"><input type="checkbox" data-correct> 🔢 Codice fiscale</label>
-      <label class="opt-check"><input type="checkbox"> 🐕 Un cane</label>
-      <label class="opt-check"><input type="checkbox" data-correct> 📄 Permesso di soggiorno (per non UE)</label>
-      <label class="opt-check"><input type="checkbox" data-correct> 💼 Prova del lavoro (busta paga)</label>
-      <label class="opt-check"><input type="checkbox"> 🚗 La patente di guida</label>
-      <button class="check">Controlla</button>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <!-- ES 8: write message -->
-  <div class="ex">
-    <h3><span class="num">Esercizio 8</span> · Scrivi il messaggio ✍️</h3>
-    <p class="howto">Scrivi un messaggio al proprietario del <b>bilocale a Murat (690€)</b>. Usa il modello se vuoi.</p>
-    <textarea placeholder="Buongiorno, scrivo per l'annuncio della casa in zona Murat..."></textarea>
-    <button class="reveal" data-target="model8">Vedi un esempio</button>
-    <div class="model" id="model8">
-      Buongiorno,<br>
-      scrivo per l'annuncio del bilocale in zona Murat.<br>
-      Sono [Nome], ho un lavoro a tempo pieno.<br>
-      La casa è ancora disponibile? È possibile vederla questa settimana?<br>
-      Grazie e cordiali saluti, [Nome]
-    </div>
-    <div class="note">📌 Questo esercizio non dà punti: scrivi libero e fai leggere all'insegnante.</div>
-  </div>
-
-  <!-- ES 9: role play -->
-  <div class="ex">
-    <h3><span class="num">Esercizio 9</span> · Al telefono 📞 (in coppia)</h3>
-    <p class="howto">Sedetevi schiena contro schiena. Fate la telefonata, poi cambiate ruolo.</p>
-    <div class="roleplay">
-      <div class="role a"><h4>🧍 Inquilino</h4><p>Chiami per il trilocale a Mola di Bari. Chiedi: il prezzo, se è arredato, e proponi un giorno per la visita. Usa «Vorrei…» e «È possibile…?».</p></div>
-      <div class="role b"><h4>🏠 Proprietario</h4><p>Rispondi con gentilezza. La casa è arredata, ha 2 bagni, costa 600 € al mese ed è vicino al mare. Vuoi 2 mesi di cauzione.</p></div>
-    </div>
-  </div>
-
-  <!-- FINALE -->
-  <div class="ex" id="finale">
-    <div class="trophy">🏆</div>
-    <h3>Bravo/a! Hai finito gli esercizi!</h3>
-    <p class="lead" id="finaleMsg" style="margin-top:.4rem"></p>
-  </div>
+<section id="esercizi" style="text-align:center">
+  <h2>Adesso tocca a te! 📱</h2>
+  <p class="sub">Gli esercizi sono in una pagina a parte: scrivi, controlla e invia all'insegnante.</p>
+  <p><a href="esercizi.html" style="display:inline-block;padding:14px 26px;border-radius:14px;background:#FF6B5E;color:#fff;font-weight:700;text-decoration:none;font-size:1.1rem">Vai agli esercizi ▶</a></p>
 </section>
 
 <footer>
