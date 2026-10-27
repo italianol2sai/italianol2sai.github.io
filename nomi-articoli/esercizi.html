@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📦 Nomi e articoli · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "📦 Nomi e articoli · Esercizi",
+ "store": "nomi-articoli",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Maschile o femminile?"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Gli animali: M o F?",
+   "short": "1 · Animali M o F",
+   "type": "choice",
+   "opts": [
+    "M",
+    "F"
+   ],
+   "cons": "M = MASCHILE (IL GATTO). F = FEMMINILE (LA CAPRA). Tocca la lettera giusta.",
+   "items": [
+    {
+     "q": "1. 🐑 PECORA"
+    },
+    {
+     "q": "2. 🫏 ASINO"
+    },
+    {
+     "q": "3. 🦃 TACCHINO"
+    },
+    {
+     "q": "4. 🐄 MUCCA"
+    },
+    {
+     "q": "5. 🐈 GATTO"
+    },
+    {
+     "q": "6. 🐎 CAVALLO"
+    },
+    {
+     "q": "7. 🐔 GALLINA"
+    },
+    {
+     "q": "8. 🐐 CAPRA"
+    },
+    {
+     "q": "9. 🦓 ZEBRA"
+    },
+    {
+     "q": "10. 🦁 LEONE"
+    },
+    {
+     "q": "11. 🐘 ELEFANTE"
+    },
+    {
+     "q": "12. GAZZELLA"
+    },
+    {
+     "q": "13. SCIACALLO"
+    },
+    {
+     "q": "14. 🦒 GIRAFFA"
+    },
+    {
+     "q": "15. 🦬 BISONTE"
+    },
+    {
+     "q": "16. 🦍 GORILLA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJNIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Guarda i disegni: M o F?",
+   "short": "2 · Disegni M o F",
+   "type": "choice",
+   "opts": [
+    "M",
+    "F"
+   ],
+   "cons": "Attenzione: alcuni nomi finiscono in -E.",
+   "items": [
+    {
+     "q": "1. 🐌 LUMACA"
+    },
+    {
+     "q": "2. 🐸 RANA"
+    },
+    {
+     "q": "3. 🐒 SCIMMIA"
+    },
+    {
+     "q": "4. 🦉 GUFO"
+    },
+    {
+     "q": "5. 🐊 COCCODRILLO"
+    },
+    {
+     "q": "6. STRUZZO"
+    },
+    {
+     "q": "7. 🐢 TARTARUGA"
+    },
+    {
+     "q": "8. 🐖 MAIALE"
+    },
+    {
+     "q": "9. 🦏 RINOCERONTE"
+    },
+    {
+     "q": "10. 🐬 DELFINO"
+    },
+    {
+     "q": "11. 🦋 FARFALLA"
+    },
+    {
+     "q": "12. 🐝 APE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJNIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkYiXX1d"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Nomi in -E: M o F?",
+   "short": "3 · Nomi in -E",
+   "type": "choice",
+   "opts": [
+    "M",
+    "F"
+   ],
+   "cons": "I nomi in -E possono essere maschili o femminili. Pensa: IL … o LA …?",
+   "items": [
+    {
+     "q": "1. CANE"
+    },
+    {
+     "q": "2. CHIAVE"
+    },
+    {
+     "q": "3. FIORE"
+    },
+    {
+     "q": "4. NOTTE"
+    },
+    {
+     "q": "5. PANE"
+    },
+    {
+     "q": "6. CARNE"
+    },
+    {
+     "q": "7. MESE"
+    },
+    {
+     "q": "8. STAZIONE"
+    },
+    {
+     "q": "9. GIORNALE"
+    },
+    {
+     "q": "10. MOGLIE"
+    },
+    {
+     "q": "11. MARE"
+    },
+    {
+     "q": "12. GENTE"
+    },
+    {
+     "q": "13. PESCE"
+    },
+    {
+     "q": "14. TELEVISIONE"
+    },
+    {
+     "q": "15. RISTORANTE"
+    },
+    {
+     "q": "16. NAVE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGIl19XQ=="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Dal maschile al femminile",
+   "short": "4 · Animali al femminile",
+   "type": "text",
+   "w": "m",
+   "cons": "Scrivi il femminile. Esempio: IL GATTO → LA GATTA.",
+   "items": [
+    {
+     "q": "1. 🐈 GATTO →"
+    },
+    {
+     "q": "2. 🐎 CAVALLO →"
+    },
+    {
+     "q": "3. 🐇 CONIGLIO →"
+    },
+    {
+     "q": "4. 🐓 GALLO →"
+    },
+    {
+     "q": "5. 🐺 LUPO →"
+    },
+    {
+     "q": "6. 🐘 ELEFANTE →"
+    },
+    {
+     "q": "7. 🦁 LEONE →"
+    },
+    {
+     "q": "8. 🐕 CANE →"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJnYXR0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNhdmFsbGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjb25pZ2xpYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdhbGxpbmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsdXBhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZWxlZmFudGVzc2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZW9uZXNzYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNhZ25hIl19XQ=="
+  },
+  {
+   "id": "e5",
+   "title": "5 · Collega maschile e femminile",
+   "short": "5 · Persone",
+   "type": "select",
+   "opts": [
+    "REGINA",
+    "DONNA",
+    "SORELLA",
+    "ATTRICE",
+    "DOTTORESSA",
+    "POETESSA",
+    "VIGILESSA",
+    "MOGLIE",
+    "PITTRICE",
+    "STREGA"
+   ],
+   "cons": "Scegli il femminile giusto.",
+   "items": [
+    {
+     "q": "1. DOTTORE"
+    },
+    {
+     "q": "2. MARITO"
+    },
+    {
+     "q": "3. FRATELLO"
+    },
+    {
+     "q": "4. POETA"
+    },
+    {
+     "q": "5. STREGONE"
+    },
+    {
+     "q": "6. VIGILE"
+    },
+    {
+     "q": "7. UOMO"
+    },
+    {
+     "q": "8. ATTORE"
+    },
+    {
+     "q": "9. RE"
+    },
+    {
+     "q": "10. PITTORE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJET1RUT1JFU1NBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTU9HTElFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU09SRUxMQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBPRVRFU1NBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU1RSRUdBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVklHSUxFU1NBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRE9OTkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBVFRSSUNFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUkVHSU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUElUVFJJQ0UiXX1d"
+  },
+  {
+   "part": "Il plurale"
+  },
+  {
+   "id": "e6",
+   "title": "6 · L' → GLI o LE: fai il plurale",
+   "short": "6 · Plurale con L'",
+   "type": "text",
+   "w": "m",
+   "cons": "Scrivi l'articolo e il nome al plurale. Esempio: L'ABITO → GLI ABITI · L'ALBA → LE ALBE.",
+   "items": [
+    {
+     "q": "1. L'ABBONAMENTO"
+    },
+    {
+     "q": "2. L'ACQUA"
+    },
+    {
+     "q": "3. L'AMICO"
+    },
+    {
+     "q": "4. L'AFFITTO"
+    },
+    {
+     "q": "5. L'OCA"
+    },
+    {
+     "q": "6. L'ALBERO"
+    },
+    {
+     "q": "7. L'ALUNNO"
+    },
+    {
+     "q": "8. L'ARANCIA"
+    },
+    {
+     "q": "9. L'AULA"
+    },
+    {
+     "q": "10. L'ARMADIO"
+    },
+    {
+     "q": "11. L'OMBRELLO"
+    },
+    {
+     "q": "12. L'OPERAIO"
+    },
+    {
+     "q": "13. L'OROLOGIO"
+    },
+    {
+     "q": "14. L'APE (FEMMINILE)"
+    },
+    {
+     "q": "15. L'UFFICIO"
+    },
+    {
+     "q": "16. L'USCITA"
+    },
+    {
+     "q": "17. L'ENTRATA"
+    },
+    {
+     "q": "18. L'ESAME (MASCHILE)"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJnbGkgYWJib25hbWVudGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSBhY3F1ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBhbWljaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBhZmZpdHRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUgb2NoZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBhbGJlcmkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnbGkgYWx1bm5pIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUgYXJhbmNlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUgYXVsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBhcm1hZGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnbGkgb21icmVsbGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnbGkgb3BlcmFpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ2xpIG9yb2xvZ2kiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSBhcGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnbGkgdWZmaWNpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUgdXNjaXRlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUgZW50cmF0ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBlc2FtaSJdfV0="
+  },
+  {
+   "id": "e7",
+   "title": "7 · LO o LA? Poi fai il plurale",
+   "short": "7 · Lo/la → gli/le",
+   "type": "cloze",
+   "cons": "Scrivi LO o LA. Poi scrivi il plurale con GLI o LE. Esempio: LO SPORTELLO → GLI SPORTELLI.",
+   "parts": [
+    "1. ",
+    {},
+    " SBAGLIO → ",
+    {
+     "w": "m"
+    },
+    "<br>2. ",
+    {},
+    " SPESA → ",
+    {
+     "w": "m"
+    },
+    "<br>3. ",
+    {},
+    " SCADENZA → ",
+    {
+     "w": "m"
+    },
+    "<br>4. ",
+    {},
+    " SPICCHIO → ",
+    {
+     "w": "m"
+    },
+    "<br>5. ",
+    {},
+    " SCALA → ",
+    {
+     "w": "m"
+    },
+    "<br>6. ",
+    {},
+    " SPIAGGIA → ",
+    {
+     "w": "m"
+    },
+    "<br>7. ",
+    {},
+    " SCARPA → ",
+    {
+     "w": "m"
+    },
+    "<br>8. ",
+    {},
+    " SPOSO → ",
+    {
+     "w": "m"
+    },
+    "<br>9. ",
+    {},
+    " SCHERZO → ",
+    {
+     "w": "m"
+    },
+    "<br>10. ",
+    {},
+    " SCIARPA → ",
+    {
+     "w": "m"
+    },
+    "<br>11. ",
+    {},
+    " SCONTRINO → ",
+    {
+     "w": "m"
+    },
+    "<br>12. ",
+    {},
+    " STIPENDIO → ",
+    {
+     "w": "m"
+    },
+    "<br>13. ",
+    {},
+    " STRADA → ",
+    {
+     "w": "m"
+    },
+    "<br>14. ",
+    {},
+    " SQUADRA → ",
+    {
+     "w": "m"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBzYmFnbGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxlIHNwZXNlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSBzY2FkZW56ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ2xpIHNwaWNjaGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxlIHNjYWxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSBzcGlhZ2dlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSBzY2FycGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBzcG9zaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ2xpIHNjaGVyemkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxlIHNjaWFycGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBzY29udHJpbmkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSBzdGlwZW5kaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUgc3RyYWRlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSBzcXVhZHJlIl19XQ=="
+  },
+  {
+   "part": "Gli articoli"
+  },
+  {
+   "id": "e8",
+   "title": "8 · IL o LA?",
+   "short": "8 · Il o la",
+   "type": "choice",
+   "opts": [
+    "IL",
+    "LA"
+   ],
+   "items": [
+    {
+     "q": "1. TAVOLO"
+    },
+    {
+     "q": "2. PORTA"
+    },
+    {
+     "q": "3. PESCE"
+    },
+    {
+     "q": "4. CARTA"
+    },
+    {
+     "q": "5. DONNA"
+    },
+    {
+     "q": "6. CAFFÈ"
+    },
+    {
+     "q": "7. GIORNALE"
+    },
+    {
+     "q": "8. BANANA"
+    },
+    {
+     "q": "9. MOSCA"
+    },
+    {
+     "q": "10. LIBRO"
+    },
+    {
+     "q": "11. PENNA"
+    },
+    {
+     "q": "12. SEDIA"
+    },
+    {
+     "q": "13. SCUOLA"
+    },
+    {
+     "q": "14. FERMATA"
+    },
+    {
+     "q": "15. BIGLIETTO"
+    },
+    {
+     "q": "16. TRENO"
+    },
+    {
+     "q": "17. GOMMA"
+    },
+    {
+     "q": "18. CARNE"
+    },
+    {
+     "q": "19. PANE"
+    },
+    {
+     "q": "20. MAESTRO"
+    },
+    {
+     "q": "21. BAGNO"
+    },
+    {
+     "q": "22. PIEDE"
+    },
+    {
+     "q": "23. DITO"
+    },
+    {
+     "q": "24. BOCCA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklMIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklMIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEEiXX1d"
+  },
+  {
+   "id": "e9",
+   "title": "9 · I o LE?",
+   "short": "9 · I o le",
+   "type": "choice",
+   "opts": [
+    "I",
+    "LE"
+   ],
+   "items": [
+    {
+     "q": "1. CAPELLI"
+    },
+    {
+     "q": "2. GUANTI"
+    },
+    {
+     "q": "3. SCARPE"
+    },
+    {
+     "q": "4. PATATE"
+    },
+    {
+     "q": "5. GELATI"
+    },
+    {
+     "q": "6. CASE"
+    },
+    {
+     "q": "7. VIGILI"
+    },
+    {
+     "q": "8. BAMBINE"
+    },
+    {
+     "q": "9. MEDICI"
+    },
+    {
+     "q": "10. PIAZZE"
+    },
+    {
+     "q": "11. MEDICINE"
+    },
+    {
+     "q": "12. RAGAZZE"
+    },
+    {
+     "q": "13. MACCHINE"
+    },
+    {
+     "q": "14. NEGOZI"
+    },
+    {
+     "q": "15. SEMAFORI"
+    },
+    {
+     "q": "16. PISELLI"
+    },
+    {
+     "q": "17. CAROTE"
+    },
+    {
+     "q": "18. FRAGOLE"
+    },
+    {
+     "q": "19. QUADERNI"
+    },
+    {
+     "q": "20. BIGLIETTI"
+    },
+    {
+     "q": "21. MARITI"
+    },
+    {
+     "q": "22. FRATELLI"
+    },
+    {
+     "q": "23. SORELLE"
+    },
+    {
+     "q": "24. FIGLIE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEUiXX1d"
+  },
+  {
+   "id": "e10",
+   "title": "10 · L' o LO?",
+   "short": "10 · L' o lo",
+   "type": "choice",
+   "opts": [
+    "L'",
+    "LO"
+   ],
+   "cons": "L' davanti a vocale (A, E, I, O, U). LO davanti a S + consonante, Z.",
+   "items": [
+    {
+     "q": "1. UOMO"
+    },
+    {
+     "q": "2. SPAZZOLINO"
+    },
+    {
+     "q": "3. STRACCIO"
+    },
+    {
+     "q": "4. ZAINO"
+    },
+    {
+     "q": "5. ACQUA"
+    },
+    {
+     "q": "6. ZUCCHERO"
+    },
+    {
+     "q": "7. ORSO"
+    },
+    {
+     "q": "8. ALBERO"
+    },
+    {
+     "q": "9. SCHELETRO"
+    },
+    {
+     "q": "10. STUDIO"
+    },
+    {
+     "q": "11. STRANIERO"
+    },
+    {
+     "q": "12. OMBRA"
+    },
+    {
+     "q": "13. SCONTRINO"
+    },
+    {
+     "q": "14. OCA"
+    },
+    {
+     "q": "15. APE"
+    },
+    {
+     "q": "16. SCHERZO"
+    },
+    {
+     "q": "17. SCONTO"
+    },
+    {
+     "q": "18. ZERO"
+    },
+    {
+     "q": "19. SBAGLIO"
+    },
+    {
+     "q": "20. IMBUTO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMJyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwnIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJMJyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwnIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTCciXX0sIHsidCI6ICJlcSIsICJhIjogWyJMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwnIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTCciXX0sIHsidCI6ICJlcSIsICJhIjogWyJMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwnIl19XQ=="
+  },
+  {
+   "id": "e11",
+   "title": "11 · UN o UNA?",
+   "short": "11 · Un o una",
+   "type": "choice",
+   "opts": [
+    "UN",
+    "UNA"
+   ],
+   "items": [
+    {
+     "q": "1. TAVOLO"
+    },
+    {
+     "q": "2. PORTA"
+    },
+    {
+     "q": "3. PESCE"
+    },
+    {
+     "q": "4. CARTA"
+    },
+    {
+     "q": "5. DONNA"
+    },
+    {
+     "q": "6. CAFFÈ"
+    },
+    {
+     "q": "7. GIORNALE"
+    },
+    {
+     "q": "8. BANANA"
+    },
+    {
+     "q": "9. MOSCA"
+    },
+    {
+     "q": "10. LIBRO"
+    },
+    {
+     "q": "11. PENNA"
+    },
+    {
+     "q": "12. SEDIA"
+    },
+    {
+     "q": "13. SCUOLA"
+    },
+    {
+     "q": "14. FERMATA"
+    },
+    {
+     "q": "15. BIGLIETTO"
+    },
+    {
+     "q": "16. TRENO"
+    },
+    {
+     "q": "17. GOMMA"
+    },
+    {
+     "q": "18. CARNE"
+    },
+    {
+     "q": "19. PANE"
+    },
+    {
+     "q": "20. MAESTRO"
+    },
+    {
+     "q": "21. BAGNO"
+    },
+    {
+     "q": "22. PIEDE"
+    },
+    {
+     "q": "23. DITO"
+    },
+    {
+     "q": "24. BOCCA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJVTiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU4iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU4iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU4iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU4iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTkEiXX1d"
+  },
+  {
+   "id": "e12",
+   "title": "12 · DEI o DELLE?",
+   "short": "12 · Dei o delle",
+   "type": "choice",
+   "opts": [
+    "DEI",
+    "DELLE"
+   ],
+   "items": [
+    {
+     "q": "1. CAPELLI"
+    },
+    {
+     "q": "2. GUANTI"
+    },
+    {
+     "q": "3. SCARPE"
+    },
+    {
+     "q": "4. PATATE"
+    },
+    {
+     "q": "5. GELATI"
+    },
+    {
+     "q": "6. CASE"
+    },
+    {
+     "q": "7. VIGILI"
+    },
+    {
+     "q": "8. BAMBINE"
+    },
+    {
+     "q": "9. MEDICI"
+    },
+    {
+     "q": "10. PIAZZE"
+    },
+    {
+     "q": "11. MEDICINE"
+    },
+    {
+     "q": "12. RAGAZZE"
+    },
+    {
+     "q": "13. MACCHINE"
+    },
+    {
+     "q": "14. NEGOZI"
+    },
+    {
+     "q": "15. SEMAFORI"
+    },
+    {
+     "q": "16. PISELLI"
+    },
+    {
+     "q": "17. CAROTE"
+    },
+    {
+     "q": "18. FRAGOLE"
+    },
+    {
+     "q": "19. QUADERNI"
+    },
+    {
+     "q": "20. BIGLIETTI"
+    },
+    {
+     "q": "21. MARITI"
+    },
+    {
+     "q": "22. FRATELLI"
+    },
+    {
+     "q": "23. SORELLE"
+    },
+    {
+     "q": "24. FIGLIE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJERUkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJERUkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJERUxMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFTExFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREVJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREVMTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJERUkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJERUxMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFTExFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREVMTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJERUxMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFTExFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREVJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREVJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREVJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREVMTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJERUxMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFTExFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREVMTEUiXX1d"
+  },
+  {
+   "id": "e13",
+   "title": "13 · UN, UN' o UNO?",
+   "short": "13 · Un, un', uno",
+   "type": "choice",
+   "opts": [
+    "UN",
+    "UN'",
+    "UNO"
+   ],
+   "cons": "UN' (con l'apostrofo) solo per i nomi femminili: UN'AMICA, UN AMICO.",
+   "items": [
+    {
+     "q": "1. UOMO"
+    },
+    {
+     "q": "2. SPAZZOLINO"
+    },
+    {
+     "q": "3. STRACCIO"
+    },
+    {
+     "q": "4. ZAINO"
+    },
+    {
+     "q": "5. ACQUA"
+    },
+    {
+     "q": "6. ZUCCHERO"
+    },
+    {
+     "q": "7. ORSO"
+    },
+    {
+     "q": "8. ALBERO"
+    },
+    {
+     "q": "9. SCHELETRO"
+    },
+    {
+     "q": "10. STUDIO"
+    },
+    {
+     "q": "11. STRANIERO"
+    },
+    {
+     "q": "12. OMBRA"
+    },
+    {
+     "q": "13. SCONTRINO"
+    },
+    {
+     "q": "14. OCA"
+    },
+    {
+     "q": "15. APE"
+    },
+    {
+     "q": "16. SCHERZO"
+    },
+    {
+     "q": "17. SCONTO"
+    },
+    {
+     "q": "18. ZERO"
+    },
+    {
+     "q": "19. SBAGLIO"
+    },
+    {
+     "q": "20. IMBUTO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJVTiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOJyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU4iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiciXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiciXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiciXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiJdfV0="
+  },
+  {
+   "id": "e14",
+   "title": "14 · Completa: articolo e È / SONO",
+   "short": "14 · Articolo e è/sono",
+   "type": "cloze",
+   "cons": "Scrivi l'articolo (IL, L', LA, LO, LE, I, GLI) e poi È (uno) o SONO (tanti).",
+   "bank": "IL · L' · LA · LO · LE · I · GLI · È · SONO",
+   "parts": [
+    "1. ",
+    {},
+    " PORTA ",
+    {},
+    " CHIUSA<br>2. ",
+    {},
+    " FINESTRA ",
+    {},
+    " APERTA<br>3. ",
+    {},
+    " QUADERNO ",
+    {},
+    " CHIUSO<br>4. ",
+    {},
+    " BAMBINI ",
+    {},
+    " GRANDI<br>5. ",
+    {},
+    " SCARPE ",
+    {},
+    " STRETTE<br>6. ",
+    {},
+    " BAMBINA ",
+    {},
+    " BASSA<br>7. ",
+    {},
+    " TAVOLI ",
+    {},
+    " SPORCHI<br>8. ",
+    {},
+    " BOTTIGLIE ",
+    {},
+    " VUOTE<br>9. ",
+    {},
+    " MACCHINA ",
+    {},
+    " NUOVA<br>10. ",
+    {},
+    " OMBRELLO ",
+    {},
+    " ROTTO<br>11. ",
+    {},
+    " TRENI ",
+    {},
+    " PARTITI<br>12. ",
+    {},
+    " ZAINO ",
+    {},
+    " GRANDE<br>13. ",
+    {},
+    " GATTI ",
+    {},
+    " PICCOLI<br>14. ",
+    {},
+    " CANE ",
+    {},
+    " CATTIVO<br>15. ",
+    {},
+    " PIZZA ",
+    {},
+    " CALDA<br>16. ",
+    {},
+    " STUDENTI ",
+    {},
+    " BRAVI<br>17. ",
+    {},
+    " SCUOLA ",
+    {},
+    " CHIUSA<br>18. ",
+    {},
+    " PENNE ",
+    {},
+    " ROSSE<br>19. ",
+    {},
+    " ACQUA ",
+    {},
+    " FREDDA"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIsOoIiwgImUnIiwgImUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIsOoIiwgImUnIiwgImUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJpbCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIsOoIiwgImUnIiwgImUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic29ubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic29ubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiw6giLCAiZSciLCAiZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzb25vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzb25vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyLDqCIsICJlJyIsICJlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibCciXX0sIHsidCI6ICJlcSIsICJhIjogWyLDqCIsICJlJyIsICJlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNvbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJsbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIsOoIiwgImUnIiwgImUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic29ubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImlsIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiw6giLCAiZSciLCAiZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiw6giLCAiZSciLCAiZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdsaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNvbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIsOoIiwgImUnIiwgImUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNvbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJsJyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIsOoIiwgImUnIiwgImUiXX1d"
+  },
+  {
+   "part": "Uno o tanti?"
+  },
+  {
+   "id": "e15",
+   "title": "15 · C'È o CI SONO?",
+   "short": "15 · C'è o ci sono",
+   "type": "choice",
+   "opts": [
+    "C'È",
+    "CI SONO"
+   ],
+   "items": [
+    {
+     "q": "1. … L'AUTOBUS?"
+    },
+    {
+     "q": "2. … I RAGAZZI?"
+    },
+    {
+     "q": "3. … LA BICICLETTA?"
+    },
+    {
+     "q": "4. … I NEGOZI?"
+    },
+    {
+     "q": "5. … LE BOTTIGLIE?"
+    },
+    {
+     "q": "6. … LA PARTITA?"
+    },
+    {
+     "q": "7. … I TRENI?"
+    },
+    {
+     "q": "8. … LO SCIOPERO?"
+    },
+    {
+     "q": "9. … GLI AMICI?"
+    },
+    {
+     "q": "10. … LA FIGLIA?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDJ8OIIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0kgU09OTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMnw4giXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSSBTT05PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0kgU09OTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMnw4giXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSSBTT05PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQyfDiCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNJIFNPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDJ8OIIl19XQ=="
+  },
+  {
+   "id": "e16",
+   "title": "16 · DOV'È o DOVE SONO?",
+   "short": "16 · Dov'è o dove sono",
+   "type": "choice",
+   "opts": [
+    "DOV'È",
+    "DOVE SONO"
+   ],
+   "items": [
+    {
+     "q": "1. … IL SUPERMERCATO?"
+    },
+    {
+     "q": "2. … I QUADERNI?"
+    },
+    {
+     "q": "3. … I SOLDI?"
+    },
+    {
+     "q": "4. … LE CHIAVI?"
+    },
+    {
+     "q": "5. … IL PASSAPORTO?"
+    },
+    {
+     "q": "6. … LE SCARPE?"
+    },
+    {
+     "q": "7. … LA SCIARPA?"
+    },
+    {
+     "q": "8. … L'ENTRATA?"
+    },
+    {
+     "q": "9. … IL COMUNE?"
+    },
+    {
+     "q": "10. … LA QUESTURA?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJET1Ynw4giXX0sIHsidCI6ICJlcSIsICJhIjogWyJET1ZFIFNPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJET1ZFIFNPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJET1ZFIFNPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJET1Ynw4giXX0sIHsidCI6ICJlcSIsICJhIjogWyJET1ZFIFNPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJET1Ynw4giXX0sIHsidCI6ICJlcSIsICJhIjogWyJET1Ynw4giXX0sIHsidCI6ICJlcSIsICJhIjogWyJET1Ynw4giXX0sIHsidCI6ICJlcSIsICJhIjogWyJET1Ynw4giXX1d"
+  },
+  {
+   "id": "e17",
+   "title": "17 · MI PIACE o MI PIACCIONO?",
+   "short": "17 · Mi piace",
+   "type": "choice",
+   "opts": [
+    "MI PIACE",
+    "MI PIACCIONO"
+   ],
+   "items": [
+    {
+     "q": "1. … LE CARAMELLE"
+    },
+    {
+     "q": "2. … IL GELATO"
+    },
+    {
+     "q": "3. … IL RISO"
+    },
+    {
+     "q": "4. … LA FRUTTA"
+    },
+    {
+     "q": "5. … I POMODORI"
+    },
+    {
+     "q": "6. … I FILM"
+    },
+    {
+     "q": "7. … LA MACCHINA"
+    },
+    {
+     "q": "8. … L'ESTATE"
+    },
+    {
+     "q": "9. … LE PATATE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNSSBQSUFDQ0lPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJNSSBQSUFDRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1JIFBJQUNFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTUkgUElBQ0UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNSSBQSUFDQ0lPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJNSSBQSUFDQ0lPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJNSSBQSUFDRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1JIFBJQUNFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTUkgUElBQ0NJT05PIl19XQ=="
+  },
+  {
+   "id": "e18",
+   "title": "18 · QUANTO COSTA o QUANTO COSTANO?",
+   "short": "18 · Quanto costa",
+   "type": "choice",
+   "opts": [
+    "COSTA",
+    "COSTANO"
+   ],
+   "cons": "QUANTO … ?",
+   "items": [
+    {
+     "q": "1. … I PANTALONI?"
+    },
+    {
+     "q": "2. … IL COMPUTER?"
+    },
+    {
+     "q": "3. … I CALZINI?"
+    },
+    {
+     "q": "4. … IL GIORNALE?"
+    },
+    {
+     "q": "5. … LE SCARPE?"
+    },
+    {
+     "q": "6. … IL BIGLIETTO?"
+    },
+    {
+     "q": "7. … GLI OCCHIALI?"
+    },
+    {
+     "q": "8. … L'OMBRELLO?"
+    },
+    {
+     "q": "9. … LE BANANE?"
+    },
+    {
+     "q": "10. … IL CAFFÈ?"
+    },
+    {
+     "q": "11. … I BISCOTTI?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDT1NUQU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09TVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT1NUQU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09TVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT1NUQU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09TVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT1NUQU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09TVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT1NUQU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09TVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT1NUQU5PIl19XQ=="
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

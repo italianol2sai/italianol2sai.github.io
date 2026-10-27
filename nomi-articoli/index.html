@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOMI E ARTICOLI - ITALIANO L2 (A1)</title>
+<style>
+  :root{
+    --blu:#E07A1F; --blu-scuro:#3B2410; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FFF6EC; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#E07A1F,#F6B44C); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+  .m{color:#1f6fb5; font-weight:bold;} .f{color:#c0306a; font-weight:bold;}
+  table.plur td b{color:var(--blu);}
+  table.poss td, table.poss th{padding:8px 4px;}
+  @media (max-width:500px){ table.poss td, table.poss th{font-size:.85rem; letter-spacing:0;} }
+  .pairs{display:grid; grid-template-columns:repeat(4,1fr); gap:10px;}
+  .pairs div{background:#fff; border:3px solid #f3e1cc; border-radius:14px; padding:10px; text-align:center; font-size:1.25rem; font-weight:bold;}
+  .pairs span{color:#8a6a4a;}
+  @media (max-width:900px){ .pairs{grid-template-columns:1fr 1fr;} .pairs div{font-size:1rem;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LIVELLO A1</span>
+  <span>NOMI E ARTICOLI</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">📦</div>
+    <h1>NOMI E ARTICOLI</h1>
+    <p class="lead" style="margin-top:14px;">IL LIBRO, LA CASA, GLI AMICI, UN'AMICA</p>
+    <span class="badge">MASCHILE E FEMMINILE &bull; SINGOLARE E PLURALE &bull; GLI ARTICOLI</span>
+  </section>
+
+  <section class="slide">
+    <h2>CHE COSA IMPARIAMO?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">♂️♀️</span><b>MASCHILE O FEMMINILE?</b><span>IL GATTO &bull; LA CAPRA</span></div>
+      <div class="card"><span class="emoji">1️⃣➡️🔢</span><b>SINGOLARE E PLURALE</b><span>UN LIBRO &bull; DUE LIBRI</span></div>
+      <div class="card"><span class="emoji">🏷️</span><b>GLI ARTICOLI DETERMINATIVI</b><span>IL, LO, L', LA &bull; I, GLI, LE</span></div>
+      <div class="card"><span class="emoji">☝️</span><b>GLI ARTICOLI INDETERMINATIVI</b><span>UN, UNO, UNA, UN'</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>♂️♀️ MASCHILE O FEMMINILE?</h2>
+    <p class="lead">IN ITALIANO OGNI NOME È <span class="m">MASCHILE</span> O <span class="f">FEMMINILE</span>. GUARDA L'ULTIMA LETTERA:</p>
+    <div class="grid g3" style="margin-top:14px">
+      <div class="card"><b>-O = <span class="m">MASCHILE</span></b><span>IL LIBR<b>O</b><br>IL TAVOL<b>O</b><br>IL GATT<b>O</b></span></div>
+      <div class="card"><b>-A = <span class="f">FEMMINILE</span></b><span>LA CAS<b>A</b><br>LA PORT<b>A</b><br>LA CAPR<b>A</b></span></div>
+      <div class="card"><b>-E = ❓</b><span><span class="m">IL</span> CAN<b>E</b><br><span class="f">LA</span> CHIAV<b>E</b><br>📖 GUARDA IL DIZIONARIO!</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>📖 I NOMI IN -E</h2>
+    <div class="twocol2">
+      <table class="plur">
+        <tr><th><span>MASCHILI</span></th></tr>
+        <tr><td>IL CANE &bull; IL FIORE &bull; IL PANE</td></tr>
+        <tr><td>IL MARE &bull; IL MESE &bull; IL PESCE</td></tr>
+        <tr><td>IL GIORNALE &bull; IL RISTORANTE</td></tr>
+        <tr><td>IL PADRE &bull; IL DOTTORE &bull; IL NOME</td></tr>
+        <tr><td>L'OSPEDALE &bull; LO STUDENTE</td></tr>
+      </table>
+      <table class="plur">
+        <tr><th>FEMMINILI</th></tr>
+        <tr><td>LA CHIAVE &bull; LA NOTTE &bull; LA CARNE</td></tr>
+        <tr><td>LA NAVE &bull; LA GENTE &bull; LA FAME</td></tr>
+        <tr><td>LA MADRE &bull; LA MOGLIE</td></tr>
+        <tr><td>LA STAZIONE &bull; LA TELEVISIONE</td></tr>
+        <tr><td>LA COLAZIONE &bull; L'ESTATE</td></tr>
+      </table>
+    </div>
+    <p class="lead" style="margin-top:14px">💡 I NOMI IN <b>-ZIONE</b> E <b>-SIONE</b> SONO FEMMINILI: LA STAZIONE, LA TELEVISIONE.</p>
+  </section>
+
+  <section class="slide">
+    <h2>⚠️ ATTENZIONE!</h2>
+    <div class="grid g2">
+      <div class="card"><b>-A MA <span class="m">MASCHILI</span></b><span>IL PROBLEMA &bull; IL CINEMA &bull; IL PAPÀ</span></div>
+      <div class="card"><b>-O MA <span class="f">FEMMINILI</span></b><span>LA MANO &bull; LA FOTO &bull; L'AUTO &bull; LA RADIO</span></div>
+      <div class="card"><b>CONSONANTE = <span class="m">MASCHILE</span></b><span>IL BAR &bull; IL FILM &bull; LO SPORT &bull; L'AUTOBUS &bull; IL TRAM</span></div>
+      <div class="card"><b>MASCHILE E FEMMINILE</b><span>IL / LA CANTANTE &bull; L'INSEGNANTE &bull; IL / LA NIPOTE &bull; IL / LA BARISTA &bull; IL / LA TURISTA</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>👫 PERSONE E ANIMALI: IL FEMMINILE</h2>
+    <table class="plur">
+      <tr><th>MASCHILE</th><th>FEMMINILE</th><th>COME?</th></tr>
+      <tr><td>IL GATTO &bull; IL RAGAZZO</td><td>LA GATTA &bull; LA RAGAZZA</td><td><b>-O → -A</b></td></tr>
+      <tr><td>IL SIGNORE &bull; L'INFERMIERE</td><td>LA SIGNORA &bull; L'INFERMIERA</td><td><b>-E → -A</b></td></tr>
+      <tr><td>IL DOTTORE &bull; IL LEONE &bull; LO STUDENTE</td><td>LA DOTTORESSA &bull; LA LEONESSA &bull; LA STUDENTESSA</td><td><b>→ -ESSA</b></td></tr>
+      <tr><td>L'ATTORE &bull; IL PITTORE</td><td>L'ATTRICE &bull; LA PITTRICE</td><td><b>-TORE → -TRICE</b></td></tr>
+      <tr><td>L'UOMO &bull; IL MARITO &bull; IL PADRE &bull; IL FRATELLO &bull; IL RE &bull; IL GALLO</td><td>LA DONNA &bull; LA MOGLIE &bull; LA MADRE &bull; LA SORELLA &bull; LA REGINA &bull; LA GALLINA</td><td class="irr">PAROLE DIVERSE</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <h2>🔢 IL PLURALE</h2>
+    <p class="lead">PER FARE IL PLURALE CAMBIA L'ULTIMA LETTERA:</p>
+    <table class="plur" style="margin-top:10px">
+      <tr><th>SINGOLARE</th><th></th><th>PLURALE</th></tr>
+      <tr><td>UN TAVOL<b>O</b></td><td><b>-O → -I</b></td><td>DUE TAVOL<b>I</b></td></tr>
+      <tr><td>UNA PORT<b>A</b></td><td><b>-A → -E</b></td><td>DUE PORT<b>E</b></td></tr>
+      <tr><td>UN CAN<b>E</b> &bull; UNA CHIAV<b>E</b></td><td><b>-E → -I</b></td><td>DUE CAN<b>I</b> &bull; DUE CHIAV<b>I</b></td></tr>
+      <tr><td>UN CAFFÈ &bull; UN FILM &bull; UNA CITTÀ &bull; UN TAXI</td><td class="irr">NON CAMBIA</td><td>DUE CAFFÈ &bull; DUE FILM &bull; DUE CITTÀ &bull; DUE TAXI</td></tr>
+    </table>
+    <p class="lead" style="margin-top:12px">⚠️ L'AMICO → GLI AMICI &bull; L'OCA → LE OCHE &bull; LA MANO → LE MANI &bull; L'UOMO → GLI UOMINI</p>
+  </section>
+
+  <section class="slide">
+    <h2>🏷️ GLI ARTICOLI DETERMINATIVI</h2>
+    <table class="plur">
+      <tr><th></th><th>SINGOLARE</th><th>PLURALE</th><th>QUANDO?</th></tr>
+      <tr><td rowspan="3"><span class="m">MASCHILE</span></td><td><b>IL</b> LIBRO</td><td><b>I</b> LIBRI</td><td>CONSONANTE</td></tr>
+      <tr><td><b>L'</b>AMICO</td><td><b>GLI</b> AMICI</td><td>VOCALE (A E I O U)</td></tr>
+      <tr><td><b>LO</b> STUDENTE &bull; <b>LO</b> ZAINO</td><td><b>GLI</b> STUDENTI &bull; <b>GLI</b> ZAINI</td><td>S + CONSONANTE, Z, GN, PS, Y</td></tr>
+      <tr><td rowspan="2"><span class="f">FEMMINILE</span></td><td><b>LA</b> CASA</td><td><b>LE</b> CASE</td><td>CONSONANTE</td></tr>
+      <tr><td><b>L'</b>AMICA</td><td><b>LE</b> AMICHE</td><td>VOCALE</td></tr>
+    </table>
+    <p class="lead" style="margin-top:12px">USO L'ARTICOLO DETERMINATIVO PER UNA COSA CHE CONOSCO: <b>IL</b> MIO LIBRO, <b>LA</b> STAZIONE DI BARI.</p>
+  </section>
+
+  <section class="slide">
+    <h2>🔎 LO E L': COME SI SCEGLIE?</h2>
+    <div class="grid g2">
+      <div class="card"><b>LO / GLI</b><span>S + CONSONANTE: LO <u>SP</u>ORT, LO <u>ST</u>UDENTE, LO <u>SC</u>ONTRINO<br>Z: LO ZAINO, LO ZUCCHERO, LO ZERO</span></div>
+      <div class="card"><b>L' + VOCALE</b><span><span class="m">L'</span>UOMO, <span class="m">L'</span>ALBERO, <span class="m">L'</span>OMBRELLO<br><span class="f">L'</span>ACQUA, <span class="f">L'</span>OCA, <span class="f">L'</span>APE</span></div>
+    </div>
+    <div class="nota" style="margin-top:16px">AL PLURALE: <span class="m">L'</span>ALBERO → <b>GLI</b> ALBERI (MASCHILE) &bull; <span class="f">L'</span>ACQUA → <b>LE</b> ACQUE (FEMMINILE)</div>
+  </section>
+
+  <section class="slide">
+    <h2>☝️ GLI ARTICOLI INDETERMINATIVI</h2>
+    <table class="plur">
+      <tr><th></th><th>SINGOLARE</th><th>PLURALE</th><th>QUANDO?</th></tr>
+      <tr><td rowspan="2"><span class="m">MASCHILE</span></td><td><b>UN</b> LIBRO &bull; <b>UN</b> AMICO</td><td><b>DEI</b> LIBRI &bull; <b>DEGLI</b> AMICI</td><td>CONSONANTE, VOCALE</td></tr>
+      <tr><td><b>UNO</b> STUDENTE &bull; <b>UNO</b> ZAINO</td><td><b>DEGLI</b> STUDENTI</td><td>S + CONSONANTE, Z, GN</td></tr>
+      <tr><td rowspan="2"><span class="f">FEMMINILE</span></td><td><b>UNA</b> CASA</td><td><b>DELLE</b> CASE</td><td>CONSONANTE</td></tr>
+      <tr><td><b>UN'</b>AMICA</td><td><b>DELLE</b> AMICHE</td><td>VOCALE</td></tr>
+    </table>
+    <div class="nota" style="margin-top:14px">✏️ L'APOSTROFO SOLO AL FEMMINILE: <span class="m">UN AMICO</span> &bull; <span class="f">UN'AMICA</span><br>USO L'ARTICOLO INDETERMINATIVO PER UNA COSA NUOVA: HO <b>UN</b> CANE.</div>
+  </section>
+
+  <section class="slide">
+    <h2>☝️🔢 UNO O TANTI?</h2>
+    <table class="plur">
+      <tr><th>UNO (SINGOLARE)</th><th>TANTI (PLURALE)</th></tr>
+      <tr><td><b>C'È</b> L'AUTOBUS</td><td><b>CI SONO</b> I RAGAZZI</td></tr>
+      <tr><td><b>DOV'È</b> IL SUPERMERCATO?</td><td><b>DOVE SONO</b> LE CHIAVI?</td></tr>
+      <tr><td><b>MI PIACE</b> IL GELATO</td><td><b>MI PIACCIONO</b> LE PATATE</td></tr>
+      <tr><td>QUANTO <b>COSTA</b> IL BIGLIETTO?</td><td>QUANTO <b>COSTANO</b> LE SCARPE?</td></tr>
+      <tr><td>LA PORTA <b>È</b> CHIUSA</td><td>LE PORTE <b>SONO</b> CHIUSE</td></tr>
+    </table>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA CONOSCI I NOMI E GLI ARTICOLI!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+</body>
+</html>

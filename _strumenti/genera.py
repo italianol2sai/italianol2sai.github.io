@@ -47,7 +47,13 @@ if __name__ == "__main__":
     from unita_casa import CASA
     from unita_saluti import SALUTI
     from unita_presente import PRESENTE
+    from unita_nomi import NOMI
+    from unita_aggettivi import AGGETTIVI
+    from unita_possessivi import POSSESSIVI
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
     build("presente/esercizi.html", PRESENTE)
+    build("nomi-articoli/esercizi.html", NOMI)
+    build("aggettivi/esercizi.html", AGGETTIVI)
+    build("possessivi/esercizi.html", POSSESSIVI)
