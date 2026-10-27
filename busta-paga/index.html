@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA BUSTA PAGA - ITALIANO L2 (A2)</title>
+<style>
+  :root{
+    --blu:#2F7D4F; --blu-scuro:#173A26; --teal:#2BA6B8; --arancio:#F2A007;
+    --bg:#F1F8F3; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe8d8; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#2F7D4F,#6DBE8A); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+
+  /* aggiunte per l'argomento «Il lavoro» */
+  .card ul, .nota ul{margin:4px 0 0 1.1em; text-transform:uppercase;}
+  .card li{margin:3px 0;}
+  .card.si{border-color:#bfe5cc;} .card.no{border-color:#f3c4bc;}
+  .card.si b{color:var(--ok);} .card.no b{color:var(--no);}
+  .small{font-size:1.15rem; line-height:1.45;}
+  .infog{display:block; max-width:100%; max-height:62vh; margin:0 auto; border-radius:14px; box-shadow:0 6px 16px rgba(0,0,0,.15); text-transform:none;}
+  .infowrap{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:24px; align-items:start;}
+  .passi{counter-reset:p; display:grid; gap:10px;}
+  .passi div{background:#fff; border:3px solid #dcefe3; border-radius:14px; padding:10px 14px 10px 64px; position:relative; font-size:1.35rem; min-height:52px;}
+  .passi div::before{counter-increment:p; content:counter(p); position:absolute; left:12px; top:8px; width:38px; height:38px; line-height:38px; text-align:center; border-radius:50%; background:var(--blu); color:#fff; font-weight:bold;}
+  .lettera{background:#fff; border-radius:14px; padding:18px 22px; border-left:10px solid var(--arancio); font-size:1.35rem; line-height:1.6; box-shadow:0 4px 10px rgba(0,0,0,.08);}
+  .busta{width:100%; border-collapse:collapse; background:#fff; font-size:1.05rem; text-transform:uppercase;}
+  .busta td, .busta th{border:2px solid #dfe7e2; padding:6px 10px; text-align:left;}
+  .busta th{background:#eef6f1; color:var(--blu-scuro);}
+  .busta td.n{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .busta .c1{background:#e3efff;} .busta .c2{background:#e5f6e9;} .busta .c3{background:#fde4e1;} .busta .c4{background:#fff0d9;} .busta .c5{background:#d5f0dc; font-weight:bold; font-size:1.2rem;}
+  .legenda{display:grid; gap:8px; font-size:1.2rem;}
+  .legenda div{border-radius:10px; padding:8px 12px; background:#fff; border-left:10px solid;}
+  .finto{display:inline-block; background:var(--giallo); border-radius:8px; padding:2px 10px; font-size:.95rem; font-weight:bold;}
+  .link{color:var(--blu); font-weight:bold;}
+  @media (max-width:900px){
+    .infowrap{grid-template-columns:1fr;} .infog{max-height:none;}
+    .small{font-size:1rem;} .passi div{font-size:1.05rem;} .lettera{font-size:1.05rem; padding:14px;}
+    .busta{font-size:.8rem;} .busta td, .busta th{padding:4px 5px;} .legenda{font-size:1rem;}
+  }
+  @media (max-width:600px){
+    .g2,.twocol2{grid-template-columns:minmax(0,1fr) !important;}
+    .g3,.g4{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;}
+    .grid{gap:10px;} .card{padding:10px; overflow-wrap:anywhere; hyphens:auto;} .card b{font-size:1.02rem;} .card .emoji{font-size:2rem;}
+    .card ul{margin-left:.9em;} h1{font-size:2rem; overflow-wrap:anywhere;} .cover h1{font-size:2.2rem;} .badge{font-size:1rem; padding:8px 16px;}
+    table.plur{font-size:.95rem;} table.plur th, table.plur td{padding:6px 4px; overflow-wrap:anywhere;}
+    .passi div{padding-left:56px;}
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LIVELLO A2</span>
+  <span>LA BUSTA PAGA</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">💶</div>
+    <h1>LA BUSTA PAGA</h1>
+    <p class="lead" style="margin-top:14px;">QUANTO GUADAGNO? LORDO, NETTO, TASSE E INPS</p>
+    <span class="badge">LE PAROLE &bull; LORDO E NETTO &bull; UN ESEMPIO &bull; UN DIALOGO</span>
+  </section>
+
+  <section class="slide">
+    <h2>📖 LE PAROLE IMPORTANTI</h2>
+    <div class="grid g4 small">
+      <div class="card"><span class="emoji">💳</span><b>LA BUSTA PAGA</b>IL DOCUMENTO CHE MOSTRA QUANTO GUADAGNI OGNI MESE. SI CHIAMA ANCHE «CEDOLINO».</div>
+      <div class="card"><span class="emoji">💰</span><b>LO STIPENDIO</b>I SOLDI CHE RICEVI PER IL TUO LAVORO.</div>
+      <div class="card"><span class="emoji">📈</span><b>LORDO</b>LO STIPENDIO PRIMA DELLE TASSE. È IL NUMERO PIÙ ALTO.</div>
+      <div class="card"><span class="emoji">📉</span><b>NETTO</b>LO STIPENDIO DOPO LE TASSE. SONO I SOLDI VERI CHE RICEVI.</div>
+      <div class="card"><span class="emoji">👔</span><b>IL DATORE DI LAVORO</b>LA PERSONA O L'AZIENDA CHE TI PAGA.</div>
+      <div class="card"><span class="emoji">👷</span><b>IL DIPENDENTE</b>LA PERSONA CHE LAVORA PER UN DATORE DI LAVORO. SEI TU!</div>
+      <div class="card"><span class="emoji">🏛️</span><b>L'INPS</b>L'ENTE PER LA PENSIONE, LA MALATTIA E GLI AIUTI AI LAVORATORI.</div>
+      <div class="card"><span class="emoji">🧾</span><b>LE TASSE (IRPEF)</b>SOLDI CHE PAGHIAMO ALLO STATO PER I SERVIZI PUBBLICI.</div>
+      <div class="card"><span class="emoji">✂️</span><b>LE TRATTENUTE</b>I SOLDI TOLTI DAL LORDO: TASSE E CONTRIBUTI.</div>
+      <div class="card"><span class="emoji">🏦</span><b>IL BONIFICO</b>I SOLDI VANNO DA UN CONTO IN BANCA A UN ALTRO.</div>
+      <div class="card"><span class="emoji">📄</span><b>IL CONTRATTO</b>IL DOCUMENTO CON LE REGOLE DEL LAVORO.</div>
+      <div class="card"><span class="emoji">⏱️</span><b>LE ORE LAVORATE</b>QUANTE ORE HAI LAVORATO IN UN MESE.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>💳 CHE COS'È LA BUSTA PAGA?</h2>
+    <div class="nota small" style="margin-bottom:14px;">LA BUSTA PAGA È UN DOCUMENTO. IL DATORE DI LAVORO TE LA DÀ OGNI MESE. MOSTRA QUANTO HAI LAVORATO E QUANTI SOLDI RICEVI.</div>
+    <div class="grid g3 small">
+      <div class="card"><span class="emoji">👤</span><b>CHI LA RICEVE?</b>TUTTI I LAVORATORI DIPENDENTI, ANCHE PART-TIME. SE HAI UN CONTRATTO, HAI DIRITTO ALLA BUSTA PAGA.</div>
+      <div class="card"><span class="emoji">📅</span><b>QUANDO?</b>OGNI MESE: DI SOLITO ALLA FINE DEL MESE O ALL'INIZIO DEL MESE DOPO. SU CARTA O IN PDF.</div>
+      <div class="card"><span class="emoji">🗄️</span><b>CONSERVALA SEMPRE!</b>SERVE PER: IL PERMESSO DI SOGGIORNO, AFFITTARE UNA CASA, LA DICHIARAZIONE DEI REDDITI, UN PRESTITO.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>⚖️ LORDO E NETTO</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">📈</span><b>STIPENDIO LORDO</b>IL NUMERO PIÙ ALTO. È LO STIPENDIO PRIMA DI TOGLIERE LE TASSE E I CONTRIBUTI INPS.</div>
+      <div class="card"><span class="emoji">📉</span><b>STIPENDIO NETTO</b>IL NUMERO PIÙ BASSO. SONO I SOLDI VERI CHE RICEVI SUL TUO CONTO IN BANCA.</div>
+    </div>
+    <p class="big2" style="text-align:center; margin-top:22px;">NETTO = LORDO − TASSE − CONTRIBUTI INPS</p>
+    <div class="nota" style="margin-top:16px;">🧮 IL NETTO È SEMPRE PIÙ BASSO DEL LORDO. È NORMALE!<br>I CONTRIBUTI INPS SERVONO PER LA TUA PENSIONE E PER PROTEGGERTI SE SEI MALATO.</div>
+  </section>
+
+  <section class="slide">
+    <h2>🧩 LE PARTI DELLA BUSTA PAGA</h2>
+    <div class="grid g4 small">
+      <div class="card"><b>DATI DEL LAVORATORE</b>NOME, COGNOME, CODICE FISCALE, QUALIFICA.</div>
+      <div class="card"><b>DATI DELL'AZIENDA</b>NOME E INDIRIZZO DEL DATORE DI LAVORO.</div>
+      <div class="card"><b>IL PERIODO</b>IL MESE DELLA BUSTA PAGA.</div>
+      <div class="card"><b>LE ORE LAVORATE</b>QUANTE ORE HAI LAVORATO QUESTO MESE.</div>
+      <div class="card"><b>LA PAGA LORDA</b>LO STIPENDIO TOTALE PRIMA DELLE TASSE.</div>
+      <div class="card"><b>LE TRATTENUTE</b>I SOLDI TOLTI PER TASSE E CONTRIBUTI.</div>
+      <div class="card"><b>I CONTRIBUTI INPS</b>SOLDI PER LA PENSIONE E LA PROTEZIONE.</div>
+      <div class="card"><b>IL NETTO</b>I SOLDI VERI CHE RICEVI SUL CONTO.</div>
+    </div>
+    <div class="nota small" style="margin-top:14px;">IN BUSTA PAGA CI SONO ANCHE: LE <b>FERIE</b> (GIORNI DI VACANZA CHE HAI ANCORA), IL <b>TFR</b> (SOLDI PER LA FINE DEL LAVORO), LA <b>TREDICESIMA</b>.</div>
+  </section>
+
+  <section class="slide">
+    <h2>📋 ESEMPIO: LA BUSTA PAGA DI AMARA</h2>
+    <div class="infowrap">
+      <div>
+    <table class="busta">
+      <tr><th colspan="2">RISTORANTE «LA TAVOLA BLU» S.R.L. · BARI <span class="finto">ESEMPIO INVENTATO</span></th></tr>
+      <tr class="c1"><td>LAVORATORE</td><td>DIALLO AMARA · CAMERIERA, 4° LIVELLO</td></tr>
+      <tr class="c1"><td>CODICE FISCALE</td><td>XXXXXX00X00X000X <span class="finto">FINTO</span></td></tr>
+      <tr class="c2"><td>PERIODO</td><td>MAGGIO 2026 · CCNL TURISMO</td></tr>
+      <tr class="c2"><td>CONTRATTO</td><td>TEMPO INDETERMINATO · TEMPO PIENO · 168 ORE LAVORATE</td></tr>
+      <tr class="c3"><td>PAGA BASE</td><td class="n">1.412,51 €</td></tr>
+      <tr class="c3"><td>CONTINGENZA</td><td class="n">10,33 €</td></tr>
+      <tr class="c3"><td>STRAORDINARIO FESTIVO</td><td class="n">67,80 €</td></tr>
+      <tr class="c3"><td><b>TOTALE LORDO</b></td><td class="n"><b>1.490,64 €</b></td></tr>
+      <tr class="c4"><td>CONTRIBUTI INPS (9,19%)</td><td class="n">− 136,99 €</td></tr>
+      <tr class="c4"><td>TASSE: IRPEF</td><td class="n">− 98,40 €</td></tr>
+      <tr class="c4"><td>TASSE: ADDIZIONALI REGIONALE E COMUNALE</td><td class="n">− 12,50 €</td></tr>
+      <tr class="c5"><td>NETTO DEL MESE</td><td class="n">1.242,75 €</td></tr>
+      <tr><td>PAGAMENTO</td><td>BONIFICO BANCARIO · IBAN IT00 X000 0000 0000 0000 0000 000 <span class="finto">FINTO</span></td></tr>
+    </table></div>
+      <div class="legenda">
+        <div style="border-color:#8fb6f0">🔵 1. CHI SEI TU: I DATI DEL LAVORATORE</div>
+        <div style="border-color:#8ccf9a">🟢 2. IL MESE E IL CONTRATTO</div>
+        <div style="border-color:#ee9a90">🔴 3. LO STIPENDIO LORDO</div>
+        <div style="border-color:#f5c26b">🟠 4. LE TASSE E I CONTRIBUTI (TRATTENUTE)</div>
+        <div style="border-color:#2F7D4F">✅ 5. LO STIPENDIO NETTO: I SOLDI VERI</div>
+        <p class="hint" style="margin-top:6px;">NOMI, CODICE FISCALE E IBAN SONO INVENTATI PER LA LEZIONE.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🎬 VIDEO: CAPIRE LA BUSTA PAGA</h2>
+    <p class="lead" style="margin-bottom:12px;">DI COSA PARLA IL VIDEO? QUALI PAROLE NUOVE HAI IMPARATO? SAI LEGGERE LA TUA BUSTA PAGA?</p>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/xm_Vuva4vhY" title="Capire la busta paga" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  </section>
+
+  <section class="slide">
+    <h2>🗣️ DIALOGO: UNA DOMANDA SULLA BUSTA PAGA</h2>
+    <div class="dialogo small">
+      <div class="bubble med"><span class="who">AMARA:</span> BUONGIORNO. POSSO FARLE UNA DOMANDA SULLA MIA BUSTA PAGA?</div>
+      <div class="bubble"><span class="who">DATORE DI LAVORO:</span> CERTO, DIMMI.</div>
+      <div class="bubble med"><span class="who">AMARA:</span> NON CAPISCO PERCHÉ LO STIPENDIO NETTO È PIÙ BASSO DI QUELLO LORDO.</div>
+      <div class="bubble"><span class="who">DATORE DI LAVORO:</span> È NORMALE. DAL LORDO TOGLIAMO I CONTRIBUTI INPS E LE TASSE (IRPEF). QUELLO CHE RESTA È IL NETTO: I SOLDI CHE RICEVI.</div>
+      <div class="bubble med"><span class="who">AMARA:</span> AH, CAPISCO! E I SOLDI DELL'INPS DOVE VANNO?</div>
+      <div class="bubble"><span class="who">DATORE DI LAVORO:</span> SERVONO PER LA TUA PENSIONE E PER PROTEGGERTI SE SEI MALATA O HAI UN INFORTUNIO.</div>
+      <div class="bubble med"><span class="who">AMARA:</span> GRAZIE PER LA SPIEGAZIONE!</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🏠 E LA CASA?</h2>
+    <div class="nota">
+      LA BUSTA PAGA SERVE ANCHE PER <b>AFFITTARE UNA CASA</b>: IL PROPRIETARIO CHIEDE SPESSO LE ULTIME 2–3 BUSTE PAGA O IL CONTRATTO DI LAVORO.<br><br>
+      🔑 ANNUNCI, AFFITTO, CAUZIONE, CONTRATTO DI AFFITTO: GUARDA L'ARGOMENTO
+      <a class="link" href="../cercare-casa/">CERCARE CASA A BARI</a>.
+    </div>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA SAI LEGGERE LA BUSTA PAGA!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+</body>
+</html>

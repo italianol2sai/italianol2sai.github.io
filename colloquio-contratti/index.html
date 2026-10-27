@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IL COLLOQUIO E IL CONTRATTO - ITALIANO L2 (A2)</title>
+<style>
+  :root{
+    --blu:#2F7D4F; --blu-scuro:#173A26; --teal:#2BA6B8; --arancio:#F2A007;
+    --bg:#F1F8F3; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe8d8; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#2F7D4F,#6DBE8A); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+
+  /* aggiunte per l'argomento «Il lavoro» */
+  .card ul, .nota ul{margin:4px 0 0 1.1em; text-transform:uppercase;}
+  .card li{margin:3px 0;}
+  .card.si{border-color:#bfe5cc;} .card.no{border-color:#f3c4bc;}
+  .card.si b{color:var(--ok);} .card.no b{color:var(--no);}
+  .small{font-size:1.15rem; line-height:1.45;}
+  .infog{display:block; max-width:100%; max-height:62vh; margin:0 auto; border-radius:14px; box-shadow:0 6px 16px rgba(0,0,0,.15); text-transform:none;}
+  .infowrap{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:24px; align-items:start;}
+  .passi{counter-reset:p; display:grid; gap:10px;}
+  .passi div{background:#fff; border:3px solid #dcefe3; border-radius:14px; padding:10px 14px 10px 64px; position:relative; font-size:1.35rem; min-height:52px;}
+  .passi div::before{counter-increment:p; content:counter(p); position:absolute; left:12px; top:8px; width:38px; height:38px; line-height:38px; text-align:center; border-radius:50%; background:var(--blu); color:#fff; font-weight:bold;}
+  .lettera{background:#fff; border-radius:14px; padding:18px 22px; border-left:10px solid var(--arancio); font-size:1.35rem; line-height:1.6; box-shadow:0 4px 10px rgba(0,0,0,.08);}
+  .busta{width:100%; border-collapse:collapse; background:#fff; font-size:1.05rem; text-transform:uppercase;}
+  .busta td, .busta th{border:2px solid #dfe7e2; padding:6px 10px; text-align:left;}
+  .busta th{background:#eef6f1; color:var(--blu-scuro);}
+  .busta td.n{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .busta .c1{background:#e3efff;} .busta .c2{background:#e5f6e9;} .busta .c3{background:#fde4e1;} .busta .c4{background:#fff0d9;} .busta .c5{background:#d5f0dc; font-weight:bold; font-size:1.2rem;}
+  .legenda{display:grid; gap:8px; font-size:1.2rem;}
+  .legenda div{border-radius:10px; padding:8px 12px; background:#fff; border-left:10px solid;}
+  .finto{display:inline-block; background:var(--giallo); border-radius:8px; padding:2px 10px; font-size:.95rem; font-weight:bold;}
+  .link{color:var(--blu); font-weight:bold;}
+  @media (max-width:900px){
+    .infowrap{grid-template-columns:1fr;} .infog{max-height:none;}
+    .small{font-size:1rem;} .passi div{font-size:1.05rem;} .lettera{font-size:1.05rem; padding:14px;}
+    .busta{font-size:.8rem;} .busta td, .busta th{padding:4px 5px;} .legenda{font-size:1rem;}
+  }
+  @media (max-width:600px){
+    .g2,.twocol2{grid-template-columns:minmax(0,1fr) !important;}
+    .g3,.g4{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;}
+    .grid{gap:10px;} .card{padding:10px; overflow-wrap:anywhere; hyphens:auto;} .card b{font-size:1.02rem;} .card .emoji{font-size:2rem;}
+    .card ul{margin-left:.9em;} h1{font-size:2rem; overflow-wrap:anywhere;} .cover h1{font-size:2.2rem;} .badge{font-size:1rem; padding:8px 16px;}
+    table.plur{font-size:.95rem;} table.plur th, table.plur td{padding:6px 4px; overflow-wrap:anywhere;}
+    .passi div{padding-left:56px;}
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LIVELLO A2</span>
+  <span>IL COLLOQUIO E IL CONTRATTO</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">🤝</div>
+    <h1>IL COLLOQUIO E IL CONTRATTO</h1>
+    <p class="lead" style="margin-top:14px;">COME PRESENTARSI E CONOSCERE I PROPRI DIRITTI</p>
+    <span class="badge">IL COLLOQUIO &bull; I CONTRATTI &bull; I DIRITTI &bull; I DOVERI</span>
+  </section>
+
+  <section class="slide">
+    <h2>🤝 IL COLLOQUIO DI LAVORO</h2>
+    <div class="infowrap">
+      <a href="img/colloquio.jpg" target="_blank" title="Apri l'immagine grande"><img class="infog" src="img/colloquio.jpg" alt="Infografica: il colloquio di lavoro, cosa faccio e cosa non faccio"></a>
+      <div>
+        <div class="nota small">💡 IL COLLOQUIO È UN INCONTRO CON IL DATORE DI LAVORO. LUI FA DOMANDE, TU RISPONDI. VUOLE CAPIRE CHI SEI E SE SEI LA PERSONA GIUSTA PER IL LAVORO.</div>
+        <div class="grid small">
+          <div class="card"><b>📅 ARRIVO PUNTUALE</b>5–10 MINUTI PRIMA. IN ITALIA È MOLTO IMPORTANTE!</div>
+          <div class="card"><b>👔 MI VESTO BENE</b>VESTITI PULITI E ORDINATI. NO MAGLIETTE CON SCRITTE, NO INFRADITO.</div>
+          <div class="card"><b>📋 PORTO IL CV STAMPATO</b>2 COPIE. E I DOCUMENTI: PERMESSO DI SOGGIORNO, CODICE FISCALE.</div>
+          <div class="card"><b>🔍 STUDIO L'AZIENDA</b>COSA FA? DOVE SI TROVA? CERCO SUL TELEFONO.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>❓ LE DOMANDE DEL COLLOQUIO</h2>
+    <div class="grid g2 small">
+      <div class="card"><b>👔 LE DOMANDE CHE FANNO A ME</b>
+        <ul><li>«COME SI CHIAMA?» – MI CHIAMO…</li><li>«DI DOV'È?» – SONO DEL / DELLA…</li><li>«MI PARLI DI LEI.» – NOME, PAESE, ESPERIENZE.</li>
+        <li>«HA ESPERIENZA?» – HO LAVORATO COME…</li><li>«PERCHÉ VUOLE QUESTO LAVORO?» – MI PIACE…</li><li>«QUALI LINGUE PARLA?» – PARLO ITALIANO E…</li><li>«QUANDO PUÒ INIZIARE?» – POSSO INIZIARE SUBITO.</li></ul></div>
+      <div class="card"><b>🙋 LE DOMANDE CHE FACCIO IO</b>
+        <ul><li>«QUANTE ORE SI LAVORA?»</li><li>«CI SONO I TURNI?»</li><li>«CHE TIPO DI CONTRATTO OFFRITE?»</li><li>«C'È UN PERIODO DI PROVA?»</li><li>«QUAL È LO STIPENDIO?» (È NORMALE CHIEDERLO CON EDUCAZIONE)</li><li>«QUANDO INIZIO?»</li></ul></div>
+    </div>
+    <div class="nota" style="margin-top:14px;">💬 <b>BUONGIORNO, MI CHIAMO</b> … <b>SONO DEL / DELLA</b> … <b>HO ESPERIENZA COME</b> … <b>PARLO ITALIANO E</b> … <b>SONO DISPONIBILE SUBITO.</b></div>
+  </section>
+
+  <section class="slide">
+    <h2>🙂 DURANTE IL COLLOQUIO</h2>
+    <div class="grid g2 small">
+      <div class="card si"><b>✅ COSA FACCIO</b>
+        <ul><li>SORRIDO, DICO «BUONGIORNO» E DO LA MANO.</li><li>GUARDO NEGLI OCCHI: IN ITALIA È SEGNO DI RISPETTO.</li><li>PARLO PIANO E CHIARO.</li><li>SE NON CAPISCO DICO: «PUÒ RIPETERE, PER FAVORE?»</li><li>DICO LA VERITÀ SULLE ESPERIENZE E LE LINGUE.</li></ul></div>
+      <div class="card no"><b>❌ COSA NON FACCIO</b>
+        <ul><li>NON ARRIVO IN RITARDO.</li><li>NON USO IL CELLULARE: LO SPENGO.</li><li>NON VADO SENZA CV.</li><li>NON PARLO MALE DEL VECCHIO DATORE DI LAVORO.</li><li>NON DICO BUGIE.</li></ul></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🎬 VIDEO: IL COLLOQUIO DI LAVORO</h2>
+    <p class="lead" style="margin-bottom:12px;">COME SI VESTE LA PERSONA NEL VIDEO? QUALI DOMANDE FANNO? HAI MAI FATTO UN COLLOQUIO?</p>
+    <div class="twocol2">
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/VsEBjpQTlyY" title="Il colloquio di lavoro: come prepararsi" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/sGs1REJWdV4" title="Come affrontare un colloquio di lavoro" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>📄 I TIPI DI CONTRATTO</h2>
+    <div class="nota small" style="margin-bottom:12px;">⚠️ PRIMA DI FIRMARE, LEGGI IL CONTRATTO! SE NON CAPISCI, CHIEDI AIUTO A UN SINDACATO (CGIL, CISL, UIL): È GRATIS.</div>
+    <div class="grid g3 small">
+      <div class="card"><b>⭐ A TEMPO INDETERMINATO</b>NON HA UNA DATA DI FINE. È IL PIÙ SICURO.</div>
+      <div class="card"><b>🕑 A TEMPO DETERMINATO</b>HA UNA DATA DI FINE (DI SOLITO MASSIMO 24 MESI). POI FINISCE O SI RINNOVA.</div>
+      <div class="card"><b>🎓 APPRENDISTATO</b>PER I GIOVANI (DI SOLITO 18–29 ANNI). L'AZIENDA TI INSEGNA IL MESTIERE.</div>
+      <div class="card"><b>🕐 PART-TIME</b>MENO DI 40 ORE ALLA SETTIMANA. LO STIPENDIO È PIÙ BASSO, I DIRITTI SONO GLI STESSI.</div>
+      <div class="card"><b>📞 A CHIAMATA</b>LAVORO SOLO QUANDO MI CHIAMANO: BAR, RISTORANTI, HOTEL, EVENTI.</div>
+      <div class="card"><b>👥 CON L'AGENZIA</b>(SOMMINISTRAZIONE) MI ASSUME UN'AGENZIA, MA LAVORO IN UN'ALTRA AZIENDA.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🔤 LE PAROLE DEL CONTRATTO</h2>
+    <div class="twocol2">
+      <div class="grid small" style="margin-top:0">
+        <div class="card"><b>📘 IL CCNL</b>IL CONTRATTO COLLETTIVO NAZIONALE: LE REGOLE DEL TUO SETTORE (COMMERCIO, RISTORAZIONE, EDILIZIA…).</div>
+        <div class="card"><b>📈 LA RAL</b>RETRIBUZIONE ANNUA LORDA: QUANTO GUADAGNI IN UN ANNO, PRIMA DELLE TASSE.</div>
+        <div class="card"><b>📅 IL PERIODO DI PROVA</b>I PRIMI MESI: IO E IL DATORE POSSIAMO FINIRE IL LAVORO SUBITO.</div>
+        <div class="card"><b>🕐 IL PREAVVISO</b>QUANTI GIORNI PRIMA DEVO AVVISARE SE VOGLIO LASCIARE IL LAVORO.</div>
+        <div class="card"><b>💵 IL TFR</b>TRATTAMENTO DI FINE RAPPORTO: SOLDI CHE SI ACCUMULANO OGNI ANNO. LI PRENDO QUANDO FINISCE IL LAVORO.</div>
+      </div>
+      <div>
+        <p class="lead small" style="margin-bottom:8px;">🎬 VIDEO: IL CONTRATTO DI LAVORO</p>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/hwJsETaO9Vc" title="Il contratto di lavoro: istruzioni per l'uso" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>✅ I DIRITTI DEL LAVORATORE</h2>
+    <div class="nota small" style="margin-bottom:12px;">QUESTI DIRITTI SONO PER TUTTI I LAVORATORI IN ITALIA, ANCHE PER GLI STRANIERI!</div>
+    <div class="grid g4 small">
+      <div class="card"><b>🌞 LE FERIE</b>ALMENO 4 SETTIMANE ALL'ANNO, PAGATE.</div>
+      <div class="card"><b>🤒 LA MALATTIA</b>IL MEDICO FA IL CERTIFICATO. NON POSSONO LICENZIARTI PERCHÉ SEI MALATO.</div>
+      <div class="card"><b>💳 LA BUSTA PAGA</b>OGNI MESE: ORE, LORDO, TASSE, NETTO.</div>
+      <div class="card"><b>🎁 LA TREDICESIMA</b>A DICEMBRE UNO STIPENDIO IN PIÙ. A VOLTE ANCHE LA QUATTORDICESIMA IN ESTATE.</div>
+      <div class="card"><b>😴 IL RIPOSO</b>ALMENO 11 ORE TRA UN TURNO E L'ALTRO. ALMENO 1 GIORNO LIBERO ALLA SETTIMANA.</div>
+      <div class="card"><b>🦺 LA SICUREZZA</b>IL DATORE TI DÀ GUANTI, CASCO, SCARPE. SE TI FAI MALE, L'INAIL TI PROTEGGE.</div>
+      <div class="card"><b>💵 IL TFR</b>LO RICEVI QUANDO IL LAVORO FINISCE.</div>
+      <div class="card"><b>👶 MATERNITÀ E PATERNITÀ</b>SE ASPETTI UN BAMBINO HAI UN CONGEDO PAGATO. IL POSTO DI LAVORO RESTA TUO.</div>
+    </div>
+    <div class="nota small" style="margin-top:12px;">🆘 IL DATORE NON RISPETTA I TUOI DIRITTI? 1. PARLA CON IL DATORE. 2. VAI AL <b>SINDACATO</b> (CGIL, CISL, UIL): È GRATIS. 3. CHIAMA L'<b>ISPETTORATO DEL LAVORO</b>.</div>
+  </section>
+
+  <section class="slide">
+    <h2>📋 I DOVERI DEL LAVORATORE</h2>
+    <div class="grid g3 small">
+      <div class="card"><b>🕐 PUNTUALITÀ</b>ARRIVO IN ORARIO. SE SONO IN RITARDO O ASSENTE, AVVISO SUBITO.</div>
+      <div class="card"><b>✅ IL MIO LAVORO</b>FACCIO QUELLO CHE DICE IL CONTRATTO. SEGUO LE ISTRUZIONI DEL RESPONSABILE.</div>
+      <div class="card"><b>👥 RISPETTO</b>RISPETTO I COLLEGHI. NO INSULTI, NO DISCRIMINAZIONE, NO VIOLENZA.</div>
+      <div class="card"><b>🦺 SICUREZZA</b>USO SEMPRE GUANTI, CASCO E SCARPE DI SICUREZZA. È LA LEGGE!</div>
+      <div class="card"><b>🔒 RISERVATEZZA</b>NON RACCONTO LE COSE PRIVATE DELL'AZIENDA.</div>
+      <div class="card"><b>🤒 SE SONO MALATO</b>AVVISO SUBITO E MANDO IL NUMERO DEL CERTIFICATO MEDICO.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>⚠️ SE NON RISPETTO I DOVERI…</h2>
+    <div class="twocol2">
+      <div class="passi">
+        <div>RICHIAMO A VOCE: IL RESPONSABILE MI PARLA.</div>
+        <div>RICHIAMO SCRITTO: UNA LETTERA UFFICIALE.</div>
+        <div>MULTA: MENO SOLDI NELLO STIPENDIO (MASSIMO 4 ORE).</div>
+        <div>SOSPENSIONE: RESTO A CASA SENZA STIPENDIO (MASSIMO 10 GIORNI).</div>
+        <div>LICENZIAMENTO: IL LAVORO FINISCE (PER COSE GRAVI: FURTO, VIOLENZA).</div>
+      </div>
+      <div class="nota">
+        💡 <b>RICORDA!</b><br><br>
+        IL LICENZIAMENTO DEVE ESSERE <b>SCRITTO</b>.<br>
+        UN LICENZIAMENTO A VOCE NON È VALIDO.<br><br>
+        HAI <b>60 GIORNI</b> PER CONTESTARLO. CHIEDI AIUTO AL SINDACATO!
+      </div>
+    </div>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA SEI PRONTO / PRONTA PER IL COLLOQUIO!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+</body>
+</html>

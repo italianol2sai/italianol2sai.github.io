@@ -58,6 +58,7 @@ if __name__ == "__main__":
     from unita_riflessivi import RIFLESSIVI
     from unita_preposizioni import PREPOSIZIONI
     from unita_pronomi import PRONOMI
+    from unita_lavoro import CHE_LAVORO, CERCARE, CV, COLLOQUIO, BUSTA
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
@@ -73,3 +74,8 @@ if __name__ == "__main__":
     build("riflessivi/esercizi.html", RIFLESSIVI)
     build("preposizioni/esercizi.html", PREPOSIZIONI)
     build("pronomi/esercizi.html", PRONOMI)
+    build("che-lavoro-fai/esercizi.html", CHE_LAVORO)
+    build("cercare-lavoro/esercizi.html", CERCARE)
+    build("curriculum/esercizi.html", CV)
+    build("colloquio-contratti/esercizi.html", COLLOQUIO)
+    build("busta-paga/esercizi.html", BUSTA)

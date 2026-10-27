@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔍 Cerco lavoro · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🔍 Cerco lavoro · Esercizi",
+ "store": "cercare-lavoro",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Le parole del lavoro"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Collega la parola e la frase",
+   "short": "1 · Le parole",
+   "type": "select",
+   "opts": [
+    "I SOLDI DEL LAVORO",
+    "IL DOCUMENTO CHE FIRMO",
+    "IL FOGLIO CON IL MIO NOME E I MIEI LAVORI",
+    "L'UFFICIO CHE MI AIUTA A CERCARE LAVORO",
+    "PARLO CON IL DATORE DI LAVORO"
+   ],
+   "items": [
+    {
+     "q": "1. IL CV"
+    },
+    {
+     "q": "2. LO STIPENDIO"
+    },
+    {
+     "q": "3. IL COLLOQUIO"
+    },
+    {
+     "q": "4. IL CONTRATTO"
+    },
+    {
+     "q": "5. IL CENTRO PER L'IMPIEGO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTCBGT0dMSU8gQ09OIElMIE1JTyBOT01FIEUgSSBNSUVJIExBVk9SSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkkgU09MREkgREVMIExBVk9STyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBBUkxPIENPTiBJTCBEQVRPUkUgREkgTEFWT1JPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgRE9DVU1FTlRPIENIRSBGSVJNTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwnVUZGSUNJTyBDSEUgTUkgQUlVVEEgQSBDRVJDQVJFIExBVk9STyJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Scegli la parola giusta",
+   "short": "2 · Parola giusta",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. OGNI MESE RICEVO LO …",
+     "opts": [
+      "STIPENDIO",
+      "COLLOQUIO"
+     ]
+    },
+    {
+     "q": "2. PER CERCARE LAVORO PORTO IL …",
+     "opts": [
+      "PALLONE",
+      "CV"
+     ]
+    },
+    {
+     "q": "3. PRIMA DI LAVORARE FIRMO IL …",
+     "opts": [
+      "NEGOZIO",
+      "CONTRATTO"
+     ]
+    },
+    {
+     "q": "4. PARLO CON IL DATORE DI LAVORO: HO UN …",
+     "opts": [
+      "COLLOQUIO",
+      "STIPENDIO"
+     ]
+    },
+    {
+     "q": "5. IL CENTRO PER L'IMPIEGO È …",
+     "opts": [
+      "A PAGAMENTO",
+      "GRATIS"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTVElQRU5ESU8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDViJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPTlRSQVRUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPTExPUVVJTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdSQVRJUyJdfV0="
+  },
+  {
+   "id": "e3",
+   "title": "3 · Manca una vocale: scrivi la parola",
+   "short": "3 · Le vocali",
+   "type": "text",
+   "cons": "Manca una lettera: A, E, I, O, U. Scrivi tutta la parola.",
+   "items": [
+    {
+     "q": "1. LAV _ RO"
+    },
+    {
+     "q": "2. CONTR _ TTO"
+    },
+    {
+     "q": "3. STIP _ NDIO"
+    },
+    {
+     "q": "4. COLLOQ _ IO"
+    },
+    {
+     "q": "5. UFF _ CIO"
+    },
+    {
+     "q": "6. GR _ TIS"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsYXZvcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJjb250cmF0dG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzdGlwZW5kaW8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJjb2xsb3F1aW8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ1ZmZpY2lvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ3JhdGlzIl19XQ=="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Altre parole: che cosa vuol dire?",
+   "short": "4 · Altre parole",
+   "type": "select",
+   "opts": [
+    "IL DOCUMENTO PER STARE IN ITALIA IN REGOLA",
+    "LAVORO SOLO POCHE ORE AL GIORNO",
+    "MANDO IL CV PER UN LAVORO",
+    "UN ANNUNCIO: «CERCHIAMO PERSONALE»",
+    "UN CORSO PER IMPARARE UN LAVORO",
+    "VADO IN UN NEGOZIO E CHIEDO LAVORO, ANCHE SENZA ANNUNCIO"
+   ],
+   "items": [
+    {
+     "q": "1. LA CANDIDATURA"
+    },
+    {
+     "q": "2. LA CANDIDATURA SPONTANEA"
+    },
+    {
+     "q": "3. L'OFFERTA DI LAVORO"
+    },
+    {
+     "q": "4. LA FORMAZIONE"
+    },
+    {
+     "q": "5. IL PART-TIME"
+    },
+    {
+     "q": "6. IL PERMESSO DI SOGGIORNO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNQU5ETyBJTCBDViBQRVIgVU4gTEFWT1JPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkFETyBJTiBVTiBORUdPWklPIEUgQ0hJRURPIExBVk9STywgQU5DSEUgU0VOWkEgQU5OVU5DSU8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiBBTk5VTkNJTzogwqtDRVJDSElBTU8gUEVSU09OQUxFwrsiXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiBDT1JTTyBQRVIgSU1QQVJBUkUgVU4gTEFWT1JPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEFWT1JPIFNPTE8gUE9DSEUgT1JFIEFMIEdJT1JOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklMIERPQ1VNRU5UTyBQRVIgU1RBUkUgSU4gSVRBTElBIElOIFJFR09MQSJdfV0="
+  },
+  {
+   "part": "Cosa serve per lavorare"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Vero o falso?",
+   "short": "5 · Cosa serve",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. POSSO LAVORARE A 14 ANNI."
+    },
+    {
+     "q": "2. A 16 ANNI POSSO LAVORARE SE HO FINITO LA SCUOLA OBBLIGATORIA."
+    },
+    {
+     "q": "3. SE HO CHIESTO PROTEZIONE, POSSO LAVORARE IL GIORNO DOPO LA DOMANDA."
+    },
+    {
+     "q": "4. IL CONTRATTO DI LAVORO È REGISTRATO CON IL MIO CODICE FISCALE."
+    },
+    {
+     "q": "5. CON L'IBAN RICEVO LO STIPENDIO SUL CONTO."
+    },
+    {
+     "q": "6. CON IL LAVORO IN NERO HO LE FERIE PAGATE."
+    },
+    {
+     "q": "7. SE LAVORO IN NERO E MI FACCIO MALE, NESSUNO MI PAGA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ=="
+  },
+  {
+   "part": "Dove cerco lavoro"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Vero o falso?",
+   "short": "6 · Dove cerco",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. IL CENTRO PER L'IMPIEGO È GRATIS."
+    },
+    {
+     "q": "2. IL CENTRO PER L'IMPIEGO È SOLO A ROMA."
+    },
+    {
+     "q": "3. L'APP «LAVORO PER TE PUGLIA» È SUL TELEFONO."
+    },
+    {
+     "q": "4. L'APP COSTA 10 EURO."
+    },
+    {
+     "q": "5. CHIEDO LAVORO AGLI AMICI."
+    },
+    {
+     "q": "6. NEI NEGOZI CHIEDO: «CERCATE PERSONALE?»"
+    },
+    {
+     "q": "7. LE AGENZIE PER IL LAVORO SONO GRATIS PER CHI CERCA LAVORO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Completa con le parole",
+   "short": "7 · Completa",
+   "type": "cloze",
+   "bank": "BARI · TELEFONO · GRATIS · AMICI · CV",
+   "parts": [
+    "1. IL CENTRO PER L'IMPIEGO È A ",
+    {},
+    ".<br>2. L'APP È SUL ",
+    {},
+    ".<br>3. L'APP NON COSTA: È ",
+    {},
+    ".<br>4. CHIEDO LAVORO AGLI ",
+    {},
+    ".<br>5. PORTO SEMPRE IL MIO ",
+    {},
+    "."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiYXJpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidGVsZWZvbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJncmF0aXMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJhbWljaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImN2Il19XQ=="
+  },
+  {
+   "id": "e8",
+   "title": "8 · L'app: metti in ordine (da 1 a 5)",
+   "short": "8 · L'app in ordine",
+   "type": "order",
+   "items": [
+    "CERCO LE OFFERTE DI LAVORO A BARI.",
+    "SCARICO L'APP SUL TELEFONO.",
+    "TOCCO «CANDIDATI».",
+    "METTO IL MIO CV.",
+    "SCRIVO LA MIA EMAIL E LA PASSWORD."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI0Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjUiXX0sIHsidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMiJdfV0="
+  },
+  {
+   "id": "e9",
+   "title": "9 · Completa con i verbi",
+   "short": "9 · I verbi",
+   "type": "cloze",
+   "bank": "CERCO · TOCCO · SCARICO · SCRIVO",
+   "parts": [
+    "1. IO ",
+    {},
+    " L'APP SUL TELEFONO.<br>2. IO ",
+    {},
+    " LA MIA EMAIL.<br>3. IO ",
+    {},
+    " LAVORO A BARI.<br>4. IO ",
+    {},
+    " «CANDIDATI»."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzY2FyaWNvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2NyaXZvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY2VyY28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0b2NjbyJdfV0="
+  },
+  {
+   "id": "e10",
+   "title": "10 · Cosa serve per usare l'app?",
+   "short": "10 · Cosa serve",
+   "type": "multi",
+   "cons": "Metti la spunta vicino alle 4 cose giuste.",
+   "items": [
+    "📱 IL TELEFONO",
+    "☂️ L'OMBRELLO",
+    "⚽ IL PALLONE",
+    "📧 L'EMAIL",
+    "📄 IL CV",
+    "🍕 LA PIZZA",
+    "🚗 LA MACCHINA",
+    "🔑 IL CODICE FISCALE"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiLSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIi0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiWCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIi0iXX0sIHsidCI6ICJlcSIsICJhIjogWyItIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiWCJdfV0="
+  },
+  {
+   "part": "Mi presento"
+  },
+  {
+   "id": "e11",
+   "title": "11 · Metti in ordine le parole",
+   "short": "11 · Le frasi",
+   "type": "text",
+   "w": "w",
+   "full": true,
+   "cons": "Scrivi la frase giusta. Esempio: LAVORO CERCO → CERCO LAVORO.",
+   "items": [
+    {
+     "q": "1. BARI · CERCO · A · LAVORO"
+    },
+    {
+     "q": "2. COLLOQUIO · HO · DOMANI · UN"
+    },
+    {
+     "q": "3. MIO · PORTO · CV · IL"
+    },
+    {
+     "q": "4. DISPONIBILE · SUBITO · SONO"
+    },
+    {
+     "q": "5. COME · LAVORO · CAMERIERE · CERCO"
+    },
+    {
+     "q": "6. L'IMPIEGO · PORTO · AL · IL · CENTRO · MIO · PER · CV"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjZXJjbyBsYXZvcm8gYSBiYXJpIiwgImEgYmFyaSBjZXJjbyBsYXZvcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJobyB1biBjb2xsb3F1aW8gZG9tYW5pIiwgImRvbWFuaSBobyB1biBjb2xsb3F1aW8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJwb3J0byBpbCBtaW8gY3YiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzb25vIGRpc3BvbmliaWxlIHN1Yml0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNlcmNvIGxhdm9ybyBjb21lIGNhbWVyaWVyZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBvcnRvIGlsIG1pbyBjdiBhbCBjZW50cm8gcGVyIGwnaW1waWVnbyIsICJhbCBjZW50cm8gcGVyIGwnaW1waWVnbyBwb3J0byBpbCBtaW8gY3YiXX1d"
+  },
+  {
+   "id": "e12",
+   "title": "12 · Amara entra in un ristorante",
+   "short": "12 · Il dialogo",
+   "type": "cloze",
+   "bank": "CV · GRAZIE · PERSONALE · SUBITO · BUONGIORNO",
+   "parts": [
+    "<b>AMARA:</b> ",
+    {},
+    "! CERCATE ",
+    {},
+    "?<br><b>SIGNORA:</b> SÌ, CERCHIAMO UNA CUOCA.<br><b>AMARA:</b> HO IL MIO ",
+    {},
+    ". LO POSSO LASCIARE?<br><b>SIGNORA:</b> SÌ. QUANDO PUÒ INIZIARE?<br><b>AMARA:</b> POSSO INIZIARE ",
+    {},
+    ".<br><b>SIGNORA:</b> BENE. LA CHIAMO DOMANI.<br><b>AMARA:</b> ",
+    {},
+    ", ARRIVEDERCI!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJidW9uZ2lvcm5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicGVyc29uYWxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY3YiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzdWJpdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJncmF6aWUiXX1d"
+  },
+  {
+   "id": "lett",
+   "title": "✉️ Leggi la lettera di Amara",
+   "type": "info",
+   "info": "<p>BUONGIORNO.</p><p>MI CHIAMO AMARA DIALLO. SONO DELLA COSTA D'AVORIO. ABITO A BARI.</p><p>CERCO LAVORO COME CUOCA. SO CUCINARE BENE.</p><p>PARLO ITALIANO E FRANCESE.</p><p>SONO DISPONIBILE SUBITO.</p><p>GRAZIE. CORDIALI SALUTI, AMARA DIALLO</p>"
+  },
+  {
+   "id": "e13",
+   "title": "13 · La lettera di Amara",
+   "short": "13 · La lettera",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. AMARA È…",
+     "opts": [
+      "DEL MAROCCO",
+      "DELLA COSTA D'AVORIO"
+     ]
+    },
+    {
+     "q": "2. AMARA ABITA A…",
+     "opts": [
+      "NAPOLI",
+      "ROMA",
+      "BARI"
+     ]
+    },
+    {
+     "q": "3. AMARA CERCA LAVORO COME…",
+     "opts": [
+      "CUOCA",
+      "CAMERIERA",
+      "BADANTE"
+     ]
+    },
+    {
+     "q": "4. AMARA PARLA…",
+     "opts": [
+      "ITALIANO E ARABO",
+      "ITALIANO E FRANCESE"
+     ]
+    },
+    {
+     "q": "5. AMARA PUÒ INIZIARE…",
+     "opts": [
+      "SUBITO",
+      "FRA UN MESE",
+      "FRA UN ANNO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJERUxMQSBDT1NUQSBEJ0FWT1JJTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkJBUkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDVU9DQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklUQUxJQU5PIEUgRlJBTkNFU0UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTVUJJVE8iXX1d"
+  },
+  {
+   "id": "e14",
+   "title": "14 ✎ · Scrivi la tua lettera",
+   "type": "free",
+   "rows": 9,
+   "items": [
+    "Usa la lettera di Amara come modello: BUONGIORNO. MI CHIAMO … SONO DI … ABITO A … CERCO LAVORO COME … SO … PARLO … SONO DISPONIBILE … GRAZIE. CORDIALI SALUTI, …"
+   ]
+  },
+  {
+   "id": "e15",
+   "title": "15 🎤 · Entri in un negozio",
+   "type": "record",
+   "cons": "Registra quello che dici. Saluta, chiedi se cercano personale, di' che lavoro cerchi e lascia il CV.",
+   "items": [
+    "<b>Situazione 1</b> · Entri in un bar in centro a Bari. Cerchi lavoro come barista o cameriere/a.",
+    "<b>Situazione 2</b> · Entri in un supermercato. Cerchi lavoro come magazziniere/a o commesso/a. Di' quando puoi iniziare."
+   ]
+  },
+  {
+   "part": "Adesso so fare…"
+  },
+  {
+   "id": "auto",
+   "title": "✅ Come va?",
+   "type": "survey",
+   "opts": [
+    "bene",
+    "abbastanza",
+    "ancora poco"
+   ],
+   "items": [
+    "capire le parole del lavoro (CV, colloquio, contratto…)",
+    "dire cosa serve per lavorare in Italia",
+    "dire dove cerco lavoro a Bari",
+    "usare l'app Lavoro per te Puglia",
+    "chiedere «Cercate personale?»",
+    "scrivere una lettera corta"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
