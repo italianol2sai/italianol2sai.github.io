@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IL CORPO E IL DOTTORE - ITALIANO L2 (A1/A2)</title>
+<style>
+  :root{
+    --blu:#1565C0; --blu-scuro:#0D2B45; --teal:#2BA6B8; --arancio:#F2994A;
+    --bg:#EEF4FB; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#1565C0,#2BA6B8); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LIVELLO A1/A2</span>
+  <span>IL CORPO E IL DOTTORE</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <!-- 1 COPERTINA -->
+  <section class="slide center cover">
+    <div class="big">🧑‍⚕️</div>
+    <h1>IL CORPO UMANO<br>E IL DOTTORE</h1>
+    <p class="lead" style="margin-top:14px;">IMPARIAMO LE PAROLE DEL CORPO E DELLA SALUTE</p>
+    <span class="badge">UNITÀ DIDATTICA &bull; A1 / A2</span>
+  </section>
+
+  <!-- 2 OBIETTIVI -->
+  <section class="slide">
+    <h2>CHE COSA IMPARIAMO?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🦶</span><b>LE PARTI DEL CORPO</b><span>TESTA, MANI, GAMBE, PIEDI...</span></div>
+      <div class="card"><span class="emoji">🤒</span><b>I DISTURBI</b><span>HO MAL DI TESTA, HO LA FEBBRE...</span></div>
+      <div class="card"><span class="emoji">🩺</span><b>DAL DOTTORE</b><span>"DOTTORE, MI FA MALE QUI"</span></div>
+      <div class="card"><span class="emoji">💊</span><b>IN FARMACIA</b><span>CHIEDERE UNA MEDICINA</span></div>
+    </div>
+    <p class="lead" style="margin-top:20px;">PARLIAMO &bull; ASCOLTIAMO &bull; LEGGIAMO &bull; SCRIVIAMO</p>
+  </section>
+
+  <!-- 3 FIGURA CORPO -->
+  <section class="slide">
+    <h2>IL CORPO UMANO</h2>
+    <div class="twocol">
+      <div class="figura" id="figura-box"></div>
+      <div>
+        <p class="lead" style="margin-bottom:14px;">GUARDA E RIPETI:</p>
+        <div class="wordlist">
+          <div><span class="n">1</span>I CAPELLI</div>
+          <div><span class="n">2</span>LA TESTA</div>
+          <div><span class="n">3</span>GLI OCCHI</div>
+          <div><span class="n">4</span>IL NASO</div>
+          <div><span class="n">5</span>LA BOCCA</div>
+          <div><span class="n">6</span>L'ORECCHIO</div>
+          <div><span class="n">7</span>IL BRACCIO</div>
+          <div><span class="n">8</span>LA MANO</div>
+          <div><span class="n">9</span>IL COLLO</div>
+          <div><span class="n">10</span>LA SPALLA</div>
+          <div><span class="n">11</span>IL PETTO</div>
+          <div><span class="n">12</span>LA PANCIA</div>
+          <div><span class="n">13</span>LE DITA</div>
+          <div><span class="n">14</span>LA GAMBA</div>
+          <div><span class="n">15</span>IL GINOCCHIO</div>
+          <div><span class="n">16</span>IL PIEDE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 PLURALE -->
+  <section class="slide">
+    <h2>UNO O TANTI? (SINGOLARE / PLURALE)</h2>
+    <table class="plur">
+      <tr><th>UNO (SINGOLARE)</th><th>TANTI (PLURALE)</th></tr>
+      <tr><td>LA MANO</td><td class="irr">LE MANI</td></tr>
+      <tr><td>IL BRACCIO</td><td class="irr">LE BRACCIA</td></tr>
+      <tr><td>IL DITO</td><td class="irr">LE DITA</td></tr>
+      <tr><td>IL GINOCCHIO</td><td class="irr">LE GINOCCHIA</td></tr>
+      <tr><td>L'OCCHIO</td><td>GLI OCCHI</td></tr>
+      <tr><td>LA GAMBA</td><td>LE GAMBE</td></tr>
+      <tr><td>IL PIEDE</td><td>I PIEDI</td></tr>
+    </table>
+    <p class="lead" style="margin-top:16px;">⚠️ ATTENZIONE ALLE PAROLE IN <span style="color:var(--no);">ROSSO</span>: SONO DIVERSE!</p>
+  </section>
+
+  <!-- 5 ESERCIZIO 1: abbina numero -> parola -->
+  <section class="slide">
+    <span class="ex-tag">ESERCIZIO 1 &bull; ASCOLTA E CLICCA</span>
+    <h2>DOVE SI TROVA?</h2>
+    <p class="q" id="ex1-q">CLICCA SU: <b id="ex1-target">LA TESTA</b></p>
+    <div class="opts" id="ex1-opts"></div>
+    <div class="feedback" id="ex1-fb"></div>
+  </section>
+
+  <!-- 6 DISTURBI: HO MAL DI -->
+  <section class="slide">
+    <h2>COME STAI? &bull; HO MAL DI...</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">🤕</span><b>HO MAL DI TESTA</b></div>
+      <div class="card"><span class="emoji">😣</span><b>HO MAL DI PANCIA</b></div>
+      <div class="card"><span class="emoji">🦷</span><b>HO MAL DI DENTI</b></div>
+      <div class="card"><span class="emoji">😷</span><b>HO MAL DI GOLA</b></div>
+      <div class="card"><span class="emoji">🙇</span><b>HO MAL DI SCHIENA</b></div>
+      <div class="card"><span class="emoji">👂</span><b>HO MAL DI ORECCHIE</b></div>
+    </div>
+    <p class="lead" style="margin-top:18px;">HO MAL DI + <span class="tag">PARTE DEL CORPO</span></p>
+  </section>
+
+  <!-- 7 SINTOMI -->
+  <section class="slide">
+    <h2>I SINTOMI</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">🌡️</span><b>HO LA FEBBRE</b></div>
+      <div class="card"><span class="emoji">🤧</span><b>HO IL RAFFREDDORE</b></div>
+      <div class="card"><span class="emoji">😮‍💨</span><b>HO LA TOSSE</b></div>
+      <div class="card"><span class="emoji">🥵</span><b>HO CALDO</b></div>
+      <div class="card"><span class="emoji">🥶</span><b>HO FREDDO</b></div>
+      <div class="card"><span class="emoji">😩</span><b>SONO STANCO/A</b></div>
+    </div>
+    <p class="lead" style="margin-top:18px;">NON MI SENTO BENE &bull; MI SENTO MALE</p>
+  </section>
+
+  <!-- 8 ESERCIZIO 2: mi fa male / mi fanno male -->
+  <section class="slide">
+    <span class="ex-tag">ESERCIZIO 2 &bull; SCEGLI</span>
+    <h2>MI FA MALE / MI FANNO MALE</h2>
+    <div class="card" style="font-size:1.4rem; margin-bottom:6px;">
+      UNO → <b>MI FA MALE</b> LA TESTA &nbsp;&nbsp;|&nbsp;&nbsp; TANTI → <b>MI FANNO MALE</b> I PIEDI
+    </div>
+    <p class="q" id="ex2-q"></p>
+    <div class="opts" id="ex2-opts"></div>
+    <div class="feedback" id="ex2-fb"></div>
+    <p class="counter" id="ex2-prog" style="margin-top:8px;"></p>
+  </section>
+
+  <!-- 9 DAL MEDICO -->
+  <section class="slide">
+    <h2>DAL MEDICO 🩺</h2>
+    <div class="dialogo">
+      <div class="bubble med"><span class="who">MEDICO:</span> BUONGIORNO, SI ACCOMODI. CHE COSA C'È?</div>
+      <div class="bubble"><span class="who">PAZIENTE:</span> BUONGIORNO DOTTORE. NON MI SENTO BENE. HO MAL DI GOLA E HO LA FEBBRE.</div>
+      <div class="bubble med"><span class="who">MEDICO:</span> DA QUANTI GIORNI?</div>
+      <div class="bubble"><span class="who">PAZIENTE:</span> DA DUE GIORNI.</div>
+      <div class="bubble med"><span class="who">MEDICO:</span> APRA LA BOCCA, PER FAVORE. È UN'INFLUENZA. PRENDA QUESTO SCIROPPO E BEVA MOLTA ACQUA.</div>
+      <div class="bubble"><span class="who">PAZIENTE:</span> GRAZIE, DOTTORE!</div>
+    </div>
+  </section>
+
+  <!-- 10 IN FARMACIA -->
+  <section class="slide">
+    <h2>IN FARMACIA 💊</h2>
+    <div class="dialogo">
+      <div class="bubble med"><span class="who">FARMACISTA:</span> BUONGIORNO, MI DICA.</div>
+      <div class="bubble"><span class="who">CLIENTE:</span> BUONGIORNO. HO MAL DI TESTA. AVETE UNA MEDICINA?</div>
+      <div class="bubble med"><span class="who">FARMACISTA:</span> SÌ. PRENDA QUESTE PASTIGLIE, UNA DOPO I PASTI.</div>
+      <div class="bubble"><span class="who">CLIENTE:</span> QUANTO COSTA?</div>
+      <div class="bubble med"><span class="who">FARMACISTA:</span> SEI EURO. HA LA RICETTA?</div>
+      <div class="bubble"><span class="who">CLIENTE:</span> NO. VA BENE LO STESSO?</div>
+      <div class="bubble med"><span class="who">FARMACISTA:</span> SÌ, PER QUESTA MEDICINA NON SERVE. ECCO A LEI.</div>
+    </div>
+  </section>
+
+  <!-- 11 CONSIGLI DEL MEDICO -->
+  <section class="slide">
+    <h2>I CONSIGLI DEL MEDICO</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">💧</span><b>BEVA MOLTA ACQUA</b></div>
+      <div class="card"><span class="emoji">🛏️</span><b>STIA A RIPOSO</b></div>
+      <div class="card"><span class="emoji">💊</span><b>PRENDA LA MEDICINA</b></div>
+      <div class="card"><span class="emoji">🥣</span><b>MANGI LEGGERO</b></div>
+      <div class="card"><span class="emoji">🚭</span><b>NON FUMI</b></div>
+      <div class="card"><span class="emoji">😴</span><b>DORMA BENE</b></div>
+    </div>
+    <p class="lead" style="margin-top:16px;">IL MEDICO DICE A LEI: <span class="tag">BEVA! PRENDA! STIA!</span></p>
+  </section>
+
+  <!-- 12 ESERCIZIO 3: abbina problema -> consiglio -->
+  <section class="slide">
+    <span class="ex-tag">ESERCIZIO 3 &bull; ABBINA</span>
+    <h2>IL PROBLEMA E IL CONSIGLIO</h2>
+    <p class="hint" style="margin-bottom:10px;">CLICCA UN PROBLEMA A SINISTRA, POI IL CONSIGLIO GIUSTO A DESTRA.</p>
+    <div class="match-area">
+      <div id="m-left"></div>
+      <div id="m-right"></div>
+    </div>
+    <div class="feedback" id="ex3-fb"></div>
+  </section>
+
+  <!-- 13 LUOGHI E PERSONE -->
+  <section class="slide">
+    <h2>DOVE VADO? &bull; CHI MI AIUTA?</h2>
+    <div class="grid g4">
+      <div class="card"><span class="emoji">🏥</span><b>L'OSPEDALE</b></div>
+      <div class="card"><span class="emoji">💊</span><b>LA FARMACIA</b></div>
+      <div class="card"><span class="emoji">🩺</span><b>L'AMBULATORIO</b></div>
+      <div class="card"><span class="emoji">🚑</span><b>IL PRONTO SOCCORSO</b></div>
+      <div class="card"><span class="emoji">👨‍⚕️</span><b>IL MEDICO</b></div>
+      <div class="card"><span class="emoji">👩‍⚕️</span><b>L'INFERMIERA</b></div>
+      <div class="card"><span class="emoji">🦷</span><b>IL DENTISTA</b></div>
+      <div class="card"><span class="emoji">👶</span><b>IL PEDIATRA</b></div>
+    </div>
+  </section>
+
+  <!-- 14 CITTADINANZA -->
+  <section class="slide">
+    <h2>IN ITALIA: COSE UTILI 🇮🇹</h2>
+    <div class="nota">
+      <p>🆔 <b>LA TESSERA SANITARIA</b>: LA PORTO SEMPRE DAL MEDICO E IN FARMACIA.</p>
+      <p style="margin-top:14px;">👨‍⚕️ <b>IL MEDICO DI BASE</b>: È IL MIO MEDICO. È GRATIS.</p>
+      <p style="margin-top:14px;">📞 <b>NUMERO DI EMERGENZA: 112</b> — SOLO PER URGENZE GRAVI!</p>
+      <p style="margin-top:14px;">🟢 <b>FARMACIA DI TURNO</b>: APERTA LA NOTTE E LA DOMENICA.</p>
+    </div>
+  </section>
+
+  <!-- 15 ESERCIZIO 4: quiz -->
+  <section class="slide">
+    <span class="ex-tag">ESERCIZIO 4 &bull; QUIZ FINALE</span>
+    <h2>SCEGLI LA RISPOSTA GIUSTA</h2>
+    <p class="q" id="ex4-q"></p>
+    <div class="opts" id="ex4-opts"></div>
+    <div class="feedback" id="ex4-fb"></div>
+    <p class="counter" id="ex4-prog" style="margin-top:8px;"></p>
+  </section>
+
+  <!-- 16 FINE -->
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA SAI PARLARE DEL CORPO E ANDARE DAL DOTTORE!</p>
+    <span class="badge">ADESSO APRIAMO IL QUADERNO DEGLI ESERCIZI ✏️</span>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter">1 / 16</span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== FIGURA SVG (inline) ====== */
+const FIG_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 720" font-family="Arial">
+<style>.num{fill:#1565C0}.numtxt{fill:#fff;font-size:20px;font-weight:bold;text-anchor:middle}.lbl{fill:#0D2B45;font-size:18px;font-weight:bold}.lead2{stroke:#1565C0;stroke-width:2;fill:none}.bd{fill:#F2C9A0;stroke:#C98A5E;stroke-width:3}.hr{fill:#5A3A22}.fc{fill:#3A2A1A}.sh{fill:#7EC8E3;stroke:#3F9CBF;stroke-width:3}.pt{fill:#3F6FB0;stroke:#284D80;stroke-width:3}</style>
+<path class="hr" d="M232 70 q48 -52 96 0 q6 18 -6 30 q-10 -28 -42 -30 q-32 2 -42 30 q-12 -12 -6 -30 z"/>
+<ellipse class="bd" cx="280" cy="98" rx="46" ry="52"/>
+<circle class="fc" cx="263" cy="92" r="5"/><circle class="fc" cx="297" cy="92" r="5"/>
+<path d="M280 98 l-5 14 h10 z" fill="none" stroke="#3A2A1A" stroke-width="2.5"/>
+<path d="M268 122 q12 12 24 0" fill="none" stroke="#B5503A" stroke-width="3"/>
+<ellipse class="bd" cx="234" cy="100" rx="8" ry="13"/><ellipse class="bd" cx="326" cy="100" rx="8" ry="13"/>
+<rect class="bd" x="266" y="146" width="28" height="26"/>
+<path class="sh" d="M210 178 q70 -22 140 0 l-14 180 h-112 z"/>
+<path class="sh" d="M214 182 q-34 12 -44 70 l-14 96 28 6 18 -92 q8 -40 24 -56 z"/>
+<path class="sh" d="M346 182 q34 12 44 70 l14 96 -28 6 -18 -92 q-8 -40 -24 -56 z"/>
+<ellipse class="bd" cx="170" cy="372" rx="20" ry="24"/><ellipse class="bd" cx="390" cy="372" rx="20" ry="24"/>
+<line x1="160" y1="388" x2="158" y2="404" stroke="#C98A5E" stroke-width="3"/><line x1="170" y1="392" x2="170" y2="408" stroke="#C98A5E" stroke-width="3"/><line x1="180" y1="388" x2="183" y2="404" stroke="#C98A5E" stroke-width="3"/>
+<line x1="380" y1="388" x2="378" y2="404" stroke="#C98A5E" stroke-width="3"/><line x1="390" y1="392" x2="390" y2="408" stroke="#C98A5E" stroke-width="3"/><line x1="400" y1="388" x2="403" y2="404" stroke="#C98A5E" stroke-width="3"/>
+<path class="pt" d="M224 354 h112 l-6 130 -22 150 -30 0 -6 -150 -6 150 -30 0 -22 -150 z"/>
+<ellipse class="bd" cx="252" cy="648" rx="26" ry="16"/><ellipse class="bd" cx="308" cy="648" rx="26" ry="16"/>
+<line class="lead2" x1="280" y1="58" x2="120" y2="40"/><circle class="num" cx="100" cy="40" r="16"/><text class="numtxt" x="100" y="47">1</text>
+<line class="lead2" x1="240" y1="98" x2="120" y2="120"/><circle class="num" cx="100" cy="120" r="16"/><text class="numtxt" x="100" y="127">2</text>
+<line class="lead2" x1="263" y1="92" x2="120" y2="200"/><circle class="num" cx="100" cy="200" r="16"/><text class="numtxt" x="100" y="207">3</text>
+<line class="lead2" x1="280" y1="108" x2="120" y2="280"/><circle class="num" cx="100" cy="280" r="16"/><text class="numtxt" x="100" y="287">4</text>
+<line class="lead2" x1="280" y1="124" x2="120" y2="360"/><circle class="num" cx="100" cy="360" r="16"/><text class="numtxt" x="100" y="367">5</text>
+<line class="lead2" x1="234" y1="100" x2="120" y2="440"/><circle class="num" cx="100" cy="440" r="16"/><text class="numtxt" x="100" y="447">6</text>
+<line class="lead2" x1="176" y1="250" x2="120" y2="520"/><circle class="num" cx="100" cy="520" r="16"/><text class="numtxt" x="100" y="527">7</text>
+<line class="lead2" x1="170" y1="372" x2="120" y2="600"/><circle class="num" cx="100" cy="600" r="16"/><text class="numtxt" x="100" y="607">8</text>
+<line class="lead2" x1="294" y1="158" x2="440" y2="120"/><circle class="num" cx="460" cy="120" r="16"/><text class="numtxt" x="460" y="127">9</text>
+<line class="lead2" x1="344" y1="182" x2="440" y2="190"/><circle class="num" cx="460" cy="190" r="16"/><text class="numtxt" x="460" y="197">10</text>
+<line class="lead2" x1="300" y1="230" x2="440" y2="260"/><circle class="num" cx="460" cy="260" r="16"/><text class="numtxt" x="460" y="267">11</text>
+<line class="lead2" x1="300" y1="320" x2="440" y2="330"/><circle class="num" cx="460" cy="330" r="16"/><text class="numtxt" x="460" y="337">12</text>
+<line class="lead2" x1="390" y1="400" x2="440" y2="400"/><circle class="num" cx="460" cy="400" r="16"/><text class="numtxt" x="460" y="407">13</text>
+<line class="lead2" x1="320" y1="470" x2="440" y2="470"/><circle class="num" cx="460" cy="470" r="16"/><text class="numtxt" x="460" y="477">14</text>
+<line class="lead2" x1="316" y1="520" x2="440" y2="545"/><circle class="num" cx="460" cy="545" r="16"/><text class="numtxt" x="460" y="552">15</text>
+<line class="lead2" x1="308" y1="648" x2="440" y2="630"/><circle class="num" cx="460" cy="630" r="16"/><text class="numtxt" x="460" y="637">16</text>
+</svg>`;
+document.getElementById('figura-box').innerHTML = FIG_SVG;
+
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+
+/* ====== ESERCIZIO 1: clicca la parte ====== */
+const ex1parts=['LA TESTA','LA MANO','IL PIEDE','IL NASO','LA BOCCA','LA GAMBA','GLI OCCHI','LA PANCIA'];
+let ex1target;
+function ex1new(){
+  const opts=document.getElementById('ex1-opts'); opts.innerHTML='';
+  const pool=[...ex1parts].sort(()=>Math.random()-.5).slice(0,6);
+  ex1target=pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById('ex1-target').textContent=ex1target;
+  document.getElementById('ex1-fb').textContent='';
+  pool.forEach(p=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=p;
+    b.onclick=()=>{
+      const fb=document.getElementById('ex1-fb');
+      if(p===ex1target){b.classList.add('ok'); fb.textContent='✓ BRAVO! GIUSTO!'; fb.className='feedback good'; setTimeout(ex1new,1100);}
+      else{b.classList.add('no'); fb.textContent='✗ NO, RIPROVA!'; fb.className='feedback bad';}
+    };
+    opts.appendChild(b);
+  });
+}
+ex1new();
+
+/* ====== ESERCIZIO 2: mi fa male / mi fanno male ====== */
+const ex2items=[
+  {t:'_____ LA TESTA.',a:'MI FA MALE'},
+  {t:'_____ I PIEDI.',a:'MI FANNO MALE'},
+  {t:'_____ LE GAMBE.',a:'MI FANNO MALE'},
+  {t:'_____ LO STOMACO.',a:'MI FA MALE'},
+  {t:'_____ I DENTI.',a:'MI FANNO MALE'},
+  {t:'_____ LA SCHIENA.',a:'MI FA MALE'},
+];
+let ex2i=0, ex2ok=0;
+function ex2render(){
+  const it=ex2items[ex2i];
+  document.getElementById('ex2-q').innerHTML=it.t;
+  document.getElementById('ex2-fb').textContent='';
+  document.getElementById('ex2-prog').textContent='DOMANDA '+(ex2i+1)+' / '+ex2items.length+'  •  PUNTI: '+ex2ok;
+  const opts=document.getElementById('ex2-opts'); opts.innerHTML='';
+  ['MI FA MALE','MI FANNO MALE'].forEach(o=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+    b.onclick=()=>{
+      const fb=document.getElementById('ex2-fb');
+      if(o===it.a){b.classList.add('ok'); fb.textContent='✓ GIUSTO!'; fb.className='feedback good'; ex2ok++;
+        ex2i=(ex2i+1)%ex2items.length; setTimeout(ex2render,900);}
+      else{b.classList.add('no'); fb.textContent='✗ RIPROVA!'; fb.className='feedback bad';}
+    };
+    opts.appendChild(b);
+  });
+}
+ex2render();
+
+/* ====== ESERCIZIO 3: abbina problema -> consiglio ====== */
+const pairs=[
+  {p:'HO LA FEBBRE',c:'STIA A RIPOSO'},
+  {p:'HO MAL DI GOLA',c:'BEVA ACQUA CALDA'},
+  {p:'HO MAL DI DENTI',c:'VADA DAL DENTISTA'},
+  {p:'HO MAL DI TESTA',c:'PRENDA UNA PASTIGLIA'},
+];
+let selLeft=null, done3=0;
+function ex3render(){
+  const L=document.getElementById('m-left'), R=document.getElementById('m-right');
+  L.innerHTML='<p class="hint">PROBLEMA</p>'; R.innerHTML='<p class="hint">CONSIGLIO</p>';
+  const rights=[...pairs].sort(()=>Math.random()-.5);
+  pairs.forEach(pr=>{
+    const d=document.createElement('div'); d.className='chip'; d.textContent=pr.p; d.dataset.key=pr.p;
+    d.onclick=()=>{ if(d.classList.contains('done'))return;
+      document.querySelectorAll('#m-left .chip').forEach(x=>x.classList.remove('sel'));
+      d.classList.add('sel'); selLeft=pr.p; };
+    L.appendChild(d);
+  });
+  rights.forEach(pr=>{
+    const d=document.createElement('div'); d.className='chip'; d.textContent=pr.c; d.dataset.key=pr.p;
+    d.onclick=()=>{ if(d.classList.contains('done'))return;
+      const fb=document.getElementById('ex3-fb');
+      if(selLeft && selLeft===pr.p){
+        d.classList.add('done');
+        document.querySelector('#m-left .chip[data-key="'+CSS.escape(pr.p)+'"]').classList.add('done');
+        document.querySelector('#m-left .chip.sel')?.classList.remove('sel');
+        selLeft=null; done3++;
+        fb.textContent='✓ GIUSTO!'; fb.className='feedback good';
+        if(done3===pairs.length){fb.textContent='🎉 PERFETTO! TUTTO ABBINATO!';}
+      } else { fb.textContent='✗ PRIMA SCEGLI UN PROBLEMA A SINISTRA!'; fb.className='feedback bad'; }
+    };
+    R.appendChild(d);
+  });
+}
+ex3render();
+
+/* ====== ESERCIZIO 4: quiz finale ====== */
+const quiz=[
+  {q:'HO MAL DI TESTA. DOVE VADO?',o:['IN FARMACIA','AL SUPERMERCATO','A SCUOLA'],a:'IN FARMACIA'},
+  {q:'IL NUMERO DI EMERGENZA È...',o:['112','100','333'],a:'112'},
+  {q:'IL MEDICO DICE: "_____ MOLTA ACQUA".',o:['BEVA','MANGIA','DORME'],a:'BEVA'},
+  {q:'PORTO SEMPRE DAL MEDICO LA...',o:['TESSERA SANITARIA','PIZZA','VALIGIA'],a:'TESSERA SANITARIA'},
+  {q:'"MI FANNO MALE..." + ?',o:['I PIEDI','LA TESTA','LA PANCIA'],a:'I PIEDI'},
+];
+let q4=0, ok4=0;
+function ex4render(){
+  const it=quiz[q4];
+  document.getElementById('ex4-q').textContent=it.q;
+  document.getElementById('ex4-fb').textContent='';
+  document.getElementById('ex4-prog').textContent='DOMANDA '+(q4+1)+' / '+quiz.length+'  •  PUNTI: '+ok4;
+  const opts=document.getElementById('ex4-opts'); opts.innerHTML='';
+  [...it.o].sort(()=>Math.random()-.5).forEach(o=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+    b.onclick=()=>{
+      const fb=document.getElementById('ex4-fb');
+      if(o===it.a){b.classList.add('ok'); fb.textContent='✓ GIUSTO!'; fb.className='feedback good'; ok4++;
+        if(q4<quiz.length-1){q4++; setTimeout(ex4render,950);}
+        else{fb.textContent='🎉 FINITO! PUNTI: '+ok4+' / '+quiz.length;}}
+      else{b.classList.add('no'); fb.textContent='✗ RIPROVA!'; fb.className='feedback bad';}
+    };
+    opts.appendChild(b);
+  });
+}
+ex4render();
+
+show(0);
+</script>
+</body>
+</html>

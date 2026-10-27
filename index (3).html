@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ESCAPE ROOM: IL TRENO DELLE 18:00</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EAF0F6; --paper:#FFFFFF; --ink:#16212E; --muted:#4A5868;
+  --sea:#0E4C92; --sea-ink:#FFFFFF; --bus:#F2B705; --line:#B9C6D4;
+  --ok:#2E7D32; --no:#C62828; --road:#8C96A3; --block:#DDE6EF;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1826; --paper:#15253A; --ink:#EEF3F8; --muted:#A9B7C6;
+    --sea:#2F6FB8; --sea-ink:#FFFFFF; --line:#34506F; --road:#51606F; --block:#1E3350;
+    --ok:#66BB6A; --no:#EF6C6C;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1826; --paper:#15253A; --ink:#EEF3F8; --muted:#A9B7C6;
+  --sea:#2F6FB8; --sea-ink:#FFFFFF; --line:#34506F; --road:#51606F; --block:#1E3350;
+  --ok:#66BB6A; --no:#EF6C6C;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Atkinson Hyperlegible',Verdana,Tahoma,sans-serif;
+  text-transform:uppercase;font-size:19px;line-height:1.45}
+header{background:var(--sea);color:var(--sea-ink);padding:16px 20px 12px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:900px;margin:0 auto}
+h1{margin:0;font-size:clamp(22px,4.5vw,34px);line-height:1.1}
+.clock{background:var(--bus);color:#16212E;font-weight:700;font-size:clamp(26px,5vw,40px);
+  padding:4px 14px;border-radius:8px;font-variant-numeric:tabular-nums;min-width:4.2ch;text-align:center}
+.clock.late{background:#FF6B6B;color:#fff}
+.linewrap{overflow-x:auto;max-width:900px;margin:14px auto 0}
+.linemap{display:flex;min-width:620px;position:relative;padding:0 6px}
+.linemap::before{content:"";position:absolute;left:40px;right:40px;top:14px;height:6px;background:rgba(255,255,255,.35);border-radius:3px}
+.stop{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;text-align:center}
+.dot{width:34px;height:34px;border-radius:50%;background:var(--sea);border:4px solid rgba(255,255,255,.55);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;z-index:1}
+.stop.done .dot{background:var(--bus);border-color:var(--bus);color:#16212E}
+.stop.now .dot{background:#fff;color:var(--sea);border-color:var(--bus);transform:scale(1.2)}
+.stop span{font-size:12px;line-height:1.2;margin-top:6px;opacity:.85;max-width:90px}
+.stop.now span{opacity:1;font-weight:700}
+main{max-width:900px;margin:0 auto;padding:18px 16px 40px}
+.card{background:var(--paper);border-radius:16px;padding:20px;border:2px solid var(--line)}
+.where{color:var(--muted);font-size:16px;margin:0 0 4px;font-weight:700}
+h2{margin:0 0 10px;font-size:clamp(24px,4vw,30px);line-height:1.15}
+.instr{margin:0 0 16px;font-size:20px}
+.row{padding:12px 12px 12px 14px;border-left:6px solid var(--line);margin:0 0 12px;border-radius:4px;background:color-mix(in srgb,var(--bg) 50%,transparent)}
+.row.ok{border-left-color:var(--ok)} .row.no{border-left-color:var(--no)}
+.q{margin:0 0 8px;font-size:21px}
+.blank{display:inline-block;min-width:3.5ch;border-bottom:3px solid var(--sea);text-align:center;font-weight:700;color:var(--sea);padding:0 4px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+button{font:inherit;text-transform:uppercase;cursor:pointer}
+.opt{min-height:48px;padding:8px 16px;border-radius:10px;border:2px solid var(--line);background:var(--paper);color:var(--ink);font-size:19px;font-weight:700}
+.opt[aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:#fff}
+.opt:disabled{opacity:.35;cursor:default}
+.go{min-height:52px;padding:10px 22px;border-radius:12px;border:none;background:var(--bus);color:#16212E;font-size:20px;font-weight:700}
+.ghost{min-height:48px;padding:8px 18px;border-radius:12px;border:2px solid var(--line);background:transparent;color:var(--ink);font-size:17px;font-weight:700}
+button:focus-visible,[tabindex]:focus-visible{outline:4px solid var(--bus);outline-offset:3px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;align-items:center}
+.fb{margin:12px 0 0;font-weight:700;font-size:20px;min-height:1.4em}
+.fb.no{color:var(--no)} .fb.ok{color:var(--ok)}
+.hint{margin-top:12px;padding:12px 14px;border-radius:10px;border:2px dashed var(--bus);font-size:18px}
+.win{text-align:center;padding:10px 0}
+.big{font-size:clamp(64px,14vw,110px);font-weight:700;line-height:1;color:var(--sea);margin:8px 0}
+.ticket{margin-top:18px;background:var(--paper);border:2px dashed var(--muted);border-radius:14px;padding:14px 16px}
+.ticket p{margin:0 0 10px;font-weight:700;font-size:17px;color:var(--muted)}
+.slots{display:flex;gap:8px;flex-wrap:wrap}
+.slot{width:52px;height:60px;border-radius:8px;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;
+  font-size:32px;font-weight:700;color:var(--muted)}
+.slot.full{background:var(--bus);border-color:var(--bus);color:#16212E}
+.steps{margin:0 0 14px;padding-left:28px;font-size:20px}
+.steps li{margin-bottom:4px}
+.mapbox{max-width:420px;margin:0 auto}
+.mapbox svg{width:100%;height:auto;display:block}
+.blk{cursor:pointer}
+.blk rect{fill:var(--block);stroke:var(--line);stroke-width:2}
+.blk:hover rect,.blk:focus rect{stroke:var(--sea);stroke-width:4}
+.blk.no rect{fill:#F6C9C9} .blk.ok rect{fill:#BFE3C1}
+.blk text{fill:var(--ink);font-family:inherit;font-weight:700}
+.road{fill:var(--road)}
+.dialog{list-style:none;padding:0;margin:0 0 12px;counter-reset:n}
+.dialog li{counter-increment:n;padding:10px 12px;margin-bottom:8px;border-radius:10px;border:2px solid var(--line);font-size:19px}
+.dialog li::before{content:counter(n) ". ";font-weight:700;color:var(--sea)}
+.dialog li.ok{border-color:var(--ok)} .dialog li.no{border-color:var(--no)}
+.dialog:empty::after{content:"TOCCA LE FRASI QUI SOTTO NELL'ORDINE GIUSTO.";color:var(--muted);font-size:17px}
+.pool{display:flex;flex-direction:column;gap:8px}
+.pool .opt{text-align:left;font-weight:400}
+.who{font-weight:700;color:var(--sea)}
+.table-wrap{overflow-x:auto;margin:0 0 16px}
+table{border-collapse:collapse;min-width:320px;font-size:20px}
+th,td{border:2px solid var(--line);padding:8px 14px;text-align:center}
+th{background:var(--sea);color:#fff}
+.lock{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.lock input{font:inherit;font-size:36px;font-weight:700;letter-spacing:.3em;width:8.5ch;padding:8px 12px;border-radius:10px;
+  border:3px solid var(--sea);background:var(--paper);color:var(--ink);text-align:center}
+.intro p{font-size:20px;margin:0 0 12px}
+.small{font-size:16px;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <h1>🚆 IL TRENO DELLE 18:00</h1>
+    <div class="clock" id="clock" aria-live="off">40:00</div>
+  </div>
+  <div class="linewrap"><div class="linemap" id="linemap"></div></div>
+</header>
+<main>
+  <div class="card" id="stage"></div>
+  <div class="ticket" id="ticket">
+    <p>🎫 IL TUO BIGLIETTO: I NUMERI SEGRETI</p>
+    <div class="slots" id="slots"></div>
+  </div>
+</main>
+
+<script>
+const STAGES = [
+  {
+    place:"PIAZZA DEL FERRARESE", short:"FERRARESE",
+    title:"GLI ARTICOLI DELLA CITTÀ",
+    instr:"SCEGLI L'ARTICOLO GIUSTO PER OGNI PAROLA.",
+    hint:"LO + S E UNA CONSONANTE (LO STADIO). L' + VOCALE (L'OSPEDALE). GLI + VOCALE AL PLURALE (GLI UFFICI).",
+    digit:4, type:"rows",
+    rows:[
+      {q:"___ STAZIONE", o:["IL","LO","LA","L'"], a:"LA"},
+      {q:"___ STADIO", o:["IL","LO","LA","L'"], a:"LO"},
+      {q:"___ OSPEDALE", o:["IL","LO","LA","L'"], a:"L'"},
+      {q:"___ SEMAFORO", o:["IL","LO","LA","L'"], a:"IL"},
+      {q:"___ AUTOBUS", o:["IL","LO","LA","L'"], a:"L'"},
+      {q:"___ FERMATE", o:["I","GLI","LE"], a:"LE"},
+      {q:"___ NEGOZI", o:["I","GLI","LE"], a:"I"},
+      {q:"___ UFFICI", o:["I","GLI","LE"], a:"GLI"}
+    ]
+  },
+  {
+    place:"PIAZZA MERCANTILE", short:"MERCANTILE",
+    title:"DOVE VAI?",
+    instr:"LEGGI LA FRASE E SCEGLI IL POSTO GIUSTO.",
+    hint:"DOVE COMPRI LE MEDICINE? DOVE PARTONO I TRENI? DOVE COMPRI IL GIORNALE?",
+    digit:7, type:"rows",
+    rows:[
+      {q:"VOGLIO SPEDIRE UNA LETTERA. VADO ALLA ___.", o:["POSTA","BANCA","FARMACIA"], a:"POSTA"},
+      {q:"HO MAL DI TESTA. VADO IN ___.", o:["PIZZERIA","FARMACIA","STAZIONE"], a:"FARMACIA"},
+      {q:"DEVO PRENDERE I SOLDI. VADO IN ___.", o:["BANCA","CHIESA","EDICOLA"], a:"BANCA"},
+      {q:"VOGLIO COMPRARE IL GIORNALE. VADO IN ___.", o:["EDICOLA","PANETTERIA","BANCA"], a:"EDICOLA"},
+      {q:"PARTO PER ROMA. VADO IN ___.", o:["POSTA","STAZIONE","FARMACIA"], a:"STAZIONE"}
+    ]
+  },
+  {
+    place:"TEATRO PETRUZZELLI", short:"PETRUZZELLI",
+    title:"LEGGI LA MAPPA",
+    instr:"SEI ALLA STELLA ⭐, TRA LA POSTA E IL SUPERMERCATO. LEGGI LE INDICAZIONI E TOCCA IL POSTO DOVE ARRIVI.",
+    hint:"NON PRENDERE LA PRIMA STRADA A DESTRA: CONTINUA DRITTO FINO ALLA SECONDA.",
+    digit:9, type:"map",
+    steps:["VAI DRITTO.","PRENDI LA SECONDA STRADA A DESTRA.","ALL'INCROCIO GIRA A SINISTRA.","IL POSTO È SULLA DESTRA."],
+    answer:"MUSEO"
+  },
+  {
+    place:"CORSO CAVOUR", short:"CAVOUR",
+    title:"CHIEDERE INDICAZIONI",
+    instr:"METTI IN ORDINE IL DIALOGO TRA IL TURISTA E LA SIGNORA.",
+    hint:"IL TURISTA COMINCIA CON «SCUSI». LA SIGNORA FINISCE CON «PREGO».",
+    digit:5, type:"order",
+    lines:[
+      ["TURISTA","SCUSI, DOV'È LA FERMATA DELL'AUTOBUS?"],
+      ["SIGNORA","VADA DRITTO E GIRI A DESTRA."],
+      ["TURISTA","È LONTANO?"],
+      ["SIGNORA","NO, È VICINO: CINQUE MINUTI A PIEDI."],
+      ["TURISTA","GRAZIE MILLE!"],
+      ["SIGNORA","PREGO!"]
+    ]
+  },
+  {
+    place:"VIA SPARANO", short:"SPARANO",
+    title:"COME CI VAI?",
+    instr:"A O IN? SCEGLI LA PAROLA GIUSTA.",
+    hint:"A PIEDI, A CASA, A + CITTÀ (A ROMA). IN + MEZZO DI TRASPORTO (IN AUTOBUS, IN TRENO). IN CENTRO.",
+    digit:3, type:"rows",
+    rows:[
+      {q:"VADO ___ PIEDI.", o:["A","IN"], a:"A"},
+      {q:"VADO ___ AUTOBUS.", o:["A","IN"], a:"IN"},
+      {q:"TORNO ___ CASA.", o:["A","IN"], a:"A"},
+      {q:"VIAGGIO ___ TRENO.", o:["A","IN"], a:"IN"},
+      {q:"DOMANI VADO ___ ROMA.", o:["A","IN"], a:"A"},
+      {q:"STASERA VADO ___ CENTRO.", o:["A","IN"], a:"IN"}
+    ]
+  },
+  {
+    place:"FERMATA DELL'AUTOBUS", short:"FERMATA",
+    title:"L'ORARIO DELL'AUTOBUS",
+    instr:"LEGGI L'ORARIO E RISPONDI.",
+    hint:"L'AUTOBUS DELLE 17:25 È GIÀ PARTITO. 17:40 + 12 MINUTI = ?",
+    digit:8, type:"rows",
+    extra:`<div class="table-wrap"><table>
+      <tr><th colspan="4">🚌 AUTOBUS 12: PARTENZE PER LA STAZIONE</th></tr>
+      <tr><td>17:10</td><td>17:25</td><td>17:40</td><td>17:55</td></tr>
+      <tr><td colspan="4">IL VIAGGIO DURA 12 MINUTI.</td></tr></table></div>`,
+    rows:[
+      {q:"ADESSO SONO LE 17:30. PRENDO L'AUTOBUS DELLE ___.", o:["17:25","17:40","17:55"], a:"17:40"},
+      {q:"ARRIVO IN STAZIONE ALLE ___.", o:["17:37","17:52","18:07"], a:"17:52"},
+      {q:"IL TRENO PARTE ALLE 18:00. ARRIVO IN TEMPO? ___.", o:["SÌ","NO"], a:"SÌ"}
+    ]
+  }
+];
+const CODE = STAGES.map(s=>s.digit).join("");
+const FINAL = {short:"STAZIONE"};
+
+let current = -1, found = [], secs = 2400, total = 2400, timerId = null, finished = false;
+const $ = id => document.getElementById(id);
+const stage = $("stage");
+
+function fmt(s){const m=Math.floor(Math.max(s,0)/60), r=Math.max(s,0)%60;return String(m).padStart(2,"0")+":"+String(r).padStart(2,"0")}
+function tick(){
+  secs--; $("clock").textContent = fmt(secs);
+  if(secs<=300) $("clock").classList.add("late");
+  if(secs<=0){clearInterval(timerId); $("clock").textContent="00:00";
+    const b=document.createElement("p");b.className="fb no";b.textContent="⏰ TEMPO FINITO! CONTINUATE PER FINIRE IL GIOCO.";stage.prepend(b);}
+}
+function renderLine(){
+  const all=[...STAGES.map(s=>s.short),FINAL.short];
+  $("linemap").innerHTML = all.map((n,i)=>{
+    const cls = i<found.length ? "done" : (i===current ? "now" : "");
+    const mark = i===all.length-1 ? "🚆" : (i<found.length ? "✓" : i+1);
+    return `<div class="stop ${cls}"><div class="dot">${mark}</div><span>${n}</span></div>`;
+  }).join("");
+}
+function renderTicket(){
+  $("slots").innerHTML = STAGES.map((s,i)=>`<div class="slot ${found[i]!==undefined?"full":""}">${found[i]!==undefined?found[i]:"?"}</div>`).join("");
+}
+function header(s,i){
+  return `<p class="where">FERMATA ${i+1}: ${s.place}</p><h2>${s.title}</h2><p class="instr">${s.instr}</p>`;
+}
+function hintBox(s,box){
+  const wrap=document.createElement("div");wrap.className="actions";
+  const hb=document.createElement("button");hb.className="ghost";hb.textContent="💡 AIUTO";
+  hb.onclick=()=>{ if(!box.querySelector(".hint")){const h=document.createElement("div");h.className="hint";h.textContent="💡 "+s.hint;box.appendChild(h);} hb.disabled=true; };
+  wrap.appendChild(hb); return wrap;
+}
+
+function intro(){
+  stage.innerHTML = `<div class="intro">
+    <h2>🧳 SEI A BARI VECCHIA</h2>
+    <p>ALLE 18:00 PARTE IL TUO TRENO PER ROMA. DEVI ARRIVARE ALLA STAZIONE CENTRALE!</p>
+    <p>A OGNI FERMATA C'È UN ENIGMA. SE RISPONDI BENE, TROVI UN NUMERO SEGRETO.</p>
+    <p>CON I 6 NUMERI APRI IL LUCCHETTO FINALE 🔒 E PRENDI IL TRENO.</p>
+    <div class="actions">
+      <button class="go" data-m="40">INIZIA: 40 MINUTI</button>
+      <button class="go" data-m="30">INIZIA: 30 MINUTI</button>
+    </div>
+    <p class="small" style="margin-top:14px">LAVORATE IN SQUADRA. POTETE USARE IL PULSANTE «AIUTO».</p></div>`;
+  stage.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{
+    total=secs=+b.dataset.m*60; $("clock").textContent=fmt(secs);
+    timerId=setInterval(tick,1000); go(0);
+  });
+}
+
+function go(i){ current=i; renderLine(); renderTicket(); window.scrollTo({top:0});
+  if(i>=STAGES.length) return finalLock();
+  const s=STAGES[i];
+  if(s.type==="rows") rowsStage(s,i);
+  if(s.type==="map") mapStage(s,i);
+  if(s.type==="order") orderStage(s,i);
+}
+
+function success(i){
+  found[i]=STAGES[i].digit; renderLine(); renderTicket();
+  const last = i===STAGES.length-1;
+  stage.innerHTML = `<div class="win"><h2>👏 BRAVI!</h2><p class="instr">IL NUMERO SEGRETO È:</p>
+    <div class="big">${STAGES[i].digit}</div>
+    <div class="actions" style="justify-content:center"><button class="go" id="next">${last?"🚆 ANDATE ALLA STAZIONE":"🚶 ANDATE ALLA FERMATA "+(i+2)}</button></div></div>`;
+  $("next").onclick=()=>go(i+1); $("next").focus();
+}
+
+function rowsStage(s,i){
+  stage.innerHTML = header(s,i)+(s.extra||"");
+  const sel = s.rows.map(()=>null), rowEls=[];
+  s.rows.forEach((r,k)=>{
+    const row=document.createElement("div");row.className="row";
+    const p=document.createElement("p");p.className="q";
+    const paint=()=>{p.innerHTML=r.q.replace("___",`<span class="blank">${sel[k]||"&nbsp;"}</span>`)};
+    paint();
+    const opts=document.createElement("div");opts.className="opts";
+    r.o.forEach(o=>{const b=document.createElement("button");b.className="opt";b.textContent=o;b.setAttribute("aria-pressed","false");
+      b.onclick=()=>{sel[k]=o;row.classList.remove("ok","no");
+        opts.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));paint();};
+      opts.appendChild(b);});
+    row.append(p,opts);stage.appendChild(row);rowEls.push(row);
+  });
+  const acts=hintBox(s,stage);
+  const chk=document.createElement("button");chk.className="go";chk.textContent="✅ CONTROLLA";
+  acts.prepend(chk);stage.appendChild(acts);
+  const fb=document.createElement("p");fb.className="fb";fb.setAttribute("aria-live","polite");stage.appendChild(fb);
+  chk.onclick=()=>{
+    if(sel.includes(null)){fb.className="fb no";fb.textContent="RISPONDI A TUTTE LE DOMANDE.";return;}
+    let n=0;s.rows.forEach((r,k)=>{const ok=sel[k]===r.a;if(ok)n++;rowEls[k].classList.toggle("ok",ok);rowEls[k].classList.toggle("no",!ok);});
+    if(n===s.rows.length) success(i);
+    else {fb.className="fb no";fb.textContent=`${n} RISPOSTE GIUSTE SU ${s.rows.length}. CORREGGETE LE RISPOSTE ROSSE.`;}
+  };
+}
+
+function mapStage(s,i){
+  const B=[["FARMACIA","💊",0,0],["BANCA","🏦",132,0],["MUSEO","🏛️",252,0],
+           ["SCUOLA","🏫",0,132],["PARCO","🌳",132,132],["OSPEDALE","🏥",252,132],
+           ["POSTA","✉️",0,252],["SUPERMERCATO","🛒",132,252],["BAR","☕",252,252]];
+  const blocks=B.map(([n,e,x,y])=>`<g class="blk" role="button" tabindex="0" data-n="${n}" aria-label="${n}">
+    <rect x="${x}" y="${y}" width="108" height="108" rx="8"/>
+    <text x="${x+54}" y="${y+50}" text-anchor="middle" font-size="34">${e}</text>
+    <text x="${x+54}" y="${y+86}" text-anchor="middle" font-size="${n.length>9?11:14}">${n}</text></g>`).join("");
+  stage.innerHTML = header(s,i)+`<ol class="steps">${s.steps.map(t=>`<li>${t}</li>`).join("")}</ol>
+    <div class="mapbox"><svg viewBox="-4 -4 368 384" role="img" aria-label="MAPPA DEL QUARTIERE">
+      <rect class="road" x="108" y="0" width="24" height="380"/><rect class="road" x="228" y="0" width="24" height="360"/>
+      <rect class="road" x="0" y="108" width="360" height="24"/><rect class="road" x="0" y="228" width="360" height="24"/>
+      ${blocks}
+      <text x="120" y="378" text-anchor="middle" font-size="26">⭐</text>
+    </svg></div>`;
+  const acts=hintBox(s,stage);stage.appendChild(acts);
+  const fb=document.createElement("p");fb.className="fb";fb.setAttribute("aria-live","polite");stage.appendChild(fb);
+  stage.querySelectorAll(".blk").forEach(g=>{
+    const pick=()=>{
+      if(g.dataset.n===s.answer){g.classList.add("ok");fb.className="fb ok";fb.textContent="SÌ! SEI ARRIVATO AL MUSEO.";setTimeout(()=>success(i),900);}
+      else{g.classList.add("no");fb.className="fb no";fb.textContent=`NO, NON È ${g.dataset.n}. RILEGGETE LE INDICAZIONI.`;}
+    };
+    g.addEventListener("click",pick);
+    g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick();}});
+  });
+}
+
+function orderStage(s,i){
+  stage.innerHTML = header(s,i)+`<ol class="dialog" id="ans"></ol><div class="pool" id="pool"></div>`;
+  const acts=hintBox(s,stage);
+  const reset=document.createElement("button");reset.className="ghost";reset.textContent="↺ RICOMINCIA";
+  acts.prepend(reset);stage.appendChild(acts);
+  const fb=document.createElement("p");fb.className="fb";fb.setAttribute("aria-live","polite");stage.appendChild(fb);
+  let order=[];
+  const idx=s.lines.map((_,k)=>k);
+  do{idx.sort(()=>Math.random()-.5)}while(idx.every((v,k)=>v===k));
+  const build=()=>{
+    order=[];$("ans").innerHTML="";$("pool").innerHTML="";fb.textContent="";
+    idx.forEach(k=>{const [w,t]=s.lines[k];const b=document.createElement("button");b.className="opt";
+      b.innerHTML=`<span class="who">${w}:</span> ${t}`;
+      b.onclick=()=>{b.disabled=true;order.push(k);
+        const li=document.createElement("li");li.innerHTML=b.innerHTML;$("ans").appendChild(li);
+        if(order.length===s.lines.length) check();};
+      $("pool").appendChild(b);});
+  };
+  const check=()=>{
+    const lis=[...$("ans").children];let ok=true;
+    order.forEach((k,p)=>{const good=k===p;if(!good)ok=false;lis[p].classList.add(good?"ok":"no");});
+    if(ok) setTimeout(()=>success(i),700);
+    else {fb.className="fb no";fb.textContent="L'ORDINE NON È GIUSTO. PREMETE «RICOMINCIA».";}
+  };
+  reset.onclick=build; build();
+}
+
+function finalLock(){
+  stage.innerHTML = `<p class="where">ULTIMA FERMATA: PIAZZA ALDO MORO</p><h2>🔒 LA STAZIONE CENTRALE</h2>
+    <p class="instr">IL CANCELLO È CHIUSO! SCRIVETE I 6 NUMERI DEL BIGLIETTO, IN ORDINE.</p>
+    <div class="lock"><input id="code" inputmode="numeric" maxlength="6" autocomplete="off" aria-label="CODICE">
+    <button class="go" id="open">🔓 APRI</button></div><p class="fb" id="lfb" aria-live="polite"></p>`;
+  const tryOpen=()=>{
+    if($("code").value.trim()===CODE){
+      clearInterval(timerId);finished=true;found.length=STAGES.length;current=STAGES.length+1;renderLine();
+      const used=total-Math.max(secs,0);
+      stage.innerHTML=`<div class="win"><h2>🎉 CE L'AVETE FATTA!</h2><div class="big">🚆</div>
+        <p class="instr">SIETE SUL TRENO PER ROMA. BUON VIAGGIO!</p>
+        <p class="instr">TEMPO USATO: ${fmt(used)}</p>
+        <div class="actions" style="justify-content:center"><button class="ghost" id="again">↺ GIOCA DI NUOVO</button></div></div>`;
+      $("again").onclick=()=>location.reload();
+    } else {$("lfb").className="fb no";$("lfb").textContent="CODICE SBAGLIATO. CONTROLLATE IL BIGLIETTO.";}
+  };
+  $("open").onclick=tryOpen;
+  $("code").addEventListener("keydown",e=>{if(e.key==="Enter")tryOpen();});
+  $("code").focus();
+}
+
+renderLine(); renderTicket(); intro();
+</script>
+</body>
+</html>
