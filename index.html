@@ -35,6 +35,13 @@
   a.item .icon { font-size: 26px; }
   .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 99px;
          border: 1px solid var(--line); color: var(--muted); margin-left: 6px; vertical-align: middle; }
+  /* Sottosezioni dentro una sezione */
+  details.sub { background: var(--bg); border-radius: 12px; }
+  details.sub summary { padding: 12px 14px; gap: 10px; }
+  details.sub summary strong { font-size: 16px; }
+  details.sub summary::after { font-size: 22px; }
+  details.sub .inner { padding: 0 10px 10px; }
+  details.sub a.item { background: var(--card); }
 </style>
 </head>
 <body>
@@ -110,10 +117,16 @@
       <summary><div class="icon">⏱️</div>
         <div><strong>Livello A1</strong><span>Il presente, la frase, le domande, i punti cardinali…</span></div></summary>
       <div class="inner">
-        <a class="item" href="presente/"><div class="icon">✏️</div>
-          <div><strong>Il presente indicativo <span class="tag">A1</span></strong><span>Presentazione: io lavoro, tu prendi, lui sente</span></div></a>
-        <a class="item" href="presente/esercizi.html"><div class="icon">📱</div>
-          <div><strong>Esercizi sul presente</strong><span>Sul telefono o sul computer: scrivi, controlla, invia</span></div></a>
+        <details class="sub">
+          <summary><div class="icon">✏️</div><div><strong>Verbi</strong><span>Il presente</span></div></summary>
+          <div class="inner">
+            <a class="item" href="presente/"><div class="icon">✏️</div>
+              <div><strong>Il presente indicativo <span class="tag">A1</span></strong><span>Presentazione: io lavoro, tu prendi, lui sente</span></div></a>
+            <a class="item" href="presente/esercizi.html"><div class="icon">📱</div>
+              <div><strong>Esercizi sul presente</strong><span>Sul telefono o sul computer: scrivi, controlla, invia</span></div></a>
+          </div>
+        </details>
+        <!-- Sottosezioni A1: copia un blocco <details class="sub"> (es. Aggettivi, La frase, Orientarsi) -->
       </div>
     </details>
 

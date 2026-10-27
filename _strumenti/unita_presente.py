@@ -200,6 +200,54 @@ MATTEO = ("ALLE 7 MATTEO SI ALZA E FA LA DOCCIA. ALLE 7.30 FA COLAZIONE E FA IL 
 VERBI_MATTEO = eq("si alza", "alza", "fa", "va", "lavora", "pranza", "torna", "cena", "lava", "chatta",
                   "andare", "dormire")
 
+
+# --- Altri esercizi (libro CPIA Venezia) ---
+EA_ITEMS = [("ANNA", "DUE BAMBINI", "ha"), ("TU", "ITALIANO", "sei"), ("NOI", "A CASA", "siamo"), ("VOI", "I SOLDI", "avete"),
+    ("LUI", "L'OMBRELLO", "ha"), ("VOI", "LE SCARPE NUOVE", "avete"), ("LORO", "CINESI", "sono"), ("IO", "MALATO", "sono"),
+    ("LEI", "IN RITARDO", "è"), ("L'AUTOBUS", "SPORCO", "è"), ("I FIORI", "BELLI", "sono"), ("MIO FRATELLO", "LA MOTO", "ha"),
+    ("VOI", "FREDDO", "avete"), ("NOI", "CALDO", "abbiamo"), ("VOI", "AMICI", "siete"), ("NOI", "MOLTI AMICI", "abbiamo"),
+    ("LUI", "TUO FRATELLO", "è"), ("LEI", "TUA SORELLA?", "è"), ("LE PENNE", "ROSSE", "sono"), ("IL PASSAPORTO", "SCADUTO", "è")]
+EA_I, EA_K = verbo(EA_ITEMS)
+NEG = [("TU SEI ALTO", "tu non sei alto"), ("IO SONO MAGRO", "io non sono magro"), ("NOI SIAMO AMICI", "noi non siamo amici"),
+       ("LORO SONO STRANIERI", "loro non sono stranieri"), ("VOI SIETE STANCHI", "voi non siete stanchi"),
+       ("NOI ABBIAMO LA BICICLETTA", "noi non abbiamo la bicicletta"), ("LUI HA IL BIGLIETTO", "lui non ha il biglietto"),
+       ("IO HO 20 ANNI", "io non ho 20 anni|io non ho venti anni"), ("TU HAI I DOCUMENTI", "tu non hai i documenti"),
+       ("LORO HANNO MOLTI FRATELLI", "loro non hanno molti fratelli")]
+def senza_pronome(r):
+    out = []
+    for f in r.split("|"):
+        out.append(f)
+        w = f.split(" ", 1)
+        if w[0] in ("io", "tu", "lui", "lei", "noi", "voi", "loro"): out.append(w[1])
+    return eq(*out)
+EP_I, EP_K = persone([("GUARDA", "LUI/LEI"), ("APRITE", "VOI"), ("ASCOLTIAMO", "NOI"), ("SALGONO", "LORO"), ("TOGLIETE", "VOI"),
+    ("RIEMPIO", "IO"), ("SCENDETE", "VOI"), ("CONOSCONO", "LORO"), ("CAMMINA", "LUI/LEI"), ("VISITI", "TU"), ("CORRETE", "VOI"),
+    ("RACCOLGO", "IO"), ("RICORDI", "TU"), ("BUTTO", "IO"), ("ATTRAVERSI", "TU"), ("PULISCONO", "LORO"), ("STIRATE", "VOI"),
+    ("FAI", "TU"), ("INCONTRIAMO", "NOI"), ("SERVONO", "LORO"), ("SCEGLIETE", "VOI"), ("DICO", "IO"), ("CUCE", "LUI/LEI"),
+    ("NASCONDI", "TU"), ("TROVIAMO", "NOI"), ("PIANGO", "IO"), ("OFFRO", "IO"), ("INDOSSANO", "LORO")])
+EV_I, EV_K = verbo([("(GUARDARE) NOI", "LA TELEVISIONE", "guardiamo"), ("(PARLARE) ANNA", "L'INGLESE", "parla"),
+    ("(LAVORARE) IL SIGNOR ROSSI", "IN UN RISTORANTE", "lavora"), ("(CONOSCERE) IO", "ALDO DA 10 ANNI", "conosco"),
+    ("(FINIRE) NOI", "DI LAVORARE ALLE 5", "finiamo"), ("(PAGARE) OGGI", "NOI", "paghiamo"),
+    ("(CERCARE) NOI", "L'OSPEDALE", "cerchiamo"), ("(STARE) MARA E LISA OGGI", "A CASA", "stanno"),
+    ("(TORNARE) IO E MIA SORELLA", "PER LE 8", "torniamo"), ("(VIVERE) LORO", "DA 5 ANNI IN ITALIA", "vivono"),
+    ("(MANGIARE) MARIO, COSA", "OGGI?", "mangi|mangia"), ("(GIOCARE) I BAMBINI", "AL PARCO", "giocano"),
+    ("(DORMIRE) LA DOMENICA IO", "FINO ALLE 11", "dormo"), ("(ABITARE) PATRIZIA E ROBERTO", "IN VIA PIAVE", "abitano"),
+    ("(ARRIVARE) IO E CARLA", "IN TRENO", "arriviamo")])
+EI_I, EI_K = verbo([("(ANDARE) NOI OGGI", "IN CENTRO", "andiamo"), ("(RIMANERE) IO DOMANI", "A CASA", "rimango"),
+    ("(STARE) LORO", "MOLTO BENE", "stanno"), ("(BERE) VOI", "TROPPI CAFFÈ", "bevete"), ("(DIRE) TU", "DELLE COSE GIUSTE", "dici"),
+    ("(FARE) VOI COSA", "DOMANI?", "fate"), ("(SPEGNERE) VOI", "LA LUCE PRIMA DI USCIRE", "spegnete"),
+    ("(USCIRE) LORO", "SEMPRE TARDI DAL LAVORO", "escono"), ("(VENIRE) LUI", "SEMPRE A CASA MIA", "viene"),
+    ("(SPEDIRE) IO", "DEI SOLDI ALLA MIA FAMIGLIA", "spedisco"), ("(CAPIRE) LUI", "MOLTO MA PARLA POCO", "capisce"),
+    ("(BERE) LORO", "MOLTA ACQUA MINERALE", "bevono"), ("(SALIRE) IO", "SULL'AUTOBUS", "salgo"),
+    ("(TRADURRE) NOI", "IL TESTO", "traduciamo"), ("(SEDERE) LORO", "IN PRIMA FILA", "siedono"),
+    ("(VENIRE) ANCHE LORO", "CON NOI", "vengono")])
+EC_P, EC_K = coniuga([("ASCOLTARE", ["ascolto", "ascolti", "ascolta", "ascoltiamo", "ascoltate", "ascoltano"]),
+    ("RISPONDERE", ["rispondo", "rispondi", "risponde", "rispondiamo", "rispondete", "rispondono"]),
+    ("PARTIRE", ["parto", "parti", "parte", "partiamo", "partite", "partono"]),
+    ("SPEDIRE", ["spedisco", "spedisci", "spedisce", "spediamo", "spedite", "spediscono"]),
+    ("VOLERE", ["voglio", "vuoi", "vuole", "vogliamo", "volete", "vogliono"]),
+    ("SAPERE", ["so", "sai", "sa", "sappiamo", "sapete", "sanno"])], ["IO", "TU", "LUI/LEI", "NOI", "VOI", "LORO"])
+
 PRESENTE = {
  "title": "⏱️ Il presente · Esercizi",
  "store": "presente",
@@ -344,6 +392,20 @@ PRESENTE = {
          frase(["tu"], "mangi gli spaghetti"), frase(["lui", "lei"], "beve il tè"), frase(["tu"], "vai in piscina"),
          frase(["io"], "entro a scuola"), frase(["lui", "lei"], "è felice"), eq("la matita è colorata")]},
 
+  {"part": "Altri esercizi: ripasso"},
+  {"id": "g1", "title": "R · ESSERE o AVERE?", "short": "R · Essere o avere", "type": "text", "w": "s",
+   "cons": "Scrivi il verbo ESSERE o AVERE al presente.", "items": EA_I, "k": EA_K},
+  {"id": "g2", "title": "R · La frase negativa", "short": "R · Frase negativa", "type": "text", "w": "w",
+   "cons": "Scrivi la frase con NON. Esempio: ANNA HA DUE BAMBINI → ANNA NON HA DUE BAMBINI.",
+   "items": [{"q": f"{i}. {q}"} for i, (q, _) in enumerate(NEG, 1)], "k": [senza_pronome(r) for _, r in NEG]},
+  {"id": "g3", "title": "R · Chi è? Scegli la persona", "short": "R · Chi è? (ripasso)", "type": "choice", "opts": P6,
+   "cons": "Per ogni verbo scegli la persona giusta.", "items": EP_I, "k": EP_K},
+  {"id": "g4", "title": "R · Scrivi il verbo giusto", "short": "R · Verbi regolari", "type": "text", "w": "s",
+   "cons": "Scrivi il verbo tra parentesi al presente.", "items": EV_I, "k": EV_K},
+  {"id": "g5", "title": "R · Verbi irregolari", "short": "R · Verbi irregolari", "type": "text", "w": "s",
+   "cons": "Scrivi il verbo tra parentesi al presente.", "items": EI_I, "k": EI_K},
+  {"id": "g6", "title": "R · Coniuga tutto il verbo", "short": "R · Coniuga tutto", "type": "cloze",
+   "cons": "Scrivi il verbo per tutte le persone.", "parts": EC_P, "k": EC_K},
   {"part": "La giornata di Matteo"},
   {"id": "e29", "title": "29 · Trova i verbi", "short": "29 · Trova i verbi", "type": "set", "n": 8,
    "cons": "Leggi il testo. Scrivi 8 verbi diversi che trovi nel testo.", "info": MATTEO,
