@@ -2,9 +2,12 @@ import re
 from genera import eq, has, all_
 
 def g(f):
-    """«sono andato» -> accetta anche andata / andati / andate quando serve: f usa * per la desinenza (andat*)."""
+    """andat* = andato/andata; con siamo/siete o andat§ = andati/andate."""
+    if "§" in f or (f.startswith(("siamo ", "siete ", "ci siamo ", "vi siete ")) and "*" in f):
+        f = f.replace("*", "§")
+        return [f.replace("§", e) for e in "ie"]
     if "*" not in f: return [f]
-    return [f.replace("*", e) for e in "oaie"]
+    return [f.replace("*", e) for e in "oa"]
 
 def k(*forme):
     out = []
@@ -33,7 +36,7 @@ AVERE_PP = [("NOI", "MANGIARE", "mangiamo", "abbiamo mangiato"), ("IO", "PREPARA
             ("IO", "CHIEDERE", "chiedo", "ho chiesto"), ("LUI", "FARE", "fa", "ha fatto"),
             ("VOI", "PULIRE", "pulite", "avete pulito"), ("TU", "LAVARE", "lavi", "hai lavato")]
 ESSERE_PP = [("NOI", "ANDARE", "andiamo", "siamo andat*"), ("IO", "TORNARE", "torno", "sono tornat*"),
-             ("LUI", "ARRIVARE", "arriva", "è arrivato"), ("LORO", "PARTIRE", "partono", "sono partit*"),
+             ("LUI", "ARRIVARE", "arriva", "è arrivato"), ("LORO", "PARTIRE", "partono", "sono partit§"),
              ("VOI", "STARE", "state", "siete stat*"), ("IO", "USCIRE", "esco", "sono uscit*"),
              ("TU", "ENTRARE", "entri", "sei entrat*"), ("VOI", "RIMANERE", "rimanete", "siete rimast*"),
              ("LUI", "CADERE", "cade", "è caduto"), ("IO", "SALIRE", "salgo", "sono salit*"),

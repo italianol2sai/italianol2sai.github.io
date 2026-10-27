@@ -54,6 +54,10 @@ if __name__ == "__main__":
     from unita_cardinali import CARDINALI
     from unita_domande import DOMANDE
     from unita_passato import PASSATO
+    from unita_modali import MODALI
+    from unita_riflessivi import RIFLESSIVI
+    from unita_preposizioni import PREPOSIZIONI
+    from unita_pronomi import PRONOMI
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
@@ -65,3 +69,7 @@ if __name__ == "__main__":
     build("punti-cardinali/esercizi.html", CARDINALI)
     build("domande/esercizi.html", DOMANDE)
     build("passato-prossimo/esercizi.html", PASSATO)
+    build("modali/esercizi.html", MODALI)
+    build("riflessivi/esercizi.html", RIFLESSIVI)
+    build("preposizioni/esercizi.html", PREPOSIZIONI)
+    build("pronomi/esercizi.html", PRONOMI)
