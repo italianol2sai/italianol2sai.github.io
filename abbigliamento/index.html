@@ -3,375 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L'ABBIGLIAMENTO — UNITÀ DIDATTICA A1</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;700;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<title>L'ABBIGLIAMENTO - ITALIANO L2 (A1)</title>
 <style>
   :root{
-    --ink:#20242E;
-    --paper:#FBFAF6;
-    --coral:#E8484B;
-    --coral-soft:#FBE3E3;
-    --teal:#15918A;
-    --teal-soft:#DDF1EF;
-    --gold:#F4B740;
-    --gold-soft:#FBEFCE;
-    --line:#20242E;
-    --muted:#6A6F7A;
+    --blu:#B83B5E; --blu-scuro:#3A1C2A; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FBF1F4; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
   }
-  *{box-sizing:border-box;}
-  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
   body{
-    margin:0;
-    background:#E9E7E0;
-    color:var(--ink);
-    font-family:"Work Sans", -apple-system, "Segoe UI", sans-serif;
-    line-height:1.5;
-    letter-spacing:.01em;
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
   }
-  .sheet{
-    background:var(--paper);
-    width:210mm;
-    min-height:297mm;
-    margin:10px auto;
-    padding:16mm 15mm;
-    box-shadow:0 6px 24px rgba(0,0,0,.18);
-    position:relative;
-    overflow:hidden;
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
   }
-  /* ---------- TYPE ---------- */
-  h1,h2,h3,.tag,.eyebrow,.disp{font-family:"Anton","Archivo",sans-serif;font-weight:400;}
-  .disp{letter-spacing:.02em;}
-  p,li,td,th,label,.body{text-transform:uppercase;}
-  .lower{text-transform:none;}
-  .eyebrow{
-    font-family:"Archivo",sans-serif;font-weight:900;
-    font-size:11px;letter-spacing:.28em;color:var(--coral);
-    text-transform:uppercase;
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
   }
-  /* ---------- COVER ---------- */
-  .cover{ display:flex; flex-direction:column; min-height:265mm; }
-  .topbar{display:flex;justify-content:space-between;align-items:flex-start;}
-  .level-pill{
-    border:2.5px solid var(--ink);background:var(--gold);
-    font-family:"Anton";font-size:30px;line-height:1;
-    padding:10px 16px 8px;border-radius:4px;
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#B83B5E,#F08A5D); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
   }
-  .level-pill small{display:block;font-family:"Archivo";font-weight:900;font-size:9px;letter-spacing:.25em;margin-top:5px;}
-  .brandline{font-family:"Archivo";font-weight:900;font-size:12px;letter-spacing:.2em;text-align:right;}
-  .brandline span{color:var(--coral);}
-  .hangtag-wrap{ flex:1; display:flex; align-items:center; justify-content:center; margin:14px 0;}
-  .hangtag{
-    position:relative; width:340px; max-width:78%;
-    background:#fff;border:3px solid var(--ink);
-    border-radius:14px 14px 18px 18px;
-    padding:40px 26px 30px;text-align:center;
-    box-shadow:8px 9px 0 var(--coral);
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
   }
-  .hangtag::before{
-    content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);
-    width:22px;height:22px;border:3px solid var(--ink);border-radius:50%;background:var(--paper);
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
   }
-  .hangtag .string{position:absolute;top:-46px;left:50%;width:2px;height:48px;background:var(--ink);transform:translateX(-50%) rotate(8deg);transform-origin:bottom;}
-  .hangtag h1{font-size:54px;line-height:.92;margin:18px 0 4px;}
-  .hangtag h1 em{font-style:normal;color:var(--coral);}
-  .hangtag .sub{font-family:"Archivo";font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);}
-  .icon-row{display:flex;gap:14px;justify-content:center;margin-top:18px;}
-  .icon-row svg{width:34px;height:34px;}
-  .obj{
-    border:2.5px solid var(--ink);border-radius:10px;background:var(--teal-soft);
-    padding:16px 20px;margin-top:6px;
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
   }
-  .obj h3{font-size:15px;letter-spacing:.16em;margin:0 0 8px;}
-  .obj ul{margin:0;padding-left:18px;}
-  .obj li{font-size:12.5px;margin-bottom:3px;}
-  .footer-note{font-family:"Archivo";font-weight:600;font-size:9.5px;letter-spacing:.1em;color:var(--muted);text-align:center;margin-top:14px;text-transform:uppercase;}
-  /* ---------- SECTION HEADER ---------- */
-  .sec-head{display:flex;align-items:center;gap:14px;margin:0 0 16px;}
-  .sec-num{
-    flex:none;width:46px;height:46px;border-radius:50%;
-    background:var(--ink);color:var(--paper);
-    font-family:"Anton";font-size:24px;
-    display:flex;align-items:center;justify-content:center;
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
   }
-  .sec-head h2{font-size:30px;line-height:.95;margin:0;letter-spacing:.01em;}
-  .sec-head h2 small{display:block;font-family:"Archivo";font-weight:700;font-size:11px;letter-spacing:.2em;color:var(--coral);margin-bottom:2px;}
-  /* ---------- VOCAB GRID ---------- */
-  .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
-  .vcard{
-    border:2.5px solid var(--ink);border-radius:10px;background:#fff;
-    padding:12px 6px 9px;text-align:center;
-  }
-  .vcard svg{width:46px;height:46px;display:block;margin:0 auto 6px;}
-  .vcard .w{font-family:"Archivo";font-weight:700;font-size:11.5px;letter-spacing:.04em;line-height:1.15;}
-  .vcard .art{font-weight:700;color:var(--coral);}
-  .vcard.t-coral{background:var(--coral-soft);}
-  .vcard.t-teal{background:var(--teal-soft);}
-  .vcard.t-gold{background:var(--gold-soft);}
-  /* ---------- COLORS ---------- */
-  .colors{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
-  .swatch{border:2.5px solid var(--ink);border-radius:10px;overflow:hidden;text-align:center;background:#fff;}
-  .swatch .chip{height:40px;}
-  .swatch .lab{font-family:"Archivo";font-weight:700;font-size:11px;padding:6px 2px;}
-  /* ---------- BOXES ---------- */
-  .box{border:2.5px solid var(--ink);border-radius:10px;padding:16px 18px;background:#fff;}
-  .box.coral{background:var(--coral-soft);}
-  .box.teal{background:var(--teal-soft);}
-  .box.gold{background:var(--gold-soft);}
-  .box h3{font-size:16px;letter-spacing:.12em;margin:0 0 10px;}
-  .grammar-table{width:100%;border-collapse:collapse;}
-  .grammar-table td{border:1.5px solid var(--ink);padding:7px 10px;font-family:"Archivo";font-weight:600;font-size:12.5px;}
-  .grammar-table td:first-child{background:var(--gold);font-weight:900;width:34%;}
-  .chiplist{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
-  .chiplist span{border:2px solid var(--ink);border-radius:20px;padding:5px 12px;font-family:"Archivo";font-weight:700;font-size:12px;background:#fff;}
-  /* ---------- DIALOGUE ---------- */
-  .dialogue{display:flex;flex-direction:column;gap:9px;}
-  .bubble{max-width:78%;border:2.5px solid var(--ink);border-radius:14px;padding:9px 14px;font-family:"Archivo";font-weight:600;font-size:12.5px;}
-  .bubble b{color:var(--coral);}
-  .b-shop{align-self:flex-start;background:var(--teal-soft);border-bottom-left-radius:3px;}
-  .b-cust{align-self:flex-end;background:var(--gold-soft);border-bottom-right-radius:3px;}
-  .who{font-family:"Archivo";font-weight:900;font-size:9px;letter-spacing:.18em;display:block;margin-bottom:3px;color:var(--muted);}
-  /* ---------- EXERCISES ---------- */
-  .ex{margin-bottom:20px;}
-  .ex-q{font-family:"Archivo";font-weight:900;font-size:13px;letter-spacing:.05em;margin:0 0 10px;display:flex;gap:9px;align-items:baseline;}
-  .ex-q .n{background:var(--coral);color:#fff;border-radius:6px;padding:2px 9px;font-family:"Anton";font-size:15px;flex:none;}
-  .fill{display:block;border-bottom:2px dotted var(--ink);min-height:1.5em;margin:6px 0;}
-  .vf-table{width:100%;border-collapse:collapse;}
-  .vf-table td{border-bottom:1.5px solid #cfcdc4;padding:8px 6px;font-family:"Archivo";font-weight:600;font-size:12px;}
-  .vf-table td.opt{text-align:center;width:38px;font-family:"Anton";font-size:16px;}
-  .match{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px;}
-  .match .col p{border:2px solid var(--ink);border-radius:8px;padding:7px 12px;margin:0 0 8px;font-family:"Archivo";font-weight:700;font-size:12px;background:#fff;display:flex;align-items:center;gap:8px;}
-  .match .col p .dot{width:11px;height:11px;border:2px solid var(--ink);border-radius:50%;flex:none;}
-  .match .col.right p{background:var(--teal-soft);}
-  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .season-box{border:2.5px solid var(--ink);border-radius:10px;min-height:120px;padding:10px 12px;}
-  .season-box h4{font-family:"Anton";font-size:18px;margin:0 0 8px;display:flex;align-items:center;gap:8px;}
-  .wordbank{border:2.5px dashed var(--ink);border-radius:10px;padding:12px 14px;background:#fff;margin-bottom:14px;}
-  .wordbank .chiplist span{background:var(--gold-soft);}
-  /* ---------- GAME ---------- */
-  .game-intro{border:2.5px solid var(--ink);border-radius:10px;background:var(--teal-soft);padding:14px 18px;margin-bottom:16px;}
-  .game-intro ol{margin:8px 0 0;padding-left:20px;}
-  .game-intro li{font-family:"Archivo";font-weight:600;font-size:12px;margin-bottom:4px;}
-  .wheel-wrap{text-align:center;margin:10px 0;}
-  .cut-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px dashed var(--ink);border-left:2px dashed var(--ink);}
-  .cut-cell{border-right:2px dashed var(--ink);border-bottom:2px dashed var(--ink);min-height:62px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Archivo";font-weight:700;font-size:11px;padding:6px;}
-  .scissors{font-family:"Archivo";font-weight:700;font-size:10px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin:4px 0 0;}
-  /* ---------- RESOURCES / QR ---------- */
-  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .res-card{border:2.5px solid var(--ink);border-radius:10px;padding:14px;background:#fff;display:flex;gap:14px;align-items:center;}
-  .res-card .qr{width:96px;height:96px;flex:none;border:2px solid var(--ink);border-radius:8px;padding:6px;background:#fff;display:flex;align-items:center;justify-content:center;}
-  .res-card .qr img,.res-card .qr canvas{width:100%!important;height:100%!important;}
-  .res-card h4{font-family:"Anton";font-size:17px;margin:0 0 6px;}
-  .res-card .lnk{font-family:"Work Sans";font-weight:500;font-size:10px;word-break:break-all;text-transform:none;color:var(--teal);}
-  .res-card .desc{font-family:"Archivo";font-weight:600;font-size:11px;margin:0 0 6px;}
-  /* ---------- KEY ---------- */
-  .key-head{background:var(--ink);color:var(--paper);border-radius:10px;padding:10px 16px;font-family:"Anton";font-size:22px;letter-spacing:.04em;margin-bottom:14px;}
-  .key-block{margin-bottom:14px;}
-  .key-block h4{font-family:"Archivo";font-weight:900;font-size:12px;letter-spacing:.06em;color:var(--coral);margin:0 0 5px;}
-  .key-block p{font-family:"Work Sans";font-weight:500;font-size:11.5px;margin:0;}
-  .pagefoot{position:absolute;bottom:8mm;left:0;right:0;text-align:center;font-family:"Archivo";font-weight:600;font-size:9px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;}
-  .print-tip{
-    max-width:210mm;margin:18px auto 6px;padding:12px 18px;border-radius:10px;
-    background:var(--ink);color:#fff;font-family:"Archivo";font-weight:600;font-size:12px;
-    text-align:center;letter-spacing:.04em;text-transform:uppercase;
-  }
-  .print-tip b{color:var(--gold);}
-  @media print{
-    body{background:#fff;}
-    .print-tip{display:none;}
-    .sheet{box-shadow:none;margin:0;width:auto;min-height:auto;page-break-after:always;}
-    .sheet:last-child{page-break-after:auto;}
-  }
-  @page{size:A4;margin:0;}
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
 </style>
 </head>
 <body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LIVELLO A1</span>
+  <span>L'ABBIGLIAMENTO</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
 
-<div class="print-tip">PER STAMPARE: USA <b>CTRL/CMD + P</b> → FORMATO <b>A4</b> → ATTIVA <b>"GRAFICA DI SFONDO"</b> (BACKGROUND GRAPHICS)</div>
+<div class="stage" id="stage">
 
-<!-- ============ PAGINA 1 — COPERTINA ============ -->
-<section class="sheet cover">
-  <div class="topbar">
-    <div class="level-pill">A1<small>ITALIANO L2</small></div>
-    <div class="brandline">UNITÀ DIDATTICA<br><span>● ● ●</span> ITALIANO PER STRANIERI</div>
-  </div>
+  <!-- COPERTINA -->
+  <section class="slide center cover">
+    <div class="big">👗</div>
+    <h1>L'ABBIGLIAMENTO</h1>
+    <p class="lead" style="margin-top:14px;">CHE COSA INDOSSI OGGI?</p>
+    <span class="badge">I VESTITI &bull; I COLORI &bull; AL NEGOZIO</span>
+  </section>
 
-  <div class="hangtag-wrap">
-    <div class="hangtag">
-      <div class="string"></div>
-      <div class="eyebrow">CHE COSA INDOSSI OGGI?</div>
-      <h1>L'ABBIGLI<em>A</em>MENTO</h1>
-      <div class="sub">I VESTITI · I COLORI · AL NEGOZIO</div>
-      <div class="icon-row" id="cover-icons"></div>
+  <!-- OBIETTIVI -->
+  <section class="slide">
+    <h2>CHE COSA IMPARIAMO?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">👕</span><b>I VESTITI</b><span>LA MAGLIETTA, I PANTALONI, LE SCARPE...</span></div>
+      <div class="card"><span class="emoji">🎨</span><b>I COLORI</b><span>ROSSO, BLU, VERDE, NERO...</span></div>
+      <div class="card"><span class="emoji">🧥</span><b>I VERBI</b><span>PORTARE &bull; METTERE &bull; INDOSSARE</span></div>
+      <div class="card"><span class="emoji">🛍️</span><b>AL NEGOZIO</b><span>LA TAGLIA, IL PREZZO, PROVARE</span></div>
     </div>
-  </div>
+  </section>
 
-  <div class="obj">
-    <h3>🎯 OBIETTIVI DELL'UNITÀ</h3>
-    <ul>
-      <li>CONOSCERE IL LESSICO DI BASE DEI VESTITI E DEGLI ACCESSORI</li>
-      <li>USARE I COLORI E I VERBI <b>PORTARE · METTERE · INDOSSARE</b></li>
-      <li>DIRE CHE COSA SI METTE NELLE DIVERSE STAGIONI E OCCASIONI</li>
-      <li>FARE ACQUISTI IN UN NEGOZIO: CHIEDERE LA TAGLIA, IL PREZZO, PROVARE</li>
-    </ul>
-  </div>
+  <!-- VIDEO 1 -->
+  <section class="slide">
+    <h2>🎬 GUARDA E ASCOLTA</h2>
+    <p class="lead" style="margin-bottom:12px;">GUARDA IL VIDEO E ASCOLTA I NOMI DEI VESTITI.</p>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/1tkWXVuVfGQ" title="L'abbigliamento" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  </section>
 
-  <div class="footer-note">CONTIENE: VIDEO · LESSICO ILLUSTRATO · GRAMMATICA · DIALOGO · TESSUTI</div>
-  <div class="pagefoot">L'ABBIGLIAMENTO — ITALIANO A1 · PAGINA 1</div>
-</section>
+  <!-- VESTITI 1 -->
+  <section class="slide">
+    <h2>I VESTITI (1)</h2>
+    <div class="grid g4 vgrid" data-from="0" data-to="8"></div>
+  </section>
 
-<!-- ============ PAGINA 2 — VIDEO + LESSICO ============ -->
-<section class="sheet">
-  <div class="sec-head">
-    <div class="sec-num">1</div>
-    <h2><small>GUARDA & ASCOLTA</small>IL VIDEO</h2>
-  </div>
+  <!-- VESTITI 2 -->
+  <section class="slide">
+    <h2>I VESTITI (2)</h2>
+    <div class="grid g4 vgrid" data-from="8" data-to="16"></div>
+  </section>
 
-  <div class="res-grid" style="margin-bottom:22px;">
-    <div class="res-card">
-      <div class="qr" id="qr-video"></div>
-      <div>
-        <h4>🎬 "L'ABBIGLIAMENTO"</h4>
-        <p class="desc">GUARDA IL VIDEO E ASCOLTA I NOMI DEI VESTITI.</p>
-        <div class="lnk">youtube.com/watch?v=1tkWXVuVfGQ</div>
-      </div>
+  <!-- VIDEO COLORI -->
+  <section class="slide">
+    <h2>🎨 I COLORI: GUARDA IL VIDEO</h2>
+    <p class="lead" style="margin-bottom:12px;">GUARDA IL VIDEO E IMPARA I COLORI IN ITALIANO.</p>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/DQWSaz38ZuI" title="I colori e l'abbigliamento" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  </section>
+
+  <!-- COLORI -->
+  <section class="slide">
+    <h2>I COLORI</h2>
+    <div class="grid g4 colori">
+      <div class="col"><span style="background:#E53935"></span>ROSSO</div>
+      <div class="col"><span style="background:#1E3A8A"></span>BLU</div>
+      <div class="col"><span style="background:#4FC3F7"></span>AZZURRO</div>
+      <div class="col"><span style="background:#2E7D32"></span>VERDE</div>
+      <div class="col"><span style="background:#FDD835"></span>GIALLO</div>
+      <div class="col"><span style="background:#FB8C00"></span>ARANCIONE</div>
+      <div class="col"><span style="background:#F48FB1"></span>ROSA</div>
+      <div class="col"><span style="background:#7B1FA2"></span>VIOLA</div>
+      <div class="col"><span style="background:#6D4C41"></span>MARRONE</div>
+      <div class="col"><span style="background:#9E9E9E"></span>GRIGIO</div>
+      <div class="col"><span style="background:#111"></span>NERO</div>
+      <div class="col"><span style="background:#fff"></span>BIANCO</div>
     </div>
-  </div>
+  </section>
 
-  <div class="sec-head">
-    <div class="sec-num">2</div>
-    <h2><small>IMPARA LE PAROLE</small>I VESTITI</h2>
-  </div>
-  <div class="vgrid" id="vgrid"></div>
-  <div class="pagefoot">L'ABBIGLIAMENTO — ITALIANO A1 · PAGINA 2</div>
-</section>
-
-<!-- ============ PAGINA 3 — COLORI + GRAMMATICA ============ -->
-<section class="sheet">
-  <div class="sec-head">
-    <div class="sec-num">3</div>
-    <h2><small>GUARDA IL VIDEO</small>I COLORI</h2>
-  </div>
-  <div class="res-grid" style="margin-bottom:14px;">
-    <div class="res-card">
-      <div class="qr" id="qr-colori"></div>
-      <div>
-        <h4>🎨 "I COLORI E L'ABBIGLIAMENTO"</h4>
-        <p class="desc">GUARDA IL VIDEO E IMPARA I COLORI IN ITALIANO.</p>
-        <div class="lnk">youtube.com/watch?v=DQWSaz38ZuI</div>
-      </div>
+  <!-- COLORE CAMBIA -->
+  <section class="slide">
+    <h2>📌 IL COLORE CAMBIA CON IL NOME!</h2>
+    <table class="plur">
+      <tr><th></th><th>UNO</th><th>TANTI</th></tr>
+      <tr><td><b>MASCHILE</b></td><td>IL VESTITO ROSS<span class="irr">O</span></td><td>I PANTALONI ROSS<span class="irr">I</span></td></tr>
+      <tr><td><b>FEMMINILE</b></td><td>LA GONNA ROSS<span class="irr">A</span></td><td>LE SCARPE ROSS<span class="irr">E</span></td></tr>
+    </table>
+    <div class="nota" style="margin-top:20px;">
+      VERDE: IL VESTITO VERD<b>E</b> &bull; LA GONNA VERD<b>E</b> &bull; I PANTALONI VERD<b>I</b> &bull; LE SCARPE VERD<b>I</b><br>
+      BLU, ROSA, VIOLA <b>NON CAMBIANO</b>: LA GONNA BLU &bull; I PANTALONI BLU
     </div>
-  </div>
-  <div class="box coral" style="margin-bottom:26px;">
-    <p style="font-family:'Archivo';font-weight:700;font-size:12.5px;margin:0;">📌 ATTENZIONE: IL COLORE CAMBIA CON IL NOME!</p>
-    <p style="font-family:'Archivo';font-weight:600;font-size:12px;margin:8px 0 0;">IL VESTITO ROSS<b style="color:var(--coral)">O</b> · LA GONNA ROSS<b style="color:var(--coral)">A</b> · I PANTALONI ROSS<b style="color:var(--coral)">I</b> · LE SCARPE ROSS<b style="color:var(--coral)">E</b></p>
-  </div>
+  </section>
 
-  <div class="sec-head">
-    <div class="sec-num">4</div>
-    <h2><small>GRAMMATICA</small>I VERBI</h2>
-  </div>
-  <div class="twocol">
-    <div class="box teal">
-      <h3>IL VERBO "PORTARE"</h3>
-      <table class="grammar-table">
-        <tr><td>IO</td><td>PORTO</td></tr>
-        <tr><td>TU</td><td>PORTI</td></tr>
-        <tr><td>LUI / LEI</td><td>PORTA</td></tr>
-        <tr><td>NOI</td><td>PORTIAMO</td></tr>
-        <tr><td>VOI</td><td>PORTATE</td></tr>
-        <tr><td>LORO</td><td>PORTANO</td></tr>
+  <!-- VERBO PORTARE -->
+  <section class="slide">
+    <h2>IL VERBO «PORTARE»</h2>
+    <div class="twocol2">
+      <table class="plur">
+        <tr><td>IO</td><td><b>PORTO</b></td></tr>
+        <tr><td>TU</td><td><b>PORTI</b></td></tr>
+        <tr><td>LUI / LEI</td><td><b>PORTA</b></td></tr>
+        <tr><td>NOI</td><td><b>PORTIAMO</b></td></tr>
+        <tr><td>VOI</td><td><b>PORTATE</b></td></tr>
+        <tr><td>LORO</td><td><b>PORTANO</b></td></tr>
       </table>
-    </div>
-    <div class="box gold">
-      <h3>FRASI UTILI</h3>
-      <p style="font-family:'Archivo';font-weight:600;font-size:12.5px;margin:0;">→ CHE COSA TI METTI PER ANDARE AL MARE?</p>
-      <p style="font-family:'Archivo';font-weight:600;font-size:12.5px;margin:10px 0 0;">← MI METTO IL COSTUME E I SANDALI.</p>
-      <div class="chiplist">
-        <span>IO PORTO…</span><span>IO INDOSSO…</span><span>IO METTO…</span>
-      </div>
-      <p style="font-family:'Archivo';font-weight:600;font-size:11px;margin:12px 0 0;color:var(--muted);">PORTARE = INDOSSARE = METTERSI ADDOSSO</p>
-    </div>
-  </div>
-  <div class="pagefoot">L'ABBIGLIAMENTO — ITALIANO A1 · PAGINA 3</div>
-</section>
-
-<!-- ============ PAGINA 4 — DIALOGO AL NEGOZIO ============ -->
-<section class="sheet">
-  <div class="sec-head">
-    <div class="sec-num">5</div>
-    <h2><small>SITUAZIONE</small>AL NEGOZIO</h2>
-  </div>
-
-  <div class="box" style="margin-bottom:16px;">
-    <div class="dialogue">
-      <div class="bubble b-shop"><span class="who">COMMESSO/A</span>BUONGIORNO! <b>DESIDERA?</b></div>
-      <div class="bubble b-cust"><span class="who">CLIENTE</span>VORREI VEDERE QUELLA CAMICETTA IN VETRINA, PER FAVORE.</div>
-      <div class="bubble b-shop"><span class="who">COMMESSO/A</span><b>CHE TAGLIA PORTA?</b></div>
-      <div class="bubble b-cust"><span class="who">CLIENTE</span>PORTO LA 44.</div>
-      <div class="bubble b-shop"><span class="who">COMMESSO/A</span>ECCO. PUÒ PROVARLA NEL CAMERINO, IN FONDO A DESTRA.</div>
-      <div class="bubble b-cust"><span class="who">CLIENTE</span>MI PIACE IL COLORE! <b>QUANTO COSTA?</b></div>
-      <div class="bubble b-shop"><span class="who">COMMESSO/A</span>35 EURO.</div>
-      <div class="bubble b-cust"><span class="who">CLIENTE</span>VA BENE, LA PRENDO. GRAZIE!</div>
-    </div>
-  </div>
-
-  <div class="box coral">
-    <h3>🗣️ PAROLE PER FARE ACQUISTI</h3>
-    <div class="chiplist">
-      <span>DESIDERA?</span><span>VORREI…</span><span>POSSO PROVARE?</span>
-      <span>CHE TAGLIA PORTA?</span><span>CHE NUMERO PORTA?</span>
-      <span>QUANTO COSTA?</span><span>IL CAMERINO</span><span>LA VETRINA</span>
-      <span>LO SCONTRINO</span><span>LA PRENDO!</span>
-    </div>
-  </div>
-
-  <div class="box teal" style="margin-top:16px;">
-    <h3>🧵 DI CHE TESSUTO È? — I MATERIALI</h3>
-    <div class="chiplist">
-      <span>IL COTONE</span><span>LA LANA</span><span>LA PELLE</span>
-      <span>IL JEANS</span><span>IL VELLUTO</span><span>LA SETA</span>
-    </div>
-    <p style="font-family:'Archivo';font-weight:600;font-size:11.5px;margin:10px 0 0;">ESEMPIO: → DI CHE TESSUTO È? &nbsp; ← È DI COTONE.</p>
-  </div>
-
-  <div class="pagefoot">L'ABBIGLIAMENTO — ITALIANO A1 · PAGINA 4</div>
-</section>
-
-<!-- ============ PAGINA 5 — RISORSE ============ -->
-<section class="sheet">
-  <div class="sec-head">
-    <div class="sec-num">6</div>
-    <h2><small>PER APPROFONDIRE</small>RISORSE</h2>
-  </div>
-  <div class="res-grid" style="margin-bottom:26px;">
-    <div class="res-card">
-      <div class="qr" id="qr-video2"></div>
-      <div>
-        <h4>🎬 VIDEO LESSICO</h4>
-        <p class="desc">PRESENTAZIONE "L'ABBIGLIAMENTO" — RIPASSA LE PAROLE.</p>
-        <div class="lnk">youtube.com/watch?v=1tkWXVuVfGQ</div>
+      <div class="nota">
+        <b>PORTARE = INDOSSARE = METTERSI</b><br><br>
+        OGGI <b>PORTO</b> I JEANS.<br>
+        OGGI <b>INDOSSO</b> UNA MAGLIETTA BIANCA.<br>
+        <b>MI METTO</b> IL CAPPOTTO.
       </div>
     </div>
-    <div class="res-card">
-      <div class="qr" id="qr-lim"></div>
-      <div>
-        <h4>🖥️ SCHEDA LIM</h4>
-        <p class="desc">LESSICO ILLUSTRATO DELL'ABBIGLIAMENTO (ITALIANOLINGUADUE).</p>
-        <div class="lnk">italianolinguadue.it/content/lim/lim_to_pdf/abbigliamento_lim.pdf</div>
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <div class="key-head">📱 FAI GLI ESERCIZI SUL TELEFONO</div>
-  <p style="font-size:20px">APRI <a href="esercizi.html"><b>italianol2sai.github.io/abbigliamento/esercizi.html</b></a>: SCRIVI LE RISPOSTE, CONTROLLA E INVIA ALL'INSEGNANTE.</p>
-  <div class="pagefoot">L'ABBIGLIAMENTO — ITALIANO A1 · PAGINA 5 · © USO DIDATTICO</div>
-</section>
+  <!-- FRASI UTILI -->
+  <section class="slide">
+    <h2>FRASI UTILI</h2>
+    <div class="dialogo">
+      <div class="bubble med"><span class="who">DOMANDA:</span> CHE COSA TI METTI PER ANDARE AL MARE?</div>
+      <div class="bubble"><span class="who">RISPOSTA:</span> MI METTO IL COSTUME E I SANDALI.</div>
+      <div class="bubble med"><span class="who">DOMANDA:</span> CHE COSA TI METTI QUANDO FA FREDDO?</div>
+      <div class="bubble"><span class="who">RISPOSTA:</span> MI METTO IL CAPPOTTO, LA SCIARPA E I GUANTI.</div>
+    </div>
+  </section>
+
+  <!-- STAGIONI -->
+  <section class="slide">
+    <h2>QUANDO LO METTO?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">❄️</span><b>INVERNO &bull; FA FREDDO</b><span>IL CAPPOTTO, IL MAGLIONE, LA SCIARPA, I GUANTI, GLI STIVALI, IL BERRETTO</span></div>
+      <div class="card"><span class="emoji">☀️</span><b>ESTATE &bull; FA CALDO</b><span>LA T-SHIRT, I PANTALONCINI, IL COSTUME DA BAGNO, I SANDALI, GLI OCCHIALI DA SOLE</span></div>
+    </div>
+  </section>
+
+  <!-- AL NEGOZIO -->
+  <section class="slide">
+    <h2>AL NEGOZIO 🛍️</h2>
+    <div class="dialogo">
+      <div class="bubble med"><span class="who">COMMESSA:</span> BUONGIORNO! DESIDERA?</div>
+      <div class="bubble"><span class="who">CLIENTE:</span> VORREI VEDERE QUELLA CAMICETTA IN VETRINA, PER FAVORE.</div>
+      <div class="bubble med"><span class="who">COMMESSA:</span> CHE TAGLIA PORTA?</div>
+      <div class="bubble"><span class="who">CLIENTE:</span> PORTO LA 44.</div>
+      <div class="bubble med"><span class="who">COMMESSA:</span> ECCO. PUÒ PROVARLA NEL CAMERINO, IN FONDO A DESTRA.</div>
+      <div class="bubble"><span class="who">CLIENTE:</span> MI PIACE IL COLORE! QUANTO COSTA?</div>
+      <div class="bubble med"><span class="who">COMMESSA:</span> 35 EURO.</div>
+      <div class="bubble"><span class="who">CLIENTE:</span> VA BENE, LA PRENDO. GRAZIE!</div>
+    </div>
+  </section>
+
+  <!-- PAROLE ACQUISTI -->
+  <section class="slide">
+    <h2>🗣️ LE PAROLE PER FARE ACQUISTI</h2>
+    <div class="grid g3">
+      <div class="card"><b>DESIDERA?</b><span>CHE COSA VUOLE?</span></div>
+      <div class="card"><b>VORREI…</b><span>VORREI UNA GIACCA.</span></div>
+      <div class="card"><b>POSSO PROVARE?</b><span>NEL CAMERINO</span></div>
+      <div class="card"><b>CHE TAGLIA PORTA?</b><span>PER I VESTITI: 42, 44…</span></div>
+      <div class="card"><b>CHE NUMERO PORTA?</b><span>PER LE SCARPE: 38, 40…</span></div>
+      <div class="card"><b>QUANTO COSTA?</b><span>IL PREZZO</span></div>
+      <div class="card"><b>LA VETRINA</b><span>I VESTITI DA GUARDARE FUORI</span></div>
+      <div class="card"><b>LO SCONTRINO</b><span>LA CARTA DOPO CHE PAGHI</span></div>
+      <div class="card"><b>LA PRENDO!</b><span>LA COMPRO</span></div>
+    </div>
+  </section>
+
+  <!-- TESSUTI -->
+  <section class="slide">
+    <h2>🧵 DI CHE TESSUTO È?</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">🌱</span><b>IL COTONE</b></div>
+      <div class="card"><span class="emoji">🐑</span><b>LA LANA</b></div>
+      <div class="card"><span class="emoji">👞</span><b>LA PELLE</b></div>
+      <div class="card"><span class="emoji">👖</span><b>IL JEANS</b></div>
+      <div class="card"><span class="emoji">🧸</span><b>IL VELLUTO</b></div>
+      <div class="card"><span class="emoji">🎀</span><b>LA SETA</b></div>
+    </div>
+    <p class="lead" style="margin-top:18px;">→ DI CHE TESSUTO È? &nbsp; ← È <b>DI</b> COTONE.</p>
+  </section>
+
+  <!-- FINE -->
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA SAI PARLARE DEI VESTITI E FARE ACQUISTI!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+    <p class="lead" style="margin-top:22px;font-size:1.1rem"><a href="https://www.italianolinguadue.it/content/lim/lim_to_pdf/abbigliamento_lim.pdf" target="_blank" rel="noopener" style="color:#fff">🖥️ PER RIPASSARE: LESSICO ILLUSTRATO (ITALIANOLINGUADUE)</a></p>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
 
 <script>
-/* ---------- ICONE VESTITI (SVG LINEA) ---------- */
 const I = {
   tshirt:'<svg viewBox="0 0 64 64" fill="none" stroke="#20242E" stroke-width="3" stroke-linejoin="round"><path d="M22 10 L8 18 L14 28 L20 25 V54 H44 V25 L50 28 L56 18 L42 10 C42 16 22 16 22 10 Z"/></svg>',
   pants:'<svg viewBox="0 0 64 64" fill="none" stroke="#20242E" stroke-width="3" stroke-linejoin="round"><path d="M18 8 H46 L48 56 H36 L32 26 L28 56 H16 Z"/><path d="M18 8 H46" /></svg>',
@@ -388,39 +331,42 @@ const I = {
   glasses:'<svg viewBox="0 0 64 64" fill="none" stroke="#20242E" stroke-width="3" stroke-linejoin="round"><rect x="8" y="26" width="20" height="14" rx="4"/><rect x="36" y="26" width="20" height="14" rx="4"/><path d="M28 30 H36"/></svg>',
   swimsuit:'<svg viewBox="0 0 64 64" fill="none" stroke="#20242E" stroke-width="3" stroke-linejoin="round"><path d="M14 16 C20 22 24 22 32 22 C40 22 44 22 50 16 L46 30 C40 30 36 30 32 30 C28 30 24 30 18 30 Z"/><path d="M22 40 C22 36 42 36 42 40 L40 50 H24 Z"/></svg>'
 };
-
-/* COPERTINA — alcune icone */
-document.getElementById('cover-icons').innerHTML = I.tshirt + I.dress + I.shoe + I.hat;
-
-/* ---------- GRIGLIA LESSICO ---------- */
 const vocab = [
-  ['LA','MAGLIETTA','tshirt','t-coral'],['LA','CAMICIA','tshirt','t-teal'],
-  ['IL','MAGLIONE','coat','t-gold'],['IL','CAPPOTTO','coat','t-coral'],
-  ['I','PANTALONI','pants','t-teal'],['LA','GONNA','skirt','t-gold'],
-  ['IL','VESTITO','dress','t-coral'],['LA','GIACCA','coat','t-teal'],
-  ['LE','SCARPE','shoe','t-gold'],['GLI','STIVALI','boot','t-coral'],
-  ['LE','CALZE','sock','t-teal'],['IL','CAPPELLO','hat','t-gold'],
-  ['LA','SCIARPA','scarf','t-coral'],['I','GUANTI','glove','t-teal'],
-  ['LA','BORSA','bag','t-gold'],['GLI','OCCHIALI DA SOLE','glasses','t-coral']
+  ['LA','MAGLIETTA','tshirt'],['LA','CAMICIA','tshirt'],['IL','MAGLIONE','coat'],['IL','CAPPOTTO','coat'],
+  ['I','PANTALONI','pants'],['LA','GONNA','skirt'],['IL','VESTITO','dress'],['LA','GIACCA','coat'],
+  ['LE','SCARPE','shoe'],['GLI','STIVALI','boot'],['LE','CALZE','sock'],['IL','CAPPELLO','hat'],
+  ['LA','SCIARPA','scarf'],['I','GUANTI','glove'],['LA','BORSA','bag'],['GLI','OCCHIALI DA SOLE','glasses']
 ];
-document.getElementById('vgrid').innerHTML = vocab.map(v =>
-  `<div class="vcard ${v[3]}">${I[v[2]]}<div class="w"><span class="art">${v[0]}</span><br>${v[1]}</div></div>`
-).join('');
-
-/* ---------- QR CODES ---------- */
-function makeQR(id,url){
-  const el=document.getElementById(id);
-  if(!el) return;
-  try{ new QRCode(el,{text:url,width:120,height:120,colorDark:"#20242E",colorLight:"#ffffff"}); }
-  catch(e){ el.innerHTML='<span style="font-size:9px">QR</span>'; }
-}
-const VID='https://www.youtube.com/watch?v=1tkWXVuVfGQ';
-const COL='https://www.youtube.com/watch?v=DQWSaz38ZuI';
-const LIM='https://www.italianolinguadue.it/content/lim/lim_to_pdf/abbigliamento_lim.pdf';
-window.addEventListener('load',()=>{
-  makeQR('qr-video',VID); makeQR('qr-video2',VID);
-  makeQR('qr-colori',COL); makeQR('qr-lim',LIM);
+document.querySelectorAll('.vgrid').forEach(g=>{
+  g.innerHTML = vocab.slice(+g.dataset.from, +g.dataset.to).map(v =>
+    `<div class="card vcard">${I[v[2]]||''}<span class="art">${v[0]}</span><b>${v[1]}</b></div>`).join('');
 });
+
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
 </script>
 </body>
 </html>
