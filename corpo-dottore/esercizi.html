@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🩺 Il corpo e il dottore · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🩺 Il corpo e il dottore · Esercizi",
+ "store": "corpo-dottore",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Le parole del corpo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Guarda il disegno e scrivi il numero giusto",
+   "short": "1 · Il disegno",
+   "img": "corpo-numeri.png",
+   "alt": "Disegno del corpo con i numeri da 1 a 16",
+   "type": "text",
+   "w": "s",
+   "cons": "Esempio: la testa = 2",
+   "items": [
+    {
+     "q": "la testa"
+    },
+    {
+     "q": "il collo"
+    },
+    {
+     "q": "la mano"
+    },
+    {
+     "q": "la spalla"
+    },
+    {
+     "q": "il piede"
+    },
+    {
+     "q": "il petto"
+    },
+    {
+     "q": "il naso"
+    },
+    {
+     "q": "la pancia"
+    },
+    {
+     "q": "la bocca"
+    },
+    {
+     "q": "il ginocchio"
+    },
+    {
+     "q": "gli occhi"
+    },
+    {
+     "q": "l'orecchio"
+    },
+    {
+     "q": "il braccio"
+    },
+    {
+     "q": "le dita"
+    },
+    {
+     "q": "la gamba"
+    },
+    {
+     "q": "i capelli"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiOSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjgiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxMCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjE2Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTEiXX0sIHsidCI6ICJlcSIsICJhIjogWyI0Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTIiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTUiXX0sIHsidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjciXX0sIHsidCI6ICJlcSIsICJhIjogWyIxMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjE0Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMSJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Scrivi la parola completa",
+   "short": "2 · Lettere mancanti",
+   "type": "text",
+   "cons": "Manca una lettera. Scrivi tutta la parola.",
+   "items": [
+    {
+     "q": "1. T E _ T A"
+    },
+    {
+     "q": "2. M _ N O"
+    },
+    {
+     "q": "3. P I E _ E"
+    },
+    {
+     "q": "4. N A _ O"
+    },
+    {
+     "q": "5. B O C _ A"
+    },
+    {
+     "q": "6. G A M _ A"
+    },
+    {
+     "q": "7. O C C _ I"
+    },
+    {
+     "q": "8. D E _ T I"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ0ZXN0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm1hbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJwaWVkZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm5hc28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJib2NjYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdhbWJhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsib2NjaGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkZW50aSJdfV0="
+  },
+  {
+   "id": "e3",
+   "title": "3 · Scrivi l'articolo giusto",
+   "short": "3 · Articoli",
+   "type": "text",
+   "w": "s",
+   "bank": "il · lo · la · l' · i · gli · le",
+   "items": [
+    {
+     "q": "1. testa"
+    },
+    {
+     "q": "2. naso"
+    },
+    {
+     "q": "3. occhi"
+    },
+    {
+     "q": "4. mano"
+    },
+    {
+     "q": "5. orecchio"
+    },
+    {
+     "q": "6. gambe"
+    },
+    {
+     "q": "7. piede"
+    },
+    {
+     "q": "8. stomaco"
+    },
+    {
+     "q": "9. dita"
+    },
+    {
+     "q": "10. braccio"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImlsIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ2xpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsJyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaWwiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaWwiXX1d"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Scegli il plurale giusto",
+   "short": "4 · Plurali",
+   "type": "select",
+   "cons": "Attenzione: alcuni plurali sono diversi!",
+   "opts": [
+    "gli occhi",
+    "le mani",
+    "i piedi",
+    "le braccia",
+    "le dita",
+    "le gambe"
+   ],
+   "items": [
+    {
+     "q": "la mano"
+    },
+    {
+     "q": "il braccio"
+    },
+    {
+     "q": "il dito"
+    },
+    {
+     "q": "la gamba"
+    },
+    {
+     "q": "il piede"
+    },
+    {
+     "q": "l'occhio"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsZSBtYW5pIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUgYnJhY2NpYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxlIGRpdGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSBnYW1iZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImkgcGllZGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnbGkgb2NjaGkiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Trova l'intruso",
+   "short": "5 · Intruso",
+   "type": "choice",
+   "cons": "Tocca la parola diversa.",
+   "full": true,
+   "items": [
+    {
+     "q": "A.",
+     "opts": [
+      "testa",
+      "naso",
+      "bocca",
+      "pizza",
+      "occhi"
+     ]
+    },
+    {
+     "q": "B.",
+     "opts": [
+      "mano",
+      "dito",
+      "braccio",
+      "spalla",
+      "libro"
+     ]
+    },
+    {
+     "q": "C.",
+     "opts": [
+      "febbre",
+      "tosse",
+      "raffreddore",
+      "scarpa",
+      "mal di gola"
+     ]
+    },
+    {
+     "q": "D.",
+     "opts": [
+      "medico",
+      "infermiere",
+      "dentista",
+      "cuoco",
+      "farmacista"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJwaXp6YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxpYnJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2NhcnBhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY3VvY28iXX1d"
+  },
+  {
+   "part": "I disturbi"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Completa: «Ho mal di…»",
+   "short": "6 · Ho mal di",
+   "type": "text",
+   "items": [
+    {
+     "pre": "(testa) Ho mal di"
+    },
+    {
+     "pre": "(denti) Ho mal di"
+    },
+    {
+     "pre": "(pancia) Ho mal di"
+    },
+    {
+     "pre": "(schiena) Ho mal di"
+    },
+    {
+     "pre": "(gola) Ho mal di"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ0ZXN0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRlbnRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicGFuY2lhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2NoaWVuYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdvbGEiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Collega la frase con la situazione",
+   "short": "7 · Situazioni",
+   "type": "select",
+   "opts": [
+    "A. Ho il naso chiuso",
+    "B. Voglio dormire",
+    "C. Ho 39 di temperatura",
+    "D. Vado dal dentista"
+   ],
+   "items": [
+    {
+     "q": "1. Ho la febbre"
+    },
+    {
+     "q": "2. Ho il raffreddore"
+    },
+    {
+     "q": "3. Ho mal di denti"
+    },
+    {
+     "q": "4. Sono stanco"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDLiBIbyAzOSBkaSB0ZW1wZXJhdHVyYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkEuIEhvIGlsIG5hc28gY2hpdXNvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRC4gVmFkbyBkYWwgZGVudGlzdGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJCLiBWb2dsaW8gZG9ybWlyZSJdfV0="
+  },
+  {
+   "id": "e8",
+   "title": "8 · Scrivi: mi fa male (uno) / mi fanno male (tanti)",
+   "short": "8 · Mi fa male",
+   "type": "text",
+   "cons": "Esempio: mi fa male la testa. / Mi fanno male i piedi.",
+   "items": [
+    {
+     "pre": "",
+     "post": "la testa."
+    },
+    {
+     "pre": "",
+     "post": "i piedi."
+    },
+    {
+     "pre": "",
+     "post": "le gambe."
+    },
+    {
+     "pre": "",
+     "post": "il dente."
+    },
+    {
+     "pre": "",
+     "post": "gli occhi."
+    },
+    {
+     "pre": "",
+     "post": "la schiena."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJtaSBmYSBtYWxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibWkgZmFubm8gbWFsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm1pIGZhbm5vIG1hbGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJtaSBmYSBtYWxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibWkgZmFubm8gbWFsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm1pIGZhIG1hbGUiXX1d"
+  },
+  {
+   "part": "Dal medico e in farmacia"
+  },
+  {
+   "id": "e9",
+   "title": "9 · Leggi: vero o falso?",
+   "short": "9 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "Vero",
+    "Falso"
+   ],
+   "info": "Paola va dal medico. Paola ha mal di gola e ha la febbre da due giorni. Il medico dice: «È un'influenza. Prenda lo sciroppo e beva molta acqua. Stia a casa tre giorni».",
+   "items": [
+    {
+     "q": "A. Paola sta bene."
+    },
+    {
+     "q": "B. Paola ha la febbre."
+    },
+    {
+     "q": "C. Paola ha mal di gola."
+    },
+    {
+     "q": "D. Il medico dice di bere poca acqua."
+    },
+    {
+     "q": "E. Paola deve stare a casa."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGYWxzbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZlcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWZXJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRmFsc28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWZXJvIl19XQ=="
+  },
+  {
+   "id": "e10",
+   "title": "10 · Rispondi alle domande",
+   "short": "10 · Domande",
+   "type": "text",
+   "w": "w",
+   "cons": "Usa il testo dell'esercizio 9.",
+   "items": [
+    {
+     "q": "1. Che cosa ha Paola?"
+    },
+    {
+     "q": "2. Da quanti giorni ha la febbre?"
+    },
+    {
+     "q": "3. Che cosa deve prendere?"
+    },
+    {
+     "q": "4. Quanti giorni deve stare a casa?"
+    }
+   ],
+   "k": "W3sidCI6ICJhbGwiLCAiYSI6IFtbImdvbGEiXSwgWyJmZWJicmUiLCAiaW5mbHVlbnphIl1dfSwgeyJ0IjogImhhcyIsICJhIjogWyJkdWUiLCAiMiJdfSwgeyJ0IjogImhhcyIsICJhIjogWyJzY2lyb3BwbyJdfSwgeyJ0IjogImhhcyIsICJhIjogWyJ0cmUiLCAiMyJdfV0="
+  },
+  {
+   "id": "e11",
+   "title": "11 · Completa il dialogo dal medico",
+   "short": "11 · Dialogo",
+   "type": "cloze",
+   "bank": "male · febbre · buongiorno · medicina · grazie",
+   "parts": [
+    "<b>Medico:</b> ",
+    {},
+    ", si accomodi.<br><b>Paziente:</b> Buongiorno. Non mi sento bene. Ho la ",
+    {},
+    ".<br><b>Medico:</b> Dove le fa ",
+    {},
+    "?<br><b>Paziente:</b> Mi fa male la gola.<br><b>Medico:</b> Prenda questa ",
+    {},
+    ".<br><b>Paziente:</b> ",
+    {},
+    ", dottore!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJidW9uZ2lvcm5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZmViYnJlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibWFsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm1lZGljaW5hIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ3JhemllIl19XQ=="
+  },
+  {
+   "id": "e12",
+   "title": "12 · Riordina il dialogo in farmacia",
+   "short": "12 · Riordina",
+   "type": "order",
+   "cons": "Scegli i numeri da 1 a 5.",
+   "items": [
+    "<b>Farmacista:</b> Prenda queste pastiglie.",
+    "<b>Cliente:</b> Buongiorno, ho mal di testa.",
+    "<b>Farmacista:</b> Buongiorno, mi dica.",
+    "<b>Cliente:</b> Grazie. Quanto costa?",
+    "<b>Farmacista:</b> Sei euro."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX0sIHsidCI6ICJlcSIsICJhIjogWyI0Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfV0="
+  },
+  {
+   "id": "e13",
+   "title": "13 · Collega il problema con il consiglio",
+   "short": "13 · Consigli",
+   "type": "select",
+   "opts": [
+    "A. Vada dal dentista",
+    "B. Stia a riposo",
+    "C. Beva acqua calda e miele",
+    "D. Prenda una pastiglia"
+   ],
+   "items": [
+    {
+     "q": "1. Ho la febbre"
+    },
+    {
+     "q": "2. Ho mal di denti"
+    },
+    {
+     "q": "3. Ho mal di testa"
+    },
+    {
+     "q": "4. Ho mal di gola"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJCLiBTdGlhIGEgcmlwb3NvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQS4gVmFkYSBkYWwgZGVudGlzdGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJELiBQcmVuZGEgdW5hIHBhc3RpZ2xpYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMuIEJldmEgYWNxdWEgY2FsZGEgZSBtaWVsZSJdfV0="
+  },
+  {
+   "id": "e14",
+   "title": "14 · Completa i consigli del medico",
+   "short": "14 · Imperativo",
+   "type": "text",
+   "bank": "beva · prenda · stia · dorma · non fumi",
+   "items": [
+    {
+     "pre": "1.",
+     "post": "molta acqua."
+    },
+    {
+     "pre": "2.",
+     "post": "la medicina dopo i pasti."
+    },
+    {
+     "pre": "3.",
+     "post": "a casa e riposi."
+    },
+    {
+     "pre": "4.",
+     "post": "bene la notte."
+    },
+    {
+     "pre": "5.",
+     "post": ", fa male alla salute!"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiZXZhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicHJlbmRhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic3RpYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRvcm1hIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibm9uIGZ1bWkiXX1d"
+  },
+  {
+   "id": "e15",
+   "title": "15 · Dove vado?",
+   "short": "15 · Dove vado",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Ho mal di denti.",
+     "opts": [
+      "dentista",
+      "farmacia",
+      "scuola"
+     ]
+    },
+    {
+     "q": "2. Voglio una medicina semplice.",
+     "opts": [
+      "farmacia",
+      "ospedale",
+      "bar"
+     ]
+    },
+    {
+     "q": "3. C'è un incidente grave.",
+     "opts": [
+      "pronto soccorso",
+      "farmacia",
+      "casa"
+     ]
+    },
+    {
+     "q": "4. Il mio bambino è malato.",
+     "opts": [
+      "pediatra",
+      "dentista",
+      "bar"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJkZW50aXN0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImZhcm1hY2lhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicHJvbnRvIHNvY2NvcnNvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicGVkaWF0cmEiXX1d"
+  },
+  {
+   "id": "e16",
+   "title": "16 · Che cosa dici?",
+   "short": "16 · Che cosa dici",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Sei dal medico e stai male. Dici:",
+     "opts": [
+      "«Ho fame»",
+      "«Non mi sento bene»",
+      "«Che bella giornata»"
+     ]
+    },
+    {
+     "q": "2. Il medico vuole guardare la tua gola. Dice:",
+     "opts": [
+      "«Apra la bocca»",
+      "«Chiuda gli occhi»",
+      "«Corra veloce»"
+     ]
+    },
+    {
+     "q": "3. In farmacia vuoi una medicina. Dici:",
+     "opts": [
+      "«Avete una medicina per il mal di testa?»",
+      "«Quanto costa il pane?»"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyLCq05vbiBtaSBzZW50byBiZW5lwrsiXX0sIHsidCI6ICJlcSIsICJhIjogWyLCq0FwcmEgbGEgYm9jY2HCuyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIsKrQXZldGUgdW5hIG1lZGljaW5hIHBlciBpbCBtYWwgZGkgdGVzdGE/wrsiXX1d"
+  },
+  {
+   "part": "Ripasso"
+  },
+  {
+   "id": "e17",
+   "title": "17 · Parole nascoste",
+   "short": "17 · Parole nascoste",
+   "type": "set",
+   "n": 6,
+   "cons": "Cerca 6 parole del corpo (da sinistra a destra) e scrivile.",
+   "info": "<table class=\"grid\"><tr><td>T</td><td>E</td><td>S</td><td>T</td><td>A</td><td>P</td><td>I</td><td>B</td><td>D</td></tr><tr><td>I</td><td>M</td><td>A</td><td>N</td><td>O</td><td>E</td><td>G</td><td>D</td><td>R</td></tr><tr><td>N</td><td>A</td><td>S</td><td>O</td><td>T</td><td>E</td><td>P</td><td>L</td><td>O</td></tr><tr><td>V</td><td>C</td><td>V</td><td>P</td><td>I</td><td>E</td><td>D</td><td>E</td><td>R</td></tr><tr><td>G</td><td>T</td><td>L</td><td>G</td><td>I</td><td>V</td><td>G</td><td>C</td><td>N</td></tr><tr><td>G</td><td>A</td><td>M</td><td>B</td><td>A</td><td>U</td><td>E</td><td>V</td><td>V</td></tr><tr><td>M</td><td>N</td><td>U</td><td>M</td><td>V</td><td>F</td><td>A</td><td>B</td><td>B</td></tr><tr><td>G</td><td>F</td><td>B</td><td>O</td><td>C</td><td>C</td><td>A</td><td>B</td><td>D</td></tr><tr><td>S</td><td>C</td><td>T</td><td>E</td><td>S</td><td>B</td><td>I</td><td>A</td><td>P</td></tr></table>",
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ0ZXN0YSIsICJtYW5vIiwgIm5hc28iLCAicGllZGUiLCAiZ2FtYmEiLCAiYm9jY2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0ZXN0YSIsICJtYW5vIiwgIm5hc28iLCAicGllZGUiLCAiZ2FtYmEiLCAiYm9jY2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0ZXN0YSIsICJtYW5vIiwgIm5hc28iLCAicGllZGUiLCAiZ2FtYmEiLCAiYm9jY2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0ZXN0YSIsICJtYW5vIiwgIm5hc28iLCAicGllZGUiLCAiZ2FtYmEiLCAiYm9jY2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0ZXN0YSIsICJtYW5vIiwgIm5hc28iLCAicGllZGUiLCAiZ2FtYmEiLCAiYm9jY2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0ZXN0YSIsICJtYW5vIiwgIm5hc28iLCAicGllZGUiLCAiZ2FtYmEiLCAiYm9jY2EiXX1d"
+  },
+  {
+   "id": "e18",
+   "title": "18 · Scrivi: come stai oggi?",
+   "type": "free",
+   "cons": "Scrivi 2 o 3 frasi. Modello: oggi ho mal di ____. Non sto bene. Prendo ____ e bevo molta acqua.",
+   "items": [
+    ""
+   ]
+  },
+  {
+   "id": "e19",
+   "title": "19 · In Italia: collega le informazioni utili",
+   "short": "19 · Informazioni utili",
+   "type": "select",
+   "opts": [
+    "A. La porto sempre dal medico",
+    "B. Il mio medico, è gratis",
+    "C. Numero di emergenza",
+    "D. Aperta la notte e la domenica"
+   ],
+   "items": [
+    {
+     "q": "1. 112"
+    },
+    {
+     "q": "2. Tessera sanitaria"
+    },
+    {
+     "q": "3. Medico di base"
+    },
+    {
+     "q": "4. Farmacia di turno"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDLiBOdW1lcm8gZGkgZW1lcmdlbnphIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQS4gTGEgcG9ydG8gc2VtcHJlIGRhbCBtZWRpY28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJCLiBJbCBtaW8gbWVkaWNvLCDDqCBncmF0aXMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJELiBBcGVydGEgbGEgbm90dGUgZSBsYSBkb21lbmljYSJdfV0="
+  },
+  {
+   "id": "e20",
+   "title": "20 · Completa il testo",
+   "short": "20 · Ripasso",
+   "type": "cloze",
+   "bank": "medico · febbre · acqua · farmacia · male",
+   "parts": [
+    "Oggi non sto bene. Ho la ",
+    {},
+    " e mi fa ",
+    {},
+    " la gola. Vado dal ",
+    {},
+    ". Il medico dice: «Beva molta ",
+    {},
+    "». Poi vado in ",
+    {},
+    " a comprare la medicina."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJmZWJicmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJtYWxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibWVkaWNvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYWNxdWEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJmYXJtYWNpYSJdfV0="
+  },
+  {
+   "id": "e21",
+   "title": "🎤 Parla: dal medico",
+   "type": "record",
+   "cons": "Registra la tua voce. Poi riascolta e, se vuoi, registra di nuovo.",
+   "items": [
+    "<b>1.</b> Sei dal medico. Di' come stai e dove ti fa male.",
+    "<b>2.</b> Sei in farmacia. Chiedi una medicina per il mal di gola."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

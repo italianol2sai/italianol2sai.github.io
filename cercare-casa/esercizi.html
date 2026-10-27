@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏠 Cercare casa a Bari · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🏠 Cercare casa a Bari · Esercizi",
+ "store": "cercare-casa",
+ "sections": [
+  {
+   "part": "1 · Le parole della casa"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Le stanze: a che cosa servono?",
+   "short": "1 · Le stanze",
+   "type": "select",
+   "opts": [
+    "a. dormire",
+    "b. lavarsi e fare la doccia",
+    "c. cucinare e mangiare",
+    "d. prendere il sole e l'aria",
+    "e. guardare la TV e stare insieme"
+   ],
+   "items": [
+    {
+     "q": "1. La cucina"
+    },
+    {
+     "q": "2. La camera da letto"
+    },
+    {
+     "q": "3. Il bagno"
+    },
+    {
+     "q": "4. Il soggiorno"
+    },
+    {
+     "q": "5. Il balcone"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjLiBjdWNpbmFyZSBlIG1hbmdpYXJlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYS4gZG9ybWlyZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImIuIGxhdmFyc2kgZSBmYXJlIGxhIGRvY2NpYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImUuIGd1YXJkYXJlIGxhIFRWIGUgc3RhcmUgaW5zaWVtZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImQuIHByZW5kZXJlIGlsIHNvbGUgZSBsJ2FyaWEiXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Le parole degli annunci",
+   "short": "2 · Parole degli annunci",
+   "type": "select",
+   "opts": [
+    "a. con i mobili dentro",
+    "b. soldi per il palazzo (scale, ascensore, pulizia)",
+    "c. casa con 2 stanze + bagno",
+    "d. soldi di garanzia (2–3 mesi)",
+    "e. casa con 1 sola stanza + bagno",
+    "f. il riscaldamento lo paghi tu",
+    "g. si può entrare (subito o da una data)",
+    "h. casa con 3 stanze + bagno"
+   ],
+   "items": [
+    {
+     "q": "1. Bilocale"
+    },
+    {
+     "q": "2. Arredato"
+    },
+    {
+     "q": "3. Spese condominiali"
+    },
+    {
+     "q": "4. Risc. autonomo"
+    },
+    {
+     "q": "5. Cauzione"
+    },
+    {
+     "q": "6. Monolocale"
+    },
+    {
+     "q": "7. Trilocale"
+    },
+    {
+     "q": "8. Disponibile"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjLiBjYXNhIGNvbiAyIHN0YW56ZSArIGJhZ25vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYS4gY29uIGkgbW9iaWxpIGRlbnRybyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImIuIHNvbGRpIHBlciBpbCBwYWxhenpvIChzY2FsZSwgYXNjZW5zb3JlLCBwdWxpemlhKSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImYuIGlsIHJpc2NhbGRhbWVudG8gbG8gcGFnaGkgdHUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkLiBzb2xkaSBkaSBnYXJhbnppYSAoMuKAkzMgbWVzaSkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJlLiBjYXNhIGNvbiAxIHNvbGEgc3RhbnphICsgYmFnbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJoLiBjYXNhIGNvbiAzIHN0YW56ZSArIGJhZ25vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZy4gc2kgcHXDsiBlbnRyYXJlIChzdWJpdG8gbyBkYSB1bmEgZGF0YSkiXX1d"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Le abbreviazioni degli annunci",
+   "short": "3 · Abbreviazioni",
+   "type": "text",
+   "w": "w",
+   "cons": "Negli annunci si scrive corto. Scrivi la parola intera.",
+   "items": [
+    {
+     "q": "bilo →"
+    },
+    {
+     "q": "arred. →"
+    },
+    {
+     "q": "risc. aut. →"
+    },
+    {
+     "q": "mq →"
+    },
+    {
+     "q": "tratt. →"
+    },
+    {
+     "q": "disp. →"
+    },
+    {
+     "q": "2° p. →"
+    },
+    {
+     "q": "no agenzie →"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiaWxvY2FsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFycmVkYXRvIiwgImFycmVkYXRhIl19LCB7InQiOiAiaGFzIiwgImEiOiBbInJpc2NhbGRhbWVudG8gYXV0b25vbW8iXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsibWV0cmkgcXVhZHJpIiwgIm1ldHJpIHF1YWRyYXRpIiwgIm1ldHJvIHF1YWRybyIsICJtZXRyaSBxdWFkcm8iXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsidHJhdHRhYmlsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRpc3BvbmliaWxlIl19LCB7InQiOiAiaGFzIiwgImEiOiBbInNlY29uZG8gcGlhbm8iXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsicHJpdmF0IiwgInNlbnphIGFnZW56aSIsICJwcm9wcmlldGFyaW8iXX1d"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Completa la frase",
+   "short": "4 · Completa",
+   "type": "text",
+   "bank": "affitto · mobili · bilocale · cauzione · piano · spese",
+   "items": [
+    {
+     "pre": "1. Una casa con due stanze è un",
+     "post": "."
+    },
+    {
+     "pre": "2. «Arredato» vuol dire: con i",
+     "post": "."
+    },
+    {
+     "pre": "3. Prima di entrare devo pagare la",
+     "post": "."
+    },
+    {
+     "pre": "4. Ogni mese pago l'",
+     "post": "."
+    },
+    {
+     "pre": "5. Le",
+     "post": "condominiali pagano la pulizia delle scale."
+    },
+    {
+     "pre": "6. La casa è al quarto",
+     "post": "."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiaWxvY2FsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm1vYmlsaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNhdXppb25lIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYWZmaXR0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNwZXNlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicGlhbm8iXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 ★ · Anagrammi",
+   "short": "5 · Anagrammi",
+   "type": "text",
+   "cons": "Rimetti le lettere in ordine e scrivi la parola della casa.",
+   "items": [
+    {
+     "q": "T T A F I F O (i soldi del mese)"
+    },
+    {
+     "q": "N O B A G (la stanza della doccia)"
+    },
+    {
+     "q": "C I N U C A (la stanza dove si cucina)"
+    },
+    {
+     "q": "V I C H A I (servono per aprire la porta)"
+    },
+    {
+     "q": "N O P I A (1°, 2°, 3°…)"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJhZmZpdHRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYmFnbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJjdWNpbmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjaGlhdmkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJwaWFubyJdfV0="
+  },
+  {
+   "part": "2 · Leggere gli annunci di Bari"
+  },
+  {
+   "id": "ann",
+   "title": "📰 Leggi i 6 annunci",
+   "type": "info",
+   "cons": "Sono annunci veri di Bari e provincia. Ti servono per gli esercizi 6–10.",
+   "info": "\n<div class=\"ann\"><b>ANNUNCIO 1 – Murat (centro, Bari)</b><br>Bilocale arredato, 50 mq, piano rialzato, SENZA ascensore. Riscaldamento autonomo. Vicino all'Università e alla stazione. Affitto 690 €/mese + spese. Disponibile da subito.</div>\n<div class=\"ann\"><b>ANNUNCIO 2 – San Pasquale (Bari)</b><br>Bilocale arredato, 45 mq, 3° piano CON ascensore. Riscaldamento autonomo. Zona tranquilla. Affitto 450 €/mese, spese incluse. Disponibile da subito.</div>\n<div class=\"ann\"><b>ANNUNCIO 3 – Modugno (provincia)</b><br>Bilocale arredato, 50 mq, piano terra, con posto auto. Riscaldamento autonomo. Affitto 480 €/mese, spese incluse. Disponibile da subito.</div>\n<div class=\"ann\"><b>ANNUNCIO 4 – Carbonara (periferia, Bari)</b><br>Trilocale NON arredato, 80 mq, 2° piano, SENZA ascensore. Riscaldamento centralizzato. Terrazzo e cantina. Affitto 550 €/mese + spese. Disponibile dal mese prossimo.</div>\n<div class=\"ann\"><b>ANNUNCIO 5 – Mola di Bari (provincia, mare)</b><br>Trilocale arredato, 70 mq, piano terra, 2 bagni. Riscaldamento autonomo. Vicino al mare. Affitto 600 €/mese + spese. Disponibile da subito.</div>\n<div class=\"ann\"><b>ANNUNCIO 6 – Libertà (Bari)</b><br>Monolocale arredato, 35 mq, 1° piano, SENZA ascensore. Riscaldamento autonomo. Per 1 persona. Affitto 420 €/mese, spese incluse. Disponibile da subito.</div>\n"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Leggi gli annunci e rispondi",
+   "short": "6 · Domande",
+   "type": "text",
+   "w": "w",
+   "items": [
+    {
+     "q": "1. Quale casa è in centro a Bari?"
+    },
+    {
+     "q": "2. Quale casa costa di meno? Quanto?"
+    },
+    {
+     "q": "3. Quale casa è vicino al mare?"
+    },
+    {
+     "q": "4. Quale casa ha il posto auto?"
+    },
+    {
+     "q": "5. Quante stanze ha il trilocale a Carbonara?"
+    }
+   ],
+   "k": "W3sidCI6ICJoYXMiLCAiYSI6IFsibXVyYXQiLCAiYW5udW5jaW8gMSJdfSwgeyJ0IjogImFsbCIsICJhIjogW1sibGliZXJ0YSIsICI2Il0sIFsiNDIwIl1dfSwgeyJ0IjogImhhcyIsICJhIjogWyJtb2xhIiwgImFubnVuY2lvIDUiXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsibW9kdWdubyIsICJhbm51bmNpbyAzIl19LCB7InQiOiAiaGFzIiwgImEiOiBbInRyZSIsICIzIl19XQ=="
+  },
+  {
+   "id": "e7",
+   "title": "7 · Vero o falso?",
+   "short": "7 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "V",
+    "F"
+   ],
+   "items": [
+    {
+     "q": "La casa a Murat ha l'ascensore."
+    },
+    {
+     "q": "Il bilocale a San Pasquale è arredato."
+    },
+    {
+     "q": "Il trilocale a Carbonara è arredato."
+    },
+    {
+     "q": "La casa a Modugno ha le spese incluse."
+    },
+    {
+     "q": "Il monolocale a Libertà è per una famiglia grande."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiViJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJWIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRiJdfV0="
+  },
+  {
+   "id": "e8",
+   "title": "8 · Annuncio 5 (Mola di Bari): completa",
+   "short": "8 · Annuncio 5",
+   "type": "text",
+   "items": [
+    {
+     "q": "Tipo di casa (mono/bi/trilocale)"
+    },
+    {
+     "q": "Prezzo dell'affitto"
+    },
+    {
+     "q": "Quanti metri quadri (mq)"
+    },
+    {
+     "q": "Piano"
+    },
+    {
+     "q": "Quanti bagni"
+    },
+    {
+     "q": "Arredata? (sì / no)"
+    },
+    {
+     "q": "È vicino al mare? (sì / no)"
+    }
+   ],
+   "k": "W3sidCI6ICJoYXMiLCAiYSI6IFsidHJpbG9jYWxlIiwgInRyaSJdfSwgeyJ0IjogImhhcyIsICJhIjogWyI2MDAiXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsiNzAiXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsidGVycmEiXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsiMiIsICJkdWUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzaSIsICJzw6wiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzaSIsICJzw6wiXX1d"
+  },
+  {
+   "id": "e9",
+   "title": "9 · Confronta due annunci",
+   "short": "9 · Confronto",
+   "type": "text",
+   "w": "s",
+   "cons": "Annuncio 1 (Murat) e annuncio 3 (Modugno).",
+   "items": [
+    {
+     "q": "Murat · prezzo"
+    },
+    {
+     "q": "Murat · numero di stanze"
+    },
+    {
+     "q": "Murat · piano"
+    },
+    {
+     "q": "Murat · ascensore? (sì/no)"
+    },
+    {
+     "q": "Murat · spese incluse? (sì/no)"
+    },
+    {
+     "q": "Modugno · prezzo"
+    },
+    {
+     "q": "Modugno · numero di stanze"
+    },
+    {
+     "q": "Modugno · piano"
+    },
+    {
+     "q": "Modugno · ascensore? (sì/no)"
+    },
+    {
+     "q": "Modugno · spese incluse? (sì/no)"
+    }
+   ],
+   "k": "W3sidCI6ICJoYXMiLCAiYSI6IFsiNjkwIl19LCB7InQiOiAiaGFzIiwgImEiOiBbIjIiLCAiZHVlIl19LCB7InQiOiAiaGFzIiwgImEiOiBbInJpYWx6YXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJubyJdfSwgeyJ0IjogImhhcyIsICJhIjogWyI0ODAiXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsiMiIsICJkdWUiXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsidGVycmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNpIiwgInPDrCJdfV0="
+  },
+  {
+   "id": "e10",
+   "title": "10 · Quale casa per quale persona?",
+   "short": "10 · Persone",
+   "type": "select",
+   "opts": [
+    "Annuncio 1",
+    "Annuncio 2",
+    "Annuncio 3",
+    "Annuncio 4",
+    "Annuncio 5",
+    "Annuncio 6"
+   ],
+   "items": [
+    {
+     "q": "a. Fatima lavora in centro e non ha la macchina."
+    },
+    {
+     "q": "b. Ahmed ha una famiglia e vuole una casa grande."
+    },
+    {
+     "q": "c. Luan vive solo e ha pochi soldi."
+    },
+    {
+     "q": "d. Maria ama il mare e ha la macchina."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBbm51bmNpbyAxIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQW5udW5jaW8gNCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFubnVuY2lvIDYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBbm51bmNpbyA1Il19XQ=="
+  },
+  {
+   "id": "e11",
+   "title": "11 ✎ · Quale casa scegli tu?",
+   "type": "free",
+   "cons": "Comincia così: «Io scelgo l'annuncio numero … perché…»",
+   "items": [
+    ""
+   ]
+  },
+  {
+   "part": "3 · Come cercare casa"
+  },
+  {
+   "id": "info3",
+   "title": "💡 Da sapere prima di cercare",
+   "type": "info",
+   "info": "<p>I siti: Idealista · Subito.it · Immobiliare.it · Casa.it</p><p>All'inizio paghi: 1° mese di affitto + cauzione (2–3 mesi) + a volte l'agenzia (1 mese).</p><p>«Solo referenziati» = devi mostrare il contratto di lavoro.</p><p>«Uso transitorio» = contratto breve (massimo 18 mesi).</p>"
+  },
+  {
+   "id": "e12",
+   "title": "12 · Cosa serve per affittare una casa?",
+   "short": "12 · Documenti",
+   "type": "multi",
+   "cons": "Metti la spunta vicino alle 4 cose giuste.",
+   "items": [
+    "documento d'identità (passaporto o carta)",
+    "un cane",
+    "codice fiscale",
+    "permesso di soggiorno (per cittadini non UE)",
+    "la patente di guida",
+    "prova del lavoro (busta paga o contratto)"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiLSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlgiXX0sIHsidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiLSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlgiXX1d"
+  },
+  {
+   "id": "e13",
+   "title": "13 · I prezzi a Bari",
+   "short": "13 · Prezzi",
+   "type": "cloze",
+   "bank": "caro · economica · centro · provincia",
+   "info": "A Bari, in centro (zona Murat) un bilocale costa circa 650–750 € al mese. In periferia e in provincia (Modugno, Carbonara) costa meno: circa 420–600 €.",
+   "parts": [
+    "1. Il ",
+    {},
+    " di Bari è più ",
+    {},
+    " (costa di più).<br>2. La ",
+    {},
+    " è più ",
+    {},
+    " (costa di meno)."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjZW50cm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJjYXJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicHJvdmluY2lhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZWNvbm9taWNhIl19XQ=="
+  },
+  {
+   "id": "e14",
+   "title": "14 · Le parole «difficili» degli annunci",
+   "short": "14 · Parole difficili",
+   "type": "select",
+   "opts": [
+    "a. scrivi al proprietario, non c'è l'agenzia",
+    "b. devi mostrare il contratto di lavoro",
+    "c. contratto lungo: 4 anni + 4",
+    "d. contratto breve (massimo 18 mesi)"
+   ],
+   "items": [
+    {
+     "q": "1. Solo referenziati"
+    },
+    {
+     "q": "2. No agenzie"
+    },
+    {
+     "q": "3. Uso transitorio"
+    },
+    {
+     "q": "4. Contratto 4+4"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiLiBkZXZpIG1vc3RyYXJlIGlsIGNvbnRyYXR0byBkaSBsYXZvcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJhLiBzY3JpdmkgYWwgcHJvcHJpZXRhcmlvLCBub24gYyfDqCBsJ2FnZW56aWEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkLiBjb250cmF0dG8gYnJldmUgKG1hc3NpbW8gMTggbWVzaSkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjLiBjb250cmF0dG8gbHVuZ286IDQgYW5uaSArIDQiXX1d"
+  },
+  {
+   "part": "4 · La grammatica"
+  },
+  {
+   "id": "e15",
+   "title": "15 · Le preposizioni",
+   "short": "15 · Preposizioni",
+   "type": "text",
+   "w": "s",
+   "info": "Ricorda: in centro · in via Sparano · al 4° piano · con / senza ascensore · al mese",
+   "bank": "in · a · al · con · senza · per",
+   "items": [
+    {
+     "pre": "1. La casa è",
+     "post": "centro a Bari."
+    },
+    {
+     "pre": "2. Abito",
+     "post": "via Sparano."
+    },
+    {
+     "pre": "3. Mi piace l'ascensore: cerco una casa",
+     "post": "ascensore."
+    },
+    {
+     "pre": "4. Il trilocale è al 2° piano",
+     "post": "ascensore."
+    },
+    {
+     "pre": "5. Pago 450 euro",
+     "post": "mese."
+    },
+    {
+     "pre": "6. La camera è",
+     "post": "primo piano."
+    },
+    {
+     "pre": "7. Scrivo",
+     "post": "l'annuncio della casa."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJpbiJdfSwgeyJ0IjogImVxIiwgImEiOiBbImluIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY29uIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2VuemEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJhbCJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFsIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicGVyIl19XQ=="
+  },
+  {
+   "id": "e16",
+   "title": "16 · Potere o dovere?",
+   "short": "16 · Potere o dovere",
+   "type": "text",
+   "info": "POTERE: io posso · tu puoi · lui/lei può · noi possiamo · voi potete · loro possono<br>DOVERE: io devo · tu devi · lui/lei deve · noi dobbiamo · voi dovete · loro devono",
+   "items": [
+    {
+     "pre": "1. (io – potere)",
+     "post": "vedere la casa domani?"
+    },
+    {
+     "pre": "2. (tu – dovere)",
+     "post": "pagare due mesi di cauzione."
+    },
+    {
+     "pre": "3. (io – potere)",
+     "post": "portare il cane?"
+    },
+    {
+     "pre": "4. (noi – dovere)",
+     "post": "firmare il contratto."
+    },
+    {
+     "pre": "5. (Lei – potere)",
+     "post": "ripetere, per favore?"
+    },
+    {
+     "pre": "6. Per l'affitto (voi – dovere)",
+     "post": "avere un lavoro."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJwb3NzbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRldmkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJwb3NzbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRvYmJpYW1vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicHXDsiJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRvdmV0ZSJdfV0="
+  },
+  {
+   "id": "e17",
+   "title": "17 ★ · Completa i verbi",
+   "short": "17 · Verbi",
+   "type": "text",
+   "w": "s",
+   "items": [
+    {
+     "q": "io · dovere"
+    },
+    {
+     "q": "tu · potere"
+    },
+    {
+     "q": "lui / lei · potere"
+    },
+    {
+     "q": "noi · dovere"
+    },
+    {
+     "q": "voi · potere"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJkZXZvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicHVvaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInB1w7IiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkb2JiaWFtbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBvdGV0ZSJdfV0="
+  },
+  {
+   "id": "e18",
+   "title": "18 · Parla con cortesia: voglio → vorrei",
+   "short": "18 · Vorrei",
+   "type": "text",
+   "w": "w",
+   "cons": "Esempio: Voglio informazioni. → Vorrei informazioni.",
+   "items": [
+    {
+     "q": "1. Voglio vedere la casa. →"
+    },
+    {
+     "q": "2. Voglio sapere il prezzo. →"
+    },
+    {
+     "q": "3. Voglio un appuntamento. →"
+    }
+   ],
+   "k": "W3sidCI6ICJoYXMiLCAiYSI6IFsidm9ycmVpIHZlZGVyZSBsYSBjYXNhIl19LCB7InQiOiAiaGFzIiwgImEiOiBbInZvcnJlaSBzYXBlcmUgaWwgcHJlenpvIl19LCB7InQiOiAiaGFzIiwgImEiOiBbInZvcnJlaSB1biBhcHB1bnRhbWVudG8iXX1d"
+  },
+  {
+   "id": "e19",
+   "title": "19 · È possibile…?",
+   "short": "19 · È possibile",
+   "type": "text",
+   "w": "m",
+   "cons": "Esempio: Posso vedere la casa? → È possibile vedere la casa?",
+   "items": [
+    {
+     "q": "1. Posso vedere la casa oggi? →",
+     "pre": "È possibile",
+     "post": "?"
+    },
+    {
+     "q": "2. Posso venire giovedì? →",
+     "pre": "È possibile",
+     "post": "?"
+    },
+    {
+     "q": "3. Posso pagare a fine mese? →",
+     "pre": "È possibile",
+     "post": "?"
+    }
+   ],
+   "k": "W3sidCI6ICJoYXMiLCAiYSI6IFsidmVkZXJlIGxhIGNhc2Egb2dnaSJdfSwgeyJ0IjogImhhcyIsICJhIjogWyJ2ZW5pcmUgZ2lvdmVkaSJdfSwgeyJ0IjogImhhcyIsICJhIjogWyJwYWdhcmUgYSBmaW5lIG1lc2UiXX1d"
+  },
+  {
+   "part": "5 · Scrivere e telefonare"
+  },
+  {
+   "id": "e20",
+   "title": "20 · Completa il messaggio",
+   "short": "20 · Messaggio",
+   "type": "cloze",
+   "bank": "Buongiorno · annuncio · disponibile · possibile · saluti",
+   "parts": [
+    "",
+    {},
+    ",<br>scrivo per l'",
+    {},
+    " del bilocale a San Pasquale.<br>Sono Amir, ho un lavoro a tempo pieno.<br>La casa è ancora ",
+    {},
+    "? È ",
+    {},
+    " vederla questa settimana?<br>Grazie e cordiali ",
+    {},
+    ", Amir."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJidW9uZ2lvcm5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYW5udW5jaW8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJkaXNwb25pYmlsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBvc3NpYmlsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNhbHV0aSJdfV0="
+  },
+  {
+   "id": "e21",
+   "title": "21 · Riordina il messaggio",
+   "short": "21 · Riordina il messaggio",
+   "type": "order",
+   "items": [
+    "Sono Karim, ho un lavoro a tempo pieno.",
+    "Grazie e cordiali saluti, Karim.",
+    "Buongiorno,",
+    "La casa è ancora disponibile? È possibile vederla?",
+    "scrivo per l'annuncio del trilocale a Mola di Bari."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX0sIHsidCI6ICJlcSIsICJhIjogWyI0Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMiJdfV0="
+  },
+  {
+   "id": "e22",
+   "title": "22 ✎ · Scrivi tu il messaggio",
+   "type": "free",
+   "rows": 8,
+   "info": "<b>ANNUNCIO</b><br>Bilocale a Modugno · 480 €/mese · spese incluse · disponibile subito · tel. 333 1234567",
+   "cons": "Rispondi all'annuncio. Usa il modello: Buongiorno, scrivo per… Sono… La casa è ancora disponibile? È possibile…? Grazie e cordiali saluti.",
+   "items": [
+    ""
+   ]
+  },
+  {
+   "id": "e23",
+   "title": "23 · Riordina la telefonata",
+   "short": "23 · Telefonata",
+   "type": "order",
+   "items": [
+    "Grazie mille, allora a giovedì. Buona giornata!",
+    "Pronto, buongiorno. Chiamo per l'annuncio della casa a Murat.",
+    "Sì, la casa è ancora libera.",
+    "Buongiorno. Sì, mi dica.",
+    "Bene. Vorrei sapere: è possibile vederla giovedì pomeriggio?",
+    "Certo, giovedì alle 17 va bene."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI2Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjUiXX1d"
+  },
+  {
+   "id": "e24",
+   "title": "24 · Completa il dialogo",
+   "short": "24 · Dialogo",
+   "type": "cloze",
+   "bank": "Vorrei · possibile · spese · disponibile · grazie",
+   "parts": [
+    "<b>Proprietario:</b> Pronto, buongiorno.<br><b>Inquilino:</b> Buongiorno. ",
+    {},
+    " informazioni sul bilocale a San Pasquale. È ancora ",
+    {},
+    "?<br><b>Proprietario:</b> Sì, è libero.<br><b>Inquilino:</b> Bene. Le ",
+    {},
+    " sono incluse?<br><b>Proprietario:</b> Sì, sono incluse.<br><b>Inquilino:</b> È ",
+    {},
+    " vederla domani?<br><b>Proprietario:</b> Certo.<br><b>Inquilino:</b> ",
+    {},
+    " mille. Arrivederci!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ2b3JyZWkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkaXNwb25pYmlsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNwZXNlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicG9zc2liaWxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ3JhemllIl19XQ=="
+  },
+  {
+   "id": "e25",
+   "title": "25 🎤 · Gioco di ruolo al telefono",
+   "type": "record",
+   "cons": "Fai la telefonata con un compagno (o da solo/a, facendo l'inquilino) e registrala.",
+   "items": [
+    "<b>Giro 1</b> · Tu sei l'INQUILINO. Telefoni per la casa a Murat (690 €). Di' «Vorrei informazioni…», chiedi il prezzo e se c'è l'ascensore. Proponi un giorno per la visita.",
+    "<b>Giro 2</b> · Tu sei l'INQUILINO. Telefoni per la casa a Mola di Bari (600 €). Chiedi se è arredata, quanti bagni ci sono e fissa un giorno per la visita."
+   ]
+  },
+  {
+   "part": "Adesso so fare…"
+  },
+  {
+   "id": "auto",
+   "title": "✅ Come va?",
+   "type": "survey",
+   "opts": [
+    "bene",
+    "abbastanza",
+    "ancora poco"
+   ],
+   "items": [
+    "leggere un annuncio di una casa",
+    "capire le abbreviazioni (bilo, arred., mq…)",
+    "dire quali documenti servono per affittare",
+    "usare le preposizioni (in, a, al, con, senza)",
+    "usare i verbi potere e dovere",
+    "chiedere con cortesia (Vorrei…, È possibile…?)",
+    "scrivere un messaggio per una casa",
+    "fare una telefonata al proprietario"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
