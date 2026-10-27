@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Verifica di Italiano L2 · Livello A2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --blu:#16324F;
+    --blu-chiaro:#e6edf2;
+    --crema:#F6F1E4;
+    --crema-scura:#EAE0C7;
+    --oro:#A9791F;
+    --oro-chiaro:#f2e9d5;
+    --verde:#2E6B4E;
+    --verde-chiaro:#e2ece5;
+    --rosso:#9B3B3B;
+    --rosso-chiaro:#f3e5e3;
+    --inchiostro:#262220;
+    --bianco:#FFFDF8;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:#d9d2bd;
+    color:var(--inchiostro);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:19px;
+    line-height:1.65;
+  }
+
+  .foglio{
+    max-width:880px;
+    margin:28px auto;
+    background:var(--crema);
+    box-shadow:0 6px 24px rgba(0,0,0,.18);
+  }
+
+  h1,h2,h3,.serif{
+    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+  }
+
+  .stampa-btn{
+    position:fixed; top:18px; right:18px; z-index:50;
+    background:var(--blu); color:var(--bianco); border:none;
+    padding:10px 18px; border-radius:3px; font-weight:600;
+    letter-spacing:.03em; cursor:pointer; font-size:15.5px;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
+  }
+  .stampa-btn:hover{background:#0f2438;}
+
+  /* ============ COPERTINA ============ */
+  .copertina{
+    padding:46px 50px 40px;
+    border-bottom:6px solid var(--blu);
+    background:
+      repeating-linear-gradient(135deg, rgba(169,121,31,.05) 0 2px, transparent 2px 14px);
+    position:relative;
+  }
+  .cornice{
+    border:2px solid var(--blu);
+    padding:34px 36px;
+    position:relative;
+  }
+  .cornice::before{
+    content:"";
+    position:absolute; inset:7px;
+    border:1px solid var(--oro);
+    pointer-events:none;
+  }
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:14px;
+    font-weight:700;
+    color:var(--oro);
+  }
+  .titolo-principale{
+    text-transform:uppercase;
+    font-size:38px;
+    letter-spacing:.03em;
+    color:var(--blu);
+    margin:8px 0 2px;
+  }
+  .sottotitolo{
+    font-size:17.5px;
+    color:#4a4033;
+    font-style:italic;
+    margin:0 0 26px;
+  }
+
+  .cover-riga{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:30px;
+  }
+  .campi-cover{flex:1;}
+  .campo{
+    margin-bottom:16px;
+    display:flex; align-items:flex-end; gap:8px;
+  }
+  .campo .etichetta{
+    font-size:14px; text-transform:uppercase; letter-spacing:.1em;
+    color:var(--blu); font-weight:700; white-space:nowrap;
+  }
+  .campo .linea{
+    flex:1; border-bottom:1.3px dotted #7a705c; height:22px;
+  }
+
+  .sigillo-wrap{width:168px; flex-shrink:0; text-align:center;}
+  .sigillo-testo{
+    font-size:12px; margin-top:6px; color:#5c5240; letter-spacing:.05em;
+  }
+
+  .istruzioni-cover{
+    margin-top:28px;
+    background:var(--bianco);
+    border:1px solid var(--crema-scura);
+    border-left:5px solid var(--blu);
+    padding:16px 20px;
+    font-size:17px;
+  }
+  .istruzioni-cover .eyebrow{margin-bottom:6px; display:block;}
+  .istruzioni-cover ul{margin:6px 0 0; padding-left:20px;}
+  .istruzioni-cover li{margin-bottom:4px;}
+
+  .indice{
+    margin-top:22px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px 26px;
+    font-size:16px;
+  }
+  .indice-voce{
+    display:flex; justify-content:space-between;
+    border-bottom:1px dotted #b9ae94;
+    padding:3px 0;
+    color:#4a4033;
+  }
+  .indice-voce b{color:var(--blu);}
+
+  /* ============ SEZIONI ============ */
+  .sezione{
+    padding:40px 50px;
+    border-bottom:2px dashed #c9bd9e;
+    position:relative;
+    --accento:var(--blu);
+  }
+  .sezione.grammatica{--accento:var(--oro);}
+  .sezione.lessico{--accento:var(--verde);}
+  .sezione.produzione{--accento:var(--rosso);}
+  .sezione.orale{--accento:var(--verde);}
+
+  .sezione-header{
+    display:flex; justify-content:space-between; align-items:center;
+    border-bottom:3px solid var(--accento);
+    padding-bottom:12px; margin-bottom:24px;
+  }
+  .sezione-header .eyebrow{color:var(--accento);}
+  .sezione-header h2{
+    text-transform:uppercase;
+    font-size:27px;
+    color:var(--inchiostro);
+    margin:4px 0 0;
+    letter-spacing:.02em;
+  }
+  .timbro-punti{
+    width:82px; height:82px; border-radius:50%;
+    border:2px dashed var(--accento);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:var(--accento); font-weight:700; text-align:center;
+    flex-shrink:0; margin-left:20px;
+    transform:rotate(-7deg);
+  }
+  .sezione:nth-of-type(even) .timbro-punti{transform:rotate(6deg);}
+  .timbro-punti .num{font-size:24.5px; font-family:Georgia,serif; line-height:1;}
+  .timbro-punti .lbl{font-size:10px; text-transform:uppercase; letter-spacing:.08em;}
+
+  .esercizio{
+    margin-bottom:30px;
+    page-break-inside:avoid;
+  }
+  .esercizio:last-child{margin-bottom:0;}
+  .es-titolo{
+    display:flex; align-items:baseline; gap:10px;
+    font-weight:700; font-size:18.5px; color:var(--blu);
+    margin-bottom:4px;
+  }
+  .es-lettera{
+    background:var(--accento); color:var(--bianco);
+    width:24px; height:24px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:14.5px; flex-shrink:0;
+  }
+  .es-punti{
+    margin-left:auto; font-size:14px; color:#7a705c; font-weight:400; font-style:italic;
+  }
+  .consegna{
+    font-size:17.5px; color:#3c3527; margin:6px 0 14px;
+  }
+
+  .box-testo{
+    background:var(--bianco); border:1px solid var(--crema-scura);
+    border-left:4px solid var(--accento);
+    padding:16px 20px; margin-bottom:14px; font-size:18px;
+  }
+  .box-testo .fonte{
+    text-align:right; font-size:14px; color:#8a8064; margin-top:8px; font-style:italic;
+  }
+  .whatsapp{
+    background:var(--bianco); border:1px solid var(--crema-scura);
+    border-radius:10px; padding:14px 16px; margin-bottom:14px;
+  }
+  .msg{
+    max-width:78%; padding:8px 12px; border-radius:12px; margin-bottom:8px;
+    font-size:17.5px; line-height:1.5;
+  }
+  .msg.a{background:var(--verde-chiaro); border-bottom-left-radius:2px;}
+  .msg.b{background:var(--blu-chiaro); margin-left:auto; border-bottom-right-radius:2px;}
+  .msg .mittente{display:block; font-size:13px; font-weight:700; color:#5c5240; margin-bottom:2px;}
+
+  .istruzioni-doc{
+    background:var(--oro-chiaro); border:1px dashed var(--oro);
+    padding:12px 16px; font-size:15.5px; margin-bottom:14px; color:#5c4a1a;
+  }
+  .istruzioni-doc b{text-transform:uppercase; letter-spacing:.05em; font-size:13.5px;}
+
+  ol.dom, ul.dom{padding-left:0; list-style:none; margin:0;}
+  ol.dom li, ul.dom li{
+    margin-bottom:10px; padding:9px 12px;
+    background:var(--bianco); border:1px solid var(--crema-scura);
+    display:flex; align-items:center; gap:10px; font-size:17.5px;
+  }
+  .n{font-weight:700; color:var(--accento); flex-shrink:0;}
+  .opzioni{display:flex; gap:16px; margin-left:auto; flex-wrap:wrap;}
+  .opzioni span{display:flex; align-items:center; gap:5px; font-size:16px;}
+  .bollino{
+    width:16px; height:16px; border:1.5px solid #8a8064; border-radius:3px; display:inline-block;
+  }
+  .vf-scelta{display:flex; gap:14px; margin-left:auto;}
+  .vf-scelta span{display:flex; align-items:center; gap:5px; font-size:15.5px; font-weight:600;}
+  .tondo{width:17px; height:17px; border:1.5px solid #8a8064; border-radius:50%; display:inline-block;}
+
+  .risposta-breve{
+    border-bottom:1.3px dotted #7a705c; display:inline-block; min-width:220px; height:20px;
+  }
+
+  .cloze-testo{
+    background:var(--bianco); border:1px solid var(--crema-scura);
+    padding:18px 22px; font-size:18.5px; line-height:2.1;
+  }
+  .cloze-testo .vuoto{
+    display:inline-block; min-width:90px; border-bottom:1.5px solid var(--accento);
+    text-align:center; margin:0 3px; font-style:italic; color:#8a8064; font-size:14.5px;
+  }
+  .verbo{color:var(--blu); font-style:italic;}
+
+  .griglia-frasi{display:grid; gap:10px;}
+  .frase-riga{
+    background:var(--bianco); border:1px solid var(--crema-scura);
+    padding:10px 14px; font-size:17.5px; display:flex; align-items:center; gap:10px;
+  }
+  .frecc{color:var(--accento); font-weight:700;}
+  .spazio-scrivi{flex:1; border-bottom:1.3px dotted #7a705c; height:22px;}
+
+  .banca-lessicale{
+    background:var(--crema-scura); border:1px solid #d8cba6;
+    padding:12px 16px; margin-bottom:14px; font-size:17px; text-align:center;
+    letter-spacing:.03em;
+  }
+  .banca-lessicale b{text-transform:uppercase; font-size:13.5px; letter-spacing:.08em; display:block; margin-bottom:6px; color:#5c5240;}
+
+  /* abbinamento icone */
+  .abbinamento{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+  .colonna-icone{display:grid; gap:14px;}
+  .voce-icona{
+    display:flex; align-items:center; gap:12px;
+    background:var(--bianco); border:1px solid var(--crema-scura); padding:8px 12px;
+  }
+  .mini-timbro{
+    width:46px; height:46px; border-radius:50%; border:1.6px dashed var(--verde);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    color:var(--verde);
+  }
+  .num-cerchio{
+    width:24px; height:24px; border-radius:50%; background:var(--verde); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700;
+  }
+  .colonna-parole{display:grid; gap:14px; align-content:start;}
+  .voce-parola{
+    display:flex; align-items:center; gap:10px;
+    background:var(--bianco); border:1px solid var(--crema-scura); padding:8px 12px; font-size:17px;
+  }
+  .lettera-cerchio{
+    width:24px; height:24px; border-radius:50%; border:1.6px solid var(--verde); color:var(--verde);
+    display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0;
+  }
+  .risp-abbin{border-bottom:1.3px dotted #7a705c; width:26px; display:inline-block;}
+
+  .intrusi{display:grid; gap:10px;}
+  .gruppo-intruso{
+    background:var(--bianco); border:1px solid var(--crema-scura); padding:10px 14px;
+    display:flex; align-items:center; gap:10px; font-size:17.5px; flex-wrap:wrap;
+  }
+  .parola-i{padding:3px 9px; border:1px solid #d8cba6; border-radius:14px; background:var(--crema);}
+
+  .riga-scritta{
+    border-bottom:1.6px solid #a89c7d; height:34px; margin-bottom:2px;
+  }
+  .tabella-valutazione{
+    width:100%; border-collapse:collapse; margin-top:16px; font-size:16px;
+  }
+  .tabella-valutazione th, .tabella-valutazione td{
+    border:1px solid var(--crema-scura); padding:8px 10px; text-align:left;
+  }
+  .tabella-valutazione th{background:var(--rosso-chiaro); color:var(--rosso); text-transform:uppercase; font-size:13.5px; letter-spacing:.04em;}
+
+  .riepilogo-tab{width:100%; border-collapse:collapse; margin-top:6px;}
+  .riepilogo-tab th, .riepilogo-tab td{
+    border:1px solid var(--crema-scura); padding:10px 14px; font-size:17px; text-align:left;
+  }
+  .riepilogo-tab th{background:var(--blu); color:#fff; text-transform:uppercase; font-size:13.5px; letter-spacing:.05em;}
+  .riepilogo-tab td.centro, .riepilogo-tab th.centro{text-align:center; width:110px;}
+  .riepilogo-tab tr.totale td{font-weight:700; background:var(--crema-scura);}
+
+  .legenda-livelli{
+    display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;
+  }
+  .legenda-livelli div{
+    flex:1; min-width:140px; padding:10px 12px; border-radius:4px; font-size:15px; text-align:center; font-weight:600;
+  }
+
+  /* biglietti prova orale */
+  .biglietti{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .biglietto{
+    background:var(--bianco); border:1.6px dashed var(--verde); border-radius:8px;
+    padding:18px; position:relative;
+  }
+  .biglietto::before{
+    content:"✂";
+    position:absolute; top:-13px; left:14px; background:var(--crema); padding:0 4px; color:#8a8064; font-size:15.5px;
+  }
+  .biglietto .num-situazione{
+    display:inline-block; background:var(--verde); color:#fff; font-size:12.5px; font-weight:700;
+    padding:3px 9px; border-radius:12px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px;
+  }
+  .biglietto p{margin:0; font-size:17px;}
+
+  /* chiave insegnante */
+  .chiave{
+    background:#efe9db; padding:40px 50px; page-break-before:always;
+  }
+  .chiave-header{
+    text-align:center; margin-bottom:28px; padding-bottom:16px; border-bottom:3px double var(--inchiostro);
+  }
+  .chiave-header .eyebrow{color:var(--rosso);}
+  .chiave-header h2{margin:6px 0 0; text-transform:uppercase; font-size:24.5px;}
+  .chiave-blocco{margin-bottom:22px;}
+  .chiave-blocco h3{
+    font-size:17px; text-transform:uppercase; letter-spacing:.05em; color:var(--blu);
+    border-bottom:1px solid #c9bd9e; padding-bottom:5px; margin-bottom:8px;
+  }
+  .chiave-blocco p, .chiave-blocco div{font-size:16px; line-height:1.7;}
+
+  footer.piede{
+    text-align:center; padding:22px; font-size:14px; color:#8a8064; background:var(--crema-scura);
+  }
+
+  @page{ size:A4; margin:12mm; }
+  @media print{
+    body{background:#fff;}
+    .foglio{box-shadow:none; margin:0; max-width:none; width:100%;}
+    .stampa-btn{display:none;}
+    .indice{display:none;}
+
+    /* non spezzare le singole unità, ma lascia fluire liberamente le sezioni */
+    .esercizio, .box-testo, .whatsapp, .biglietto, .griglia-frasi, .cloze-testo,
+    .tabella-valutazione, .riepilogo-tab, .abbinamento, .chiave-blocco{
+      page-break-inside:avoid; break-inside:avoid;
+    }
+    .sezione-header{page-break-after:avoid; break-after:avoid;}
+    .es-titolo{page-break-after:avoid; break-after:avoid;}
+    .copertina{page-break-inside:avoid; break-inside:avoid;}
+    .chiave{page-break-before:always; break-before:page;}
+
+    /* testo più grande in stampa, non ci preoccupiamo del numero di pagine */
+    body{font-size:24px !important; line-height:1.6 !important;}
+    .es-titolo{font-size:23px !important;}
+    .es-punti{font-size:15.5px !important;}
+    .consegna{font-size:22px !important;}
+    .box-testo{font-size:22px !important;}
+    .box-testo .fonte{font-size:15px !important;}
+    .msg{font-size:21.5px !important;}
+    .msg .mittente{font-size:14.5px !important;}
+    .istruzioni-doc{font-size:17px !important;}
+    .istruzioni-doc b{font-size:15px !important;}
+    ol.dom li, ul.dom li{font-size:22px !important;}
+    .opzioni span{font-size:20px !important;}
+    .vf-scelta span{font-size:19.5px !important;}
+    .tondo{width:19px !important; height:19px !important;}
+    .bollino{width:18px !important; height:18px !important;}
+    .cloze-testo{font-size:23px !important; line-height:1.9 !important;}
+    .cloze-testo .vuoto{font-size:16px !important; min-width:100px !important;}
+    .frase-riga{font-size:22px !important;}
+    .spazio-scrivi{height:24px !important;}
+    .banca-lessicale{font-size:21px !important;}
+    .banca-lessicale b{font-size:15px !important;}
+    .voce-icona, .voce-parola{font-size:21px !important;}
+    .num-cerchio, .lettera-cerchio{width:27px !important; height:27px !important; font-size:15.5px !important;}
+    .gruppo-intruso{font-size:22px !important;}
+    .riga-scritta{height:36px !important;}
+    .tabella-valutazione{font-size:20px !important;}
+    .tabella-valutazione th{font-size:15px !important;}
+    .riepilogo-tab th, .riepilogo-tab td{font-size:21px !important;}
+    .riepilogo-tab th{font-size:15px !important;}
+    .legenda-livelli div{font-size:19px !important;}
+    .biglietto p{font-size:21px !important;}
+    .biglietto .num-situazione{font-size:14px !important;}
+    .sezione-header h2{font-size:30px !important;}
+    .timbro-punti .num{font-size:27px !important;}
+    .timbro-punti .lbl{font-size:11px !important;}
+    .titolo-principale{font-size:40px !important;}
+    .sottotitolo{font-size:17px !important;}
+    .istruzioni-cover{font-size:16.5px !important;}
+    .chiave-blocco h3{font-size:17px !important;}
+    .chiave-blocco p, .chiave-blocco div{font-size:16px !important;}
+  }
+  @media (max-width:640px){
+    .copertina, .sezione, .chiave{padding:26px 20px;}
+    .cornice{padding:22px 18px;}
+    .cover-riga{flex-direction:column;}
+    .indice{grid-template-columns:1fr;}
+    .abbinamento{grid-template-columns:1fr;}
+    .biglietti{grid-template-columns:1fr;}
+    .titolo-principale{font-size:29px;}
+  }
+</style>
+</head>
+<body>
+
+<button class="stampa-btn" onclick="window.print()">🖨️ stampa / salva pdf</button>
+
+<div class="foglio">
+
+  <!-- ================= COPERTINA ================= -->
+  <div class="copertina">
+    <div class="cornice">
+      <div class="cover-riga">
+        <div class="campi-cover" style="width:100%;">
+          <span class="eyebrow">verifica di lingua italiana per stranieri</span>
+          <h1 class="titolo-principale">Verifica di Italiano L2</h1>
+          <p class="sottotitolo">Livello A2 del QCER — «livello di sopravvivenza» (waystage)</p>
+        </div>
+        <div class="sigillo-wrap">
+          <svg viewBox="0 0 200 200" width="140" height="140">
+            <path id="cerchioTesto" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" fill="none"/>
+            <circle cx="100" cy="100" r="78" fill="none" stroke="#2E6B4E" stroke-width="1.4" stroke-dasharray="2 4"/>
+            <circle cx="100" cy="100" r="58" fill="none" stroke="#2E6B4E" stroke-width="1.4"/>
+            <text font-size="12.5" font-family="Georgia, serif" letter-spacing="2.5" fill="#2E6B4E">
+              <textPath href="#cerchioTesto" startOffset="2%">QCER · LIVELLO A2 · WAYSTAGE ·</textPath>
+            </text>
+            <text x="100" y="94" text-anchor="middle" font-size="34" font-family="Georgia, serif" font-weight="700" fill="#2E6B4E">A2</text>
+            <text x="100" y="116" text-anchor="middle" font-size="10.5" letter-spacing="2" fill="#2E6B4E">ITALIANO L2</text>
+            <line x1="70" y1="104" x2="130" y2="104" stroke="#2E6B4E" stroke-width="1"/>
+          </svg>
+          <div class="sigillo-testo">certificazione interna<br>di livello</div>
+        </div>
+      </div>
+
+      <div class="campi-cover" style="margin-top:8px;">
+        <div class="campo"><span class="etichetta">Nome e cognome</span><span class="linea"></span></div>
+        <div class="campo" style="max-width:60%;"><span class="etichetta">Data</span><span class="linea"></span></div>
+      </div>
+
+      <div class="istruzioni-cover">
+        <span class="eyebrow">istruzioni generali</span>
+        <ul>
+          <li>Tempo a disposizione: <b>90 minuti</b> per la parte scritta.</li>
+          <li>Puoi usare una penna e, se ti serve, un dizionario bilingue cartaceo.</li>
+          <li>Leggi bene ogni consegna prima di rispondere. Non c'è fretta.</li>
+          <li>La prova orale (in fondo al libretto) viene svolta a parte, con l'insegnante.</li>
+          <li>Punteggio totale della prova scritta: <b>100 punti</b>.</li>
+        </ul>
+      </div>
+
+      <div class="indice">
+        <div class="indice-voce"><span>1 · Comprensione della lettura</span><b>10 + 10 pt</b></div>
+        <div class="indice-voce"><span>2 · Comprensione orale</span><b>10 pt</b></div>
+        <div class="indice-voce"><span>3 · Grammatica</span><b>36 pt</b></div>
+        <div class="indice-voce"><span>4 · Lessico</span><b>19 pt</b></div>
+        <div class="indice-voce"><span>5 · Produzione scritta</span><b>15 pt</b></div>
+        <div class="indice-voce"><span>6 · Scheda per la prova orale</span><b>a parte</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SEZIONE 1 · LETTURA ================= -->
+  <div class="sezione lettura">
+    <div class="sezione-header">
+      <div>
+        <span class="eyebrow">sezione 1</span>
+        <h2>Comprensione della lettura</h2>
+      </div>
+      <div class="timbro-punti"><span class="num">20</span><span class="lbl">punti</span></div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">A</span> Leggi l'annuncio e rispondi <span class="es-punti">10 punti · 2 per ogni risposta</span></div>
+      <p class="consegna">Leggi il cartello del bar e indica se le frasi sono vere (V) o false (F).</p>
+      <div class="box-testo">
+        <b>CERCASI CAMERIERE/A — BAR TRATTORIA DA PEPPE</b><br><br>
+        Cerchiamo una persona per il servizio ai tavoli, dal martedì alla domenica (lunedì chiuso).<br>
+        Orario: dalle 18:00 alle 24:00.<br>
+        Richiediamo: un po' di esperienza, buona volontà, italiano parlato di base.<br>
+        Offriamo: contratto regolare, formazione iniziale, pasto incluso.<br><br>
+        Per informazioni: passare in via Putignani 45, dalle 10:00 alle 12:00, oppure telefonare al numero 080 555 1234.
+        <div class="fonte">— cartello affisso in vetrina, Bari</div>
+      </div>
+      <ol class="dom">
+        <li><span class="n">1.</span> Il bar cerca una persona per lavorare in cucina. <span class="vf-scelta"><span><span class="tondo"></span>V</span><span><span class="tondo"></span>F</span></span></li>
+        <li><span class="n">2.</span> Il locale è chiuso il lunedì. <span class="vf-scelta"><span><span class="tondo"></span>V</span><span><span class="tondo"></span>F</span></span></li>
+        <li><span class="n">3.</span> Bisogna lavorare la mattina presto. <span class="vf-scelta"><span><span class="tondo"></span>V</span><span><span class="tondo"></span>F</span></span></li>
+        <li><span class="n">4.</span> Il pasto è compreso nell'offerta di lavoro. <span class="vf-scelta"><span><span class="tondo"></span>V</span><span><span class="tondo"></span>F</span></span></li>
+        <li><span class="n">5.</span> Per avere informazioni si può solo telefonare. <span class="vf-scelta"><span><span class="tondo"></span>V</span><span><span class="tondo"></span>F</span></span></li>
+      </ol>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">B</span> Leggi la chat e scegli la risposta giusta <span class="es-punti">10 punti · 2 per ogni risposta</span></div>
+      <p class="consegna">Amina e Sara si scrivono su WhatsApp per organizzare un'uscita al mercato.</p>
+      <div class="whatsapp">
+        <div class="msg a"><span class="mittente">Amina</span>Ciao Sara! Domani vieni al mercato con me? Devo comprare la frutta e delle scarpe nuove per mio figlio 🙂</div>
+        <div class="msg b"><span class="mittente">Sara</span>Ciao! Sì, volentieri. A che ora?</div>
+        <div class="msg a"><span class="mittente">Amina</span>Verso le 9, prima che ci sia troppa gente. Ci vediamo davanti alla fermata dell'autobus?</div>
+        <div class="msg b"><span class="mittente">Sara</span>Perfetto, porto anche il carrello della spesa così portiamo tutto insieme.</div>
+        <div class="msg a"><span class="mittente">Amina</span>Ottima idea! Dopo possiamo prendere un caffè al bar vicino alla piazza.</div>
+      </div>
+      <ol class="dom">
+        <li><span class="n">1.</span> Che cosa deve comprare Amina?
+          <span class="opzioni"><span><span class="bollino"></span>a) solo frutta</span><span><span class="bollino"></span>b) frutta e scarpe</span><span><span class="bollino"></span>c) scarpe e caffè</span></span>
+        </li>
+        <li><span class="n">2.</span> A che ora si vedono?
+          <span class="opzioni"><span><span class="bollino"></span>a) alle 8:00</span><span><span class="bollino"></span>b) alle 9:00</span><span><span class="bollino"></span>c) alle 10:00</span></span>
+        </li>
+        <li><span class="n">3.</span> Dove si incontrano?
+          <span class="opzioni"><span><span class="bollino"></span>a) al bar</span><span><span class="bollino"></span>b) alla fermata dell'autobus</span><span><span class="bollino"></span>c) in piazza</span></span>
+        </li>
+        <li><span class="n">4.</span> Perché vogliono andare presto?
+          <span class="opzioni"><span><span class="bollino"></span>a) il mercato chiude presto</span><span><span class="bollino"></span>b) per evitare la folla</span><span><span class="bollino"></span>c) perché piove</span></span>
+        </li>
+        <li><span class="n">5.</span> Cosa fanno dopo il mercato?
+          <span class="opzioni"><span><span class="bollino"></span>a) vanno a lavorare</span><span><span class="bollino"></span>b) prendono un caffè</span><span><span class="bollino"></span>c) tornano subito a casa</span></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ================= SEZIONE 2 · ASCOLTO ================= -->
+  <div class="sezione ascolto">
+    <div class="sezione-header">
+      <div>
+        <span class="eyebrow">sezione 2</span>
+        <h2>Comprensione orale</h2>
+      </div>
+      <div class="timbro-punti"><span class="num">10</span><span class="lbl">punti</span></div>
+    </div>
+
+    <div class="esercizio">
+      <div class="istruzioni-doc">
+        <b>Istruzioni per l'insegnante:</b> leggi il dialogo ad alta voce due volte, con un ritmo naturale ma chiaro. Gli studenti ascoltano (libro chiuso o solo con le domande visibili) e rispondono con parole brevi.
+      </div>
+      <div class="es-titolo"><span class="es-lettera">A</span> Ascolta il dialogo in farmacia e rispondi <span class="es-punti">10 punti · 2 per ogni risposta</span></div>
+      <div class="box-testo" style="font-style:italic; color:#4a4033;">
+        <b style="font-style:normal;">Testo per l'insegnante (non leggere ad alta voce le domande, solo il dialogo):</b><br><br>
+        — Buongiorno, dica pure.<br>
+        — Buongiorno. Ho mal di testa da due giorni e anche un po' di tosse. Cosa mi consiglia?<br>
+        — Ha la febbre?<br>
+        — No, non ho la febbre, ma sono molto stanco.<br>
+        — Va bene, le do questo sciroppo per la tosse e queste compresse per il mal di testa. Le compresse si prendono dopo i pasti, due volte al giorno.<br>
+        — Quanto costa tutto?<br>
+        — In totale sono dodici euro e cinquanta.<br>
+        — Ecco a lei. Grazie mille, buona giornata.<br>
+        — Grazie a lei, si riguardi!
+      </div>
+      <ol class="dom">
+        <li><span class="n">1.</span> Da quanti giorni il cliente ha mal di testa? <span class="risposta-breve"></span></li>
+        <li><span class="n">2.</span> Il cliente ha la febbre? <span class="risposta-breve"></span></li>
+        <li><span class="n">3.</span> Cosa dà il farmacista per la tosse? <span class="risposta-breve"></span></li>
+        <li><span class="n">4.</span> Quando si prendono le compresse? <span class="risposta-breve"></span></li>
+        <li><span class="n">5.</span> Quanto costa tutto? <span class="risposta-breve"></span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ================= SEZIONE 3 · GRAMMATICA ================= -->
+  <div class="sezione grammatica">
+    <div class="sezione-header">
+      <div>
+        <span class="eyebrow">sezione 3</span>
+        <h2>Grammatica</h2>
+      </div>
+      <div class="timbro-punti"><span class="num">36</span><span class="lbl">punti</span></div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">A</span> Presente indicativo <span class="es-punti">8 punti</span></div>
+      <p class="consegna">Completa il testo con il verbo al presente indicativo.</p>
+      <div class="cloze-testo">
+        Mi chiamo Ibrahim e vi racconto la mia giornata. Ogni mattina <span class="vuoto">svegliarsi</span> alle sei.
+        <span class="vuoto">fare</span> colazione con un caffè e poi <span class="vuoto">uscire</span> di casa alle sette.
+        Il lavoro <span class="vuoto">cominciare</span> alle otto. Il mio collega Marco <span class="vuoto">parlare</span>
+        sempre italiano con me e mi aiuta molto. A mezzogiorno noi <span class="vuoto">mangiare</span> insieme in pausa pranzo.
+        La sera io <span class="vuoto">tornare</span> a casa stanco ma contento, e <span class="vuoto">potere</span> finalmente riposare.
+      </div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">B</span> Passato prossimo <span class="es-punti">6 punti</span></div>
+      <p class="consegna">Trasforma le frasi dal presente al passato prossimo.</p>
+      <div class="griglia-frasi">
+        <div class="frase-riga"><span class="n">1.</span> Oggi vado al mercato. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">2.</span> Compriamo il pane fresco. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">3.</span> Mia moglie prepara la cena. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">4.</span> I bambini escono a giocare. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">5.</span> Tu scrivi una lettera. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">6.</span> Io e Karim finiamo il lavoro alle sei. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+      </div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">C</span> Preposizioni <span class="es-punti">6 punti</span></div>
+      <p class="consegna">Completa con la preposizione giusta (semplice o articolata).</p>
+      <div class="cloze-testo">
+        Il lunedì vado <span class="vuoto"></span> lavoro in autobus. Prima passo <span class="vuoto"></span> farmacia per comprare le medicine
+        <span class="vuoto"></span> mia figlia. Poi vado <span class="vuoto"></span> scuola dei miei figli e parlo <span class="vuoto"></span> maestra.
+        Nel pomeriggio torno <span class="vuoto"></span> casa a piedi.
+      </div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">D</span> Pronomi diretti <span class="es-punti">6 punti</span></div>
+      <p class="consegna">Riscrivi la frase sostituendo la parola sottolineata con il pronome diretto giusto (lo, la, li, le).</p>
+      <div class="griglia-frasi">
+        <div class="frase-riga"><span class="n">1.</span> Compro <u>il pane</u> ogni giorno. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">2.</span> Leggo <u>la lettera</u> con attenzione. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">3.</span> Preparo <u>i documenti</u> per l'appuntamento. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">4.</span> Porto <u>le chiavi</u> in tasca. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">5.</span> Saluto <u>il mio vicino</u> ogni mattina. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">6.</span> Aiuto <u>i miei figli</u> con i compiti. <span class="frecc">→</span><span class="spazio-scrivi"></span></div>
+      </div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">E</span> Comparativi <span class="es-punti">5 punti</span></div>
+      <p class="consegna">Completa con più... di / meno... di / come, secondo il significato.</p>
+      <div class="griglia-frasi">
+        <div class="frase-riga"><span class="n">1.</span> Il treno è <span class="spazio-scrivi" style="max-width:220px"></span> veloce <span class="spazio-scrivi" style="max-width:60px"></span> l'autobus. <i>(+)</i></div>
+        <div class="frase-riga"><span class="n">2.</span> Gennaio è <span class="spazio-scrivi" style="max-width:220px"></span> freddo <span class="spazio-scrivi" style="max-width:60px"></span> agosto. <i>(+)</i></div>
+        <div class="frase-riga"><span class="n">3.</span> Questa borsa costa <span class="spazio-scrivi" style="max-width:160px"></span> quella. <i>(=)</i></div>
+        <div class="frase-riga"><span class="n">4.</span> Mio fratello è <span class="spazio-scrivi" style="max-width:220px"></span> alto <span class="spazio-scrivi" style="max-width:60px"></span> me. <i>(−)</i></div>
+        <div class="frase-riga"><span class="n">5.</span> Il mercato del sabato è <span class="spazio-scrivi" style="max-width:220px"></span> affollato <span class="spazio-scrivi" style="max-width:60px"></span> il supermercato. <i>(+)</i></div>
+      </div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">F</span> Imperativo informale (tu) <span class="es-punti">5 punti</span></div>
+      <p class="consegna">Un amico si trasferisce in una nuova città. Scrivi 5 consigli per lui usando l'imperativo. Usa i verbi suggeriti.</p>
+      <div class="griglia-frasi">
+        <div class="frase-riga"><span class="n">1.</span> (visitare) <span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">2.</span> (chiedere aiuto) <span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">3.</span> (non avere paura di...) <span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">4.</span> (imparare) <span class="spazio-scrivi"></span></div>
+        <div class="frase-riga"><span class="n">5.</span> (essere) <span class="spazio-scrivi"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SEZIONE 4 · LESSICO ================= -->
+  <div class="sezione lessico">
+    <div class="sezione-header">
+      <div>
+        <span class="eyebrow">sezione 4</span>
+        <h2>Lessico</h2>
+      </div>
+      <div class="timbro-punti"><span class="num">19</span><span class="lbl">punti</span></div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">A</span> Abbina il timbro alla parola giusta <span class="es-punti">8 punti</span></div>
+      <p class="consegna">Scrivi la lettera giusta nel cerchietto accanto a ogni numero.</p>
+      <div class="abbinamento">
+        <div class="colonna-icone">
+          <div class="voce-icona"><span class="num-cerchio">1</span>
+            <div class="mini-timbro"><svg viewBox="0 0 48 48" width="26" height="26" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round"><line x1="24" y1="12" x2="24" y2="36"/><line x1="12" y1="24" x2="36" y2="24"/></svg></div>
+            <span>farmacia — <span class="risp-abbin"></span></span>
+          </div>
+          <div class="voce-icona"><span class="num-cerchio">2</span>
+            <div class="mini-timbro"><svg viewBox="0 0 48 48" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="24,8 40,18 8,18"/><line x1="10" y1="18" x2="10" y2="34"/><line x1="18" y1="18" x2="18" y2="34"/><line x1="30" y1="18" x2="30" y2="34"/><line x1="38" y1="18" x2="38" y2="34"/><line x1="7" y1="34" x2="41" y2="34"/></svg></div>
+            <span>banca — <span class="risp-abbin"></span></span>
+          </div>
+          <div class="voce-icona"><span class="num-cerchio">3</span>
+            <div class="mini-timbro"><svg viewBox="0 0 48 48" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="17" width="30" height="20" rx="2"/><line x1="24" y1="21" x2="24" y2="33"/><line x1="18" y1="27" x2="30" y2="27"/></svg></div>
+            <span>ospedale — <span class="risp-abbin"></span></span>
+          </div>
+          <div class="voce-icona"><span class="num-cerchio">4</span>
+            <div class="mini-timbro"><svg viewBox="0 0 48 48" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="24" cy="16" rx="8" ry="6"/><line x1="16" y1="20" x2="8" y2="38"/><line x1="32" y1="20" x2="40" y2="38"/><line x1="8" y1="38" x2="40" y2="38"/></svg></div>
+            <span>ristorante — <span class="risp-abbin"></span></span>
+          </div>
+        </div>
+        <div class="colonna-icone">
+          <div class="voce-icona"><span class="num-cerchio">5</span>
+            <div class="mini-timbro"><svg viewBox="0 0 48 48" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M13,20 L35,20 L31,38 L17,38 Z"/><path d="M17,20 C17,13 31,13 31,20"/></svg></div>
+            <span>mercato — <span class="risp-abbin"></span></span>
+          </div>
+          <div class="voce-icona"><span class="num-cerchio">6</span>
+            <div class="mini-timbro"><svg viewBox="0 0 48 48" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="14" width="34" height="18" rx="3"/><line x1="7" y1="22" x2="41" y2="22"/><circle cx="14" cy="36" r="3"/><circle cx="34" cy="36" r="3"/></svg></div>
+            <span>autobus — <span class="risp-abbin"></span></span>
+          </div>
+          <div class="voce-icona"><span class="num-cerchio">7</span>
+            <div class="mini-timbro"><svg viewBox="0 0 48 48" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="22" rx="2"/><path d="M8,16 L24,29 L40,16"/></svg></div>
+            <span>ufficio postale — <span class="risp-abbin"></span></span>
+          </div>
+          <div class="voce-icona"><span class="num-cerchio">8</span>
+            <div class="mini-timbro"><svg viewBox="0 0 48 48" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="24,10 42,18 24,26 6,18"/><path d="M14,21 L14,30 C14,33 34,33 34,30 L34,21"/><line x1="42" y1="18" x2="42" y2="28"/></svg></div>
+            <span>scuola — <span class="risp-abbin"></span></span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <div class="banca-lessicale"><b>parole da abbinare</b>
+          A. lettera e francobollo &nbsp;·&nbsp; B. lezione e quaderni &nbsp;·&nbsp; C. medicine e sciroppo &nbsp;·&nbsp; D. frutta e verdura fresca &nbsp;·&nbsp; E. conto corrente e bancomat &nbsp;·&nbsp; F. pasta e pizza &nbsp;·&nbsp; G. fermata e biglietto &nbsp;·&nbsp; H. medico e infermiere
+        </div>
+      </div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">B</span> Trova l'intruso <span class="es-punti">5 punti</span></div>
+      <p class="consegna">In ogni gruppo c'è una parola che non appartiene alla categoria. Cerchiala.</p>
+      <div class="intrusi">
+        <div class="gruppo-intruso"><span class="n">1.</span><span class="parola-i">medico</span><span class="parola-i">infermiera</span><span class="parola-i">farmacista</span><span class="parola-i">cameriere</span></div>
+        <div class="gruppo-intruso"><span class="n">2.</span><span class="parola-i">pane</span><span class="parola-i">latte</span><span class="parola-i">uova</span><span class="parola-i">camicia</span></div>
+        <div class="gruppo-intruso"><span class="n">3.</span><span class="parola-i">treno</span><span class="parola-i">autobus</span><span class="parola-i">metro</span><span class="parola-i">armadio</span></div>
+        <div class="gruppo-intruso"><span class="n">4.</span><span class="parola-i">lunedì</span><span class="parola-i">martedì</span><span class="parola-i">gennaio</span><span class="parola-i">venerdì</span></div>
+        <div class="gruppo-intruso"><span class="n">5.</span><span class="parola-i">felice</span><span class="parola-i">triste</span><span class="parola-i">stanco</span><span class="parola-i">veloce</span></div>
+      </div>
+    </div>
+
+    <div class="esercizio">
+      <div class="es-titolo"><span class="es-lettera">C</span> Completa con la parola giusta <span class="es-punti">6 punti</span></div>
+      <div class="banca-lessicale"><b>banca delle parole</b>appuntamento · scontrino · indirizzo · orario · contratto · permesso</div>
+      <div class="griglia-frasi">
+        <div class="frase-riga"><span class="n">1.</span> Prima di andare dal medico devo prendere un <span class="spazio-scrivi"></span>.</div>
+        <div class="frase-riga"><span class="n">2.</span> Quando pago al supermercato, la cassiera mi dà lo <span class="spazio-scrivi"></span>.</div>
+        <div class="frase-riga"><span class="n">3.</span> Il postino ha bisogno del mio <span class="spazio-scrivi"></span> per consegnare il pacco.</div>
+        <div class="frase-riga"><span class="n">4.</span> Il negozio ha un <span class="spazio-scrivi"></span> di apertura dalle 9 alle 20.</div>
+        <div class="frase-riga"><span class="n">5.</span> Per lavorare in questo ristorante ho firmato un <span class="spazio-scrivi"></span>.</div>
+        <div class="frase-riga"><span class="n">6.</span> Ho chiesto un giorno di <span class="spazio-scrivi"></span> al mio capo per andare in ospedale.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SEZIONE 5 · PRODUZIONE SCRITTA ================= -->
+  <div class="sezione produzione">
+    <div class="sezione-header">
+      <div>
+        <span class="eyebrow">sezione 5</span>
+        <h2>Produzione scritta</h2>
+      </div>
+      <div class="timbro-punti"><span class="num">15</span><span class="lbl">punti</span></div>
+    </div>
+    <div class="esercizio">
+      <p class="consegna">Scrivi un messaggio (almeno 50 parole) al tuo datore di lavoro per chiedere un giorno di permesso. Spiega: perché ti serve il permesso, per quale giorno, e ringrazia per la comprensione.</p>
+      <div class="riga-scritta"></div><div class="riga-scritta"></div><div class="riga-scritta"></div>
+      <div class="riga-scritta"></div><div class="riga-scritta"></div><div class="riga-scritta"></div>
+      <div class="riga-scritta"></div><div class="riga-scritta"></div>
+
+      <table class="tabella-valutazione">
+        <tr><th>Criterio</th><th style="width:110px;">Punti</th></tr>
+        <tr><td>Contenuto — hai spiegato motivo, giorno e ringraziamento</td><td>___ / 4</td></tr>
+        <tr><td>Lessico — parole adatte alla situazione</td><td>___ / 4</td></tr>
+        <tr><td>Grammatica — frasi corrette e comprensibili</td><td>___ / 4</td></tr>
+        <tr><td>Lunghezza e organizzazione del testo</td><td>___ / 3</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ================= RIEPILOGO PUNTEGGIO ================= -->
+  <div class="sezione" style="--accento:var(--blu);">
+    <div class="sezione-header">
+      <div>
+        <span class="eyebrow">riepilogo</span>
+        <h2>Punteggio finale</h2>
+      </div>
+    </div>
+    <table class="riepilogo-tab">
+      <tr><th>Sezione</th><th class="centro">Punti disponibili</th><th class="centro">Punti ottenuti</th></tr>
+      <tr><td>1 · Comprensione della lettura</td><td class="centro">20</td><td class="centro"></td></tr>
+      <tr><td>2 · Comprensione orale</td><td class="centro">10</td><td class="centro"></td></tr>
+      <tr><td>3 · Grammatica</td><td class="centro">36</td><td class="centro"></td></tr>
+      <tr><td>4 · Lessico</td><td class="centro">19</td><td class="centro"></td></tr>
+      <tr><td>5 · Produzione scritta</td><td class="centro">15</td><td class="centro"></td></tr>
+      <tr class="totale"><td>Totale</td><td class="centro">100</td><td class="centro"></td></tr>
+    </table>
+    <div class="legenda-livelli">
+      <div style="background:var(--rosso-chiaro); color:var(--rosso);">0–59<br>da ripassare</div>
+      <div style="background:var(--oro-chiaro); color:#7a5c14;">60–74<br>sufficiente</div>
+      <div style="background:var(--verde-chiaro); color:var(--verde);">75–89<br>buono</div>
+      <div style="background:var(--blu-chiaro); color:var(--blu);">90–100<br>ottimo</div>
+    </div>
+  </div>
+
+  <!-- ================= APPENDICE · PROVA ORALE ================= -->
+  <div class="sezione orale">
+    <div class="sezione-header">
+      <div>
+        <span class="eyebrow">appendice</span>
+        <h2>Scheda per la prova orale</h2>
+      </div>
+    </div>
+    <p class="consegna">Da ritagliare: l'insegnante pesca un biglietto e lo studente svolge il compito parlando (circa 2 minuti a situazione).</p>
+    <div class="biglietti">
+      <div class="biglietto"><span class="num-situazione">situazione 1</span><p>Sei al mercato. Chiedi il prezzo di due prodotti e prova a chiedere uno sconto.</p></div>
+      <div class="biglietto"><span class="num-situazione">situazione 2</span><p>Chiedi indicazioni per andare dalla stazione all'ospedale più vicino.</p></div>
+      <div class="biglietto"><span class="num-situazione">situazione 3</span><p>Telefoni per prenotare una visita medica: di' il tuo nome, il motivo della visita e chiedi un orario.</p></div>
+      <div class="biglietto"><span class="num-situazione">situazione 4</span><p>Parla di te: da dove vieni, cosa fai a Bari, cosa ti piace fare nel tempo libero.</p></div>
+    </div>
+  </div>
+
+  <footer class="piede">verifica di italiano l2 · livello a2 — materiale a uso didattico</footer>
+
+  <!-- ================= CHIAVE INSEGNANTE ================= -->
+  <div class="chiave">
+    <div class="chiave-header">
+      <span class="eyebrow">solo per l'insegnante</span>
+      <h2>Chiave delle risposte</h2>
+    </div>
+
+    <div class="chiave-blocco">
+      <h3>Sezione 1 · Lettura</h3>
+      <p><b>A:</b> 1. F — 2. V — 3. F — 4. V — 5. F &nbsp;&nbsp; <b>B:</b> 1. b — 2. b — 3. b — 4. b — 5. b</p>
+    </div>
+
+    <div class="chiave-blocco">
+      <h3>Sezione 2 · Ascolto</h3>
+      <p>1. due giorni — 2. no — 3. uno sciroppo — 4. dopo i pasti, due volte al giorno — 5. 12 euro e 50</p>
+    </div>
+
+    <div class="chiave-blocco">
+      <h3>Sezione 3 · Grammatica</h3>
+      <div><b>A</b> — mi sveglio, faccio, esco, comincia, parla, mangiamo, torno, posso</div>
+      <div><b>B</b> — 1. Ieri sono andato/a al mercato. 2. Abbiamo comprato il pane fresco. 3. Mia moglie ha preparato la cena. 4. I bambini sono usciti a giocare. 5. Tu hai scritto una lettera. 6. Io e Karim abbiamo finito il lavoro alle sei.</div>
+      <div><b>C</b> — al, dalla, per, alla, con la, a</div>
+      <div><b>D</b> — 1. Lo compro ogni giorno. 2. La leggo con attenzione. 3. Li preparo per l'appuntamento. 4. Le porto in tasca. 5. Lo saluto ogni mattina. 6. Li aiuto con i compiti.</div>
+      <div><b>E</b> — 1. più / dell' 2. più / di 3. come/quanto 4. meno / di 5. più / del</div>
+      <div><b>F</b> — risposte libere; verificare l'uso corretto dell'imperativo tu (es. visita, chiedi aiuto, non avere paura di..., impara, sii)</div>
+    </div>
+
+    <div class="chiave-blocco">
+      <h3>Sezione 4 · Lessico</h3>
+      <div><b>A</b> — 1-C (farmacia), 2-E (banca), 3-H (ospedale), 4-F (ristorante), 5-D (mercato), 6-G (autobus), 7-A (ufficio postale), 8-B (scuola)</div>
+      <div><b>B</b> — 1. cameriere — 2. camicia — 3. armadio — 4. gennaio — 5. veloce</div>
+      <div><b>C</b> — 1. appuntamento — 2. scontrino — 3. indirizzo — 4. orario — 5. contratto — 6. permesso</div>
+    </div>
+
+    <div class="chiave-blocco">
+      <h3>Sezione 5 · Produzione scritta</h3>
+      <p>Valutazione secondo la griglia; verificare soprattutto l'efficacia comunicativa più che la correttezza formale assoluta (coerente con i descrittori QCER per il livello A2).</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
