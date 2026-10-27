@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IL PRESENTE - ITALIANO L2 (A1)</title>
+<style>
+  :root{
+    --blu:#1F6F8B; --blu-scuro:#13303D; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#EEF6F8; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#1F6F8B,#3FA7C4); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+  .d{color:var(--no); font-weight:bold;}
+  .grid > *, .twocol2 > *{min-width:0;}
+  @media (max-width:900px){ .card{padding:12px; overflow-wrap:anywhere;} .card .emoji{font-size:2.2rem;} }
+  table.plur td:first-child{text-align:left;}
+  @media (max-width:900px){ table.plur th, table.plur td{padding:6px 4px; font-size:.85rem;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LIVELLO A1</span>
+  <span>IL PRESENTE</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <!-- COPERTINA -->
+  <section class="slide center cover">
+    <div class="big">⏱️</div>
+    <h1>IL PRESENTE</h1>
+    <p class="lead" style="margin-top:14px;">IO LAVORO, TU PRENDI, LUI SENTE...</p>
+    <span class="badge">VERBI REGOLARI &bull; ESSERE E AVERE &bull; VERBI IRREGOLARI</span>
+  </section>
+
+  <!-- OBIETTIVI -->
+  <section class="slide">
+    <h2>CHE COSA IMPARIAMO?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🙋</span><b>LE PERSONE</b><span>IO, TU, LUI/LEI, NOI, VOI, LORO</span></div>
+      <div class="card"><span class="emoji">🧩</span><b>I VERBI REGOLARI</b><span>-ARE &bull; -ERE &bull; -IRE &bull; -ISC</span></div>
+      <div class="card"><span class="emoji">🔑</span><b>ESSERE E AVERE</b><span>IO SONO &bull; IO HO</span></div>
+      <div class="card"><span class="emoji">⚡</span><b>I VERBI IRREGOLARI</b><span>ANDARE, VENIRE, FARE, DARE, STARE...</span></div>
+    </div>
+  </section>
+
+  <!-- PRESENTE = OGGI -->
+  <section class="slide">
+    <h2>📅 PRESENTE = OGGI, ADESSO</h2>
+    <p class="lead">IL PRESENTE DICE CHE COSA FACCIO <b>OGGI</b>, <b>ADESSO</b>, <b>SEMPRE</b>.</p>
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card"><span class="emoji">🙋</span><b>IO</b><span>IO LAVORO</span></div>
+      <div class="card"><span class="emoji">👉</span><b>TU</b><span>TU LAVORI</span></div>
+      <div class="card"><span class="emoji">🧍‍♂️🧍‍♀️</span><b>LUI / LEI</b><span>LUI LAVORA &bull; LEI LAVORA</span></div>
+      <div class="card"><span class="emoji">👨‍👩‍👧</span><b>NOI</b><span>NOI LAVORIAMO</span></div>
+      <div class="card"><span class="emoji">👉👉</span><b>VOI</b><span>VOI LAVORATE</span></div>
+      <div class="card"><span class="emoji">👥</span><b>LORO</b><span>LORO LAVORANO</span></div>
+    </div>
+  </section>
+
+  <!-- TRE GRUPPI -->
+  <section class="slide">
+    <h2>🧩 TRE GRUPPI DI VERBI</h2>
+    <p class="lead">GUARDA LA FINE DEL VERBO (L'INFINITO):</p>
+    <div class="grid g3" style="margin-top:14px">
+      <div class="card"><b>-ARE</b><span>LAVOR<span class="d">ARE</span></span><span>MANGI<span class="d">ARE</span></span><span>PARL<span class="d">ARE</span></span><span>STUDI<span class="d">ARE</span></span></div>
+      <div class="card"><b>-ERE</b><span>PREND<span class="d">ERE</span></span><span>LEGG<span class="d">ERE</span></span><span>SCRIV<span class="d">ERE</span></span><span>CHIUD<span class="d">ERE</span></span></div>
+      <div class="card"><b>-IRE</b><span>SENT<span class="d">IRE</span></span><span>DORM<span class="d">IRE</span></span><span>APR<span class="d">IRE</span></span><span>PART<span class="d">IRE</span></span></div>
+    </div>
+    <div class="nota" style="margin-top:18px">TOGLI <b>-ARE / -ERE / -IRE</b> E AGGIUNGI LA DESINENZA DELLA PERSONA: LAVOR<span class="d">ARE</span> → IO LAVOR<span class="d">O</span></div>
+  </section>
+
+  <!-- TABELLA REGOLARI -->
+  <section class="slide">
+    <h2>✏️ I VERBI REGOLARI</h2>
+    <table class="plur">
+      <tr><th></th><th>LAVORARE</th><th>PRENDERE</th><th>SENTIRE</th></tr>
+      <tr><td><b>IO</b></td><td>LAVOR<span class="d">O</span></td><td>PREND<span class="d">O</span></td><td>SENT<span class="d">O</span></td></tr>
+      <tr><td><b>TU</b></td><td>LAVOR<span class="d">I</span></td><td>PREND<span class="d">I</span></td><td>SENT<span class="d">I</span></td></tr>
+      <tr><td><b>LUI / LEI</b></td><td>LAVOR<span class="d">A</span></td><td>PREND<span class="d">E</span></td><td>SENT<span class="d">E</span></td></tr>
+      <tr><td><b>NOI</b></td><td>LAVOR<span class="d">IAMO</span></td><td>PREND<span class="d">IAMO</span></td><td>SENT<span class="d">IAMO</span></td></tr>
+      <tr><td><b>VOI</b></td><td>LAVOR<span class="d">ATE</span></td><td>PREND<span class="d">ETE</span></td><td>SENT<span class="d">ITE</span></td></tr>
+      <tr><td><b>LORO</b></td><td>LAVOR<span class="d">ANO</span></td><td>PREND<span class="d">ONO</span></td><td>SENT<span class="d">ONO</span></td></tr>
+    </table>
+  </section>
+
+  <!-- DESINENZE -->
+  <section class="slide">
+    <h2>🎯 LE DESINENZE</h2>
+    <div class="grid g2">
+      <div class="card"><b>IO → -O</b><span>IO STUDI<span class="d">O</span>, IO SCRIV<span class="d">O</span>, IO SENT<span class="d">O</span></span></div>
+      <div class="card"><b>NOI → -IAMO</b><span>NOI STUDI<span class="d">AMO</span>, NOI SCRIV<span class="d">IAMO</span>, NOI SENT<span class="d">IAMO</span></span></div>
+      <div class="card"><b>TU → -I</b><span>TU STUD<span class="d">I</span>, TU SCRIV<span class="d">I</span>, TU SENT<span class="d">I</span></span></div>
+      <div class="card"><b>VOI → -ATE / -ETE / -ITE</b><span>VOI STUDI<span class="d">ATE</span>, VOI SCRIV<span class="d">ETE</span>, VOI SENT<span class="d">ITE</span></span></div>
+      <div class="card"><b>LUI / LEI → -A / -E</b><span>LEI STUDI<span class="d">A</span>, LUI SCRIV<span class="d">E</span>, LEI SENT<span class="d">E</span></span></div>
+      <div class="card"><b>LORO → -ANO / -ONO</b><span>LORO STUDI<span class="d">ANO</span>, LORO SCRIV<span class="d">ONO</span>, LORO SENT<span class="d">ONO</span></span></div>
+    </div>
+  </section>
+
+  <!-- ATTENZIONE -->
+  <section class="slide">
+    <h2>⚠️ ATTENZIONE!</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">📚</span><b>STUDIARE</b><span>TU STUD<span class="d">I</span> (UNA SOLA I)</span><span>NOI STUD<span class="d">IAMO</span></span></div>
+      <div class="card"><span class="emoji">💶</span><b>PAGARE</b><span>TU PAG<span class="d">HI</span></span><span>NOI PAG<span class="d">HIAMO</span></span></div>
+      <div class="card"><span class="emoji">🔎</span><b>CERCARE</b><span>TU CERC<span class="d">HI</span></span><span>NOI CERC<span class="d">HIAMO</span></span></div>
+    </div>
+    <div class="nota" style="margin-top:18px">CON <b>-GARE</b> E <b>-CARE</b> AGGIUNGO UNA <b>H</b> PRIMA DI <b>I</b>: COSÌ IL SUONO NON CAMBIA. PAGO → PAGHI.</div>
+  </section>
+
+  <!-- ISC -->
+  <section class="slide">
+    <h2>🧽 I VERBI IN -ISC</h2>
+    <div class="twocol2">
+      <table class="plur">
+        <tr><th></th><th>FINIRE</th></tr>
+        <tr><td><b>IO</b></td><td>FIN<span class="d">ISCO</span></td></tr>
+        <tr><td><b>TU</b></td><td>FIN<span class="d">ISCI</span></td></tr>
+        <tr><td><b>LUI / LEI</b></td><td>FIN<span class="d">ISCE</span></td></tr>
+        <tr><td><b>NOI</b></td><td>FIN<span class="d">IAMO</span></td></tr>
+        <tr><td><b>VOI</b></td><td>FIN<span class="d">ITE</span></td></tr>
+        <tr><td><b>LORO</b></td><td>FIN<span class="d">ISCONO</span></td></tr>
+      </table>
+      <div>
+        <p class="lead">ALCUNI VERBI IN <b>-IRE</b> AGGIUNGONO <b>-ISC-</b>:</p>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="card"><b>CAPIRE</b><span>IO CAPISCO</span></div>
+          <div class="card"><b>PULIRE</b><span>IO PULISCO</span></div>
+          <div class="card"><b>PREFERIRE</b><span>IO PREFERISCO</span></div>
+          <div class="card"><b>FINIRE</b><span>IO FINISCO</span></div>
+        </div>
+        <div class="nota" style="margin-top:14px">NOI E VOI SONO NORMALI: NOI FIN<b>IAMO</b>, VOI FIN<b>ITE</b>.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESSERE E AVERE -->
+  <section class="slide">
+    <h2>🔑 ESSERE E AVERE</h2>
+    <table class="plur">
+      <tr><th></th><th>ESSERE</th><th>AVERE</th></tr>
+      <tr><td><b>IO</b></td><td>SONO</td><td>HO</td></tr>
+      <tr><td><b>TU</b></td><td>SEI</td><td>HAI</td></tr>
+      <tr><td><b>LUI / LEI</b></td><td>È</td><td>HA</td></tr>
+      <tr><td><b>NOI</b></td><td>SIAMO</td><td>ABBIAMO</td></tr>
+      <tr><td><b>VOI</b></td><td>SIETE</td><td>AVETE</td></tr>
+      <tr><td><b>LORO</b></td><td>SONO</td><td>HANNO</td></tr>
+    </table>
+    <p class="hint" style="margin-top:10px">LA <b>H</b> NON SI LEGGE: HO = [O], HAI = [AI], HA = [A], HANNO = [ANNO].</p>
+  </section>
+
+  <!-- IO HO / IO SONO -->
+  <section class="slide">
+    <h2>🚗 IO HO &nbsp;·&nbsp; 👨‍🌾 IO SONO</h2>
+    <div class="twocol2">
+      <div>
+        <p class="lead"><b>IO HO</b> + UNA COSA, UN ANIMALE</p>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="card"><span class="emoji">🚗</span><span>HO LA MACCHINA</span></div>
+          <div class="card"><span class="emoji">🔑</span><span>HO LA CHIAVE</span></div>
+          <div class="card"><span class="emoji">🐕</span><span>HO UN CANE</span></div>
+          <div class="card"><span class="emoji">🎸</span><span>HO LA CHITARRA</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="lead"><b>IO SONO</b> + CHI SONO, IL MIO LAVORO</p>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="card"><span class="emoji">👨‍🌾</span><span>SONO AGRICOLTORE</span></div>
+          <div class="card"><span class="emoji">🔧</span><span>SONO MECCANICO</span></div>
+          <div class="card"><span class="emoji">🩺</span><span>SONO MEDICO</span></div>
+          <div class="card"><span class="emoji">🎒</span><span>SONO STUDENTESSA</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="nota" style="margin-top:16px">ATTENZIONE: IN ITALIANO <b>HO 30 ANNI</b> (NON "SONO 30 ANNI"), <b>HO FAME</b>, <b>HO SETE</b>.</div>
+  </section>
+
+  <!-- IRREGOLARI 1 -->
+  <section class="slide">
+    <h2>⚡ VERBI IRREGOLARI: ANDARE, VENIRE, FARE</h2>
+    <table class="plur">
+      <tr><th></th><th>ANDARE 🚶</th><th>VENIRE 👋</th><th>FARE 🛠️</th></tr>
+      <tr><td><b>IO</b></td><td>VADO</td><td>VENGO</td><td>FACCIO</td></tr>
+      <tr><td><b>TU</b></td><td>VAI</td><td>VIENI</td><td>FAI</td></tr>
+      <tr><td><b>LUI / LEI</b></td><td>VA</td><td>VIENE</td><td>FA</td></tr>
+      <tr><td><b>NOI</b></td><td>ANDIAMO</td><td>VENIAMO</td><td>FACCIAMO</td></tr>
+      <tr><td><b>VOI</b></td><td>ANDATE</td><td>VENITE</td><td>FATE</td></tr>
+      <tr><td><b>LORO</b></td><td>VANNO</td><td>VENGONO</td><td>FANNO</td></tr>
+    </table>
+  </section>
+
+  <!-- IRREGOLARI 2 -->
+  <section class="slide">
+    <h2>⚡ DARE, STARE, BERE, USCIRE</h2>
+    <table class="plur">
+      <tr><th></th><th>DARE 🌹</th><th>STARE 🙂</th><th>BERE 🥤</th><th>USCIRE 🚪</th></tr>
+      <tr><td><b>IO</b></td><td>DO</td><td>STO</td><td>BEVO</td><td>ESCO</td></tr>
+      <tr><td><b>TU</b></td><td>DAI</td><td>STAI</td><td>BEVI</td><td>ESCI</td></tr>
+      <tr><td><b>LUI / LEI</b></td><td>DÀ</td><td>STA</td><td>BEVE</td><td>ESCE</td></tr>
+      <tr><td><b>NOI</b></td><td>DIAMO</td><td>STIAMO</td><td>BEVIAMO</td><td>USCIAMO</td></tr>
+      <tr><td><b>VOI</b></td><td>DATE</td><td>STATE</td><td>BEVETE</td><td>USCITE</td></tr>
+      <tr><td><b>LORO</b></td><td>DANNO</td><td>STANNO</td><td>BEVONO</td><td>ESCONO</td></tr>
+    </table>
+    <p class="hint" style="margin-top:10px">LUI <b>DÀ</b> (CON L'ACCENTO) = VERBO DARE. <b>DA</b> (SENZA ACCENTO) = VENGO DA ROMA.</p>
+  </section>
+
+  <!-- IRREGOLARI 3 -->
+  <section class="slide">
+    <h2>⚡ DOVERE, POTERE, VOLERE, SAPERE, DIRE, RIMANERE</h2>
+    <div class="twocol2">
+      <table class="plur">
+        <tr><th></th><th>DOVERE</th><th>POTERE</th><th>VOLERE</th></tr>
+        <tr><td><b>IO</b></td><td>DEVO</td><td>POSSO</td><td>VOGLIO</td></tr>
+        <tr><td><b>TU</b></td><td>DEVI</td><td>PUOI</td><td>VUOI</td></tr>
+        <tr><td><b>LUI / LEI</b></td><td>DEVE</td><td>PUÒ</td><td>VUOLE</td></tr>
+        <tr><td><b>NOI</b></td><td>DOBBIAMO</td><td>POSSIAMO</td><td>VOGLIAMO</td></tr>
+        <tr><td><b>VOI</b></td><td>DOVETE</td><td>POTETE</td><td>VOLETE</td></tr>
+        <tr><td><b>LORO</b></td><td>DEVONO</td><td>POSSONO</td><td>VOGLIONO</td></tr>
+      </table>
+      <table class="plur">
+        <tr><th></th><th>SAPERE</th><th>DIRE</th><th>RIMANERE</th></tr>
+        <tr><td><b>IO</b></td><td>SO</td><td>DICO</td><td>RIMANGO</td></tr>
+        <tr><td><b>TU</b></td><td>SAI</td><td>DICI</td><td>RIMANI</td></tr>
+        <tr><td><b>LUI / LEI</b></td><td>SA</td><td>DICE</td><td>RIMANE</td></tr>
+        <tr><td><b>NOI</b></td><td>SAPPIAMO</td><td>DICIAMO</td><td>RIMANIAMO</td></tr>
+        <tr><td><b>VOI</b></td><td>SAPETE</td><td>DITE</td><td>RIMANETE</td></tr>
+        <tr><td><b>LORO</b></td><td>SANNO</td><td>DICONO</td><td>RIMANGONO</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- RICONOSCERE -->
+  <section class="slide">
+    <h2>🔍 COME RICONOSCO LA PERSONA?</h2>
+    <p class="lead">ANCHE I VERBI IRREGOLARI FINISCONO QUASI SEMPRE COSÌ:</p>
+    <div class="grid g2" style="margin-top:12px">
+      <div class="card"><b>IO → -O</b><span>FACCI<span class="d">O</span>, VAD<span class="d">O</span>, BEV<span class="d">O</span></span></div>
+      <div class="card"><b>NOI → -IAMO</b><span>POSS<span class="d">IAMO</span>, AND<span class="d">IAMO</span></span></div>
+      <div class="card"><b>TU → -I</b><span>VUO<span class="d">I</span>, VA<span class="d">I</span>, ESC<span class="d">I</span></span></div>
+      <div class="card"><b>VOI → -ATE / -ETE / -ITE</b><span>AND<span class="d">ATE</span>, BEV<span class="d">ETE</span>, USC<span class="d">ITE</span></span></div>
+      <div class="card"><b>LUI / LEI → -A / -E</b><span>H<span class="d">A</span>, DEV<span class="d">E</span>, F<span class="d">A</span></span></div>
+      <div class="card"><b>LORO → -ANO / -ONO / -ANNO</b><span>H<span class="d">ANNO</span>, VENG<span class="d">ONO</span>, F<span class="d">ANNO</span></span></div>
+    </div>
+  </section>
+
+  <!-- ANDARE A -->
+  <section class="slide">
+    <h2>🚶 DOVE VAI? &nbsp;IO VADO A...</h2>
+    <div class="twocol2">
+      <div class="dialogo">
+        <div class="bubble">IO VADO <b>A</b> CASA, <b>A</b> SCUOLA, <b>A</b> BARI</div>
+        <div class="bubble">VADO <b>A</b> LAVORARE, <b>A</b> MANGIARE, <b>A</b> FARE LA SPESA</div>
+        <div class="bubble">VADO <b>AL</b> BAR, <b>AL</b> CINEMA, <b>AL</b> SUPERMERCATO</div>
+        <div class="bubble">VADO <b>ALLA</b> FERMATA DELL'AUTOBUS</div>
+        <div class="bubble">VADO <b>ALL'</b>ESTERO &bull; <b>ALLO</b> SPETTACOLO</div>
+      </div>
+      <table class="plur">
+        <tr><th>A + ...</th><th>=</th></tr>
+        <tr><td>A + IL</td><td><b>AL</b></td></tr>
+        <tr><td>A + LO</td><td><b>ALLO</b></td></tr>
+        <tr><td>A + L'</td><td><b>ALL'</b></td></tr>
+        <tr><td>A + LA</td><td><b>ALLA</b></td></tr>
+        <tr><td>A + I</td><td><b>AI</b></td></tr>
+        <tr><td>A + GLI</td><td><b>AGLI</b></td></tr>
+        <tr><td>A + LE</td><td><b>ALLE</b></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- VENIRE DA -->
+  <section class="slide">
+    <h2>👋 DA DOVE VIENI? &nbsp;IO VENGO DA...</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🌍</span><b>IL PAESE</b><span>IO VENGO DALLA CINA = SONO CINESE</span><span>LORO VENGONO DALL'AMERICA = SONO AMERICANI</span></div>
+      <div class="card"><span class="emoji">🏙️</span><b>LA CITTÀ, LA CASA</b><span>VENGO DA ROMA</span><span>VENGO DA CASA</span></div>
+      <div class="card"><span class="emoji">🚆</span><b>COME?</b><span>VENGO CON IL TRENO</span><span>VENGO CON L'AUTOBUS</span><span>VENGO A PIEDI</span></div>
+      <div class="card"><span class="emoji">🏫</span><b>PERCHÉ?</b><span>NOI VENIAMO A SCUOLA PER IMPARARE L'ITALIANO</span></div>
+    </div>
+  </section>
+
+  <!-- FARE -->
+  <section class="slide">
+    <h2>🛠️ CHE COSA FAI? IL VERBO FARE</h2>
+    <div class="twocol2">
+      <div>
+        <p class="lead"><b>IL LAVORO</b></p>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="card"><span class="emoji">👩‍🏫</span><span>FACCIO L'INSEGNANTE</span></div>
+          <div class="card"><span class="emoji">🧱</span><span>FA IL MURATORE</span></div>
+          <div class="card"><span class="emoji">🍽️</span><span>FA LA CAMERIERA</span></div>
+          <div class="card"><span class="emoji">🛍️</span><span>FA IL COMMESSO</span></div>
+          <div class="card"><span class="emoji">💉</span><span>FA L'INFERMIERE</span></div>
+          <div class="card"><span class="emoji">💡</span><span>FA L'ELETTRICISTA</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="lead"><b>OGNI GIORNO</b></p>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="card"><span class="emoji">☕</span><span>FACCIO COLAZIONE</span></div>
+          <div class="card"><span class="emoji">🚿</span><span>FACCIO LA DOCCIA</span></div>
+          <div class="card"><span class="emoji">🛏️</span><span>FACCIO IL LETTO</span></div>
+          <div class="card"><span class="emoji">🛒</span><span>FACCIO LA SPESA</span></div>
+          <div class="card"><span class="emoji">📝</span><span>FACCIO I COMPITI</span></div>
+          <div class="card"><span class="emoji">🎨</span><span>FACCIO UN DISEGNO</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STARE + GERUNDIO -->
+  <section class="slide">
+    <h2>⏳ CHE COSA STAI FACENDO? STARE + GERUNDIO</h2>
+    <p class="lead">PER DIRE CHE COSA FACCIO <b>PROPRIO ADESSO</b>:</p>
+    <div class="grid g2" style="margin-top:12px">
+      <div class="card"><b>-ARE → -ANDO</b><span>STUDIARE → STUDI<span class="d">ANDO</span></span><span>LORO STANNO STUDIANDO A SCUOLA</span></div>
+      <div class="card"><b>-ERE / -IRE → -ENDO</b><span>BERE → BEV<span class="d">ENDO</span> &bull; VENIRE → VEN<span class="d">ENDO</span></span><span>TU STAI BEVENDO LA COCA-COLA</span></div>
+    </div>
+    <div class="dialogo" style="margin-top:12px">
+      <div class="bubble">IO <b>STO FACENDO</b> I COMPITI. &bull; LUI <b>STA DICENDO</b> UNA POESIA.</div>
+      <div class="bubble med">NOI <b>STIAMO IMPARANDO</b> L'ITALIANO. &bull; VOI <b>STATE ANDANDO</b> A CASA.</div>
+    </div>
+  </section>
+
+  <!-- SINGOLARE PLURALE -->
+  <section class="slide">
+    <h2>👤➡️👥 DAL SINGOLARE AL PLURALE</h2>
+    <table class="plur">
+      <tr><th>SINGOLARE</th><th>PLURALE</th></tr>
+      <tr><td>IO HO 30 ANNI</td><td>NOI ABBIAMO 30 ANNI</td></tr>
+      <tr><td>TU MANGI L'INSALATA</td><td>VOI MANGIATE L'INSALATA</td></tr>
+      <tr><td>LEI PRENDE L'AUTOBUS</td><td>LORO PRENDONO L'AUTOBUS</td></tr>
+      <tr><td>LUI È SIMPATICO</td><td>LORO SONO SIMPATICI</td></tr>
+      <tr><td>TU VAI AL PARCO</td><td>VOI ANDATE AL PARCO</td></tr>
+    </table>
+    <div class="nota" style="margin-top:14px">IO → NOI &bull; TU → VOI &bull; LUI / LEI → LORO</div>
+  </section>
+
+  <!-- RICORDA -->
+  <section class="slide">
+    <h2>📌 RICORDA</h2>
+    <table class="plur">
+      <tr><th></th><th>-ARE</th><th>-ERE</th><th>-IRE</th><th>-ISC</th></tr>
+      <tr><td><b>IO</b></td><td>-O</td><td>-O</td><td>-O</td><td>-ISCO</td></tr>
+      <tr><td><b>TU</b></td><td>-I</td><td>-I</td><td>-I</td><td>-ISCI</td></tr>
+      <tr><td><b>LUI / LEI</b></td><td>-A</td><td>-E</td><td>-E</td><td>-ISCE</td></tr>
+      <tr><td><b>NOI</b></td><td>-IAMO</td><td>-IAMO</td><td>-IAMO</td><td>-IAMO</td></tr>
+      <tr><td><b>VOI</b></td><td>-ATE</td><td>-ETE</td><td>-ITE</td><td>-ITE</td></tr>
+      <tr><td><b>LORO</b></td><td>-ANO</td><td>-ONO</td><td>-ONO</td><td>-ISCONO</td></tr>
+    </table>
+  </section>
+
+  <!-- FINE -->
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA CONOSCI IL PRESENTE!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+</body>
+</html>
+

@@ -46,6 +46,8 @@ if __name__ == "__main__":
     from unita_corpo import CORPO
     from unita_casa import CASA
     from unita_saluti import SALUTI
+    from unita_presente import PRESENTE
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
+    build("presente/esercizi.html", PRESENTE)
