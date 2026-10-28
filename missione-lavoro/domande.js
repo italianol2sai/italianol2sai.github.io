@@ -471,12 +471,12 @@ window.MISSIONE = {
           domanda: "CHI AIUTA GRATIS A CAPIRE IL CONTRATTO?",
           icona: "🤝",
           risposte: [
-            { t: "IL SINDACATO (CGIL, CISL, UIL)", i: "🤝" },
+            { t: "IL SINDACATO (USB, CGIL, CISL, UIL)", i: "🤝" },
             { t: "LA BANCA", i: "🏦" },
             { t: "L’AGENZIA DI VIAGGI", i: "✈️" }
           ],
           correct: 0,
-          aiuto: "CGIL, CISL E UIL AIUTANO I LAVORATORI.",
+          aiuto: "USB, CGIL, CISL E UIL AIUTANO I LAVORATORI.",
           spiega: "IL SINDACATO TI AIUTA GRATIS."
         },
         {
