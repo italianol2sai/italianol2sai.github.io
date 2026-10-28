@@ -18,7 +18,7 @@ Link: https://italianol2sai.github.io/missione-casa/
 ## La storia
 
 Maryam, 26 anni, è in Italia da due anni e vive a Bari in un appartamento del progetto SAI.
-Ha un lavoro a tempo pieno e tra due mesi deve lasciare l'appartamento: cerca una casa sua.
+Lavora in un negozio come commessa, a tempo pieno, e tra due mesi deve lasciare l'appartamento: cerca una casa sua.
 La aiuta Serena, operatrice di Etnie (progetto SAI di Bari). Alla fine la signora Rosa, la proprietaria,
 le dà le chiavi del bilocale a San Pasquale. I ritratti sono disegni (file `persone.js`), non foto.
 
