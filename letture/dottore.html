@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🩺 Dal dottore · Lettura ed esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🩺 Dal dottore · Lettura ed esercizi",
+ "store": "letture-dottore",
+ "upper": true,
+ "sections": [
+  {
+   "part": "IL DIALOGO"
+  },
+  {
+   "id": "dial",
+   "title": "📖 LEGGI IL DIALOGO",
+   "type": "info",
+   "info": "<p><b>DAL DOTTORE</b></p><p><b>EL ASSANI:</b> BUONGIORNO, DOTTORE.<br><b>DOTTORE:</b> BUONGIORNO.<br><b>EL ASSANI:</b> SONO IL SIGNOR EL ASSANI. LEI È IL DOTTOR CANNAVALE?<br><b>DOTTORE:</b> SÌ, SONO IO. MI DICA.<br><b>EL ASSANI:</b> DA QUALCHE GIORNO NON MI SENTO BENE. HO MAL DI TESTA, MAL DI GOLA E LA TOSSE.<br><b>DOTTORE:</b> HA ANCHE LA FEBBRE?<br><b>EL ASSANI:</b> SÌ, 37,8. E IERI SERA HO VOMITATO.<br><b>DOTTORE:</b> VEDIAMO… (IL DOTTORE LO VISITA) NON È NIENTE DI GRAVE: HA L'INFLUENZA E UN PO' DI BRONCHITE. LEI FUMA?<br><b>EL ASSANI:</b> SÌ, FUMO MOLTO.<br><b>DOTTORE:</b> DEVE SMETTERE, IL FUMO FA MALE. IN QUESTI GIORNI DEVE STARE A LETTO E MANGIARE LEGGERO. PRENDA QUESTE PASTIGLIE: TRE AL GIORNO, DOPO I PASTI, PER UNA SETTIMANA. E PRENDA ANCHE LO SCIROPPO: DUE CUCCHIAI AL GIORNO, UNO LA MATTINA E UNO LA SERA PRIMA DI DORMIRE. ECCO LA RICETTA.<br><b>EL ASSANI:</b> DOVE COMPRO LE MEDICINE?<br><b>DOTTORE:</b> IN FARMACIA. IN CITTÀ CI SONO TANTE FARMACIE E OGNI COMUNE HA LA SUA. PER QUESTE MEDICINE SERVE LA RICETTA DEL MEDICO: IN FARMACIA LEI DÀ LA RICETTA E PAGA IL TICKET.<br><b>EL ASSANI:</b> CHE COS'È IL TICKET?<br><b>DOTTORE:</b> È UNA PARTE DEL PREZZO DELLA MEDICINA.<br><b>EL ASSANI:</b> GRAZIE, DOTTORE. ARRIVEDERCI.<br><b>DOTTORE:</b> ARRIVEDERCI.</p>"
+  },
+  {
+   "id": "e1",
+   "title": "1 · VERO O FALSO?",
+   "short": "1 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "items": [
+    {
+     "q": "1. IL DOTTORE SI CHIAMA BIANCHI."
+    },
+    {
+     "q": "2. IL SIGNOR EL ASSANI NON SI SENTE BENE."
+    },
+    {
+     "q": "3. HA MAL DI PANCIA E DI STOMACO."
+    },
+    {
+     "q": "4. HA ANCHE LA FEBBRE."
+    },
+    {
+     "q": "5. IL DOTTORE DICE CHE HA L'INFLUENZA."
+    },
+    {
+     "q": "6. EL ASSANI NON FUMA."
+    },
+    {
+     "q": "7. EL ASSANI DEVE STARE A LETTO."
+    },
+    {
+     "q": "8. NON DEVE PRENDERE LE PASTIGLIE."
+    },
+    {
+     "q": "9. DEVE PRENDERE CINQUE PASTIGLIE AL GIORNO."
+    },
+    {
+     "q": "10. EL ASSANI DEVE COMPRARE LE MEDICINE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · LA CURA: COMPLETA",
+   "short": "2 · La cura",
+   "type": "cloze",
+   "cons": "SCRIVI UN NUMERO O UNA PAROLA DEL DIALOGO.",
+   "parts": [
+    "PASTIGLIE: ",
+    {},
+    " AL GIORNO, DOPO I PASTI, PER UNA ",
+    {},
+    ".<br>SCIROPPO: ",
+    {},
+    " CUCCHIAI AL GIORNO, UNO LA MATTINA E UNO LA ",
+    {},
+    ".<br>LE MEDICINE SI COMPRANO IN ",
+    {},
+    ". SERVE LA ",
+    {},
+    " DEL MEDICO."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ0cmUiLCAiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNldHRpbWFuYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImR1ZSIsICIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2VyYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImZhcm1hY2lhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicmljZXR0YSJdfV0="
+  },
+  {
+   "id": "e3",
+   "title": "3 · CHE COSA HA EL ASSANI?",
+   "short": "3 · I sintomi",
+   "type": "multi",
+   "cons": "METTI LA SPUNTA VICINO ALLE 5 COSE GIUSTE.",
+   "items": [
+    "MAL DI TESTA",
+    "MAL DI DENTI",
+    "MAL DI GOLA",
+    "LA TOSSE",
+    "MAL DI SCHIENA",
+    "LA FEBBRE",
+    "HA VOMITATO"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiLSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlgiXX0sIHsidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiLSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlgiXX0sIHsidCI6ICJlcSIsICJhIjogWyJYIl19XQ=="
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

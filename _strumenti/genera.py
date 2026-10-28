@@ -59,6 +59,7 @@ if __name__ == "__main__":
     from unita_preposizioni import PREPOSIZIONI
     from unita_pronomi import PRONOMI
     from unita_lavoro import CHE_LAVORO, CERCARE, CV, COLLOQUIO, BUSTA
+    from unita_classroom import FAMIGLIA, GIORNATA, DIAL_DOTTORE, LAVORO, NEGOZIO, INDOVINA
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
@@ -79,3 +80,9 @@ if __name__ == "__main__":
     build("curriculum/esercizi.html", CV)
     build("colloquio-contratti/esercizi.html", COLLOQUIO)
     build("busta-paga/esercizi.html", BUSTA)
+    build("letture/famiglia.html", FAMIGLIA)
+    build("letture/giornata.html", GIORNATA)
+    build("letture/dottore.html", DIAL_DOTTORE)
+    build("letture/lavoro.html", LAVORO)
+    build("letture/negozio.html", NEGOZIO)
+    build("letture/indovina-chi.html", INDOVINA)
