@@ -26,6 +26,38 @@ def cartelli(items):
     return '    <div class="cartelli">\n' + "".join(
         '      <div class="%s">%s<span>%s</span></div>\n' % i for i in items) + "    </div>"
 
+
+# Foto vere di Bari da Wikimedia Commons (scelte il 2026-10-28). CC BY-SA: autore e licenza sotto ogni foto.
+BYSA = '<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>'
+FOTO = [  # file, che cosa dice il cartello, autore, pagina Commons
+    ("fermata-autobus-torre-a-mare", "LA FERMATA DELL'AUTOBUS (A SINISTRA) E I SEGNALI STRADALI", "Claudio.Montanaro", "Fermata_del_bus_Via_Bari_a_Torre_a_Mare.jpg"),
+    ("farmacia-insegna", "LA CROCE VERDE: FARMACIA", "Lilli adnil", "Insegna_farmacia.jpg"),
+    ("autobus-amtab", "L'AUTOBUS AMTAB: IL NUMERO DELLA LINEA E LA DESTINAZIONE", "Chabe01", "Bus_AMTAB_Ligne_2_Piazza_Giuseppe_Garibaldi_-_Bari_(IT75)_-_2026-10-25_-_1.jpg"),
+    ("stazione-informazioni-biglietteria", "STAZIONE FERROVIARIA · INFORMAZIONI · BIGLIETTERIA", "Chabe01", "Accès_Gare_Aeroporto_Aéroport_Bari_Palese_-_Bari_(IT75)_-_2026-10-25_-_2.jpg"),
+    ("treni-terminal-bus-taxi-uscita", "BARI CENTRALE: TRENI · TERMINAL BUS · USCITA · TAXI", "Chabe01", "Accès_Gare_Bari_Centrale_Via_Giuseppe_Capruzzi_-_Bari_(IT75)_-_2026-10-25_-_1.jpg"),
+    ("binari-uscita", "BARI CENTRALE: BINARI 3-12 · USCITA VIA CAPRUZZI", "Chabe01", "Gare_Bari_Centrale_-_Bari_(IT75)_-_2026-10-25_-_6.jpg"),
+    ("parcheggio-bike-sharing", "BIKE SHARING · P RISERVATO: QUI SI LASCIANO LE BICI", "Chabe01", "Panneau_Parking_Vélos_Partage_Via_Giovanni_Laricchia_-_Bari_(IT75)_-_2026-10-25_-_1.jpg"),
+    ("targa-via-sparano", "IL NOME DELLA STRADA: VIA SPARANO DA BARI", "Chabe01", "Plaque_Via_Sparano_Bari_-_Bari_(IT75)_-_2026-10-25_-_1.jpg"),
+]
+
+def credito(autore, pagina):
+    return ('FOTO: <a href="https://commons.wikimedia.org/wiki/File:%s" target="_blank" rel="noopener">%s</a>, Wikimedia Commons, %s'
+            % (pagina.replace(" ", "_"), autore, BYSA))
+
+def foto_slide(items):
+    return '    <div class="foto">\n' + "".join(
+        '      <figure><img src="img/%s.jpg" alt="%s" loading="lazy"><figcaption><b>%s</b><small>%s</small></figcaption></figure>\n'
+        % (f, t, t, credito(a, pg)) for f, t, a, pg in items) + "    </div>"
+
+FOTO_CSS = """
+  .foto{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .foto figure{background:#fff; border:3px solid #e3edf8; border-radius:16px; overflow:hidden; margin:0;}
+  .foto img{width:100%; height:260px; object-fit:contain; background:#f1ece4; display:block;}
+  .foto figcaption{padding:10px 12px; font-size:1.2rem; display:flex; flex-direction:column; gap:4px;}
+  .foto small{font-size:.75rem; text-transform:none; letter-spacing:0; color:#7a6a5a;}
+  .foto small a{color:inherit;}
+  @media (max-width:900px){ .foto{grid-template-columns:1fr;} .foto img{height:200px;} .foto figcaption{font-size:1rem;} }"""
+
 # =====================================================================
 # LEGGO I CARTELLI (A0)
 # =====================================================================
@@ -55,6 +87,8 @@ CARTELLI_SLIDE = [
     slide("🛍️ NEI NEGOZI", cartelli([
         ("blu", "CASSA", "QUI PAGO"), ("rosso", "SALDI", "I PREZZI SONO PIÙ BASSI"), ("giallo", "OFFERTA", "OGGI COSTA MENO"),
         ("grigio", "PROVE", "IL CAMERINO: PROVO I VESTITI"), ("verde", "SI ACCETTANO CARTE", "POSSO PAGARE CON LA CARTA"), ("grigio", "AFFITTASI", "LA CASA È IN AFFITTO")])),
+    slide("📸 I CARTELLI DI BARI (1)", foto_slide(FOTO[:4])),
+    slide("📸 I CARTELLI DI BARI (2)", foto_slide(FOTO[4:])),
     slide("📄 LEGGO UN AVVISO", '    <div class="twocol2">\n    <div class="nota" style="background:#fff; border-color:var(--teal)">'
           "📢 <b>AVVISO</b><br>OGGI L'UFFICIO È <b>CHIUSO</b>.<br>APRIAMO <b>DOMANI ALLE 9</b>.<br>GRAZIE.</div>\n" +
           nota("OGGI POSSO ANDARE IN UFFICIO? <b>NO</b>.<br>QUANDO POSSO ANDARE? <b>DOMANI, ALLE NOVE</b>.", "") + "\n    </div>"),
@@ -95,7 +129,15 @@ CARTELLI = {
    "items": [{"q": q} for q in ["1. IL 15 AGOSTO IL NEGOZIO È APERTO.", "2. IL NEGOZIO È CHIUSO PER LE VACANZE.",
                                  "3. IL NEGOZIO RIAPRE IL 21 AGOSTO.", "4. IL 21 AGOSTO APRE ALLE 10."]],
    "k": [eq(a) for a in ["FALSO", "VERO", "VERO", "FALSO"]]},
-  {"id": "e6", "title": "6 ✎ · I cartelli della tua città", "type": "free", "rows": 3,
+  {"part": "I cartelli di Bari"},
+  {"id": "e7", "title": "6 · Guarda la foto: dove sei?", "short": "6 · Le foto di Bari", "type": "select",
+   "cons": "SONO FOTO VERE DI BARI. LEGGI IL CARTELLO E SCEGLI.",
+   "opts": ["ALLA FERMATA DELL'AUTOBUS", "IN FARMACIA", "IN STAZIONE", "IN VIA SPARANO", "AL PARCHEGGIO DELLE BICI"],
+   "items": [{"q": '<img src="img/%s.jpg" alt="" style="width:100%%;max-width:420px;border-radius:12px;display:block;margin-bottom:6px">'
+                   '<small style="text-transform:none;font-size:.75rem;color:#7a6a5a">%s</small><br>%d.' % (FOTO[i][0], credito(FOTO[i][2], FOTO[i][3]), n + 1)}
+             for n, i in enumerate([1, 5, 7, 6, 3])],
+   "k": [eq(a) for a in ["IN FARMACIA", "IN STAZIONE", "IN VIA SPARANO", "AL PARCHEGGIO DELLE BICI", "IN STAZIONE"]]},
+  {"id": "e6", "title": "7 ✎ · I cartelli della tua città", "type": "free", "rows": 3,
    "items": ["SCRIVI 3 CARTELLI CHE VEDI PER STRADA, A SCUOLA O AL LAVORO. CHE COSA VOGLIONO DIRE?"]},
  ]
 }
@@ -555,7 +597,7 @@ TELEFONO = {
 }
 
 SLIDE2 = [
-    ("cartelli/index.html", "LEGGO I CARTELLI", "PRIMI PASSI", CARTELLI_SLIDE, CARTELLO_CSS),
+    ("cartelli/index.html", "LEGGO I CARTELLI", "PRIMI PASSI", CARTELLI_SLIDE, CARTELLO_CSS + FOTO_CSS),
     ("in-classe/index.html", "IN CLASSE", "PRIMI PASSI", CLASSE_SLIDE, ""),
     ("suoni/index.html", "SUONI DIFFICILI", "PRIMI PASSI", SUONI_SLIDE, SUONI_CSS),
     ("questo-quello/index.html", "QUESTO E QUELLO", "LIVELLO A1", QUESTO_SLIDE, ""),
