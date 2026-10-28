@@ -370,3 +370,46 @@ INDOVINA = {
    "items": ["DESCRIVI UNA PERSONA CHE CONOSCI: COME SI CHIAMA, QUANTI ANNI HA, COM'È (CAPELLI, OCCHI, CARATTERE)."]},
  ]
 }
+
+MACCHINA_TESTO = ("Ciao a tutti! Oggi vi racconto una novità: ho comprato una macchina nuova. Perché? "
+ "Perché la mia vecchia macchina si è rotta il mese scorso, e ripararla costava troppo. "
+ "Io lavoro in una fabbrica, alla Fiat, qui vicino. Faccio l'operaio da dodici anni. "
+ "Per noi dipendenti della Fiat c'è uno sconto speciale: il quindici per cento sul prezzo della macchina. Non è male, vero? "
+ "Così sono andato dal concessionario con mia moglie. Il problema era il colore! "
+ "Mia moglie voleva una macchina bianca o rosso scuro. Io invece volevo una macchina grigia. "
+ "Il venditore ci ha spiegato che oggi le macchine più vendute sono proprio quelle grigie. "
+ "E il grigio è un colore pratico: si sporca di meno, e la macchina sembra sempre pulita, anche quando non la lavo per settimane. "
+ "Alla fine mia moglie ha detto: va bene, prendiamo la grigia. "
+ "Adesso sono contento: la macchina è comoda, consuma poco e la mattina vado al lavoro senza problemi. "
+ "Domenica facciamo il primo viaggio insieme, al mare!")
+
+import html as _html
+_JS = ("var u=new SpeechSynthesisUtterance(this.dataset.t);u.lang='it-IT';u.rate=.9;"
+       "var v=speechSynthesis.getVoices().filter(function(x){return /^it/i.test(x.lang)});"
+       "var p=v.find(function(x){return /luca/i.test(x.name)})||v.find(function(x){return /cosimo|diego|giorgio|paolo|male/i.test(x.name)})||v[0];"
+       "if(p)u.voice=p;speechSynthesis.cancel();speechSynthesis.speak(u)")
+ASCOLTA = ("<p><b>🎧 Ascolta: la mia nuova macchina</b></p>"
+ "<p>Premi «Ascolta». Puoi ascoltare tutte le volte che vuoi.</p>"
+ '<p><button type="button" class="btn" data-t="' + _html.escape(MACCHINA_TESTO) + '" onclick="' + _JS + '">▶️ Ascolta</button> '
+ '<button type="button" class="btn" onclick="speechSynthesis.cancel()">⏹️ Ferma</button></p>'
+ "<p>La voce è quella del telefono o del computer (se c'è, la voce di Luca). Se non senti niente, controlla il volume.</p>")
+
+MACCHINA = {
+ "title": "🚗 La mia nuova macchina · Ascolto",
+ "store": "letture-macchina",
+ "sections": [
+  {"part": "Livello A2 · Ascolto"},
+  {"id": "audio", "title": "🎧 Ascolta il testo", "type": "info", "info": ASCOLTA},
+  {"id": "e1", "title": "1 · Scegli la risposta giusta", "short": "1 · Ascolto", "type": "choice", "full": True,
+   "items": [{"q": "1. Perché ho deciso di comprare una macchina nuova?", "opts": ["Perché ne volevo due", "Perché mia moglie ne aveva bisogno", "Perché quella vecchia si è rotta", "Perché non mi piaceva quella vecchia"]},
+             {"q": "2. Dove lavoro?", "opts": ["In un panificio", "In una pizzeria", "In una fabbrica", "In una scuola"]},
+             {"q": "3. Mia moglie di che colore voleva la macchina?", "opts": ["Grigia", "Bianca o rosso scuro", "Nera", "Viola"]},
+             {"q": "4. Qual è lo sconto per i dipendenti Fiat?", "opts": ["20%", "15%", "10%", "25%"]},
+             {"q": "5. Di che colore sono le macchine più vendute?", "opts": ["Bianco o rosso scuro", "Nero", "Grigio", "Blu scuro"]},
+             {"q": "6. Perché il grigio è un buon colore?", "opts": ["Perché è maschile", "Perché è femminile", "Perché si sporca di meno", "Perché è per i giovani"]}],
+   "k": [eq("Perché quella vecchia si è rotta"), eq("In una fabbrica"), eq("Bianca o rosso scuro"), eq("15%"),
+         eq("Grigio"), eq("Perché si sporca di meno")]},
+  {"id": "e2", "title": "2 ✎ · E tu?", "type": "free", "rows": 4,
+   "items": ["Hai una macchina o vuoi comprarla? Di che colore? Come vai al lavoro o a scuola? Scrivi 3 o 4 frasi."]},
+ ]
+}
