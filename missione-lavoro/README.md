@@ -10,24 +10,32 @@ Link: https://italianol2sai.github.io/missione-lavoro/
 | File | A cosa serve |
 |---|---|
 | `index.html` | la pagina del gioco |
+| `persone.js` | i ritratti disegnati e i nomi dei personaggi |
 | `domande.js` | **le domande, le risposte, gli aiuti**: per cambiare il gioco si modifica solo questo file |
 | `gioco.js` | il programma che fa funzionare il gioco |
 | `stile.css` | colori e grafica |
 
-## Le 6 porte
+## La storia
 
-Ogni porta ripassa una lezione del sito e dà una lettera. Le lettere formano la parola segreta **LAVORO**.
+Mohammad, 19 anni, è in Italia da due anni e vive a Bari nel progetto SAI. Vuole lavorare.
+Lo aiutano Silvia, Francesco e Giulio, operatori di orientamento al lavoro di Etnie (progetto SAI di Bari).
+I ritratti sono disegni (file `persone.js`), non foto.
 
-1. CHE LAVORO FAI? → `che-lavoro-fai/` → L
-2. I MIEI DOCUMENTI → `cercare-lavoro/` → A
-3. CERCO LAVORO → `cercare-lavoro/` → V
-4. IL MIO CURRICULUM → `curriculum/` → O
-5. IL COLLOQUIO → `colloquio-contratti/` → R
-6. CONTRATTO E BUSTA PAGA → `colloquio-contratti/`, `busta-paga/` → O
+## Le 7 porte
+
+Ogni porta ripassa una lezione del sito e dà una lettera. Le lettere formano la parola segreta **ASSUNTO**.
+
+1. CHE LAVORO FAI? → `che-lavoro-fai/` → A
+2. I MIEI DOCUMENTI → `cercare-lavoro/` → S
+3. CERCO LAVORO → `cercare-lavoro/` → S
+4. IL MIO CURRICULUM → `curriculum/` → U
+5. IL COLLOQUIO → `colloquio-contratti/` → N
+6. IL CONTRATTO → `colloquio-contratti/` → T
+7. LA BUSTA PAGA → `busta-paga/` → O
 
 ## Come funziona
 
-- 29 prove: scegli la risposta, vero o falso, completa la frase, collega, metti in ordine, trova l'errore.
+- 33 prove: scegli la risposta, vero o falso, completa la frase, collega, metti in ordine, trova l'errore.
 - 10 punti se la risposta è giusta al primo tentativo, 5 punti dopo un errore o con l'aiuto.
 - Dopo 2 errori l'aiuto compare da solo. Non si perdono mai punti.
 - 🔊 ASCOLTA legge la domanda con la voce del telefono (se il telefono la ha).

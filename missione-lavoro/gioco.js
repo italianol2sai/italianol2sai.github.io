@@ -3,14 +3,12 @@
   "use strict";
 
   var M = window.MISSIONE;
+  var P = window.PERSONE;
   var STANZE = M.stanze;
-  var CHIAVE_SALVA = "missione-lavoro-v1";
+  var CHIAVE_SALVA = "missione-lavoro-v2";
   var PUNTI_PRIMO = 10, PUNTI_DOPO = 5;
   var MSG_SI = ["BRAVO! RISPOSTA CORRETTA!", "OTTIMO!", "ESATTO!"];
   var MSG_NO = ["NON ANCORA. PROVA DI NUOVO!", "RIPROVA. GUARDA BENE!"];
-
-  // ritratto disegnato di Silvia, la guida
-  var SILVIA_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 68 68" aria-hidden="true" focusable="false"><defs><clipPath id="sv-c"><circle cx="50" cy="50" r="50"/></clipPath><pattern id="sv-q" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#E9ECEF"/><rect width="8" height="3" fill="#B9C3CE"/><rect width="3" height="8" fill="#B9C3CE" opacity=".7"/></pattern></defs><g clip-path="url(#sv-c)"><rect width="100" height="100" fill="#F4E7DA"/><g fill="#3A2216"><circle cx="31" cy="40" r="14"/><circle cx="69" cy="40" r="14"/><circle cx="50" cy="28" r="17"/><circle cx="24" cy="56" r="12"/><circle cx="76" cy="56" r="12"/><circle cx="26" cy="72" r="11"/><circle cx="74" cy="72" r="11"/><circle cx="33" cy="84" r="9"/><circle cx="67" cy="84" r="9"/><circle cx="20" cy="45" r="9"/><circle cx="80" cy="45" r="9"/></g><path d="M18 100 Q20 82 38 79 L62 79 Q80 82 82 100 Z" fill="url(#sv-q)"/><path d="M38 79 L50 92 L62 79" fill="none" stroke="#8C99A6" stroke-width="2"/><rect x="43" y="66" width="14" height="15" rx="5" fill="#D9A47E"/><ellipse cx="50" cy="52" rx="16" ry="19" fill="#E6B790"/><path d="M49 33 Q38 32 34 48 Q33 40 30 52 Q28 36 40 30 Q46 28 49 33 Z M51 33 Q62 32 66 48 Q67 40 70 52 Q72 36 60 30 Q54 28 51 33 Z" fill="#4B2C1D"/><g fill="#4B2C1D"><circle cx="38" cy="34" r="5"/><circle cx="62" cy="34" r="5"/><circle cx="33" cy="46" r="4"/><circle cx="67" cy="46" r="4"/></g><path d="M39 46 Q43 44 46 46 M54 46 Q57 44 61 46" stroke="#3A2216" stroke-width="1.6" fill="none" stroke-linecap="round"/><ellipse cx="43" cy="51" rx="2.3" ry="2.6" fill="#4A2A1A"/><ellipse cx="57" cy="51" rx="2.3" ry="2.6" fill="#4A2A1A"/><circle cx="43.7" cy="50.2" r=".7" fill="#fff"/><circle cx="57.7" cy="50.2" r=".7" fill="#fff"/><path d="M50 52 Q51.5 58 49 59" stroke="#C48D6A" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M44.5 63 Q50 66.5 55.5 63" stroke="#A85A4A" stroke-width="1.8" fill="none" stroke-linecap="round"/><g fill="#2F5B5E"><path d="M33.5 58 l2 0 l1.5 8 l-2.5 3 l-2.5 -3 z"/><path d="M64.5 58 l2 0 l1.5 8 l-2.5 3 l-2.5 -3 z"/></g><circle cx="34.5" cy="57" r="1.2" fill="#C9A227"/><circle cx="65.5" cy="57" r="1.2" fill="#C9A227"/></g></svg>';
 
   var root = document.getElementById("gioco");
   var S; // stato salvato
@@ -79,14 +77,18 @@
     window.scrollTo(0, 0);
     aggiornaBarra();
   }
-  function silvia(testo) {
+  // una battuta: ritratto + nome + fumetto
+  function battuta(chi, testo) {
+    var p = P[chi];
     var faccia = el("div", { class: "faccia" });
-    faccia.innerHTML = SILVIA_SVG;
-    return el("div", { class: "guida" }, [
+    faccia.innerHTML = p.svg;
+    return el("div", { class: "guida" + (chi === "mohammad" ? " lui" : "") }, [
       faccia,
-      el("div", { class: "fumetto" }, [el("b", { text: "SILVIA" }), el("p", { text: testo })])
+      el("div", { class: "fumetto" }, [el("b", { text: p.nome + " · " + p.ruolo }), el("p", { text: testo })])
     ]);
   }
+  function silvia(testo) { return battuta("silvia", testo); }
+  function dialogo(righe) { return righe.map(function (r) { return battuta(r[0], r[1]); }); }
   function btn(testo, cls, fn) {
     return el("button", { type: "button", class: "btn " + cls, onclick: fn, text: testo });
   }
@@ -137,9 +139,7 @@
         el("h1", {}, [M.titolo, el("span", { text: M.sottotitolo })]),
         porte
       ]),
-      silvia("BENVENUTO! BENVENUTA! IO SONO SILVIA. LAVORO AL CENTRO PER L’IMPIEGO DI BARI."),
-      silvia("OGGI PREPARI LA TUA MISSIONE: CERCARE LAVORO IN ITALIA. CI SONO 6 PORTE. OGNI PORTA HA UNA PROVA."),
-      silvia("DIETRO OGNI PORTA TROVI UNA LETTERA. CON LE 6 LETTERE APRI L’ULTIMA PORTA."),
+      el("div", { class: "schermo" }, dialogo(M.intro)),
       el("div", { class: "schermo" }, azioni),
       conferma
     ]);
@@ -175,8 +175,9 @@
         if (tutte) finale();
         else avviso.querySelector("p").textContent = "L’ULTIMA PORTA È CHIUSA. PRIMA APRI LA PORTA " + (ora + 1) + ".";
       } }, [
+      el("span", { class: "num", text: "?" }),
       el("span", { class: "ic", "aria-hidden": "true", text: tutte ? "🏆" : "🔒" }),
-      el("span", { class: "nome", style: "font-size:16px", text: "ULTIMA PORTA: IL TUO FUTURO" })
+      el("span", { class: "nome", text: "ULTIMA PORTA" })
     ]);
     griglia.appendChild(fin);
 
@@ -205,8 +206,8 @@
       el("p", { class: "sopra", text: "PORTA " + (s + 1) + " DI " + STANZE.length }),
       el("div", { class: "grande-ic", "aria-hidden": "true", text: st.icona }),
       el("h2", { text: st.titolo }),
-      silvia(st.silvia),
-      el("p", { text: "CI SONO " + st.prove.length + " PROVE." }),
+      el("div", { class: "schermo" }, dialogo(st.storia)),
+      el("p", { class: "sopra", text: P[st.chi].nome + " TI AIUTA. CI SONO " + st.prove.length + " PROVE." }),
       btn(p > 0 ? "CONTINUA ▶" : "ENTRA ▶", "btn-vai", function () { prova(s, S.p); }),
       btn("◀ LE PORTE", "btn-piano", mappa)
     ]);
@@ -290,7 +291,7 @@
   function mostraAiuto(d, box) {
     if (Q.finito) return;
     Q.aiuto = true;
-    mostraEsito(box, "aiuto", "💡 AIUTO", d.aiuto);
+    mostraEsito(box, "aiuto", "💡 " + P[STANZE[Q.s].chi].nome + " DICE:", d.aiuto);
   }
   function sbagliato(d, box) {
     Q.errori++;
@@ -469,7 +470,8 @@
         el("div", { class: "lettera-grande", "aria-label": "LETTERA " + st.lettera, text: st.lettera }),
         el("p", { text: "LA LETTERA È SUL TUO BADGE, IN ALTO." })
       ]),
-      silvia(ultima ? "BRAVISSIMO! BRAVISSIMA! HAI 6 LETTERE. ADESSO APRI L’ULTIMA PORTA." : "BRAVO! BRAVA! ANDIAMO ALLA PORTA " + (s + 2) + "."),
+      battuta(st.fine[0], st.fine[1]),
+      ultima ? silvia("HAI TUTTE LE " + STANZE.length + " LETTERE! ADESSO APRI L’ULTIMA PORTA.") : null,
       btn(ultima ? "VAI ALL’ULTIMA PORTA ▶" : "TORNA ALLE PORTE ▶", "btn-vai", mappa)
     ]);
   }
@@ -490,7 +492,7 @@
       el("p", { class: "sopra", text: "ULTIMA PORTA" }),
       el("div", { class: "grande-ic", "aria-hidden": "true", text: "🔐" }),
       el("h2", { text: "LA PORTA DEL TUO FUTURO" }),
-      silvia("SCRIVI LA PAROLA SEGRETA. È FATTA DALLE 6 LETTERE DEL TUO BADGE, IN ORDINE."),
+      el("div", { class: "schermo" }, dialogo(M.finale)),
       campo,
       btn("APRI LA PORTA 🔓", "btn-vai", prova),
       esito,
@@ -515,7 +517,7 @@
       var li = el("li", {}, [el("span", { "aria-hidden": "true", text: st.icona }), el("span", { text: st.titolo })]);
       if (conLink) {
         var links = el("span", { style: "display:block" });
-        [st.lezione, st.lezione2].forEach(function (lz) {
+        [st.lezione].forEach(function (lz) {
           if (!lz) return;
           links.appendChild(el("a", { href: M.sito + lz.link, target: "_blank", rel: "noopener", text: "📖 " + lz.titolo }));
           links.appendChild(el("br"));
@@ -538,15 +540,17 @@
       el("div", { class: "chiave" }, [
         el("div", { class: "grande-ic", "aria-hidden": "true", text: "🏆" }),
         el("h2", { text: "MISSIONE COMPLETATA!" }),
-        el("p", { text: "HAI IMPARATO NUOVE PAROLE E NUOVE STRATEGIE PER CERCARE LAVORO." })
+        el("p", { text: M.vittoria })
       ]),
+      battuta("mohammad", "GRAZIE! SENZA DI TE NON CE LA FACEVO!"),
+      el("p", { text: "HAI IMPARATO NUOVE PAROLE E NUOVE STRATEGIE PER CERCARE LAVORO." }),
       el("div", { class: "numeri" }, [
         el("div", {}, [el("b", { text: String(puntiFatti()) }), el("span", { text: "PUNTI SU " + n * PUNTI_PRIMO })]),
         el("div", {}, [el("b", { text: fatte + "/" + n }), el("span", { text: "PROVE SUPERATE" })]),
         el("div", {}, [el("b", { text: perc + "%" }), el("span", { text: "GIUSTE AL PRIMO TENTATIVO" })])
       ]),
       liste[0], liste[1],
-      silvia(ripassa.length ? "PUOI RIPROVARE PER MIGLIORARE IL TUO PUNTEGGIO." : "COMPLIMENTI! SEI PRONTO! SEI PRONTA! IN BOCCA AL LUPO!"),
+      silvia(ripassa.length ? "PUOI RIPROVARE PER MIGLIORARE IL TUO PUNTEGGIO." : "COMPLIMENTI! ADESSO TOCCA A TE. IN BOCCA AL LUPO!"),
       el("p", { class: "nota", text: "IL PUNTEGGIO È SOLO PER TE. NON È UN CERTIFICATO E NON VA ALL’INSEGNANTE." }),
       btn("GIOCA DI NUOVO ↻", "btn-vai", function () { S = statoVuoto(); salva(); copertina(); }),
       el("a", { class: "btn btn-piano", href: M.sito, style: "text-decoration:none", text: "TORNA AL SITO" })

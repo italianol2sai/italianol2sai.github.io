@@ -70,6 +70,9 @@ p{margin:0}
 .guida{display:flex;gap:12px;align-items:flex-start}
 .guida .faccia{flex:none;width:64px;height:64px;border-radius:50%;overflow:hidden;border:3px solid var(--vis);background:var(--paper)}
 .guida .faccia svg{display:block;width:100%;height:100%}
+.guida.lui{flex-direction:row-reverse}
+.guida.lui .fumetto{border-radius:14px 4px 14px 14px;border-color:var(--vis)}
+.fumetto b{line-height:1.2}
 .fumetto{background:var(--paper);border:2px solid var(--line);border-radius:4px 14px 14px 14px;padding:12px 14px;
   display:flex;flex-direction:column;gap:6px;font-size:20px;min-width:0}
 .fumetto b{font-size:14px;letter-spacing:.08em;color:var(--muted)}
@@ -84,19 +87,21 @@ p{margin:0}
 .attrezzi .btn{min-height:50px;font-size:17px}
 
 /* mappa delle porte */
-.porte{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.porte{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (min-width:520px){.porte{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.porta{min-width:0}
 .porta{border:0;background:var(--off);color:var(--muted);border-radius:10px 10px 4px 4px;aspect-ratio:3/4;max-width:100%;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;padding:8px;
   border-bottom:6px solid var(--line)}
-.porta .num{font-family:var(--f-display);font-size:30px;line-height:1}
-.porta .ic{font-size:30px;line-height:1}
-.porta .nome{font-size:12px;font-weight:700;line-height:1.15;text-align:center}
+.porta .num{font-family:var(--f-display);font-size:26px;line-height:1}
+.porta .ic{font-size:26px;line-height:1}
+.porta .nome{font-size:11px;font-weight:700;line-height:1.15;text-align:center}
 .porta::after{content:"";position:absolute;right:10px;top:52%;width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.6}
 .porta.adesso{background:var(--navy);color:var(--navy-ink);border-bottom-color:var(--vis);box-shadow:0 0 0 4px var(--vis)}
 .porta.aperta{background:var(--ok-bg);color:var(--ok);border-bottom-color:var(--ok)}
 .porta.aperta .num{font-size:36px}
 .porta:disabled{cursor:default}
-.porta-finale{grid-column:1/-1;aspect-ratio:auto;min-height:74px;flex-direction:row;gap:12px}
+.porta-finale.chiusa{background:var(--off);border-bottom-color:var(--vis)}
 
 /* prova */
 .testa{display:flex;flex-direction:column;gap:8px}
