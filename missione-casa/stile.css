@@ -190,3 +190,10 @@ p{margin:0}
   .porte{gap:8px}
   .porta .nome{font-size:11px}
 }
+
+/* testi lunghi (annunci, persone): vanno a capo dentro il riquadro */
+.doc td{vertical-align:top}
+.doc td:first-child{padding-right:10px}
+.doc td:last-child{white-space:normal}
+.collega .scelta{font-size:15px;padding:18px 8px 8px;overflow-wrap:break-word;min-width:0}
+.collega .scelta.grosso{font-size:32px}
