@@ -42,12 +42,12 @@ window.MISSIONE = {
       titolo: "CHE LAVORO FAI?",
       icona: "👷",
       lettera: "A",
-      chi: "giulio",
+      chi: "francesco",
       lezione: { titolo: "CHE LAVORO FAI?", link: "che-lavoro-fai/" },
       storia: [
-        ["giulio", "MOHAMMAD, CHE LAVORO VUOI FARE?"],
+        ["francesco", "MOHAMMAD, CHE LAVORO VUOI FARE?"],
         ["mohammad", "NON LO SO. CONOSCO POCHI NOMI DI LAVORI."],
-        ["giulio", "ALLORA FACCIAMO UN GIRO IN CITTÀ. GUARDA BENE!"]
+        ["francesco", "ALLORA FACCIAMO UN GIRO IN CITTÀ. GUARDA BENE!"]
       ],
       fine: ["mohammad", "ADESSO CONOSCO TANTI LAVORI. IO VOGLIO LAVORARE IN CUCINA!"],
       prove: [
@@ -120,7 +120,7 @@ window.MISSIONE = {
       chi: "francesco",
       lezione: { titolo: "CERCO LAVORO A BARI E IN PUGLIA", link: "cercare-lavoro/" },
       storia: [
-        ["mohammad", "FRANCESCO, VOGLIO LAVORARE. CHE COSA DEVO FARE?"],
+        ["mohammad", "FRANCESCO, HO DECISO: VOGLIO LAVORARE IN CUCINA. ADESSO CHE COSA DEVO FARE?"],
         ["francesco", "BUONGIORNO, MOHAMMAD! PRIMA CONTROLLIAMO I DOCUMENTI."],
         ["francesco", "SENZA I DOCUMENTI GIUSTI, IL DATORE DI LAVORO NON PUÒ FARE IL CONTRATTO."]
       ],
