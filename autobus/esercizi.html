@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🚌 Prendo l'autobus · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🚌 Prendo l'autobus · Esercizi",
+ "store": "autobus",
+ "upper": true,
+ "sections": [
+  {
+   "part": "I mezzi"
+  },
+  {
+   "id": "e1",
+   "title": "1 · IN o A?",
+   "short": "1 · In o a",
+   "type": "choice",
+   "opts": [
+    "IN",
+    "A"
+   ],
+   "items": [
+    {
+     "q": "1. VADO … AUTOBUS."
+    },
+    {
+     "q": "2. VADO … PIEDI."
+    },
+    {
+     "q": "3. VADO … TRENO."
+    },
+    {
+     "q": "4. VADO … BICI."
+    },
+    {
+     "q": "5. VADO … MACCHINA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklOIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSU4iXX1d"
+  },
+  {
+   "part": "Il biglietto e la fermata"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Che cos'è?",
+   "short": "2 · Le parole",
+   "type": "select",
+   "opts": [
+    "LA FERMATA",
+    "IL CAPOLINEA",
+    "IL CONTROLLORE",
+    "L'ABBONAMENTO",
+    "LA TABACCHERIA"
+   ],
+   "items": [
+    {
+     "q": "1. QUI ASPETTO L'AUTOBUS."
+    },
+    {
+     "q": "2. L'ULTIMA FERMATA."
+    },
+    {
+     "q": "3. CONTROLLA I BIGLIETTI."
+    },
+    {
+     "q": "4. UN BIGLIETTO PER UN MESE."
+    },
+    {
+     "q": "5. QUI COMPRO IL BIGLIETTO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMQSBGRVJNQVRBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgQ0FQT0xJTkVBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgQ09OVFJPTExPUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMJ0FCQk9OQU1FTlRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEEgVEFCQUNDSEVSSUEiXX1d"
+  },
+  {
+   "id": "e3",
+   "title": "3 · SALIRE o SCENDERE?",
+   "short": "3 · Salire o scendere",
+   "type": "choice",
+   "opts": [
+    "SALGO",
+    "SCENDO"
+   ],
+   "items": [
+    {
+     "q": "1. ⬆️ ENTRO NELL'AUTOBUS: …"
+    },
+    {
+     "q": "2. ⬇️ ESCO DALL'AUTOBUS: …"
+    },
+    {
+     "q": "3. 🔴 PREMO IL PULSANTE PERCHÉ …"
+    },
+    {
+     "q": "4. 🎫 CONVALIDO IL BIGLIETTO QUANDO …"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTQUxHTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDRU5ETyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDRU5ETyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNBTEdPIl19XQ=="
+  },
+  {
+   "part": "Alla fermata"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Metti in ordine il dialogo",
+   "short": "4 · In ordine",
+   "type": "order",
+   "cons": "SCRIVI IL NUMERO: 1 = LA PRIMA FRASE.",
+   "items": [
+    "SIGNORE: OGNI QUINDICI MINUTI.",
+    "LUCIA: SCUSI, QUESTO AUTOBUS VA ALL'OSPEDALE?",
+    "LUCIA: GRAZIE! E A CHE ORA PASSA?",
+    "SIGNORE: NO, DEVE PRENDERE IL 3.",
+    "LUCIA: GRAZIE MILLE, ARRIVEDERCI!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI0Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfV0="
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa",
+   "short": "5 · Completa",
+   "type": "cloze",
+   "bank": "VA · PASSA · SCENDERE · BIGLIETTO",
+   "parts": [
+    "SCUSI, QUESTO AUTOBUS ",
+    {},
+    " IN CENTRO?<br>A CHE ORA ",
+    {},
+    " IL PROSSIMO?<br>DOVE DEVO ",
+    {},
+    "?<br>DOVE COMPRO IL ",
+    {},
+    "?"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ2YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBhc3NhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2NlbmRlcmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJiaWdsaWV0dG8iXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 ✎ · Come vai a scuola o al lavoro?",
+   "type": "free",
+   "rows": 3,
+   "items": [
+    "SCRIVI COME VAI A SCUOLA O AL LAVORO: CON QUALE MEZZO? DOVE SALI? DOVE SCENDI? QUANTO TEMPO CI METTI?"
+   ]
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Chiedi alla fermata",
+   "type": "record",
+   "items": [
+    "CHIEDI A UNA PERSONA ALLA FERMATA: QUALE AUTOBUS VA ALLA STAZIONE E A CHE ORA PASSA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

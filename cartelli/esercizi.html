@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🪧 Leggo i cartelli · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🪧 Leggo i cartelli · Esercizi",
+ "store": "cartelli",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Che cosa vuol dire?"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che cosa vuol dire il cartello?",
+   "short": "1 · Il cartello",
+   "type": "select",
+   "opts": [
+    "NON PUOI FUMARE",
+    "NON PUOI ENTRARE",
+    "DI QUI ESCO",
+    "POSSO ENTRARE, È APERTO",
+    "NON FUNZIONA",
+    "QUI COMPRO IL BIGLIETTO"
+   ],
+   "items": [
+    {
+     "q": "🪧 1. VIETATO FUMARE"
+    },
+    {
+     "q": "🪧 2. USCITA"
+    },
+    {
+     "q": "🪧 3. APERTO"
+    },
+    {
+     "q": "🪧 4. GUASTO"
+    },
+    {
+     "q": "🪧 5. VIETATO L'INGRESSO"
+    },
+    {
+     "q": "🪧 6. BIGLIETTERIA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJOT04gUFVPSSBGVU1BUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJESSBRVUkgRVNDTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBPU1NPIEVOVFJBUkUsIMOIIEFQRVJUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk5PTiBGVU5aSU9OQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk5PTiBQVU9JIEVOVFJBUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJRVUkgQ09NUFJPIElMIEJJR0xJRVRUTyJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Scrivi il contrario",
+   "short": "2 · Il contrario",
+   "type": "text",
+   "w": "m",
+   "cons": "ESEMPIO: APERTO → CHIUSO",
+   "items": [
+    {
+     "q": "1. ENTRATA →"
+    },
+    {
+     "q": "2. SPINGERE →"
+    },
+    {
+     "q": "3. UOMINI →"
+    },
+    {
+     "q": "4. CHIUSO →"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ1c2NpdGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0aXJhcmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkb25uZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFwZXJ0byJdfV0="
+  },
+  {
+   "id": "e3",
+   "title": "3 · Posso o non posso?",
+   "short": "3 · Posso?",
+   "type": "choice",
+   "opts": [
+    "POSSO",
+    "NON POSSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. 🚭 VIETATO FUMARE. … FUMARE."
+    },
+    {
+     "q": "2. ✅ APERTO. … ENTRARE."
+    },
+    {
+     "q": "3. 📵 SPEGNERE IL CELLULARE. … TELEFONARE."
+    },
+    {
+     "q": "4. 💳 SI ACCETTANO CARTE. … PAGARE CON LA CARTA."
+    },
+    {
+     "q": "5. 🛗 FUORI SERVIZIO. … PRENDERE L'ASCENSORE."
+    },
+    {
+     "q": "6. 🅿️ DIVIETO DI SOSTA. … LASCIARE QUI LA MACCHINA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJOT04gUE9TU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJQT1NTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk5PTiBQT1NTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBPU1NPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTk9OIFBPU1NPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTk9OIFBPU1NPIl19XQ=="
+  },
+  {
+   "part": "Dove vado?"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Quale cartello cerchi?",
+   "short": "4 · Dove vado",
+   "type": "select",
+   "opts": [
+    "FERMATA",
+    "FARMACIA",
+    "PRONTO SOCCORSO",
+    "CASSA",
+    "BAGNI",
+    "POSTE ITALIANE"
+   ],
+   "items": [
+    {
+     "q": "1. VOGLIO PRENDERE L'AUTOBUS."
+    },
+    {
+     "q": "2. VOGLIO PAGARE."
+    },
+    {
+     "q": "3. MI SERVE UNA MEDICINA."
+    },
+    {
+     "q": "4. DEVO SPEDIRE UNA LETTERA."
+    },
+    {
+     "q": "5. STO MALE, È UN'EMERGENZA."
+    },
+    {
+     "q": "6. CERCO LA TOILETTE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGRVJNQVRBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0FTU0EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQVJNQUNJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBPU1RFIElUQUxJQU5FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUFJPTlRPIFNPQ0NPUlNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQkFHTkkiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Leggi l'avviso: vero o falso?",
+   "short": "5 · L'avviso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "info": "📢 <b>AVVISO</b><br>IL NEGOZIO È <b>CHIUSO PER FERIE</b><br>DAL 10 AL 20 AGOSTO.<br>RIAPRIAMO IL 21 AGOSTO ALLE 9:00.",
+   "items": [
+    {
+     "q": "1. IL 15 AGOSTO IL NEGOZIO È APERTO."
+    },
+    {
+     "q": "2. IL NEGOZIO È CHIUSO PER LE VACANZE."
+    },
+    {
+     "q": "3. IL NEGOZIO RIAPRE IL 21 AGOSTO."
+    },
+    {
+     "q": "4. IL 21 AGOSTO APRE ALLE 10."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 ✎ · I cartelli della tua città",
+   "type": "free",
+   "rows": 3,
+   "items": [
+    "SCRIVI 3 CARTELLI CHE VEDI PER STRADA, A SCUOLA O AL LAVORO. CHE COSA VOGLIONO DIRE?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

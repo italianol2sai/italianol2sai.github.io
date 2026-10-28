@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>👂 Suoni difficili · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "👂 Suoni difficili · Esercizi",
+ "store": "suoni",
+ "upper": true,
+ "sub": "Premi 🔊 per ascoltare la parola. Scegli le lettere giuste e premi «Controlla».",
+ "sections": [
+  {
+   "part": "C o CH?"
+  },
+  {
+   "id": "e1",
+   "title": "1 · C o CH?",
+   "short": "1 · C o CH",
+   "type": "choice",
+   "opts": [
+    "C",
+    "CH"
+   ],
+   "cons": "ASCOLTA LA PAROLA. SCEGLI LE LETTERE CHE MANCANO.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('chiave');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 1. _ IAVE 🔑"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('cena');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 2. _ ENA 🍽️"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('casa');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 3. _ ASA 🏠"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('anche');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 4. AN _ E ➕"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('cinema');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 5. _ INEMA 🎬"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('pesche');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 6. PES _ E 🍑"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0giXX0sIHsidCI6ICJlcSIsICJhIjogWyJDIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0giXX1d"
+  },
+  {
+   "part": "G o GH?"
+  },
+  {
+   "id": "e2",
+   "title": "2 · G o GH?",
+   "short": "2 · G o GH",
+   "type": "choice",
+   "opts": [
+    "G",
+    "GH"
+   ],
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('spaghetti');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 1. SPA _ ETTI 🍝"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('gelato');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 2. _ ELATO 🍦"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('ghiaccio');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 3. _ IACCIO 🧊"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('giallo');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 4. _ IALLO 💛"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('funghi');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 5. FUN _ I 🍄"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('oggi');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 6. OG _ I 📍"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJHSCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkciXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkciXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkciXX1d"
+  },
+  {
+   "part": "GN, GLI, SC"
+  },
+  {
+   "id": "e3",
+   "title": "3 · GN o GLI?",
+   "short": "3 · GN o GLI",
+   "type": "choice",
+   "opts": [
+    "GN",
+    "GLI"
+   ],
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('bagno');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 1. BA _ O 🛁"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('figlio');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 2. FI _ O 👦"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('lasagna');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 3. LASA _ A 🍝"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('aglio');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 4. A _ O 🧄"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('signora');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 5. SI _ ORA 👩"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('moglie');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 6. MO _ E 👰"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJHTiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdMSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdOIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiR0xJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiR04iXX0sIHsidCI6ICJlcSIsICJhIjogWyJHTEkiXX1d"
+  },
+  {
+   "id": "e4",
+   "title": "4 · SC o SCH?",
+   "short": "4 · SC o SCH",
+   "type": "choice",
+   "opts": [
+    "SC",
+    "SCH"
+   ],
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('pesce');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 1. PE _ E 🐟"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('schiena');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 2. _ IENA 🔙"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('sciarpa');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 3. _ IARPA 🧣"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('schermo');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 4. _ ERMO 🖥️"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('uscita');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 5. U _ ITA 🚪"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTQyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDSCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0NIIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0MiXX1d"
+  },
+  {
+   "part": "Scrivi"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Ascolta e scrivi la parola",
+   "short": "5 · Ascolta e scrivi",
+   "type": "text",
+   "w": "m",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('chiave');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('giorno');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('bagno');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('figlio');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('pesce');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 5."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance('quattro');u.lang='it-IT';speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button> 6."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjaGlhdmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnaW9ybm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJiYWdubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImZpZ2xpbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBlc2NlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicXVhdHRybyJdfV0="
+  },
+  {
+   "id": "e6",
+   "title": "6 🎤 · Leggi a voce alta",
+   "type": "record",
+   "items": [
+    "LEGGI: CASA, CHIAVE, CENA, GATTO, SPAGHETTI, GELATO, BAGNO, FIGLIO, PESCE, SCUOLA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

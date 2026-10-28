@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌦️ Che tempo fa? · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🌦️ Che tempo fa? · Esercizi",
+ "store": "tempo",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Il tempo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che tempo fa?",
+   "short": "1 · Che tempo fa",
+   "type": "select",
+   "opts": [
+    "C'È IL SOLE",
+    "PIOVE",
+    "NEVICA",
+    "C'È VENTO",
+    "È NUVOLOSO",
+    "C'È LA NEBBIA",
+    "C'È UN TEMPORALE"
+   ],
+   "items": [
+    {
+     "q": "🌧️ 1."
+    },
+    {
+     "q": "☀️ 2."
+    },
+    {
+     "q": "❄️ 3."
+    },
+    {
+     "q": "💨 4."
+    },
+    {
+     "q": "☁️ 5."
+    },
+    {
+     "q": "⛈️ 6."
+    },
+    {
+     "q": "🌫️ 7."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQSU9WRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMnw4ggSUwgU09MRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk5FVklDQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMnw4ggVkVOVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyLDiCBOVVZPTE9TTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMnw4ggVU4gVEVNUE9SQUxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQyfDiCBMQSBORUJCSUEiXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · FA, C'È o È?",
+   "short": "2 · Fa, c'è o è",
+   "type": "choice",
+   "opts": [
+    "FA",
+    "C'È",
+    "È"
+   ],
+   "items": [
+    {
+     "q": "1. … CALDO."
+    },
+    {
+     "q": "2. … IL SOLE."
+    },
+    {
+     "q": "3. … NUVOLOSO."
+    },
+    {
+     "q": "4. … FREDDO."
+    },
+    {
+     "q": "5. … VENTO."
+    },
+    {
+     "q": "6. … BRUTTO TEMPO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMnw4giXX0sIHsidCI6ICJlcSIsICJhIjogWyLDiCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQyfDiCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBIiwgIsOIIl19XQ=="
+  },
+  {
+   "part": "Il meteo"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Leggi il meteo: vero o falso?",
+   "short": "3 · Il meteo",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "info": "📺 <b>IL METEO DI DOMANI</b><br>☀️ BARI: SOLE, 22 GRADI<br>🌧️ MILANO: PIOGGIA, 12 GRADI<br>❄️ TRENTO: NEVE, 0 GRADI<br>💨 PALERMO: VENTO, 20 GRADI",
+   "items": [
+    {
+     "q": "1. A BARI C'È IL SOLE."
+    },
+    {
+     "q": "2. A MILANO FA CALDO."
+    },
+    {
+     "q": "3. A TRENTO NEVICA."
+    },
+    {
+     "q": "4. A PALERMO PIOVE."
+    },
+    {
+     "q": "5. A BARI CI SONO 22 GRADI."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ=="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Che cosa metti?",
+   "short": "4 · Che cosa metti",
+   "type": "select",
+   "opts": [
+    "L'OMBRELLO",
+    "IL CAPPOTTO",
+    "GLI OCCHIALI DA SOLE",
+    "LA GIACCA"
+   ],
+   "items": [
+    {
+     "q": "1. PIOVE."
+    },
+    {
+     "q": "2. FA MOLTO FREDDO."
+    },
+    {
+     "q": "3. C'È IL SOLE E FA CALDO."
+    },
+    {
+     "q": "4. C'È UN PO' DI VENTO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMJ09NQlJFTExPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgQ0FQUE9UVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJHTEkgT0NDSElBTEkgREEgU09MRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIEdJQUNDQSIsICJJTCBDQVBQT1RUTyJdfV0="
+  },
+  {
+   "id": "e5",
+   "title": "5 ✎ · Il tempo oggi",
+   "type": "free",
+   "rows": 3,
+   "items": [
+    "CHE TEMPO FA OGGI DOVE SEI? E NEL TUO PAESE IN QUESTA STAGIONE?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

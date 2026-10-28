@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📞 Al telefono · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "📞 Al telefono · Esercizi",
+ "store": "telefono",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Al telefono"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che cosa dici?",
+   "short": "1 · Che cosa dici",
+   "type": "select",
+   "opts": [
+    "PRONTO?",
+    "PUÒ RIPETERE, PER FAVORE?",
+    "VORREI PRENDERE UN APPUNTAMENTO.",
+    "NO, NON POSSO.",
+    "SÌ, VA BENE.",
+    "COME SI SCRIVE?"
+   ],
+   "items": [
+    {
+     "q": "1. SUONA IL TELEFONO. RISPONDI:"
+    },
+    {
+     "q": "2. NON HAI CAPITO."
+    },
+    {
+     "q": "3. VUOI ANDARE DAL DOTTORE."
+    },
+    {
+     "q": "4. L'ORARIO VA BENE PER TE."
+    },
+    {
+     "q": "5. A QUELL'ORA LAVORI."
+    },
+    {
+     "q": "6. NON SAI SCRIVERE IL NOME DELLA VIA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQUk9OVE8/Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiUFXDkiBSSVBFVEVSRSwgUEVSIEZBVk9SRT8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWT1JSRUkgUFJFTkRFUkUgVU4gQVBQVU5UQU1FTlRPLiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlPDjCwgVkEgQkVORS4iXX0sIHsidCI6ICJlcSIsICJhIjogWyJOTywgTk9OIFBPU1NPLiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPTUUgU0kgU0NSSVZFPyJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Metti in ordine la telefonata",
+   "short": "2 · In ordine",
+   "type": "order",
+   "cons": "SCRIVI IL NUMERO: 1 = LA PRIMA FRASE.",
+   "items": [
+    "SEGRETERIA: VA BENE MARTEDÌ ALLE 9?",
+    "KARIM: BUONGIORNO, SONO KARIM HADDAD. VORREI UN APPUNTAMENTO.",
+    "SEGRETERIA: PRONTO, STUDIO MEDICO.",
+    "KARIM: SÌ, VA BENE. GRAZIE, ARRIVEDERCI.",
+    "SEGRETERIA: PERFETTO. ARRIVEDERCI."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX0sIHsidCI6ICJlcSIsICJhIjogWyI0Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfV0="
+  },
+  {
+   "id": "e3",
+   "title": "3 · Completa la telefonata",
+   "short": "3 · Completa",
+   "type": "cloze",
+   "bank": "PRONTO · VORREI · POSSO · VA BENE · RIPETERE",
+   "parts": [
+    "SEGRETERIA: ",
+    {},
+    ", CENTRO CAF.<br>SAMIR: BUONGIORNO. ",
+    {},
+    " UN APPUNTAMENTO.<br>SEGRETERIA: LUNEDÌ ALLE 11?<br>SAMIR: NO, LUNEDÌ NON ",
+    {},
+    ".<br>SEGRETERIA: MERCOLEDÌ ALLE QUINDICI E TRENTA.<br>SAMIR: SCUSI, PUÒ ",
+    {},
+    "?<br>SEGRETERIA: MERCOLEDÌ ALLE 15:30.<br>SAMIR: SÌ, ",
+    {},
+    ". GRAZIE!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJwcm9udG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2b3JyZWkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJwb3NzbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInJpcGV0ZXJlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidmEgYmVuZSJdfV0="
+  },
+  {
+   "part": "I numeri utili"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Che numero chiami?",
+   "short": "4 · I numeri",
+   "type": "choice",
+   "opts": [
+    "112",
+    "118"
+   ],
+   "cons": "TUTTI E DUE SONO NUMERI DI EMERGENZA. QUAL È IL PIÙ GIUSTO?",
+   "items": [
+    {
+     "q": "1. UNA PERSONA STA MALE: SERVE L'AMBULANZA."
+    },
+    {
+     "q": "2. C'È UN LADRO IN CASA."
+    },
+    {
+     "q": "3. C'È UN INCENDIO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxMTgiLCAiMTEyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTEyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTEyIl19XQ=="
+  },
+  {
+   "id": "e5",
+   "title": "5 🎤 · Telefona",
+   "type": "record",
+   "items": [
+    "FAI FINTA DI TELEFONARE: SALUTA, DI' IL TUO NOME E CHIEDI UN APPUNTAMENTO CON IL DOTTORE PER VENERDÌ MATTINA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
