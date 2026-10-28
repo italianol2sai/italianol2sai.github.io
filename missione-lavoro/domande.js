@@ -283,14 +283,14 @@ window.MISSIONE = {
       titolo: "IL MIO CURRICULUM",
       icona: "📄",
       lettera: "U",
-      chi: "silvia",
+      chi: "giulio",
       lezione: { titolo: "IL CURRICULUM VITAE", link: "curriculum/" },
       storia: [
-        ["mohammad", "SILVIA, AIUTO! IL RISTORANTE VUOLE IL MIO CV, MA IO NON HO UN CV!"],
-        ["silvia", "TRANQUILLO. LO SCRIVIAMO INSIEME, IN UFFICIO."],
-        ["silvia", "MA ATTENZIONE: NEL TUO CV CI SONO ALCUNI ERRORI…"]
+        ["mohammad", "GIULIO, AIUTO! IL RISTORANTE VUOLE IL MIO CV, MA IO NON HO UN CV!"],
+        ["giulio", "TRANQUILLO. LO SCRIVIAMO INSIEME, IN UFFICIO."],
+        ["giulio", "MA ATTENZIONE: NEL TUO CV CI SONO ALCUNI ERRORI…"]
       ],
-      fine: ["silvia", "ECCO IL CV DI MOHAMMAD: PULITO E CHIARO. È IL SUO BIGLIETTO DA VISITA!"],
+      fine: ["giulio", "ECCO IL CV DI MOHAMMAD: PULITO E CHIARO. È IL SUO BIGLIETTO DA VISITA!"],
       prove: [
         {
           tipo: "scelta",
@@ -362,14 +362,14 @@ window.MISSIONE = {
       titolo: "IL COLLOQUIO",
       icona: "🤝",
       lettera: "N",
-      chi: "giulio",
+      chi: "silvia",
       lezione: { titolo: "IL COLLOQUIO E IL CONTRATTO", link: "colloquio-contratti/" },
       storia: [
         ["mohammad", "📞 IL TELEFONO SUONA! È IL RISTORANTE «IL PORTO»: COLLOQUIO DOMANI ALLE 16:00!"],
-        ["giulio", "«IL PORTO»? CONOSCO ANNA, LA TITOLARE. È SIMPATICA, MA SERIA."],
-        ["giulio", "TI PREPARO IO. NON SBAGLIARE NIENTE!"]
+        ["silvia", "«IL PORTO»? CONOSCO ANNA, LA TITOLARE. È SIMPATICA, MA SERIA."],
+        ["silvia", "TI PREPARO IO. NON SBAGLIARE NIENTE!"]
       ],
-      fine: ["giulio", "BRAVO, MOHAMMAD! ANNA HA DETTO: «È UN RAGAZZO SERIO.»"],
+      fine: ["silvia", "BRAVO, MOHAMMAD! ANNA HA DETTO: «È UN RAGAZZO SERIO.»"],
       prove: [
         {
           tipo: "scelta",
@@ -394,7 +394,7 @@ window.MISSIONE = {
             { t: "NIENTE: ANNA HA GIÀ TUTTO", i: "🤷" }
           ],
           correct: 0,
-          aiuto: "GIULIO DICE: «PORTA SEMPRE IL CV STAMPATO.»",
+          aiuto: "PORTA SEMPRE IL CV STAMPATO.",
           spiega: "PORTA IL CV STAMPATO (2 COPIE), IL PERMESSO DI SOGGIORNO E IL CODICE FISCALE."
         },
         {
@@ -447,7 +447,7 @@ window.MISSIONE = {
       chi: "francesco",
       lezione: { titolo: "IL COLLOQUIO E IL CONTRATTO", link: "colloquio-contratti/" },
       storia: [
-        ["giulio", "MOHAMMAD! ANNA HA CHIAMATO: TI VUOLE NELLA SUA CUCINA!"],
+        ["silvia", "MOHAMMAD! ANNA HA CHIAMATO: TI VUOLE NELLA SUA CUCINA!"],
         ["mohammad", "C’È UN CONTRATTO DA FIRMARE. MA CI SONO TANTE PAROLE DIFFICILI…"],
         ["francesco", "ASPETTA! PRIMA DI FIRMARE, LEGGIAMO INSIEME."]
       ],
