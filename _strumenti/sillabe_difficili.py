@@ -191,6 +191,8 @@ def build():
                  ("Metti le sillabe in ordine", "METTI LE SILLABE IN ORDINE"), ("Bravo! 👏", "BRAVO! 👏"), ("Ancora ↻", "ANCORA ↻"),
                  ("Avanti →", "AVANTI →"), ("Mancano: ", "MANCANO: "), ("→ da sinistra a destra", "→ DA SINISTRA A DESTRA")]:
         s = s.replace(x, y)
+    # tutte le attività visibili: i pulsanti vanno a capo invece di scorrere
+    s = s.replace(".modes { display: flex; gap: 6px; overflow-x: auto;", ".modes { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; overflow-x: visible;", 1)
     # nuova modalità COSTRUISCI: RA → T + RA = TRA
     css = '''
   .build { display: grid; gap: 12px; }
