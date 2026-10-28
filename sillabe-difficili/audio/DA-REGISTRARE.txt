@@ -4,7 +4,7 @@ Le sillabe di 2 lettere (RA, TA, PA...) e molte parole sono già registrate in s
 Se un file manca, la pagina usa la voce del computer.
 
 
-=== 1. PRIMA DI TUTTO: LE SILLABE DI 3 LETTERE ===
+=== 1. PRIMA DI TUTTO: LE SILLABE ===
 tra.mp3                        TRA
 tre.mp3                        TRE
 tri.mp3                        TRI
@@ -40,6 +40,21 @@ gre.mp3                        GRE
 gri.mp3                        GRI
 gro.mp3                        GRO
 gru.mp3                        GRU
+bla.mp3                        BLA
+ble.mp3                        BLE
+bli.mp3                        BLI
+blo.mp3                        BLO
+blu.mp3                        BLU
+cla.mp3                        CLA
+cle.mp3                        CLE
+cli.mp3                        CLI
+clo.mp3                        CLO
+clu.mp3                        CLU
+pla.mp3                        PLA
+ple.mp3                        PLE
+pli.mp3                        PLI
+plo.mp3                        PLO
+plu.mp3                        PLU
 sta.mp3                        STA
 ste.mp3                        STE
 sti.mp3                        STI
@@ -50,6 +65,56 @@ spe.mp3                        SPE
 spi.mp3                        SPI
 spo.mp3                        SPO
 spu.mp3                        SPU
+sca.mp3                        SCA
+sco.mp3                        SCO
+scu.mp3                        SCU
+sfa.mp3                        SFA
+sfe.mp3                        SFE
+sfi.mp3                        SFI
+sfo.mp3                        SFO
+sfu.mp3                        SFU
+stra.mp3                       STRA
+stre.mp3                       STRE
+stri.mp3                       STRI
+stro.mp3                       STRO
+stru.mp3                       STRU
+spra.mp3                       SPRA
+spre.mp3                       SPRE
+spri.mp3                       SPRI
+spro.mp3                       SPRO
+spru.mp3                       SPRU
+scra.mp3                       SCRA
+scre.mp3                       SCRE
+scri.mp3                       SCRI
+scro.mp3                       SCRO
+scru.mp3                       SCRU
+gna.mp3                        GNA
+gne.mp3                        GNE
+gni.mp3                        GNI
+gno.mp3                        GNO
+gnu.mp3                        GNU
+gli.mp3                        GLI
+glia.mp3                       GLIA
+glie.mp3                       GLIE
+glio.mp3                       GLIO
+lia.mp3                        LIA
+lie.mp3                        LIE
+lio.mp3                        LIO
+sce.mp3                        SCE
+sci.mp3                        SCI
+scia.mp3                       SCIA
+scio.mp3                       SCIO
+sciu.mp3                       SCIU
+cia.mp3                        CIA
+cio.mp3                        CIO
+ciu.mp3                        CIU
+sche.mp3                       SCHE
+schi.mp3                       SCHI
+cie.mp3                        CIE
+ia.mp3                         IA
+ie.mp3                         IE
+io.mp3                         IO
+iu.mp3                         IU
 
 
 === 2. LE PAROLE ===
@@ -106,6 +171,20 @@ allegro.mp3                    ALLEGRO
 griglia.mp3                    GRIGLIA
 magro.mp3                      MAGRO
 grano.mp3                      GRANO
+problema.mp3                   PROBLEMA
+pubblico.mp3                   PUBBLICO
+blusa.mp3                      BLUSA
+clinica.mp3                    CLINICA
+clima.mp3                      CLIMA
+ciclista.mp3                   CICLISTA
+riciclare.mp3                  RICICLARE
+clarinetto.mp3                 CLARINETTO
+plastica.mp3                   PLASTICA
+compleanno.mp3                 COMPLEANNO
+diploma.mp3                    DIPLOMA
+semplice.mp3                   SEMPLICE
+aeroplano.mp3                  AEROPLANO
+plurale.mp3                    PLURALE
 stivali.mp3                    STIVALI
 stomaco.mp3                    STOMACO
 studente.mp3                   STUDENTE
@@ -121,6 +200,54 @@ ospedale.mp3                   OSPEDALE
 aspirina.mp3                   ASPIRINA
 speranza.mp3                   SPERANZA
 sposo.mp3                      SPOSO
+scala.mp3                      SCALA
+scopa.mp3                      SCOPA
+bosco.mp3                      BOSCO
+scuro.mp3                      SCURO
+pesca.mp3                      PESCA
+tasca.mp3                      TASCA
+scatola.mp3                    SCATOLA
+sfida.mp3                      SFIDA
+sfilata.mp3                    SFILATA
+sfera.mp3                      SFERA
+sfoglia.mp3                    SFOGLIA
+strada.mp3                     STRADA
+strumento.mp3                  STRUMENTO
+strega.mp3                     STREGA
+mostro.mp3                     MOSTRO
+minestra.mp3                   MINESTRA
+destra.mp3                     DESTRA
+spremuta.mp3                   SPREMUTA
+spreco.mp3                     SPRECO
+aspro.mp3                      ASPRO
+scrivere.mp3                   SCRIVERE
+scrivania.mp3                  SCRIVANIA
+scremato.mp3                   SCREMATO
+descrivere.mp3                 DESCRIVERE
+montagna.mp3                   MONTAGNA
+ragno.mp3                      RAGNO
+sogno.mp3                      SOGNO
+giugno.mp3                     GIUGNO
+lasagna.mp3                    LASAGNA
+cognome.mp3                    COGNOME
+figlio.mp3                     FIGLIO
+figlia.mp3                     FIGLIA
+moglie.mp3                     MOGLIE
+bottiglia.mp3                  BOTTIGLIA
+luglio.mp3                     LUGLIO
+foglio.mp3                     FOGLIO
+aglio.mp3                      AGLIO
+uscita.mp3                     USCITA
+cuscino.mp3                    CUSCINO
+asciugamano.mp3                ASCIUGAMANO
+tasche.mp3                     TASCHE
+mosche.mp3                     MOSCHE
+boschi.mp3                     BOSCHI
+scheda.mp3                     SCHEDA
+ciao.mp3                       CIAO
+cielo.mp3                      CIELO
+bacio.mp3                      BACIO
+farmacie.mp3                   FARMACIE
 
 
 === 3. LE FRASI ===
@@ -144,12 +271,43 @@ il-latte-e-nel-frigorifero.mp3 IL LATTE È NEL FRIGORIFERO.
 grazie-mille.mp3               GRAZIE MILLE!
 la-tigre-e-grande.mp3          LA TIGRE È GRANDE.
 il-gatto-e-grigio.mp3          IL GATTO È GRIGIO.
+nessun-problema.mp3            NESSUN PROBLEMA!
+la-blusa-e-bianca.mp3          LA BLUSA È BIANCA.
+vado-in-clinica.mp3            VADO IN CLINICA.
+il-ciclista-e-veloce.mp3       IL CICLISTA È VELOCE.
+io-riciclo-la-carta.mp3        IO RICICLO LA CARTA.
+oggi-e-il-mio-compleanno.mp3   OGGI È IL MIO COMPLEANNO.
+ho-un-diploma.mp3              HO UN DIPLOMA.
+la-bottiglia-e-di-plastica.mp3 LA BOTTIGLIA È DI PLASTICA.
 vado-in-stazione.mp3           VADO IN STAZIONE.
 la-pasta-e-buona.mp3           LA PASTA È BUONA.
 sono-uno-studente.mp3          SONO UNO STUDENTE.
 faccio-la-spesa.mp3            FACCIO LA SPESA.
 vado-all-ospedale.mp3          VADO ALL'OSPEDALE.
 mangio-gli-spaghetti.mp3       MANGIO GLI SPAGHETTI.
+salgo-le-scale.mp3             SALGO LE SCALE.
+il-bosco-e-verde.mp3           IL BOSCO È VERDE.
+la-stanza-e-scura.mp3          LA STANZA È SCURA.
+e-una-sfida.mp3                È UNA SFIDA.
+guardo-la-sfilata.mp3          GUARDO LA SFILATA.
+gira-a-destra.mp3              GIRA A DESTRA.
+la-strada-e-lunga.mp3          LA STRADA È LUNGA.
+bevo-una-spremuta.mp3          BEVO UNA SPREMUTA.
+il-limone-e-aspro.mp3          IL LIMONE È ASPRO.
+scrivo-il-mio-nome.mp3         SCRIVO IL MIO NOME.
+il-latte-e-scremato.mp3        IL LATTE È SCREMATO.
+il-bagno-e-qui.mp3             IL BAGNO È QUI.
+qual-e-il-tuo-cognome.mp3      QUAL È IL TUO COGNOME?
+vado-in-montagna.mp3           VADO IN MONTAGNA.
+ho-due-figli.mp3               HO DUE FIGLI.
+mia-moglie-lavora.mp3          MIA MOGLIE LAVORA.
+una-bottiglia-d-acqua.mp3      UNA BOTTIGLIA D'ACQUA.
+dov-e-l-uscita.mp3             DOV'È L'USCITA?
+mangio-il-pesce.mp3            MANGIO IL PESCE.
+compro-le-pesche.mp3           COMPRO LE PESCHE.
+le-tasche-sono-vuote.mp3       LE TASCHE SONO VUOTE.
+ciao-come-stai.mp3             CIAO! COME STAI?
+il-cielo-e-blu.mp3             IL CIELO È BLU.
 
 
 === 4. SE HAI TEMPO: I PEZZI DEL GIOCO «RIORDINA» ===
@@ -163,8 +321,16 @@ tel.mp3                        TEL
 zie.mp3                        ZIE
 al.mp3                         AL
 gio.mp3                        GIO
+pub.mp3                        PUB
+com.mp3                        COM
+an.mp3                         AN
+sem.mp3                        SEM
 zio.mp3                        ZIO
 den.mp3                        DEN
 ran.mp3                        RAN
 o.mp3                          O
-gna.mp3                        GNA
+men.mp3                        MEN
+mon.mp3                        MON
+bot.mp3                        BOT
+u.mp3                          U
+far.mp3                        FAR

@@ -56,6 +56,89 @@ G = {
 }
 VOC = "AEIOU"
 
+# Gruppi aggiunti dopo (Erila, 2026-10-28): consonante + L, S + consonante, S + 2 consonanti, GN, GLI, SCE/SCI, SCH, CIA/CIE.
+# gruppo: (famiglia, etichetta, lettera da aggiungere, sillabe di partenza, sillabe nuove, colore, consiglio, leggi, completa, riordina, frasi)
+G2 = {
+ "BL": ("CONSONANTE + L", "BL", "B", ["LA","LE","LI","LO","LU"], ["BLA","BLE","BLI","BLO","BLU"], "#d98e04",
+        "👂 B + LU = BLU. TUTTO INSIEME, SENZA VOCALE IN MEZZO: BLU, NON BELU.",
+        [["[BLU]","🔵"],["PRO[BLE]MA","🤔"],["PUB[BLI]CO","👥"],["[BLU]SA","👚"]],
+        [["PRO[BLE]MA","🤔"],["[BLU]SA","👚"],["PUB[BLI]CO","👥"],["[BLU]","🔵"]],
+        [["PRO-BLE-MA","🤔"],["BLU-SA","👚"],["PUB-BLI-CO","👥"]],
+        ["IL MARE È BLU.","NESSUN PROBLEMA!","LA BLUSA È BIANCA."]),
+ "CL": ("CONSONANTE + L", "CL", "C", ["LA","LE","LI","LO","LU"], ["CLA","CLE","CLI","CLO","CLU"], "#7b4cb8",
+        "👂 C + LI = CLI. IL SUONO È DURO, COME IN CASA.",
+        [["[CLI]NICA","🏥"],["[CLI]MA","🌡️"],["CI[CLI]STA","🚴"],["RICI[CLA]RE","♻️"]],
+        [["[CLI]NICA","🏥"],["CI[CLI]STA","🚴"],["RICI[CLA]RE","♻️"],["[CLA]RINETTO","🎷"],["[CLI]MA","🌡️"]],
+        [["CLI-NI-CA","🏥"],["CI-CLI-STA","🚴"],["RI-CI-CLA-RE","♻️"],["CLI-MA","🌡️"]],
+        ["VADO IN CLINICA.","IL CICLISTA È VELOCE.","IO RICICLO LA CARTA."]),
+ "PL": ("CONSONANTE + L", "PL", "P", ["LA","LE","LI","LO","LU"], ["PLA","PLE","PLI","PLO","PLU"], "#2c6fb3",
+        "👂 P + LA = PLA. ATTENZIONE: PLA E BLA SONO DIVERSE!",
+        [["[PLA]STICA","♻️"],["COM[PLE]ANNO","🎂"],["DI[PLO]MA","📜"],["SEM[PLI]CE","✅"]],
+        [["COM[PLE]ANNO","🎂"],["[PLA]STICA","♻️"],["DI[PLO]MA","📜"],["AERO[PLA]NO","✈️"],["[PLU]RALE","👥"]],
+        [["COM-PLE-AN-NO","🎂"],["DI-PLO-MA","📜"],["PLA-STI-CA","♻️"],["SEM-PLI-CE","✅"]],
+        ["OGGI È IL MIO COMPLEANNO.","HO UN DIPLOMA.","LA BOTTIGLIA È DI PLASTICA."]),
+ "SC": ("S + CONSONANTE", "SC", "S", ["CA","CO","CU"], ["SCA","SCO","SCU"], "#3a9c58",
+        "👂 S + CA = SCA. IL SUONO È DURO, COME IN CASA. NON ESCA: LA S È ATTACCATA.",
+        [["[SCA]LA","🪜"],["[SCO]PA","🧹"],["BO[SCO]","🌲"],["[SCU]RO","🌑"],["PE[SCA]","🍑"]],
+        [["TA[SCA]","👖"],["[SCA]TOLA","📦"],["BO[SCO]","🌲"],["[SCU]RO","🌑"],["PE[SCA]","🍑"]],
+        [["SCA-TO-LA","📦"],["SCO-PA","🧹"],["PE-SCA","🍑"],["SCA-LA","🪜"]],
+        ["SALGO LE SCALE.","IL BOSCO È VERDE.","LA STANZA È SCURA."]),
+ "SF": ("S + CONSONANTE", "SF", "S", ["FA","FE","FI","FO","FU"], ["SFA","SFE","SFI","SFO","SFU"], "#e3572f",
+        "👂 S + FI = SFI. NON ESFI: LA S È ATTACCATA.",
+        [["[SFI]DA","🏆"],["[SFI]LATA","👗"],["[SFE]RA","🔮"],["[SFO]GLIA","🥟"]],
+        [["[SFI]DA","🏆"],["[SFI]LATA","👗"],["[SFE]RA","🔮"],["[SFO]GLIA","🥟"]],
+        [["SFI-LA-TA","👗"],["SFI-DA","🏆"],["SFE-RA","🔮"]],
+        ["È UNA SFIDA.","GUARDO LA SFILATA."]),
+ "STR": ("S + 2 CONSONANTI", "STR", "S", ["TRA","TRE","TRI","TRO","TRU"], ["STRA","STRE","STRI","STRO","STRU"], "#d4485b",
+        "👂 PRIMA TRA, POI S + TRA = STRA. TRE LETTERE INSIEME: STRA, NON ESTRA.",
+        [["[STRA]DA","🛣️"],["FINE[STRA]","🪟"],["[STRU]MENTO","🎸"],["[STRE]GA","🧙"],["MO[STRO]","👹"]],
+        [["MINE[STRA]","🍲"],["[STRA]DA","🛣️"],["FINE[STRA]","🪟"],["[STRU]MENTO","🎸"],["DE[STRA]","➡️"],["SINI[STRA]","⬅️"]],
+        [["FI-NE-STRA","🪟"],["MI-NE-STRA","🍲"],["STRU-MEN-TO","🎸"],["SI-NI-STRA","⬅️"]],
+        ["APRO LA FINESTRA.","GIRA A DESTRA.","LA STRADA È LUNGA."]),
+ "SPR": ("S + 2 CONSONANTI", "SPR", "S", ["PRA","PRE","PRI","PRO","PRU"], ["SPRA","SPRE","SPRI","SPRO","SPRU"], "#e07a1f",
+        "👂 PRIMA PRE, POI S + PRE = SPRE. TRE LETTERE INSIEME, SENZA VOCALI IN MEZZO.",
+        [["[SPRE]MUTA","🍊"],["[SPRE]CO","🗑️"],["A[SPRO]","🍋"]],
+        [["[SPRE]MUTA","🍊"],["[SPRE]CO","🗑️"],["A[SPRO]","🍋"]],
+        [["SPRE-MU-TA","🍊"],["SPRE-CO","🗑️"],["A-SPRO","🍋"]],
+        ["BEVO UNA SPREMUTA.","IL LIMONE È ASPRO."]),
+ "SCR": ("S + 2 CONSONANTI", "SCR", "S", ["CRA","CRE","CRI","CRO","CRU"], ["SCRA","SCRE","SCRI","SCRO","SCRU"], "#129e8a",
+        "👂 PRIMA CRI, POI S + CRI = SCRI. IL SUONO È DURO, COME IN CASA.",
+        [["[SCRI]VERE","✍️"],["[SCRI]VANIA","🗄️"],["[SCRE]MATO","🥛"],["DE[SCRI]VERE","🗣️"]],
+        [["[SCRI]VERE","✍️"],["[SCRI]VANIA","🗄️"],["[SCRE]MATO","🥛"],["DE[SCRI]VERE","🗣️"]],
+        [["SCRI-VE-RE","✍️"],["SCRI-VA-NI-A","🗄️"],["SCRE-MA-TO","🥛"]],
+        ["SCRIVO IL MIO NOME.","IL LATTE È SCREMATO."]),
+ "GN": ("SUONI SPECIALI", "GN", "G", ["NA","NE","NI","NO","NU"], ["GNA","GNE","GNI","GNO","GNU"], "#e07a1f",
+        "👂 GN È UN SUONO SOLO: BA-GNO, NON BAG-NO.",
+        [["BA[GNO]","🛁"],["MONTA[GNA]","⛰️"],["RA[GNO]","🕷️"],["SO[GNO]","💭"],["LE[GNO]","🪵"]],
+        [["GIU[GNO]","📅"],["SPU[GNA]","🧽"],["BA[GNO]","🛁"],["LASA[GNA]","🍝"],["CO[GNO]ME","🪪"]],
+        [["MON-TA-GNA","⛰️"],["CO-GNO-ME","🪪"],["LA-SA-GNA","🍝"],["SPU-GNA","🧽"]],
+        ["IL BAGNO È QUI.","QUAL È IL TUO COGNOME?","VADO IN MONTAGNA."]),
+ "GLI": ("SUONI SPECIALI", "GLI", "G", ["LI","LIA","LIE","LIO"], ["GLI","GLIA","GLIE","GLIO"], "#1f7a8c",
+        "👂 GLI È UN SUONO SOLO: FI-GLIO, NON FIG-LIO.",
+        [["FI[GLIO]","👦"],["FI[GLIA]","👧"],["MO[GLIE]","👰"],["BOTTI[GLIA]","🍾"],["LU[GLIO]","📅"]],
+        [["FO[GLIO]","📄"],["A[GLIO]","🧄"],["MO[GLIE]","👰"],["FAMI[GLIA]","👨‍👩‍👧"],["BOTTI[GLIA]","🍾"]],
+        [["BOT-TI-GLIA","🍾"],["FA-MI-GLIA","👨‍👩‍👧"],["MO-GLIE","👰"],["LU-GLIO","📅"]],
+        ["HO DUE FIGLI.","MIA MOGLIE LAVORA.","UNA BOTTIGLIA D'ACQUA."]),
+ "SCI": ("SUONI SPECIALI", "SCE SCI", "S", ["CE","CI","CIA","CIO","CIU"], ["SCE","SCI","SCIA","SCIO","SCIU"], "#3a9c58",
+        "👂 SCE SCI È UN SUONO SOLO, MORBIDO: PE-SCE. NON PES-CE.",
+        [["PE[SCE]","🐟"],["[SCI]","⛷️"],["U[SCI]TA","🚪"],["CU[SCI]NO","🛏️"],["A[SCIU]GAMANO","🧺"]],
+        [["PE[SCE]","🐟"],["U[SCI]TA","🚪"],["CU[SCI]NO","🛏️"],["A[SCIU]GAMANO","🧺"],["[SCI]","⛷️"]],
+        [["U-SCI-TA","🚪"],["CU-SCI-NO","🛏️"],["PE-SCE","🐟"],["A-SCIU-GA-MA-NO","🧺"]],
+        ["DOV'È L'USCITA?","MANGIO IL PESCE."]),
+ "SCH": ("SUONI SPECIALI", "SCHE SCHI", "S", ["CHE","CHI"], ["SCHE","SCHI"], "#7b4cb8",
+        "👂 CON LA H IL SUONO È DURO: SCHE SCHI COME SCA SCO. PESCA → PESCHE.",
+        [["PE[SCHE]","🍑"],["TA[SCHE]","👖"],["MO[SCHE]","🪰"],["BO[SCHI]","🌲"],["[SCHE]DA","📇"]],
+        [["[SCHE]DA","📇"],["BO[SCHI]","🌲"],["PE[SCHE]","🍑"],["TA[SCHE]","👖"],["MO[SCHE]","🪰"]],
+        [["PE-SCHE","🍑"],["TA-SCHE","👖"],["SCHE-DA","📇"],["BO-SCHI","🌲"]],
+        ["COMPRO LE PESCHE.","LE TASCHE SONO VUOTE."]),
+ "CIA": ("SUONI SPECIALI", "CIA CIE", "C", ["IA","IE","IO","IU"], ["CIA","CIE","CIO","CIU"], "#d98e04",
+        "👂 CIA CIO CIU: LA I NON SI SENTE BENE, IL SUONO È DOLCE: CIAO. ATTENZIONE: CIELO SI SCRIVE CON CIE.",
+        [["[CIA]O","👋"],["[CIE]LO","☁️"],["BA[CIO]","😘"],["CAMI[CIA]","👔"]],
+        [["[CIA]O","👋"],["[CIE]LO","☁️"],["BA[CIO]","😘"],["CAMI[CIA]","👔"],["FARMA[CIE]","💊"]],
+        [["CA-MI-CIA","👔"],["FAR-MA-CIE","💊"],["BA-CIO","😘"],["CIE-LO","☁️"]],
+        ["CIAO! COME STAI?","IL CIELO È BLU."]),
+}
+
 def slug(t):
     t = unicodedata.normalize("NFD", t.lower())
     t = "".join(c for c in t if unicodedata.category(c) != "Mn")
@@ -64,11 +147,16 @@ def slug(t):
 def data():
     out = {}
     for k, (first, color, hint, leggi, completa, riordina, frasi) in G.items():
-        base = k[1]
-        out[k] = {"color": color, "label": k, "first": first,
-                  "base": [base + v for v in VOC], "syl": [k + v for v in VOC], "hint": hint,
+        fam = "S + CONSONANTE" if k[0] == "S" else "CONSONANTE + R"
+        out[k] = {"fam": fam, "color": color, "label": k, "first": first,
+                  "base": [k[1] + v for v in VOC], "syl": [k + v for v in VOC], "hint": hint,
                   "leggi": leggi, "completa": completa, "riordina": riordina, "frasi": frasi}
-    return out
+    for k, v in G2.items():
+        fam, label, first, base, syl, color, hint, leggi, completa, riordina, frasi = v
+        out[k] = {"fam": fam, "color": color, "label": label, "first": first, "base": base, "syl": syl, "hint": hint,
+                  "leggi": leggi, "completa": completa, "riordina": riordina, "frasi": frasi}
+    fams = ["CONSONANTE + R", "CONSONANTE + L", "S + CONSONANTE", "S + 2 CONSONANTI", "SUONI SPECIALI"]
+    return dict(sorted(out.items(), key=lambda kv: fams.index(kv[1]["fam"])))
 
 def build():
     src = open("sillabe/index.html", encoding="utf-8").read()
@@ -114,7 +202,10 @@ def build():
   .brow .first { color: var(--c); }
   .brow .three { background: var(--c); color: #fff; animation: pop .35s; }
   .brow .hide { visibility: hidden; }
+  @media (max-width: 520px) { .brow { gap: 6px; flex-wrap: nowrap; padding: 10px 6px; }
+    .brow .two, .brow .three { font-size: 22px; padding: 6px 9px; } .brow .add { font-size: 18px; padding: 8px 9px; } }
   @keyframes pop { 0% { transform: scale(.6); } 70% { transform: scale(1.12); } 100% { transform: scale(1); } }
+  .letters .fam { flex-basis: 100%; text-align: center; font-size: 12px; font-weight: 800; letter-spacing: .04em; opacity: .65; margin-top: 4px; }
   .all { margin-top: 12px; border: none; background: var(--ink); color: var(--bg); border-radius: 999px; padding: 10px 20px; font-size: 16px; font-weight: 800; cursor: pointer; }
 </style>'''
     s = s.replace("</style>", css, 1)
@@ -147,14 +238,20 @@ function viewCostruisci() {
   }
   if (ds.act === "all") { built = { letter, on: [] }; return render(); }
   if (ds.act === "replay") return say(game.target);''')
-    # pulsanti delle lettere: gruppi di 2 lettere
+    # pulsanti dei gruppi divisi per famiglia
+    s = s.replace('''  $("letters").innerHTML = Object.keys(DATA).map(k =>
+    `<button style="--lc:${DATA[k].color}" class="${k === letter ? "on" : ""}" data-l="${k}">${DATA[k].label || k}</button>`).join("");''',
+    '''  let fam = "";
+  $("letters").innerHTML = Object.keys(DATA).map(k => {
+    const h = DATA[k].fam !== fam ? `<div class="fam">${fam = DATA[k].fam}</div>` : "";
+    return h + `<button style="--lc:${DATA[k].color}" class="${k === letter ? "on" : ""}" data-l="${k}">${DATA[k].label || k}</button>`; }).join("");''')
     os.makedirs("sillabe-difficili/audio", exist_ok=True)
     open("sillabe-difficili/index.html", "w", encoding="utf-8").write(s)
     print("scritto sillabe-difficili/index.html")
     # elenco audio da registrare
     have = {os.path.splitext(f)[0] for f in os.listdir("sillabe/audio")}
     have |= {os.path.splitext(f)[0] for f in os.listdir("sillabe-difficili/audio")}
-    groups = [("1. PRIMA DI TUTTO: LE SILLABE DI 3 LETTERE", lambda d: d["syl"]),
+    groups = [("1. PRIMA DI TUTTO: LE SILLABE", lambda d: d["syl"] + d["base"]),
               ("2. LE PAROLE", lambda d: [re.sub(r"[\[\]]", "", w) for w, _ in d["leggi"] + d["completa"]] + [w.replace("-", "") for w, _ in d["riordina"]]),
               ("3. LE FRASI", lambda d: d["frasi"]),
               ("4. SE HAI TEMPO: I PEZZI DEL GIOCO «RIORDINA»", lambda d: [p for w, _ in d["riordina"] for p in w.split("-")])]

@@ -111,7 +111,10 @@
   .brow .first { color: var(--c); }
   .brow .three { background: var(--c); color: #fff; animation: pop .35s; }
   .brow .hide { visibility: hidden; }
+  @media (max-width: 520px) { .brow { gap: 6px; flex-wrap: nowrap; padding: 10px 6px; }
+    .brow .two, .brow .three { font-size: 22px; padding: 6px 9px; } .brow .add { font-size: 18px; padding: 8px 9px; } }
   @keyframes pop { 0% { transform: scale(.6); } 70% { transform: scale(1.12); } 100% { transform: scale(1); } }
+  .letters .fam { flex-basis: 100%; text-align: center; font-size: 12px; font-weight: 800; letter-spacing: .04em; opacity: .65; margin-top: 4px; }
   .all { margin-top: 12px; border: none; background: var(--ink); color: var(--bg); border-radius: 999px; padding: 10px 20px; font-size: 16px; font-weight: 800; cursor: pointer; }
 </style>
 </head>
@@ -133,6 +136,7 @@
    riordina: le sillabe della parola, in ordine. */
 const DATA = {
  "TR": {
+  "fam": "CONSONANTE + R",
   "color": "#3a9c58",
   "label": "TR",
   "first": "T",
@@ -216,6 +220,7 @@ const DATA = {
   ]
  },
  "PR": {
+  "fam": "CONSONANTE + R",
   "color": "#2c6fb3",
   "label": "PR",
   "first": "P",
@@ -303,6 +308,7 @@ const DATA = {
   ]
  },
  "BR": {
+  "fam": "CONSONANTE + R",
   "color": "#d98e04",
   "label": "BR",
   "first": "B",
@@ -390,6 +396,7 @@ const DATA = {
   ]
  },
  "CR": {
+  "fam": "CONSONANTE + R",
   "color": "#7b4cb8",
   "label": "CR",
   "first": "C",
@@ -477,6 +484,7 @@ const DATA = {
   ]
  },
  "DR": {
+  "fam": "CONSONANTE + R",
   "color": "#129e8a",
   "label": "DR",
   "first": "D",
@@ -560,6 +568,7 @@ const DATA = {
   ]
  },
  "FR": {
+  "fam": "CONSONANTE + R",
   "color": "#e3572f",
   "label": "FR",
   "first": "F",
@@ -643,6 +652,7 @@ const DATA = {
   ]
  },
  "GR": {
+  "fam": "CONSONANTE + R",
   "color": "#1f7a8c",
   "label": "GR",
   "first": "G",
@@ -725,7 +735,252 @@ const DATA = {
    "IL GATTO È GRIGIO."
   ]
  },
+ "BL": {
+  "fam": "CONSONANTE + L",
+  "color": "#d98e04",
+  "label": "BL",
+  "first": "B",
+  "base": [
+   "LA",
+   "LE",
+   "LI",
+   "LO",
+   "LU"
+  ],
+  "syl": [
+   "BLA",
+   "BLE",
+   "BLI",
+   "BLO",
+   "BLU"
+  ],
+  "hint": "👂 B + LU = BLU. TUTTO INSIEME, SENZA VOCALE IN MEZZO: BLU, NON BELU.",
+  "leggi": [
+   [
+    "[BLU]",
+    "🔵"
+   ],
+   [
+    "PRO[BLE]MA",
+    "🤔"
+   ],
+   [
+    "PUB[BLI]CO",
+    "👥"
+   ],
+   [
+    "[BLU]SA",
+    "👚"
+   ]
+  ],
+  "completa": [
+   [
+    "PRO[BLE]MA",
+    "🤔"
+   ],
+   [
+    "[BLU]SA",
+    "👚"
+   ],
+   [
+    "PUB[BLI]CO",
+    "👥"
+   ],
+   [
+    "[BLU]",
+    "🔵"
+   ]
+  ],
+  "riordina": [
+   [
+    "PRO-BLE-MA",
+    "🤔"
+   ],
+   [
+    "BLU-SA",
+    "👚"
+   ],
+   [
+    "PUB-BLI-CO",
+    "👥"
+   ]
+  ],
+  "frasi": [
+   "IL MARE È BLU.",
+   "NESSUN PROBLEMA!",
+   "LA BLUSA È BIANCA."
+  ]
+ },
+ "CL": {
+  "fam": "CONSONANTE + L",
+  "color": "#7b4cb8",
+  "label": "CL",
+  "first": "C",
+  "base": [
+   "LA",
+   "LE",
+   "LI",
+   "LO",
+   "LU"
+  ],
+  "syl": [
+   "CLA",
+   "CLE",
+   "CLI",
+   "CLO",
+   "CLU"
+  ],
+  "hint": "👂 C + LI = CLI. IL SUONO È DURO, COME IN CASA.",
+  "leggi": [
+   [
+    "[CLI]NICA",
+    "🏥"
+   ],
+   [
+    "[CLI]MA",
+    "🌡️"
+   ],
+   [
+    "CI[CLI]STA",
+    "🚴"
+   ],
+   [
+    "RICI[CLA]RE",
+    "♻️"
+   ]
+  ],
+  "completa": [
+   [
+    "[CLI]NICA",
+    "🏥"
+   ],
+   [
+    "CI[CLI]STA",
+    "🚴"
+   ],
+   [
+    "RICI[CLA]RE",
+    "♻️"
+   ],
+   [
+    "[CLA]RINETTO",
+    "🎷"
+   ],
+   [
+    "[CLI]MA",
+    "🌡️"
+   ]
+  ],
+  "riordina": [
+   [
+    "CLI-NI-CA",
+    "🏥"
+   ],
+   [
+    "CI-CLI-STA",
+    "🚴"
+   ],
+   [
+    "RI-CI-CLA-RE",
+    "♻️"
+   ],
+   [
+    "CLI-MA",
+    "🌡️"
+   ]
+  ],
+  "frasi": [
+   "VADO IN CLINICA.",
+   "IL CICLISTA È VELOCE.",
+   "IO RICICLO LA CARTA."
+  ]
+ },
+ "PL": {
+  "fam": "CONSONANTE + L",
+  "color": "#2c6fb3",
+  "label": "PL",
+  "first": "P",
+  "base": [
+   "LA",
+   "LE",
+   "LI",
+   "LO",
+   "LU"
+  ],
+  "syl": [
+   "PLA",
+   "PLE",
+   "PLI",
+   "PLO",
+   "PLU"
+  ],
+  "hint": "👂 P + LA = PLA. ATTENZIONE: PLA E BLA SONO DIVERSE!",
+  "leggi": [
+   [
+    "[PLA]STICA",
+    "♻️"
+   ],
+   [
+    "COM[PLE]ANNO",
+    "🎂"
+   ],
+   [
+    "DI[PLO]MA",
+    "📜"
+   ],
+   [
+    "SEM[PLI]CE",
+    "✅"
+   ]
+  ],
+  "completa": [
+   [
+    "COM[PLE]ANNO",
+    "🎂"
+   ],
+   [
+    "[PLA]STICA",
+    "♻️"
+   ],
+   [
+    "DI[PLO]MA",
+    "📜"
+   ],
+   [
+    "AERO[PLA]NO",
+    "✈️"
+   ],
+   [
+    "[PLU]RALE",
+    "👥"
+   ]
+  ],
+  "riordina": [
+   [
+    "COM-PLE-AN-NO",
+    "🎂"
+   ],
+   [
+    "DI-PLO-MA",
+    "📜"
+   ],
+   [
+    "PLA-STI-CA",
+    "♻️"
+   ],
+   [
+    "SEM-PLI-CE",
+    "✅"
+   ]
+  ],
+  "frasi": [
+   "OGGI È IL MIO COMPLEANNO.",
+   "HO UN DIPLOMA.",
+   "LA BOTTIGLIA È DI PLASTICA."
+  ]
+ },
  "ST": {
+  "fam": "S + CONSONANTE",
   "color": "#d4485b",
   "label": "ST",
   "first": "S",
@@ -809,6 +1064,7 @@ const DATA = {
   ]
  },
  "SP": {
+  "fam": "S + CONSONANTE",
   "color": "#e07a1f",
   "label": "SP",
   "first": "S",
@@ -894,6 +1150,822 @@ const DATA = {
    "VADO ALL'OSPEDALE.",
    "MANGIO GLI SPAGHETTI."
   ]
+ },
+ "SC": {
+  "fam": "S + CONSONANTE",
+  "color": "#3a9c58",
+  "label": "SC",
+  "first": "S",
+  "base": [
+   "CA",
+   "CO",
+   "CU"
+  ],
+  "syl": [
+   "SCA",
+   "SCO",
+   "SCU"
+  ],
+  "hint": "👂 S + CA = SCA. IL SUONO È DURO, COME IN CASA. NON ESCA: LA S È ATTACCATA.",
+  "leggi": [
+   [
+    "[SCA]LA",
+    "🪜"
+   ],
+   [
+    "[SCO]PA",
+    "🧹"
+   ],
+   [
+    "BO[SCO]",
+    "🌲"
+   ],
+   [
+    "[SCU]RO",
+    "🌑"
+   ],
+   [
+    "PE[SCA]",
+    "🍑"
+   ]
+  ],
+  "completa": [
+   [
+    "TA[SCA]",
+    "👖"
+   ],
+   [
+    "[SCA]TOLA",
+    "📦"
+   ],
+   [
+    "BO[SCO]",
+    "🌲"
+   ],
+   [
+    "[SCU]RO",
+    "🌑"
+   ],
+   [
+    "PE[SCA]",
+    "🍑"
+   ]
+  ],
+  "riordina": [
+   [
+    "SCA-TO-LA",
+    "📦"
+   ],
+   [
+    "SCO-PA",
+    "🧹"
+   ],
+   [
+    "PE-SCA",
+    "🍑"
+   ],
+   [
+    "SCA-LA",
+    "🪜"
+   ]
+  ],
+  "frasi": [
+   "SALGO LE SCALE.",
+   "IL BOSCO È VERDE.",
+   "LA STANZA È SCURA."
+  ]
+ },
+ "SF": {
+  "fam": "S + CONSONANTE",
+  "color": "#e3572f",
+  "label": "SF",
+  "first": "S",
+  "base": [
+   "FA",
+   "FE",
+   "FI",
+   "FO",
+   "FU"
+  ],
+  "syl": [
+   "SFA",
+   "SFE",
+   "SFI",
+   "SFO",
+   "SFU"
+  ],
+  "hint": "👂 S + FI = SFI. NON ESFI: LA S È ATTACCATA.",
+  "leggi": [
+   [
+    "[SFI]DA",
+    "🏆"
+   ],
+   [
+    "[SFI]LATA",
+    "👗"
+   ],
+   [
+    "[SFE]RA",
+    "🔮"
+   ],
+   [
+    "[SFO]GLIA",
+    "🥟"
+   ]
+  ],
+  "completa": [
+   [
+    "[SFI]DA",
+    "🏆"
+   ],
+   [
+    "[SFI]LATA",
+    "👗"
+   ],
+   [
+    "[SFE]RA",
+    "🔮"
+   ],
+   [
+    "[SFO]GLIA",
+    "🥟"
+   ]
+  ],
+  "riordina": [
+   [
+    "SFI-LA-TA",
+    "👗"
+   ],
+   [
+    "SFI-DA",
+    "🏆"
+   ],
+   [
+    "SFE-RA",
+    "🔮"
+   ]
+  ],
+  "frasi": [
+   "È UNA SFIDA.",
+   "GUARDO LA SFILATA."
+  ]
+ },
+ "STR": {
+  "fam": "S + 2 CONSONANTI",
+  "color": "#d4485b",
+  "label": "STR",
+  "first": "S",
+  "base": [
+   "TRA",
+   "TRE",
+   "TRI",
+   "TRO",
+   "TRU"
+  ],
+  "syl": [
+   "STRA",
+   "STRE",
+   "STRI",
+   "STRO",
+   "STRU"
+  ],
+  "hint": "👂 PRIMA TRA, POI S + TRA = STRA. TRE LETTERE INSIEME: STRA, NON ESTRA.",
+  "leggi": [
+   [
+    "[STRA]DA",
+    "🛣️"
+   ],
+   [
+    "FINE[STRA]",
+    "🪟"
+   ],
+   [
+    "[STRU]MENTO",
+    "🎸"
+   ],
+   [
+    "[STRE]GA",
+    "🧙"
+   ],
+   [
+    "MO[STRO]",
+    "👹"
+   ]
+  ],
+  "completa": [
+   [
+    "MINE[STRA]",
+    "🍲"
+   ],
+   [
+    "[STRA]DA",
+    "🛣️"
+   ],
+   [
+    "FINE[STRA]",
+    "🪟"
+   ],
+   [
+    "[STRU]MENTO",
+    "🎸"
+   ],
+   [
+    "DE[STRA]",
+    "➡️"
+   ],
+   [
+    "SINI[STRA]",
+    "⬅️"
+   ]
+  ],
+  "riordina": [
+   [
+    "FI-NE-STRA",
+    "🪟"
+   ],
+   [
+    "MI-NE-STRA",
+    "🍲"
+   ],
+   [
+    "STRU-MEN-TO",
+    "🎸"
+   ],
+   [
+    "SI-NI-STRA",
+    "⬅️"
+   ]
+  ],
+  "frasi": [
+   "APRO LA FINESTRA.",
+   "GIRA A DESTRA.",
+   "LA STRADA È LUNGA."
+  ]
+ },
+ "SPR": {
+  "fam": "S + 2 CONSONANTI",
+  "color": "#e07a1f",
+  "label": "SPR",
+  "first": "S",
+  "base": [
+   "PRA",
+   "PRE",
+   "PRI",
+   "PRO",
+   "PRU"
+  ],
+  "syl": [
+   "SPRA",
+   "SPRE",
+   "SPRI",
+   "SPRO",
+   "SPRU"
+  ],
+  "hint": "👂 PRIMA PRE, POI S + PRE = SPRE. TRE LETTERE INSIEME, SENZA VOCALI IN MEZZO.",
+  "leggi": [
+   [
+    "[SPRE]MUTA",
+    "🍊"
+   ],
+   [
+    "[SPRE]CO",
+    "🗑️"
+   ],
+   [
+    "A[SPRO]",
+    "🍋"
+   ]
+  ],
+  "completa": [
+   [
+    "[SPRE]MUTA",
+    "🍊"
+   ],
+   [
+    "[SPRE]CO",
+    "🗑️"
+   ],
+   [
+    "A[SPRO]",
+    "🍋"
+   ]
+  ],
+  "riordina": [
+   [
+    "SPRE-MU-TA",
+    "🍊"
+   ],
+   [
+    "SPRE-CO",
+    "🗑️"
+   ],
+   [
+    "A-SPRO",
+    "🍋"
+   ]
+  ],
+  "frasi": [
+   "BEVO UNA SPREMUTA.",
+   "IL LIMONE È ASPRO."
+  ]
+ },
+ "SCR": {
+  "fam": "S + 2 CONSONANTI",
+  "color": "#129e8a",
+  "label": "SCR",
+  "first": "S",
+  "base": [
+   "CRA",
+   "CRE",
+   "CRI",
+   "CRO",
+   "CRU"
+  ],
+  "syl": [
+   "SCRA",
+   "SCRE",
+   "SCRI",
+   "SCRO",
+   "SCRU"
+  ],
+  "hint": "👂 PRIMA CRI, POI S + CRI = SCRI. IL SUONO È DURO, COME IN CASA.",
+  "leggi": [
+   [
+    "[SCRI]VERE",
+    "✍️"
+   ],
+   [
+    "[SCRI]VANIA",
+    "🗄️"
+   ],
+   [
+    "[SCRE]MATO",
+    "🥛"
+   ],
+   [
+    "DE[SCRI]VERE",
+    "🗣️"
+   ]
+  ],
+  "completa": [
+   [
+    "[SCRI]VERE",
+    "✍️"
+   ],
+   [
+    "[SCRI]VANIA",
+    "🗄️"
+   ],
+   [
+    "[SCRE]MATO",
+    "🥛"
+   ],
+   [
+    "DE[SCRI]VERE",
+    "🗣️"
+   ]
+  ],
+  "riordina": [
+   [
+    "SCRI-VE-RE",
+    "✍️"
+   ],
+   [
+    "SCRI-VA-NI-A",
+    "🗄️"
+   ],
+   [
+    "SCRE-MA-TO",
+    "🥛"
+   ]
+  ],
+  "frasi": [
+   "SCRIVO IL MIO NOME.",
+   "IL LATTE È SCREMATO."
+  ]
+ },
+ "GN": {
+  "fam": "SUONI SPECIALI",
+  "color": "#e07a1f",
+  "label": "GN",
+  "first": "G",
+  "base": [
+   "NA",
+   "NE",
+   "NI",
+   "NO",
+   "NU"
+  ],
+  "syl": [
+   "GNA",
+   "GNE",
+   "GNI",
+   "GNO",
+   "GNU"
+  ],
+  "hint": "👂 GN È UN SUONO SOLO: BA-GNO, NON BAG-NO.",
+  "leggi": [
+   [
+    "BA[GNO]",
+    "🛁"
+   ],
+   [
+    "MONTA[GNA]",
+    "⛰️"
+   ],
+   [
+    "RA[GNO]",
+    "🕷️"
+   ],
+   [
+    "SO[GNO]",
+    "💭"
+   ],
+   [
+    "LE[GNO]",
+    "🪵"
+   ]
+  ],
+  "completa": [
+   [
+    "GIU[GNO]",
+    "📅"
+   ],
+   [
+    "SPU[GNA]",
+    "🧽"
+   ],
+   [
+    "BA[GNO]",
+    "🛁"
+   ],
+   [
+    "LASA[GNA]",
+    "🍝"
+   ],
+   [
+    "CO[GNO]ME",
+    "🪪"
+   ]
+  ],
+  "riordina": [
+   [
+    "MON-TA-GNA",
+    "⛰️"
+   ],
+   [
+    "CO-GNO-ME",
+    "🪪"
+   ],
+   [
+    "LA-SA-GNA",
+    "🍝"
+   ],
+   [
+    "SPU-GNA",
+    "🧽"
+   ]
+  ],
+  "frasi": [
+   "IL BAGNO È QUI.",
+   "QUAL È IL TUO COGNOME?",
+   "VADO IN MONTAGNA."
+  ]
+ },
+ "GLI": {
+  "fam": "SUONI SPECIALI",
+  "color": "#1f7a8c",
+  "label": "GLI",
+  "first": "G",
+  "base": [
+   "LI",
+   "LIA",
+   "LIE",
+   "LIO"
+  ],
+  "syl": [
+   "GLI",
+   "GLIA",
+   "GLIE",
+   "GLIO"
+  ],
+  "hint": "👂 GLI È UN SUONO SOLO: FI-GLIO, NON FIG-LIO.",
+  "leggi": [
+   [
+    "FI[GLIO]",
+    "👦"
+   ],
+   [
+    "FI[GLIA]",
+    "👧"
+   ],
+   [
+    "MO[GLIE]",
+    "👰"
+   ],
+   [
+    "BOTTI[GLIA]",
+    "🍾"
+   ],
+   [
+    "LU[GLIO]",
+    "📅"
+   ]
+  ],
+  "completa": [
+   [
+    "FO[GLIO]",
+    "📄"
+   ],
+   [
+    "A[GLIO]",
+    "🧄"
+   ],
+   [
+    "MO[GLIE]",
+    "👰"
+   ],
+   [
+    "FAMI[GLIA]",
+    "👨‍👩‍👧"
+   ],
+   [
+    "BOTTI[GLIA]",
+    "🍾"
+   ]
+  ],
+  "riordina": [
+   [
+    "BOT-TI-GLIA",
+    "🍾"
+   ],
+   [
+    "FA-MI-GLIA",
+    "👨‍👩‍👧"
+   ],
+   [
+    "MO-GLIE",
+    "👰"
+   ],
+   [
+    "LU-GLIO",
+    "📅"
+   ]
+  ],
+  "frasi": [
+   "HO DUE FIGLI.",
+   "MIA MOGLIE LAVORA.",
+   "UNA BOTTIGLIA D'ACQUA."
+  ]
+ },
+ "SCI": {
+  "fam": "SUONI SPECIALI",
+  "color": "#3a9c58",
+  "label": "SCE SCI",
+  "first": "S",
+  "base": [
+   "CE",
+   "CI",
+   "CIA",
+   "CIO",
+   "CIU"
+  ],
+  "syl": [
+   "SCE",
+   "SCI",
+   "SCIA",
+   "SCIO",
+   "SCIU"
+  ],
+  "hint": "👂 SCE SCI È UN SUONO SOLO, MORBIDO: PE-SCE. NON PES-CE.",
+  "leggi": [
+   [
+    "PE[SCE]",
+    "🐟"
+   ],
+   [
+    "[SCI]",
+    "⛷️"
+   ],
+   [
+    "U[SCI]TA",
+    "🚪"
+   ],
+   [
+    "CU[SCI]NO",
+    "🛏️"
+   ],
+   [
+    "A[SCIU]GAMANO",
+    "🧺"
+   ]
+  ],
+  "completa": [
+   [
+    "PE[SCE]",
+    "🐟"
+   ],
+   [
+    "U[SCI]TA",
+    "🚪"
+   ],
+   [
+    "CU[SCI]NO",
+    "🛏️"
+   ],
+   [
+    "A[SCIU]GAMANO",
+    "🧺"
+   ],
+   [
+    "[SCI]",
+    "⛷️"
+   ]
+  ],
+  "riordina": [
+   [
+    "U-SCI-TA",
+    "🚪"
+   ],
+   [
+    "CU-SCI-NO",
+    "🛏️"
+   ],
+   [
+    "PE-SCE",
+    "🐟"
+   ],
+   [
+    "A-SCIU-GA-MA-NO",
+    "🧺"
+   ]
+  ],
+  "frasi": [
+   "DOV'È L'USCITA?",
+   "MANGIO IL PESCE."
+  ]
+ },
+ "SCH": {
+  "fam": "SUONI SPECIALI",
+  "color": "#7b4cb8",
+  "label": "SCHE SCHI",
+  "first": "S",
+  "base": [
+   "CHE",
+   "CHI"
+  ],
+  "syl": [
+   "SCHE",
+   "SCHI"
+  ],
+  "hint": "👂 CON LA H IL SUONO È DURO: SCHE SCHI COME SCA SCO. PESCA → PESCHE.",
+  "leggi": [
+   [
+    "PE[SCHE]",
+    "🍑"
+   ],
+   [
+    "TA[SCHE]",
+    "👖"
+   ],
+   [
+    "MO[SCHE]",
+    "🪰"
+   ],
+   [
+    "BO[SCHI]",
+    "🌲"
+   ],
+   [
+    "[SCHE]DA",
+    "📇"
+   ]
+  ],
+  "completa": [
+   [
+    "[SCHE]DA",
+    "📇"
+   ],
+   [
+    "BO[SCHI]",
+    "🌲"
+   ],
+   [
+    "PE[SCHE]",
+    "🍑"
+   ],
+   [
+    "TA[SCHE]",
+    "👖"
+   ],
+   [
+    "MO[SCHE]",
+    "🪰"
+   ]
+  ],
+  "riordina": [
+   [
+    "PE-SCHE",
+    "🍑"
+   ],
+   [
+    "TA-SCHE",
+    "👖"
+   ],
+   [
+    "SCHE-DA",
+    "📇"
+   ],
+   [
+    "BO-SCHI",
+    "🌲"
+   ]
+  ],
+  "frasi": [
+   "COMPRO LE PESCHE.",
+   "LE TASCHE SONO VUOTE."
+  ]
+ },
+ "CIA": {
+  "fam": "SUONI SPECIALI",
+  "color": "#d98e04",
+  "label": "CIA CIE",
+  "first": "C",
+  "base": [
+   "IA",
+   "IE",
+   "IO",
+   "IU"
+  ],
+  "syl": [
+   "CIA",
+   "CIE",
+   "CIO",
+   "CIU"
+  ],
+  "hint": "👂 CIA CIO CIU: LA I NON SI SENTE BENE, IL SUONO È DOLCE: CIAO. ATTENZIONE: CIELO SI SCRIVE CON CIE.",
+  "leggi": [
+   [
+    "[CIA]O",
+    "👋"
+   ],
+   [
+    "[CIE]LO",
+    "☁️"
+   ],
+   [
+    "BA[CIO]",
+    "😘"
+   ],
+   [
+    "CAMI[CIA]",
+    "👔"
+   ]
+  ],
+  "completa": [
+   [
+    "[CIA]O",
+    "👋"
+   ],
+   [
+    "[CIE]LO",
+    "☁️"
+   ],
+   [
+    "BA[CIO]",
+    "😘"
+   ],
+   [
+    "CAMI[CIA]",
+    "👔"
+   ],
+   [
+    "FARMA[CIE]",
+    "💊"
+   ]
+  ],
+  "riordina": [
+   [
+    "CA-MI-CIA",
+    "👔"
+   ],
+   [
+    "FAR-MA-CIE",
+    "💊"
+   ],
+   [
+    "BA-CIO",
+    "😘"
+   ],
+   [
+    "CIE-LO",
+    "☁️"
+   ]
+  ],
+  "frasi": [
+   "CIAO! COME STAI?",
+   "IL CIELO È BLU."
+  ]
  }
 };
 const MODES = [
@@ -937,8 +2009,10 @@ async function say(text) {
 
 /* ===== INTESTAZIONE ===== */
 function renderNav() {
-  $("letters").innerHTML = Object.keys(DATA).map(k =>
-    `<button style="--lc:${DATA[k].color}" class="${k === letter ? "on" : ""}" data-l="${k}">${DATA[k].label || k}</button>`).join("");
+  let fam = "";
+  $("letters").innerHTML = Object.keys(DATA).map(k => {
+    const h = DATA[k].fam !== fam ? `<div class="fam">${fam = DATA[k].fam}</div>` : "";
+    return h + `<button style="--lc:${DATA[k].color}" class="${k === letter ? "on" : ""}" data-l="${k}">${DATA[k].label || k}</button>`; }).join("");
   $("modes").innerHTML = MODES.map(([k, t]) => `<button class="${k === mode ? "on" : ""}" data-m="${k}">${t}</button>`).join("");
   document.documentElement.style.setProperty("--c", DATA[letter].color);
 }
