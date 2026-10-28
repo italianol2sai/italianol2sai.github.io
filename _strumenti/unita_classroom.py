@@ -115,6 +115,29 @@ DOTTORE = ("<p><b>DAL DOTTORE</b></p>"
  "<b>EL ASSANI:</b> CHE COS'È IL TICKET?<br><b>DOTTORE:</b> È UNA PARTE DEL PREZZO DELLA MEDICINA.<br>"
  "<b>EL ASSANI:</b> GRAZIE, DOTTORE. ARRIVEDERCI.<br><b>DOTTORE:</b> ARRIVEDERCI.</p>")
 
+BERTINE = ("<p><b>AL TELEFONO</b></p>"
+ "<p><b>SEGRETARIA:</b> BUONGIORNO, STUDIO MEDICO, MI DICA.<br><b>BERTINE:</b> SALVE, VORREI PRENDERE UN APPUNTAMENTO.<br>"
+ "<b>SEGRETARIA:</b> VEDIAMO… VA BENE GIOVEDÌ ALLE 15:00?<br><b>BERTINE:</b> SÌ, PERFETTO! GRAZIE E BUON LAVORO.<br>"
+ "<b>SEGRETARIA:</b> GRAZIE A LEI, ARRIVEDERCI.</p>"
+ "<p><b>IN AMBULATORIO</b></p>"
+ "<p><b>DOTTORESSA:</b> AVANTI IL PROSSIMO!<br><b>BERTINE:</b> BUONGIORNO, DOTTORESSA. POSSO?<br>"
+ "<b>DOTTORESSA:</b> PREGO, SIGNORA, SI ACCOMODI. COME STA?<br><b>BERTINE:</b> COSÌ COSÌ… NON MI SENTO BENE.<br>"
+ "<b>DOTTORESSA:</b> CHE COSA HA?<br>"
+ "<b>BERTINE:</b> LA NOTTE DORMO POCO, MI FA MALE LA SCHIENA, HO SPESSO LA NAUSEA E MI SENTO DEBOLE. CHE COSA DEVO PRENDERE?<br>"
+ "<b>DOTTORESSA:</b> PRIMA DEVE FARE LE ANALISI DEL SANGUE E NON DEVE FARE SFORZI. POI FISSIAMO UN ALTRO APPUNTAMENTO.<br>"
+ "<b>BERTINE:</b> GRAZIE, DOTTORESSA. ARRIVEDERCI.</p>")
+
+DEF = ["PERSONA MALATA CHE HA BISOGNO DELLE CURE DI UN MEDICO",
+       "EDIFICIO, DI SOLITO MOLTO GRANDE, DOVE SI CURANO I MALATI",
+       "MEDICO SPECIALIZZATO IN UNA PARTE DELLA MEDICINA",
+       "LOCALE DOVE IL MEDICO RICEVE E VISITA I PAZIENTI",
+       "NEGOZIO CHE VENDE MEDICINE E ARTICOLI SANITARI",
+       "PERSONA LAUREATA IN MEDICINA CHE CURA I MALATI",
+       "FOGLIO DEL MEDICO CON LE MEDICINE E LA CURA DA SEGUIRE",
+       "MEDICO SPECIALISTA CHE FA LE OPERAZIONI",
+       "UNA PARTE DELL'OSPEDALE",
+       "PERSONA CHE LAVORA CON I MEDICI E SI OCCUPA DEI MALATI"]
+
 DIAL_DOTTORE = {
  "title": "🩺 Dal dottore · Lettura ed esercizi",
  "store": "letture-dottore",
@@ -138,6 +161,41 @@ DIAL_DOTTORE = {
    "cons": "METTI LA SPUNTA VICINO ALLE 5 COSE GIUSTE.",
    "items": ["MAL DI TESTA", "MAL DI DENTI", "MAL DI GOLA", "LA TOSSE", "MAL DI SCHIENA", "LA FEBBRE", "HA VOMITATO"],
    "k": [eq(a) for a in ["X", "-", "X", "X", "-", "X", "X"]]},
+
+  {"part": "DALLA DOTTORESSA"},
+  {"id": "bertine", "title": "📖 LEGGI: BERTINE DALLA DOTTORESSA", "type": "info", "info": BERTINE},
+  {"id": "e4", "title": "4 · RISPONDI", "short": "4 · Bertine", "type": "text", "w": "w",
+   "items": [{"q": q} for q in ["1. DOVE SI INCONTRANO BERTINE E LA DOTTORESSA? (NELL'…)", "2. COME STA BERTINE?",
+                                 "3. CHE COSA DEVE FARE BERTINE?", "4. CHE COSA NON DEVE FARE?", "5. QUANDO È L'APPUNTAMENTO? (GIORNO E ORA)"]],
+   "k": [has("ambulatorio", "studio"), has("così così", "cosi cosi", "non sta bene", "non si sente bene", "male"),
+         has("analisi"), has("sforzi"), all_(["giovedi", "giovedì"], ["15"])]},
+
+  {"part": "L'ITALIANO DAL DOTTORE"},
+  {"id": "v1", "title": "5 · CHE COSA SIGNIFICA? SCEGLI", "short": "5 · Le parole", "type": "select",
+   "img": "img/dottori.jpg", "alt": "QUATTRO DOTTORI",
+   "opts": DEF,
+   "items": [{"q": q} for q in ["1. AMBULATORIO", "2. CHIRURGO", "3. FARMACIA", "4. INFERMIERE", "5. MALATO / PAZIENTE",
+                                 "6. MEDICO / DOTTORE", "7. OSPEDALE", "8. PRESCRIZIONE / RICETTA", "9. REPARTO"]],
+   "k": [eq(DEF[i]) for i in [3, 7, 4, 9, 0, 5, 1, 6, 8]]},
+  {"id": "v2", "title": "6 · COMPLETA LE FRASI", "short": "6 · Completa", "type": "cloze",
+   "bank": "AMBULATORIO · CHIRURGO · FARMACIA · INFERMIERA · MALATO · MEDICO · OSPEDALE · RICETTA · REPARTO · SPECIALISTA",
+   "parts": ["1. IL ", {}, " È STATO RICOVERATO D'URGENZA ALL'", {}, " CON UN DISTURBO ALLE VIE RESPIRATORIE.<br>",
+             "2. SONO ANDATO IN ", {}, ", MA NON HO POTUTO COMPRARE LE MEDICINE PERCHÉ NON AVEVO LA ", {}, " MEDICA.<br>",
+             "3. L'", {}, " DEL MEDICO SI TROVA IN PIAZZA GARIBALDI.<br>",
+             "4. IL ", {}, " È UN MEDICO ", {}, ": SE DEVI OPERARTI, DEVI ANDARE DA LUI.<br>",
+             "5. IL ", {}, " LE HA CONSIGLIATO DI PRENDERSI UN PERIODO DI VACANZA.<br>",
+             "6. GIOVANNA FA L'", {}, ", LAVORA ALL'OSPEDALE NEL ", {}, " DI CHIRURGIA."],
+   "k": [eq("malato", "paziente"), eq("ospedale"), eq("farmacia"), eq("ricetta", "prescrizione"), eq("ambulatorio"),
+         eq("chirurgo"), eq("specialista"), eq("medico", "dottore"), eq("infermiera"), eq("reparto")]},
+  {"id": "v3", "title": "7 · VISITARE, CURARE, GUARIRE", "short": "7 · I verbi", "type": "cloze",
+   "cons": "COMPLETA CON IL VERBO GIUSTO O CON UN NOME (LA CURA, LA VISITA, LA GUARIGIONE).",
+   "parts": ["1. LA ", {}, " CHE MI HA DATO IL DOTTORE HA FUNZIONATO: IN POCHI GIORNI SANDRA ", {}, " (GUARIRE).<br>",
+             "2. ORARIO DI ", {}, ": DAL LUNEDÌ AL GIOVEDÌ, DALLE 15:00 ALLE 18:00.<br>",
+             "3. DOMANI MATTINA IL DOTTORE ", {}, " (VISITARE) I PAZIENTI NEL SUO AMBULATORIO.<br>",
+             "4. QUELLE MEDICINE SONO MIRACOLOSE: MI ", {}, " (CURARE) PERFETTAMENTE DALLA MALATTIA.<br>",
+             "5. IL PAZIENTE STA MOLTO MEGLIO: È IN VIA DI ", {}, "."],
+   "k": [eq("cura", "terapia"), eq("è guarita", "e guarita", "guarisce"), eq("visita", "visite"), eq("visiterà", "visitera", "visita"),
+         eq("hanno curato", "hanno curata", "curano"), eq("guarigione")]},
  ]
 }
 
@@ -278,7 +336,12 @@ INDOVINA = {
  "sections": [
   {"part": "DESCRIVERE LE PERSONE"},
   {"id": "pers", "title": "📖 LEGGI LE DESCRIZIONI", "type": "info", "info": PERSONE},
-  {"id": "e1", "title": "1 · INDOVINA CHI", "short": "1 · Indovina chi", "type": "select", "opts": NOMI,
+  {"id": "f1", "title": "1 · INDOVINA CHI: GUARDA LE FOTO", "short": "1 · Le foto", "type": "select", "opts": NOMI,
+   "cons": "LEGGI LE DESCRIZIONI. CHI C'È NELLA FOTO? SCEGLI IL NOME.",
+   "items": [{"q": f'<img src="img/indovina-{i:02d}.png" alt="FOTO {i}" style="width:120px;border-radius:8px;vertical-align:middle"> FOTO {i}'} for i in range(1, 13)],
+   "k": [eq(a) for a in ["ANNA", "ANDREA", "CHIARA", "GABRIELE", "CLAUDIA", "GIUSEPPE",
+                         "EMMA", "MARIA", "MARIO", "ANNAMARIA", "VALERIO", "MARCO"]]},
+  {"id": "e1", "title": "2 · CHI È?", "short": "2 · Chi è", "type": "select", "opts": NOMI,
    "cons": "LEGGI E SCEGLI IL NOME.",
    "items": [{"q": q} for q in ["1. È CALVO E PORTA GLI OCCHIALI.", "2. AMA CURARE I FIORI.", "3. È UN BALLERINO.",
                                  "4. HA GLI OCCHI AZZURRI.", "5. HA 7 ANNI E FA GLI SCHERZI.", "6. È ANZIANO E LAVORA TANTO.",
@@ -287,13 +350,23 @@ INDOVINA = {
                                  "11. È SEMPRE SORRIDENTE E STA ATTENTA ALLA LINEA.", "12. È UNA BAMBINA BIRICHINA."]],
    "k": [eq(a) for a in ["ANDREA", "ANNAMARIA", "VALERIO", "CLAUDIA", "MARCO", "GIUSEPPE",
                          "GABRIELE", "EMMA", "ANNA", "MARIO", "MARIA", "CHIARA"]]},
-  {"id": "e2", "title": "2 · IL CONTRARIO", "short": "2 · Il contrario", "type": "select",
+  {"id": "e2", "title": "3 · IL CONTRARIO", "short": "3 · Il contrario", "type": "select",
    "opts": ["BIONDO", "CHIARA", "CORTI", "GRASSO", "INFELICE", "LISCI", "TRISTE", "GIOVANE"],
    "cons": "SCEGLI L'AGGETTIVO CONTRARIO.",
    "items": [{"q": q} for q in ["1. MORO ↔", "2. PELLE SCURA ↔ PELLE", "3. CAPELLI LUNGHI ↔ CAPELLI", "4. MAGRO ↔",
                                  "5. SORRIDENTE ↔", "6. CAPELLI RICCI ↔ CAPELLI", "7. ANZIANO ↔"]],
    "k": [eq("BIONDO"), eq("CHIARA"), eq("CORTI"), eq("GRASSO"), eq("TRISTE", "INFELICE"), eq("LISCI"), eq("GIOVANE")]},
-  {"id": "e3", "title": "3 ✎ · DESCRIVI UNA PERSONA", "type": "free", "rows": 5,
+  {"part": "CHE DIFFERENZA C'È?"},
+  {"id": "d1", "title": "4 · CHE DIFFERENZA C'È?", "short": "4 · Che differenza c'è", "type": "cloze",
+   "img": "img/che-differenza.png", "alt": "DUE LAMPADE, DUE OMBRELLI, DUE BISTECCHE, DUE VASI",
+   "cons": "GUARDA L'IMMAGINE: CI SONO 4 OGGETTI UGUALI MA… DIVERSI! SCRIVI GLI AGGETTIVI CONTRARI.",
+   "bank": "ACCESA · APERTO · CHIUSO · COTTA · CRUDA · PIENO · SPENTA · VUOTO",
+   "parts": ["1. LA LAMPADA A SINISTRA È ", {}, ", LA LAMPADA A DESTRA È ", {}, ".<br>",
+             "2. L'OMBRELLO GRANDE È ", {}, ", L'OMBRELLO PICCOLO È ", {}, ".<br>",
+             "3. LA BISTECCA A SINISTRA È ", {}, ", LA BISTECCA A DESTRA È ", {}, ".<br>",
+             "4. IL VASO A SINISTRA È ", {}, ", IL VASO A DESTRA È ", {}, " (HA I FIORI)."],
+   "k": [eq("spenta"), eq("accesa"), eq("aperto"), eq("chiuso"), eq("cruda"), eq("cotta"), eq("vuoto"), eq("pieno")]},
+  {"id": "e3", "title": "5 ✎ · DESCRIVI UNA PERSONA", "type": "free", "rows": 5,
    "items": ["DESCRIVI UNA PERSONA CHE CONOSCI: COME SI CHIAMA, QUANTI ANNI HA, COM'È (CAPELLI, OCCHI, CARATTERE)."]},
  ]
 }
