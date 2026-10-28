@@ -1,0 +1,1157 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SILLABE DIFFICILI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf7f0; --card: #ffffff; --ink: #1f2933; --muted: #6b7280; --line: #e5ddd0;
+    --ok: #1f8a4c; --ko: #c8323b; --soft: #f3ece0; --c: #2c6fb3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15181c; --card: #1f242a; --ink: #f1f3f5; --muted: #9aa3ad; --line: #333a43; --soft: #2a3038; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { padding: 16px 16px 4px; text-align: center; }
+  header a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  h1 { margin: 6px 0 2px; font-size: 28px; font-weight: 900; }
+  main { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+  button { font-family: inherit; color: inherit; }
+
+  /* Lettere */
+  .letters { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 12px 0; }
+  .letters button { min-width: 44px; height: 44px; padding: 0 8px; border-radius: 12px; border: none;
+                    background: var(--lc); color: #fff; font-size: 20px; font-weight: 900; cursor: pointer; opacity: .55; }
+  .letters button.on { opacity: 1; transform: scale(1.12); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+
+  /* Modalità */
+  .modes { display: flex; gap: 6px; overflow-x: auto; padding: 4px 2px 8px; margin: 0 -2px; scrollbar-width: none; }
+  .modes button { flex: 0 0 auto; border: 1px solid var(--line); background: var(--card); border-radius: 999px;
+                  padding: 9px 14px; font-size: 15px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+  .modes button.on { background: var(--c); border-color: var(--c); color: #fff; }
+
+  .banner { display: flex; align-items: center; gap: 14px; background: var(--card); border: 1px solid var(--line);
+            border-radius: 20px; padding: 14px; margin: 10px 0 14px; }
+  .badge { width: 72px; height: 72px; border-radius: 18px; background: var(--c); color: #fff; flex: 0 0 auto;
+           display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 900; }
+  .badge small { font-size: .7em; margin-left: 4px; }
+  .banner h2 { margin: 0 0 6px; font-size: 18px; }
+  .strip { display: flex; flex-wrap: wrap; gap: 6px; }
+  .syl { border: 2px solid var(--c); color: var(--c); background: var(--card); border-radius: 12px;
+         padding: 4px 10px; font-size: 20px; font-weight: 900; cursor: pointer; }
+  .hint { background: #fff4d6; color: #5c4400; border-radius: 12px; padding: 10px 12px; font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+  @media (prefers-color-scheme: dark) { .hint { background: #3a3220; color: #f3dc9a; } }
+  .task { font-weight: 900; font-size: 15px; margin: 18px 0 10px; display: flex; align-items: center; gap: 8px; }
+  .task .n { background: var(--c); color: #fff; width: 26px; height: 26px; border-radius: 50%;
+             display: inline-flex; align-items: center; justify-content: center; font-size: 13px; }
+
+  /* Leggi */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+  .wcard { background: var(--card); border: 2px solid var(--c); border-radius: 18px; padding: 10px 6px; text-align: center; cursor: pointer; }
+  .wcard .s { color: var(--c); font-size: 30px; font-weight: 900; line-height: 1.1; }
+  .wcard .lo { color: var(--muted); font-size: 16px; font-weight: 800; }
+  .wcard .e { font-size: 44px; margin: 6px 0; }
+  .wcard .w { font-size: 15px; font-weight: 800; letter-spacing: .5px; }
+  mark { background: color-mix(in srgb, var(--c) 18%, transparent); color: var(--c); border-radius: 4px; padding: 0 1px; }
+  .frasi { background: color-mix(in srgb, var(--c) 10%, var(--card)); border-left: 5px solid var(--c);
+           border-radius: 14px; padding: 6px 12px; }
+  .frase { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 19px; font-weight: 700;
+           cursor: pointer; border-bottom: 1px dashed var(--line); }
+  .frase:last-child { border-bottom: none; }
+
+  /* Giochi */
+  .play-area { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 18px 14px; text-align: center; }
+  .big-play { width: 84px; height: 84px; border-radius: 50%; border: none; background: var(--c); color: #fff;
+              font-size: 36px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .opts { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 18px; }
+  .opt { min-width: 76px; padding: 14px 12px; border-radius: 16px; border: 2px solid var(--line); background: var(--card);
+         font-size: 26px; font-weight: 900; cursor: pointer; }
+  .opt.ok { background: var(--ok); border-color: var(--ok); color: #fff; }
+  .opt.ko { background: var(--ko); border-color: var(--ko); color: #fff; animation: shake .35s; }
+  @keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+  .score { color: var(--muted); font-size: 14px; font-weight: 800; margin-top: 14px; }
+  .msg { min-height: 30px; font-size: 22px; font-weight: 900; margin-top: 10px; color: var(--ok); }
+  .next { margin-top: 12px; border: none; background: var(--ink); color: var(--bg); border-radius: 999px;
+          padding: 10px 20px; font-size: 16px; font-weight: 800; cursor: pointer; }
+
+  .target { display: inline-flex; align-items: center; gap: 10px; background: var(--c); color: #fff; border-radius: 14px;
+            padding: 8px 16px; font-size: 28px; font-weight: 900; }
+  .target button { border: none; background: rgba(255,255,255,.25); color: #fff; border-radius: 50%; width: 38px; height: 38px; font-size: 18px; cursor: pointer; }
+  .row { display: grid; grid-template-columns: repeat(5, minmax(0, 68px)); justify-content: center; gap: 8px; margin-top: 16px; }
+  .chip { padding: 12px 0; border-radius: 50%; aspect-ratio: 1; border: 3px solid transparent; background: var(--soft);
+          font-size: min(5.4vw, 24px); font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .chip.found { border-color: var(--ok); color: var(--ok); background: var(--card); }
+  .chip.ko { border-color: var(--ko); animation: shake .35s; }
+
+  .emoji-big { font-size: 90px; line-height: 1.1; }
+  .word-blank { font-size: min(9vw, 40px); font-weight: 900; letter-spacing: 2px; margin-top: 8px; }
+  .blank { display: inline-block; min-width: 2.2em; border-bottom: 4px solid var(--ink); color: var(--ok); }
+  .boxes { display: flex; justify-content: center; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+  .box { min-width: 70px; height: 58px; border: 3px solid var(--ink); border-radius: 10px; font-size: 24px; font-weight: 900;
+         display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0 6px; }
+  .boxes.ok .box { border-color: var(--ok); color: var(--ok); }
+  .boxes.ko .box { border-color: var(--ko); animation: shake .35s; }
+  .tiles { display: flex; justify-content: center; gap: 10px; margin-top: 18px; flex-wrap: wrap; min-height: 70px; }
+  .tile { width: 66px; height: 66px; border-radius: 50%; border: 3px solid var(--ink); background: var(--card);
+          font-size: 20px; font-weight: 900; cursor: pointer; }
+  .tile.used { visibility: hidden; }
+  .arrow { color: var(--muted); font-size: 14px; font-weight: 800; margin-top: 6px; }
+
+  .build { display: grid; gap: 12px; }
+  .brow { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--card); border: 1px solid var(--line);
+          border-radius: 18px; padding: 12px; font-size: 30px; font-weight: 900; flex-wrap: wrap; }
+  .brow .two, .brow .three { border: 3px solid var(--c); color: var(--c); background: var(--card); border-radius: 14px; padding: 6px 14px;
+          font-size: 30px; font-weight: 900; cursor: pointer; }
+  .brow .add { border: none; background: var(--c); color: #fff; border-radius: 14px; padding: 8px 14px; font-size: 24px; font-weight: 900; cursor: pointer; }
+  .brow .first { color: var(--c); }
+  .brow .three { background: var(--c); color: #fff; animation: pop .35s; }
+  .brow .hide { visibility: hidden; }
+  @keyframes pop { 0% { transform: scale(.6); } 70% { transform: scale(1.12); } 100% { transform: scale(1); } }
+  .all { margin-top: 12px; border: none; background: var(--ink); color: var(--bg); border-radius: 999px; padding: 10px 20px; font-size: 16px; font-weight: 800; cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+  <a href="../">← ITALIANO L2 ETNIE</a>
+  <h1>SILLABE DIFFICILI</h1>
+</header>
+
+<main>
+  <nav class="letters" id="letters"></nav>
+  <nav class="modes" id="modes"></nav>
+  <div id="view"></div>
+</main>
+
+<script>
+/* ===== DATI (dalle schede «Sillabe facili») =====
+   leggi/completa: la sillaba tra [ ] è quella evidenziata o da completare.
+   riordina: le sillabe della parola, in ordine. */
+const DATA = {
+ "TR": {
+  "color": "#3a9c58",
+  "label": "TR",
+  "first": "T",
+  "base": [
+   "RA",
+   "RE",
+   "RI",
+   "RO",
+   "RU"
+  ],
+  "syl": [
+   "TRA",
+   "TRE",
+   "TRI",
+   "TRO",
+   "TRU"
+  ],
+  "hint": "👂 T + RA = TRA. DI' LE DUE LETTERE INSIEME, SENZA VOCALE IN MEZZO: TRA, NON TERA.",
+  "leggi": [
+   [
+    "[TRE]NO",
+    "🚆"
+   ],
+   [
+    "[TRA]MONTO",
+    "🌇"
+   ],
+   [
+    "[TRI]ANGOLO",
+    "🔺"
+   ],
+   [
+    "QUAT[TRO]",
+    "4️⃣"
+   ]
+  ],
+  "completa": [
+   [
+    "[TRE]",
+    "3️⃣"
+   ],
+   [
+    "VE[TRO]",
+    "🪟"
+   ],
+   [
+    "[TRI]STE",
+    "😢"
+   ],
+   [
+    "MA[TRI]MONIO",
+    "💍"
+   ],
+   [
+    "[TRA]GHETTO",
+    "⛴️"
+   ]
+  ],
+  "riordina": [
+   [
+    "TRE-NO",
+    "🚆"
+   ],
+   [
+    "QUAT-TRO",
+    "4️⃣"
+   ],
+   [
+    "TRA-GHET-TO",
+    "⛴️"
+   ],
+   [
+    "TRI-STE",
+    "😢"
+   ]
+  ],
+  "frasi": [
+   "PRENDO IL TRENO.",
+   "HO TRE FIGLI.",
+   "IL TRAMONTO È BELLO."
+  ]
+ },
+ "PR": {
+  "color": "#2c6fb3",
+  "label": "PR",
+  "first": "P",
+  "base": [
+   "RA",
+   "RE",
+   "RI",
+   "RO",
+   "RU"
+  ],
+  "syl": [
+   "PRA",
+   "PRE",
+   "PRI",
+   "PRO",
+   "PRU"
+  ],
+  "hint": "👂 P + RA = PRA. NON PERA: TUTTO INSIEME, PRA.",
+  "leggi": [
+   [
+    "[PRA]TO",
+    "🌱"
+   ],
+   [
+    "[PRE]GO",
+    "🙂"
+   ],
+   [
+    "[PRI]MAVERA",
+    "🌸"
+   ],
+   [
+    "[PRO]FUMO",
+    "🧴"
+   ],
+   [
+    "[PRU]GNA",
+    "🟣"
+   ]
+  ],
+  "completa": [
+   [
+    "SO[PRA]",
+    "⬆️"
+   ],
+   [
+    "[PRI]MO",
+    "🥇"
+   ],
+   [
+    "SEM[PRE]",
+    "🔁"
+   ],
+   [
+    "[PRE]MIO",
+    "🏆"
+   ],
+   [
+    "A[PRI]LE",
+    "📅"
+   ]
+  ],
+  "riordina": [
+   [
+    "PRI-MA-VE-RA",
+    "🌸"
+   ],
+   [
+    "PRO-FU-MO",
+    "🧴"
+   ],
+   [
+    "SO-PRA",
+    "⬆️"
+   ],
+   [
+    "A-PRI-LE",
+    "📅"
+   ]
+  ],
+  "frasi": [
+   "PRONTO, CHI PARLA?",
+   "IN PRIMAVERA CI SONO I FIORI.",
+   "GRAZIE! PREGO!"
+  ]
+ },
+ "BR": {
+  "color": "#d98e04",
+  "label": "BR",
+  "first": "B",
+  "base": [
+   "RA",
+   "RE",
+   "RI",
+   "RO",
+   "RU"
+  ],
+  "syl": [
+   "BRA",
+   "BRE",
+   "BRI",
+   "BRO",
+   "BRU"
+  ],
+  "hint": "👂 B + RA = BRA. ATTENZIONE: BRA E PRA SONO DIVERSE!",
+  "leggi": [
+   [
+    "FEB[BRE]",
+    "🤒"
+   ],
+   [
+    "[BRO]DO",
+    "🍲"
+   ],
+   [
+    "[BRU]CO",
+    "🐛"
+   ],
+   [
+    "ZE[BRA]",
+    "🦓"
+   ],
+   [
+    "LI[BRO]",
+    "📖"
+   ]
+  ],
+  "completa": [
+   [
+    "[BRA]VO",
+    "👏"
+   ],
+   [
+    "OTTO[BRE]",
+    "📅"
+   ],
+   [
+    "CO[BRA]",
+    "🐍"
+   ],
+   [
+    "FEB[BRA]IO",
+    "❄️"
+   ],
+   [
+    "[BRI]VIDO",
+    "🥶"
+   ]
+  ],
+  "riordina": [
+   [
+    "LI-BRO",
+    "📖"
+   ],
+   [
+    "ZE-BRA",
+    "🦓"
+   ],
+   [
+    "FEB-BRE",
+    "🤒"
+   ],
+   [
+    "OT-TO-BRE",
+    "📅"
+   ]
+  ],
+  "frasi": [
+   "IL LIBRO È SUL TAVOLO.",
+   "HO LA FEBBRE.",
+   "BRAVO! BRAVA!"
+  ]
+ },
+ "CR": {
+  "color": "#7b4cb8",
+  "label": "CR",
+  "first": "C",
+  "base": [
+   "RA",
+   "RE",
+   "RI",
+   "RO",
+   "RU"
+  ],
+  "syl": [
+   "CRA",
+   "CRE",
+   "CRI",
+   "CRO",
+   "CRU"
+  ],
+  "hint": "👂 C + RA = CRA. IL SUONO È DURO, COME IN CASA.",
+  "leggi": [
+   [
+    "[CRE]MA",
+    "🧴"
+   ],
+   [
+    "[CRO]CE",
+    "➕"
+   ],
+   [
+    "[CRI]CETO",
+    "🐹"
+   ],
+   [
+    "MI[CRO]FONO",
+    "🎤"
+   ],
+   [
+    "[CRU]DO",
+    "🥩"
+   ]
+  ],
+  "completa": [
+   [
+    "[CRA]VATTA",
+    "👔"
+   ],
+   [
+    "[CRO]STATA",
+    "🥧"
+   ],
+   [
+    "SE[CRE]TO",
+    "🤫"
+   ],
+   [
+    "MI[CRO]ONDE",
+    "📡"
+   ],
+   [
+    "[CRI]CETO",
+    "🐹"
+   ]
+  ],
+  "riordina": [
+   [
+    "CRA-VAT-TA",
+    "👔"
+   ],
+   [
+    "MI-CRO-FO-NO",
+    "🎤"
+   ],
+   [
+    "CRO-STA-TA",
+    "🥧"
+   ],
+   [
+    "CRE-MA",
+    "🧴"
+   ]
+  ],
+  "frasi": [
+   "METTO LA CREMA.",
+   "LA CROSTATA È BUONA.",
+   "IL CRICETO MANGIA."
+  ]
+ },
+ "DR": {
+  "color": "#129e8a",
+  "label": "DR",
+  "first": "D",
+  "base": [
+   "RA",
+   "RE",
+   "RI",
+   "RO",
+   "RU"
+  ],
+  "syl": [
+   "DRA",
+   "DRE",
+   "DRI",
+   "DRO",
+   "DRU"
+  ],
+  "hint": "👂 D + RA = DRA. ATTENZIONE: DRA E TRA SONO DIVERSE!",
+  "leggi": [
+   [
+    "[DRA]GO",
+    "🐉"
+   ],
+   [
+    "MA[DRE]",
+    "👩"
+   ],
+   [
+    "[DRI]TTO",
+    "⬆️"
+   ],
+   [
+    "QUA[DRO]",
+    "🖼️"
+   ]
+  ],
+  "completa": [
+   [
+    "PA[DRE]",
+    "👨"
+   ],
+   [
+    "LA[DRO]",
+    "🦹"
+   ],
+   [
+    "QUA[DRA]TO",
+    "🟥"
+   ],
+   [
+    "SQUA[DRA]",
+    "⚽"
+   ],
+   [
+    "[DRA]GO",
+    "🐉"
+   ]
+  ],
+  "riordina": [
+   [
+    "MA-DRE",
+    "👩"
+   ],
+   [
+    "PA-DRE",
+    "👨"
+   ],
+   [
+    "QUA-DRA-TO",
+    "🟥"
+   ],
+   [
+    "LA-DRO",
+    "🦹"
+   ]
+  ],
+  "frasi": [
+   "MIA MADRE È AL MERCATO.",
+   "IL LADRO SCAPPA.",
+   "VAI DRITTO!"
+  ]
+ },
+ "FR": {
+  "color": "#e3572f",
+  "label": "FR",
+  "first": "F",
+  "base": [
+   "RA",
+   "RE",
+   "RI",
+   "RO",
+   "RU"
+  ],
+  "syl": [
+   "FRA",
+   "FRE",
+   "FRI",
+   "FRO",
+   "FRU"
+  ],
+  "hint": "👂 F + RA = FRA. ATTENZIONE: FRA E VRA SONO DIVERSE!",
+  "leggi": [
+   [
+    "[FRA]GOLA",
+    "🍓"
+   ],
+   [
+    "[FRE]SCO",
+    "🌬️"
+   ],
+   [
+    "[FRI]GORIFERO",
+    "🧊"
+   ],
+   [
+    "A[FRI]CA",
+    "🌍"
+   ]
+  ],
+  "completa": [
+   [
+    "[FRA]TELLO",
+    "👦"
+   ],
+   [
+    "[FRE]NO",
+    "🛑"
+   ],
+   [
+    "[FRA]SE",
+    "💬"
+   ],
+   [
+    "[FRI]GORIFERO",
+    "🧊"
+   ],
+   [
+    "[FRA]GOLA",
+    "🍓"
+   ]
+  ],
+  "riordina": [
+   [
+    "FRA-GO-LA",
+    "🍓"
+   ],
+   [
+    "FRA-TEL-LO",
+    "👦"
+   ],
+   [
+    "A-FRI-CA",
+    "🌍"
+   ],
+   [
+    "FRI-GO-RI-FE-RO",
+    "🧊"
+   ]
+  ],
+  "frasi": [
+   "MIO FRATELLO È ALTO.",
+   "LE FRAGOLE SONO ROSSE.",
+   "IL LATTE È NEL FRIGORIFERO."
+  ]
+ },
+ "GR": {
+  "color": "#1f7a8c",
+  "label": "GR",
+  "first": "G",
+  "base": [
+   "RA",
+   "RE",
+   "RI",
+   "RO",
+   "RU"
+  ],
+  "syl": [
+   "GRA",
+   "GRE",
+   "GRI",
+   "GRO",
+   "GRU"
+  ],
+  "hint": "👂 G + RA = GRA. IL SUONO È DURO, COME IN GATTO.",
+  "leggi": [
+   [
+    "[GRA]ZIE",
+    "🙏"
+   ],
+   [
+    "[GRI]GIO",
+    "🩶"
+   ],
+   [
+    "[GRU]",
+    "🏗️"
+   ],
+   [
+    "TI[GRE]",
+    "🐅"
+   ]
+  ],
+  "completa": [
+   [
+    "[GRA]TIS",
+    "🆓"
+   ],
+   [
+    "ALLE[GRO]",
+    "😀"
+   ],
+   [
+    "[GRI]GLIA",
+    "🍖"
+   ],
+   [
+    "MA[GRO]",
+    "🦴"
+   ],
+   [
+    "[GRA]NO",
+    "🌾"
+   ]
+  ],
+  "riordina": [
+   [
+    "GRA-ZIE",
+    "🙏"
+   ],
+   [
+    "TI-GRE",
+    "🐅"
+   ],
+   [
+    "AL-LE-GRO",
+    "😀"
+   ],
+   [
+    "GRI-GIO",
+    "🩶"
+   ]
+  ],
+  "frasi": [
+   "GRAZIE MILLE!",
+   "LA TIGRE È GRANDE.",
+   "IL GATTO È GRIGIO."
+  ]
+ },
+ "ST": {
+  "color": "#d4485b",
+  "label": "ST",
+  "first": "S",
+  "base": [
+   "TA",
+   "TE",
+   "TI",
+   "TO",
+   "TU"
+  ],
+  "syl": [
+   "STA",
+   "STE",
+   "STI",
+   "STO",
+   "STU"
+  ],
+  "hint": "👂 S + TA = STA. NON ESTA: LA S È ATTACCATA, STA.",
+  "leggi": [
+   [
+    "[STA]ZIONE",
+    "🚉"
+   ],
+   [
+    "[STI]VALI",
+    "👢"
+   ],
+   [
+    "[STO]MACO",
+    "🫃"
+   ],
+   [
+    "[STU]DENTE",
+    "🧑‍🎓"
+   ]
+  ],
+  "completa": [
+   [
+    "PA[STA]",
+    "🍝"
+   ],
+   [
+    "FE[STA]",
+    "🎉"
+   ],
+   [
+    "RI[STO]RANTE",
+    "🍽️"
+   ],
+   [
+    "QUE[STO]",
+    "👉"
+   ],
+   [
+    "[STU]DIARE",
+    "📚"
+   ]
+  ],
+  "riordina": [
+   [
+    "STA-ZIO-NE",
+    "🚉"
+   ],
+   [
+    "STU-DEN-TE",
+    "🧑‍🎓"
+   ],
+   [
+    "RI-STO-RAN-TE",
+    "🍽️"
+   ],
+   [
+    "STI-VA-LI",
+    "👢"
+   ]
+  ],
+  "frasi": [
+   "VADO IN STAZIONE.",
+   "LA PASTA È BUONA.",
+   "SONO UNO STUDENTE."
+  ]
+ },
+ "SP": {
+  "color": "#e07a1f",
+  "label": "SP",
+  "first": "S",
+  "base": [
+   "PA",
+   "PE",
+   "PI",
+   "PO",
+   "PU"
+  ],
+  "syl": [
+   "SPA",
+   "SPE",
+   "SPI",
+   "SPO",
+   "SPU"
+  ],
+  "hint": "👂 S + PA = SPA. NON ESPA: LA S È ATTACCATA, SPA.",
+  "leggi": [
+   [
+    "[SPA]GHETTI",
+    "🍝"
+   ],
+   [
+    "[SPE]SA",
+    "🛒"
+   ],
+   [
+    "[SPI]NACI",
+    "🥬"
+   ],
+   [
+    "[SPO]SA",
+    "👰"
+   ],
+   [
+    "[SPU]GNA",
+    "🧽"
+   ]
+  ],
+  "completa": [
+   [
+    "O[SPE]DALE",
+    "🏥"
+   ],
+   [
+    "A[SPI]RINA",
+    "💊"
+   ],
+   [
+    "[SPE]RANZA",
+    "🙏"
+   ],
+   [
+    "[SPO]SO",
+    "🤵"
+   ],
+   [
+    "[SPA]GHETTI",
+    "🍝"
+   ]
+  ],
+  "riordina": [
+   [
+    "O-SPE-DA-LE",
+    "🏥"
+   ],
+   [
+    "SPO-SA",
+    "👰"
+   ],
+   [
+    "SPU-GNA",
+    "🧽"
+   ],
+   [
+    "SPE-SA",
+    "🛒"
+   ]
+  ],
+  "frasi": [
+   "FACCIO LA SPESA.",
+   "VADO ALL'OSPEDALE.",
+   "MANGIO GLI SPAGHETTI."
+  ]
+ }
+};
+const MODES = [
+  ["costruisci", "➕ COSTRUISCI"], ["leggi", "👀 LEGGI"], ["ascolta", "👂 ASCOLTA E SCEGLI"], ["cerchia", "⭕ CERCHIA"],
+  ["completa", "🧩 COMPLETA"], ["riordina", "🔀 RIORDINA"],
+];
+
+const $ = (id) => document.getElementById(id);
+const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const plain = (w) => w.replace(/[\[\]]/g, "");
+const marked = (w) => w.replace(/\[(.+?)\]/, "<mark>$1</mark>");
+
+let letter = "TR", mode = "costruisci";
+try { const s = JSON.parse(localStorage.getItem("sillabe-difficili") || "{}"); if (DATA[s.l]) letter = s.l; if (MODES.some(m => m[0] === s.m)) mode = s.m; } catch (e) {}
+const save = () => { try { localStorage.setItem("sillabe-difficili", JSON.stringify({ l: letter, m: mode })); } catch (e) {} };
+
+/* ===== AUDIO: prima audio/<parola>, poi ../sillabe/audio/<parola> (voce di Erila), altrimenti voce del computer ===== */
+const slug = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const found = {};
+let current = null;
+function tryLoad(url) {
+  return new Promise((ok, ko) => { const a = new Audio(); a.oncanplaythrough = () => ok(); a.onerror = ko; a.src = url; });
+}
+async function say(text) {
+  if (current) { current.pause(); current = null; }
+  speechSynthesis.cancel();
+  const s = slug(text);
+  if (!(s in found)) {
+    found[s] = null;
+    for (const url of [`audio/${s}.wav`, `audio/${s}.mp3`, `audio/${s}.m4a`, `../sillabe/audio/${s}.wav`, `../sillabe/audio/${s}.mp3`]) {
+      try { await tryLoad(url); found[s] = url; break; } catch (e) {}
+    }
+  }
+  if (found[s]) { current = new Audio(found[s]); current.play().catch(() => {}); return; }
+  const u = new SpeechSynthesisUtterance(text.toLowerCase());
+  u.lang = "it-IT"; u.rate = 0.75;
+  const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith("it"));
+  if (v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+
+/* ===== INTESTAZIONE ===== */
+function renderNav() {
+  $("letters").innerHTML = Object.keys(DATA).map(k =>
+    `<button style="--lc:${DATA[k].color}" class="${k === letter ? "on" : ""}" data-l="${k}">${DATA[k].label || k}</button>`).join("");
+  $("modes").innerHTML = MODES.map(([k, t]) => `<button class="${k === mode ? "on" : ""}" data-m="${k}">${t}</button>`).join("");
+  document.documentElement.style.setProperty("--c", DATA[letter].color);
+}
+$("letters").onclick = (e) => { const b = e.target.closest("button"); if (b) { letter = b.dataset.l; save(); render(); } };
+$("modes").onclick = (e) => { const b = e.target.closest("button"); if (b) { mode = b.dataset.m; save(); render(); } };
+
+function banner(title) {
+  const d = DATA[letter];
+  const lo = "";
+  return `<div class="banner">
+    <div class="badge">${d.label || letter}${lo}</div>
+    <div><h2>${title}</h2><div class="strip">${d.syl.map(s => `<button class="syl" data-say="${s}">${s}</button>`).join("")}</div></div>
+  </div>`;
+}
+
+
+/* ===== ➕ COSTRUISCI: prima la sillaba di 2 lettere, poi si aggiunge la lettera davanti ===== */
+let built = {};
+function viewCostruisci() {
+  const d = DATA[letter];
+  if (built.letter !== letter) built = { letter, on: [] };
+  return banner("TOCCA ➕ E COSTRUISCI LA SILLABA") + (d.hint ? `<div class="hint">${d.hint}</div>` : "") +
+    `<div class="task"><span class="n">1</span> ASCOLTA ${d.base[0]}. POI TOCCA ➕ ${d.first}.</div>
+     <div class="build">${d.base.map((b, i) => {
+       const on = built.on.includes(i);
+       return `<div class="brow">
+         <button class="two" data-say="${b}">${b}</button>
+         <button class="add" data-build="${i}">➕ ${d.first}</button>
+         <span class="${on ? "" : "hide"}">=</span>
+         <button class="three ${on ? "" : "hide"}" data-say="${d.syl[i]}">${d.syl[i]}</button>
+       </div>`; }).join("")}</div>
+     <div style="text-align:center"><button class="all" data-act="all">🔁 DI NUOVO</button></div>`;
+}
+
+/* ===== 👀 LEGGI ===== */
+function viewLeggi() {
+  const d = DATA[letter];
+  return banner("TOCCA E ASCOLTA") + (d.hint ? `<div class="hint">${d.hint}</div>` : "") +
+    `<div class="task"><span class="n">1</span> LEGGI E RIPETI.</div>
+     <div class="cards">${d.leggi.map(([w, e]) => {
+       const s = w.match(/\[(.+?)\]/)[1];
+       return `<div class="wcard" data-say="${s}|${plain(w)}">
+         <div class="s">${s}</div>
+         <div class="e">${e}</div><div class="w">${marked(w)}</div></div>`;
+     }).join("")}</div>
+     <div class="task"><span class="n">2</span> 📖 LEGGI LE FRASI.</div>
+     <div class="frasi">${d.frasi.map(f => `<div class="frase" data-say="${f}">🔊 <span>${f}</span></div>`).join("")}</div>`;
+}
+
+/* ===== 👂 ASCOLTA E SCEGLI ===== */
+let game = {};
+function newAscolta() {
+  const keep = game.mode === "ascolta" && game.letter === letter;
+  game = { mode: "ascolta", letter, target: shuffle(DATA[letter].syl)[0], done: false,
+           score: keep ? game.score : 0, tot: keep ? game.tot : 0 };
+}
+function viewAscolta() {
+  if (game.mode !== "ascolta" || game.letter !== letter) newAscolta();
+  return banner("ASCOLTA LA SILLABA E TOCCA QUELLA GIUSTA") +
+    `<div class="play-area">
+      <button class="big-play" data-act="replay" aria-label="Ascolta">🔊</button>
+      <div class="opts">${DATA[letter].syl.map(s => `<button class="opt" data-pick="${s}">${s}</button>`).join("")}</div>
+      <div class="msg" id="msg"></div>
+      <div class="score">✓ ${game.score} / ${game.tot}</div>
+    </div>`;
+}
+
+/* ===== ⭕ CERCHIA ===== */
+function newCerchia() {
+  const syl = DATA[letter].syl;
+  const target = shuffle(syl)[0];
+  // 4 uguali + 6 simili (stessa consonante, vocale diversa), mescolati
+  const others = syl.filter(s => s !== target);
+  const row = shuffle([target, target, target, target, ...Array.from({ length: 6 }, (_, i) => others[i % others.length])]);
+  game = { mode: "cerchia", letter, target, row, found: [] };
+}
+function viewCerchia() {
+  if (game.mode !== "cerchia" || game.letter !== letter) newCerchia();
+  const left = game.row.filter(s => s === game.target).length - game.found.length;
+  return banner("CERCHIA LA SILLABA UGUALE") +
+    `<div class="play-area">
+      <div class="target">${game.target} <button data-say="${game.target}" aria-label="Ascolta">🔊</button></div>
+      <div class="row">${game.row.map((s, i) => `<button class="chip ${game.found.includes(i) ? "found" : ""}" data-chip="${i}">${s}</button>`).join("")}</div>
+      <div class="msg" id="msg">${left === 0 ? "BRAVO! 👏" : ""}</div>
+      ${left === 0 ? `<button class="next" data-act="again">ANCORA ↻</button>` : `<div class="score">MANCANO: ${left}</div>`}
+    </div>`;
+}
+
+/* ===== 🧩 COMPLETA ===== */
+function newCompleta() { game = { mode: "completa", letter, list: shuffle(DATA[letter].completa), i: 0, done: false }; }
+function viewCompleta() {
+  if (game.mode !== "completa" || game.letter !== letter) newCompleta();
+  const [w, e] = game.list[game.i];
+  const s = w.match(/\[(.+?)\]/)[1];
+  const word = w.replace(/\[(.+?)\]/, `<span class="blank">${game.done ? s : "&nbsp;"}</span>`);
+  return banner("COMPLETA LA PAROLA CON LA SILLABA GIUSTA") +
+    `<div class="play-area">
+      <div class="emoji-big">${e}</div>
+      <div class="word-blank">${word}</div>
+      <div class="opts">${DATA[letter].syl.map(x => `<button class="opt ${game.done && x === s ? "ok" : ""}" data-fill="${x}">${x}</button>`).join("")}</div>
+      <div class="msg" id="msg">${game.done ? "BRAVO! 👏" : ""}</div>
+      ${game.done ? `<button class="next" data-act="next">AVANTI →</button>` : ""}
+      <div class="score">${game.i + 1} / ${game.list.length}</div>
+    </div>`;
+}
+
+/* ===== 🔀 RIORDINA ===== */
+function newRiordina(i = 0) {
+  const list = game.mode === "riordina" && game.letter === letter && i > 0 ? game.list : shuffle(DATA[letter].riordina);
+  const parts = list[i][0].split("-");
+  let tiles = shuffle(parts.map((p, k) => ({ p, k })));
+  if (tiles.every((t, k) => t.k === k) && parts.length > 1) tiles.reverse();
+  game = { mode: "riordina", letter, list, i, parts, tiles, placed: [], state: "" };
+}
+function viewRiordina() {
+  if (game.mode !== "riordina" || game.letter !== letter) newRiordina();
+  const [, e] = game.list[game.i];
+  return banner("METTI LE SILLABE IN ORDINE") +
+    `<div class="play-area">
+      <div class="emoji-big">${e}</div>
+      <div class="boxes ${game.state}">${game.parts.map((_, k) => {
+        const t = game.placed[k];
+        return `<div class="box" data-unplace="${k}">${t !== undefined ? game.tiles[t].p : ""}</div>`;
+      }).join("")}</div>
+      <div class="arrow">→ DA SINISTRA A DESTRA</div>
+      <div class="tiles">${game.tiles.map((t, k) => `<button class="tile ${game.placed.includes(k) ? "used" : ""}" data-tile="${k}">${t.p}</button>`).join("")}</div>
+      <div class="msg" id="msg">${game.state === "ok" ? "BRAVO! 👏 " + game.parts.join("") : ""}</div>
+      ${game.state === "ok" ? `<button class="next" data-act="nextR">AVANTI →</button>` : ""}
+      <div class="score">${game.i + 1} / ${game.list.length}</div>
+    </div>`;
+}
+
+/* ===== RENDER + EVENTI ===== */
+function render() {
+  renderNav();
+  const v = { costruisci: viewCostruisci, leggi: viewLeggi, ascolta: viewAscolta, cerchia: viewCerchia, completa: viewCompleta, riordina: viewRiordina }[mode];
+  $("view").innerHTML = v();
+}
+
+$("view").onclick = (e) => {
+  const el = e.target.closest("[data-say],[data-build],[data-act],[data-pick],[data-chip],[data-fill],[data-tile],[data-unplace]");
+  if (!el) return;
+  const ds = el.dataset;
+
+  if (ds.say) {
+    const parts = ds.say.split("|");
+    say(parts[0]);
+    if (parts[1]) setTimeout(() => say(parts[1]), 900);
+    return;
+  }
+  if (ds.build !== undefined) {                   // costruisci
+    const i = +ds.build, d = DATA[letter];
+    if (!built.on.includes(i)) built.on.push(i);
+    render(); say(d.syl[i]); return;
+  }
+  if (ds.act === "all") { built = { letter, on: [] }; return render(); }
+  if (ds.act === "replay") return say(game.target);
+  if (ds.act === "again") { newCerchia(); return render(); }
+  if (ds.act === "next") { game.i = (game.i + 1) % game.list.length; game.done = false; if (game.i === 0) game.list = shuffle(game.list); return render(); }
+  if (ds.act === "nextR") { newRiordina((game.i + 1) % game.list.length); return render(); }
+
+  if (ds.pick) {                                  // ascolta e scegli
+    if (game.done) return;
+    game.tot++;
+    if (ds.pick === game.target) {
+      game.score++; game.done = true; el.classList.add("ok");
+      $("msg").textContent = "BRAVO! 👏";
+      setTimeout(() => { newAscolta(); render(); say(game.target); }, 1100);
+    } else {
+      el.classList.add("ko"); $("msg").textContent = "";
+      setTimeout(() => el.classList.remove("ko"), 400);
+      say(game.target);
+    }
+    return;
+  }
+  if (ds.chip !== undefined) {                    // cerchia
+    const i = +ds.chip;
+    if (game.found.includes(i)) return;
+    if (game.row[i] === game.target) { game.found.push(i); say(game.target); render(); }
+    else { el.classList.add("ko"); setTimeout(() => el.classList.remove("ko"), 400); }
+    return;
+  }
+  if (ds.fill) {                                  // completa
+    if (game.done) return;
+    const [w] = game.list[game.i];
+    if (ds.fill === w.match(/\[(.+?)\]/)[1]) { game.done = true; render(); say(plain(w)); }
+    else { el.classList.add("ko"); setTimeout(() => el.classList.remove("ko"), 400); }
+    return;
+  }
+  if (ds.tile !== undefined) {                    // riordina: metti
+    if (game.state === "ok") return;
+    const k = +ds.tile;
+    if (game.placed.includes(k)) return;
+    const slot = game.parts.findIndex((_, j) => game.placed[j] === undefined);
+    if (slot < 0) return;
+    game.placed[slot] = k; game.state = "";
+    say(game.tiles[k].p);
+    if (game.placed.filter(x => x !== undefined).length === game.parts.length) {
+      const okk = game.placed.every((t, j) => game.tiles[t].p === game.parts[j]);
+      game.state = okk ? "ok" : "ko";
+      if (okk) setTimeout(() => say(game.parts.join("")), 500);
+      else setTimeout(() => { game.placed = []; game.state = ""; render(); }, 900);
+    }
+    return render();
+  }
+  if (ds.unplace !== undefined) {                 // riordina: togli
+    if (game.state === "ok") return;
+    const k = +ds.unplace;
+    if (game.placed[k] !== undefined) { game.placed[k] = undefined; game.state = ""; render(); }
+  }
+};
+
+render();
+</script>
+</body>
+</html>
