@@ -25,7 +25,7 @@ window.MISSIONE = {
       icona: "👷",
       lettera: "L",
       lezione: { titolo: "CHE LAVORO FAI?", link: "che-lavoro-fai/" },
-      rosa: "QUI CI SONO TANTI LAVORI. TU CONOSCI I NOMI DEI LAVORI?",
+      silvia: "QUI CI SONO TANTI LAVORI. TU CONOSCI I NOMI DEI LAVORI?",
       prove: [
         {
           tipo: "scelta",
@@ -83,7 +83,7 @@ window.MISSIONE = {
       icona: "🪪",
       lettera: "A",
       lezione: { titolo: "CERCO LAVORO A BARI E IN PUGLIA", link: "cercare-lavoro/" },
-      rosa: "PER LAVORARE IN ITALIA SERVONO ALCUNI DOCUMENTI. LI CONOSCI?",
+      silvia: "PER LAVORARE IN ITALIA SERVONO ALCUNI DOCUMENTI. LI CONOSCI?",
       prove: [
         {
           tipo: "scelta",
@@ -154,7 +154,7 @@ window.MISSIONE = {
       icona: "🔍",
       lettera: "V",
       lezione: { titolo: "CERCO LAVORO A BARI E IN PUGLIA", link: "cercare-lavoro/" },
-      rosa: "ADESSO CERCHI LAVORO. DOVE CERCHI? CHE COSA DICI?",
+      silvia: "ADESSO CERCHI LAVORO. DOVE CERCHI? CHE COSA DICI?",
       prove: [
         {
           tipo: "vf",
@@ -237,7 +237,7 @@ window.MISSIONE = {
       icona: "📄",
       lettera: "O",
       lezione: { titolo: "IL CURRICULUM VITAE", link: "curriculum/" },
-      rosa: "PER CERCARE LAVORO SERVE UN CURRICULUM. PREPARIAMO IL TUO!",
+      silvia: "PER CERCARE LAVORO SERVE UN CURRICULUM. PREPARIAMO IL TUO!",
       prove: [
         {
           tipo: "scelta",
@@ -310,7 +310,7 @@ window.MISSIONE = {
       icona: "🤝",
       lettera: "R",
       lezione: { titolo: "IL COLLOQUIO E IL CONTRATTO", link: "colloquio-contratti/" },
-      rosa: "UN’AZIENDA TI CHIAMA PER UN COLLOQUIO. SEI PRONTO? SEI PRONTA?",
+      silvia: "UN’AZIENDA TI CHIAMA PER UN COLLOQUIO. SEI PRONTO? SEI PRONTA?",
       prove: [
         {
           tipo: "scelta",
@@ -382,7 +382,7 @@ window.MISSIONE = {
       lettera: "O",
       lezione: { titolo: "LA BUSTA PAGA", link: "busta-paga/" },
       lezione2: { titolo: "IL COLLOQUIO E IL CONTRATTO", link: "colloquio-contratti/" },
-      rosa: "OTTIMO! IL COLLOQUIO È ANDATO BENE. ADESSO C’È IL CONTRATTO.",
+      silvia: "OTTIMO! IL COLLOQUIO È ANDATO BENE. ADESSO C’È IL CONTRATTO.",
       prove: [
         {
           tipo: "scelta",

@@ -9,6 +9,9 @@
   var MSG_SI = ["BRAVO! RISPOSTA CORRETTA!", "OTTIMO!", "ESATTO!"];
   var MSG_NO = ["NON ANCORA. PROVA DI NUOVO!", "RIPROVA. GUARDA BENE!"];
 
+  // ritratto disegnato di Silvia, la guida
+  var SILVIA_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 68 68" aria-hidden="true" focusable="false"><defs><clipPath id="sv-c"><circle cx="50" cy="50" r="50"/></clipPath><pattern id="sv-q" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#E9ECEF"/><rect width="8" height="3" fill="#B9C3CE"/><rect width="3" height="8" fill="#B9C3CE" opacity=".7"/></pattern></defs><g clip-path="url(#sv-c)"><rect width="100" height="100" fill="#F4E7DA"/><g fill="#3A2216"><circle cx="31" cy="40" r="14"/><circle cx="69" cy="40" r="14"/><circle cx="50" cy="28" r="17"/><circle cx="24" cy="56" r="12"/><circle cx="76" cy="56" r="12"/><circle cx="26" cy="72" r="11"/><circle cx="74" cy="72" r="11"/><circle cx="33" cy="84" r="9"/><circle cx="67" cy="84" r="9"/><circle cx="20" cy="45" r="9"/><circle cx="80" cy="45" r="9"/></g><path d="M18 100 Q20 82 38 79 L62 79 Q80 82 82 100 Z" fill="url(#sv-q)"/><path d="M38 79 L50 92 L62 79" fill="none" stroke="#8C99A6" stroke-width="2"/><rect x="43" y="66" width="14" height="15" rx="5" fill="#D9A47E"/><ellipse cx="50" cy="52" rx="16" ry="19" fill="#E6B790"/><path d="M49 33 Q38 32 34 48 Q33 40 30 52 Q28 36 40 30 Q46 28 49 33 Z M51 33 Q62 32 66 48 Q67 40 70 52 Q72 36 60 30 Q54 28 51 33 Z" fill="#4B2C1D"/><g fill="#4B2C1D"><circle cx="38" cy="34" r="5"/><circle cx="62" cy="34" r="5"/><circle cx="33" cy="46" r="4"/><circle cx="67" cy="46" r="4"/></g><path d="M39 46 Q43 44 46 46 M54 46 Q57 44 61 46" stroke="#3A2216" stroke-width="1.6" fill="none" stroke-linecap="round"/><ellipse cx="43" cy="51" rx="2.3" ry="2.6" fill="#4A2A1A"/><ellipse cx="57" cy="51" rx="2.3" ry="2.6" fill="#4A2A1A"/><circle cx="43.7" cy="50.2" r=".7" fill="#fff"/><circle cx="57.7" cy="50.2" r=".7" fill="#fff"/><path d="M50 52 Q51.5 58 49 59" stroke="#C48D6A" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M44.5 63 Q50 66.5 55.5 63" stroke="#A85A4A" stroke-width="1.8" fill="none" stroke-linecap="round"/><g fill="#2F5B5E"><path d="M33.5 58 l2 0 l1.5 8 l-2.5 3 l-2.5 -3 z"/><path d="M64.5 58 l2 0 l1.5 8 l-2.5 3 l-2.5 -3 z"/></g><circle cx="34.5" cy="57" r="1.2" fill="#C9A227"/><circle cx="65.5" cy="57" r="1.2" fill="#C9A227"/></g></svg>';
+
   var root = document.getElementById("gioco");
   var S; // stato salvato
   var Q; // stato della prova in corso (non salvato)
@@ -70,10 +73,12 @@
     window.scrollTo(0, 0);
     aggiornaBarra();
   }
-  function rosa(testo) {
-    return el("div", { class: "rosa" }, [
-      el("div", { class: "faccia", "aria-hidden": "true", text: "👩‍💼" }),
-      el("div", { class: "fumetto" }, [el("b", { text: "ROSA" }), el("p", { text: testo })])
+  function silvia(testo) {
+    var faccia = el("div", { class: "faccia" });
+    faccia.innerHTML = SILVIA_SVG;
+    return el("div", { class: "guida" }, [
+      faccia,
+      el("div", { class: "fumetto" }, [el("b", { text: "SILVIA" }), el("p", { text: testo })])
     ]);
   }
   function btn(testo, cls, fn) {
@@ -126,9 +131,9 @@
         el("h1", {}, [M.titolo, el("span", { text: M.sottotitolo })]),
         porte
       ]),
-      rosa("BENVENUTO! BENVENUTA! IO SONO ROSA. LAVORO AL CENTRO PER L’IMPIEGO DI BARI."),
-      rosa("OGGI PREPARI LA TUA MISSIONE: CERCARE LAVORO IN ITALIA. CI SONO 6 PORTE. OGNI PORTA HA UNA PROVA."),
-      rosa("DIETRO OGNI PORTA TROVI UNA LETTERA. CON LE 6 LETTERE APRI L’ULTIMA PORTA."),
+      silvia("BENVENUTO! BENVENUTA! IO SONO SILVIA. LAVORO AL CENTRO PER L’IMPIEGO DI BARI."),
+      silvia("OGGI PREPARI LA TUA MISSIONE: CERCARE LAVORO IN ITALIA. CI SONO 6 PORTE. OGNI PORTA HA UNA PROVA."),
+      silvia("DIETRO OGNI PORTA TROVI UNA LETTERA. CON LE 6 LETTERE APRI L’ULTIMA PORTA."),
       el("div", { class: "schermo" }, azioni),
       conferma
     ]);
@@ -164,13 +169,13 @@
     if (!tutte) fin.disabled = true;
     griglia.appendChild(fin);
 
-    var testoRosa = tutte
+    var testoGuida = tutte
       ? "HAI TUTTE LE LETTERE! TOCCA L’ULTIMA PORTA."
       : (ora === 0 ? "TOCCA LA PORTA 1 PER COMINCIARE." : "BENE! ADESSO TOCCA LA PORTA " + (ora + 1) + ".");
     schermo([
       el("p", { class: "sopra", text: "LE PORTE" }),
       el("h2", { text: "SCEGLI LA PORTA" }),
-      rosa(testoRosa),
+      silvia(testoGuida),
       griglia,
       btn("◀ TORNA ALL’INIZIO", "btn-piano", copertina)
     ]);
@@ -186,7 +191,7 @@
       el("p", { class: "sopra", text: "PORTA " + (s + 1) + " DI " + STANZE.length }),
       el("div", { class: "grande-ic", "aria-hidden": "true", text: st.icona }),
       el("h2", { text: st.titolo }),
-      rosa(st.rosa),
+      silvia(st.silvia),
       el("p", { text: "CI SONO " + st.prove.length + " PROVE." }),
       btn(p > 0 ? "CONTINUA ▶" : "ENTRA ▶", "btn-vai", function () { prova(s, S.p); }),
       btn("◀ LE PORTE", "btn-piano", mappa)
@@ -450,7 +455,7 @@
         el("div", { class: "lettera-grande", "aria-label": "LETTERA " + st.lettera, text: st.lettera }),
         el("p", { text: "LA LETTERA È SUL TUO BADGE, IN ALTO." })
       ]),
-      rosa(ultima ? "BRAVISSIMO! BRAVISSIMA! HAI 6 LETTERE. ADESSO APRI L’ULTIMA PORTA." : "BRAVO! BRAVA! ANDIAMO ALLA PORTA " + (s + 2) + "."),
+      silvia(ultima ? "BRAVISSIMO! BRAVISSIMA! HAI 6 LETTERE. ADESSO APRI L’ULTIMA PORTA." : "BRAVO! BRAVA! ANDIAMO ALLA PORTA " + (s + 2) + "."),
       btn(ultima ? "VAI ALL’ULTIMA PORTA ▶" : "TORNA ALLE PORTE ▶", "btn-vai", mappa)
     ]);
   }
@@ -471,7 +476,7 @@
       el("p", { class: "sopra", text: "ULTIMA PORTA" }),
       el("div", { class: "grande-ic", "aria-hidden": "true", text: "🔐" }),
       el("h2", { text: "LA PORTA DEL TUO FUTURO" }),
-      rosa("SCRIVI LA PAROLA SEGRETA. È FATTA DALLE 6 LETTERE DEL TUO BADGE, IN ORDINE."),
+      silvia("SCRIVI LA PAROLA SEGRETA. È FATTA DALLE 6 LETTERE DEL TUO BADGE, IN ORDINE."),
       campo,
       btn("APRI LA PORTA 🔓", "btn-vai", prova),
       esito,
@@ -527,7 +532,7 @@
         el("div", {}, [el("b", { text: perc + "%" }), el("span", { text: "GIUSTE AL PRIMO TENTATIVO" })])
       ]),
       liste[0], liste[1],
-      rosa(ripassa.length ? "PUOI RIPROVARE PER MIGLIORARE IL TUO PUNTEGGIO." : "COMPLIMENTI! SEI PRONTO! SEI PRONTA! IN BOCCA AL LUPO!"),
+      silvia(ripassa.length ? "PUOI RIPROVARE PER MIGLIORARE IL TUO PUNTEGGIO." : "COMPLIMENTI! SEI PRONTO! SEI PRONTA! IN BOCCA AL LUPO!"),
       el("p", { class: "nota", text: "IL PUNTEGGIO È SOLO PER TE. NON È UN CERTIFICATO E NON VA ALL’INSEGNANTE." }),
       btn("GIOCA DI NUOVO ↻", "btn-vai", function () { S = statoVuoto(); salva(); copertina(); }),
       el("a", { class: "btn btn-piano", href: M.sito, style: "text-decoration:none", text: "TORNA AL SITO" })
