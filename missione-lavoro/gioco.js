@@ -23,7 +23,13 @@
   function carica() {
     try {
       var d = JSON.parse(localStorage.getItem(CHIAVE_SALVA));
-      if (d && d.res && d.lettere && d.lettere.length === STANZE.length) return d;
+      if (d && d.res && d.lettere && d.lettere.length === STANZE.length) {
+        // se tutte le prove di una stanza sono fatte, la lettera è presa
+        STANZE.forEach(function (st, s) {
+          if (st.prove.every(function (_, p) { return d.res[chiave(s, p)]; })) d.lettere[s] = true;
+        });
+        return d;
+      }
     } catch (e) {}
     return statoVuoto();
   }
@@ -152,30 +158,37 @@
       var stato = S.lettere[i] ? "aperta" : (i === ora ? "adesso" : "chiusa");
       var etichetta = "PORTA " + (i + 1) + ": " + st.titolo + (stato === "aperta" ? " (APERTA)" : stato === "chiusa" ? " (CHIUSA)" : "");
       var b = el("button", { type: "button", class: "porta " + stato, "aria-label": etichetta,
-        onclick: function () { if (stato === "adesso") ingresso(i); } }, [
+        onclick: function () {
+          if (stato === "adesso") ingresso(i);
+          else if (stato === "chiusa") avviso.querySelector("p").textContent = "QUESTA PORTA È CHIUSA. PRIMA APRI LA PORTA " + (ora + 1) + ".";
+        } }, [
         el("span", { class: "num", text: stato === "aperta" ? st.lettera : String(i + 1) }),
         el("span", { class: "ic", "aria-hidden": "true", text: stato === "chiusa" ? "🔒" : st.icona }),
         el("span", { class: "nome", text: st.titolo })
       ]);
-      if (stato !== "adesso") b.disabled = true;
+      if (stato === "aperta") b.disabled = true;
       griglia.appendChild(b);
     });
     var tutte = ora === STANZE.length;
     var fin = el("button", { type: "button", class: "porta porta-finale " + (tutte ? "adesso" : "chiusa"),
-      onclick: function () { if (tutte) finale(); } }, [
+      onclick: function () {
+        if (tutte) finale();
+        else avviso.querySelector("p").textContent = "L’ULTIMA PORTA È CHIUSA. PRIMA APRI LA PORTA " + (ora + 1) + ".";
+      } }, [
       el("span", { class: "ic", "aria-hidden": "true", text: tutte ? "🏆" : "🔒" }),
       el("span", { class: "nome", style: "font-size:16px", text: "ULTIMA PORTA: IL TUO FUTURO" })
     ]);
-    if (!tutte) fin.disabled = true;
     griglia.appendChild(fin);
 
+    var avviso;
     var testoGuida = tutte
       ? "HAI TUTTE LE LETTERE! TOCCA L’ULTIMA PORTA."
       : (ora === 0 ? "TOCCA LA PORTA 1 PER COMINCIARE." : "BENE! ADESSO TOCCA LA PORTA " + (ora + 1) + ".");
+    avviso = silvia(testoGuida);
     schermo([
       el("p", { class: "sopra", text: "LE PORTE" }),
       el("h2", { text: "SCEGLI LA PORTA" }),
-      silvia(testoGuida),
+      avviso,
       griglia,
       btn("◀ TORNA ALL’INIZIO", "btn-piano", copertina)
     ]);
@@ -185,7 +198,8 @@
   function ingresso(s) {
     var st = STANZE[s];
     // se la stanza era già cominciata riprende dalla prova giusta
-    var p = (S.s === s) ? S.p : 0;
+    if (S.lettere[s]) { mappa(); return; }
+    var p = (S.s === s && S.p < st.prove.length) ? S.p : 0;
     S.s = s; S.p = p; salva();
     schermo([
       el("p", { class: "sopra", text: "PORTA " + (s + 1) + " DI " + STANZE.length }),
@@ -289,6 +303,7 @@
     var k = chiave(Q.s, Q.p);
     if (!S.res[k]) S.res[k] = { pti: primo ? PUNTI_PRIMO : PUNTI_DOPO, primo: primo };
     S.p = Q.p + 1;
+    if (S.p >= STANZE[Q.s].prove.length) { S.lettere[Q.s] = true; S.s = Q.s + 1; S.p = 0; }
     salva();
     aggiornaBarra();
     mostraEsito(box, "si", "✓ " + caso(MSG_SI) + "  +" + S.res[k].pti, d.spiega);
@@ -445,7 +460,6 @@
   function chiaveTrovata(s) {
     var st = STANZE[s];
     S.lettere[s] = true;
-    S.s = s + 1; S.p = 0;
     salva();
     var ultima = s === STANZE.length - 1;
     schermo([
