@@ -222,9 +222,9 @@ window.MISSIONE = {
           documento: {
             titolo: "📰 TRE ANNUNCI",
             tabella: [
-              ["MURAT", "BILOCALE · 690 € + SPESE"],
-              ["MOLA DI BARI", "TRILOCALE · 600 € + SPESE"],
-              ["SAN PASQUALE", "BILOCALE · 450 € SPESE INCLUSE"]
+              ["🏙️ MURAT", "690 € + SPESE"],
+              ["🌊 MOLA DI BARI", "600 € + SPESE"],
+              ["🏘️ SAN PASQUALE", "450 € SPESE INCLUSE"]
             ]
           },
           risposte: [
