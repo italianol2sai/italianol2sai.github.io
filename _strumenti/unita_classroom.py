@@ -389,10 +389,9 @@ _JS = ("var u=new SpeechSynthesisUtterance(this.dataset.t);u.lang='it-IT';u.rate
        "var p=v.find(function(x){return /luca/i.test(x.name)})||v.find(function(x){return /cosimo|diego|giorgio|paolo|male/i.test(x.name)})||v[0];"
        "if(p)u.voice=p;speechSynthesis.cancel();speechSynthesis.speak(u)")
 ASCOLTA = ("<p><b>🎧 Ascolta: la mia nuova macchina</b></p>"
- "<p>Premi «Ascolta». Puoi ascoltare tutte le volte che vuoi.</p>"
- '<p><button type="button" class="btn" data-t="' + _html.escape(MACCHINA_TESTO) + '" onclick="' + _JS + '">▶️ Ascolta</button> '
- '<button type="button" class="btn" onclick="speechSynthesis.cancel()">⏹️ Ferma</button></p>'
- "<p>La voce è quella del telefono o del computer (se c'è, la voce di Luca). Se non senti niente, controlla il volume.</p>")
+ "<p>1. Apri l'audio sul sito Lingua.com e premi ▶️. Puoi ascoltare tutte le volte che vuoi.</p>"
+ '<p><a class="btn" href="https://lingua.com/it/italiano/ascolto/mia-nuova-macchina/" target="_blank" rel="noopener">🎧 Apri l\'audio</a></p>'
+ "<p>2. Torna su questa pagina e rispondi alle domande.</p>")
 
 MACCHINA = {
  "title": "🚗 La mia nuova macchina · Ascolto",
