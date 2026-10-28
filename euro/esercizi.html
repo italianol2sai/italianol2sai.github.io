@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💶 Gli euro · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "💶 Gli euro · Esercizi",
+ "store": "euro",
+ "upper": true,
+ "sections": [
+  {
+   "part": "I prezzi"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Come si dice il prezzo?",
+   "short": "1 · Leggi il prezzo",
+   "type": "select",
+   "opts": [
+    "DUE EURO E CINQUANTA",
+    "CINQUANTA CENTESIMI",
+    "UN EURO E VENTI",
+    "CINQUE EURO",
+    "DODICI EURO E NOVANTA",
+    "VENTI CENTESIMI"
+   ],
+   "items": [
+    {
+     "q": "🏷️ 1. 5,00 €"
+    },
+    {
+     "q": "🏷️ 2. 0,50 €"
+    },
+    {
+     "q": "🏷️ 3. 2,50 €"
+    },
+    {
+     "q": "🏷️ 4. 12,90 €"
+    },
+    {
+     "q": "🏷️ 5. 1,20 €"
+    },
+    {
+     "q": "🏷️ 6. 0,20 €"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSU5RVUUgRVVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNJTlFVQU5UQSBDRU5URVNJTUkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJEVUUgRVVSTyBFIENJTlFVQU5UQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRPRElDSSBFVVJPIEUgTk9WQU5UQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOIEVVUk8gRSBWRU5USSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFTlRJIENFTlRFU0lNSSJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Scrivi il prezzo con i numeri",
+   "short": "2 · Scrivi il prezzo",
+   "type": "text",
+   "w": "s",
+   "cons": "ESEMPIO: TRE EURO E VENTI → 3,20",
+   "items": [
+    {
+     "q": "1. QUATTRO EURO",
+     "post": " €"
+    },
+    {
+     "q": "2. UN EURO E CINQUANTA",
+     "post": " €"
+    },
+    {
+     "q": "3. SETTANTA CENTESIMI",
+     "post": " €"
+    },
+    {
+     "q": "4. DIECI EURO E TRENTA",
+     "post": " €"
+    },
+    {
+     "q": "5. DUE EURO E NOVANTANOVE",
+     "post": " €"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI0IiwgIjQsMDAiLCAiNCDigqwiLCAiNOKCrCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEsNTAiLCAiMSw1IiwgIjEsNTAg4oKsIiwgIjEsNTDigqwiXX0sIHsidCI6ICJlcSIsICJhIjogWyIwLDcwIiwgIjAsNyIsICIwLDcwIOKCrCIsICIwLDcw4oKsIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTAsMzAiLCAiMTAsMyIsICIxMCwzMCDigqwiLCAiMTAsMzDigqwiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyLDk5IiwgIjIsOTkg4oKsIiwgIjIsOTnigqwiXX1d"
+  },
+  {
+   "part": "Costa o costano?"
+  },
+  {
+   "id": "e3",
+   "title": "3 · COSTA o COSTANO?",
+   "short": "3 · Costa o costano",
+   "type": "choice",
+   "opts": [
+    "COSTA",
+    "COSTANO"
+   ],
+   "items": [
+    {
+     "q": "1. QUANTO … IL PANE?"
+    },
+    {
+     "q": "2. QUANTO … LE PATATE?"
+    },
+    {
+     "q": "3. QUANTO … IL LATTE?"
+    },
+    {
+     "q": "4. QUANTO … I POMODORI?"
+    },
+    {
+     "q": "5. QUANTO … LA PASTA?"
+    },
+    {
+     "q": "6. QUANTO … LE UOVA?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDT1NUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPU1RBTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT1NUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPU1RBTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT1NUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPU1RBTk8iXX1d"
+  },
+  {
+   "part": "Alla cassa"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Quanto è il resto?",
+   "short": "4 · Il resto",
+   "type": "text",
+   "w": "s",
+   "cons": "ESEMPIO: COSTA 3 €. PAGO CON 5 €. IL RESTO È 2 €.",
+   "items": [
+    {
+     "q": "1. COSTA 4 €. PAGO CON 5 €. IL RESTO È",
+     "post": " €"
+    },
+    {
+     "q": "2. COSTA 7 €. PAGO CON 10 €. IL RESTO È",
+     "post": " €"
+    },
+    {
+     "q": "3. COSTA 15 €. PAGO CON 20 €. IL RESTO È",
+     "post": " €"
+    },
+    {
+     "q": "4. COSTA 1,50 €. PAGO CON 2 €. IL RESTO È",
+     "post": " €"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxIiwgIjEsMDAiLCAiMSDigqwiXX0sIHsidCI6ICJlcSIsICJhIjogWyIzIiwgIjMsMDAiLCAiMyDigqwiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1IiwgIjUsMDAiLCAiNSDigqwiXX0sIHsidCI6ICJlcSIsICJhIjogWyIwLDUwIiwgIjAsNSIsICIwLDUwIOKCrCIsICI1MCBjZW50ZXNpbWkiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Leggi lo scontrino",
+   "short": "5 · Lo scontrino",
+   "type": "select",
+   "info": "<div style=\"font-family:monospace\">PASTA ....... 1,20<br>POMODORI .... 2,80<br>ACQUA ....... 0,90<br><b>TOTALE ...... 4,90</b><br>CONTANTI .... 5,00<br><b>RESTO ....... 0,10</b></div>",
+   "opts": [
+    "1,20 €",
+    "2,80 €",
+    "0,90 €",
+    "4,90 €",
+    "5,00 €",
+    "0,10 €"
+   ],
+   "items": [
+    {
+     "q": "1. QUANTO COSTA LA PASTA?"
+    },
+    {
+     "q": "2. QUANTO COSTANO I POMODORI?"
+    },
+    {
+     "q": "3. QUANTO È IL TOTALE?"
+    },
+    {
+     "q": "4. QUANTI SOLDI DÀ IL CLIENTE?"
+    },
+    {
+     "q": "5. QUANTO È IL RESTO?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxLDIwIOKCrCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjIsODAg4oKsIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNCw5MCDigqwiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1LDAwIOKCrCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjAsMTAg4oKsIl19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 · Completa il dialogo",
+   "short": "6 · Il dialogo",
+   "type": "cloze",
+   "bank": "COSTA · RESTO · CARTA · SCONTRINO",
+   "parts": [
+    "CLIENTE: QUANTO ",
+    {},
+    " QUESTO PANE?<br>CASSIERE: 2 EURO.<br>CLIENTE: ECCO 5 EURO.<br>CASSIERE: ECCO IL ",
+    {},
+    ": 3 EURO. VUOLE LO ",
+    {},
+    "?<br>CLIENTE: SÌ, GRAZIE. DOMANI PAGO CON LA ",
+    {},
+    "."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjb3N0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInJlc3RvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2NvbnRyaW5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY2FydGEiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Chiedi il prezzo",
+   "type": "record",
+   "items": [
+    "CHIEDI IL PREZZO DI DUE COSE: «QUANTO COSTA…?» E «QUANTO COSTANO…?»"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

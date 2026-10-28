@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🪪 I miei dati · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🪪 I miei dati · Esercizi",
+ "store": "dati-personali",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Il modulo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che cosa scrivo nel modulo?",
+   "short": "1 · Il modulo",
+   "type": "select",
+   "cons": "LEGGI LA DOMANDA. SCEGLI LA PAROLA DEL MODULO.",
+   "opts": [
+    "NOME",
+    "COGNOME",
+    "DATA DI NASCITA",
+    "LUOGO DI NASCITA",
+    "CITTADINANZA",
+    "INDIRIZZO",
+    "TELEFONO"
+   ],
+   "items": [
+    {
+     "q": "1. COME TI CHIAMI?"
+    },
+    {
+     "q": "2. QUAL È IL NOME DELLA TUA FAMIGLIA?"
+    },
+    {
+     "q": "3. QUANDO SEI NATO?"
+    },
+    {
+     "q": "4. DOVE SEI NATO?"
+    },
+    {
+     "q": "5. DI CHE PAESE SEI?"
+    },
+    {
+     "q": "6. DOVE ABITI?"
+    },
+    {
+     "q": "7. QUAL È IL TUO NUMERO?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJOT01FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09HTk9NRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRBVEEgREkgTkFTQ0lUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxVT0dPIERJIE5BU0NJVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSVRUQURJTkFOWkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTkRJUklaWk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJURUxFRk9OTyJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Leggi il modulo di Karim: vero o falso?",
+   "short": "2 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "info": "COGNOME: <b>HADDAD</b> · NOME: <b>KARIM</b> · SESSO: <b>M</b><br>DATA DI NASCITA: <b>05/07/1998</b> · LUOGO DI NASCITA: <b>CASABLANCA (MAROCCO)</b><br>CITTADINANZA: <b>MAROCCHINA</b> · INDIRIZZO: <b>VIA CRISANZIO 25, BARI</b> · TELEFONO: <b>347 555 0102</b>",
+   "items": [
+    {
+     "q": "1. IL NOME È HADDAD."
+    },
+    {
+     "q": "2. KARIM È UN UOMO."
+    },
+    {
+     "q": "3. KARIM È NATO A LUGLIO."
+    },
+    {
+     "q": "4. KARIM È NATO IN MAROCCO."
+    },
+    {
+     "q": "5. KARIM ABITA A CASABLANCA."
+    },
+    {
+     "q": "6. IL COGNOME È HADDAD."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfV0="
+  },
+  {
+   "part": "Mi presento"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Completa: Amina si presenta",
+   "short": "3 · Mi presento",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "MI CHIAMO · SONO · HO · ABITO",
+   "parts": [
+    "CIAO! ",
+    {},
+    " AMINA DIALLO.<br>",
+    {},
+    " SENEGALESE.<br>",
+    {},
+    " 30 ANNI.<br>",
+    {},
+    " A BARI, IN VIA SPARANO."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJtaSBjaGlhbW8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzb25vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJhYml0byJdfV0="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Tu o Lei?",
+   "short": "4 · Tu o Lei",
+   "type": "choice",
+   "opts": [
+    "INFORMALE (TU)",
+    "FORMALE (LEI)"
+   ],
+   "full": true,
+   "cons": "LA DOMANDA È CON IL TU (AMICI) O CON IL LEI (UFFICIO)?",
+   "items": [
+    {
+     "q": "1. COME TI CHIAMI?"
+    },
+    {
+     "q": "2. COME SI CHIAMA?"
+    },
+    {
+     "q": "3. DOVE ABITA?"
+    },
+    {
+     "q": "4. QUANTI ANNI HAI?"
+    },
+    {
+     "q": "5. DI DOV'È?"
+    },
+    {
+     "q": "6. DI DOVE SEI?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTkZPUk1BTEUgKFRVKSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZPUk1BTEUgKExFSSkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGT1JNQUxFIChMRUkpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSU5GT1JNQUxFIChUVSkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGT1JNQUxFIChMRUkpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSU5GT1JNQUxFIChUVSkiXX1d"
+  },
+  {
+   "part": "I documenti"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Che documento è?",
+   "short": "5 · I documenti",
+   "type": "select",
+   "opts": [
+    "IL PASSAPORTO",
+    "IL PERMESSO DI SOGGIORNO",
+    "LA CARTA D'IDENTITÀ",
+    "LA TESSERA SANITARIA",
+    "IL CODICE FISCALE"
+   ],
+   "items": [
+    {
+     "q": "🏥 1. PER ANDARE DAL MEDICO E IN FARMACIA"
+    },
+    {
+     "q": "✈️ 2. PER VIAGGIARE IN UN ALTRO PAESE"
+    },
+    {
+     "q": "🇮🇹 3. PER STARE IN ITALIA. LO DÀ LA QUESTURA"
+    },
+    {
+     "q": "🔢 4. 16 LETTERE E NUMERI"
+    },
+    {
+     "q": "🏛️ 5. IL DOCUMENTO DEL COMUNE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMQSBURVNTRVJBIFNBTklUQVJJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklMIFBBU1NBUE9SVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCBQRVJNRVNTTyBESSBTT0dHSU9STk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCBDT0RJQ0UgRklTQ0FMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIENBUlRBIEQnSURFTlRJVMOAIl19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 · Scrivi la data con le parole",
+   "short": "6 · La data",
+   "type": "text",
+   "w": "m",
+   "cons": "ESEMPIO: 12/03 → 12 MARZO",
+   "bank": "GENNAIO · FEBBRAIO · MARZO · APRILE · MAGGIO · GIUGNO · LUGLIO · AGOSTO · SETTEMBRE · OTTOBRE · NOVEMBRE · DICEMBRE",
+   "items": [
+    {
+     "q": "1. 05/07"
+    },
+    {
+     "q": "2. 20/01"
+    },
+    {
+     "q": "3. 15/08"
+    },
+    {
+     "q": "4. 03/10"
+    },
+    {
+     "q": "5. 25/12"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI1IGx1Z2xpbyIsICIwNSBsdWdsaW8iLCAiY2lucXVlIGx1Z2xpbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjIwIGdlbm5haW8iLCAidmVudGkgZ2VubmFpbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjE1IGFnb3N0byIsICJxdWluZGljaSBhZ29zdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyIzIG90dG9icmUiLCAiMDMgb3R0b2JyZSIsICJ0cmUgb3R0b2JyZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjI1IGRpY2VtYnJlIiwgInZlbnRpY2lucXVlIGRpY2VtYnJlIl19XQ=="
+  },
+  {
+   "part": "Allo sportello"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Rispondi all'impiegato",
+   "short": "7 · Allo sportello",
+   "type": "select",
+   "cons": "L'IMPIEGATO FA UNA DOMANDA. SCEGLI LA RISPOSTA GIUSTA.",
+   "opts": [
+    "MI CHIAMO AMINA DIALLO.",
+    "SONO SENEGALESE.",
+    "IL 12 MARZO 1995.",
+    "SÌ, ECCO IL PERMESSO.",
+    "IN VIA SPARANO 10."
+   ],
+   "items": [
+    {
+     "q": "1. COME SI CHIAMA?"
+    },
+    {
+     "q": "2. DOVE ABITA?"
+    },
+    {
+     "q": "3. QUANDO È NATA?"
+    },
+    {
+     "q": "4. DI DOV'È?"
+    },
+    {
+     "q": "5. HA UN DOCUMENTO?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNSSBDSElBTU8gQU1JTkEgRElBTExPLiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklOIFZJQSBTUEFSQU5PIDEwLiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklMIDEyIE1BUlpPIDE5OTUuIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU09OTyBTRU5FR0FMRVNFLiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlPDjCwgRUNDTyBJTCBQRVJNRVNTTy4iXX1d"
+  },
+  {
+   "id": "e8",
+   "title": "8 ✎ · Compila il tuo modulo",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI IN STAMPATELLO. SE VUOI, PUOI USARE DATI INVENTATI.",
+   "items": [
+    "COGNOME",
+    "NOME",
+    "DATA DI NASCITA",
+    "LUOGO DI NASCITA",
+    "CITTADINANZA",
+    "INDIRIZZO",
+    "TELEFONO"
+   ]
+  },
+  {
+   "id": "e9",
+   "title": "9 🎤 · Presentati a voce",
+   "type": "record",
+   "items": [
+    "DI' IL TUO NOME E COGNOME, DI DOVE SEI, QUANTI ANNI HAI E DOVE ABITI."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

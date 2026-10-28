@@ -60,6 +60,7 @@ if __name__ == "__main__":
     from unita_pronomi import PRONOMI
     from unita_lavoro import CHE_LAVORO, CERCARE, CV, COLLOQUIO, BUSTA
     from unita_classroom import FAMIGLIA, GIORNATA, DIAL_DOTTORE, LAVORO, NEGOZIO, INDOVINA
+    from unita_primi import DATI, ORE, EURO, MERCATO
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
@@ -86,3 +87,7 @@ if __name__ == "__main__":
     build("letture/lavoro.html", LAVORO)
     build("letture/negozio.html", NEGOZIO)
     build("letture/indovina-chi.html", INDOVINA)
+    build("dati-personali/esercizi.html", DATI)
+    build("ore-giorni/esercizi.html", ORE)
+    build("euro/esercizi.html", EURO)
+    build("mercato/esercizi.html", MERCATO)

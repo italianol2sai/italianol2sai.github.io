@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🕐 Che ore sono? · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🕐 Che ore sono? · Esercizi",
+ "store": "ore-giorni",
+ "upper": true,
+ "sections": [
+  {
+   "part": "I giorni"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che giorno viene dopo?",
+   "short": "1 · I giorni",
+   "type": "text",
+   "w": "m",
+   "cons": "SCRIVI IL GIORNO DOPO. ESEMPIO: LUNEDÌ → MARTEDÌ",
+   "items": [
+    {
+     "q": "1. MARTEDÌ →"
+    },
+    {
+     "q": "2. GIOVEDÌ →"
+    },
+    {
+     "q": "3. SABATO →"
+    },
+    {
+     "q": "4. DOMENICA →"
+    },
+    {
+     "q": "5. MERCOLEDÌ →"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJtZXJjb2xlZGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2ZW5lcmRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZG9tZW5pY2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsdW5lZGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnaW92ZWRpIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Ieri, oggi, domani",
+   "short": "2 · Ieri e domani",
+   "type": "cloze",
+   "cons": "OGGI È VENERDÌ. COMPLETA.",
+   "parts": [
+    "OGGI È VENERDÌ.<br>IERI ERA ",
+    {},
+    ".<br>DOMANI È ",
+    {},
+    ".<br>IL FINE SETTIMANA È SABATO E ",
+    {},
+    "."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJnaW92ZWRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2FiYXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZG9tZW5pY2EiXX1d"
+  },
+  {
+   "part": "I mesi e le stagioni"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Il numero e il mese",
+   "short": "3 · I mesi",
+   "type": "select",
+   "opts": [
+    "GENNAIO",
+    "FEBBRAIO",
+    "MARZO",
+    "APRILE",
+    "MAGGIO",
+    "GIUGNO",
+    "LUGLIO",
+    "AGOSTO",
+    "SETTEMBRE",
+    "OTTOBRE",
+    "NOVEMBRE",
+    "DICEMBRE"
+   ],
+   "items": [
+    {
+     "q": "1. IL MESE 3"
+    },
+    {
+     "q": "2. IL MESE 8"
+    },
+    {
+     "q": "3. IL MESE 1"
+    },
+    {
+     "q": "4. IL MESE 12"
+    },
+    {
+     "q": "5. IL MESE 6"
+    },
+    {
+     "q": "6. IL MESE 10"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNQVJaTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFHT1NUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdFTk5BSU8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJESUNFTUJSRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdJVUdOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk9UVE9CUkUiXX1d"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Che stagione è?",
+   "short": "4 · Le stagioni",
+   "type": "choice",
+   "opts": [
+    "PRIMAVERA",
+    "ESTATE",
+    "AUTUNNO",
+    "INVERNO"
+   ],
+   "items": [
+    {
+     "q": "1. 🌸 APRILE"
+    },
+    {
+     "q": "2. ❄️ GENNAIO"
+    },
+    {
+     "q": "3. ☀️ LUGLIO"
+    },
+    {
+     "q": "4. 🍂 NOVEMBRE"
+    },
+    {
+     "q": "5. 🌸 MAGGIO"
+    },
+    {
+     "q": "6. ☀️ AGOSTO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQUklNQVZFUkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTlZFUk5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRVNUQVRFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQVVUVU5OTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBSSU1BVkVSQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkVTVEFURSJdfV0="
+  },
+  {
+   "part": "Le ore"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Che ore sono? Scegli",
+   "short": "5 · Le ore",
+   "type": "select",
+   "opts": [
+    "È L'UNA",
+    "SONO LE DUE E MEZZA",
+    "SONO LE OTTO E UN QUARTO",
+    "È MEZZOGIORNO",
+    "SONO LE SEI MENO UN QUARTO",
+    "SONO LE DIECI E DIECI"
+   ],
+   "items": [
+    {
+     "q": "🕐 1. 12:00"
+    },
+    {
+     "q": "🕐 2. 8:15"
+    },
+    {
+     "q": "🕐 3. 1:00"
+    },
+    {
+     "q": "🕐 4. 2:30"
+    },
+    {
+     "q": "🕐 5. 10:10"
+    },
+    {
+     "q": "🕐 6. 5:45"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyLDiCBNRVpaT0dJT1JOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNPTk8gTEUgT1RUTyBFIFVOIFFVQVJUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIsOIIEwnVU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU09OTyBMRSBEVUUgRSBNRVpaQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNPTk8gTEUgRElFQ0kgRSBESUVDSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNPTk8gTEUgU0VJIE1FTk8gVU4gUVVBUlRPIl19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 · È o SONO?",
+   "short": "6 · È o sono",
+   "type": "choice",
+   "opts": [
+    "È",
+    "SONO"
+   ],
+   "items": [
+    {
+     "q": "1. … LE TRE."
+    },
+    {
+     "q": "2. … L'UNA."
+    },
+    {
+     "q": "3. … MEZZOGIORNO."
+    },
+    {
+     "q": "4. … LE NOVE E MEZZA."
+    },
+    {
+     "q": "5. … MEZZANOTTE."
+    },
+    {
+     "q": "6. … LE UNDICI."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTT05PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiw4giXX0sIHsidCI6ICJlcSIsICJhIjogWyLDiCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNPTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyLDiCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNPTk8iXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Scrivi l'ora con le parole",
+   "short": "7 · Scrivi l'ora",
+   "type": "text",
+   "w": "w",
+   "cons": "ESEMPIO: 4:00 → SONO LE QUATTRO",
+   "items": [
+    {
+     "q": "1. 7:00"
+    },
+    {
+     "q": "2. 9:30"
+    },
+    {
+     "q": "3. 11:15"
+    },
+    {
+     "q": "4. 1:00"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzb25vIGxlIHNldHRlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic29ubyBsZSBub3ZlIGUgbWV6emEiLCAic29ubyBsZSBub3ZlIGUgbWV6em8iLCAic29ubyBsZSBub3ZlIGUgdHJlbnRhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic29ubyBsZSB1bmRpY2kgZSB1biBxdWFydG8iLCAic29ubyBsZSB1bmRpY2kgZSBxdWluZGljaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImUgbCd1bmEiLCAiw6ggbCd1bmEiXX1d"
+  },
+  {
+   "part": "Gli orari"
+  },
+  {
+   "id": "e8",
+   "title": "8 · Leggi l'orario della farmacia",
+   "short": "8 · L'orario",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "info": "💊 <b>FARMACIA SAN NICOLA</b><br>LUNEDÌ – SABATO: 8:30 – 13:00 E 16:30 – 20:00<br>DOMENICA: <b>CHIUSO</b>",
+   "items": [
+    {
+     "q": "1. LA FARMACIA È APERTA IL LUNEDÌ."
+    },
+    {
+     "q": "2. LA DOMENICA È APERTA."
+    },
+    {
+     "q": "3. APRE ALLE OTTO E MEZZA."
+    },
+    {
+     "q": "4. ALLE DUE DEL POMERIGGIO (14:00) È APERTA."
+    },
+    {
+     "q": "5. CHIUDE ALLE OTTO DI SERA."
+    },
+    {
+     "q": "6. IL SABATO È APERTA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfV0="
+  },
+  {
+   "id": "e9",
+   "title": "9 ✎ · La mia settimana",
+   "type": "free",
+   "rows": 4,
+   "items": [
+    "CHE COSA FAI OGNI GIORNO? A CHE ORA? ESEMPIO: IL LUNEDÌ ALLE NOVE VADO A SCUOLA. IL SABATO LAVORO."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

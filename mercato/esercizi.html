@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🛒 Al mercato e al supermercato · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🛒 Al mercato e al supermercato · Esercizi",
+ "store": "mercato",
+ "upper": true,
+ "sections": [
+  {
+   "part": "I negozi"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Dove compro?",
+   "short": "1 · I negozi",
+   "type": "select",
+   "opts": [
+    "IL PANIFICIO",
+    "LA MACELLERIA",
+    "LA PESCHERIA",
+    "IL FRUTTIVENDOLO",
+    "LA FARMACIA"
+   ],
+   "items": [
+    {
+     "q": "🥖 1. IL PANE"
+    },
+    {
+     "q": "🐟 2. IL PESCE"
+    },
+    {
+     "q": "🥩 3. LA CARNE"
+    },
+    {
+     "q": "🍎 4. LE MELE"
+    },
+    {
+     "q": "💊 5. LE MEDICINE"
+    },
+    {
+     "q": "🥕 6. LE CAROTE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTCBQQU5JRklDSU8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJMQSBQRVNDSEVSSUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMQSBNQUNFTExFUklBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgRlJVVFRJVkVORE9MTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIEZBUk1BQ0lBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgRlJVVFRJVkVORE9MTyJdfV0="
+  },
+  {
+   "part": "Le quantità"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Quanto?",
+   "short": "2 · Le quantità",
+   "type": "select",
+   "cons": "SCEGLI LA QUANTITÀ GIUSTA.",
+   "opts": [
+    "UN CHILO",
+    "UN ETTO",
+    "UN LITRO",
+    "UN PACCO",
+    "UNA SCATOLA",
+    "UNA CONFEZIONE"
+   ],
+   "items": [
+    {
+     "q": "1. … DI LATTE"
+    },
+    {
+     "q": "2. … DI PROSCIUTTO"
+    },
+    {
+     "q": "3. … DI PATATE"
+    },
+    {
+     "q": "4. … DI TONNO"
+    },
+    {
+     "q": "5. … DI BISCOTTI"
+    },
+    {
+     "q": "6. … DA 6 UOVA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJVTiBMSVRSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOIEVUVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiBDSElMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOQSBTQ0FUT0xBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU4gUEFDQ08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTkEgQ09ORkVaSU9ORSJdfV0="
+  },
+  {
+   "part": "Al mercato"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Chi parla?",
+   "short": "3 · Chi parla",
+   "type": "choice",
+   "opts": [
+    "IL CLIENTE",
+    "IL VENDITORE"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. DICA!"
+    },
+    {
+     "q": "2. VORREI UN CHILO DI MELE."
+    },
+    {
+     "q": "3. ALTRO?"
+    },
+    {
+     "q": "4. QUANTO PAGO?"
+    },
+    {
+     "q": "5. BASTA COSÌ?"
+    },
+    {
+     "q": "6. ECCO A LEI."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTCBWRU5ESVRPUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCBDTElFTlRFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgVkVORElUT1JFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgQ0xJRU5URSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklMIFZFTkRJVE9SRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklMIENMSUVOVEUiLCAiSUwgVkVORElUT1JFIl19XQ=="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Metti in ordine il dialogo",
+   "short": "4 · In ordine",
+   "type": "order",
+   "cons": "SCRIVI IL NUMERO: 1 = LA PRIMA FRASE.",
+   "items": [
+    "VENDITORE: ECCO. ALTRO?",
+    "CLIENTE: BUONGIORNO. VORREI MEZZO CHILO DI FRAGOLE.",
+    "VENDITORE: 2 EURO E 50.",
+    "VENDITORE: BUONGIORNO! DICA!",
+    "CLIENTE: NO, BASTA COSÌ. QUANTO PAGO?",
+    "CLIENTE: ECCO A LEI. ARRIVEDERCI!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjUiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjYiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa il dialogo",
+   "short": "5 · Il dialogo",
+   "type": "cloze",
+   "bank": "VORREI · DI · ALTRO · BASTA · QUANTO",
+   "parts": [
+    "VENDITORE: BUONGIORNO! DICA!<br>CLIENTE: ",
+    {},
+    " UN CHILO ",
+    {},
+    " ARANCE.<br>VENDITORE: ECCO. ",
+    {},
+    "?<br>CLIENTE: NO, ",
+    {},
+    " COSÌ. ",
+    {},
+    " PAGO?<br>VENDITORE: 2 EURO."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ2b3JyZWkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFsdHJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYmFzdGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJxdWFudG8iXX1d"
+  },
+  {
+   "part": "Al supermercato"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Che cos'è?",
+   "short": "6 · Al supermercato",
+   "type": "select",
+   "opts": [
+    "IL CARRELLO",
+    "LA CASSA",
+    "LA BUSTA",
+    "LO SCONTRINO",
+    "IL REPARTO"
+   ],
+   "items": [
+    {
+     "q": "1. QUI PAGO LA SPESA."
+    },
+    {
+     "q": "2. IL FOGLIO CON I PREZZI."
+    },
+    {
+     "q": "3. PORTO LA SPESA A CASA DENTRO QUESTA."
+    },
+    {
+     "q": "4. METTO LA SPESA DENTRO E LO SPINGO."
+    },
+    {
+     "q": "5. LA PARTE DEL SUPERMERCATO CON LA FRUTTA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMQSBDQVNTQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxPIFNDT05UUklOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIEJVU1RBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgQ0FSUkVMTE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCBSRVBBUlRPIl19XQ=="
+  },
+  {
+   "id": "e7",
+   "title": "7 ✎ · La tua lista della spesa",
+   "type": "free",
+   "rows": 5,
+   "items": [
+    "SCRIVI 5 COSE DA COMPRARE CON LA QUANTITÀ. ESEMPIO: 1 KG DI PASTA, 1 LITRO DI LATTE…"
+   ]
+  },
+  {
+   "id": "e8",
+   "title": "8 🎤 · Al mercato: parla",
+   "type": "record",
+   "items": [
+    "SEI AL MERCATO. SALUTA, CHIEDI DUE COSE CON «VORREI…», CHIEDI IL PREZZO E SALUTA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I MIEI DATI - ITALIANO L2</title>
+<style>
+  :root{
+    --blu:#E07A1F; --blu-scuro:#3B2410; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FFF6EC; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#E07A1F,#F6B44C); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+
+  .card, .card b, .cover h1, .bubble, table.plur td{overflow-wrap:anywhere;}
+  @media (max-width:900px){ .cover h1{font-size:2.1rem;} .card b{font-size:1.05rem;} .card{padding:12px;} }
+  @media (max-width:520px){ .g3{grid-template-columns:1fr;} .g3 .card{flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:12px;} .g3 .card .emoji{font-size:2rem;} .g3 .card span:last-child{flex-basis:100%;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; PRIMI PASSI</span>
+  <span>I MIEI DATI</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">🪪</div>
+    <h1>I MIEI DATI</h1>
+    <p class="lead" style="margin-top:14px;">NOME, COGNOME, DATA DI NASCITA, DOCUMENTI</p>
+    <span class="badge">MI PRESENTO &bull; I DOCUMENTI &bull; IL MODULO</span>
+  </section>
+
+  <section class="slide">
+    <h2>CHE COSA IMPARIAMO?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🙋</span><b>NOME E COGNOME</b><span>MI CHIAMO AMINA DIALLO</span></div>
+      <div class="card"><span class="emoji">🎂</span><b>DATA E LUOGO DI NASCITA</b><span>SONO NATA IL 12 MARZO 1995 A DAKAR</span></div>
+      <div class="card"><span class="emoji">🏠</span><b>INDIRIZZO E TELEFONO</b><span>ABITO IN VIA SPARANO 10, A BARI</span></div>
+      <div class="card"><span class="emoji">📄</span><b>DOCUMENTI E MODULI</b><span>PERMESSO DI SOGGIORNO, TESSERA SANITARIA</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🙋 NOME E COGNOME</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">👩</span><b>NOME</b><span>AMINA</span></div>
+      <div class="card"><span class="emoji">👪</span><b>COGNOME</b><span>DIALLO<br><small>(IL NOME DELLA FAMIGLIA)</small></span></div>
+    </div>
+    <div class="dialogo">
+      <div class="bubble"><span class="who">DOMANDA:</span> COME TI CHIAMI?</div>
+      <div class="bubble med"><span class="who">RISPOSTA:</span> MI CHIAMO AMINA.</div>
+      <div class="bubble"><span class="who">DOMANDA:</span> QUAL È IL TUO COGNOME?</div>
+      <div class="bubble med"><span class="who">RISPOSTA:</span> DIALLO.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🎩 FORMALE: CON IL LEI</h2>
+    <table class="plur"><tr><th>INFORMALE (TU) 🧑‍🤝‍🧑</th><th>FORMALE (LEI) 🏢</th></tr><tr><td>COME TI CHIAMI?</td><td>COME SI CHIAMA?</td></tr><tr><td>DI DOVE SEI?</td><td>DI DOV'È?</td></tr><tr><td>QUANTI ANNI HAI?</td><td>QUANTI ANNI HA?</td></tr><tr><td>DOVE ABITI?</td><td>DOVE ABITA?</td></tr></table>
+    <div class="nota" style="margin-top:20px;">IN UN UFFICIO, IN QUESTURA, DAL MEDICO: L'IMPIEGATO USA IL <b>LEI</b>.</div>
+  </section>
+
+  <section class="slide">
+    <h2>🌍 DI DOVE SEI?</h2>
+    <div class="dialogo">
+      <div class="bubble"><span class="who">DOMANDA:</span> DI DOVE SEI?</div>
+      <div class="bubble med"><span class="who">RISPOSTA:</span> SONO SENEGALESE. SONO DEL SENEGAL.</div>
+      <div class="bubble"><span class="who">DOMANDA:</span> DOVE SEI NATA?</div>
+      <div class="bubble med"><span class="who">RISPOSTA:</span> SONO NATA A DAKAR, IN SENEGAL.</div>
+    </div>
+    <div class="nota" style="margin-top:20px;">👨 UN UOMO: SONO NAT<b>O</b> &nbsp;&nbsp; 👩 UNA DONNA: SONO NAT<b>A</b><br>LUOGO DI NASCITA = LA CITTÀ DOVE SONO NATO/NATA<br>CITTADINANZA = IL MIO PAESE (SENEGALESE, AFGHANA, NIGERIANA…)</div>
+  </section>
+
+  <section class="slide">
+    <h2>🎂 LA DATA DI NASCITA</h2>
+    <table class="plur"><tr><th>CON I NUMERI</th><th>CON LE PAROLE</th></tr><tr><td>12 / 03 / 1995</td><td>12 MARZO 1995</td></tr><tr><td>01 / 09 / 2000</td><td>1 SETTEMBRE 2000</td></tr><tr><td>25 / 12 / 1988</td><td>25 DICEMBRE 1988</td></tr></table>
+    <div class="dialogo">
+      <div class="bubble"><span class="who">DOMANDA:</span> QUANDO SEI NATA?</div>
+      <div class="bubble med"><span class="who">RISPOSTA:</span> IL 12 MARZO 1995.</div>
+      <div class="bubble"><span class="who">DOMANDA:</span> QUANTI ANNI HAI?</div>
+      <div class="bubble med"><span class="who">RISPOSTA:</span> HO 30 ANNI.</div>
+    </div>
+    <div class="nota" style="margin-top:20px;">IN ITALIA PRIMA IL <b>GIORNO</b>, POI IL <b>MESE</b>, POI L'<b>ANNO</b>: 12 / 03 / 1995.</div>
+  </section>
+
+  <section class="slide">
+    <h2>🏠 INDIRIZZO, TELEFONO, EMAIL</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">📍</span><b>INDIRIZZO</b><span>VIA SPARANO 10<br>70121 BARI</span></div>
+      <div class="card"><span class="emoji">📞</span><b>TELEFONO</b><span>333 123 4567</span></div>
+      <div class="card"><span class="emoji">✉️</span><b>EMAIL</b><span>AMINA@MAIL.IT<br><small>@ = CHIOCCIOLA</small></span></div>
+      <div class="card"><span class="emoji">🗣️</span><b>DOMANDE</b><span>DOVE ABITI? ABITO IN VIA SPARANO.<br>QUAL È IL TUO NUMERO? È 333…</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>📄 I DOCUMENTI</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">🛂</span><b>IL PASSAPORTO</b><span>PER VIAGGIARE IN UN ALTRO PAESE</span></div>
+      <div class="card"><span class="emoji">🇮🇹</span><b>IL PERMESSO DI SOGGIORNO</b><span>PER STARE IN ITALIA. LO DÀ LA QUESTURA</span></div>
+      <div class="card"><span class="emoji">🪪</span><b>LA CARTA D'IDENTITÀ</b><span>IL DOCUMENTO DEL COMUNE</span></div>
+      <div class="card"><span class="emoji">🏥</span><b>LA TESSERA SANITARIA</b><span>PER ANDARE DAL MEDICO E IN FARMACIA</span></div>
+      <div class="card"><span class="emoji">🔢</span><b>IL CODICE FISCALE</b><span>16 LETTERE E NUMERI. SERVE PER IL LAVORO, LA CASA, IL MEDICO</span></div>
+      <div class="card"><span class="emoji">✍️</span><b>LA FIRMA</b><span>IL MIO NOME SCRITTO CON LA MIA MANO</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>📝 IL MODULO</h2>
+    <div class="twocol2">
+    <table class="plur"><tr><td>COGNOME</td><td><b>DIALLO</b></td></tr><tr><td>NOME</td><td><b>AMINA</b></td></tr><tr><td>SESSO</td><td>M ☐ &nbsp; F ☒</td></tr><tr><td>DATA DI NASCITA</td><td><b>12 / 03 / 1995</b></td></tr><tr><td>LUOGO DI NASCITA</td><td><b>DAKAR (SENEGAL)</b></td></tr><tr><td>CITTADINANZA</td><td><b>SENEGALESE</b></td></tr><tr><td>INDIRIZZO</td><td><b>VIA SPARANO 10, 70121 BARI</b></td></tr><tr><td>TELEFONO</td><td><b>333 123 4567</b></td></tr><tr><td>FIRMA</td><td><i>AMINA DIALLO</i></td></tr></table>
+    <div class="nota" style="">UN <b>MODULO</b> È UN FOGLIO CON LE DOMANDE.<br>IO SCRIVO I MIEI DATI NEGLI SPAZI.<br><br>✍️ SCRIVO IN <b>STAMPATELLO</b>: A B C<br>✍️ ALLA FINE METTO LA <b>FIRMA</b>.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🗣️ ALLO SPORTELLO</h2>
+    <div class="dialogo">
+      <div class="bubble"><span class="who">IMPIEGATO:</span> BUONGIORNO. COME SI CHIAMA?</div>
+      <div class="bubble med"><span class="who">AMINA:</span> BUONGIORNO. MI CHIAMO AMINA DIALLO.</div>
+      <div class="bubble"><span class="who">IMPIEGATO:</span> DI DOV'È?</div>
+      <div class="bubble med"><span class="who">AMINA:</span> SONO SENEGALESE.</div>
+      <div class="bubble"><span class="who">IMPIEGATO:</span> QUANDO È NATA?</div>
+      <div class="bubble med"><span class="who">AMINA:</span> IL 12 MARZO 1995.</div>
+      <div class="bubble"><span class="who">IMPIEGATO:</span> HA IL PERMESSO DI SOGGIORNO?</div>
+      <div class="bubble med"><span class="who">AMINA:</span> SÌ, ECCO.</div>
+      <div class="bubble"><span class="who">IMPIEGATO:</span> GRAZIE. FIRMI QUI, PER FAVORE.</div>
+      <div class="bubble med"><span class="who">AMINA:</span> VA BENE. GRAZIE, ARRIVEDERCI!</div>
+    </div>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA SAI DIRE E SCRIVERE I TUOI DATI!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+</body>
+</html>

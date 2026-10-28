@@ -1,0 +1,30 @@
+"""Crea le presentazioni a slide (stile di saluti/index.html) a partire da una lista di slide in HTML.
+Uso: python3 _strumenti/slide.py   (dalla cartella principale del sito)"""
+import os, re, sys
+
+sys.path.insert(0, os.path.dirname(__file__))
+MODELLO = "saluti/index.html"
+# parole lunghe (FRUTTIVENDOLO, SUPERMERCATO…) sul telefono
+COMUNE = """
+  .card, .card b, .cover h1, .bubble, table.plur td{overflow-wrap:anywhere;}
+  @media (max-width:900px){ .cover h1{font-size:2.1rem;} .card b{font-size:1.05rem;} .card{padding:12px;} }
+  @media (max-width:520px){ .g3{grid-template-columns:1fr;} .g3 .card{flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:12px;} .g3 .card .emoji{font-size:2rem;} .g3 .card span:last-child{flex-basis:100%;} }"""
+
+def build(path, unit, topbar, slides, css=""):
+    src = open(MODELLO, encoding="utf-8").read()
+    head = src[:src.index('<div class="topbar">')]
+    tail = src[src.index('<div class="controls">'):]
+    head = re.sub(r"<title>.*?</title>", "<title>%s - ITALIANO L2</title>" % unit, head)
+    head = head.replace("</style>", COMUNE + css + "\n</style>")
+    body = ('<div class="topbar">\n  <span class="unit">ITALIANO L2 &bull; %s</span>\n  <span>%s</span>\n</div>\n'
+            '<div class="progress"><div id="bar"></div></div>\n\n<div class="stage" id="stage">\n\n' % (topbar, unit))
+    body += "\n\n".join(slides) + "\n\n</div>\n\n"
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(head + body + tail)
+    print("scritto", path)
+
+if __name__ == "__main__":
+    from unita_primi import SLIDE
+    for path, unit, topbar, slides, css in SLIDE:
+        build(path, unit, topbar, slides, css)
