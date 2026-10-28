@@ -59,6 +59,7 @@ if __name__ == "__main__":
     from unita_preposizioni import PREPOSIZIONI
     from unita_pronomi import PRONOMI
     from unita_lavoro import CHE_LAVORO, CERCARE, CV, COLLOQUIO, BUSTA
+    from unita_classroom2 import CUCINA, CASA as CASA_PAROLE, VESTITI, PRIMI as PRIMI_PAROLE, CULTURA, MISTO
     from unita_classroom import FAMIGLIA, GIORNATA, DIAL_DOTTORE, LAVORO, NEGOZIO, INDOVINA
     from unita_primi import DATI, ORE, EURO, MERCATO
     from unita_primi2 import ESERCIZI2
@@ -94,3 +95,9 @@ if __name__ == "__main__":
     build("mercato/esercizi.html", MERCATO)
     for cartella, dati in ESERCIZI2:
         build(cartella + "/esercizi.html", dati)
+    build("parole/cucina.html", CUCINA)
+    build("parole/casa.html", CASA_PAROLE)
+    build("parole/vestiti.html", VESTITI)
+    build("parole/colori-numeri-emozioni.html", PRIMI_PAROLE)
+    build("quiz/cultura.html", CULTURA)
+    build("quiz/misto.html", MISTO)
