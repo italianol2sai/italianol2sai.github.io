@@ -270,6 +270,19 @@ function viewCostruisci() {
                     seen.add(sl); need.append(sl)
                     f.write("%-30s %s\n" % (sl + ".mp3", t))
     print(len(need), "audio da registrare")
+    # pagina per registrare (registra.html): tutto quello che non è già in sillabe/audio
+    facili = {os.path.splitext(f)[0] for f in os.listdir("sillabe/audio")}
+    rec, seen = [], set()
+    for title, get in groups:
+        for k, d in D.items():
+            for t in get(d):
+                sl = slug(t)
+                if sl in facili or sl in seen: continue
+                seen.add(sl); rec.append([["SILLABE", "PAROLE", "FRASI", "PEZZI"][int(title[0]) - 1], sl, t])
+    tpl = open(os.path.join(os.path.dirname(__file__), "registra_modello.html"), encoding="utf-8").read()
+    open("sillabe-difficili/registra.html", "w", encoding="utf-8").write(
+        tpl.replace("/*LISTA*/[]", json.dumps(rec, ensure_ascii=False)))
+    print("scritto sillabe-difficili/registra.html con", len(rec), "voci")
 
 if __name__ == "__main__":
     build()
