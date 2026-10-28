@@ -255,12 +255,12 @@ window.MISSIONE = {
           domanda: "FRANCESCO SPIEGA L’APP «LAVORO PER TE PUGLIA». METTI IN ORDINE.",
           items: [
             "📲 SCARICO L’APP",
-            "📄 METTO IL MIO CV",
             "🔍 CERCO LE OFFERTE A BARI",
-            "✅ TOCCO «CANDIDATI»"
+            "✅ TOCCO «CANDIDATI»",
+            "📄 CARICO IL MIO CV"
           ],
-          aiuto: "PRIMA DEVI AVERE L’APP SUL TELEFONO. ALLA FINE TI CANDIDI.",
-          spiega: "SCARICO L’APP, METTO IL CV, CERCO, MI CANDIDO."
+          aiuto: "PRIMA DEVI AVERE L’APP SUL TELEFONO. IL CV SI CARICA DOPO «CANDIDATI».",
+          spiega: "SCARICO L’APP, CERCO, TOCCO «CANDIDATI» E POI CARICO IL CV."
         },
         {
           tipo: "scelta",
