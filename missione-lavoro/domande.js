@@ -347,7 +347,7 @@ window.MISSIONE = {
         {
           tipo: "completa",
           domanda: "MOHAMMAD SCRIVE LE SUE COMPETENZE. COMPLETA.",
-          frase: "SO ___ : AIUTO SEMPRE MIA MADRE IN CUCINA.",
+          frase: "SO ___ : OGNI GIORNO PREPARO IO IL PRANZO E LA CENA.",
           icona: "⭐",
           risposte: ["CUCINARE", "GUIDARE", "CUCIRE"],
           correct: 0,
