@@ -43,6 +43,9 @@
   details.sub:not([open]) > summary::after { content: "+"; }
   details.sub .inner { padding: 0 10px 10px; }
   details.sub a.item { background: var(--card); }
+  /* Link a siti esterni (Wordwall, Moduli Google…): si aprono in una nuova scheda */
+  a.item.ext strong::after { content: " ↗"; color: var(--muted); font-weight: 400; }
+  p.nota { margin: 0; padding: 10px 12px; border-radius: 12px; background: var(--soft); color: var(--muted); font-size: 14px; }
 </style>
 </head>
 <body>
@@ -67,6 +70,17 @@
           <div><strong>I colori</strong><span>Flashcard con la mia voce</span></div></a>
         <a class="item" href="sillabe/"><div class="icon">🧩</div>
           <div><strong>Sillabe facili</strong><span>Leggi, ascolta, cerchia, completa, riordina</span></div></a>
+        <details id="primi-passi-giochi" class="sub">
+          <summary><div class="icon">🌐</div><div><strong>Giochi online</strong><span>Saluti e numeri con audio, vocabolario illustrato</span></div></summary>
+          <div class="inner">
+            <a class="item ext" href="https://www.languageguide.org/italian/greetings/" target="_blank" rel="noopener"><div class="icon">👋</div>
+              <div><strong>I saluti con audio <span class="tag">A0</span></strong><span>Language Guide: ascolta e ripeti</span></div></a>
+            <a class="item ext" href="https://www.languageguide.org/italian/numbers/" target="_blank" rel="noopener"><div class="icon">🔢</div>
+              <div><strong>I numeri con audio <span class="tag">A0</span></strong><span>Language Guide: ascolta e ripeti</span></div></a>
+            <a class="item ext" href="https://www.impariamoitaliano.com/vocabolario_illustrato.htm" target="_blank" rel="noopener"><div class="icon">🖼️</div>
+              <div><strong>Vocabolario illustrato <span class="tag">A1</span></strong><span>Impariamo l'italiano: cibo, casa, animali, trasporti</span></div></a>
+          </div>
+        </details>
       </div>
     </details>
 
@@ -89,6 +103,19 @@
           <div><strong>Il corpo e il dottore <span class="tag">A1/A2</span></strong><span>Presentazione</span></div></a>
         <a class="item" href="corpo-dottore/esercizi.html"><div class="icon">📱</div>
           <div><strong>Esercizi</strong><span>Sul telefono o sul computer: scrivi, controlla, invia</span></div></a>
+        <details id="salute-giochi" class="sub">
+          <summary><div class="icon">🌐</div><div><strong>Giochi online</strong><span>Il corpo, la visita dal medico</span></div></summary>
+          <div class="inner">
+            <a class="item ext" href="https://wordwall.net/it/resource/19229969/italiano-l2/le-parti-del-corpo" target="_blank" rel="noopener"><div class="icon">🦵</div>
+              <div><strong>Le parti del corpo <span class="tag">A1</span></strong><span>Wordwall: metti le parole sull'immagine</span></div></a>
+            <a class="item ext" href="https://forms.gle/nBhDrrsb7XAGZ2Uy6" target="_blank" rel="noopener"><div class="icon">🩺</div>
+              <div><strong>Il dottore <span class="tag">A2</span></strong><span>Modulo Google: sintomi, ricetta, farmacia</span></div></a>
+            <a class="item ext" href="https://forms.gle/X9MTiSwySeLwPx3T6" target="_blank" rel="noopener"><div class="icon">❓</div>
+              <div><strong>Domande dal dottore <span class="tag">A2</span></strong><span>Modulo Google: leggi e rispondi</span></div></a>
+            <a class="item ext" href="https://forms.gle/zxnn5CfZgXDR4K1EA" target="_blank" rel="noopener"><div class="icon">🏥</div>
+              <div><strong>L'italiano dal dottore <span class="tag">A2</span></strong><span>Modulo Google: la visita medica</span></div></a>
+          </div>
+        </details>
       </div>
     </details>
 
@@ -100,6 +127,49 @@
           <div><strong>Cercare casa a Bari <span class="tag">A2</span></strong><span>Annunci, domande, dialoghi</span></div></a>
         <a class="item" href="cercare-casa/esercizi.html"><div class="icon">📱</div>
           <div><strong>Esercizi</strong><span>Sul telefono o sul computer: scrivi, controlla, invia</span></div></a>
+        <details id="casa-giochi" class="sub">
+          <summary><div class="icon">🌐</div><div><strong>Giochi online</strong><span>Le stanze e gli oggetti della casa</span></div></summary>
+          <div class="inner">
+            <a class="item ext" href="https://wordwall.net/it/resource/25745080/italiano/gli-oggetti-della-casa" target="_blank" rel="noopener"><div class="icon">🛋️</div>
+              <div><strong>Gli oggetti della casa <span class="tag">A1</span></strong><span>Wordwall: trova le coppie</span></div></a>
+            <a class="item ext" href="https://wordwall.net/play/11277/244/468" target="_blank" rel="noopener"><div class="icon">🏠</div>
+              <div><strong>La casa <span class="tag">A1</span></strong><span>Wordwall: metti le parole sull'immagine</span></div></a>
+            <a class="item ext" href="https://www.languageguide.org/italiano-it/vocabolario/casa/" target="_blank" rel="noopener"><div class="icon">🔊</div>
+              <div><strong>La casa con audio <span class="tag">A1</span></strong><span>Language Guide: ascolta le parole</span></div></a>
+            <a class="item ext" href="https://quizlet.com/it/377496328/la-casa-diagram/" target="_blank" rel="noopener"><div class="icon">🗂️</div>
+              <div><strong>La casa: schede <span class="tag">A1</span></strong><span>Quizlet: impara le parole</span></div></a>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <details id="cucina">
+      <summary><div class="icon">🍝</div>
+        <div><strong>Il cibo e la cucina</strong><span>Mi piace, i verbi della cucina, una ricetta barese</span></div></summary>
+      <div class="inner">
+        <a class="item ext" href="https://wordwall.net/it/resource/11655125/italiano/mi-piace-o-mi-piacciono" target="_blank" rel="noopener"><div class="icon">😋</div>
+          <div><strong>Mi piace o mi piacciono? <span class="tag">A1</span></strong><span>Wordwall: quiz con i cibi</span></div></a>
+        <a class="item ext" href="https://view.genially.com/635515df44e22a0019d78784" target="_blank" rel="noopener"><div class="icon">🥘</div>
+          <div><strong>Escape room: la tiella barese <span class="tag">A1</span></strong><span>Genially: segui la ricetta</span></div></a>
+        <a class="item ext" href="https://wordwall.net/it/resource/53662548/italiano-l2/verbi-in-cucina" target="_blank" rel="noopener"><div class="icon">🔪</div>
+          <div><strong>Verbi in cucina <span class="tag">A2</span></strong><span>Wordwall: trova le coppie</span></div></a>
+        <a class="item ext" href="https://wordwall.net/it/resource/27849071/verbi-della-cucina" target="_blank" rel="noopener"><div class="icon">🍳</div>
+          <div><strong>Verbi della cucina: quiz <span class="tag">A2</span></strong><span>Wordwall: scegli la risposta</span></div></a>
+        <a class="item ext" href="https://wordwall.net/it/resource/17755394/verbi-della-cucina" target="_blank" rel="noopener"><div class="icon">🧀</div>
+          <div><strong>Verbi della cucina: abbinamenti <span class="tag">A2</span></strong><span>Wordwall: abbina verbo e significato</span></div></a>
+        <a class="item ext" href="https://wordwall.net/it/resource/59172047/verbi-della-cucina-collocazioni" target="_blank" rel="noopener"><div class="icon">📝</div>
+          <div><strong>Verbi della cucina: completa <span class="tag">A2</span></strong><span>Wordwall: metti le parole nel testo</span></div></a>
+      </div>
+    </details>
+
+    <details id="famiglia">
+      <summary><div class="icon">👨‍👩‍👧</div>
+        <div><strong>La famiglia</strong><span>Letture con domande</span></div></summary>
+      <div class="inner">
+        <a class="item ext" href="https://docs.google.com/forms/d/e/1FAIpQLSfCH4BRDVVV-Q5bCbI831OIeMop8v2MtCxweKK79VEMyZIS-A/viewform" target="_blank" rel="noopener"><div class="icon">👩</div>
+          <div><strong>Mi chiamo Sofia <span class="tag">A1</span></strong><span>Modulo Google: leggi e rispondi</span></div></a>
+        <a class="item ext" href="https://docs.google.com/forms/d/e/1FAIpQLSfuwKBXXtcbjSOpHVwhtldNSSr3d77p90NxZhqhv15bixYXfQ/viewform" target="_blank" rel="noopener"><div class="icon">🐕</div>
+          <div><strong>La mia famiglia <span class="tag">A2</span></strong><span>Modulo Google: leggi e rispondi</span></div></a>
       </div>
     </details>
 
@@ -111,6 +181,23 @@
           <div><strong>L'abbigliamento <span class="tag">A1</span></strong><span>Presentazione: vestiti, colori, al negozio</span></div></a>
         <a class="item" href="abbigliamento/esercizi.html"><div class="icon">📱</div>
           <div><strong>Esercizi</strong><span>Sul telefono o sul computer: scrivi, controlla, invia</span></div></a>
+        <details id="vestiti-giochi" class="sub">
+          <summary><div class="icon">🌐</div><div><strong>Giochi online</strong><span>Vestiti, colori, al negozio</span></div></summary>
+          <div class="inner">
+            <a class="item ext" href="https://wordwall.net/it/resource/17452425/italiano-l2/vestiti" target="_blank" rel="noopener"><div class="icon">👕</div>
+              <div><strong>Vestiti <span class="tag">A1</span></strong><span>Wordwall: abbina parola e immagine</span></div></a>
+            <a class="item ext" href="https://wordwall.net/it/resource/47376706/italiano-l2/vestiti-e-colori" target="_blank" rel="noopener"><div class="icon">🎨</div>
+              <div><strong>Vestiti e colori <span class="tag">A1</span></strong><span>Wordwall: memory</span></div></a>
+            <a class="item ext" href="https://wordwall.net/it/resource/25334612/italiano/vestiti-l2" target="_blank" rel="noopener"><div class="icon">🧦</div>
+              <div><strong>Vestiti L2 <span class="tag">A1</span></strong><span>Wordwall: quiz</span></div></a>
+            <a class="item ext" href="https://wordwall.net/play/11641/247/446" target="_blank" rel="noopener"><div class="icon">🧢</div>
+              <div><strong>Vestiti e accessori: memory <span class="tag">A1</span></strong><span>Wordwall: trova le coppie</span></div></a>
+            <a class="item ext" href="https://wordwall.net/play/11641/197/396" target="_blank" rel="noopener"><div class="icon">👜</div>
+              <div><strong>Vestiti e accessori: quiz <span class="tag">A1</span></strong><span>Wordwall: scegli la risposta</span></div></a>
+            <a class="item ext" href="https://docs.google.com/forms/d/e/1FAIpQLSflQkL-72wEE0OMUhzY6wIht7iVSJrAjQQvvnp-vDKl40_lVg/viewform" target="_blank" rel="noopener"><div class="icon">🛍️</div>
+              <div><strong>In un negozio di abbigliamento <span class="tag">A2</span></strong><span>Modulo Google: leggi e rispondi</span></div></a>
+          </div>
+        </details>
       </div>
     </details>
 
@@ -140,6 +227,13 @@
           <div><strong>Esercizi: la busta paga</strong><span>Sul telefono o sul computer: scrivi, controlla, invia</span></div></a>
         <a class="item" href="missione-lavoro/"><div class="icon">🗝️</div>
           <div><strong>Escape room: Missione lavoro <span class="tag">A1</span></strong><span>Aiuta Mohammad a trovare lavoro: 7 porte per ripassare tutto</span></div></a>
+        <details id="lavoro-giochi" class="sub">
+          <summary><div class="icon">🌐</div><div><strong>Giochi online</strong><span>Letture con domande</span></div></summary>
+          <div class="inner">
+            <a class="item ext" href="https://docs.google.com/forms/d/e/1FAIpQLSfffvyR4BWoYNTpcfVvlwU594J2r0H2idi6tDkUXfKIox4MFQ/viewform" target="_blank" rel="noopener"><div class="icon">🌳</div>
+              <div><strong>Nell'ufficio del datore di lavoro <span class="tag">A2</span></strong><span>Modulo Google: leggi e rispondi</span></div></a>
+          </div>
+        </details>
       </div>
     </details>
 
@@ -166,6 +260,25 @@
               <div><strong>I verbi riflessivi <span class="tag">A1</span></strong><span>Presentazione: mi alzo, mi lavo, mi vesto</span></div></a>
             <a class="item" href="riflessivi/esercizi.html"><div class="icon">📱</div>
               <div><strong>Esercizi sui verbi riflessivi</strong><span>Sul telefono o sul computer: scrivi, controlla, invia</span></div></a>
+            <details id="a1-verbi-giochi" class="sub">
+              <summary><div class="icon">🌐</div><div><strong>Giochi online</strong><span>La giornata, i riflessivi, il passato prossimo</span></div></summary>
+              <div class="inner">
+            <a class="item ext" href="https://docs.google.com/forms/d/e/1FAIpQLSdqFpI_iN29456o7wG4NS4UER-MvW7c2GD0NbVUGEG5sr-mUQ/viewform" target="_blank" rel="noopener"><div class="icon">☀️</div>
+              <div><strong>La mia giornata <span class="tag">A1</span></strong><span>Modulo Google: i verbi della giornata</span></div></a>
+            <a class="item ext" href="https://docs.google.com/forms/d/e/1FAIpQLSdR2QlrFDbjgWPhgT9KDtGvyVh_aRmaKKhvgT6Dt_9V6oaB1w/viewform" target="_blank" rel="noopener"><div class="icon">🧑‍🎓</div>
+              <div><strong>La giornata di Carlo <span class="tag">A1</span></strong><span>Modulo Google: leggi e rispondi</span></div></a>
+            <a class="item ext" href="https://learningapps.org/watch?v=pktzrx66c22" target="_blank" rel="noopener"><div class="icon">🪞</div>
+              <div><strong>I verbi riflessivi 1 <span class="tag">A1</span></strong><span>LearningApps: coniuga i verbi</span></div></a>
+            <a class="item ext" href="https://learningapps.org/watch?v=pxkdizpak22" target="_blank" rel="noopener"><div class="icon">🪞</div>
+              <div><strong>I verbi riflessivi 2 <span class="tag">A1</span></strong><span>LearningApps: la giornata dell'insegnante</span></div></a>
+            <a class="item ext" href="https://wordwall.net/it/resource/38409089/italiano-l2/a2-gli-ausiliari-nel-passato-prossimo" target="_blank" rel="noopener"><div class="icon">⏪</div>
+              <div><strong>Essere o avere? <span class="tag">A2</span></strong><span>Wordwall: gli ausiliari nel passato prossimo</span></div></a>
+            <a class="item ext" href="https://www.impariamoitaliano.com/pros1.htm" target="_blank" rel="noopener"><div class="icon">✍️</div>
+              <div><strong>Il passato prossimo <span class="tag">A2</span></strong><span>Impariamo l'italiano: completa le frasi</span></div></a>
+            <a class="item ext" href="https://view.genially.com/5ff5ec86bea52a0cee8b4a99" target="_blank" rel="noopener"><div class="icon">🔐</div>
+              <div><strong>Escape room: ripasso verbi <span class="tag">A2</span></strong><span>Genially: presente, passato prossimo, imperfetto</span></div></a>
+              </div>
+            </details>
           </div>
         </details>
         <details id="a1-nomi" class="sub">
@@ -183,6 +296,29 @@
               <div><strong>I possessivi <span class="tag">A1</span></strong><span>Presentazione: il mio, la tua, i nostri, mia madre</span></div></a>
             <a class="item" href="possessivi/esercizi.html"><div class="icon">📱</div>
               <div><strong>Esercizi sui possessivi</strong><span>Sul telefono o sul computer: scrivi, controlla, invia</span></div></a>
+            <details id="a1-nomi-giochi" class="sub">
+              <summary><div class="icon">🌐</div><div><strong>Giochi online</strong><span>Articoli, plurale, femminile, descrivere le persone</span></div></summary>
+              <div class="inner">
+            <a class="item ext" href="https://view.genially.com/635511e124cb410010b731ea" target="_blank" rel="noopener"><div class="icon">🚀</div>
+              <div><strong>Articoli: Spaceship quiz <span class="tag">A1</span></strong><span>Genially: il, lo, la, l'</span></div></a>
+            <a class="item ext" href="https://www.impariamoitaliano.com/art1.htm" target="_blank" rel="noopener"><div class="icon">📦</div>
+              <div><strong>Gli articoli 1 <span class="tag">A1</span></strong><span>Impariamo l'italiano: completa la tabella</span></div></a>
+            <a class="item ext" href="https://www.impariamoitaliano.com/art2.htm" target="_blank" rel="noopener"><div class="icon">📦</div>
+              <div><strong>Gli articoli 2 <span class="tag">A1</span></strong><span>Impariamo l'italiano: completa le frasi</span></div></a>
+            <a class="item ext" href="https://www.impariamoitaliano.com/plur01.htm" target="_blank" rel="noopener"><div class="icon">👥</div>
+              <div><strong>Il plurale 1 <span class="tag">A1</span></strong><span>Impariamo l'italiano: articoli, nomi, aggettivi</span></div></a>
+            <a class="item ext" href="https://www.impariamoitaliano.com/plur02.htm" target="_blank" rel="noopener"><div class="icon">👥</div>
+              <div><strong>Il plurale 2 <span class="tag">A1</span></strong><span>Impariamo l'italiano: nomi e aggettivi</span></div></a>
+            <a class="item ext" href="https://www.impariamoitaliano.com/fem02.htm" target="_blank" rel="noopener"><div class="icon">♀️</div>
+              <div><strong>Il femminile <span class="tag">A1</span></strong><span>Impariamo l'italiano: gatto → gatta</span></div></a>
+            <a class="item ext" href="https://docs.google.com/forms/d/e/1FAIpQLSedHeX2wKSNMLWQ1S0Uc8qZzwNWU2XNpzJRBBqsJQYJtyWa4A/viewform" target="_blank" rel="noopener"><div class="icon">🔍</div>
+              <div><strong>Che differenza c'è? <span class="tag">A1</span></strong><span>Modulo Google: aggettivi opposti</span></div></a>
+            <a class="item ext" href="https://www.youtube.com/watch?v=UHHMk_k3_YA" target="_blank" rel="noopener"><div class="icon">🎬</div>
+              <div><strong>Descrivere le persone <span class="tag">A1</span></strong><span>Video YouTube: lezione 6</span></div></a>
+            <a class="item ext" href="https://docs.google.com/forms/d/1Bq36imo-7PcGut6JUr-nsJNB9pdZKHnwbgCUJ6PRE-Q/viewform" target="_blank" rel="noopener"><div class="icon">🕵️</div>
+              <div><strong>Indovina chi <span class="tag">A1</span></strong><span>Modulo Google: abbina descrizione e foto</span></div></a>
+              </div>
+            </details>
           </div>
         </details>
         <details id="a1-frase" class="sub">
@@ -226,10 +362,52 @@
 
     <details id="a2">
       <summary><div class="icon">🎓</div>
-        <div><strong>Livello A2</strong><span>Verifica finale</span></div></summary>
+        <div><strong>Livello A2</strong><span>Verifica finale, letture, ascolto</span></div></summary>
       <div class="inner">
         <a class="item" href="verifica-a2/"><div class="icon">📝</div>
           <div><strong>Verifica di italiano <span class="tag">A2</span></strong><span>Sul telefono o sul computer, con la prova orale registrata</span></div></a>
+        <a class="item ext" href="https://docs.google.com/forms/d/e/1FAIpQLScCjHC2zYlhKNLoJS1ptxf8vW7qmaD3HaAkVjCckYQkmm9THg/viewform" target="_blank" rel="noopener"><div class="icon">🚗</div>
+          <div><strong>La mia nuova macchina <span class="tag">A2</span></strong><span>Modulo Google: leggi e rispondi</span></div></a>
+        <a class="item ext" href="https://www.raiplaysound.it/programmi/fiabedalmondo" target="_blank" rel="noopener"><div class="icon">🎧</div>
+          <div><strong>Fiabe dal mondo <span class="tag">A2</span></strong><span>RaiPlay Sound: ascolta le fiabe</span></div></a>
+      </div>
+    </details>
+
+    <details id="classroom">
+      <summary><div class="icon">🎒</div>
+        <div><strong>Il corso su Classroom</strong><span>Solo per gli iscritti: entra con il tuo account Google</span></div></summary>
+      <div class="inner">
+        <p class="nota">🔒 Questi link si aprono solo se sei iscritto al corso su Google Classroom. Entra con l'account Google che usi a scuola.</p>
+        <a class="item ext" href="https://classroom.google.com/w/NTU3NDg4OTM5MjYz/t/all" target="_blank" rel="noopener"><div class="icon">📚</div>
+          <div><strong>Tutti i lavori del corso</strong><span>Apri la pagina «Lavori del corso»</span></div></a>
+        <a class="item ext" href="https://classroom.google.com/c/NTU3NDg4OTM5MjYz/a/NjIwNDAwMDA2MTQ1/details" target="_blank" rel="noopener"><div class="icon">📌</div>
+          <div><strong>Compito 1</strong><span>Google Classroom</span></div></a>
+        <a class="item ext" href="https://classroom.google.com/c/NTU3NDg4OTM5MjYz/a/NjIwMzk5OTQ4OTE1/details" target="_blank" rel="noopener"><div class="icon">📌</div>
+          <div><strong>Compito 2</strong><span>Google Classroom</span></div></a>
+        <a class="item ext" href="https://classroom.google.com/c/NTU3NDg4OTM5MjYz/a/NjIwMzk5NTYxNTA4/details" target="_blank" rel="noopener"><div class="icon">📌</div>
+          <div><strong>Compito 3</strong><span>Google Classroom</span></div></a>
+        <a class="item ext" href="https://classroom.google.com/c/NTU3NDg4OTM5MjYz/a/NjA1NTM1MDY4MzE0/details" target="_blank" rel="noopener"><div class="icon">📌</div>
+          <div><strong>Compito 4</strong><span>Google Classroom</span></div></a>
+        <a class="item ext" href="https://classroom.google.com/c/NTU3NDg4OTM5MjYz/a/NjA1NTM0MjQzNjg3/details" target="_blank" rel="noopener"><div class="icon">📌</div>
+          <div><strong>Compito 5</strong><span>Google Classroom</span></div></a>
+        <a class="item ext" href="https://classroom.google.com/c/NTU3NDg4OTM5MjYz/a/NjA1NTMzODEyNDU3/details" target="_blank" rel="noopener"><div class="icon">📌</div>
+          <div><strong>Compito 6</strong><span>Google Classroom</span></div></a>
+        <a class="item ext" href="https://classroom.google.com/c/NTU3NDg4OTM5MjYz/a/NjA1NTMzMzM3MDUw/details" target="_blank" rel="noopener"><div class="icon">📌</div>
+          <div><strong>Compito 7</strong><span>Google Classroom</span></div></a>
+        <a class="item ext" href="https://classroom.google.com/c/NTU3NDg4OTM5MjYz/a/NjA1NTMwNTI4MDU3/details" target="_blank" rel="noopener"><div class="icon">📌</div>
+          <div><strong>Compito 8</strong><span>Google Classroom</span></div></a>
+        <a class="item ext" href="https://classroom.google.com/c/NTU3NDg4OTM5MjYz/a/NjA1NTMxMDc4MzA4/details" target="_blank" rel="noopener"><div class="icon">📌</div>
+          <div><strong>Compito 9</strong><span>Google Classroom</span></div></a>
+        <a class="item ext" href="https://docs.google.com/document/d/1GQOURLUOfUWA0TBB3zmHNvq4FoY8vV7WfO3oQ-W5xk4/edit" target="_blank" rel="noopener"><div class="icon">📄</div>
+          <div><strong>Documento 1</strong><span>Google Documenti</span></div></a>
+        <a class="item ext" href="https://docs.google.com/document/d/17HRwWAc_82ESvFYeAZjhW13hvtUrolfK-E1NguvC0_I/edit" target="_blank" rel="noopener"><div class="icon">📄</div>
+          <div><strong>Documento 2</strong><span>Google Documenti</span></div></a>
+        <a class="item ext" href="https://docs.google.com/document/d/14-LG6fWAjYSgsx6Y2QBZBlNxwDyQ2gx6o1RVwcbIaqU/edit" target="_blank" rel="noopener"><div class="icon">📄</div>
+          <div><strong>Documento 3</strong><span>Google Documenti</span></div></a>
+        <a class="item ext" href="https://docs.google.com/document/d/14xvH2ot3GTS7ThDzGLCLAgoCVlr9p6AwmI8dONVY8nk/edit" target="_blank" rel="noopener"><div class="icon">📄</div>
+          <div><strong>Documento 4</strong><span>Google Documenti</span></div></a>
+        <a class="item ext" href="https://docs.google.com/document/d/1OZJpTsYtPFGRAQ_LSOgVGa60e5_FEUae-bXczDYwBvg/edit" target="_blank" rel="noopener"><div class="icon">📄</div>
+          <div><strong>Documento 5</strong><span>Google Documenti</span></div></a>
       </div>
     </details>
 
