@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Che cosa è successo? - ITALIANO L2</title>
+<style>
+  :root{
+    --blu:#E07A1F; --blu-scuro:#3B2410; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FFF6EC; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#E07A1F,#F6B44C); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+
+  .parla, [data-say]{cursor:pointer;} .bubble.parla::after, .card.parla b::after{content:" 🔊"; font-size:.8em; opacity:.55;}
+  .parlando{outline:4px solid var(--arancio); outline-offset:2px;}
+  .card, .card b, .cover h1, .bubble, table.plur td{overflow-wrap:anywhere;}
+  @media (max-width:900px){ .cover h1{font-size:2.1rem;} .card b{font-size:1.05rem;} .card{padding:12px;} }
+  @media (max-width:520px){ .g3{grid-template-columns:1fr;} .g3 .card{flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:12px;} .g3 .card .emoji{font-size:2rem;} .g3 .card span:last-child{flex-basis:100%;} }
+  body{text-transform:none; letter-spacing:0;}
+  .cover h1{font-size:3rem;}
+  .esempio{font-size:1.35rem; line-height:1.6; background:#fff; border-radius:14px; padding:14px 18px; border:3px solid #e3edf8; margin-top:12px;}
+  .esempio b{color:var(--blu);}
+  table.plur{font-size:1.3rem;} table.plur td{text-align:left;}
+  @media (max-width:900px){ .cover h1{font-size:2rem;} .esempio{font-size:1.1rem;} table.plur{font-size:.8rem;} table.plur th, table.plur td{padding:6px 3px; overflow-wrap:normal;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LIVELLO B1</span>
+  <span>Che cosa è successo?</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">📰</div>
+    <h1>Che cosa è successo?</h1>
+    <p class="lead" style="margin-top:14px;">Raccontare fatti di cronaca, descrivere le persone, parlare delle emozioni</p>
+    <span class="badge">Livello B1 · Unità 1</span>
+  </section>
+
+  <section class="slide">
+    <h2>Che cosa impariamo?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🗞️</span><b>La cronaca</b><span>furto, incidente, arresto, salvataggio</span></div>
+      <div class="card"><span class="emoji">⏪</span><b>Raccontare al passato</b><span>passato prossimo, imperfetto, trapassato</span></div>
+      <div class="card"><span class="emoji">🧑‍🤝‍🧑</span><b>Descrivere le persone</b><span>aspetto fisico e carattere</span></div>
+      <div class="card"><span class="emoji">😮</span><b>Le emozioni</b><span>mi fa paura, sono arrabbiato, che rabbia!</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🗞️ Le parole della cronaca</h2>
+    <table class="plur"><tr><th>parola</th><th>che cosa vuol dire</th></tr><tr><td>il furto</td><td>qualcuno ruba una cosa (il ladro)</td></tr><tr><td>la rapina</td><td>un furto con violenza o con un'arma</td></tr><tr><td>l'incidente</td><td>due macchine si scontrano, una persona cade…</td></tr><tr><td>l'arresto</td><td>la polizia prende una persona: l'arresta</td></tr><tr><td>il salvataggio</td><td>qualcuno salva una persona o un animale</td></tr><tr><td>il testimone</td><td>una persona che ha visto il fatto</td></tr><tr><td>la denuncia</td><td>racconti alla polizia un reato (fare denuncia)</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>🚓 Chi chiamo?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🚔</span><b>Polizia / Carabinieri</b><span>furti, rapine, pericolo per le persone</span></div>
+      <div class="card"><span class="emoji">🚒</span><b>Vigili del fuoco</b><span>incendi, persone bloccate, alberi caduti</span></div>
+      <div class="card"><span class="emoji">🚑</span><b>Ambulanza (118)</b><span>una persona sta male o è ferita</span></div>
+      <div class="card"><span class="emoji">👮</span><b>Polizia locale (vigili urbani)</b><span>traffico, multe, problemi in città</span></div>
+    </div>
+    <div class="nota" style="margin-top:20px;">☎️ In Italia il numero unico per le emergenze è il <b>112</b>.</div>
+  </section>
+
+  <section class="slide">
+    <h2>⏪ Passato prossimo o imperfetto?</h2>
+    <table class="plur"><tr><th>quando si usa</th><th>esempio</th></tr><tr><td><b>Passato prossimo</b>: un'azione finita, un fatto</td><td>Ieri sera <b>ho visto</b> un incidente.</td></tr><tr><td><b>Passato prossimo</b>: azioni una dopo l'altra</td><td><b>Sono uscito</b>, <b>ho preso</b> l'autobus e <b>sono arrivato</b>.</td></tr><tr><td><b>Imperfetto</b>: la situazione, la descrizione</td><td><b>Pioveva</b> e <b>c'era</b> molto traffico.</td></tr><tr><td><b>Imperfetto</b>: un'abitudine nel passato</td><td>Da bambino <b>andavo</b> sempre al mare.</td></tr><tr><td><b>Imperfetto + passato prossimo</b>: un'azione interrompe l'altra</td><td><b>Camminavo</b> quando <b>ho sentito</b> un rumore.</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>⏪ Il trapassato prossimo</h2>
+    <p class="lead">Un fatto <b>prima</b> di un altro fatto passato.<br>Si forma con <b>avevo / ero</b> + participio.</p>
+    <div class="esempio">Quando la polizia <b>è arrivata</b>, il ladro <b>era</b> già <b>scappato</b>.<br>Ho perso il treno perché <b>avevo dimenticato</b> la sveglia.<br>Non sono entrato: <b>avevo lasciato</b> le chiavi in ufficio.</div>
+    <table class="plur"><tr><th></th><th>con avere</th><th>con essere</th></tr><tr><td>io</td><td>avevo mangiato</td><td>ero partito/a</td></tr><tr><td>tu</td><td>avevi mangiato</td><td>eri partito/a</td></tr><tr><td>lui / lei</td><td>aveva mangiato</td><td>era partito/a</td></tr><tr><td>noi</td><td>avevamo mangiato</td><td>eravamo partiti/e</td></tr><tr><td>voi</td><td>avevate mangiato</td><td>eravate partiti/e</td></tr><tr><td>loro</td><td>avevano mangiato</td><td>erano partiti/e</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>⏳ Stare per / stare + gerundio</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">⏭️</span><b>stare per + infinito</b><span>un'azione che comincia tra poco: <i>Il treno sta per partire.</i></span></div>
+      <div class="card"><span class="emoji">▶️</span><b>stare + gerundio</b><span>un'azione che succede adesso: <i>Il treno sta partendo.</i></span></div>
+    </div>
+    <div class="esempio">Al passato: <b>Stavo per uscire</b> quando ha telefonato Ahmed. · <b>Stavamo mangiando</b> quando è andata via la luce.</div>
+  </section>
+
+  <section class="slide">
+    <h2>🧑‍🤝‍🧑 Descrivere le persone</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">👀</span><b>L'aspetto</b><span>alto, basso, magro, robusto · capelli ricci, lisci, corti · la barba, i baffi, gli occhiali</span></div>
+      <div class="card"><span class="emoji">👕</span><b>I vestiti</b><span>indossava una giacca di pelle, una felpa con il cappuccio, una gonna a righe</span></div>
+      <div class="card"><span class="emoji">👍</span><b>Le qualità</b><span>generoso, affidabile, paziente, simpatico, sincero</span></div>
+      <div class="card"><span class="emoji">👎</span><b>I difetti</b><span>pigro, egoista, testardo, permaloso, disordinato</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🐢 Modi di dire con gli animali</h2>
+    <table class="plur"><tr><th>espressione</th><th>significato</th></tr><tr><td>testardo come un mulo</td><td>non cambia mai idea</td></tr><tr><td>lento come una lumaca</td><td>fa tutto molto lentamente</td></tr><tr><td>essere un pesce fuor d'acqua</td><td>sentirsi a disagio in un posto nuovo</td></tr><tr><td>avere una memoria da elefante</td><td>ricordare tutto</td></tr><tr><td>essere un orso</td><td>non ama stare con le persone</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>😮 Le emozioni</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">😨</span><b>La paura</b><span>Mi fa paura il buio. · Ho paura dei cani.</span></div>
+      <div class="card"><span class="emoji">😡</span><b>La rabbia</b><span>Sono arrabbiato! · Ho un diavolo per capello.</span></div>
+      <div class="card"><span class="emoji">😢</span><b>La tristezza</b><span>Mi sento giù. · Ho un nodo alla gola.</span></div>
+      <div class="card"><span class="emoji">😄</span><b>L'allegria</b><span>La musica mi mette allegria. · Sono al settimo cielo!</span></div>
+    </div>
+    <div class="nota" style="margin-top:20px;">Esclamazioni: <b>Accidenti!</b> <b>Cavoli!</b> <b>Che spavento!</b> <b>Meno male!</b></div>
+  </section>
+
+  <section class="slide">
+    <h2>💬 Mi hanno rubato la borsa!</h2>
+    <div class="dialogo">
+      <div class="bubble"><span class="who">Agente:</span> Buongiorno, mi dica. Che cosa è successo?</div>
+      <div class="bubble med"><span class="who">Fatima:</span> Mi hanno rubato la borsa sull'autobus 12. C'era tantissima gente.</div>
+      <div class="bubble"><span class="who">Agente:</span> Ha visto la persona?</div>
+      <div class="bubble med"><span class="who">Fatima:</span> Sì, era un ragazzo alto, con una felpa grigia. Quando me ne sono accorta, era già sceso.</div>
+      <div class="bubble"><span class="who">Agente:</span> Che cosa c'era nella borsa?</div>
+      <div class="bubble med"><span class="who">Fatima:</span> Il portafoglio, il permesso di soggiorno e il telefono.</div>
+      <div class="bubble"><span class="who">Agente:</span> Va bene, facciamo la denuncia. Mi dà un documento, per favore?</div>
+    </div>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>Bravi!</h1>
+    <p class="lead" style="margin-top:14px;">Ora sai raccontare un fatto al passato e descrivere una persona.</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">Adesso facciamo gli esercizi 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+<script>
+(function(){
+  const sel='.bubble, .card, .cartelli div, .orologi div, .mondo div, .regola div, table.plur td, .nota, .lead, .big2';
+  document.querySelectorAll(sel).forEach(e=>e.classList.add('parla'));
+  document.addEventListener('click',ev=>{ const d=ev.target.closest('[data-say], .parla'); if(!d||!window.speechSynthesis||ev.target.closest('a,button')) return;
+    ev.stopPropagation();
+    const t=(d.dataset.say||d.innerText).replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\uFE0F\u200D]/gu,' ').replace(/[←→▶◀•…_]/g,' ').toLowerCase();
+    const u=new SpeechSynthesisUtterance(t); u.lang='it-IT'; u.rate=.85; speechSynthesis.cancel(); speechSynthesis.speak(u);
+    document.querySelectorAll('.parlando').forEach(x=>x.classList.remove('parlando')); d.classList.add('parlando');
+    u.onend=()=>d.classList.remove('parlando'); });
+})();
+</script>
+</body>
+</html>

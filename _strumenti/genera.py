@@ -35,6 +35,8 @@ def build(path, data):
         s = dict(s)
         if "k" in s:
             s["k"] = enc(s["k"])
+        if "audio" in s:
+            s["audio"] = enc(s["audio"])
         secs.append(s)
     out["sections"] = secs
     js = json.dumps(out, ensure_ascii=False, indent=1)
@@ -106,3 +108,6 @@ if __name__ == "__main__":
     build("quiz/cultura.html", CULTURA)
     build("quiz/misto.html", MISTO)
     build("letture/macchina.html", MACCHINA)
+    from unita_b1 import UNITA as B1  # le slide B1: python3 _strumenti/unita_b1.py
+    for cartella, _, _, dati in B1:
+        build(cartella + "/esercizi.html", dati)

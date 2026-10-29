@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Che problema c'è? - ITALIANO L2</title>
+<style>
+  :root{
+    --blu:#E07A1F; --blu-scuro:#3B2410; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FFF6EC; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#E07A1F,#F6B44C); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+
+  .parla, [data-say]{cursor:pointer;} .bubble.parla::after, .card.parla b::after{content:" 🔊"; font-size:.8em; opacity:.55;}
+  .parlando{outline:4px solid var(--arancio); outline-offset:2px;}
+  .card, .card b, .cover h1, .bubble, table.plur td{overflow-wrap:anywhere;}
+  @media (max-width:900px){ .cover h1{font-size:2.1rem;} .card b{font-size:1.05rem;} .card{padding:12px;} }
+  @media (max-width:520px){ .g3{grid-template-columns:1fr;} .g3 .card{flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:12px;} .g3 .card .emoji{font-size:2rem;} .g3 .card span:last-child{flex-basis:100%;} }
+  body{text-transform:none; letter-spacing:0;}
+  .cover h1{font-size:3rem;}
+  .esempio{font-size:1.35rem; line-height:1.6; background:#fff; border-radius:14px; padding:14px 18px; border:3px solid #e3edf8; margin-top:12px;}
+  .esempio b{color:var(--blu);}
+  table.plur{font-size:1.3rem;} table.plur td{text-align:left;}
+  @media (max-width:900px){ .cover h1{font-size:2rem;} .esempio{font-size:1.1rem;} table.plur{font-size:.8rem;} table.plur th, table.plur td{padding:6px 3px; overflow-wrap:normal;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LIVELLO B1</span>
+  <span>Che problema c'è?</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">🏘️</div>
+    <h1>Che problema c'è?</h1>
+    <p class="lead" style="margin-top:14px;">Vicini, coinquilini, famiglia, quartiere. Lamentarsi e spiegare le proprie ragioni.</p>
+    <span class="badge">Livello B1 · Unità 5</span>
+  </section>
+
+  <section class="slide">
+    <h2>Che cosa impariamo?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">😤</span><b>Lamentarsi</b><span>Non è giusto che… Mi dà fastidio che…</span></div>
+      <div class="card"><span class="emoji">🏢</span><b>La vita in condominio</b><span>i vicini, l'amministratore, le regole</span></div>
+      <div class="card"><span class="emoji">💭</span><b>Il congiuntivo (2)</b><span>vada, faccia, possa, esca</span></div>
+      <div class="card"><span class="emoji">✉️</span><b>La lettera di lamentela</b><span>Le scrivo per manifestare il mio disappunto…</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🏢 Problemi di convivenza</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🔊</span><b>Il rumore</b><span>la musica alta di notte, i lavori in casa</span></div>
+      <div class="card"><span class="emoji">🗑️</span><b>La spazzatura</b><span>i sacchi davanti alla porta, la raccolta differenziata</span></div>
+      <div class="card"><span class="emoji">🧽</span><b>La pulizia</b><span>il coinquilino che non lava mai i piatti</span></div>
+      <div class="card"><span class="emoji">🚗</span><b>Il parcheggio</b><span>la macchina davanti al portone</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>😤 Lamentarsi e rispondere</h2>
+    <table class="plur"><tr><th></th><th>espressioni</th></tr><tr><td>Lamentarsi</td><td>Mi dà fastidio che… · Non è giusto che… · Non ne posso più! · Uffa!</td></tr><tr><td>Chiedere</td><td>Le dispiacerebbe abbassare la musica? · Potrebbe fare più attenzione?</td></tr><tr><td>Spiegare le proprie ragioni</td><td>Non è colpa mia. · Mi scusi, non lo sapevo. · Il fatto è che…</td></tr><tr><td>Trovare un accordo</td><td>Facciamo così… · Va bene, d'ora in poi… · Patti chiari, amicizia lunga!</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>💭 Il congiuntivo: verbi irregolari</h2>
+    <table class="plur"><tr><th>verbo</th><th>che io, tu, lui, noi, voi, loro</th></tr><tr><td>andare</td><td>vada, vada, vada, andiamo, andiate, vadano</td></tr><tr><td>fare</td><td>faccia, faccia, faccia, facciamo, facciate, facciano</td></tr><tr><td>potere</td><td>possa, possa, possa, possiamo, possiate, possano</td></tr><tr><td>uscire</td><td>esca, esca, esca, usciamo, usciate, escano</td></tr><tr><td>venire</td><td>venga, venga, venga, veniamo, veniate, vengano</td></tr><tr><td>dire</td><td>dica, dica, dica, diciamo, diciate, dicano</td></tr><tr><td>stare / dare</td><td>stia… / dia…</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>💭 Quando si usa il congiuntivo?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">⚖️</span><b>Giudizi</b><span><i>Non è giusto che</i> i vicini <b>facciano</b> rumore.</span></div>
+      <div class="card"><span class="emoji">📌</span><b>Necessità</b><span><i>Bisogna che</i> tu <b>vada</b> dall'amministratore.</span></div>
+      <div class="card"><span class="emoji">😟</span><b>Sentimenti</b><span><i>Mi dà fastidio che</i> nessuno <b>pulisca</b> le scale.</span></div>
+      <div class="card"><span class="emoji">🚫</span><b>Negazione</b><span><i>Non è che</i> io non <b>voglia</b> aiutare, ma non ho tempo.</span></div>
+    </div>
+    <div class="nota" style="margin-top:14px;">Senza persona: <b>bisogna, occorre, basta</b> + infinito → <i>Bisogna pagare entro il 5. · Basta chiedere!</i></div>
+  </section>
+
+  <section class="slide">
+    <h2>🔄 La forma passiva</h2>
+    <p class="lead">Attiva: <b>L'amministratore</b> ha convocato la riunione.<br>Passiva: La riunione <b>è stata convocata</b> dall'amministratore.</p>
+    <table class="plur"><tr><th>tempo</th><th>esempio</th></tr><tr><td>presente</td><td>La spazzatura <b>è raccolta</b> / <b>viene raccolta</b> il martedì.</td></tr><tr><td>passato prossimo</td><td>Le regole <b>sono state cambiate</b>.</td></tr><tr><td>futuro</td><td>La riunione <b>sarà fatta</b> in cortile.</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>🔢 Qualche, ogni, nessuno…</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">1️⃣</span><b>qualche + singolare</b><span><i>Ho <b>qualche</b> problema con il vicino.</i> (= alcuni problemi)</span></div>
+      <div class="card"><span class="emoji">🔁</span><b>ogni + singolare</b><span><i><b>Ogni</b> sera mette la musica alta.</i></span></div>
+      <div class="card"><span class="emoji">🚫</span><b>nessuno / niente</b><span><i>Non è venuto <b>nessuno</b>. · Non ho detto <b>niente</b>.</i></span></div>
+      <div class="card"><span class="emoji">✨</span><b>qualcosa di / da</b><span><i>qualcosa <b>di</b> buono · qualcosa <b>da</b> fare</i></span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🤝 Anche se, benché…</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">➕</span><b>anche se + indicativo</b><span><i><b>Anche se</b> sono stanco, aiuto la mia vicina.</i></span></div>
+      <div class="card"><span class="emoji">✍️</span><b>benché / sebbene / nonostante + congiuntivo</b><span><i><b>Benché</b> sia stanco, aiuto la mia vicina.</i></span></div>
+    </div>
+    <div class="nota" style="margin-top:14px;">Verbi utili: <b>farcela</b> (riuscire) · <b>andarsene</b> (andare via) · <b>prendersela</b> (offendersi) · <b>cavarsela</b> (riuscire in una situazione difficile)</div>
+  </section>
+
+  <section class="slide">
+    <h2>💬 La musica del vicino</h2>
+    <div class="dialogo">
+      <div class="bubble"><span class="who">Signora Greco:</span> Buonasera. Mi scusi, ma sono le due di notte e la musica è altissima!</div>
+      <div class="bubble med"><span class="who">Yusuf:</span> Oh, mi dispiace. È il compleanno del mio coinquilino.</div>
+      <div class="bubble"><span class="who">Signora Greco:</span> Capisco, ma non è giusto che tutto il palazzo non possa dormire.</div>
+      <div class="bubble med"><span class="who">Yusuf:</span> Ha ragione. Non me la prenda, abbassiamo subito.</div>
+      <div class="bubble"><span class="who">Signora Greco:</span> Grazie. La prossima volta basta avvisare prima.</div>
+      <div class="bubble med"><span class="who">Yusuf:</span> Certo, d'ora in poi lo facciamo. Buonanotte!</div>
+    </div>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>Bravi!</h1>
+    <p class="lead" style="margin-top:14px;">Ora sai lamentarti con gentilezza e trovare un accordo.</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">Adesso facciamo gli esercizi 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+<script>
+(function(){
+  const sel='.bubble, .card, .cartelli div, .orologi div, .mondo div, .regola div, table.plur td, .nota, .lead, .big2';
+  document.querySelectorAll(sel).forEach(e=>e.classList.add('parla'));
+  document.addEventListener('click',ev=>{ const d=ev.target.closest('[data-say], .parla'); if(!d||!window.speechSynthesis||ev.target.closest('a,button')) return;
+    ev.stopPropagation();
+    const t=(d.dataset.say||d.innerText).replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\uFE0F\u200D]/gu,' ').replace(/[←→▶◀•…_]/g,' ').toLowerCase();
+    const u=new SpeechSynthesisUtterance(t); u.lang='it-IT'; u.rate=.85; speechSynthesis.cancel(); speechSynthesis.speak(u);
+    document.querySelectorAll('.parlando').forEach(x=>x.classList.remove('parlando')); d.classList.add('parlando');
+    u.onend=()=>d.classList.remove('parlando'); });
+})();
+</script>
+</body>
+</html>

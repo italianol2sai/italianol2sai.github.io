@@ -139,12 +139,34 @@ function recorder(sec, ex){
   sec.append(note);
 }
 
+// ascolto: la voce del computer legge un testo nascosto (campo audio, in base64). Righe [voce, testo]: F = donna, M = uomo
+let voci=[]; const caricaVoci=()=>{ voci=(window.speechSynthesis?speechSynthesis.getVoices():[]).filter(v=>/^it/i.test(v.lang)); };
+if(window.speechSynthesis){ caricaVoci(); speechSynthesis.onvoiceschanged=caricaVoci; }
+const MASCHI=/luca|diego|cosimo|giorgio|paolo|marco|calogero|benigno|giuseppe|rocko|reed|eddy|grandpa|male|uomo/i;
+function voce(chi){ const m=voci.filter(v=>MASCHI.test(v.name)), f=voci.filter(v=>!MASCHI.test(v.name));
+  return chi==="M" ? (m[0]||null) : (f[0]||voci[0]||null); }
+function player(sec, ex){
+  const raw=dec(ex.audio); const righe=typeof raw==="string"?[["F",raw]]:raw;
+  const box=el("div",{class:"sit"}); box.append(html("div",{},"🎧 <b>Ascolta</b> tutte le volte che vuoi. Il testo non è scritto: devi capire con le orecchie."));
+  const bar=el("div",{class:"rec"});
+  const go=el("button",{class:"btn",type:"button"},"▶️ Ascolta"), slow=el("button",{class:"btn sec",type:"button"},"🐢 Più lento"),
+        stop=el("button",{class:"btn sec",type:"button"},"⏹️ Stop");
+  bar.append(go,slow,stop); box.append(bar); sec.append(box);
+  if(!window.speechSynthesis){ go.disabled=slow.disabled=true; box.append(el("p",{class:"note"},"Questo browser non può leggere ad alta voce. Prova con Chrome, Edge o Safari.")); return; }
+  const play=rate=>{ speechSynthesis.cancel(); if(!voci.length) caricaVoci();
+    const mv=voce("M"), fv=voce("F"), stessa=!mv||mv===fv;
+    righe.forEach(([chi,t])=>{ const u=new SpeechSynthesisUtterance(t); u.lang="it-IT"; u.rate=rate;
+      const v=chi==="M"?mv:fv; if(v) u.voice=v; if(stessa) u.pitch=chi==="M"?.75:1.2; speechSynthesis.speak(u); }); };
+  go.onclick=()=>play(.95); slow.onclick=()=>play(.7); stop.onclick=()=>speechSynthesis.cancel();
+}
+
 const restore=[];
 D.sections.forEach(ex=>{
   if(ex.part){ main.append(el("div",{class:"part"},ex.part)); return; }
   const sec=el("section",{id:"ex-"+ex.id});
   const h=el("h2"); h.append(ex.title||""); if(ex.badge) h.append(" ",el("span",{class:"pts"},ex.badge)); sec.append(h);
   if(ex.cons) sec.append(html("p",{class:"cons"},ex.cons));
+  if(ex.audio) player(sec, ex);
   if(ex.info) sec.append(html("div",{class:"box"},ex.info));
   if(ex.img) sec.append(el("img",{src:ex.img,alt:ex.alt||"",class:"img"}));
   if(ex.bank) sec.append(html("p",{class:"bank"},"Parole: "+ex.bank));
