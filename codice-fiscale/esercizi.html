@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔢 Il codice fiscale e il modulo AA4/8 · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🔢 Il codice fiscale e il modulo AA4/8 · Esercizi",
+ "store": "codice-fiscale",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Il codice fiscale"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Il codice fiscale: vero o falso?",
+   "short": "1 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. IL CODICE FISCALE HA 16 CARATTERI."
+    },
+    {
+     "q": "2. IL CODICE FISCALE HA SOLO NUMERI."
+    },
+    {
+     "q": "3. LO CHIEDO ALL'AGENZIA DELLE ENTRATE."
+    },
+    {
+     "q": "4. IL CODICE FISCALE COSTA 16 EURO."
+    },
+    {
+     "q": "5. IL CODICE FISCALE È ANCHE SULLA TESSERA SANITARIA."
+    },
+    {
+     "q": "6. IO E MIO FRATELLO ABBIAMO LO STESSO CODICE FISCALE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Che cosa c'è dentro il codice fiscale?",
+   "short": "2 · Che cosa c'è dentro",
+   "type": "multi",
+   "cons": "METTI LA SPUNTA VICINO ALLE 5 COSE GIUSTE.",
+   "items": [
+    "IL COGNOME",
+    "IL NUMERO DI TELEFONO",
+    "IL NOME",
+    "LA DATA DI NASCITA",
+    "L'INDIRIZZO DI CASA",
+    "IL SESSO (UOMO O DONNA)",
+    "IL LAVORO",
+    "IL LUOGO DI NASCITA"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiLSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlgiXX0sIHsidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiLSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlgiXX0sIHsidCI6ICJlcSIsICJhIjogWyItIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiWCJdfV0="
+  },
+  {
+   "part": "Il modulo AA4/8"
+  },
+  {
+   "id": "e3",
+   "title": "3 · In quale parte del modulo scrivo?",
+   "short": "3 · Le parti del modulo",
+   "type": "select",
+   "opts": [
+    "QUADRO A",
+    "QUADRO B",
+    "QUADRO C",
+    "QUADRO D",
+    "SOTTOSCRIZIONE"
+   ],
+   "items": [
+    {
+     "q": "1. IL MIO COGNOME E IL MIO NOME"
+    },
+    {
+     "q": "2. IL MIO INDIRIZZO A BARI"
+    },
+    {
+     "q": "3. CHE COSA CHIEDO (ES. IL PRIMO CODICE FISCALE)"
+    },
+    {
+     "q": "4. LA DATA DI OGGI E LA FIRMA"
+    },
+    {
+     "q": "5. LA MIA DATA DI NASCITA"
+    },
+    {
+     "q": "6. IL MIO INDIRIZZO IN UN ALTRO PAESE (SE ABITO ALL'ESTERO)"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJRVUFEUk8gQiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlFVQURSTyBDIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUVVBRFJPIEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTT1RUT1NDUklaSU9ORSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlFVQURSTyBCIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUVVBRFJPIEQiXX1d"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Quadro A: che cosa metto?",
+   "short": "4 · Il quadro A",
+   "type": "select",
+   "cons": "LEGGI. SCEGLI LA CASELLA GIUSTA.",
+   "opts": [
+    "D · PER ME",
+    "T · PER UN'ALTRA PERSONA",
+    "1 · ATTRIBUZIONE CODICE FISCALE",
+    "2 · VARIAZIONE DATI",
+    "5 · DUPLICATO TESSERA SANITARIA"
+   ],
+   "items": [
+    {
+     "q": "1. NON HO IL CODICE FISCALE. È LA PRIMA VOLTA."
+    },
+    {
+     "q": "2. HO PERSO LA TESSERA SANITARIA."
+    },
+    {
+     "q": "3. VADO IO ALL'UFFICIO, LA DOMANDA È PER ME."
+    },
+    {
+     "q": "4. HO CAMBIATO CASA E INDIRIZZO."
+    },
+    {
+     "q": "5. MIA SORELLA VA ALL'UFFICIO PER ME, CON LA DELEGA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxIMK3IEFUVFJJQlVaSU9ORSBDT0RJQ0UgRklTQ0FMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjUgwrcgRFVQTElDQVRPIFRFU1NFUkEgU0FOSVRBUklBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRCDCtyBQRVIgTUUiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyIMK3IFZBUklBWklPTkUgREFUSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlQgwrcgUEVSIFVOJ0FMVFJBIFBFUlNPTkEiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Compila il modulo di Fatima",
+   "short": "5 · Il modulo di Fatima",
+   "type": "text",
+   "w": "m",
+   "info": "👩 <b>MI CHIAMO FATIMA SAIDI</b>. SONO UNA DONNA. SONO NATA IN <b>TUNISIA</b> L'<b>8 APRILE 1999</b>.<br>ABITO A <b>BARI</b> (PROVINCIA <b>BA</b>), IN <b>VIA DELLE ROSE 21</b>. IL CAP È <b>70124</b>.<br>NON HO IL CODICE FISCALE: È LA PRIMA VOLTA. VADO IO ALL'AGENZIA DELLE ENTRATE.<br><small>(FATIMA E IL SUO INDIRIZZO SONO INVENTATI)</small>",
+   "cons": "LEGGI. SCRIVI I DATI DI FATIMA NEL MODULO.",
+   "items": [
+    {
+     "q": "QUADRO A · TIPOLOGIA (D O T):"
+    },
+    {
+     "q": "QUADRO A · TIPO DI RICHIESTA (NUMERO):"
+    },
+    {
+     "q": "QUADRO B · COGNOME:"
+    },
+    {
+     "q": "QUADRO B · NOME:"
+    },
+    {
+     "q": "QUADRO B · SESSO (M O F):"
+    },
+    {
+     "q": "QUADRO B · STATO ESTERO DI NASCITA:"
+    },
+    {
+     "q": "QUADRO B · DATA DI NASCITA:"
+    },
+    {
+     "q": "QUADRO C · COMUNE:"
+    },
+    {
+     "q": "QUADRO C · PROVINCIA:"
+    },
+    {
+     "q": "QUADRO C · C.A.P.:"
+    },
+    {
+     "q": "QUADRO C · TIPOLOGIA (VIA, PIAZZA…):"
+    },
+    {
+     "q": "QUADRO C · INDIRIZZO:"
+    },
+    {
+     "q": "QUADRO C · NUMERO CIVICO:"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJkIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNhaWRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZmF0aW1hIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZiJdfSwgeyJ0IjogImVxIiwgImEiOiBbInR1bmlzaWEiXX0sIHsidCI6ICJlcSIsICJhIjogWyIwOCAwNCAxOTk5IiwgIjggMDQgMTk5OSIsICIwOC8wNC8xOTk5IiwgIjgvNC8xOTk5IiwgIjA4LzQvMTk5OSIsICI4LzA0LzE5OTkiLCAiMDggNCAxOTk5IiwgIjggNCAxOTk5IiwgIjA4LTA0LTE5OTkiLCAiOCBhcHJpbGUgMTk5OSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImJhcmkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJiYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjcwMTI0Il19LCB7InQiOiAiZXEiLCAiYSI6IFsidmlhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZGVsbGUgcm9zZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjIxIl19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 · Che cosa porto all'ufficio?",
+   "short": "6 · Che cosa porto",
+   "type": "multi",
+   "cons": "METTI LA SPUNTA VICINO ALLE 3 COSE GIUSTE.",
+   "items": [
+    "IL PASSAPORTO O UN DOCUMENTO D'IDENTITÀ",
+    "IL MODULO AA4/8 COMPILATO",
+    "50 EURO PER PAGARE",
+    "LA FOTOCOPIA DEL DOCUMENTO",
+    "LA BUSTA PAGA"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiWCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIi0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiLSJdfV0="
+  },
+  {
+   "id": "e7",
+   "title": "7 ✎ · Compila il tuo modulo",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI IN STAMPATELLO. SE VUOI, PUOI USARE DATI INVENTATI.",
+   "items": [
+    "COGNOME",
+    "NOME",
+    "SESSO",
+    "COMUNE O STATO ESTERO DI NASCITA",
+    "DATA DI NASCITA",
+    "COMUNE DI RESIDENZA",
+    "INDIRIZZO E NUMERO CIVICO",
+    "C.A.P."
+   ]
+  },
+  {
+   "id": "e8",
+   "title": "8 🎤 · Spiega a un amico",
+   "type": "record",
+   "items": [
+    "UN AMICO È APPENA ARRIVATO A BARI. SPIEGA: CHE COS'È IL CODICE FISCALE, DOVE LO CHIEDE E CHE COSA DEVE PORTARE."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

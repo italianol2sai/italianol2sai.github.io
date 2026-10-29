@@ -42,5 +42,6 @@ def build(path, unit, topbar, slides, css=""):
 if __name__ == "__main__":
     from unita_primi import SLIDE
     from unita_primi2 import SLIDE2
-    for path, unit, topbar, slides, css in SLIDE + SLIDE2:
+    from unita_civica import SLIDE_CIVICA
+    for path, unit, topbar, slides, css in SLIDE + SLIDE2 + SLIDE_CIVICA:
         build(path, unit, topbar, slides, css)
