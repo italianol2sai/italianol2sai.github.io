@@ -63,6 +63,7 @@ if __name__ == "__main__":
     from unita_classroom import FAMIGLIA, GIORNATA, DIAL_DOTTORE, LAVORO, NEGOZIO, INDOVINA, MACCHINA
     from unita_primi import DATI, ORE, EURO, MERCATO
     from unita_primi2 import ESERCIZI2
+    from unita_alimentare import A1 as ALIM_A1, A2 as ALIM_A2
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
@@ -96,6 +97,8 @@ if __name__ == "__main__":
     for cartella, dati in ESERCIZI2:
         build(cartella + "/esercizi.html", dati)
     build("parole/cucina.html", CUCINA)
+    build("mangiare-sano/esercizi.html", ALIM_A1)
+    build("mangiare-sano/letture.html", ALIM_A2)
     build("parole/casa.html", CASA_PAROLE)
     build("parole/vestiti.html", VESTITI)
     build("parole/colori-numeri-emozioni.html", PRIMI_PAROLE)

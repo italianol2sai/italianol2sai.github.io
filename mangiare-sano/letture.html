@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🥗 Mangiare sano · Letture A2</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🥗 Mangiare sano · Letture A2",
+ "store": "mangiare-sano-a2",
+ "sections": [
+  {
+   "part": "Il cibo e il corpo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che cosa c'è in questo cibo?",
+   "short": "1 · Le sostanze",
+   "type": "select",
+   "cons": "Leggi, poi scegli la sostanza più importante di ogni cibo.",
+   "info": "Il cibo ci dà l'energia per vivere, lavorare e muoverci. Nel cibo ci sono sostanze diverse:<br>🍝 i <b>carboidrati</b> danno energia: sono nel pane, nella pasta, nel riso e nelle patate;<br>🥩 le <b>proteine</b> costruiscono e riparano il corpo: sono nella carne, nel pesce, nelle uova e nei legumi;<br>🫒 i <b>grassi</b> sono una riserva di energia: sono nell'olio, nel burro e nella frutta secca;<br>🥦 le <b>vitamine</b> e i <b>sali minerali</b> aiutano il corpo a funzionare bene: sono soprattutto nella frutta e nella verdura;<br>🥛 il <b>calcio</b> rende forti le ossa e i denti: è nel latte, nello yogurt e nel formaggio.<br><br>Il cibo con troppi grassi, zucchero e sale si chiama <i>junk food</i>, cioè «cibo spazzatura».",
+   "opts": [
+    "carboidrati",
+    "proteine",
+    "grassi",
+    "vitamine e sali minerali"
+   ],
+   "items": [
+    {
+     "q": "1. la focaccia"
+    },
+    {
+     "q": "2. le lenticchie"
+    },
+    {
+     "q": "3. le mandorle"
+    },
+    {
+     "q": "4. gli spinaci"
+    },
+    {
+     "q": "5. il tonno"
+    },
+    {
+     "q": "6. le friselle"
+    },
+    {
+     "q": "7. l'olio d'oliva"
+    },
+    {
+     "q": "8. i mandarini"
+    },
+    {
+     "q": "9. il pollo"
+    },
+    {
+     "q": "10. il couscous"
+    },
+    {
+     "q": "11. il burro"
+    },
+    {
+     "q": "12. i peperoni"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjYXJib2lkcmF0aSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInByb3RlaW5lIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ3Jhc3NpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidml0YW1pbmUgZSBzYWxpIG1pbmVyYWxpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicHJvdGVpbmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjYXJib2lkcmF0aSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdyYXNzaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInZpdGFtaW5lIGUgc2FsaSBtaW5lcmFsaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInByb3RlaW5lIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY2FyYm9pZHJhdGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJncmFzc2kiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2aXRhbWluZSBlIHNhbGkgbWluZXJhbGkiXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Completa le frasi",
+   "short": "2 · Completa",
+   "type": "cloze",
+   "bank": "calcio · carboidrati · grassi · proteine · vitamine",
+   "parts": [
+    "Prima di giocare a calcio mangio un piatto di pasta: i ",
+    {},
+    " mi danno energia. Mia figlia beve il latte perché il ",
+    {},
+    " fa bene alle ossa. Dopo la palestra mangio uova e legumi: le ",
+    {},
+    " aiutano i muscoli. D'inverno mangio molte arance: le ",
+    {},
+    " mi aiutano a non ammalarmi. Uso poco burro perché ha molti ",
+    {},
+    "."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjYXJib2lkcmF0aSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNhbGNpbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInByb3RlaW5lIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidml0YW1pbmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJncmFzc2kiXX1d"
+  },
+  {
+   "part": "Quante volte?"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Leggi i consigli e scegli",
+   "short": "3 · Quante volte",
+   "type": "select",
+   "info": "<b>Ogni giorno</b>: frutta e verdura (almeno 5 porzioni), pane, pasta o riso (meglio integrali), latte o yogurt, un po' di frutta secca e tanta acqua (circa 8 bicchieri). Per condire, olio extravergine d'oliva.<br><b>2-3 volte alla settimana</b>: legumi, pesce, carne bianca (pollo, tacchino), uova, formaggi.<br><b>1 volta alla settimana</b>: carne rossa.<br><b>Solo ogni tanto</b>: dolci, salumi, bibite zuccherate, cibi fritti. E poco sale!",
+   "opts": [
+    "ogni giorno",
+    "2-3 volte alla settimana",
+    "1 volta alla settimana",
+    "solo ogni tanto"
+   ],
+   "items": [
+    {
+     "q": "1. la verdura"
+    },
+    {
+     "q": "2. il pesce"
+    },
+    {
+     "q": "3. la carne di manzo"
+    },
+    {
+     "q": "4. i fagioli"
+    },
+    {
+     "q": "5. le patatine fritte"
+    },
+    {
+     "q": "6. lo yogurt"
+    },
+    {
+     "q": "7. il formaggio"
+    },
+    {
+     "q": "8. le bibite zuccherate"
+    },
+    {
+     "q": "9. il riso"
+    },
+    {
+     "q": "10. il tacchino"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJvZ25pIGdpb3JubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjItMyB2b2x0ZSBhbGxhIHNldHRpbWFuYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEgdm9sdGEgYWxsYSBzZXR0aW1hbmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyLTMgdm9sdGUgYWxsYSBzZXR0aW1hbmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzb2xvIG9nbmkgdGFudG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJvZ25pIGdpb3JubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjItMyB2b2x0ZSBhbGxhIHNldHRpbWFuYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNvbG8gb2duaSB0YW50byJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm9nbmkgZ2lvcm5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMi0zIHZvbHRlIGFsbGEgc2V0dGltYW5hIl19XQ=="
+  },
+  {
+   "part": "Il cibo biologico"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Vero o falso?",
+   "short": "4 · Il biologico",
+   "type": "choice",
+   "full": true,
+   "info": "Al supermercato vedi spesso la scritta «BIO». Che cosa vuol dire? Un prodotto biologico viene da un'agricoltura che non usa pesticidi e concimi chimici. Questi prodotti chimici possono fare male alla salute, all'ambiente e agli animali. Nei cibi biologici non ci sono coloranti e conservanti artificiali. A volte la frutta bio è meno bella (più piccola, con qualche macchia), ma è buona e sana. Di solito i prodotti bio costano un po' di più.<br>Un consiglio: compra frutta e verdura di stagione, al mercato o dai contadini della zona.",
+   "opts": [
+    "vero",
+    "falso"
+   ],
+   "items": [
+    {
+     "q": "1. I prodotti biologici hanno la scritta «BIO»."
+    },
+    {
+     "q": "2. L'agricoltura biologica usa molti pesticidi."
+    },
+    {
+     "q": "3. I prodotti chimici possono fare male all'ambiente."
+    },
+    {
+     "q": "4. Nei cibi biologici ci sono coloranti artificiali."
+    },
+    {
+     "q": "5. La frutta bio è sempre più bella."
+    },
+    {
+     "q": "6. Di solito i prodotti bio costano un po' di più."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ2ZXJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZmFsc28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2ZXJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZmFsc28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJmYWxzbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInZlcm8iXX1d"
+  },
+  {
+   "part": "I sapori"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Che sapore ha?",
+   "short": "5 · I sapori",
+   "type": "select",
+   "info": "La lingua sente i sapori. I sapori principali sono quattro: <b>dolce</b> (lo zucchero), <b>salato</b> (il sale), <b>amaro</b> (il caffè senza zucchero) e <b>acido</b> (il limone). Nel 1908 uno scienziato giapponese, Kikunae Ikeda, ha scoperto un quinto sapore: l'<b>umami</b>. È un sapore molto saporito, come il brodo di carne, il parmigiano o i funghi secchi. Oggi alcuni ricercatori pensano che esista anche un sesto sapore: il sapore del <b>grasso</b>.",
+   "opts": [
+    "dolce",
+    "salato",
+    "amaro",
+    "acido",
+    "umami"
+   ],
+   "items": [
+    {
+     "q": "1. il miele"
+    },
+    {
+     "q": "2. il limone"
+    },
+    {
+     "q": "3. le olive in salamoia"
+    },
+    {
+     "q": "4. il cioccolato fondente"
+    },
+    {
+     "q": "5. il brodo di carne"
+    },
+    {
+     "q": "6. la torta"
+    },
+    {
+     "q": "7. le patatine"
+    },
+    {
+     "q": "8. la cicoria"
+    },
+    {
+     "q": "9. lo yogurt bianco"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJkb2xjZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFjaWRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2FsYXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYW1hcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ1bWFtaSIsICJzYWxhdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJkb2xjZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNhbGF0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFtYXJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYWNpZG8iXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 ✎ · I tuoi sapori",
+   "type": "free",
+   "rows": 3,
+   "items": [
+    "Per ogni sapore scrivi un cibo che ti piace. Esempio: dolce → i datteri; salato → …"
+   ]
+  },
+  {
+   "part": "Le spezie"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Vero o falso?",
+   "short": "7 · Le spezie",
+   "type": "choice",
+   "full": true,
+   "info": "Le spezie sono semi, frutti, radici o cortecce di piante, seccati. In tutto il mondo le usiamo per dare sapore e colore al cibo e anche per conservarlo. Il <b>pepe</b> è la spezia più venduta del mondo. Lo <b>zafferano</b> è la più cara. La <b>curcuma</b> e lo <b>zenzero</b> sono usati anche come medicine naturali. Molte spezie arrivano dall'Asia. Nel 1492 Cristoforo Colombo cercava una nuova strada per l'India e le sue spezie, ma è arrivato in America: da lì il <b>peperoncino</b> è arrivato in Europa. E nel tuo paese, quali spezie usate in cucina?",
+   "opts": [
+    "vero",
+    "falso"
+   ],
+   "items": [
+    {
+     "q": "1. Il pepe è la spezia più venduta del mondo."
+    },
+    {
+     "q": "2. Lo zafferano costa poco."
+    },
+    {
+     "q": "3. Le spezie servono anche a conservare il cibo."
+    },
+    {
+     "q": "4. Colombo è arrivato in India."
+    },
+    {
+     "q": "5. Il peperoncino è arrivato in Europa dall'America."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ2ZXJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZmFsc28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2ZXJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZmFsc28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2ZXJvIl19XQ=="
+  },
+  {
+   "id": "e8",
+   "title": "8 · Metti in ordine le sillabe",
+   "short": "8 · Nomi di spezie",
+   "type": "text",
+   "cons": "Scrivi il nome della spezia.",
+   "items": [
+    {
+     "q": "1. CU · MA · CUR"
+    },
+    {
+     "q": "2. RO · ZEN · ZE"
+    },
+    {
+     "q": "3. FE · ZAF · NO · RA"
+    },
+    {
+     "q": "4. NEL · CAN · LA"
+    },
+    {
+     "q": "5. RON · PE · CI · PE · NO"
+    },
+    {
+     "q": "6. MO · DA · CAR · MO"
+    }
+   ],
+   "k": "W3sidCI6ICJoYXMiLCAiYSI6IFsiY3VyY3VtYSJdfSwgeyJ0IjogImhhcyIsICJhIjogWyJ6ZW56ZXJvIl19LCB7InQiOiAiaGFzIiwgImEiOiBbInphZmZlcmFubyJdfSwgeyJ0IjogImhhcyIsICJhIjogWyJjYW5uZWxsYSJdfSwgeyJ0IjogImhhcyIsICJhIjogWyJwZXBlcm9uY2luIl19LCB7InQiOiAiaGFzIiwgImEiOiBbImNhcmRhbW9tbyJdfV0="
+  },
+  {
+   "part": "Il pesce azzurro"
+  },
+  {
+   "id": "e9",
+   "title": "9 · Scopri i nomi dei pesci",
+   "short": "9 · Il codice",
+   "type": "text",
+   "info": "A Bari il pesce è una tradizione: la mattina, al porto, i pescatori vendono il pesce appena pescato. Il <b>pesce azzurro</b> è un gruppo di pesci con la schiena blu-verde e la pancia color argento. Costa poco ed è molto sano: ha proteine, vitamine, calcio, iodio e grassi «buoni», gli <b>Omega-3</b>, che aiutano il cuore e il cervello. È bene mangiare pesce 2 o 3 volte alla settimana. A Bari, per esempio, si mangiano le alici arraganate: al forno, con pangrattato e origano.<br><br>🔢 <b>Il codice</b>: A 1 · B 2 · C 3 · D 4 · E 5 · F 6 · G 7 · H 8 · I 9 · L 10 · M 11<br>N 12 · O 13 · P 14 · Q 15 · R 16 · S 17 · T 18 · U 19 · V 20 · Z 21",
+   "cons": "Cambia i numeri in lettere e scrivi il nome del pesce azzurro.",
+   "items": [
+    {
+     "q": "1. 1 · 10 · 9 · 3 · 9"
+    },
+    {
+     "q": "2. 17 · 1 · 16 · 4 · 9 · 12 · 5"
+    },
+    {
+     "q": "3. 17 · 7 · 13 · 11 · 2 · 16 · 13"
+    },
+    {
+     "q": "4. 18 · 13 · 12 · 12 · 13"
+    }
+   ],
+   "k": "W3sidCI6ICJoYXMiLCAiYSI6IFsiYWxpY2kiXX0sIHsidCI6ICJoYXMiLCAiYSI6IFsic2FyZGluZSJdfSwgeyJ0IjogImhhcyIsICJhIjogWyJzZ29tYnJvIl19LCB7InQiOiAiaGFzIiwgImEiOiBbInRvbm5vIl19XQ=="
+  },
+  {
+   "id": "e10",
+   "title": "10 · Vero o falso?",
+   "short": "10 · Il pesce",
+   "type": "choice",
+   "full": true,
+   "opts": [
+    "vero",
+    "falso"
+   ],
+   "items": [
+    {
+     "q": "1. Il pesce azzurro costa molto."
+    },
+    {
+     "q": "2. Le alici sono pesce azzurro."
+    },
+    {
+     "q": "3. Gli Omega-3 aiutano il cuore."
+    },
+    {
+     "q": "4. È bene mangiare pesce una volta al mese."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJmYWxzbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInZlcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2ZXJvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZmFsc28iXX1d"
+  },
+  {
+   "part": "Una ricetta"
+  },
+  {
+   "id": "e11",
+   "title": "11 · I biscotti a spirale: completa",
+   "short": "11 · La ricetta",
+   "type": "cloze",
+   "cons": "Ingredienti: 500 g di farina, 120 g di zucchero, 3 uova, 100 g di burro, 1 bustina di lievito, 50 g di cacao amaro, un po' di latte.",
+   "bank": "aggiungi · arrotola · cuoci · dividi · mescola · sbatti · sciogli · stendi · taglia",
+   "parts": [
+    "Prima ",
+    {},
+    " il burro in un pentolino. In una ciotola ",
+    {},
+    " le uova con lo zucchero. ",
+    {},
+    " il burro, la farina e il lievito e ",
+    {},
+    " bene. Quando l'impasto è morbido, ",
+    {},
+    " l'impasto in due parti. In una metà metti il cacao e un cucchiaio di latte. Con il mattarello ",
+    {},
+    " i due impasti, mettili uno sopra l'altro e ",
+    {},
+    " tutto. ",
+    {},
+    " il rotolo a fette e ",
+    {},
+    " i biscotti in forno a 180 gradi per 10-12 minuti."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzY2lvZ2xpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2JhdHRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYWdnaXVuZ2kiXX0sIHsidCI6ICJlcSIsICJhIjogWyJtZXNjb2xhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZGl2aWRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic3RlbmRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYXJyb3RvbGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0YWdsaWEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjdW9jaSJdfV0="
+  },
+  {
+   "part": "Colazione e merenda"
+  },
+  {
+   "id": "e12",
+   "title": "12 · È una merenda sana?",
+   "short": "12 · La merenda",
+   "type": "choice",
+   "full": true,
+   "info": "In Italia molte persone fanno una colazione dolce: caffè o latte con biscotti, oppure fette biscottate e marmellata. Ma va bene anche una colazione salata, con pane e formaggio o uova. L'importante è non saltare la colazione e mangiare con calma, seduti. A metà mattina e a metà pomeriggio si può fare una piccola merenda: un frutto, uno yogurt, pane e pomodoro, un po' di frutta secca.",
+   "opts": [
+    "sì",
+    "no"
+   ],
+   "items": [
+    {
+     "q": "1. una mela"
+    },
+    {
+     "q": "2. un pacchetto grande di patatine"
+    },
+    {
+     "q": "3. uno yogurt"
+    },
+    {
+     "q": "4. una lattina di bibita gassata"
+    },
+    {
+     "q": "5. pane e pomodoro"
+    },
+    {
+     "q": "6. una manciata di noci"
+    },
+    {
+     "q": "7. tre merendine confezionate"
+    },
+    {
+     "q": "8. un frullato di frutta e latte"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzw6wiXX0sIHsidCI6ICJlcSIsICJhIjogWyJubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInPDrCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic8OsIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic8OsIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzw6wiXX1d"
+  },
+  {
+   "part": "E tu?"
+  },
+  {
+   "id": "e13",
+   "title": "13 ✎ · Le tue abitudini",
+   "type": "free",
+   "rows": 3,
+   "items": [
+    "Rispetti queste regole: colazione con calma, pasti a orari regolari, acqua durante i pasti? Quali no, e perché?",
+    "Queste regole sono solo per i bambini? Che cosa ne pensi?",
+    "Quando mangi guardi la televisione o il telefono?"
+   ]
+  },
+  {
+   "id": "e14",
+   "title": "14 🎤 · Parla",
+   "type": "record",
+   "items": [
+    "Racconta che cosa si mangia in una giornata normale nel tuo paese. È diverso dall'Italia?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
