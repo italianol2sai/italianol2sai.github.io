@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'AGENZIA DELLE ENTRATE - ITALIANO L2</title>
+<style>
+  :root{
+    --blu:#E07A1F; --blu-scuro:#3B2410; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FFF6EC; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#E07A1F,#F6B44C); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+
+  .parla, [data-say]{cursor:pointer;} .bubble.parla::after, .card.parla b::after{content:" 🔊"; font-size:.8em; opacity:.55;}
+  .parlando{outline:4px solid var(--arancio); outline-offset:2px;}
+  .card, .card b, .cover h1, .bubble, table.plur td{overflow-wrap:anywhere;}
+  @media (max-width:900px){ .cover h1{font-size:2.1rem;} .card b{font-size:1.05rem;} .card{padding:12px;} }
+  @media (max-width:520px){ .g3{grid-template-columns:1fr;} .g3 .card{flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:12px;} .g3 .card .emoji{font-size:2rem;} .g3 .card span:last-child{flex-basis:100%;} }
+  .passi{display:flex; flex-direction:column; gap:12px; max-width:1000px;}
+  .passi div{background:#fff; border:3px solid #e3edf8; border-radius:14px; padding:12px 16px; font-size:1.45rem; display:flex; gap:14px; align-items:center;}
+  .passi .n{flex:none; width:44px; height:44px; line-height:44px; text-align:center; border-radius:50%; background:var(--blu); color:#fff; font-weight:bold;}
+  .cf{display:flex; flex-wrap:wrap; gap:8px; font-family:monospace; font-size:2rem; font-weight:bold; margin:8px 0 14px;}
+  .cf span{background:#fff; border:3px solid var(--teal); border-radius:12px; padding:8px 12px; text-align:center;}
+  .cf small{display:block; font-family:inherit; font-size:.85rem; font-weight:normal; color:#5b6b7b; margin-top:4px;}
+  .pin{font-family:monospace; font-size:2.3rem; font-weight:bold; letter-spacing:4px;}
+  .card, .card b, table.plur td, table.plur th{overflow-wrap:normal; word-break:normal; hyphens:none;}
+  table.plur td b{white-space:nowrap;}
+  @media (max-width:520px){ .g2, .g4{grid-template-columns:1fr;} }
+  @media (max-width:900px){ .passi div{font-size:1.1rem;} .cf{font-size:1.3rem;} .cf small{font-size:.7rem;} .pin{font-size:1.5rem; letter-spacing:2px;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; EDUCAZIONE CIVICA</span>
+  <span>L'AGENZIA DELLE ENTRATE</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">🏛️</div>
+    <h1>L'AGENZIA DELLE ENTRATE</h1>
+    <p class="lead" style="margin-top:14px;">CHE COS'È? CHE COSA FA?</p>
+    <span class="badge">IL CODICE FISCALE &bull; LE TASSE &bull; L'AFFITTO &bull; LA PARTITA IVA</span>
+  </section>
+
+  <section class="slide">
+    <h2>CHE COSA IMPARIAMO?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🔢</span><b>IL CODICE FISCALE</b><span>CHE COS'È E A CHE COSA SERVE</span></div>
+      <div class="card"><span class="emoji">💶</span><b>LE TASSE</b><span>CHE COSA SONO E CHI LE PAGA</span></div>
+      <div class="card"><span class="emoji">🏠</span><b>IL CONTRATTO D'AFFITTO</b><span>BISOGNA REGISTRARLO</span></div>
+      <div class="card"><span class="emoji">🏪</span><b>LA PARTITA IVA</b><span>PER APRIRE UN'ATTIVITÀ</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🏛️ CHE COS'È?</h2>
+    <div class="nota" style="">L'AGENZIA DELLE ENTRATE È UN <b>UFFICIO DELLO STATO</b>.<br>C'È UN UFFICIO IN OGNI CITTÀ. ANCHE A BARI.</div>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🔢</span><b>DÀ IL CODICE FISCALE</b><span>UN CODICE IMPORTANTE PER LA VITA IN ITALIA</span></div>
+      <div class="card"><span class="emoji">💶</span><b>GESTISCE LE TASSE</b><span>I SOLDI CHE PAGHIAMO ALLO STATO</span></div>
+      <div class="card"><span class="emoji">🔍</span><b>CONTROLLA</b><span>CONTROLLA CHE LE PERSONE PAGANO LE TASSE GIUSTE</span></div>
+      <div class="card"><span class="emoji">🤝</span><b>AIUTA</b><span>HAI UN PROBLEMA CON LE TASSE O CON IL CODICE FISCALE? CHIEDI ALL'UFFICIO</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🔢 IL CODICE FISCALE SERVE PER…</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🏥</span><b>LA TESSERA SANITARIA</b><span>SCEGLIERE IL DOTTORE, PRENOTARE UNA VISITA</span></div>
+      <div class="card"><span class="emoji">💼</span><b>IL CONTRATTO DI LAVORO</b><span>SENZA CODICE FISCALE NON PUOI ESSERE ASSUNTO</span></div>
+      <div class="card"><span class="emoji">🏦</span><b>IL CONTO CORRENTE</b><span>ALLA POSTA O IN BANCA: I TUOI SOLDI SONO AL SICURO</span></div>
+      <div class="card"><span class="emoji">🏠</span><b>AFFITTARE UNA CASA</b><span>IL CONTRATTO D'AFFITTO HA IL TUO CODICE FISCALE</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>💶 CHE COSA SONO LE TASSE?</h2>
+    <div class="twocol2">
+    <div class="nota" style="">LE <b>TASSE</b> SONO I SOLDI CHE PAGHIAMO ALLO <b>STATO</b>:<br>QUANDO LAVORIAMO, QUANDO ABBIAMO UNA CASA O UN TERRENO.</div>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🏫</span><b>LE SCUOLE</b><span></span></div>
+      <div class="card"><span class="emoji">🏥</span><b>GLI OSPEDALI</b><span></span></div>
+      <div class="card"><span class="emoji">🛣️</span><b>LE STRADE</b><span></span></div>
+      <div class="card"><span class="emoji">🌳</span><b>I PARCHI</b><span></span></div>
+    </div>
+    </div>
+    <div class="nota" style="margin-top:20px;">CON LE TASSE LO STATO PAGA I SERVIZI <b>PER TUTTI</b>. COSÌ LA SCUOLA E L'OSPEDALE COSTANO POCO O SONO GRATIS.</div>
+  </section>
+
+  <section class="slide">
+    <h2>⚖️ CHI PAGA DI PIÙ?</h2>
+    <table class="plur"><tr><th></th><th>CHI?</th><th>QUANTO PAGA?</th></tr><tr><td>💰💰💰</td><td>CHI GUADAGNA DI PIÙ</td><td>PAGA DI PIÙ</td></tr><tr><td>💰</td><td>CHI GUADAGNA DI MENO</td><td>PAGA DI MENO</td></tr><tr><td>—</td><td>CHI NON HA NIENTE</td><td>NON PAGA</td></tr></table>
+    <div class="nota" style="margin-top:20px;">SE LAVORI CON UN CONTRATTO, IL <b>DATORE DI LAVORO</b> PAGA LE TASSE PER TE OGNI MESE.<br>LE VEDI NELLA <b>BUSTA PAGA</b>: IL LORDO MENO LE TASSE = IL NETTO.</div>
+  </section>
+
+  <section class="slide">
+    <h2>📋 LA DICHIARAZIONE DEI REDDITI</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">📅</span><b>UNA VOLTA ALL'ANNO</b><span>DICO ALLO STATO QUANTI SOLDI HO GUADAGNATO</span></div>
+      <div class="card"><span class="emoji">📄</span><b>LA CU (CERTIFICAZIONE UNICA)</b><span>LA DÀ IL DATORE DI LAVORO. DICE QUANTO HO GUADAGNATO IN UN ANNO</span></div>
+      <div class="card"><span class="emoji">💊</span><b>LE SPESE PER LA SALUTE</b><span>MEDICINE, DOTTORI: CONSERVO GLI SCONTRINI</span></div>
+      <div class="card"><span class="emoji">🧑‍💼</span><b>IL CAF</b><span>UN UFFICIO CHE MI AIUTA A FARE LA DICHIARAZIONE. DI SOLITO COSTA 25-30 EURO</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>✉️ UN ERRORE? ARRIVA UN AVVISO</h2>
+    <div class="passi">
+      <div><span class="n">1</span><span>C'È UN ERRORE NELLA DICHIARAZIONE: L'AGENZIA DELLE ENTRATE MANDA UN <b>AVVISO</b>.</span></div>
+      <div><span class="n">2</span><span>NON RISPONDO E NON PAGO? ARRIVA LA <b>CARTELLA DI PAGAMENTO</b>: QUANTO PAGARE E ENTRO QUALE GIORNO (LA <b>SCADENZA</b>).</span></div>
+      <div><span class="n">3</span><span>NON PAGO ENTRO LA SCADENZA? C'È IL <b>FERMO</b>: NON POSSO USARE LA MACCHINA O IL MOTORINO.</span></div>
+    </div>
+    <div class="nota" style="margin-top:20px;">⚠️ HAI RICEVUTO UNA LETTERA E NON CAPISCI? NON ASPETTARE: CHIEDI AIUTO AL CAF O AGLI OPERATORI.</div>
+  </section>
+
+  <section class="slide">
+    <h2>🏠 IL CONTRATTO D'AFFITTO</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">📝</span><b>REGISTRARE IL CONTRATTO</b><span>IL CONTRATTO D'AFFITTO VA REGISTRATO ALL'AGENZIA DELLE ENTRATE</span></div>
+      <div class="card"><span class="emoji">📅</span><b>ENTRO 30 GIORNI</b><span>DAL GIORNO DELLA FIRMA</span></div>
+      <div class="card"><span class="emoji">👤</span><b>CHI LO FA?</b><span>DI SOLITO IL PROPRIETARIO, O L'AGENZIA IMMOBILIARE. MA PUÒ FARLO ANCHE CHI PRENDE LA CASA IN AFFITTO</span></div>
+      <div class="card"><span class="emoji">➗</span><b>QUANTO COSTA?</b><span>DI SOLITO IL COSTO È DIVISO A METÀ: PROPRIETARIO E INQUILINO</span></div>
+    </div>
+    <div class="nota" style="margin-top:20px;">COMPRI UNA CASA? QUI È IL <b>NOTAIO</b> CHE REGISTRA TUTTO.</div>
+  </section>
+
+  <section class="slide">
+    <h2>🏪 APRO UN'ATTIVITÀ: LA PARTITA IVA</h2>
+    <div class="twocol2">
+    <div class="nota" style="">VOGLIO APRIRE UN NEGOZIO O LAVORARE IN PROPRIO?<br>DEVO APRIRE LA <b>PARTITA IVA</b>.<br><br>LA PARTITA IVA È COME UN CODICE FISCALE PER I NEGOZI E LE ATTIVITÀ.</div>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">💻</span><b>ONLINE</b><span></span></div>
+      <div class="card"><span class="emoji">🏛️</span><b>ALL'AGENZIA DELLE ENTRATE</b><span></span></div>
+      <div class="card"><span class="emoji">🧑‍💼</span><b>AL CAF</b><span></span></div>
+      <div class="card"><span class="emoji">📄</span><b>MODELLO AA9/12</b><span>PORTO UN DOCUMENTO E COMPILO IL MODELLO CON L'AIUTO DI UN IMPIEGATO</span></div>
+    </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🗣️ ALLO SPORTELLO</h2>
+    <div class="dialogo">
+      <div class="bubble med"><span class="who">IMPIEGATA:</span> BUONGIORNO. MI DICA.</div>
+      <div class="bubble"><span class="who">YUSUF:</span> BUONGIORNO. VORREI IL CODICE FISCALE.</div>
+      <div class="bubble med"><span class="who">IMPIEGATA:</span> HA UN DOCUMENTO?</div>
+      <div class="bubble"><span class="who">YUSUF:</span> SÌ, ECCO IL PASSAPORTO.</div>
+      <div class="bubble med"><span class="who">IMPIEGATA:</span> BENE. HA COMPILATO IL MODULO AA4/8?</div>
+      <div class="bubble"><span class="who">YUSUF:</span> SÌ, ECCOLO. QUANTO COSTA?</div>
+      <div class="bubble med"><span class="who">IMPIEGATA:</span> NIENTE, È GRATIS. ECCO IL SUO CODICE FISCALE.</div>
+    </div>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA SAI CHE COSA FA L'AGENZIA DELLE ENTRATE!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+<script>
+(function(){
+  const sel='.bubble, .card, .cartelli div, .orologi div, .mondo div, .regola div, table.plur td, .nota, .lead, .big2';
+  document.querySelectorAll(sel).forEach(e=>e.classList.add('parla'));
+  document.addEventListener('click',ev=>{ const d=ev.target.closest('[data-say], .parla'); if(!d||!window.speechSynthesis||ev.target.closest('a,button')) return;
+    ev.stopPropagation();
+    const t=(d.dataset.say||d.innerText).replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\uFE0F\u200D]/gu,' ').replace(/[←→▶◀•…_]/g,' ').toLowerCase();
+    const u=new SpeechSynthesisUtterance(t); u.lang='it-IT'; u.rate=.85; speechSynthesis.cancel(); speechSynthesis.speak(u);
+    document.querySelectorAll('.parlando').forEach(x=>x.classList.remove('parlando')); d.classList.add('parlando');
+    u.onend=()=>d.classList.remove('parlando'); });
+})();
+</script>
+</body>
+</html>
