@@ -1,6 +1,7 @@
 """Primi passi (Pre-A1) e A1, dal confronto con i sillabi (2026-10-28):
 I MIEI DATI, CHE ORE SONO? GIORNI E MESI, GLI EURO, AL MERCATO E AL SUPERMERCATO.
 Tutto in STAMPATELLO MAIUSCOLO. Testi scritti per il sito, non copiati da altri materiali."""
+from foto_cibi import foto_quiz
 from genera import eq, has, all_
 
 # ---------- pezzi delle slide ----------
@@ -420,6 +421,17 @@ MERCATO = {
    "items": [{"q": q} for q in ["🥖 1. IL PANE", "🐟 2. IL PESCE", "🥩 3. LA CARNE", "🍎 4. LE MELE", "💊 5. LE MEDICINE", "🥕 6. LE CAROTE"]],
    "k": [eq(a) for a in ["IL PANIFICIO", "LA PESCHERIA", "LA MACELLERIA", "IL FRUTTIVENDOLO", "LA FARMACIA", "IL FRUTTIVENDOLO"]]},
 
+  {"part": "Le foto"},
+  foto_quiz("f1", "1b · Guarda la foto: che cos'è?", "1b · Le foto",
+            [("pomodori", "I POMODORI"), ("cipolle", "LE CIPOLLE"), ("uova", "LE UOVA"), ("mozzarella", "LA MOZZARELLA"), ("carote", "LE CAROTE"),
+             ("riso", "IL RISO"), ("olio-oliva", "L'OLIO"), ("banane", "LE BANANE"), ("latte", "IL LATTE"), ("patate", "LE PATATE"),
+             ("zucchero", "LO ZUCCHERO"), ("insalata", "L'INSALATA")],
+            ["IL LATTE", "IL RISO", "L'INSALATA", "L'OLIO", "LA MOZZARELLA", "LE BANANE", "LE CAROTE", "LE CIPOLLE", "LE PATATE",
+             "LE UOVA", "LO ZUCCHERO", "I POMODORI"]),
+  foto_quiz("f2", "1c · Dove lo compro?", "1c · Dove compro",
+            [("pane", "IL PANIFICIO"), ("mele", "IL FRUTTIVENDOLO"), ("formaggio", "IL SUPERMERCATO"), ("arance", "IL FRUTTIVENDOLO"),
+             ("bistecca-manzo", "LA MACELLERIA"), ("orata", "LA PESCHERIA")],
+            ["IL PANIFICIO", "LA MACELLERIA", "LA PESCHERIA", "IL FRUTTIVENDOLO", "IL SUPERMERCATO"], cons="GUARDA LA FOTO. DOVE LO COMPRO?"),
   {"part": "Le quantità"},
   {"id": "e2", "title": "2 · Quanto?", "short": "2 · Le quantità", "type": "select",
    "cons": "SCEGLI LA QUANTITÀ GIUSTA.",

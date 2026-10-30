@@ -156,6 +156,11 @@
   .colori4 div{border-radius:14px; padding:14px; color:#fff; font-weight:bold; font-size:1.3rem; text-align:center;}
   .colori4 span{display:block; font-weight:normal; font-size:1rem; margin-top:6px;}
   @media (max-width:900px){ .colori4{grid-template-columns:1fr 1fr;} .colori4 div{font-size:1.05rem;} }
+  .card .emoji img.cibo{display:block; width:100%; height:150px; object-fit:cover; border-radius:12px; margin-bottom:6px;}
+  table.plur td img.cibo{display:block; width:110px; height:80px; object-fit:cover; border-radius:10px;}
+  .crediti{font-size:.8rem !important; text-transform:none; letter-spacing:0; line-height:1.5; columns:2; column-gap:24px; text-align:left;}
+  .crediti a{color:inherit;}
+  @media (max-width:900px){ .card .emoji img.cibo{height:110px;} table.plur td img.cibo{width:70px; height:56px;} .crediti{columns:1;} }
 </style>
 </head>
 <body>
@@ -187,17 +192,17 @@
   <section class="slide">
     <h2>🥩 LA CARNE</h2>
     <img class="ill" src="img/macelleria.png" alt="IL BANCONE DI UNA MACELLERIA" loading="lazy" onerror="this.remove()">
-    <table class="plur"><tr><th></th><th>LA CARNE</th><th>I PEZZI</th></tr><tr><td>🐔</td><td>IL POLLO</td><td>IL PETTO, LA COSCIA, LE ALI</td></tr><tr><td>🦃</td><td>IL TACCHINO</td><td></td></tr><tr><td>🐄</td><td>IL MANZO / IL VITELLO</td><td>LA BISTECCA, IL MACINATO, LO SPEZZATINO</td></tr><tr><td>🐑</td><td>L'AGNELLO</td><td>LE COSTOLETTE</td></tr><tr><td>🐇</td><td>IL CONIGLIO</td><td></td></tr><tr><td>🌭</td><td>LA SALSICCIA</td><td>DI POLLO, DI MANZO O DI MAIALE</td></tr></table>
+    <table class="plur"><tr><th></th><th>LA CARNE</th><th>I PEZZI</th></tr><tr><td><img class="cibo" src="../comune/cibi/pollo.jpg" alt="" loading="lazy"></td><td>IL POLLO</td><td>IL PETTO, LA COSCIA, LE ALI</td></tr><tr><td><img class="cibo" src="../comune/cibi/tacchino.jpg" alt="" loading="lazy"></td><td>IL TACCHINO</td><td></td></tr><tr><td><img class="cibo" src="../comune/cibi/bistecca-manzo.jpg" alt="" loading="lazy"></td><td>IL MANZO / IL VITELLO</td><td>LA BISTECCA, IL MACINATO, LO SPEZZATINO</td></tr><tr><td><img class="cibo" src="../comune/cibi/costolette-agnello.jpg" alt="" loading="lazy"></td><td>L'AGNELLO</td><td>LE COSTOLETTE</td></tr><tr><td><img class="cibo" src="../comune/cibi/coniglio.jpg" alt="" loading="lazy"></td><td>IL CONIGLIO</td><td></td></tr><tr><td><img class="cibo" src="../comune/cibi/salsiccia.jpg" alt="" loading="lazy"></td><td>LA SALSICCIA</td><td>DI POLLO, DI MANZO O DI MAIALE</td></tr></table>
     <div class="nota" style="margin-top:20px;">☪️ CERCHI LA CARNE <b>HALAL</b>? A BARI CI SONO MACELLERIE HALAL. CHIEDI: «È CARNE HALAL?»</div>
   </section>
 
   <section class="slide">
     <h2>🐖 IL MAIALE E I SALUMI</h2>
     <div class="grid g2">
-      <div class="card"><span class="emoji">🥓</span><b>IL PROSCIUTTO</b><span>CRUDO O COTTO</span></div>
-      <div class="card"><span class="emoji">🍖</span><b>LA BRACIOLA</b><span>UN PEZZO DI MAIALE CON L'OSSO</span></div>
-      <div class="card"><span class="emoji">🫓</span><b>IL SALAME</b><span>A FETTE</span></div>
-      <div class="card"><span class="emoji">🍕</span><b>LA MORTADELLA</b><span>ROSA, CON I PEZZETTI BIANCHI</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/prosciutto-crudo.jpg" alt="" loading="lazy"></span><b>IL PROSCIUTTO</b><span>CRUDO O COTTO</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/braciola-maiale.jpg" alt="" loading="lazy"></span><b>LA BRACIOLA</b><span>UN PEZZO DI MAIALE CON L'OSSO</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/salame.jpg" alt="" loading="lazy"></span><b>IL SALAME</b><span>A FETTE</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/mortadella.jpg" alt="" loading="lazy"></span><b>LA MORTADELLA</b><span>ROSA, CON I PEZZETTI BIANCHI</span></div>
     </div>
     <div class="nota" style="margin-top:20px;">⚠️ I SALUMI SONO QUASI SEMPRE DI <b>MAIALE</b>. NON MANGI IL MAIALE? CHIEDI: «C'È IL MAIALE DENTRO?»</div>
   </section>
@@ -219,24 +224,24 @@
     <h2>🐟 IL PESCE</h2>
     <img class="ill" src="img/pescheria.png" alt="IL BANCO DEL PESCE" loading="lazy" onerror="this.remove()">
     <div class="grid g3">
-      <div class="card"><span class="emoji">🐟</span><b>L'ORATA</b><span></span></div>
-      <div class="card"><span class="emoji">🐟</span><b>LA SPIGOLA (IL BRANZINO)</b><span></span></div>
-      <div class="card"><span class="emoji">🐠</span><b>LE ALICI</b><span>PICCOLE, SI FRIGGONO</span></div>
-      <div class="card"><span class="emoji">🍣</span><b>IL SALMONE</b><span>ROSA</span></div>
-      <div class="card"><span class="emoji">🐟</span><b>IL TONNO</b><span>ANCHE IN SCATOLA</span></div>
-      <div class="card"><span class="emoji">🗡️</span><b>IL PESCE SPADA</b><span></span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/orata.jpg" alt="" loading="lazy"></span><b>L'ORATA</b><span></span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/spigola.jpg" alt="" loading="lazy"></span><b>LA SPIGOLA (IL BRANZINO)</b><span></span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/alici.jpg" alt="" loading="lazy"></span><b>LE ALICI</b><span>PICCOLE, SI FRIGGONO</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/salmone.jpg" alt="" loading="lazy"></span><b>IL SALMONE</b><span>ROSA</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/tonno.jpg" alt="" loading="lazy"></span><b>IL TONNO</b><span>ANCHE IN SCATOLA</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/pesce-spada.jpg" alt="" loading="lazy"></span><b>IL PESCE SPADA</b><span></span></div>
     </div>
   </section>
 
   <section class="slide">
     <h2>🦑 I FRUTTI DI MARE</h2>
     <div class="grid g3">
-      <div class="card"><span class="emoji">🐙</span><b>IL POLPO</b><span>A BARI SI MANGIA ANCHE CRUDO!</span></div>
-      <div class="card"><span class="emoji">🦑</span><b>I CALAMARI E LE SEPPIE</b><span></span></div>
-      <div class="card"><span class="emoji">🦪</span><b>LE COZZE</b><span>NERE</span></div>
-      <div class="card"><span class="emoji">🐚</span><b>LE VONGOLE</b><span>PER GLI SPAGHETTI</span></div>
-      <div class="card"><span class="emoji">🦐</span><b>I GAMBERI</b><span></span></div>
-      <div class="card"><span class="emoji">🦞</span><b>L'ASTICE</b><span>COSTA MOLTO</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/polpo.jpg" alt="" loading="lazy"></span><b>IL POLPO</b><span>A BARI SI MANGIA ANCHE CRUDO!</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/calamari.jpg" alt="" loading="lazy"></span><b>I CALAMARI E LE SEPPIE</b><span></span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/cozze.jpg" alt="" loading="lazy"></span><b>LE COZZE</b><span>NERE</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/vongole.jpg" alt="" loading="lazy"></span><b>LE VONGOLE</b><span>PER GLI SPAGHETTI</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/gamberi.jpg" alt="" loading="lazy"></span><b>I GAMBERI</b><span></span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/astice.jpg" alt="" loading="lazy"></span><b>L'ASTICE</b><span>COSTA MOLTO</span></div>
     </div>
   </section>
 
@@ -259,6 +264,18 @@
   </section>
 
   <section class="slide">
+    <h2>🍝 LA PASTA IN FOTO</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/spaghetti.jpg" alt="" loading="lazy"></span><b>GLI SPAGHETTI</b><span>LUNGA</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/penne.jpg" alt="" loading="lazy"></span><b>LE PENNE</b><span>CORTA</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/ravioli.jpg" alt="" loading="lazy"></span><b>I RAVIOLI</b><span>RIPIENA</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/lasagne.jpg" alt="" loading="lazy"></span><b>LE LASAGNE</b><span>AL FORNO</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/gnocchi.jpg" alt="" loading="lazy"></span><b>GLI GNOCCHI</b><span>DI PATATE</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/orecchiette-cime-di-rapa.jpg" alt="" loading="lazy"></span><b>LE ORECCHIETTE</b><span>CON LE CIME DI RAPA</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
     <h2>⚖️ COM'È? I CONTRARI</h2>
     <table class="plur"><tr><td>CRUDO</td><td>↔</td><td>COTTO</td></tr><tr><td>FRESCO</td><td>↔</td><td>SURGELATO</td></tr><tr><td>DOLCE</td><td>↔</td><td>AMARO</td></tr><tr><td>CALDO</td><td>↔</td><td>FREDDO</td></tr><tr><td>BUONO</td><td>↔</td><td>CATTIVO</td></tr><tr><td>NATURALE (ACQUA)</td><td>↔</td><td>FRIZZANTE</td></tr><tr><td>MAGRO</td><td>↔</td><td>GRASSO</td></tr></table>
   </section>
@@ -267,13 +284,18 @@
     <h2>☕ I CAFFÈ</h2>
     <img class="ill" src="img/caffe.png" alt="SEI TIPI DI CAFFÈ" loading="lazy" onerror="this.remove()">
     <div class="grid g3">
-      <div class="card"><span class="emoji">☕</span><b>IL CAFFÈ (ESPRESSO)</b><span>PICCOLO E FORTE</span></div>
-      <div class="card"><span class="emoji">🥛</span><b>IL CAFFÈ MACCHIATO</b><span>CON UN PO' DI LATTE CALDO O FREDDO</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/caffe-espresso.jpg" alt="" loading="lazy"></span><b>IL CAFFÈ (ESPRESSO)</b><span>PICCOLO E FORTE</span></div>
+      <div class="card"><span class="emoji"><img class="cibo" src="../comune/cibi/caffe-macchiato.jpg" alt="" loading="lazy"></span><b>IL CAFFÈ MACCHIATO</b><span>CON UN PO' DI LATTE CALDO O FREDDO</span></div>
       <div class="card"><span class="emoji">💧</span><b>IL CAFFÈ LUNGO</b><span>CON PIÙ ACQUA</span></div>
       <div class="card"><span class="emoji">🔻</span><b>IL CAFFÈ RISTRETTO</b><span>CON MENO ACQUA, PIÙ FORTE</span></div>
       <div class="card"><span class="emoji">☕☕</span><b>IL CAFFÈ DOPPIO</b><span>DUE CAFFÈ IN UNA TAZZA</span></div>
       <div class="card"><span class="emoji">🚫</span><b>IL DECAFFEINATO (DECA)</b><span>SENZA CAFFEINA</span></div>
     </div>
+  </section>
+
+  <section class="slide">
+    <h2>📷 LE FOTO</h2>
+    <div class="nota crediti"><div>pollo · <a href="https://commons.wikimedia.org/wiki/File:Whole_raw_chicken_-_Japan_Dec_22_2019.jpeg" target="_blank" rel="noopener">Nesnad</a> · <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a></div><div>tacchino · <a href="https://commons.wikimedia.org/wiki/File:Thanksgiving_Turkey.jpg" target="_blank" rel="noopener">Patrick Fitzgerald from Atlanta, GA, USA</a> · <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></div><div>bistecca manzo · <a href="https://commons.wikimedia.org/wiki/File:Raw_beef_steak,_2011.jpg" target="_blank" rel="noopener">Jellaluna</a> · <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></div><div>costolette agnello · <a href="https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Lamb_chops_cooking_with_garlic_and_rosemary.jpg" target="_blank" rel="noopener">HaJunkiyada</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div>coniglio · <a href="https://commons.wikimedia.org/wiki/File:Rabbit_meat.jpg" target="_blank" rel="noopener">Garitzko</a> · Public domain</div><div>salsiccia · <a href="https://commons.wikimedia.org/wiki/File:Salsiccia_Italian_pork_sausage.jpg" target="_blank" rel="noopener">Conan</a> · <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></div><div>prosciutto crudo · <a href="https://commons.wikimedia.org/wiki/File:Prosciutto_di_parma.jpg" target="_blank" rel="noopener">ItalianEpicure.com</a> · Public domain</div><div>braciola maiale · <a href="https://commons.wikimedia.org/wiki/File:HK_food_ingredient_red_meat_frozen_pork_chop_raw_butt_steak_October_2021_SS2_011.jpg" target="_blank" rel="noopener">Presixlla MOON</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div>salame · <a href="https://commons.wikimedia.org/wiki/File:Salami_aka.jpg" target="_blank" rel="noopener">André Karwath aka Aka</a> · <a href="https://creativecommons.org/licenses/by-sa/2.5" target="_blank" rel="noopener">CC BY-SA 2.5</a></div><div>mortadella · <a href="https://commons.wikimedia.org/wiki/File:Mortadella_Bologna_IGP.jpg" target="_blank" rel="noopener">Stefano Brush Parisi</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div>orata · <a href="https://commons.wikimedia.org/wiki/File:16-04-2017_Dourada_(Golden_Bream),_Albufeira.JPG" target="_blank" rel="noopener">Kolforn (Kolforn) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license. You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original.https://creativecommons.org/licenses/by-sa/4.0CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 truetrue</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div>spigola · <a href="https://commons.wikimedia.org/wiki/File:02-06-2017_Robalo_(Sea_Bass),_Albufeira.JPG" target="_blank" rel="noopener">Kolforn</a> · <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a></div><div>alici · <a href="https://commons.wikimedia.org/wiki/File:Ice_fresh_anchovy.jpg" target="_blank" rel="noopener">Fumikas Sagisavas</a> · <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a></div><div>salmone · <a href="https://commons.wikimedia.org/wiki/File:Salmon2.jpg" target="_blank" rel="noopener">Tiia Monto</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div>tonno · <a href="https://commons.wikimedia.org/wiki/File:Lata_de_at%C3%BAn-Albo.jpg" target="_blank" rel="noopener">Tamorlan</a> · <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a></div><div>pesce spada · <a href="https://commons.wikimedia.org/wiki/File:Swordfish_steaks_for_sale.JPG" target="_blank" rel="noopener">Whiteghost.ink</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div>polpo · <a href="https://commons.wikimedia.org/wiki/File:Octopus_at_the_Tsukiji_Fish_Market.jpg" target="_blank" rel="noopener">Paul Asman and Jill Lenoble</a> · <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></div><div>calamari · <a href="https://commons.wikimedia.org/wiki/File:Raci%C3%B3_de_Calamars.jpg" target="_blank" rel="noopener">Francesc Fort</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div>cozze · <a href="https://commons.wikimedia.org/wiki/File:Mussels,_steamed_with_butter_-_Cambridge,_MA.jpg" target="_blank" rel="noopener">Daderot</a> · <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a></div><div>vongole · <a href="https://commons.wikimedia.org/wiki/File:Littleneck_clams_-_Massachusetts.jpg" target="_blank" rel="noopener">Daderot</a> · <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a></div><div>gamberi · <a href="https://commons.wikimedia.org/wiki/File:00_Shrimp_at_Coastal_Kitchen_and_Raw_Bar.jpg" target="_blank" rel="noopener">Ralph Daily</a> · <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></div><div>astice · <a href="https://commons.wikimedia.org/wiki/File:Lobster,_boiled_-_Massachusetts.jpg" target="_blank" rel="noopener">Daderot</a> · <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a></div><div>spaghetti · <a href="https://commons.wikimedia.org/wiki/File:Spaghetti_al_pomodoro_4.jpg" target="_blank" rel="noopener">10Rosso</a> · <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></div><div>penne · <a href="https://commons.wikimedia.org/wiki/File:Penne_Arrabbiata.jpg" target="_blank" rel="noopener">Petar Milošević</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div>ravioli · <a href="https://commons.wikimedia.org/wiki/File:Ravioli_di_Faraona.JPG" target="_blank" rel="noopener">OneArmedMan</a> · Public domain</div><div>lasagne · <a href="https://commons.wikimedia.org/wiki/File:Lasagne_-_stonesoup.jpg" target="_blank" rel="noopener">jules / stonesoup</a> · <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></div><div>gnocchi · <a href="https://commons.wikimedia.org/wiki/File:Gnocchi_di_patate_del_Fucino_Avezzano2.jpg" target="_blank" rel="noopener">Marica Massaro</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div>orecchiette cime di rapa · <a href="https://commons.wikimedia.org/wiki/File:Lyon_7e_-_Restaurant_Veronatuti_-_Orecchiette_con_le_cime_di_rapa_(plat_originaire_des_Pouilles).jpg" target="_blank" rel="noopener">Romainbehar</a> · <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a></div><div>caffe espresso · <a href="https://commons.wikimedia.org/wiki/File:Cup_of_espresso_02.jpg" target="_blank" rel="noopener">Kritzolina</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></div><div>caffe macchiato · <a href="https://commons.wikimedia.org/wiki/File:Espresso_macchiato_Chiang_Mai.JPG" target="_blank" rel="noopener">Takeaway</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div>seppie · <a href="https://commons.wikimedia.org/wiki/File:Cuttlefish_(356295359).jpg" target="_blank" rel="noopener">Andrew Malone</a> · <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></div><div>macinato · <a href="https://commons.wikimedia.org/wiki/File:Hakket-oksekoed.jpg" target="_blank" rel="noopener">Gajda-13 at Danish Wikipedia</a> · <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></div><div>prosciutto cotto · <a href="https://commons.wikimedia.org/wiki/File:13-08-31-wien-redaktionstreffen-EuT-by-Bi-frie-171.jpg" target="_blank" rel="noopener">Bi-frie (talk)</a> · <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a></div></div>
   </section>
 
   <section class="slide center cover">
