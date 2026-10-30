@@ -75,6 +75,8 @@ if __name__ == "__main__":
     from unita_b2c1 import SIM_B2C1
     from unita_eserciziario import ESERCIZIARIO
     from unita_inalto import PERCORSO
+    from unita_grammatica_extra import PAGINE as GRAM_EXTRA
+    from unita_avanzato import PAGINE as AVANZATO
     import teoria_vecchie  # riquadri «La regola» sulle pagine di grammatica più vecchie
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
@@ -123,7 +125,9 @@ if __name__ == "__main__":
     os.makedirs("esami", exist_ok=True)
     os.makedirs("eserciziario-a1", exist_ok=True)
     os.makedirs("percorso-a1-a2", exist_ok=True)
-    for path, dati in ESERCIZIARIO + PERCORSO:
+    os.makedirs("grammatica", exist_ok=True)
+    os.makedirs("avanzato", exist_ok=True)
+    for path, dati in ESERCIZIARIO + PERCORSO + GRAM_EXTRA + AVANZATO:
         build(path, dati)
     for path, dati in ESAMI + SIMULAZIONI + SIM_B2C1:
         build(path, dati)
