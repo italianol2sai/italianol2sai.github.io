@@ -8,9 +8,11 @@ Se un file manca, la pagina usa la voce del computer.
 
 
 === 2. LE PAROLE ===
+frittata.mp3                   FRITTATA
 
 
 === 3. LE FRASI ===
 
 
 === 4. SE HAI TEMPO: I PEZZI DEL GIOCO «RIORDINA» ===
+frit.mp3                       FRIT

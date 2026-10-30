@@ -69,7 +69,7 @@ CASA = {
   {"part": "LE STANZE"},
   {"id": "e1", "title": "1 · IN QUALE STANZA È?", "short": "1 · Le stanze", "type": "select",
    "opts": ["BAGNO", "CAMERA DA LETTO", "CUCINA", "GIARDINO", "RIPOSTIGLIO", "SALA DA PRANZO", "SOGGIORNO"],
-   "items": [{"q": q} for q in ["1. 🛏️ IL LETTO", "2. 🚿 LA DOCCIA", "3. 🧊 IL FRIGORIFERO", "4. 🛋️ IL DIVANO",
+   "items": [{"q": q} for q in ["1. 🛏️ IL LETTO", "2. 🚿 LA DOCCIA", "3. <img src='../comune/frigo.svg' alt='' style='height:1.3em;vertical-align:-0.25em'> IL FRIGORIFERO", "4. 🛋️ IL DIVANO",
                                  "5. 🧹 LA SCOPA E IL SECCHIO", "6. 🌷 I FIORI E L'ERBA", "7. 🪥 LO SPAZZOLINO",
                                  "8. 🍽️ IL TAVOLO GRANDE PER MANGIARE CON GLI OSPITI", "9. 👔 L'ARMADIO CON I VESTITI", "10. 🍳 IL FORNELLO",
                                  "11. 📺 LA TELEVISIONE", "12. 🛁 LA VASCA"]],
