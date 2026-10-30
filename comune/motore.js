@@ -3,8 +3,6 @@
    Le risposte (campo k di ogni esercizio) sono codificate in base64 e non vengono mai mostrate. */
 (() => {
 const D = window.DATA;
-// pulsante WhatsApp: il numero dell'insegnante sta in comune/whatsapp.js
-if(!window.WA){ const w=document.createElement("script"); w.src=document.currentScript.src.replace(/motore\.js.*$/,"whatsapp.js"); document.head.append(w); }
 const ST = "eser:" + D.store + ":";
 const store = { get(k){ try{ return localStorage.getItem(ST+k); }catch(e){ return null; } },
                 set(k,v){ try{ localStorage.setItem(ST+k,v); }catch(e){} },
@@ -196,10 +194,8 @@ D.sections.forEach(ex=>{
 // risultato finale
 const fin=el("section",{id:"final"}); fin.append(el("h2",{},"📊 Il tuo risultato"));
 const hint=el("p",{class:"cons"}); const box=el("div"); fin.append(hint, box);
-fin.append(el("p",{class:"cons",style:"margin-top:14px"},"Manda le risposte all'insegnante:"));
-const wa=el("button",{class:"btn",type:"button",style:"margin:12px 8px 0 0;background:#1f9e55;color:#fff"},"💬 Invia su WhatsApp");
-const send=el("button",{class:"btn sec",type:"button",style:"margin-top:12px"},"📤 Altro modo (email, copia…)");
-const sendfb=el("p",{class:"fb"}); fin.append(wa, send, sendfb);
+const send=el("button",{class:"btn",type:"button",style:"margin-top:12px"},"📤 Invia le risposte all'insegnante");
+const sendfb=el("p",{class:"fb"}); fin.append(send, sendfb);
 if(!D.once){ const reset=el("button",{class:"btn sec",type:"button",style:"margin:12px 0 0 8px"},"🗑️ Ricomincia da capo");
   reset.onclick=()=>{ if(!confirm("Vuoi cancellare tutte le risposte?")) return;
     try{ Object.keys(localStorage).filter(k=>k.startsWith(ST)).forEach(k=>localStorage.removeItem(k)); }catch(e){} location.reload(); };
@@ -267,28 +263,22 @@ function updateFinal(){
 }
 restore.forEach(f=>f()); updateFinal();
 
-function testo(){
+send.onclick=async()=>{
   const lines=[D.title.toUpperCase()+" — "+((($("nome")||{}).value)||"(senza nome)")];
   D.sections.forEach(ex=>{ if(ex.part||!answers[ex.id]) return; const r=results[ex.id];
     lines.push("", (ex.short||ex.title)+(r?" — "+r.got+"/"+r.max:"")); answers[ex.id]().forEach(a=>lines.push("  "+a)); });
-  const n=Object.keys(recordings).length;
-  if(n) lines.push("","REGISTRAZIONI: "+n);
-  return lines.join("\n");
-}
-wa.onclick=()=>{
-  const text=testo(), n=Object.keys(recordings).length;
-  if(window.WA) WA.apri(text); else window.open("https://wa.me/?text="+encodeURIComponent(text),"_blank");
-  sendfb.className="fb mid"; sendfb.textContent="Si apre WhatsApp con le tue risposte: "+(window.WA&&WA.numero?"":"scegli l'insegnante e ")+"premi Invia."+(n?" Le registrazioni mandale con «Scarica».":"");
-};
-send.onclick=async()=>{
-  const text=testo(), files=Object.values(recordings);
+  const files=Object.values(recordings);
+  if(files.length) lines.push("","REGISTRAZIONI: "+files.length);
+  const text=lines.join("\n");
   try{ if(navigator.share){ const data={title:D.title,text};
       if(files.length && navigator.canShare && navigator.canShare({files})) data.files=files;
       await navigator.share(data);
       if(files.length && !data.files){ sendfb.className="fb mid"; sendfb.textContent="Testo inviato. Le registrazioni mandale con «Scarica»."; }
       return; } }
   catch(e){ if(e.name==="AbortError") return; }
-  try{ await navigator.clipboard.writeText(text); sendfb.className="fb ok"; sendfb.textContent="📋 Risposte copiate: incollale in un messaggio all'insegnante."+(files.length?" Le registrazioni mandale con «Scarica».":""); }
-  catch(e){ sendfb.className="fb no"; sendfb.textContent="Non riesco a copiare. Fai uno screenshot."; }
+  // computer senza «Condividi»: copia il testo e apri WhatsApp con il messaggio pronto
+  let copied=false; try{ await navigator.clipboard.writeText(text); copied=true; }catch(e){}
+  window.open("https://wa.me/?text="+encodeURIComponent(text),"_blank");
+  sendfb.className="fb ok"; sendfb.textContent="💬 Si apre WhatsApp con le tue risposte: scegli l'insegnante e premi Invia."+(copied?" (Le risposte sono anche copiate: puoi incollarle in un'email.)":"")+(files.length?" Le registrazioni mandale con «Scarica».":"");
 };
 })();

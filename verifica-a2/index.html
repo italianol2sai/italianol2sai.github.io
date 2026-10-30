@@ -169,9 +169,7 @@
     <h2>📊 Il tuo risultato</h2>
     <p class="cons" id="finalhint">Controlla tutti gli esercizi per vedere il risultato finale.</p>
     <div id="finalbox"></div>
-    <p class="cons" style="margin-top:14px">Manda le risposte all'insegnante:</p>
-    <button class="btn" id="wa" style="margin:12px 8px 0 0;background:#1f9e55;color:#fff">💬 Invia su WhatsApp</button>
-    <button class="btn sec" id="send" style="margin-top:12px">📤 Altro modo (email, copia…)</button>
+    <button class="btn" id="send" style="margin-top:12px">📤 Invia tutto all'insegnante</button>
     <p class="fb" id="sendfb"></p>
   </section>
 </main>
@@ -412,7 +410,7 @@ function updateFinal(){
 updateFinal();
 
 // --- invio ---
-function testo(){
+$("send").onclick=async()=>{
   const lines=["VERIFICA ITALIANO A2 — "+($("nome").value||"(senza nome)")];
   ORDER.forEach(id=>{ const r=results[id]; lines.push("");
     lines.push(NAMES[id]+": "+(r?r.got+"/"+r.max:"non controllato"));
@@ -421,15 +419,9 @@ function testo(){
   lines.push("","TOTALE AUTOMATICO: "+tot+"/80","","3F IMPERATIVO:");
   for(let i=1;i<=5;i++) lines.push("  "+i+". "+($("f"+i).value||"-"));
   lines.push("","5 SCRITTURA:",$("scritto").value||"-");
-  lines.push("","PROVA ORALE: "+Object.keys(recordings).length+" registrazioni");
-  return lines.join("\n");
-}
-$("wa").onclick=()=>{
-  WA.apri(testo()); const fb=$("sendfb"); fb.className="fb mid";
-  fb.textContent="Si apre WhatsApp con le tue risposte: "+(WA.numero?"":"scegli l'insegnante e ")+"premi Invia."+(Object.keys(recordings).length?" Le registrazioni mandale con «Scarica».":"");
-};
-$("send").onclick=async()=>{
-  const text=testo(), files=Object.values(recordings); const fb=$("sendfb");
+  const files=Object.values(recordings);
+  lines.push("","PROVA ORALE: "+files.length+" registrazioni");
+  const text=lines.join("\n"); const fb=$("sendfb");
   try{
     if(navigator.share){
       const data={title:"Verifica A2", text};
@@ -439,11 +431,11 @@ $("send").onclick=async()=>{
       return;
     }
   }catch(e){ if(e.name==="AbortError") return; }
-  try{ await navigator.clipboard.writeText(text); fb.className="fb ok";
-       fb.textContent="📋 Risposte copiate: incollale in un messaggio all'insegnante."+(files.length?" Le registrazioni mandale con «Scarica».":""); }
-  catch(e){ fb.className="fb no"; fb.textContent="Non riesco a copiare. Fai uno screenshot del risultato."; }
+  // computer senza «Condividi»: copia il testo e apri WhatsApp con il messaggio pronto
+  let copied=false; try{ await navigator.clipboard.writeText(text); copied=true; }catch(e){}
+  window.open("https://wa.me/?text="+encodeURIComponent(text),"_blank");
+  fb.className="fb ok"; fb.textContent="💬 Si apre WhatsApp con le tue risposte: scegli l'insegnante e premi Invia."+(copied?" (Le risposte sono anche copiate: puoi incollarle in un'email.)":"")+(files.length?" Le registrazioni mandale con «Scarica».":"");
 };
 </script>
-<script src="../comune/whatsapp.js"></script>
 </body>
 </html>
