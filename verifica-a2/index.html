@@ -411,6 +411,7 @@ updateFinal();
 
 // --- invio ---
 $("send").onclick=async()=>{
+  compilaNome($("nome"));
   const lines=["VERIFICA ITALIANO A2 — "+($("nome").value||"(senza nome)")];
   ORDER.forEach(id=>{ const r=results[id]; lines.push("");
     lines.push(NAMES[id]+": "+(r?r.got+"/"+r.max:"non controllato"));
@@ -431,10 +432,12 @@ $("send").onclick=async()=>{
       return;
     }
   }catch(e){ if(e.name==="AbortError") return; }
-  try{ await navigator.clipboard.writeText(text); fb.className="fb ok";
-       fb.textContent="📋 Risposte copiate: incollale in un messaggio all'insegnante."+(files.length?" Le registrazioni mandale con «Scarica».":""); }
-  catch(e){ fb.className="fb no"; fb.textContent="Non riesco a copiare. Fai uno screenshot del risultato."; }
+  // computer senza «Condividi»: copia il testo e apri WhatsApp con il messaggio pronto
+  let copied=false; try{ await navigator.clipboard.writeText(text); copied=true; }catch(e){}
+  const url="https://wa.me/?text="+encodeURIComponent(text); if(!window.open(url,"_blank")) location.href=url;
+  fb.className="fb ok"; fb.textContent="💬 Si apre WhatsApp con le tue risposte: scegli l'insegnante e premi Invia."+(copied?" (Le risposte sono anche copiate: puoi incollarle in un'email.)":"")+(files.length?" Le registrazioni mandale con «Scarica».":"");
 };
 </script>
+<script src="../comune/condividi.js"></script>
 </body>
 </html>

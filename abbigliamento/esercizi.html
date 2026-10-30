@@ -291,6 +291,7 @@ document.querySelectorAll("[data-save]").forEach(saveable);
 
 // Invia
 document.getElementById("send").onclick = async () => {
+  compilaNome(document.getElementById("nome"));
   const v = id => (document.getElementById(id) || {}).value || "";
   const list = (pfx,n) => Array.from({length:n},(_,i)=>v(pfx+i)).join(", ");
   const txt = [
@@ -309,9 +310,12 @@ document.getElementById("send").onclick = async () => {
   try {
     if (navigator.share) { await navigator.share({title:"L'abbigliamento A1", text:txt}); return; }
   } catch(e) { if (e.name === "AbortError") return; }
-  try { await navigator.clipboard.writeText(txt); fb.className="fb ok"; fb.textContent="📋 Risposte copiate! Incollale in un messaggio all'insegnante."; }
-  catch(e) { fb.className="fb no"; fb.textContent="Non riesco a copiare. Fai uno screenshot delle risposte."; }
+  // computer senza «Condividi»: copia il testo e apri WhatsApp con il messaggio pronto
+  let copied = false; try { await navigator.clipboard.writeText(txt); copied = true; } catch(e) {}
+  const url = "https://wa.me/?text=" + encodeURIComponent(txt); if (!window.open(url, "_blank")) location.href = url;
+  fb.className = "fb ok"; fb.textContent = "💬 Si apre WhatsApp con le tue risposte: scegli l'insegnante e premi Invia." + (copied ? " (Le risposte sono anche copiate: puoi incollarle in un'email.)" : "");
 };
 </script>
+<script src="../comune/condividi.js"></script>
 </body>
 </html>
