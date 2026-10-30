@@ -124,7 +124,7 @@ FARE_TESTO = cl("OGNI MATTINA, PRIMA DI ANDARE A LAVORO, [faccio ginnastica] NEL
 HO_SONO = [("🚗 LA MACCHINA", "IO HO"), ("👨‍🌾 AGRICOLTORE", "IO SONO"), ("🔑 LA CHIAVE", "IO HO"),
     ("🐕 UN CANE", "IO HO"), ("🎤 CANTANTE", "IO SONO"), ("🎸 LA CHITARRA", "IO HO"),
     ("💼 IMPIEGATO", "IO SONO"), ("🐈 UN GATTO", "IO HO"), ("💇‍♀️ PARRUCCHIERA", "IO SONO"),
-    ("👓 GLI OCCHIALI", "IO HO"), ("🎒 STUDENTESSA", "IO SONO"), ("🧊 IL FRIGORIFERO", "IO HO"),
+    ("👓 GLI OCCHIALI", "IO HO"), ("🎒 STUDENTESSA", "IO SONO"), ("<img src='../comune/frigo.svg' alt='' style='height:1.3em;vertical-align:-0.25em'> IL FRIGORIFERO", "IO HO"),
     ("⚽ GIOCATORE", "IO SONO"), ("📕 UN LIBRO", "IO HO"), ("🔧 MECCANICO", "IO SONO"), ("🩺 MEDICO", "IO SONO")]
 
 E13_I, E13_K = verbo([("IO (AVERE)", "30 ANNI", "ho"), ("LEI (ESSERE)", "A CASA", "è"),
