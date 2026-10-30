@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💊 In farmacia e al pronto soccorso · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "💊 In farmacia e al pronto soccorso · Esercizi",
+ "store": "farmacia",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Le medicine"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Quale medicina?",
+   "short": "1 · Le medicine",
+   "type": "select",
+   "opts": [
+    "LE COMPRESSE",
+    "LO SCIROPPO",
+    "LE GOCCE",
+    "LA POMATA",
+    "LA BUSTINA"
+   ],
+   "items": [
+    {
+     "q": "1. HO LA TOSSE. PRENDO UN CUCCHIAIO DI…"
+    },
+    {
+     "q": "2. HO UNA PICCOLA SCOTTATURA SULLA MANO. METTO…"
+    },
+    {
+     "q": "3. HO GLI OCCHI ROSSI. METTO…"
+    },
+    {
+     "q": "4. LA SCIOLGO IN UN BICCHIERE D'ACQUA:"
+    },
+    {
+     "q": "5. LE INGOIO CON UN PO' D'ACQUA:"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMTyBTQ0lST1BQTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIFBPTUFUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFIEdPQ0NFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEEgQlVTVElOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFIENPTVBSRVNTRSJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Con o senza ricetta?",
+   "short": "2 · La ricetta",
+   "type": "select",
+   "opts": [
+    "CON LA RICETTA",
+    "SENZA RICETTA"
+   ],
+   "items": [
+    {
+     "q": "1. UN ANTIBIOTICO"
+    },
+    {
+     "q": "2. UNO SCIROPPO PER UN PO' DI TOSSE"
+    },
+    {
+     "q": "3. UNA COMPRESSA PER IL MAL DI TESTA"
+    },
+    {
+     "q": "4. LA MEDICINA PER LA PRESSIONE ALTA, OGNI GIORNO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDT04gTEEgUklDRVRUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNFTlpBIFJJQ0VUVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTRU5aQSBSSUNFVFRBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09OIExBIFJJQ0VUVEEiXX1d"
+  },
+  {
+   "id": "e3",
+   "title": "3 · In farmacia: leggi e rispondi",
+   "short": "3 · In farmacia",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. CHE PROBLEMA HA ALI?",
+     "opts": [
+      "MAL DI GOLA E TOSSE",
+      "MAL DI PANCIA",
+      "LA FEBBRE ALTA"
+     ]
+    },
+    {
+     "q": "2. CHE COSA GLI DÀ LA FARMACISTA?",
+     "opts": [
+      "UNO SCIROPPO",
+      "UNA POMATA",
+      "LE GOCCE"
+     ]
+    },
+    {
+     "q": "3. QUANTE VOLTE AL GIORNO LO PRENDE?",
+     "opts": [
+      "TRE",
+      "UNA",
+      "DUE"
+     ]
+    },
+    {
+     "q": "4. QUANDO LO PRENDE?",
+     "opts": [
+      "DOPO I PASTI",
+      "PRIMA DEI PASTI",
+      "DI NOTTE"
+     ]
+    },
+    {
+     "q": "5. SE NON STA MEGLIO TRA TRE GIORNI…",
+     "opts": [
+      "VA DAL MEDICO",
+      "CHIAMA IL 112",
+      "PRENDE PIÙ SCIROPPO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNQUwgREkgR09MQSBFIFRPU1NFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU5PIFNDSVJPUFBPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVFJFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRE9QTyBJIFBBU1RJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkEgREFMIE1FRElDTyJdfV0=",
+   "info": "FARMACISTA: MI DICA.<br>ALI: HO MAL DI GOLA E UN PO' DI TOSSE.<br>FARMACISTA: HA LA FEBBRE?<br>ALI: NO.<br>FARMACISTA: ALLORA LE DO QUESTO SCIROPPO. NE PRENDA UN CUCCHIAIO TRE VOLTE AL GIORNO, DOPO I PASTI. SE TRA TRE GIORNI NON STA MEGLIO, VADA DAL MEDICO."
+  },
+  {
+   "id": "e4",
+   "title": "4 · Scrivi la parola",
+   "short": "4 · Le parole",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. LA MATTINA E LA SERA = 2 ___ AL GIORNO"
+    },
+    {
+     "q": "2. PRIMA DI MANGIARE = PRIMA DEI ___"
+    },
+    {
+     "q": "3. IL FOGLIO NELLA SCATOLA = IL FOGLIETTO ___"
+    },
+    {
+     "q": "4. DI NOTTE APRE LA FARMACIA DI ___"
+    },
+    {
+     "q": "5. IL GIORNO DOPO IL QUALE LA MEDICINA NON VA BENE = LA ___"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ2b2x0ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBhc3RpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaWxsdXN0cmF0aXZvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidHVybm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzY2FkZW56YSJdfV0=",
+   "bank": "VOLTE · PASTI · ILLUSTRATIVO · TURNO · SCADENZA"
+  },
+  {
+   "part": "L'emergenza"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Vero o falso?",
+   "short": "5 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. IL 112 È IL NUMERO PER TUTTE LE EMERGENZE."
+    },
+    {
+     "q": "2. PER CHIAMARE IL 112 SERVE IL CREDITO."
+    },
+    {
+     "q": "3. AL PRONTO SOCCORSO ENTRA PRIMA CHI ARRIVA PRIMA."
+    },
+    {
+     "q": "4. IL CODICE ROSSO È IL PIÙ URGENTE."
+    },
+    {
+     "q": "5. DI NOTTE, SE NON È UN'EMERGENZA, POSSO CHIAMARE LA GUARDIA MEDICA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 · Che cosa faccio? Metti in ordine",
+   "short": "6 · In ordine",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "DICO CHE COSA È SUCCESSO.",
+    "ASPETTO L'AMBULANZA.",
+    "DICO L'INDIRIZZO: VIA, NUMERO, CITTÀ.",
+    "CHIAMO IL 112.",
+    "RISPONDO ALLE DOMANDE."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNCJdfV0="
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "CHIAMA IL 112: DI' CHE UN AMICO STA MALE (CHE COSA HA), DI' L'INDIRIZZO E RISPONDI: È SVEGLIO, RESPIRA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏛️ Al comune e in questura · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🏛️ Al comune e in questura · Esercizi",
+ "store": "comune-questura",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Dove vado?"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Dove vado?",
+   "short": "1 · Dove vado",
+   "type": "select",
+   "opts": [
+    "AL COMUNE (ANAGRAFE)",
+    "IN QUESTURA",
+    "ALLA POSTA"
+   ],
+   "items": [
+    {
+     "q": "1. VOGLIO FARE LA CARTA D'IDENTITÀ."
+    },
+    {
+     "q": "2. DEVO LASCIARE LE IMPRONTE PER IL PERMESSO DI SOGGIORNO."
+    },
+    {
+     "q": "3. PRENDO IL KIT PER IL RINNOVO DEL PERMESSO."
+    },
+    {
+     "q": "4. HO CAMBIATO CASA: FACCIO LA RESIDENZA."
+    },
+    {
+     "q": "5. MI SERVE IL CERTIFICATO DI STATO DI FAMIGLIA."
+    },
+    {
+     "q": "6. RITIRO IL PERMESSO DI SOGGIORNO NUOVO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBTCBDT01VTkUgKEFOQUdSQUZFKSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklOIFFVRVNUVVJBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQUxMQSBQT1NUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFMIENPTVVORSAoQU5BR1JBRkUpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQUwgQ09NVU5FIChBTkFHUkFGRSkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTiBRVUVTVFVSQSJdfV0="
+  },
+  {
+   "part": "La residenza"
+  },
+  {
+   "id": "e2",
+   "title": "2 · La residenza: metti in ordine",
+   "short": "2 · In ordine",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "VADO ALL'ANAGRAFE CON I DOCUMENTI E IL CONTRATTO.",
+    "HO LA RESIDENZA E CHIEDO LA CARTA D'IDENTITÀ.",
+    "METTO IL MIO NOME SUL CAMPANELLO.",
+    "PRENDO L'APPUNTAMENTO AL COMUNE.",
+    "UN VIGILE VIENE A CASA A CONTROLLARE."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNCJdfV0="
+  },
+  {
+   "id": "e3",
+   "title": "3 · Che cosa porto per la residenza?",
+   "short": "3 · I documenti",
+   "type": "multi",
+   "cons": "METTI LA SPUNTA VICINO ALLE 4 COSE GIUSTE.",
+   "items": [
+    "IL PASSAPORTO",
+    "IL CODICE FISCALE",
+    "LA PAGELLA DELLA SCUOLA",
+    "IL PERMESSO DI SOGGIORNO",
+    "IL CONTRATTO D'AFFITTO",
+    "LA BOLLETTA DEL TELEFONO"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiWCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIi0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJYIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiWCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIi0iXX1d"
+  },
+  {
+   "id": "e4",
+   "title": "4 · All'anagrafe: leggi e rispondi",
+   "short": "4 · All'anagrafe",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. CHE COSA VUOLE FARE KOFI?",
+     "opts": [
+      "LA RESIDENZA",
+      "IL PASSAPORTO",
+      "IL CODICE FISCALE"
+     ]
+    },
+    {
+     "q": "2. A CHE ORA HA L'APPUNTAMENTO?",
+     "opts": [
+      "ALLE 10",
+      "ALLE 12",
+      "NON HA L'APPUNTAMENTO"
+     ]
+    },
+    {
+     "q": "3. CHI PASSA A CONTROLLARE?",
+     "opts": [
+      "UN VIGILE",
+      "IL PROPRIETARIO",
+      "UN INFERMIERE"
+     ]
+    },
+    {
+     "q": "4. CHE COSA DEVE METTERE SUL CAMPANELLO?",
+     "opts": [
+      "IL SUO NOME",
+      "IL NUMERO DI TELEFONO",
+      "UNA FOTO"
+     ]
+    },
+    {
+     "q": "5. QUANDO PUÒ FARE LA CARTA D'IDENTITÀ?",
+     "opts": [
+      "QUANDO LA RESIDENZA È CONFERMATA",
+      "SUBITO",
+      "TRA UN ANNO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMQSBSRVNJREVOWkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBTExFIDEwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU4gVklHSUxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgU1VPIE5PTUUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJRVUFORE8gTEEgUkVTSURFTlpBIMOIIENPTkZFUk1BVEEiXX1d",
+   "info": "IMPIEGATA: HA L'APPUNTAMENTO?<br>KOFI: SÌ, ALLE 10. VORREI FARE LA RESIDENZA.<br>IMPIEGATA: MI DÀ IL PASSAPORTO, IL PERMESSO DI SOGGIORNO E IL CODICE FISCALE?<br>KOFI: ECCO. HO ANCHE IL CONTRATTO D'AFFITTO.<br>IMPIEGATA: PERFETTO. NEI PROSSIMI GIORNI PASSA UN VIGILE A CONTROLLARE. METTA IL SUO NOME SUL CAMPANELLO.<br>KOFI: POI POSSO FARE LA CARTA D'IDENTITÀ?<br>IMPIEGATA: SÌ, QUANDO LA RESIDENZA È CONFERMATA."
+  },
+  {
+   "part": "Il permesso di soggiorno"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa",
+   "short": "5 · Il rinnovo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "SCADENZA · GIORNI · KIT · RICEVUTA · IMPRONTE",
+   "parts": [
+    "IL PERMESSO DI SOGGIORNO HA UNA ",
+    {},
+    ": LA GUARDO SEMPRE.<br>CHIEDO IL RINNOVO PRIMA DELLA SCADENZA, MEGLIO 60 ",
+    {},
+    " PRIMA.<br>PER MOLTI PERMESSI PRENDO IL ",
+    {},
+    " ALLA POSTA.<br>DOPO LA SPEDIZIONE HO LA ",
+    {},
+    ": LA CONSERVO BENE.<br>IN QUESTURA LASCIO LE ",
+    {},
+    " DIGITALI."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzY2FkZW56YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdpb3JuaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImtpdCJdfSwgeyJ0IjogImVxIiwgImEiOiBbInJpY2V2dXRhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaW1wcm9udGUiXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Vero o falso?",
+   "short": "6 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. LA QUESTURA È UN UFFICIO DELLA POLIZIA."
+    },
+    {
+     "q": "2. LA CARTA D'IDENTITÀ DI UN CITTADINO STRANIERO SERVE PER VIAGGIARE ALL'ESTERO."
+    },
+    {
+     "q": "3. MOLTI CERTIFICATI SI SCARICANO ONLINE DALL'ANPR."
+    },
+    {
+     "q": "4. PER IL PERMESSO PER ASILO SI VA DIRETTAMENTE IN QUESTURA."
+    },
+    {
+     "q": "5. LA RESIDENZA SERVE ANCHE PER AVERE IL MEDICO DI BASE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "SEI ALL'ANAGRAFE. SALUTA, DI' CHE HAI L'APPUNTAMENTO, CHE COSA VUOI FARE E QUALI DOCUMENTI HAI."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

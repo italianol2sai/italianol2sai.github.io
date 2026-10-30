@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>☕ Al bar · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "☕ Al bar · Esercizi",
+ "store": "bar",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Che cosa prendo?"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Da bere o da mangiare?",
+   "short": "1 · Bere o mangiare",
+   "type": "select",
+   "opts": [
+    "DA BERE",
+    "DA MANGIARE"
+   ],
+   "items": [
+    {
+     "q": "1. IL CORNETTO"
+    },
+    {
+     "q": "2. LA SPREMUTA"
+    },
+    {
+     "q": "3. IL TRAMEZZINO"
+    },
+    {
+     "q": "4. IL CAPPUCCINO"
+    },
+    {
+     "q": "5. IL PANZEROTTO"
+    },
+    {
+     "q": "6. IL TÈ"
+    },
+    {
+     "q": "7. IL SUCCO DI FRUTTA"
+    },
+    {
+     "q": "8. IL PANINO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJEQSBNQU5HSUFSRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRBIEJFUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJEQSBNQU5HSUFSRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRBIEJFUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJEQSBNQU5HSUFSRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRBIEJFUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJEQSBCRVJFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREEgTUFOR0lBUkUiXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Scrivi la parola",
+   "short": "2 · Le parole",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. C A P P U C C _ N O"
+    },
+    {
+     "q": "2. C O R N E T T _"
+    },
+    {
+     "q": "3. S P R E M U T _"
+    },
+    {
+     "q": "4. S C O N T R _ N O"
+    },
+    {
+     "q": "5. B A R I S T _"
+    },
+    {
+     "q": "6. T R A M E Z Z _ N O"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjYXBwdWNjaW5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY29ybmV0dG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzcHJlbXV0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNjb250cmlubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImJhcmlzdGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0cmFtZXp6aW5vIl19XQ==",
+   "cons": "MANCA UNA LETTERA. SCRIVI TUTTA LA PAROLA."
+  },
+  {
+   "part": "Al banco"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Come funziona? Metti in ordine",
+   "short": "3 · In ordine",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "PAGO.",
+    "BEVO IL CAFFÈ AL BANCO.",
+    "PRENDO LO SCONTRINO.",
+    "VADO ALLA CASSA E DICO CHE COSA PRENDO.",
+    "DO LO SCONTRINO AL BARISTA."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNCJdfV0="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Completa il dialogo",
+   "short": "4 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "PRENDE · VORREI · QUANTO · CARTA · GIORNATA",
+   "parts": [
+    "BARISTA: BUONGIORNO! CHE COSA ",
+    {},
+    "?<br>OMAR: BUONGIORNO. ",
+    {},
+    " UN CAFFÈ E UNA SPREMUTA.<br>BARISTA: ECCO A LEI.<br>OMAR: ",
+    {},
+    " PAGO?<br>BARISTA: 4 EURO.<br>OMAR: POSSO PAGARE CON LA ",
+    {},
+    "?<br>BARISTA: CERTO.<br>OMAR: GRAZIE, BUONA ",
+    {},
+    "!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJwcmVuZGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2b3JyZWkiLCAicHJlbmRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicXVhbnRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY2FydGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnaW9ybmF0YSJdfV0="
+  },
+  {
+   "id": "e5",
+   "title": "5 · Leggi e rispondi",
+   "short": "5 · Maryam al bar",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. CHE COSA PRENDE MARYAM DA BERE?",
+     "opts": [
+      "UN CAPPUCCINO",
+      "UN TÈ",
+      "UNA SPREMUTA"
+     ]
+    },
+    {
+     "q": "2. COM'È IL CORNETTO?",
+     "opts": [
+      "ALLA CREMA",
+      "VUOTO",
+      "ALLA MARMELLATA"
+     ]
+    },
+    {
+     "q": "3. L'ACQUA È…",
+     "opts": [
+      "NATURALE",
+      "FRIZZANTE",
+      "CALDA"
+     ]
+    },
+    {
+     "q": "4. QUANTO PAGA?",
+     "opts": [
+      "3 EURO E 20",
+      "2 EURO",
+      "5 EURO E 50"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJVTiBDQVBQVUNDSU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQUxMQSBDUkVNQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk5BVFVSQUxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyBFVVJPIEUgMjAiXX1d",
+   "info": "BARISTA: BUONGIORNO! CHE COSA PRENDE?<br>MARYAM: UN CAPPUCCINO E UN CORNETTO, PER FAVORE.<br>BARISTA: IL CORNETTO VUOTO O ALLA CREMA?<br>MARYAM: ALLA CREMA. E UN BICCHIERE D'ACQUA.<br>BARISTA: NATURALE O FRIZZANTE?<br>MARYAM: NATURALE, GRAZIE. QUANTO PAGO?<br>BARISTA: 3 EURO E 20."
+  },
+  {
+   "id": "e6",
+   "title": "6 · Vero o falso?",
+   "short": "6 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. AL BANCO IL CAFFÈ COSTA DI SOLITO MENO CHE AL TAVOLO."
+    },
+    {
+     "q": "2. LA MATTINA MOLTI ITALIANI PRENDONO CAPPUCCINO E CORNETTO."
+    },
+    {
+     "q": "3. «PRENDIAMO UN CAFFÈ?» VUOL DIRE: ANDIAMO A CASA."
+    },
+    {
+     "q": "4. LO SCONTRINO SI DÀ AL BARISTA."
+    },
+    {
+     "q": "5. IL PANZEROTTO È TIPICO DI BARI."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "SEI AL BAR CON UN AMICO. ORDINA DA BERE E DA MANGIARE PER TE E PER IL TUO AMICO, CHIEDI QUANTO PAGHI E SE PUOI PAGARE CON LA CARTA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
