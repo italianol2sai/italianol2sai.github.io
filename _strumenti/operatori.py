@@ -50,7 +50,7 @@ OPERATORI = {
  "michele":  ("MICHELE", "OPERATORE · SAI BARI", ritratto("mi", "#E4F2E0", "#F0CBAA", "#D6A784", "#6E5A4A", "#3F7F4F", "calvo", barba=True, occhiali=True)),
  "silvia2":  ("SILVIA", "OPERATRICE · SAI BARI", ritratto("s2", "#EFE3F6", "#F2CFB4", "#D9AE8E", "#C9A04E", "#7B4FA0", "lunghi", orecchini="#E7C35A", occhi="#4E7A9E")),
  "saleah":   ("SALEAH", "OPERATRICE · SAI BARI", ritratto("sa", "#FFF1D6", "#B47A55", "#966042", "#1B120D", "#E0A21B", "chignon", orecchini="#C9A227")),
- "eneida":   ("ENEIDA", "OPERATRICE · SAI BARI", ritratto("en", "#E0F0F4", "#EFC6A6", "#D4A381", "#8A3B1E", "#2A8C8C", "mossi", occhi="#4C6B3A")),
+ "eneida":   ("ENEIDA", "COORDINATRICE · SAI BARI", ritratto("en", "#E0F0F4", "#EFC6A6", "#D4A381", "#8A3B1E", "#2A8C8C", "mossi", occhi="#4C6B3A")),
 }
 
 # Protagonisti (Erila: «usa anche altri nomi inventati dei protagonisti, sempre nomi stranieri, etnie diverse»)

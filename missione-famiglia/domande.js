@@ -16,7 +16,7 @@ window.MISSIONE = {
   ],
   [
    "eneida",
-   "CHE BELLO! TI AIUTO A PREPARARE TUTTO."
+   "CHE BELLO! SONO ENEIDA, LA COORDINATRICE. TI AIUTO A PREPARARE TUTTO."
   ],
   [
    "eneida",
