@@ -169,7 +169,9 @@
     <h2>📊 Il tuo risultato</h2>
     <p class="cons" id="finalhint">Controlla tutti gli esercizi per vedere il risultato finale.</p>
     <div id="finalbox"></div>
-    <button class="btn" id="send" style="margin-top:12px">📤 Invia tutto all'insegnante</button>
+    <p class="cons" style="margin-top:14px">Manda le risposte all'insegnante:</p>
+    <button class="btn" id="wa" style="margin:12px 8px 0 0;background:#1f9e55;color:#fff">💬 Invia su WhatsApp</button>
+    <button class="btn sec" id="send" style="margin-top:12px">📤 Altro modo (email, copia…)</button>
     <p class="fb" id="sendfb"></p>
   </section>
 </main>
@@ -410,7 +412,7 @@ function updateFinal(){
 updateFinal();
 
 // --- invio ---
-$("send").onclick=async()=>{
+function testo(){
   const lines=["VERIFICA ITALIANO A2 — "+($("nome").value||"(senza nome)")];
   ORDER.forEach(id=>{ const r=results[id]; lines.push("");
     lines.push(NAMES[id]+": "+(r?r.got+"/"+r.max:"non controllato"));
@@ -419,9 +421,15 @@ $("send").onclick=async()=>{
   lines.push("","TOTALE AUTOMATICO: "+tot+"/80","","3F IMPERATIVO:");
   for(let i=1;i<=5;i++) lines.push("  "+i+". "+($("f"+i).value||"-"));
   lines.push("","5 SCRITTURA:",$("scritto").value||"-");
-  const files=Object.values(recordings);
-  lines.push("","PROVA ORALE: "+files.length+" registrazioni");
-  const text=lines.join("\n"); const fb=$("sendfb");
+  lines.push("","PROVA ORALE: "+Object.keys(recordings).length+" registrazioni");
+  return lines.join("\n");
+}
+$("wa").onclick=()=>{
+  WA.apri(testo()); const fb=$("sendfb"); fb.className="fb mid";
+  fb.textContent="Si apre WhatsApp con le tue risposte: "+(WA.numero?"":"scegli l'insegnante e ")+"premi Invia."+(Object.keys(recordings).length?" Le registrazioni mandale con «Scarica».":"");
+};
+$("send").onclick=async()=>{
+  const text=testo(), files=Object.values(recordings); const fb=$("sendfb");
   try{
     if(navigator.share){
       const data={title:"Verifica A2", text};
@@ -436,5 +444,6 @@ $("send").onclick=async()=>{
   catch(e){ fb.className="fb no"; fb.textContent="Non riesco a copiare. Fai uno screenshot del risultato."; }
 };
 </script>
+<script src="../comune/whatsapp.js"></script>
 </body>
 </html>
