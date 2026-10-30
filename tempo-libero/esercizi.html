@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>⚽ Il tempo libero · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "⚽ Il tempo libero · Esercizi",
+ "store": "tempo-libero",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Le attività"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Scegli il verbo",
+   "short": "1 · I verbi",
+   "type": "select",
+   "opts": [
+    "GIOCO",
+    "VADO",
+    "LEGGO",
+    "ASCOLTO",
+    "GUARDO"
+   ],
+   "items": [
+    {
+     "q": "1. ___ A CALCIO CON GLI AMICI."
+    },
+    {
+     "q": "2. ___ AL CINEMA IL SABATO."
+    },
+    {
+     "q": "3. ___ LA MUSICA IN AUTOBUS."
+    },
+    {
+     "q": "4. ___ UN LIBRO PRIMA DI DORMIRE."
+    },
+    {
+     "q": "5. ___ LA TV LA SERA."
+    },
+    {
+     "q": "6. ___ AL MARE D'ESTATE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJHSU9DTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZBRE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJBU0NPTFRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEVHR08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJHVUFSRE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWQURPIl19XQ=="
+  },
+  {
+   "part": "Quante volte?"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Da 0% a 100%: metti in ordine",
+   "short": "2 · In ordine",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1 = MAI (0%) … 6 = SEMPRE (100%).",
+   "items": [
+    "RARAMENTE",
+    "QUALCHE VOLTA",
+    "SPESSO",
+    "DI SOLITO",
+    "SEMPRE",
+    "MAI"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX1d"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Scegli la parola giusta",
+   "short": "3 · Quante volte",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. GRACE ___ VA AL CINEMA: UNA VOLTA ALL'ANNO.",
+     "opts": [
+      "RARAMENTE",
+      "SEMPRE",
+      "SPESSO"
+     ]
+    },
+    {
+     "q": "2. LA DOMENICA AMINA ___ CUCINA PER TUTTI: OGNI DOMENICA!",
+     "opts": [
+      "SEMPRE",
+      "MAI",
+      "QUALCHE VOLTA"
+     ]
+    },
+    {
+     "q": "3. YUSUF NON BEVE ___ IL CAFFÈ.",
+     "opts": [
+      "MAI",
+      "SPESSO",
+      "SEMPRE"
+     ]
+    },
+    {
+     "q": "4. VADO IN PALESTRA ___ ALLA SETTIMANA.",
+     "opts": [
+      "DUE VOLTE",
+      "DUE GIORNO",
+      "DUE SEMPRE"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJSQVJBTUVOVEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTRU1QUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNQUkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJEVUUgVk9MVEUiXX1d"
+  },
+  {
+   "part": "Mi piace"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Piace o piacciono?",
+   "short": "4 · Mi piace",
+   "type": "select",
+   "opts": [
+    "MI PIACE",
+    "MI PIACCIONO"
+   ],
+   "items": [
+    {
+     "q": "1. ___ IL CALCIO."
+    },
+    {
+     "q": "2. ___ I FILM COMICI."
+    },
+    {
+     "q": "3. ___ CUCINARE."
+    },
+    {
+     "q": "4. ___ LE CANZONI ARABE."
+    },
+    {
+     "q": "5. ___ LA PIZZA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNSSBQSUFDRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1JIFBJQUNDSU9OTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1JIFBJQUNFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTUkgUElBQ0NJT05PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTUkgUElBQ0UiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa il dialogo",
+   "short": "5 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "SABATO · SOLITO · VA · VOLENTIERI · BENE",
+   "parts": [
+    "AMINA: CHE COSA FAI ",
+    {},
+    "?<br>GRACE: DI ",
+    {},
+    " IL SABATO PULISCO LA CASA.<br>AMINA: TI ",
+    {},
+    " DI ANDARE AL CINEMA?<br>GRACE: SÌ, ",
+    {},
+    "! CI VEDIAMO ALLE 8?<br>AMINA: VA ",
+    {},
+    ". A SABATO!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzYWJhdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzb2xpdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInZvbGVudGllcmkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJiZW5lIl19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 ✎ · Il mio tempo libero",
+   "type": "free",
+   "rows": 4,
+   "cons": "SCRIVI 4 FRASI: CHE COSA FAI NEL TEMPO LIBERO E QUANTE VOLTE? USA SEMPRE, SPESSO, QUALCHE VOLTA, MAI.",
+   "items": [
+    "IL MIO TEMPO LIBERO"
+   ]
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "INVITA UN AMICO A FARE UNA COSA INSIEME IL FINE SETTIMANA. DI' CHE COSA, DOVE E A CHE ORA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

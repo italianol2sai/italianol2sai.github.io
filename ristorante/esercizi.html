@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🍝 Al ristorante · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🍝 Al ristorante · Esercizi",
+ "store": "ristorante",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Il menù"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che piatto è?",
+   "short": "1 · Il menù",
+   "type": "select",
+   "opts": [
+    "ANTIPASTO",
+    "PRIMO",
+    "SECONDO",
+    "CONTORNO",
+    "DOLCE"
+   ],
+   "items": [
+    {
+     "q": "1. SPAGHETTI ALLE VONGOLE"
+    },
+    {
+     "q": "2. TIRAMISÙ"
+    },
+    {
+     "q": "3. ORATA AL FORNO"
+    },
+    {
+     "q": "4. BRUSCHETTA"
+    },
+    {
+     "q": "5. INSALATA MISTA"
+    },
+    {
+     "q": "6. ORECCHIETTE"
+    },
+    {
+     "q": "7. BRACIOLE AL SUGO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQUklNTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRPTENFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0VDT05ETyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFOVElQQVNUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPTlRPUk5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUFJJTU8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJTRUNPTkRPIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Leggi il menù",
+   "short": "2 · Leggi il menù",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. QUANTO COSTANO LE ORECCHIETTE?",
+     "opts": [
+      "9 €",
+      "12 €",
+      "4 €"
+     ]
+    },
+    {
+     "q": "2. FATIMA NON MANGIA CARNE. CHE SECONDO PRENDE?",
+     "opts": [
+      "L'ORATA AL FORNO",
+      "LE BRACIOLE AL SUGO",
+      "IL TIRAMISÙ"
+     ]
+    },
+    {
+     "q": "3. OMAR PRENDE SPAGHETTI E ACQUA. QUANTO SPENDE?",
+     "opts": [
+      "14 €",
+      "12 €",
+      "16 €"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI5IOKCrCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwnT1JBVEEgQUwgRk9STk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyIxNCDigqwiXX1d",
+   "info": "    <table class=\"plur\" style=\"width:100%;font-size:14px\"><tr><th></th><th>MENÙ DEL GIORNO</th><th>PREZZO</th></tr><tr><td>ANTIPASTI</td><td>BRUSCHETTA AL POMODORO</td><td>4 €</td></tr><tr><td></td><td>POLPO CRUDO E COZZE</td><td>10 €</td></tr><tr><td>PRIMI</td><td>ORECCHIETTE ALLE CIME DI RAPA</td><td>9 €</td></tr><tr><td></td><td>SPAGHETTI ALLE VONGOLE</td><td>12 €</td></tr><tr><td>SECONDI</td><td>ORATA AL FORNO CON PATATE</td><td>14 €</td></tr><tr><td></td><td>BRACIOLE AL SUGO</td><td>12 €</td></tr><tr><td>CONTORNI</td><td>INSALATA MISTA · PATATE FRITTE</td><td>4 €</td></tr><tr><td>DOLCI</td><td>TIRAMISÙ · FRUTTA</td><td>5 €</td></tr><tr><td>BEVANDE</td><td>ACQUA (1 L) · VINO DELLA CASA (1/4)</td><td>2 € · 4 €</td></tr></table>"
+  },
+  {
+   "part": "Al ristorante"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Metti in ordine",
+   "short": "3 · In ordine",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "AVETE SCELTO?",
+    "PER ME LE ORECCHIETTE, GRAZIE.",
+    "E DA BERE?",
+    "UNA BOTTIGLIA D'ACQUA.",
+    "IL CONTO, PER FAVORE.",
+    "BUONASERA, AVETE UN TAVOLO PER DUE?"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX1d"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Che cosa dici?",
+   "short": "4 · Che cosa dici",
+   "type": "select",
+   "opts": [
+    "IL CONTO, PER FAVORE.",
+    "AVETE UN TAVOLO PER QUATTRO?",
+    "C'È CARNE DENTRO?",
+    "PER ME UN PRIMO.",
+    "UN ALTRO PO' DI PANE, PER FAVORE."
+   ],
+   "items": [
+    {
+     "q": "1. ENTRI NEL RISTORANTE CON 3 AMICI."
+    },
+    {
+     "q": "2. NON MANGI CARNE E NON SAI CHE COSA C'È NEL PIATTO."
+    },
+    {
+     "q": "3. HAI FINITO E VUOI PAGARE."
+    },
+    {
+     "q": "4. IL PANE È FINITO."
+    },
+    {
+     "q": "5. IL CAMERIERE CHIEDE: «CHE COSA PRENDE?»"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBVkVURSBVTiBUQVZPTE8gUEVSIFFVQVRUUk8/Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiQyfDiCBDQVJORSBERU5UUk8/Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgQ09OVE8sIFBFUiBGQVZPUkUuIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU4gQUxUUk8gUE8nIERJIFBBTkUsIFBFUiBGQVZPUkUuIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUEVSIE1FIFVOIFBSSU1PLiJdfV0="
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa il dialogo",
+   "short": "5 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "AVETE · PRENDO · BERE · CONTO · CARTA",
+   "parts": [
+    "CAMERIERE: BUONASERA! ",
+    {},
+    " SCELTO?<br>OMAR: SÌ. IO ",
+    {},
+    " L'ORATA AL FORNO.<br>CAMERIERE: E DA ",
+    {},
+    "?<br>OMAR: ACQUA NATURALE.<br>…<br>OMAR: SCUSI, IL ",
+    {},
+    ", PER FAVORE. POSSO PAGARE CON LA ",
+    {},
+    "?"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJhdmV0ZXxoYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInByZW5kbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImJlcmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjb250byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNhcnRhIl19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "TELEFONA AL RISTORANTE E PRENOTA UN TAVOLO: GIORNO, ORA, QUANTE PERSONE, IL TUO NOME."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
