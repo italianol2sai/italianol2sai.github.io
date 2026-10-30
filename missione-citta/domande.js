@@ -1,58 +1,58 @@
 // Contenuti del gioco «MISSIONE CITTÀ» (generati da _strumenti/missioni.py: modificare lì).
 window.MISSIONE = {
  "titolo": "MISSIONE CITTÀ",
- "sottotitolo": "AIUTA MARYAM A MUOVERSI A BARI!",
+ "sottotitolo": "AIUTA MARIELA A MUOVERSI A BARI!",
  "parolaSegreta": "META",
- "guida": "silvia",
- "protagonista": "maryam",
+ "guida": "saleah",
+ "protagonista": "mariela",
  "etichetta": "ITALIANO L2 · LA CITTÀ",
  "portaFinale": "LA PORTA DELLA STAZIONE",
  "grazie": "GRAZIE! SONO ARRIVATA!",
  "imparato": "HAI IMPARATO I LUOGHI DELLA CITTÀ, LE INDICAZIONI, L'AUTOBUS, IL TRENO E I CARTELLI.",
  "intro": [
   [
-   "maryam",
+   "mariela",
    "OGGI DEVO ANDARE IN TANTI POSTI A BARI. MA NON CONOSCO BENE LA CITTÀ!"
   ],
   [
-   "silvia",
-   "SONO SILVIA. TI ACCOMPAGNO IO!"
+   "saleah",
+   "SONO SALEAH. TI ACCOMPAGNO IO!"
   ],
   [
-   "silvia",
+   "saleah",
    "CI SONO 4 PORTE. CON LE 4 LETTERE SCOPRI LA PAROLA SEGRETA: È LA FINE DEL VIAGGIO!"
   ]
  ],
  "finale": [
   [
-   "maryam",
+   "mariela",
    "HO PRESO L'AUTOBUS E IL TRENO. ECCO IL MARE DI POLIGNANO!"
   ],
   [
-   "silvia",
+   "saleah",
    "COME SI CHIAMA IL POSTO DOVE ARRIVI? SCRIVI LA PAROLA SEGRETA."
   ]
  ],
- "vittoria": "SILVIA DICE: «SEI ARRIVATA ALLA META, MARYAM! ADESSO CONOSCI LA CITTÀ.»",
+ "vittoria": "SALEAH DICE: «SEI ARRIVATA ALLA META, MARIELA! ADESSO CONOSCI LA CITTÀ.»",
  "stanze": [
   {
    "id": "luoghi",
    "titolo": "I LUOGHI",
    "icona": "🏙️",
    "lettera": "M",
-   "chi": "silvia",
+   "chi": "saleah",
    "lezione": {
     "titolo": "LA CITTÀ",
     "link": "#citta"
    },
    "storia": [
     [
-     "silvia",
-     "DOVE DEVI ANDARE, MARYAM?"
+     "saleah",
+     "DOVE DEVI ANDARE, MARIELA?"
     ]
    ],
    "fine": [
-    "maryam",
+    "mariela",
     "CONOSCO I LUOGHI!"
    ],
    "prove": [
@@ -121,19 +121,19 @@ window.MISSIONE = {
    "titolo": "LE INDICAZIONI",
    "icona": "🧭",
    "lettera": "E",
-   "chi": "silvia",
+   "chi": "saleah",
    "lezione": {
     "titolo": "I PUNTI CARDINALI",
     "link": "punti-cardinali/"
    },
    "storia": [
     [
-     "maryam",
+     "mariela",
      "SCUSI, DOV'È LA FERMATA?"
     ]
    ],
    "fine": [
-    "silvia",
+    "saleah",
     "PERFETTO!"
    ],
    "prove": [
@@ -188,19 +188,19 @@ window.MISSIONE = {
    "titolo": "L'AUTOBUS",
    "icona": "🚌",
    "lettera": "T",
-   "chi": "silvia",
+   "chi": "saleah",
    "lezione": {
     "titolo": "PRENDO L'AUTOBUS",
     "link": "autobus/"
    },
    "storia": [
     [
-     "silvia",
+     "saleah",
      "ECCO LA FERMATA DELL'AUTOBUS."
     ]
    ],
    "fine": [
-    "maryam",
+    "mariela",
     "SONO SULL'AUTOBUS!"
    ],
    "prove": [
@@ -255,19 +255,19 @@ window.MISSIONE = {
    "titolo": "IL TRENO",
    "icona": "🚆",
    "lettera": "A",
-   "chi": "silvia",
+   "chi": "saleah",
    "lezione": {
     "titolo": "PRENDO IL TRENO",
     "link": "treno/"
    },
    "storia": [
     [
-     "silvia",
+     "saleah",
      "ULTIMA PORTA: LA STAZIONE."
     ]
    ],
    "fine": [
-    "maryam",
+    "mariela",
     "IL TRENO PARTE!"
    ],
    "prove": [

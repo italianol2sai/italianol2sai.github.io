@@ -3,56 +3,56 @@ window.MISSIONE = {
  "titolo": "MISSIONE VESTITI",
  "sottotitolo": "TROVA I VESTITI GIUSTI PER IL COLLOQUIO!",
  "parolaSegreta": "MODA",
- "guida": "giulio",
- "protagonista": "mohammad",
+ "guida": "cristian",
+ "protagonista": "ravi",
  "etichetta": "ITALIANO L2 · I VESTITI",
  "portaFinale": "LA PORTA DEL NEGOZIO",
  "grazie": "GRAZIE! ORA SONO PRONTO!",
  "imparato": "HAI IMPARATO I VESTITI, I COLORI, COME SI COMPRA IN UN NEGOZIO E CHE COSA SI METTE CON IL TEMPO DIVERSO.",
  "intro": [
   [
-   "mohammad",
+   "ravi",
    "LUNEDÌ HO UN COLLOQUIO DI LAVORO. DEVO COMPRARE DEI VESTITI NUOVI!"
   ],
   [
-   "giulio",
-   "SONO GIULIO. ANDIAMO INSIEME AL NEGOZIO."
+   "cristian",
+   "SONO CRISTIAN. ANDIAMO INSIEME AL NEGOZIO."
   ],
   [
-   "giulio",
+   "cristian",
    "CI SONO 4 PORTE. CON LE 4 LETTERE SCOPRI LA PAROLA SEGRETA!"
   ]
  ],
  "finale": [
   [
-   "mohammad",
+   "ravi",
    "HO LA GIACCA, LA CAMICIA E LE SCARPE NUOVE!"
   ],
   [
-   "giulio",
+   "cristian",
    "SEI ELEGANTISSIMO! SEI ALLA… SCRIVI LA PAROLA SEGRETA."
   ]
  ],
- "vittoria": "GIULIO DICE: «SEI ALLA MODA, MOHAMMAD! IN BOCCA AL LUPO PER IL COLLOQUIO!»",
+ "vittoria": "CRISTIAN DICE: «SEI ALLA MODA, RAVI! IN BOCCA AL LUPO PER IL COLLOQUIO!»",
  "stanze": [
   {
    "id": "capi",
    "titolo": "I VESTITI",
    "icona": "👕",
    "lettera": "M",
-   "chi": "giulio",
+   "chi": "cristian",
    "lezione": {
     "titolo": "I VESTITI",
     "link": "abbigliamento/"
    },
    "storia": [
     [
-     "giulio",
+     "cristian",
      "PRIMA RIPASSIAMO I NOMI DEI VESTITI."
     ]
    ],
    "fine": [
-    "mohammad",
+    "ravi",
     "CONOSCO I VESTITI!"
    ],
    "prove": [
@@ -121,19 +121,19 @@ window.MISSIONE = {
    "titolo": "I COLORI",
    "icona": "🎨",
    "lettera": "O",
-   "chi": "giulio",
+   "chi": "cristian",
    "lezione": {
     "titolo": "VESTITI E COLORI",
     "link": "parole/vestiti.html"
    },
    "storia": [
     [
-     "giulio",
+     "cristian",
      "DI CHE COLORE LA VUOI?"
     ]
    ],
    "fine": [
-    "mohammad",
+    "ravi",
     "MI PIACE IL BLU!"
    ],
    "prove": [
@@ -180,19 +180,19 @@ window.MISSIONE = {
    "titolo": "AL NEGOZIO",
    "icona": "🛍️",
    "lettera": "D",
-   "chi": "giulio",
+   "chi": "cristian",
    "lezione": {
     "titolo": "I VESTITI",
     "link": "abbigliamento/"
    },
    "storia": [
     [
-     "giulio",
+     "cristian",
      "ENTRIAMO NEL NEGOZIO."
     ]
    ],
    "fine": [
-    "mohammad",
+    "ravi",
     "HO COMPRATO TUTTO!"
    ],
    "prove": [
@@ -261,19 +261,19 @@ window.MISSIONE = {
    "titolo": "CHE COSA METTO?",
    "icona": "🌦️",
    "lettera": "A",
-   "chi": "giulio",
+   "chi": "cristian",
    "lezione": {
     "titolo": "IL TEMPO",
     "link": "tempo/"
    },
    "storia": [
     [
-     "giulio",
+     "cristian",
      "LUNEDÌ CHE TEMPO FA?"
     ]
    ],
    "fine": [
-    "mohammad",
+    "ravi",
     "SONO PRONTO PER OGNI TEMPO!"
    ],
    "prove": [

@@ -1,58 +1,58 @@
 // Contenuti del gioco «MISSIONE CITTADINO» (generati da _strumenti/missioni.py: modificare lì).
 window.MISSIONE = {
  "titolo": "MISSIONE CITTADINO",
- "sottotitolo": "AIUTA MOHAMMAD CON I DOCUMENTI!",
+ "sottotitolo": "AIUTA TESFAYE CON I DOCUMENTI!",
  "parolaSegreta": "DIRITTI",
- "guida": "serena",
- "protagonista": "mohammad",
+ "guida": "silvia2",
+ "protagonista": "tesfaye",
  "etichetta": "ITALIANO L2 · EDUCAZIONE CIVICA",
  "portaFinale": "LA PORTA DEL COMUNE",
  "grazie": "GRAZIE! ORA CONOSCO I MIEI DIRITTI E I MIEI DOVERI!",
  "imparato": "HAI IMPARATO I DOCUMENTI, GLI UFFICI, I DIRITTI E I DOVERI E LE REGOLE DELLA CONVIVENZA.",
  "intro": [
   [
-   "mohammad",
+   "tesfaye",
    "DEVO FARE TANTI DOCUMENTI: CODICE FISCALE, RESIDENZA, CARTA D'IDENTITÀ…"
   ],
   [
-   "serena",
+   "silvia2",
    "NON TI PREOCCUPARE, TI AIUTO IO."
   ],
   [
-   "serena",
+   "silvia2",
    "CI SONO 7 PORTE. CON LE 7 LETTERE SCOPRI CHE COSA HANNO TUTTE LE PERSONE IN ITALIA!"
   ]
  ],
  "finale": [
   [
-   "mohammad",
+   "tesfaye",
    "HO TUTTI I DOCUMENTI!"
   ],
   [
-   "serena",
+   "silvia2",
    "LA COSTITUZIONE DICE CHE TUTTI HANNO DEI… SCRIVI LA PAROLA SEGRETA."
   ]
  ],
- "vittoria": "SERENA DICE: «TUTTE LE PERSONE HANNO DIRITTI E DOVERI. BENVENUTO, MOHAMMAD!»",
+ "vittoria": "SILVIA DICE: «TUTTE LE PERSONE HANNO DIRITTI E DOVERI. BENVENUTO, TESFAYE!»",
  "stanze": [
   {
    "id": "codice",
    "titolo": "IL CODICE FISCALE",
    "icona": "🪪",
    "lettera": "D",
-   "chi": "serena",
+   "chi": "silvia2",
    "lezione": {
     "titolo": "IL CODICE FISCALE",
     "link": "codice-fiscale/"
    },
    "storia": [
     [
-     "serena",
+     "silvia2",
      "IL PRIMO DOCUMENTO È IL CODICE FISCALE."
     ]
    ],
    "fine": [
-    "mohammad",
+    "tesfaye",
     "HO IL CODICE FISCALE!"
    ],
    "prove": [
@@ -93,19 +93,19 @@ window.MISSIONE = {
    "titolo": "LA RESIDENZA",
    "icona": "🏠",
    "lettera": "I",
-   "chi": "serena",
+   "chi": "silvia2",
    "lezione": {
     "titolo": "IN COMUNE E IN QUESTURA",
     "link": "comune-questura/"
    },
    "storia": [
     [
-     "serena",
+     "silvia2",
      "ORA LA RESIDENZA, IN COMUNE."
     ]
    ],
    "fine": [
-    "mohammad",
+    "tesfaye",
     "HO LA RESIDENZA!"
    ],
    "prove": [
@@ -146,19 +146,19 @@ window.MISSIONE = {
    "titolo": "LA CARTA D'IDENTITÀ",
    "icona": "🪪",
    "lettera": "R",
-   "chi": "serena",
+   "chi": "silvia2",
    "lezione": {
     "titolo": "IN COMUNE E IN QUESTURA",
     "link": "comune-questura/"
    },
    "storia": [
     [
-     "serena",
+     "silvia2",
      "CON LA RESIDENZA PUOI CHIEDERE LA CARTA D'IDENTITÀ."
     ]
    ],
    "fine": [
-    "mohammad",
+    "tesfaye",
     "ECCO LA MIA CIE!"
    ],
    "prove": [
@@ -199,19 +199,19 @@ window.MISSIONE = {
    "titolo": "IL PERMESSO DI SOGGIORNO",
    "icona": "📄",
    "lettera": "I",
-   "chi": "serena",
+   "chi": "silvia2",
    "lezione": {
     "titolo": "IN COMUNE E IN QUESTURA",
     "link": "comune-questura/"
    },
    "storia": [
     [
-     "mohammad",
+     "tesfaye",
      "IL MIO PERMESSO SCADE FRA DUE MESI!"
     ]
    ],
    "fine": [
-    "serena",
+    "silvia2",
     "BRAVO, NON DIMENTICARE LA DATA!"
    ],
    "prove": [
@@ -252,19 +252,19 @@ window.MISSIONE = {
    "titolo": "DIRITTI E DOVERI",
    "icona": "⚖️",
    "lettera": "T",
-   "chi": "serena",
+   "chi": "silvia2",
    "lezione": {
     "titolo": "EDUCAZIONE CIVICA",
     "link": "#educazione-civica"
    },
    "storia": [
     [
-     "serena",
+     "silvia2",
      "IN ITALIA HAI DIRITTI E DOVERI."
     ]
    ],
    "fine": [
-    "mohammad",
+    "tesfaye",
     "HO CAPITO!"
    ],
    "prove": [
@@ -305,19 +305,19 @@ window.MISSIONE = {
    "titolo": "LA COSTITUZIONE",
    "icona": "📜",
    "lettera": "T",
-   "chi": "serena",
+   "chi": "silvia2",
    "lezione": {
     "titolo": "EDUCAZIONE CIVICA",
     "link": "#educazione-civica"
    },
    "storia": [
     [
-     "serena",
+     "silvia2",
      "LA LEGGE PIÙ IMPORTANTE È LA COSTITUZIONE."
     ]
    ],
    "fine": [
-    "mohammad",
+    "tesfaye",
     "CHE INTERESSANTE!"
    ],
    "prove": [
@@ -358,19 +358,19 @@ window.MISSIONE = {
    "titolo": "LE REGOLE DI TUTTI I GIORNI",
    "icona": "♻️",
    "lettera": "I",
-   "chi": "serena",
+   "chi": "silvia2",
    "lezione": {
     "titolo": "LA RACCOLTA DIFFERENZIATA",
     "link": "raccolta-differenziata/"
    },
    "storia": [
     [
-     "serena",
+     "silvia2",
      "ULTIMA PORTA: LE REGOLE DELLA CONVIVENZA."
     ]
    ],
    "fine": [
-    "mohammad",
+    "tesfaye",
     "RISPETTO LE REGOLE!"
    ],
    "prove": [
