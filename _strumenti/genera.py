@@ -75,6 +75,7 @@ if __name__ == "__main__":
     from unita_b2c1 import SIM_B2C1
     from unita_eserciziario import ESERCIZIARIO
     from unita_inalto import PERCORSO
+    import teoria_vecchie  # riquadri «La regola» sulle pagine di grammatica più vecchie
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
