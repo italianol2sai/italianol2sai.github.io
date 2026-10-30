@@ -379,3 +379,6 @@ SCHEDE.append(scheda(19, "Le feste popolari", "", [
 ]))
 
 ESERCIZIARIO = [("eserciziario-a1/scheda-%02d.html" % (i + 1), d) for i, d in enumerate(SCHEDE)]
+
+from teoria import aggiungi, TEORIA_SCHEDE
+aggiungi(SCHEDE, TEORIA_SCHEDE)
