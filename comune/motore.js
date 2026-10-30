@@ -145,8 +145,20 @@ function recorder(sec, ex){
 let voci=[]; const caricaVoci=()=>{ voci=(window.speechSynthesis?speechSynthesis.getVoices():[]).filter(v=>/^it/i.test(v.lang)); };
 if(window.speechSynthesis){ caricaVoci(); speechSynthesis.onvoiceschanged=caricaVoci; }
 const MASCHI=/luca|diego|cosimo|giorgio|paolo|marco|calogero|benigno|giuseppe|rocko|reed|eddy|grandpa|male|uomo/i;
-function voce(chi){ const m=voci.filter(v=>MASCHI.test(v.name)), f=voci.filter(v=>!MASCHI.test(v.name));
-  return chi==="M" ? (m[0]||null) : (f[0]||voci[0]||null); }
+const BELLA=/natural|neural|online|premium|enhanced|google/i;  // voci di qualità migliore prima
+function voce(chi){ const ord=a=>a.slice().sort((x,y)=>BELLA.test(y.name)-BELLA.test(x.name));
+  const m=ord(voci.filter(v=>MASCHI.test(v.name))), f=ord(voci.filter(v=>!MASCHI.test(v.name)));
+  return chi==="M" ? (m[0]||null) : (f[0]||ord(voci)[0]||null); }
+// il testo in STAMPATELLO viene letto male (lettera per lettera o con intonazione strana): lo passo in minuscolo
+// con la maiuscola a inizio frase, tengo le sigle e divido in frasi (Chrome taglia le frasi troppo lunghe)
+const SIGLE=/^(ASL|INPS|ISEE|CIE|SPID|ANPR|UNESCO|IBAN|HACCP|CAF|SSN|CILS|UE|DPI|CUP|SMS|PIN|IVA|TV|ATM|AMTAB|CPIA|ITS)$/;
+function parlato(t){
+  t=String(t);
+  if(t===t.toUpperCase()) t=t.replace(/[A-ZÀ-ÖØ-Þ]+(?:'[A-ZÀ-ÖØ-Þ]+)?/g, w=>SIGLE.test(w)?w:w.toLowerCase())
+                             .replace(/(^|[.!?]\s+|«)([a-zà-öø-þ])/g,(m,a,b)=>a+b.toUpperCase());
+  t=t.replace(/\s*€/g," euro");
+  return t.match(/[^.!?]+[.!?]*\s*/g)||[t];
+}
 function player(sec, ex){
   const raw=dec(ex.audio); const righe=typeof raw==="string"?[["F",raw]]:raw;
   const box=el("div",{class:"sit"}); box.append(html("div",{},"🎧 <b>Ascolta</b> tutte le volte che vuoi. Il testo non è scritto: devi capire con le orecchie."));
@@ -157,8 +169,8 @@ function player(sec, ex){
   if(!window.speechSynthesis){ go.disabled=slow.disabled=true; box.append(el("p",{class:"note"},"Questo browser non può leggere ad alta voce. Prova con Chrome, Edge o Safari.")); return; }
   const play=rate=>{ speechSynthesis.cancel(); if(!voci.length) caricaVoci();
     const mv=voce("M"), fv=voce("F"), stessa=!mv||mv===fv;
-    righe.forEach(([chi,t])=>{ const u=new SpeechSynthesisUtterance(t); u.lang="it-IT"; u.rate=rate;
-      const v=chi==="M"?mv:fv; if(v) u.voice=v; if(stessa) u.pitch=chi==="M"?.75:1.2; speechSynthesis.speak(u); }); };
+    righe.forEach(([chi,t])=>parlato(t).forEach(frase=>{ const u=new SpeechSynthesisUtterance(frase.trim()); u.lang="it-IT"; u.rate=rate;
+      const v=chi==="M"?mv:fv; if(v) u.voice=v; if(stessa) u.pitch=chi==="M"?.85:1.1; speechSynthesis.speak(u); })); };
   go.onclick=()=>play(.95); slow.onclick=()=>play(.7); stop.onclick=()=>speechSynthesis.cancel();
 }
 
