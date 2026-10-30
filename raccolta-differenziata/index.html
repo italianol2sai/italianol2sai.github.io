@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA RACCOLTA DIFFERENZIATA - ITALIANO L2</title>
+<style>
+  :root{
+    --blu:#E07A1F; --blu-scuro:#3B2410; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FFF6EC; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#E07A1F,#F6B44C); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+
+  .parla, [data-say]{cursor:pointer;} .bubble.parla::after, .card.parla b::after{content:" 🔊"; font-size:.8em; opacity:.55;}
+  .parlando{outline:4px solid var(--arancio); outline-offset:2px;}
+  .card, .card b, .cover h1, .bubble, table.plur td{overflow-wrap:anywhere;}
+  @media (max-width:900px){ .cover h1{font-size:2.1rem;} .card b{font-size:1.05rem;} .card{padding:12px;} }
+  @media (max-width:520px){ .g3{grid-template-columns:1fr;} .g3 .card{flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:12px;} .g3 .card .emoji{font-size:2rem;} .g3 .card span:last-child{flex-basis:100%;} }
+  .passi{display:flex; flex-direction:column; gap:12px; max-width:1000px;}
+  .passi div{background:#fff; border:3px solid #e3edf8; border-radius:14px; padding:12px 16px; font-size:1.45rem; display:flex; gap:14px; align-items:center;}
+  .passi .n{flex:none; width:44px; height:44px; line-height:44px; text-align:center; border-radius:50%; background:var(--blu); color:#fff; font-weight:bold;}
+  .cf{display:flex; flex-wrap:wrap; gap:8px; font-family:monospace; font-size:2rem; font-weight:bold; margin:8px 0 14px;}
+  .cf span{background:#fff; border:3px solid var(--teal); border-radius:12px; padding:8px 12px; text-align:center;}
+  .cf small{display:block; font-family:inherit; font-size:.85rem; font-weight:normal; color:#5b6b7b; margin-top:4px;}
+  .pin{font-family:monospace; font-size:2.3rem; font-weight:bold; letter-spacing:4px;}
+  .card, .card b, table.plur td, table.plur th{overflow-wrap:normal; word-break:normal; hyphens:none;}
+  table.plur td b{white-space:nowrap;}
+  @media (max-width:520px){ .g2, .g4{grid-template-columns:1fr;} }
+  @media (max-width:900px){ .passi div{font-size:1.1rem;} .cf{font-size:1.3rem;} .cf small{font-size:.7rem;} .pin{font-size:1.5rem; letter-spacing:2px;} }
+  .ill{display:block; margin:0 auto 14px; max-width:100%; max-height:46vh; border-radius:18px; border:3px solid #e3edf8; background:#fff;}
+  .twocol2 .ill{max-height:52vh;}
+  .colori4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+  .colori4 div{border-radius:14px; padding:14px; color:#fff; font-weight:bold; font-size:1.3rem; text-align:center;}
+  .colori4 span{display:block; font-weight:normal; font-size:1rem; margin-top:6px;}
+  @media (max-width:900px){ .colori4{grid-template-columns:1fr 1fr;} .colori4 div{font-size:1.05rem;} }
+  .bidoni{display:grid; grid-template-columns:repeat(5,1fr); gap:12px;}
+  .bidoni div{border-radius:16px; padding:14px 10px; color:#fff; font-weight:bold; font-size:1.25rem; text-align:center;}
+  .bidoni .e{display:block; font-size:2.4rem; margin-bottom:6px;}
+  .bidoni span{display:block; font-weight:normal; font-size:.95rem; margin-top:6px;}
+  .si-no{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .si-no > div{border-radius:16px; padding:14px 18px; font-size:1.3rem; background:#fff;}
+  .si-no .si{border:4px solid #2e9e5b;} .si-no .no{border:4px solid #d64545;}
+  .si-no h3{margin:0 0 8px;} .si-no ul{margin:0; padding-left:22px;} .si-no li{margin:4px 0;}
+  .video{position:relative; width:100%; max-width:900px; margin:0 auto; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  @media (max-width:900px){ .bidoni{grid-template-columns:1fr 1fr;} .bidoni div{font-size:1.05rem;} .si-no > div{font-size:1.05rem;} }
+  @media (max-width:520px){ .si-no{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; LA CASA &bull; EDUCAZIONE CIVICA</span>
+  <span>LA RACCOLTA DIFFERENZIATA</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">♻️</div>
+    <h1>LA RACCOLTA DIFFERENZIATA</h1>
+    <p class="lead" style="margin-top:14px;">DOVE BUTTO I RIFIUTI? DOVE LI PORTO?</p>
+    <span class="badge">LA CASA &bull; EDUCAZIONE CIVICA &bull; A1</span>
+  </section>
+
+  <section class="slide">
+    <h2>CHE COSA IMPARIAMO?</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🗑️</span><b>I RIFIUTI</b><span>CHE COSA SONO E PERCHÉ LI DIVIDIAMO</span></div>
+      <div class="card"><span class="emoji">🎨</span><b>I COLORI DEI BIDONI</b><span>A BARI: MARRONE, BLU, GIALLO, VERDE, GRIGIO</span></div>
+      <div class="card"><span class="emoji">🔋</span><b>I RIFIUTI SPECIALI</b><span>PILE, MEDICINE, VESTITI, MOBILI VECCHI</span></div>
+      <div class="card"><span class="emoji">✏️</span><b>L'IMPERATIVO</b><span>BUTTA! METTETE! NON BUTTARE!</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🗑️ CHE COSA SONO I RIFIUTI?</h2>
+    <div class="twocol2">
+      <img class="ill" src="img/rifiuti-cucina.png" alt="UNA FAMIGLIA IN CUCINA DIVIDE I RIFIUTI IN BIDONI COLORATI" loading="lazy" onerror="this.remove()">
+    <div class="nota" style="">I <b>RIFIUTI</b> (O LA <b>SPAZZATURA</b>) SONO LE COSE CHE NON USIAMO PIÙ E BUTTIAMO VIA.<br><br>IN ITALIA FACCIAMO LA <b>RACCOLTA DIFFERENZIATA</b>: DIVIDIAMO I RIFIUTI. LA CARTA VA CON LA CARTA, IL VETRO CON IL VETRO, LA PLASTICA CON LA PLASTICA.<br><br>PERCHÉ? COSÌ POSSIAMO <b>RICICLARE</b>: USARE DI NUOVO I MATERIALI. È MEGLIO PER L'AMBIENTE E PER LA CITTÀ.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🎨 A BARI: I BIDONI E I COLORI</h2>
+    <div class="bidoni">
+      <div style="background:#8b5a2b"><span class="e">🍌</span>ORGANICO<span>AVANZI DI CIBO</span></div>
+      <div style="background:#1f6fd1"><span class="e">📰</span>CARTA E CARTONE<span>GIORNALI, SCATOLE</span></div>
+      <div style="background:#e0a800"><span class="e">🧴</span>PLASTICA E METALLI<span>BOTTIGLIE, LATTINE</span></div>
+      <div style="background:#2e9e5b"><span class="e">🍾</span>VETRO<span>BOTTIGLIE, VASETTI</span></div>
+      <div style="background:#6b7280"><span class="e">🧽</span>INDIFFERENZIATO<span>QUELLO CHE NON SI RICICLA</span></div>
+    </div>
+    <div class="nota" style="margin-top:20px;">⚠️ I COLORI <b>CAMBIANO DA CITTÀ A CITTÀ</b>. IN UN'ALTRA CITTÀ GUARDA LE ISTRUZIONI DEL TUO COMUNE.</div>
+  </section>
+
+  <section class="slide">
+    <h2>🟤 ORGANICO: IL BIDONE MARRONE</h2>
+    <div class="si-no">
+      <div class="si"><h3>✅ SÌ</h3><ul><li>GLI AVANZI DI CIBO</li><li>LE BUCCE DELLA FRUTTA E DELLA VERDURA</li><li>I GUSCI D'UOVO</li><li>I FONDI DEL CAFFÈ E LE BUSTINE DEL TÈ</li><li>I FIORI E LE FOGLIE SECCHE</li><li>I TOVAGLIOLI DI CARTA SPORCHI</li></ul></div>
+      <div class="no"><h3>❌ NO</h3><ul><li>LE BUSTE DI PLASTICA</li><li>I PANNOLINI</li><li>LA CENERE DELLE SIGARETTE</li></ul></div>
+    </div>
+    <div class="nota" style="margin-top:20px;">💡 USA I <b>SACCHETTI COMPOSTABILI</b> (QUELLI DEL SUPERMERCATO PER LA FRUTTA).</div>
+  </section>
+
+  <section class="slide">
+    <h2>🔵 CARTA E CARTONE: IL BIDONE BLU</h2>
+    <div class="si-no">
+      <div class="si"><h3>✅ SÌ</h3><ul><li>I GIORNALI E LE RIVISTE</li><li>I QUADERNI E I FOGLI</li><li>LE SCATOLE DI CARTONE (SCHIACCIATE)</li><li>I SACCHETTI DI CARTA</li><li>LE SCATOLE DEI BISCOTTI E DEI CIOCCOLATINI</li></ul></div>
+      <div class="no"><h3>❌ NO</h3><ul><li>LA CARTA SPORCA DI CIBO O DI OLIO</li><li>I FAZZOLETTI USATI</li><li>GLI SCONTRINI</li></ul></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🟡 PLASTICA E METALLI: IL BIDONE GIALLO</h2>
+    <div class="si-no">
+      <div class="si"><h3>✅ SÌ</h3><ul><li>LE BOTTIGLIE DI PLASTICA (SCHIACCIATE)</li><li>I FLACONI DELLO SHAMPOO E DEL DETERSIVO</li><li>LE VASCHETTE DELLA FRUTTA</li><li>LE BUSTE DI PLASTICA</li><li>LE LATTINE</li><li>LE SCATOLETTE DEL TONNO E DEI PELATI</li></ul></div>
+      <div class="no"><h3>❌ NO</h3><ul><li>I GIOCATTOLI</li><li>LE PENNE</li><li>GLI SPAZZOLINI</li></ul></div>
+    </div>
+    <div class="nota" style="margin-top:20px;">💡 PRIMA <b>SVUOTA</b> E <b>SCIACQUA</b> BOTTIGLIE E SCATOLETTE.</div>
+  </section>
+
+  <section class="slide">
+    <h2>🟢 VETRO: IL BIDONE VERDE</h2>
+    <div class="si-no">
+      <div class="si"><h3>✅ SÌ</h3><ul><li>LE BOTTIGLIE DI VETRO</li><li>I VASETTI DELLA MARMELLATA</li><li>I BARATTOLI DI VETRO</li></ul></div>
+      <div class="no"><h3>❌ NO</h3><ul><li>I PIATTI E LE TAZZE DI CERAMICA</li><li>GLI SPECCHI</li><li>LE LAMPADINE</li><li>I BICCHIERI DI CRISTALLO</li></ul></div>
+    </div>
+    <div class="nota" style="margin-top:20px;">💡 TOGLI I <b>TAPPI</b>: IL TAPPO DI METALLO O DI PLASTICA VA NEL BIDONE GIALLO.</div>
+  </section>
+
+  <section class="slide">
+    <h2>⚫ INDIFFERENZIATO: IL BIDONE GRIGIO</h2>
+    <div class="nota" style="">NEL BIDONE GRIGIO METTO QUELLO CHE <b>NON SI RICICLA</b>.</div>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">🧽</span><b>LA SPUGNA VECCHIA</b><span></span></div>
+      <div class="card"><span class="emoji">🍽️</span><b>IL PIATTO ROTTO</b><span>DI CERAMICA</span></div>
+      <div class="card"><span class="emoji">👶</span><b>I PANNOLINI</b><span></span></div>
+      <div class="card"><span class="emoji">🪥</span><b>LO SPAZZOLINO</b><span></span></div>
+      <div class="card"><span class="emoji">🖊️</span><b>LE PENNE</b><span></span></div>
+      <div class="card"><span class="emoji">🧻</span><b>LA CARTA SPORCA</b><span></span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>⚠️ I RIFIUTI SPECIALI: DOVE LI PORTO?</h2>
+    <div class="twocol2">
+      <img class="ill" src="img/rifiuti-speciali.png" alt="PILE, MEDICINE, VESTITI USATI E UN DIVANO VECCHIO" loading="lazy" onerror="this.remove()">
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🔋</span><b>LE PILE</b><span>NEL CONTENITORE PER LE PILE (NEI NEGOZI E NEI SUPERMERCATI)</span></div>
+      <div class="card"><span class="emoji">💊</span><b>LE MEDICINE SCADUTE</b><span>NEL CONTENITORE DAVANTI ALLA FARMACIA</span></div>
+      <div class="card"><span class="emoji">👕</span><b>I VESTITI USATI</b><span>NEL CASSONETTO DEI VESTITI</span></div>
+      <div class="card"><span class="emoji">🛋️</span><b>I MOBILI VECCHI (GLI INGOMBRANTI)</b><span>TELEFONA ALL'AMIU E PRENOTA IL RITIRO, OPPURE PORTALI AL CENTRO DI RACCOLTA</span></div>
+    </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🚪 IL PORTA A PORTA</h2>
+    <div class="passi">
+      <div><span class="n">1</span><span>IN MOLTI QUARTIERI DI BARI LA RACCOLTA È <b>PORTA A PORTA</b>: OGNI FAMIGLIA HA I SUOI <b>MASTELLI</b> (PICCOLI BIDONI).</span></div>
+      <div><span class="n">2</span><span>GUARDO IL <b>CALENDARIO</b>: OGNI GIORNO PASSANO PER UN RIFIUTO DIVERSO.</span></div>
+      <div><span class="n">3</span><span>LA SERA PRIMA, <b>DOPO LE 21</b>, METTO IL MASTELLO FUORI DAL PORTONE.</span></div>
+      <div><span class="n">4</span><span>LA MATTINA, DOPO LA RACCOLTA, RIPORTO IL MASTELLO A CASA.</span></div>
+    </div>
+    <div class="nota" style="margin-top:20px;">☎️ AMIU PUGLIA, NUMERO VERDE (GRATIS): <b>800 011 558</b>.<br>🚫 NON LASCIARE I RIFIUTI O I MOBILI VECCHI VICINO AI BIDONI: È VIETATO E C'È LA <b>MULTA</b>.</div>
+  </section>
+
+  <section class="slide">
+    <h2>📖 LE PAROLE UTILI</h2>
+    <table class="plur"><tr><th>PAROLA</th><th>CHE COSA VUOL DIRE</th></tr><tr><td>BUTTARE / GETTARE</td><td>METTERE NEL BIDONE</td></tr><tr><td>DIVIDERE / SEPARARE</td><td>METTERE LE COSE IN GRUPPI DIVERSI</td></tr><tr><td>RICICLARE</td><td>USARE DI NUOVO UN MATERIALE</td></tr><tr><td>SCHIACCIARE</td><td>FARE PIÙ PICCOLO (LE BOTTIGLIE, LE SCATOLE)</td></tr><tr><td>SCIACQUARE</td><td>LAVARE CON UN PO' D'ACQUA</td></tr><tr><td>IL CASSONETTO</td><td>IL BIDONE GRANDE IN STRADA</td></tr><tr><td>IL MASTELLO</td><td>IL BIDONE PICCOLO DI CASA</td></tr><tr><td>GLI INGOMBRANTI</td><td>I RIFIUTI GRANDI: MOBILI, MATERASSI, FRIGORIFERI</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>✏️ L'IMPERATIVO: DARE CONSIGLI E ISTRUZIONI</h2>
+    <table class="plur"><tr><th></th><th>BUTTARE</th><th>METTERE</th><th>APRIRE</th></tr><tr><td>TU</td><td>BUTT<b>A</b>!</td><td>METT<b>I</b>!</td><td>APR<b>I</b>!</td></tr><tr><td>NOI</td><td>BUTT<b>IAMO</b>!</td><td>METT<b>IAMO</b>!</td><td>APR<b>IAMO</b>!</td></tr><tr><td>VOI</td><td>BUTT<b>ATE</b>!</td><td>METT<b>ETE</b>!</td><td>APR<b>ITE</b>!</td></tr></table>
+    <div class="nota" style="margin-top:20px;">TU: <b>-ARE → -A</b> &nbsp; (BUTTA, LAVA, SCHIACCIA)<br>TU: <b>-ERE / -IRE → -I</b> &nbsp; (METTI, PRENDI, APRI)<br>NOI E VOI: COME IL PRESENTE (BUTTIAMO, METTETE).</div>
+  </section>
+
+  <section class="slide">
+    <h2>🚫 L'IMPERATIVO NEGATIVO</h2>
+    <table class="plur"><tr><th></th><th>COME?</th><th>ESEMPIO</th></tr><tr><td>TU</td><td>NON + INFINITO</td><td>NON <b>BUTTARE</b> LA CARTA NEL VETRO!</td></tr><tr><td>NOI</td><td>NON + PRESENTE</td><td>NON <b>BUTTIAMO</b> I RIFIUTI IN STRADA!</td></tr><tr><td>VOI</td><td>NON + PRESENTE</td><td>NON <b>METTETE</b> LA PLASTICA NELL'ORGANICO!</td></tr></table>
+    <div class="nota" style="margin-top:20px;">ATTENZIONE: <b>FARE → FA'/FAI</b> &nbsp; <b>ANDARE → VA'/VAI</b> &nbsp; <b>ESSERE → SII</b> &nbsp; <b>AVERE → ABBI</b></div>
+  </section>
+
+  <section class="slide">
+    <h2>🔣 SIMBOLI E SIGLE</h2>
+    <table class="plur"><tr><th>SIMBOLO</th><th>CHE COSA VUOL DIRE</th><th>ESEMPIO</th></tr><tr><td>+</td><td>E, INSIEME</td><td>CARTA + CARTONE</td></tr><tr><td>E/O</td><td>E OPPURE O</td><td>PLASTICA E/O ALLUMINIO</td></tr><tr><td>ES.</td><td>ESEMPIO</td><td>TETRAPAK (ES. IL LATTE)</td></tr><tr><td>ECC.</td><td>ECCETERA (E ALTRE COSE)</td><td>BOTTIGLIE, VASETTI, ECC.</td></tr><tr><td>TEL.</td><td>TELEFONO</td><td>TEL. 800 011 558</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>🗣️ SUL PIANEROTTOLO</h2>
+    <div class="dialogo">
+      <div class="bubble"><span class="who">AHMED:</span> BUONASERA SIGNORA ROSA. SCUSI, UNA DOMANDA: DOVE BUTTO LE BOTTIGLIE DI VETRO?</div>
+      <div class="bubble med"><span class="who">SIG.RA ROSA:</span> NEL MASTELLO VERDE. MA TOGLI IL TAPPO!</div>
+      <div class="bubble"><span class="who">AHMED:</span> E IL TAPPO DOVE LO METTO?</div>
+      <div class="bubble med"><span class="who">SIG.RA ROSA:</span> NEL GIALLO, CON LA PLASTICA E I METALLI.</div>
+      <div class="bubble"><span class="who">AHMED:</span> GRAZIE. E QUANDO PORTO FUORI IL MASTELLO?</div>
+      <div class="bubble med"><span class="who">SIG.RA ROSA:</span> GUARDA IL CALENDARIO: IL VETRO È IL GIOVEDÌ. METTILO FUORI MERCOLEDÌ SERA, DOPO LE NOVE.</div>
+      <div class="bubble"><span class="who">AHMED:</span> PERFETTO. GRAZIE MILLE, SIGNORA!</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🎬 GUARDA IL VIDEO</h2>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/5lJqyDAyXQk" title="La raccolta differenziata" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+    <div class="nota" style="margin-top:20px;">IL VIDEO NON SI VEDE? <a href="https://www.youtube.com/watch?v=5lJqyDAyXQk" target="_blank" rel="noopener">APRILO SU YOUTUBE</a>.</div>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">ORA SAI DOVE BUTTARE I RIFIUTI!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+<script>
+(function(){
+  const sel='.bubble, .card, .cartelli div, .orologi div, .mondo div, .regola div, table.plur td, .nota, .lead, .big2';
+  document.querySelectorAll(sel).forEach(e=>e.classList.add('parla'));
+  document.addEventListener('click',ev=>{ const d=ev.target.closest('[data-say], .parla'); if(!d||!window.speechSynthesis||ev.target.closest('a,button')) return;
+    ev.stopPropagation();
+    const t=(d.dataset.say||d.innerText).replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\uFE0F\u200D]/gu,' ').replace(/[←→▶◀•…_]/g,' ').toLowerCase();
+    const u=new SpeechSynthesisUtterance(t); u.lang='it-IT'; u.rate=.85; speechSynthesis.cancel(); speechSynthesis.speak(u);
+    document.querySelectorAll('.parlando').forEach(x=>x.classList.remove('parlando')); d.classList.add('parlando');
+    u.onend=()=>d.classList.remove('parlando'); });
+})();
+</script>
+</body>
+</html>
