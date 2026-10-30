@@ -124,6 +124,7 @@ th{background:var(--sea);color:#fff}
   </div>
 </main>
 
+<script src="../comune/condividi.js"></script>
 <script>
 const STAGES = [
   {
@@ -375,8 +376,9 @@ function finalLock(){
       stage.innerHTML=`<div class="win"><h2>🎉 CE L'AVETE FATTA!</h2><div class="big">🚆</div>
         <p class="instr">SIETE SUL TRENO PER ROMA. BUON VIAGGIO!</p>
         <p class="instr">TEMPO USATO: ${fmt(used)}</p>
-        <div class="actions" style="justify-content:center"><button class="ghost" id="again">↺ GIOCA DI NUOVO</button></div></div>`;
+        <div class="actions" style="justify-content:center"><button class="go" id="invia">📤 INVIA ALL'INSEGNANTE</button><button class="ghost" id="again">↺ GIOCA DI NUOVO</button></div><p class="fb" id="ifb"></p></div>`;
       $("again").onclick=()=>location.reload();
+      $("invia").onclick=()=>condividi(document.title,["MISSIONE COMPIUTA: SIAMO SUL TRENO! 🚆","TEMPO USATO: "+fmt(used)],$("ifb"));
     } else {$("lfb").className="fb no";$("lfb").textContent="CODICE SBAGLIATO. CONTROLLATE IL BIGLIETTO.";}
   };
   $("open").onclick=tryOpen;

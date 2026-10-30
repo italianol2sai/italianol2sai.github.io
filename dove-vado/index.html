@@ -242,6 +242,7 @@ mark{background:var(--c); color:#fff; padding:0 .25em; border-radius:.25em}
     <div class="bubble comic" id="bubble" aria-live="polite">CIAO! GIOCHIAMO?</div>
   </div>
   <div class="score comic" id="score">⭐ <span id="pts">0</span> PUNTI</div>
+  <button id="btnInvia" title="Invia i punti all'insegnante">📤 INVIA</button>
   <button id="btnReset" title="Azzera i punti">AZZERA</button>
   <button id="btnHome">🏠 MENU</button>
   <button id="btnFull" title="Schermo intero">⛶</button>
@@ -347,6 +348,7 @@ mark{background:var(--c); color:#fff; padding:0 .25em; border-radius:.25em}
 
 <div class="burst" id="burst"><div class="bt comic" id="burstTxt"></div></div>
 
+<script src="../comune/condividi.js"></script>
 <script>
 /* ================= ILLUSTRAZIONI (SVG ORIGINALI) ================= */
 const OL='#14233F';
@@ -543,6 +545,7 @@ function burst(big,small=''){
   $('#burstTxt').innerHTML=big+(small?`<small>${small}</small>`:'');
   const e=$('#burst'); e.classList.remove('show'); void e.offsetWidth; e.classList.add('show');
 }
+$('#btnInvia').onclick=()=>condividi(document.title,['PUNTI: '+score]);
 $('#btnReset').onclick=()=>{score=0; $('#pts').textContent=0; say('SI RICOMINCIA!')};
 
 /* ================= NAVIGAZIONE ================= */

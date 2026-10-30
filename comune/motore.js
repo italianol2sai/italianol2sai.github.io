@@ -264,6 +264,10 @@ function updateFinal(){
 restore.forEach(f=>f()); updateFinal();
 
 send.onclick=async()=>{
+  // nome vuoto: lo chiede (e lo ricorda per le altre pagine)
+  const nf=$("nome"); if(nf && !nf.value.trim()){ let n=""; try{ n=localStorage.getItem("studente-nome")||""; }catch(e){}
+    if(!n) n=(prompt("COME TI CHIAMI?")||"").trim();
+    if(n){ nf.value=n; nf.dispatchEvent(new Event("input",{bubbles:true})); nf.dispatchEvent(new Event("change",{bubbles:true})); try{ localStorage.setItem("studente-nome",n); }catch(e){} } }
   const lines=[D.title.toUpperCase()+" — "+((($("nome")||{}).value)||"(senza nome)")];
   D.sections.forEach(ex=>{ if(ex.part||!answers[ex.id]) return; const r=results[ex.id];
     lines.push("", (ex.short||ex.title)+(r?" — "+r.got+"/"+r.max:"")); answers[ex.id]().forEach(a=>lines.push("  "+a)); });
@@ -278,7 +282,7 @@ send.onclick=async()=>{
   catch(e){ if(e.name==="AbortError") return; }
   // computer senza «Condividi»: copia il testo e apri WhatsApp con il messaggio pronto
   let copied=false; try{ await navigator.clipboard.writeText(text); copied=true; }catch(e){}
-  window.open("https://wa.me/?text="+encodeURIComponent(text),"_blank");
+  const url="https://wa.me/?text="+encodeURIComponent(text); if(!window.open(url,"_blank")) location.href=url;
   sendfb.className="fb ok"; sendfb.textContent="💬 Si apre WhatsApp con le tue risposte: scegli l'insegnante e premi Invia."+(copied?" (Le risposte sono anche copiate: puoi incollarle in un'email.)":"")+(files.length?" Le registrazioni mandale con «Scarica».":"");
 };
 })();
