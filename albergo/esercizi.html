@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏨 In albergo · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🏨 In albergo · Esercizi",
+ "store": "albergo",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Le camere"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che camera prendo?",
+   "short": "1 · Le camere",
+   "type": "select",
+   "opts": [
+    "SINGOLA",
+    "DOPPIA",
+    "MATRIMONIALE",
+    "TRIPLA"
+   ],
+   "items": [
+    {
+     "q": "1. VIAGGIO DA SOLO."
+    },
+    {
+     "q": "2. SIAMO MARITO E MOGLIE E VOGLIAMO UN LETTO GRANDE."
+    },
+    {
+     "q": "3. SIAMO DUE AMICI: VOGLIAMO DUE LETTI."
+    },
+    {
+     "q": "4. SIAMO MAMMA, PAPÀ E UN BAMBINO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTSU5HT0xBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTUFUUklNT05JQUxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRE9QUElBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVFJJUExBIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Che cosa è compreso?",
+   "short": "2 · I pasti",
+   "type": "select",
+   "opts": [
+    "B&B",
+    "MEZZA PENSIONE",
+    "PENSIONE COMPLETA"
+   ],
+   "items": [
+    {
+     "q": "1. COLAZIONE, PRANZO E CENA"
+    },
+    {
+     "q": "2. SOLO COLAZIONE"
+    },
+    {
+     "q": "3. COLAZIONE E CENA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQRU5TSU9ORSBDT01QTEVUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkImQiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1FWlpBIFBFTlNJT05FIl19XQ=="
+  },
+  {
+   "part": "Prenotare"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Completa la telefonata",
+   "short": "3 · Prenotare",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "DOPPIA · NOTTE · BAGNO · NOME · CHECK-IN",
+   "parts": [
+    "RECEPTIONIST: HOTEL MARE, BUONASERA.<br>LEILA: BUONASERA. AVETE UNA CAMERA ",
+    {},
+    " PER VENERDÌ E SABATO?<br>RECEPTIONIST: SÌ. SONO 85 EURO A ",
+    {},
+    ", CON LA COLAZIONE.<br>LEILA: LA CAMERA HA IL ",
+    {},
+    "?<br>RECEPTIONIST: SÌ, CERTO. A CHE ",
+    {},
+    "?<br>LEILA: LEILA MANSOUR.<br>RECEPTIONIST: IL ",
+    {},
+    " È DALLE DUE DEL POMERIGGIO."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJkb3BwaWEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJub3R0ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImJhZ25vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibm9tZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNoZWNrLWluIl19XQ=="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Vero o falso?",
+   "short": "4 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. AL CHECK-IN DO UN DOCUMENTO."
+    },
+    {
+     "q": "2. IL CHECK-OUT È QUANDO ARRIVO."
+    },
+    {
+     "q": "3. LA TASSA DI SOGGIORNO SI PAGA PER OGNI NOTTE."
+    },
+    {
+     "q": "4. DI SOLITO LASCIO LA CAMERA ENTRO LE 11."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfV0="
+  },
+  {
+   "part": "Un problema"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Che cosa risponde la reception?",
+   "short": "5 · Le risposte",
+   "type": "select",
+   "opts": [
+    "MANDO SUBITO UN TECNICO.",
+    "LI PORTIAMO SUBITO.",
+    "VEDIAMO SE C'È UN'ALTRA CAMERA LIBERA.",
+    "È SCRITTA SUL BIGLIETTO CON LA CHIAVE."
+   ],
+   "items": [
+    {
+     "q": "1. MANCANO GLI ASCIUGAMANI."
+    },
+    {
+     "q": "2. QUAL È LA PASSWORD DEL WI-FI?"
+    },
+    {
+     "q": "3. L'ARIA CONDIZIONATA NON FUNZIONA."
+    },
+    {
+     "q": "4. LA CAMERA È RUMOROSA. POSSO CAMBIARLA?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMSSBQT1JUSUFNTyBTVUJJVE8uIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiw4ggU0NSSVRUQSBTVUwgQklHTElFVFRPIENPTiBMQSBDSElBVkUuIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTUFORE8gU1VCSVRPIFVOIFRFQ05JQ08uIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVESUFNTyBTRSBDJ8OIIFVOJ0FMVFJBIENBTUVSQSBMSUJFUkEuIl19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "TELEFONI A UN ALBERGO. PRENOTA UNA CAMERA: PER QUANTE PERSONE, PER QUALI GIORNI. CHIEDI IL PREZZO E SE C'È LA COLAZIONE."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

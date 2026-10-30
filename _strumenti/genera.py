@@ -67,6 +67,8 @@ if __name__ == "__main__":
     from unita_primi2 import ESERCIZI2
     from unita_alimentare import A1 as ALIM_A1, A2 as ALIM_A2
     from unita_civica import ESERCIZI_CIVICA
+    from unita_drive import ESERCIZI_DRIVE
+    from unita_esami import ESAMI
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
@@ -97,7 +99,7 @@ if __name__ == "__main__":
     build("ore-giorni/esercizi.html", ORE)
     build("euro/esercizi.html", EURO)
     build("mercato/esercizi.html", MERCATO)
-    for cartella, dati in ESERCIZI2 + ESERCIZI_CIVICA:
+    for cartella, dati in ESERCIZI2 + ESERCIZI_CIVICA + ESERCIZI_DRIVE:
         build(cartella + "/esercizi.html", dati)
     build("parole/cucina.html", CUCINA)
     build("mangiare-sano/esercizi.html", ALIM_A1)
@@ -111,3 +113,6 @@ if __name__ == "__main__":
     from unita_b1 import UNITA as B1  # le slide B1: python3 _strumenti/unita_b1.py
     for cartella, _, _, dati in B1:
         build(cartella + "/esercizi.html", dati)
+    os.makedirs("esami", exist_ok=True)
+    for path, dati in ESAMI:
+        build(path, dati)

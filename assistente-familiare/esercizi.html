@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🤲 L'assistente familiare · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🤲 L'assistente familiare · Esercizi",
+ "store": "assistente-familiare",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Il lavoro"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Chi lo fa?",
+   "short": "1 · Chi lo fa",
+   "type": "select",
+   "opts": [
+    "ASSISTENTE FAMILIARE",
+    "COLF"
+   ],
+   "items": [
+    {
+     "q": "1. AIUTA LA SIGNORA A VESTIRSI."
+    },
+    {
+     "q": "2. PULISCE I PAVIMENTI E STIRA."
+    },
+    {
+     "q": "3. ACCOMPAGNA IL SIGNORE DAL MEDICO."
+    },
+    {
+     "q": "4. DÀ LE MEDICINE ALL'ORA GIUSTA."
+    },
+    {
+     "q": "5. LAVA I VETRI DELLE FINESTRE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBU1NJU1RFTlRFIEZBTUlMSUFSRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPTEYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBU1NJU1RFTlRFIEZBTUlMSUFSRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFTU0lTVEVOVEUgRkFNSUxJQVJFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09MRiJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Com'è?",
+   "short": "2 · Le qualità",
+   "type": "select",
+   "opts": [
+    "PAZIENTE",
+    "PUNTUALE",
+    "AFFIDABILE",
+    "ATTENTA",
+    "RISERVATA"
+   ],
+   "items": [
+    {
+     "q": "1. ARRIVA SEMPRE ALL'ORA GIUSTA. È…"
+    },
+    {
+     "q": "2. NON RACCONTA A NESSUNO I FATTI DELLA FAMIGLIA. È…"
+    },
+    {
+     "q": "3. LA SIGNORA È LENTA, MA LEI ASPETTA E SORRIDE. È…"
+    },
+    {
+     "q": "4. VEDE SUBITO CHE IL SIGNORE HA LA FEBBRE. È…"
+    },
+    {
+     "q": "5. LA FAMIGLIA SI FIDA DI LEI. È…"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQVU5UVUFMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlJJU0VSVkFUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBBWklFTlRFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQVRURU5UQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFGRklEQUJJTEUiXX1d"
+  },
+  {
+   "part": "La giornata"
+  },
+  {
+   "id": "e3",
+   "title": "3 · La giornata: metti in ordine",
+   "short": "3 · In ordine",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "LA AIUTO A LAVARSI E A VESTIRSI.",
+    "PREPARO LA COLAZIONE E LE DO LE MEDICINE.",
+    "FACCIAMO UNA PASSEGGIATA.",
+    "CUCINO IL PRANZO.",
+    "LA AIUTO AD ANDARE A LETTO.",
+    "SVEGLIO LA SIGNORA E LA AIUTO AD ALZARSI."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX1d"
+  },
+  {
+   "part": "Le domande gentili"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Qual è la domanda?",
+   "short": "4 · Le domande",
+   "type": "select",
+   "opts": [
+    "COME SI SENTE?",
+    "HA DORMITO BENE?",
+    "LE FA MALE QUALCOSA?",
+    "HA PRESO LA PASTIGLIA?",
+    "HA SETE?"
+   ],
+   "items": [
+    {
+     "q": "1. «SÌ, MI FA MALE LA SCHIENA.»"
+    },
+    {
+     "q": "2. «NO, MI SONO SVEGLIATA TRE VOLTE.»"
+    },
+    {
+     "q": "3. «SÌ, UN BICCHIERE D'ACQUA, GRAZIE.»"
+    },
+    {
+     "q": "4. «OGGI STO MEGLIO, GRAZIE.»"
+    },
+    {
+     "q": "5. «SÌ, DOPO COLAZIONE.»"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMRSBGQSBNQUxFIFFVQUxDT1NBPyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkhBIERPUk1JVE8gQkVORT8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJIQSBTRVRFPyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPTUUgU0kgU0VOVEU/Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiSEEgUFJFU08gTEEgUEFTVElHTElBPyJdfV0="
+  },
+  {
+   "id": "e5",
+   "title": "5 · Dal tu al Lei",
+   "short": "5 · Il Lei",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. COME TI SENTI? → COME ___ SENTE?"
+    },
+    {
+     "q": "2. HAI DORMITO BENE? → ___ DORMITO BENE?"
+    },
+    {
+     "q": "3. TI FA MALE? → ___ FA MALE?"
+    },
+    {
+     "q": "4. VUOI USCIRE? → ___ USCIRE?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImhhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2dW9sZSJdfV0=",
+   "cons": "CON LA SIGNORA ROSA USO IL LEI. SCRIVI LA PAROLA GIUSTA.",
+   "bank": "HA · LE · SI · VUOLE"
+  },
+  {
+   "part": "Il contratto"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Vero o falso?",
+   "short": "6 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. L'ASSISTENTE CONVIVENTE ABITA NELLA CASA DELLA PERSONA."
+    },
+    {
+     "q": "2. IL CONTRATTO DI LAVORO DOMESTICO NON È OBBLIGATORIO."
+    },
+    {
+     "q": "3. OGNI SETTIMANA C'È UN GIORNO DI RIPOSO."
+    },
+    {
+     "q": "4. L'ASSISTENTE PUÒ CAMBIARE LE MEDICINE DA SOLA."
+    },
+    {
+     "q": "5. IL PATRONATO DÀ INFORMAZIONI GRATIS."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ=="
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "È MATTINA. SALUTA LA SIGNORA ROSA, CHIEDI COME HA DORMITO E SE LE FA MALE QUALCOSA, POI DILLE CHE COSA FATE OGGI."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

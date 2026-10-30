@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🚆 Prendo il treno · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🚆 Prendo il treno · Esercizi",
+ "store": "treno",
+ "upper": true,
+ "sections": [
+  {
+   "part": "In stazione"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Dove? Chi?",
+   "short": "1 · In stazione",
+   "type": "select",
+   "opts": [
+    "LA BIGLIETTERIA",
+    "IL TABELLONE",
+    "IL BINARIO",
+    "LA SALA D'ATTESA",
+    "IL CONTROLLORE"
+   ],
+   "items": [
+    {
+     "q": "1. GUARDO GLI ORARI DEI TRENI SUL…"
+    },
+    {
+     "q": "2. COMPRO IL BIGLIETTO ALLA…"
+    },
+    {
+     "q": "3. IL TRENO PARTE DAL…"
+    },
+    {
+     "q": "4. SUL TRENO MI CONTROLLA IL BIGLIETTO…"
+    },
+    {
+     "q": "5. FA FREDDO: ASPETTO IL TRENO NELLA…"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTCBUQUJFTExPTkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMQSBCSUdMSUVUVEVSSUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCBCSU5BUklPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgQ09OVFJPTExPUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMQSBTQUxBIEQnQVRURVNBIl19XQ=="
+  },
+  {
+   "part": "Il tabellone"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Leggi il tabellone",
+   "short": "2 · Il tabellone",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. A CHE ORA PARTE IL TRENO PER LECCE?",
+     "opts": [
+      "ALLE 8:15",
+      "ALLE 8:40",
+      "ALLE 9:05"
+     ]
+    },
+    {
+     "q": "2. DA QUALE BINARIO PARTE IL TRENO PER FOGGIA?",
+     "opts": [
+      "5",
+      "3",
+      "1"
+     ]
+    },
+    {
+     "q": "3. QUALE TRENO È IN RITARDO?",
+     "opts": [
+      "QUELLO PER ROMA",
+      "QUELLO PER LECCE",
+      "QUELLO PER FOGGIA"
+     ]
+    },
+    {
+     "q": "4. DI QUANTI MINUTI?",
+     "opts": [
+      "10",
+      "40",
+      "5"
+     ]
+    },
+    {
+     "q": "5. IL TRENO PER TARANTO…",
+     "opts": [
+      "NON PARTE (SOPPRESSO)",
+      "È IN ORARIO",
+      "PARTE DAL BINARIO 1"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBTExFIDg6MTUiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiUVVFTExPIFBFUiBST01BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTAiXX0sIHsidCI6ICJlcSIsICJhIjogWyJOT04gUEFSVEUgKFNPUFBSRVNTTykiXX1d",
+   "info": "    <table class=\"plur\"><tr><th>ORA</th><th>PER</th><th>BIN.</th><th>NOTE</th></tr><tr><td>08:15</td><td>LECCE</td><td>3</td><td>IN ORARIO</td></tr><tr><td>08:40</td><td>ROMA</td><td>1</td><td>+10'</td></tr><tr><td>09:05</td><td>FOGGIA</td><td>5</td><td>IN ORARIO</td></tr><tr><td>09:30</td><td>TARANTO</td><td>—</td><td>SOPPRESSO</td></tr></table>"
+  },
+  {
+   "part": "Il biglietto"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Che biglietto compro?",
+   "short": "3 · Il biglietto",
+   "type": "select",
+   "opts": [
+    "SOLO ANDATA",
+    "ANDATA E RITORNO",
+    "ABBONAMENTO"
+   ],
+   "items": [
+    {
+     "q": "1. LAVORO A MOLFETTA E PRENDO IL TRENO OGNI GIORNO PER UN MESE."
+    },
+    {
+     "q": "2. VADO A LECCE DA MIO FRATELLO E LA SERA TORNO A BARI."
+    },
+    {
+     "q": "3. MI TRASFERISCO A MILANO. NON TORNO."
+    },
+    {
+     "q": "4. VADO A FOGGIA PER UN COLLOQUIO E TORNO DOPO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBQkJPTkFNRU5UTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFOREFUQSBFIFJJVE9STk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJTT0xPIEFOREFUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFOREFUQSBFIFJJVE9STk8iXX1d"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Vero o falso?",
+   "short": "4 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. IL BIGLIETTO DI CARTA SENZA ORARIO VA CONVALIDATO PRIMA DI SALIRE."
+    },
+    {
+     "q": "2. IL TRENO REGIONALE È PIÙ VELOCE DEL FRECCIA."
+    },
+    {
+     "q": "3. SENZA BIGLIETTO PAGO LA MULTA."
+    },
+    {
+     "q": "4. «SOPPRESSO» VUOL DIRE CHE IL TRENO OGGI NON PARTE."
+    },
+    {
+     "q": "5. QUANDO ARRIVA IL TRENO STO DAVANTI ALLA LINEA GIALLA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19XQ=="
+  },
+  {
+   "id": "e5",
+   "title": "5 · Alla biglietteria",
+   "short": "5 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "BIGLIETTO · RITORNO · PARTE · BINARIO · COSTA",
+   "parts": [
+    "SAMIR: BUONGIORNO. UN ",
+    {},
+    " PER LECCE, PER FAVORE.<br>IMPIEGATA: SOLO ANDATA O ANDATA E ",
+    {},
+    "?<br>SAMIR: ANDATA E RITORNO. A CHE ORA ",
+    {},
+    " IL TRENO?<br>IMPIEGATA: ALLE 8 E 15, DAL ",
+    {},
+    " 3.<br>SAMIR: QUANTO ",
+    {},
+    "?<br>IMPIEGATA: 26 EURO."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiaWdsaWV0dG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJyaXRvcm5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicGFydGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJiaW5hcmlvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY29zdGEiXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Il biglietto con l'app: metti in ordine",
+   "short": "6 · L'app",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "SCRIVO LA STAZIONE DI PARTENZA E DI ARRIVO.",
+    "MOSTRO IL BIGLIETTO AL CONTROLLORE.",
+    "SCELGO IL GIORNO E L'ORA.",
+    "APRO L'APP.",
+    "PAGO CON LA CARTA."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNCJdfV0="
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "SEI ALLA BIGLIETTERIA DI BARI CENTRALE. CHIEDI UN BIGLIETTO PER UNA CITTÀ, ANDATA E RITORNO. CHIEDI L'ORARIO, IL BINARIO E IL PREZZO."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
