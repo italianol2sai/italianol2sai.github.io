@@ -70,3 +70,14 @@ td:last-child, th:last-child { text-align:right; }
 .esame-intro td:last-child, .esame-intro th:last-child { text-align:right; white-space:nowrap; }
 .prova[hidden] { display:none; }
 .prova > .part { font-size:15px; background:var(--soft); border-radius:10px; padding:8px 12px; }
+
+/* Teoria pratica prima degli esercizi di grammatica (regola di Erila, 2026-10-30) */
+.teoria{background:#eef6f3; border-left:5px solid #2f7d6b; border-radius:12px; padding:14px 16px; margin:6px 0 16px; line-height:1.55;}
+.teoria > b:first-child{display:block; color:#2f7d6b; margin-bottom:6px;}
+.teoria{overflow-wrap:anywhere;}
+.teoria table{border-collapse:collapse; margin:8px 0; display:block; max-width:100%; overflow-x:auto;}
+@media (max-width:600px){ .teoria{padding:12px; font-size:.92em;} .teoria td,.teoria th{padding:3px 6px;} }
+.teoria td,.teoria th{border:1px solid #c9dfd8; padding:4px 10px; text-align:left; white-space:nowrap; overflow-wrap:normal;}
+.teoria th{background:#d9ece6;}
+.teoria .esempio{display:block; margin-top:6px; font-style:italic;}
+@media (prefers-color-scheme: dark){ .teoria{background:#1d2e2a; border-left-color:#5fb39d;} .teoria > b:first-child{color:#7fd0b9;} .teoria th{background:#25403a;} .teoria td,.teoria th{border-color:#355a51;} }

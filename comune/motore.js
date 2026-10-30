@@ -178,7 +178,7 @@ const restore=[], prove=[]; let dest=main;
 D.sections.forEach(ex=>{
   if(ex.part && D.exam){ dest=el("div",{class:"prova"}); dest.dataset.min=ex.min||0; dest.dataset.nome=ex.part;
     dest.append(el("div",{class:"part"},ex.part+(ex.min?" · "+ex.min+" minuti":""))); prove.push(dest); main.append(dest); return; }
-  if(ex.part){ main.append(el("div",{class:"part"},ex.part)); return; }
+  if(ex.part){ main.append(el("div",{class:"part"},ex.part)); if(ex.teoria) main.append(html("div",{class:"teoria"},"<b>📘 La regola</b>"+ex.teoria)); return; }
   const sec=el("section",{id:"ex-"+ex.id});
   const h=el("h2"); h.append(ex.title||""); if(ex.badge) h.append(" ",el("span",{class:"pts"},ex.badge)); sec.append(h);
   if(ex.cons) sec.append(html("p",{class:"cons"},ex.cons));
