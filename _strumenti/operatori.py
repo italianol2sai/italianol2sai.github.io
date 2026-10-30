@@ -60,7 +60,7 @@ OPERATORI = {
 PROTAGONISTI = {
  "kwame":   ("KWAME", "24 ANNI · GHANA", ritratto("kw", "#E8F1DC", "#7A4A2E", "#61391F", "#141010", "#2D6CB5", "rasati")),
  "fatou":   ("FATOU", "29 ANNI · SENEGAL", ritratto("fa", "#FFE9DF", "#6E4228", "#56321C", "#D1495B", "#F2A93B", "turbante", orecchini="#F2C14E")),
- "maryam2": ("MARYAM", "25 ANNI · SUDAN", ritratto("m2", "#F3ECFF", "#7E4E31", "#653C24", "#4B2E83", "#F6F1E9", "velo", ciglia="#1A120D")),
+ "maryam2": ("MARYAM", "25 ANNI · SUDAN", ritratto("m2", "#F3ECFF", "#7E4E31", "#653C24", "#2A1A12", "#7B4FA0", "mossi", orecchini="#E7C35A")),
  "makari":  ("MAKARI", "IL FIDANZATO DI MARYAM", ritratto("mk", "#FFF0E0", "#5E3A22", "#4A2C18", "#120D0A", "#1E3A5F", "rasati", barba=True)),
  "lin":     ("LIN", "31 ANNI · CINA", ritratto("li", "#FDEFF3", "#F3D2B3", "#DDB08C", "#16110F", "#C2185B", "lunghi")),
  "ravi":    ("RAVI", "27 ANNI · INDIA", ritratto("ra", "#EAE6F7", "#B98257", "#9C673F", "#16110F", "#5C6BC0", "corti", barba=True)),
