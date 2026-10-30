@@ -14,6 +14,7 @@ Le immagini in img/ sono generate con Canva. Uso: python3 _strumenti/slide.py e 
 from genera import eq, has, all_
 from unita_primi import cover, slide, cards, table, nota, dialogo, end
 from unita_civica import passi, PASSI_CSS
+from foto_cibi import foto, crediti_slide, foto_quiz, FOTO_CSS
 
 ILL_CSS = PASSI_CSS + """
   .ill{display:block; margin:0 auto 14px; max-width:100%; max-height:46vh; border-radius:18px; border:3px solid #e3edf8; background:#fff;}
@@ -291,19 +292,20 @@ CUCINA = {
 # =====================================================================
 # 3. DAL MACELLAIO E IN PESCHERIA (cucina, A1)
 # =====================================================================
+CARNE_FOTO = ['pollo', 'tacchino', 'bistecca-manzo', 'costolette-agnello', 'coniglio', 'salsiccia', 'prosciutto-crudo', 'braciola-maiale', 'salame', 'mortadella', 'orata', 'spigola', 'alici', 'salmone', 'tonno', 'pesce-spada', 'polpo', 'calamari', 'cozze', 'vongole', 'gamberi', 'astice', 'spaghetti', 'penne', 'ravioli', 'lasagne', 'gnocchi', 'orecchiette-cime-di-rapa', 'caffe-espresso', 'caffe-macchiato', 'seppie', 'macinato', 'prosciutto-cotto']
 CARNE_SLIDE = [
     cover("🥩", "DAL MACELLAIO E IN PESCHERIA", "LA CARNE, IL PESCE, LA PASTA, IL CAFFÈ", "CIBO &bull; A1"),
     slide("CHE COSA IMPARIAMO?", cards([
         ("🥩", "LA CARNE", "POLLO, MANZO, AGNELLO…"), ("🐟", "IL PESCE", "ORATA, ALICI, COZZE…"),
         ("🍝", "LA PASTA", "ORECCHIETTE, SPAGHETTI, PENNE…"), ("☕", "I CAFFÈ", "MACCHIATO, LUNGO, RISTRETTO…")])),
     slide("🥩 LA CARNE", ill("macelleria.png", "IL BANCONE DI UNA MACELLERIA") + "\n" + table([
-        ["🐔", "IL POLLO", "IL PETTO, LA COSCIA, LE ALI"], ["🦃", "IL TACCHINO", ""],
-        ["🐄", "IL MANZO / IL VITELLO", "LA BISTECCA, IL MACINATO, LO SPEZZATINO"], ["🐑", "L'AGNELLO", "LE COSTOLETTE"],
-        ["🐇", "IL CONIGLIO", ""], ["🌭", "LA SALSICCIA", "DI POLLO, DI MANZO O DI MAIALE"]], head=["", "LA CARNE", "I PEZZI"]) + "\n" +
+        [foto("pollo"), "IL POLLO", "IL PETTO, LA COSCIA, LE ALI"], [foto("tacchino"), "IL TACCHINO", ""],
+        [foto("bistecca-manzo"), "IL MANZO / IL VITELLO", "LA BISTECCA, IL MACINATO, LO SPEZZATINO"], [foto("costolette-agnello"), "L'AGNELLO", "LE COSTOLETTE"],
+        [foto("coniglio"), "IL CONIGLIO", ""], [foto("salsiccia"), "LA SALSICCIA", "DI POLLO, DI MANZO O DI MAIALE"]], head=["", "LA CARNE", "I PEZZI"]) + "\n" +
         nota("☪️ CERCHI LA CARNE <b>HALAL</b>? A BARI CI SONO MACELLERIE HALAL. CHIEDI: «È CARNE HALAL?»")),
     slide("🐖 IL MAIALE E I SALUMI", cards([
-        ("🥓", "IL PROSCIUTTO", "CRUDO O COTTO"), ("🍖", "LA BRACIOLA", "UN PEZZO DI MAIALE CON L'OSSO"),
-        ("🫓", "IL SALAME", "A FETTE"), ("🍕", "LA MORTADELLA", "ROSA, CON I PEZZETTI BIANCHI")]) + "\n" +
+        (foto("prosciutto-crudo"), "IL PROSCIUTTO", "CRUDO O COTTO"), (foto("braciola-maiale"), "LA BRACIOLA", "UN PEZZO DI MAIALE CON L'OSSO"),
+        (foto("salame"), "IL SALAME", "A FETTE"), (foto("mortadella"), "LA MORTADELLA", "ROSA, CON I PEZZETTI BIANCHI")]) + "\n" +
         nota("⚠️ I SALUMI SONO QUASI SEMPRE DI <b>MAIALE</b>. NON MANGI IL MAIALE? CHIEDI: «C'È IL MAIALE DENTRO?»")),
     slide("🗣️ DAL MACELLAIO", dialogo([
         ("*MACELLAIO", "BUONGIORNO, DICA!"),
@@ -314,12 +316,12 @@ CARNE_SLIDE = [
         ("FATIMA", "SÌ, GRAZIE. QUANTO VIENE?"),
         ("*MACELLAIO", "SONO 12 EURO E 50.")])),
     slide("🐟 IL PESCE", ill("pescheria.png", "IL BANCO DEL PESCE") + "\n" + cards([
-        ("🐟", "L'ORATA", ""), ("🐟", "LA SPIGOLA (IL BRANZINO)", ""), ("🐠", "LE ALICI", "PICCOLE, SI FRIGGONO"),
-        ("🍣", "IL SALMONE", "ROSA"), ("🐟", "IL TONNO", "ANCHE IN SCATOLA"), ("🗡️", "IL PESCE SPADA", "")], "g3")),
+        (foto("orata"), "L'ORATA", ""), (foto("spigola"), "LA SPIGOLA (IL BRANZINO)", ""), (foto("alici"), "LE ALICI", "PICCOLE, SI FRIGGONO"),
+        (foto("salmone"), "IL SALMONE", "ROSA"), (foto("tonno"), "IL TONNO", "ANCHE IN SCATOLA"), (foto("pesce-spada"), "IL PESCE SPADA", "")], "g3")),
     slide("🦑 I FRUTTI DI MARE", cards([
-        ("🐙", "IL POLPO", "A BARI SI MANGIA ANCHE CRUDO!"), ("🦑", "I CALAMARI E LE SEPPIE", ""),
-        ("🦪", "LE COZZE", "NERE"), ("🐚", "LE VONGOLE", "PER GLI SPAGHETTI"),
-        ("🦐", "I GAMBERI", ""), ("🦞", "L'ASTICE", "COSTA MOLTO")], "g3")),
+        (foto("polpo"), "IL POLPO", "A BARI SI MANGIA ANCHE CRUDO!"), (foto("calamari"), "I CALAMARI E LE SEPPIE", ""),
+        (foto("cozze"), "LE COZZE", "NERE"), (foto("vongole"), "LE VONGOLE", "PER GLI SPAGHETTI"),
+        (foto("gamberi"), "I GAMBERI", ""), (foto("astice"), "L'ASTICE", "COSTA MOLTO")], "g3")),
     slide("🗣️ IN PESCHERIA", dialogo([
         ("*PESCIVENDOLO", "PESCE FRESCO! CHI È IL PROSSIMO?"),
         ("YUSUF", "IO. QUANTO COSTANO LE ORATE?"),
@@ -331,13 +333,17 @@ CARNE_SLIDE = [
         ["LUNGA", "SPAGHETTI, LINGUINE, TAGLIATELLE"], ["CORTA", "PENNE, FUSILLI, FARFALLE, MACCHERONI, CONCHIGLIE"],
         ["RIPIENA", "RAVIOLI, TORTELLINI (DENTRO C'È CARNE O FORMAGGIO)"], ["AL FORNO", "LASAGNE"],
         ["DI PATATE", "GNOCCHI"], ["DI BARI 💙", "ORECCHIETTE: CON LE CIME DI RAPA!"]], head=["CHE PASTA?", "I NOMI"])),
+    slide("🍝 LA PASTA IN FOTO", cards([
+        (foto("spaghetti"), "GLI SPAGHETTI", "LUNGA"), (foto("penne"), "LE PENNE", "CORTA"), (foto("ravioli"), "I RAVIOLI", "RIPIENA"),
+        (foto("lasagne"), "LE LASAGNE", "AL FORNO"), (foto("gnocchi"), "GLI GNOCCHI", "DI PATATE"), (foto("orecchiette-cime-di-rapa"), "LE ORECCHIETTE", "CON LE CIME DI RAPA")], "g3")),
     slide("⚖️ COM'È? I CONTRARI", table([
         ["CRUDO", "↔", "COTTO"], ["FRESCO", "↔", "SURGELATO"], ["DOLCE", "↔", "AMARO"], ["CALDO", "↔", "FREDDO"],
         ["BUONO", "↔", "CATTIVO"], ["NATURALE (ACQUA)", "↔", "FRIZZANTE"], ["MAGRO", "↔", "GRASSO"]])),
     slide("☕ I CAFFÈ", ill("caffe.png", "SEI TIPI DI CAFFÈ") + "\n" + cards([
-        ("☕", "IL CAFFÈ (ESPRESSO)", "PICCOLO E FORTE"), ("🥛", "IL CAFFÈ MACCHIATO", "CON UN PO' DI LATTE CALDO O FREDDO"),
+        (foto("caffe-espresso"), "IL CAFFÈ (ESPRESSO)", "PICCOLO E FORTE"), (foto("caffe-macchiato"), "IL CAFFÈ MACCHIATO", "CON UN PO' DI LATTE CALDO O FREDDO"),
         ("💧", "IL CAFFÈ LUNGO", "CON PIÙ ACQUA"), ("🔻", "IL CAFFÈ RISTRETTO", "CON MENO ACQUA, PIÙ FORTE"),
         ("☕☕", "IL CAFFÈ DOPPIO", "DUE CAFFÈ IN UNA TAZZA"), ("🚫", "IL DECAFFEINATO (DECA)", "SENZA CAFFEINA")], "g3")),
+    slide("📷 LE FOTO", crediti_slide(CARNE_FOTO)),
     end("ORA SAI FARE LA SPESA DAL MACELLAIO E IN PESCHERIA!"),
 ]
 
@@ -354,6 +360,10 @@ CARNE = {
           ("3. IL S A L M _ N E", ["salmone", "il salmone"]), ("4. I G A M B E R _", ["gamberi", "i gamberi"]),
           ("5. IL M A C I N A T _", ["macinato", "il macinato"]), ("6. LE S E P P _ E", ["seppie", "le seppie"])],
          "2 · Scrivi la parola", "2 · Le parole", "e2", cons="MANCA UNA LETTERA. SCRIVI TUTTA LA PAROLA."),
+  foto_quiz("f1", "2b · Guarda la foto: che cos'è?", "2b · Le foto",
+            [("mortadella", "LA MORTADELLA"), ("orata", "L'ORATA"), ("cozze", "LE COZZE"), ("salsiccia", "LA SALSICCIA"), ("polpo", "IL POLPO"),
+             ("salame", "IL SALAME"), ("gamberi", "I GAMBERI"), ("macinato", "IL MACINATO"), ("seppie", "LE SEPPIE"), ("prosciutto-cotto", "IL PROSCIUTTO COTTO")],
+            ["IL MACINATO", "IL POLPO", "IL PROSCIUTTO COTTO", "IL SALAME", "I GAMBERI", "L'ORATA", "LA MORTADELLA", "LA SALSICCIA", "LE COZZE", "LE SEPPIE"]),
   {"part": "Al banco"},
   completa("MACELLAIO: BUONGIORNO, ___!<br>FATIMA: BUONGIORNO. ___ MEZZO CHILO DI MACINATO.<br>MACELLAIO: ECCO. ___?<br>"
            "FATIMA: SÌ, DUE PETTI DI POLLO. È CARNE ___?<br>MACELLAIO: SÌ, SIGNORA.<br>FATIMA: QUANTO ___?<br>MACELLAIO: 11 EURO.",
@@ -388,19 +398,20 @@ CARNE = {
 # =====================================================================
 # 4. AL BAR (città, A1)
 # =====================================================================
+BAR_FOTO = ['caffe-espresso', 'cappuccino', 'te', 'spremuta-arancia', 'succo-frutta', 'acqua-bottiglia', 'cornetto', 'panino', 'tramezzino', 'panzerotto', 'fetta-torta', 'gelato-cono']
 BAR_SLIDE = [
     cover("☕", "AL BAR", "UN CAFFÈ, PER FAVORE!", "ORDINARE &bull; PAGARE &bull; A1"),
     slide("CHE COSA IMPARIAMO?", cards([
         ("☕", "CHE COSA PRENDO?", "CAFFÈ, CAPPUCCINO, SPREMUTA…"), ("🥐", "CHE COSA MANGIO?", "CORNETTO, PANINO, TRAMEZZINO"),
         ("🧾", "COME PAGO?", "ALLA CASSA, LO SCONTRINO"), ("🗣️", "LE FRASI", "VORREI… QUANTO PAGO?")])),
     slide("☕ DA BERE", ill("bancone-bar.png", "IL BANCONE DI UN BAR CON IL BARISTA E UNA CLIENTE") + "\n" + cards([
-        ("☕", "IL CAFFÈ", ""), ("🥛", "IL CAPPUCCINO", "CAFFÈ + LATTE CON LA SCHIUMA"), ("🫖", "IL TÈ", "CALDO O FREDDO"),
-        ("🍊", "LA SPREMUTA D'ARANCIA", "ARANCE FRESCHE"), ("🧃", "IL SUCCO DI FRUTTA", "PESCA, PERA, ALBICOCCA"),
-        ("💧", "L'ACQUA", "NATURALE O FRIZZANTE")], "g3")),
+        (foto("caffe-espresso"), "IL CAFFÈ", ""), (foto("cappuccino"), "IL CAPPUCCINO", "CAFFÈ + LATTE CON LA SCHIUMA"), (foto("te"), "IL TÈ", "CALDO O FREDDO"),
+        (foto("spremuta-arancia"), "LA SPREMUTA D'ARANCIA", "ARANCE FRESCHE"), (foto("succo-frutta"), "IL SUCCO DI FRUTTA", "PESCA, PERA, ALBICOCCA"),
+        (foto("acqua-bottiglia"), "L'ACQUA", "NATURALE O FRIZZANTE")], "g3")),
     slide("🥐 DA MANGIARE", cards([
-        ("🥐", "IL CORNETTO", "VUOTO, ALLA CREMA, ALLA MARMELLATA"), ("🥪", "IL PANINO", "CON FORMAGGIO, CON TONNO…"),
-        ("🥪", "IL TRAMEZZINO", "PANE MORBIDO A TRIANGOLO"), ("🍕", "IL PANZEROTTO", "A BARI! FRITTO, CON POMODORO E MOZZARELLA"),
-        ("🍰", "IL DOLCE", "UNA FETTA DI TORTA"), ("🍦", "IL GELATO", "COPPETTA O CONO")], "g3")),
+        (foto("cornetto"), "IL CORNETTO", "VUOTO, ALLA CREMA, ALLA MARMELLATA"), (foto("panino"), "IL PANINO", "CON FORMAGGIO, CON TONNO…"),
+        (foto("tramezzino"), "IL TRAMEZZINO", "PANE MORBIDO A TRIANGOLO"), (foto("panzerotto"), "IL PANZEROTTO", "A BARI! FRITTO, CON POMODORO E MOZZARELLA"),
+        (foto("fetta-torta"), "IL DOLCE", "UNA FETTA DI TORTA"), (foto("gelato-cono"), "IL GELATO", "COPPETTA O CONO")], "g3")),
     slide("🧾 COME FUNZIONA?", passi([
         "IN ALCUNI BAR PRIMA VADO ALLA <b>CASSA</b>: DICO CHE COSA PRENDO E PAGO.",
         "LA CASSIERA MI DÀ LO <b>SCONTRINO</b>.",
@@ -423,6 +434,7 @@ BAR_SLIDE = [
     slide("☕ IL CAFFÈ IN ITALIA", cards([
         ("🌅", "LA MATTINA", "CAPPUCCINO E CORNETTO: È LA COLAZIONE AL BAR"), ("🍽️", "DOPO PRANZO", "UN CAFFÈ. IL CAPPUCCINO DI SOLITO NO!"),
         ("🤝", "CON GLI AMICI", "«PRENDIAMO UN CAFFÈ?» = PARLIAMO UN PO'"), ("⏱️", "VELOCE", "IL CAFFÈ AL BANCO SI BEVE IN 2 MINUTI")])),
+    slide("📷 LE FOTO", crediti_slide(BAR_FOTO)),
     end("ORA SAI ORDINARE AL BAR!"),
 ]
 
@@ -437,6 +449,10 @@ BAR = {
   scrivi([("1. C A P P U C C _ N O", ["cappuccino"]), ("2. C O R N E T T _", ["cornetto"]), ("3. S P R E M U T _", ["spremuta"]),
           ("4. S C O N T R _ N O", ["scontrino"]), ("5. B A R I S T _", ["barista"]), ("6. T R A M E Z Z _ N O", ["tramezzino"])],
          "2 · Scrivi la parola", "2 · Le parole", "e2", cons="MANCA UNA LETTERA. SCRIVI TUTTA LA PAROLA."),
+  foto_quiz("f1", "2b · Guarda la foto: che cos'è?", "2b · Le foto",
+            [("cappuccino", "IL CAPPUCCINO"), ("cornetto", "IL CORNETTO"), ("panzerotto", "IL PANZEROTTO"), ("spremuta-arancia", "LA SPREMUTA"),
+             ("tramezzino", "IL TRAMEZZINO"), ("caffe-espresso", "IL CAFFÈ"), ("gelato-cono", "IL GELATO"), ("te", "IL TÈ")],
+            ["IL CAFFÈ", "IL CAPPUCCINO", "IL CORNETTO", "IL GELATO", "IL PANZEROTTO", "IL TÈ", "IL TRAMEZZINO", "LA SPREMUTA"]),
   {"part": "Al banco"},
   ordina(["VADO ALLA CASSA E DICO CHE COSA PRENDO.", "PAGO.", "PRENDO LO SCONTRINO.", "DO LO SCONTRINO AL BARISTA.", "BEVO IL CAFFÈ AL BANCO."],
          "3 · Come funziona? Metti in ordine", "3 · In ordine", "e3"),
@@ -1156,8 +1172,8 @@ CASALINGHI = {
 SLIDE_DRIVE = [
     ("cantiere/index.html", "IN CANTIERE", "LAVORO", CANTIERE_SLIDE, ILL_CSS),
     ("cucina-lavoro/index.html", "LAVORO IN CUCINA", "CUCINA", CUCINA_SLIDE, ILL_CSS),
-    ("carne-pesce/index.html", "DAL MACELLAIO E IN PESCHERIA", "CUCINA", CARNE_SLIDE, ILL_CSS),
-    ("bar/index.html", "AL BAR", "IN CITTÀ", BAR_SLIDE, ILL_CSS),
+    ("carne-pesce/index.html", "DAL MACELLAIO E IN PESCHERIA", "CUCINA", CARNE_SLIDE, ILL_CSS + FOTO_CSS),
+    ("bar/index.html", "AL BAR", "IN CITTÀ", BAR_SLIDE, ILL_CSS + FOTO_CSS),
     ("treno/index.html", "PRENDO IL TRENO", "IN CITTÀ", TRENO_SLIDE, ILL_CSS),
     ("posta-banca/index.html", "ALLA POSTA E IN BANCA", "EDUCAZIONE CIVICA", POSTA_SLIDE, ILL_CSS),
     ("farmacia/index.html", "IN FARMACIA E AL PRONTO SOCCORSO", "SALUTE", FARMACIA_SLIDE, ILL_CSS),

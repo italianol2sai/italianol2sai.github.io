@@ -7,6 +7,7 @@ Dei libri si prendono solo gli argomenti: testi, dialoghi ed esercizi sono scrit
 A1 in STAMPATELLO MAIUSCOLO."""
 from genera import eq
 from unita_primi import cover, slide, cards, table, nota, dialogo, end
+from foto_cibi import foto, crediti_slide, FOTO_CSS
 from unita_drive import ILL_CSS, vf, scegli, menu, scrivi, ordina, completa, parla, libero
 
 # =====================================================================
@@ -97,6 +98,10 @@ RIST_SLIDE = [
         ("OMAR", "TOURÉ. T-O-U-R-E."),
         ("*CAMERIERE", "PERFETTO, SIGNOR TOURÉ. A SABATO!")])),
     slide("📋 IL MENÙ", MENU_TAB),
+    slide("🍽️ I PIATTI DEL MENÙ", cards([
+        (foto("polpo"), "IL POLPO", "ANTIPASTO"), (foto("orecchiette-cime-di-rapa"), "LE ORECCHIETTE", "PRIMO"),
+        (foto("spaghetti"), "GLI SPAGHETTI", "PRIMO"), (foto("orata"), "L'ORATA AL FORNO", "SECONDO"),
+        (foto("insalata"), "L'INSALATA", "CONTORNO"), (foto("fetta-torta"), "IL DOLCE", "UNA FETTA DI TORTA")], "g3")),
     slide("🍽️ COME SI MANGIA IN ITALIA?", cards([
         ("1️⃣", "L'ANTIPASTO", "PRIMA DI TUTTO, POCO"), ("2️⃣", "IL PRIMO", "PASTA, RISO, ZUPPA"),
         ("3️⃣", "IL SECONDO", "CARNE O PESCE"), ("🥗", "IL CONTORNO", "VERDURA, CON IL SECONDO"),
@@ -120,6 +125,7 @@ RIST_SLIDE = [
         ["ENTRO", "AVETE UN TAVOLO PER DUE?"], ["CHIEDO", "CHE COSA C'È OGGI? · C'È CARNE DENTRO?"],
         ["ORDINO", "PER ME… · IO PRENDO… · VORREI…"], ["CHIEDO ANCORA", "UN ALTRO PO' DI PANE, PER FAVORE."],
         ["PAGO", "IL CONTO, PER FAVORE. · POSSO PAGARE CON LA CARTA?"]], head=["QUANDO", "FRASE"])),
+    slide("📷 LE FOTO", crediti_slide(["polpo", "orecchiette-cime-di-rapa", "spaghetti", "orata", "insalata", "fetta-torta"])),
     end("ORA SAI ANDARE AL RISTORANTE!"),
 ]
 RIST = {
@@ -266,7 +272,7 @@ VAC = {
 
 SLIDE_LIBRI = [
     ("tempo-libero/index.html", "IL TEMPO LIBERO", "TEMPO LIBERO", TEMPO_SLIDE, ILL_CSS),
-    ("ristorante/index.html", "AL RISTORANTE", "CIBO", RIST_SLIDE, ILL_CSS),
+    ("ristorante/index.html", "AL RISTORANTE", "CIBO", RIST_SLIDE, ILL_CSS + FOTO_CSS),
     ("feste/index.html", "FESTE E TRADIZIONI", "TEMPO LIBERO", FESTE_SLIDE, ILL_CSS),
     ("in-vacanza/index.html", "Com'è andata la vacanza?", "Tempo libero", VAC_SLIDE, ILL_CSS + "\n  body, .btn, button{text-transform:none !important;}  /* A2: stampatello minuscolo */"),
 ]
