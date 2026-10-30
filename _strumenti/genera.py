@@ -73,6 +73,7 @@ if __name__ == "__main__":
     from unita_esami import ESAMI
     from unita_simulazioni import SIMULAZIONI
     from unita_b2c1 import SIM_B2C1
+    from unita_eserciziario import ESERCIZIARIO
     build("corpo-dottore/esercizi.html", CORPO)
     build("cercare-casa/esercizi.html", CASA)
     build("saluti/esercizi.html", SALUTI)
@@ -118,5 +119,8 @@ if __name__ == "__main__":
     for cartella, _, _, dati in B1:
         build(cartella + "/esercizi.html", dati)
     os.makedirs("esami", exist_ok=True)
+    os.makedirs("eserciziario-a1", exist_ok=True)
+    for path, dati in ESERCIZIARIO:
+        build(path, dati)
     for path, dati in ESAMI + SIMULAZIONI + SIM_B2C1:
         build(path, dati)
