@@ -502,4 +502,31 @@ B1_2 = {
  ]
 }
 
+# ---------------------------------------------------------------------
+# Erila (2026-10-30): le simulazioni (e tutto l'A2) vanno in stampatello minuscolo; il MAIUSCOLO solo per A0/A1.
+# I testi A2 sono scritti in maiuscolo: li converto qui (minuscolo, maiuscola a inizio frase, nomi propri e sigle).
+import re
+NOMI = ("Kouassi Losito Senegal Brindisi Tirana Bari Ruggiero Chiurlia Rahim Grace Youssef Fatima Puglia Polignano Nadia Benali "
+        "Orano Algeria Dante Rossi Amina Modugno Paolo Arcidiacono Giovine Omar Touré Bamako Mali Calefati Giulia Khadija Piccinni "
+        "Lin Cina Matera Sassi Foggia Lecce Taranto Ibrahim Maria Said Elena Pedro Italia Fratelli San Comune Servizi Demografici Dirigente Scolastica").split()
+SIGLE = "ASL INPS ISEE CIE ANPR UNESCO SPID IBAN UE A2 B1 CPIA".split()
+def _frase(t):
+    if not isinstance(t, str): return t
+    testo = re.sub(r"<[^>]+>", "", t)
+    if testo != testo.upper() or not re.search("[A-Z]", testo): return t
+    t = t.lower()
+    t = re.sub(r"(^|[.!?]»?\s+|<br>\s*|«|·\s+|\d+\.\s+|>\s*)([a-zàèéìòù])", lambda m: m.group(1) + m.group(2).upper(), t)
+    for n in NOMI: t = re.sub(r"\b%s\b" % re.escape(n.lower()), n, t)
+    for g in SIGLE: t = re.sub(r"\b%s\b" % g.lower(), g, t)
+    t = re.sub(r"\b(annuncio|corso|patente) ([a-d])\b", lambda m: m.group(1) + " " + m.group(2).upper(), t, flags=re.I)
+    t = re.sub(r"<b>([a-d])</b>", lambda m: "<b>%s</b>" % m.group(1).upper(), t)
+    return t
+def minuscolo(x, chiave=None):
+    if chiave in ("id", "store", "k", "t"): return x
+    if isinstance(x, dict): return {k: minuscolo(v, k) for k, v in x.items() if k != "upper"}
+    if isinstance(x, list): return [minuscolo(v) for v in x]
+    if isinstance(x, tuple): return tuple(minuscolo(v) for v in x)
+    return _frase(x)
+A2_1, A2_2 = minuscolo(A2_1), minuscolo(A2_2)
+
 ESAMI = [("esami/a0-1.html", A0_1), ("esami/a1-1.html", A1_1), ("esami/a1-2.html", A1_2), ("esami/a2-1.html", A2_1), ("esami/a2-2.html", A2_2), ("esami/b1-1.html", B1_1), ("esami/b1-2.html", B1_2)]

@@ -6,7 +6,7 @@ nessun «Controlla» per esercizio, consegna e punteggio solo alla fine.
   strutture di comunicazione, produzione scritta, produzione orale).
 Testi, dialoghi e domande scritti nuovi per il sito. Persone, indirizzi e numeri inventati."""
 from genera import eq
-from unita_esami import ascolto, lettura, abbina, VF
+from unita_esami import ascolto, lettura, abbina, VF, minuscolo
 
 REGOLE_A2 = ("FAI LE 3 PROVE IN ORDINE. OGNI PROVA HA UN TEMPO: QUANDO FINISCE PASSI ALLA PROVA DOPO. NON PUOI TORNARE INDIETRO. "
              "GLI ASCOLTI LI PUOI SENTIRE DUE VOLTE. IL RISULTATO LO VEDI SOLO ALLA FINE. PER SUPERARE IL TEST SERVE L'80%.")
@@ -499,6 +499,8 @@ B1S_1 = {
   {"id": "p2", "title": "2 🎤 · Argomenta", "type": "record", "items": ["I social network: sono più utili o più pericolosi? Spiega la tua opinione."]},
  ]
 }
+
+A2I_1, A2I_2, A2S_1 = minuscolo(A2I_1), minuscolo(A2I_2), minuscolo(A2S_1)
 
 SIMULAZIONI = [("esami/a2-integrazione-1.html", A2I_1), ("esami/a2-integrazione-2.html", A2I_2),
                ("esami/b1-cittadinanza-1.html", B1C_1), ("esami/b1-cittadinanza-2.html", B1C_2),
