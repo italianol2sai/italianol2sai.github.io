@@ -68,6 +68,7 @@ if __name__ == "__main__":
     from unita_alimentare import A1 as ALIM_A1, A2 as ALIM_A2
     from unita_civica import ESERCIZI_CIVICA
     from unita_drive import ESERCIZI_DRIVE
+    from unita_libri import ESERCIZI_LIBRI
     from unita_esami import ESAMI
     from unita_simulazioni import SIMULAZIONI
     from unita_b2c1 import SIM_B2C1
@@ -101,7 +102,7 @@ if __name__ == "__main__":
     build("ore-giorni/esercizi.html", ORE)
     build("euro/esercizi.html", EURO)
     build("mercato/esercizi.html", MERCATO)
-    for cartella, dati in ESERCIZI2 + ESERCIZI_CIVICA + ESERCIZI_DRIVE:
+    for cartella, dati in ESERCIZI2 + ESERCIZI_CIVICA + ESERCIZI_DRIVE + ESERCIZI_LIBRI:
         build(cartella + "/esercizi.html", dati)
     build("parole/cucina.html", CUCINA)
     build("mangiare-sano/esercizi.html", ALIM_A1)
