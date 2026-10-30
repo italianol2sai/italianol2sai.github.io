@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📝 Simulazione d'esame A1 · n. 1</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "📝 Simulazione d'esame A1 · n. 1",
+ "store": "esame-a1-1",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Prova 1 · Ascolto"
+  },
+  {
+   "id": "a1",
+   "title": "A1 · L'annuncio alla stazione",
+   "short": "A1 · L'annuncio alla stazione",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siRiIsICJBVFRFTlpJT05FLiBJTCBUUkVOTyBSRUdJT05BTEUgUEVSIExFQ0NFIERFTExFIE9SRSBOT1ZFIEUgVkVOVEkgUEFSVElSw4AgREFMIEJJTkFSSU8gUVVBVFRSTy4gSUwgVFJFTk8gSEEgRElFQ0kgTUlOVVRJIERJIFJJVEFSRE8uIENJIFNDVVNJQU1PIFBFUiBJTCBESVNBR0lPLiJdXQ==",
+   "items": [
+    {
+     "q": "1. DOVE VA IL TRENO?",
+     "opts": [
+      "A LECCE",
+      "A FOGGIA",
+      "A ROMA"
+     ]
+    },
+    {
+     "q": "2. A CHE ORA PARTE (SENZA RITARDO)?",
+     "opts": [
+      "ALLE 9:20",
+      "ALLE 10:20",
+      "ALLE 9:10"
+     ]
+    },
+    {
+     "q": "3. DA QUALE BINARIO?",
+     "opts": [
+      "4",
+      "2",
+      "10"
+     ]
+    },
+    {
+     "q": "4. QUANTI MINUTI DI RITARDO?",
+     "opts": [
+      "10",
+      "4",
+      "20"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBIExFQ0NFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQUxMRSA5OjIwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEwIl19XQ==",
+   "cons": "ASCOLTA L'ANNUNCIO E SCEGLI LA RISPOSTA GIUSTA.",
+   "badge": "4 PUNTI"
+  },
+  {
+   "id": "a2",
+   "title": "A2 · Il messaggio in segreteria",
+   "short": "A2 · Il messaggio in segreteria",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siRiIsICJDSUFPIFNBTUlSLCBTT05PIEdJVUxJQSBERUxMQSBTQ1VPTEEgREkgSVRBTElBTk8uIERPTUFOSSBMQSBMRVpJT05FIE5PTiDDiCBBTExFIE5PVkUgTUEgQUxMRSBESUVDSS4gUE9SVEEgSUwgUVVBREVSTk8gRSBVTkEgRk9UT0dSQUZJQSBQRVIgTEEgVEVTU0VSQS4gQSBET01BTkksIENJQU8hIl1d",
+   "items": [
+    {
+     "q": "1. CHI TELEFONA?",
+     "opts": [
+      "GIULIA, DELLA SCUOLA",
+      "IL MEDICO",
+      "UN AMICO DI SAMIR"
+     ]
+    },
+    {
+     "q": "2. A CHE ORA È LA LEZIONE DOMANI?",
+     "opts": [
+      "ALLE 10",
+      "ALLE 9",
+      "ALLE 11"
+     ]
+    },
+    {
+     "q": "3. CHE COSA DEVE PORTARE SAMIR?",
+     "opts": [
+      "IL QUADERNO E UNA FOTO",
+      "IL PASSAPORTO",
+      "I SOLDI"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJHSVVMSUEsIERFTExBIFNDVU9MQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFMTEUgMTAiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCBRVUFERVJOTyBFIFVOQSBGT1RPIl19XQ==",
+   "cons": "ASCOLTA IL MESSAGGIO E SCEGLI LA RISPOSTA GIUSTA.",
+   "badge": "3 PUNTI"
+  },
+  {
+   "id": "a3",
+   "title": "A3 · Al mercato",
+   "short": "A3 · Al mercato",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siTSIsICJCVU9OR0lPUk5PIFNJR05PUkEsIENIRSBDT1NBIExFIERPPyJdLCBbIkYiLCAiQlVPTkdJT1JOTy4gVU4gQ0hJTE8gREkgUE9NT0RPUkkgRSBNRVpaTyBDSElMTyBESSBDSVBPTExFLiJdLCBbIk0iLCAiRUNDTy4gQUxUUk8/Il0sIFsiRiIsICJTw4wsIERVRSBMSU1PTkkuIFFVQU5UTyBQQUdPPyJdLCBbIk0iLCAiVFJFIEVVUk8gRSBDSU5RVUFOVEEuIl0sIFsiRiIsICJFQ0NPIEEgTEVJIENJTlFVRSBFVVJPLiJdLCBbIk0iLCAiRSBVTiBFVVJPIEUgQ0lOUVVBTlRBIERJIFJFU1RPLiBHUkFaSUUsIEJVT05BIEdJT1JOQVRBISJdXQ==",
+   "items": [
+    {
+     "q": "1. LA SIGNORA COMPRA UN CHILO DI POMODORI."
+    },
+    {
+     "q": "2. COMPRA UN CHILO DI CIPOLLE."
+    },
+    {
+     "q": "3. COMPRA DUE LIMONI."
+    },
+    {
+     "q": "4. PAGA TRE EURO E CINQUANTA."
+    },
+    {
+     "q": "5. LA SIGNORA DÀ DIECI EURO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19XQ==",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "cons": "ASCOLTA IL DIALOGO. VERO O FALSO?",
+   "badge": "5 PUNTI"
+  },
+  {
+   "part": "Prova 2 · Lettura"
+  },
+  {
+   "id": "l1",
+   "title": "L1 · Dove leggi questi cartelli?",
+   "short": "L1 · Dove leggi questi cartelli?",
+   "type": "select",
+   "opts": [
+    "IN FARMACIA",
+    "ALLA STAZIONE",
+    "IN UN NEGOZIO",
+    "ALL'OSPEDALE",
+    "IN AUTOBUS"
+   ],
+   "items": [
+    {
+     "q": "1. «VIETATO PARLARE CON L'AUTISTA»"
+    },
+    {
+     "q": "2. «SALDI -50%»"
+    },
+    {
+     "q": "3. «PRONTO SOCCORSO · AMBULANZE»"
+    },
+    {
+     "q": "4. «BINARI 1-5 · BIGLIETTERIA»"
+    },
+    {
+     "q": "5. «FARMACIA DI TURNO: VIA SPARANO 12»"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTiBBVVRPQlVTIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSU4gVU4gTkVHT1pJTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFMTCdPU1BFREFMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFMTEEgU1RBWklPTkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTiBGQVJNQUNJQSJdfV0=",
+   "cons": "SCEGLI IL POSTO GIUSTO.",
+   "badge": "5 PUNTI"
+  },
+  {
+   "id": "l2",
+   "title": "L2 · Leggi l'avviso",
+   "short": "L2 · Leggi l'avviso",
+   "type": "choice",
+   "full": true,
+   "info": "<b>CENTRO PER L'IMPIEGO DI BARI</b><br>DAL 3 AL 14 NOVEMBRE L'UFFICIO È APERTO SOLO LA MATTINA, DALLE 8:30 ALLE 12:30.<br>IL GIOVEDÌ È APERTO ANCHE IL POMERIGGIO, DALLE 15 ALLE 17.<br>PER PARLARE CON UN OPERATORE SERVE L'APPUNTAMENTO.<br>PORTA UN DOCUMENTO E IL CODICE FISCALE.",
+   "items": [
+    {
+     "q": "1. IL 5 NOVEMBRE ALLE 16 L'UFFICIO È APERTO."
+    },
+    {
+     "q": "2. IL GIOVEDÌ ALLE 16 L'UFFICIO È APERTO."
+    },
+    {
+     "q": "3. PER PARLARE CON UN OPERATORE SERVE L'APPUNTAMENTO."
+    },
+    {
+     "q": "4. DEVO PORTARE LA TESSERA SANITARIA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX1d",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "cons": "LEGGI E SCEGLI: VERO O FALSO?",
+   "badge": "4 PUNTI"
+  },
+  {
+   "id": "l3",
+   "title": "L3 · Leggi il messaggio di Amina",
+   "short": "L3 · Leggi il messaggio di Amina",
+   "type": "choice",
+   "full": true,
+   "info": "CIAO FATOU! SABATO È IL MIO COMPLEANNO. FACCIO UNA FESTA A CASA MIA, IN VIA CRISANZIO 40, ALLE 19. C'È ANCHE MIA SORELLA. PORTI TU IL DOLCE? IO PREPARO IL RISO E IL POLLO. RISPONDIMI, PER FAVORE! AMINA",
+   "items": [
+    {
+     "q": "1. QUANDO È LA FESTA?",
+     "opts": [
+      "SABATO ALLE 19",
+      "DOMENICA ALLE 19",
+      "SABATO ALLE 9"
+     ]
+    },
+    {
+     "q": "2. DOVE È LA FESTA?",
+     "opts": [
+      "A CASA DI AMINA",
+      "AL RISTORANTE",
+      "A CASA DI FATOU"
+     ]
+    },
+    {
+     "q": "3. CHE COSA PORTA FATOU?",
+     "opts": [
+      "IL DOLCE",
+      "IL RISO",
+      "IL POLLO"
+     ]
+    },
+    {
+     "q": "4. CHI C'È ALLA FESTA?",
+     "opts": [
+      "ANCHE LA SORELLA DI AMINA",
+      "SOLO AMINA E FATOU",
+      "I COLLEGHI DI LAVORO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTQUJBVE8gQUxMRSAxOSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkEgQ0FTQSBESSBBTUlOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklMIERPTENFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQU5DSEUgTEEgU09SRUxMQSBESSBBTUlOQSJdfV0=",
+   "cons": "LEGGI E SCEGLI LA RISPOSTA GIUSTA.",
+   "badge": "4 PUNTI"
+  },
+  {
+   "part": "Prova 3 · Scrittura"
+  },
+  {
+   "id": "s1",
+   "title": "S1 ✎ · Compila il modulo",
+   "type": "free",
+   "rows": 1,
+   "cons": "SEI IN UNA PALESTRA. COMPILA IL MODULO IN STAMPATELLO. PUOI USARE DATI INVENTATI.",
+   "items": [
+    "NOME",
+    "COGNOME",
+    "DATA DI NASCITA",
+    "NAZIONALITÀ",
+    "INDIRIZZO",
+    "NUMERO DI TELEFONO",
+    "GIORNI IN CUI VUOI ANDARE IN PALESTRA"
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "S2 ✎ · Rispondi ad Amina",
+   "type": "free",
+   "rows": 4,
+   "cons": "RISPONDI AL MESSAGGIO DI AMINA (PROVA L3). SCRIVI 20-30 PAROLE: VAI ALLA FESTA? CHE DOLCE PORTI? A CHE ORA ARRIVI?",
+   "items": [
+    "IL TUO MESSAGGIO"
+   ]
+  },
+  {
+   "part": "Prova 4 · Parlato"
+  },
+  {
+   "id": "p1",
+   "title": "P1 🎤 · Parla di te",
+   "type": "record",
+   "items": [
+    "PRESENTATI: COME TI CHIAMI, DI DOVE SEI, QUANTI ANNI HAI, DOVE ABITI, CON CHI ABITI, CHE LAVORO FAI O VUOI FARE."
+   ]
+  },
+  {
+   "id": "p2",
+   "title": "P2 🎤 · Al bar",
+   "type": "record",
+   "items": [
+    "SEI AL BAR. ORDINA UNA COSA DA BERE E UNA DA MANGIARE, CHIEDI QUANTO COSTA E SALUTA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

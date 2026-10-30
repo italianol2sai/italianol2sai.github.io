@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔧 Dal meccanico · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🔧 Dal meccanico · Esercizi",
+ "store": "meccanico",
+ "upper": true,
+ "sections": [
+  {
+   "part": "La macchina"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Le parti della macchina",
+   "short": "1 · Le parti",
+   "type": "select",
+   "opts": [
+    "LE RUOTE",
+    "I FRENI",
+    "LA BATTERIA",
+    "I FARI",
+    "LO SPECCHIETTO",
+    "I TERGICRISTALLI"
+   ],
+   "items": [
+    {
+     "q": "1. PER FERMARE LA MACCHINA USO…"
+    },
+    {
+     "q": "2. DI NOTTE ACCENDO…"
+    },
+    {
+     "q": "3. PIOVE: ACCENDO…"
+    },
+    {
+     "q": "4. PER VEDERE LE MACCHINE DIETRO GUARDO…"
+    },
+    {
+     "q": "5. LA MACCHINA NON SI ACCENDE: FORSE È…"
+    },
+    {
+     "q": "6. HO UNA GOMMA BUCATA: CAMBIO UNA DELLE…"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJIEZSRU5JIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSSBGQVJJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSSBURVJHSUNSSVNUQUxMSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxPIFNQRUNDSElFVFRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEEgQkFUVEVSSUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMRSBSVU9URSJdfV0="
+  },
+  {
+   "part": "I guasti"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Che cosa bisogna fare?",
+   "short": "2 · I guasti",
+   "type": "select",
+   "opts": [
+    "CAMBIARE LA BATTERIA",
+    "CAMBIARE LA RUOTA",
+    "CAMBIARE LE PASTIGLIE DEI FRENI",
+    "CAMBIARE LA LAMPADINA"
+   ],
+   "items": [
+    {
+     "q": "1. HO UNA GOMMA A TERRA."
+    },
+    {
+     "q": "2. LA MACCHINA NON PARTE, LA BATTERIA È VECCHIA."
+    },
+    {
+     "q": "3. I FRENI FANNO RUMORE."
+    },
+    {
+     "q": "4. NON FUNZIONA UN FARO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDQU1CSUFSRSBMQSBSVU9UQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNBTUJJQVJFIExBIEJBVFRFUklBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0FNQklBUkUgTEUgUEFTVElHTElFIERFSSBGUkVOSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNBTUJJQVJFIExBIExBTVBBRElOQSJdfV0="
+  },
+  {
+   "id": "e3",
+   "title": "3 · All'officina: leggi e rispondi",
+   "short": "3 · All'officina",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. CHE PROBLEMA HA LA MACCHINA DI YUSUF?",
+     "opts": [
+      "FA RUMORE QUANDO FRENA",
+      "NON PARTE",
+      "HA UNA GOMMA BUCATA"
+     ]
+    },
+    {
+     "q": "2. DA QUANTO TEMPO?",
+     "opts": [
+      "DA UNA SETTIMANA",
+      "DA UN MESE",
+      "DA IERI"
+     ]
+    },
+    {
+     "q": "3. QUANTO COSTA LA RIPARAZIONE?",
+     "opts": [
+      "CIRCA 120 EURO",
+      "CIRCA 20 EURO",
+      "NIENTE"
+     ]
+    },
+    {
+     "q": "4. QUANDO È PRONTA LA MACCHINA?",
+     "opts": [
+      "DOMANI POMERIGGIO",
+      "OGGI",
+      "TRA UNA SETTIMANA"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQSBSVU1PUkUgUVVBTkRPIEZSRU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiREEgVU5BIFNFVFRJTUFOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNJUkNBIDEyMCBFVVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRE9NQU5JIFBPTUVSSUdHSU8iXX1d",
+   "info": "YUSUF: LA MIA MACCHINA FA UN RUMORE STRANO QUANDO FRENO.<br>MECCANICO: DA QUANTO TEMPO?<br>YUSUF: DA UNA SETTIMANA.<br>MECCANICO: SONO LE PASTIGLIE DEI FRENI. BISOGNA CAMBIARLE.<br>YUSUF: QUANTO COSTA? E QUANDO È PRONTA?<br>MECCANICO: CIRCA 120 EURO. LA PUÒ RITIRARE DOMANI POMERIGGIO."
+  },
+  {
+   "part": "Le regole"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Vero o falso?",
+   "short": "4 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. L'ASSICURAZIONE DELLA MACCHINA È OBBLIGATORIA."
+    },
+    {
+     "q": "2. LA REVISIONE NON SERVE MAI."
+    },
+    {
+     "q": "3. IL BOLLO SI PAGA OGNI ANNO."
+    },
+    {
+     "q": "4. SE LA MACCHINA È FERMA PER STRADA METTO IL GILET CATARIFRANGENTE."
+    },
+    {
+     "q": "5. CON LA PATENTE DEL MIO PAESE POSSO GUIDARE IN ITALIA PER SEMPRE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19XQ=="
+  },
+  {
+   "id": "e5",
+   "title": "5 · Scrivi la parola",
+   "short": "5 · Le parole",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. LA MACCHINA NON ___ (NON SI ACCENDE)."
+    },
+    {
+     "q": "2. HO UNA GOMMA ___ (CON UN BUCO)."
+    },
+    {
+     "q": "3. SI È ACCESA UNA ___ ROSSA."
+    },
+    {
+     "q": "4. MI FA LA ___, PER FAVORE? (IL FOGLIO CON IL PREZZO E L'IVA)"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJwYXJ0ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImJ1Y2F0YSIsICJhIHRlcnJhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic3BpYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImZhdHR1cmEiXX1d",
+   "bank": "PARTE · BUCATA · SPIA · FATTURA"
+  },
+  {
+   "id": "e6",
+   "title": "6 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "SEI DAL MECCANICO. SPIEGA CHE PROBLEMA HA LA TUA MACCHINA (O IL MOTORINO), DA QUANDO, E CHIEDI QUANTO COSTA E QUANDO È PRONTA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

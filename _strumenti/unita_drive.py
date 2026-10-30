@@ -123,7 +123,7 @@ CANTIERE_SLIDE = [
         ("🏗️", "LA GRU", "ALZA I PESI"), ("🪜", "IL PONTEGGIO", "PER LAVORARE IN ALTO, FUORI DAL PALAZZO"),
         ("🌀", "LA BETONIERA", "FA IL CALCESTRUZZO"), ("🪜", "LA SCALA", "PER SALIRE"),
         ("🧱", "I MATTONI", "PER FARE I MURI"), ("⏳", "LA SABBIA E IL CEMENTO", "CON L'ACQUA FANNO LA MALTA")], "g3")),
-    slide("🚧 I CARTELLI DEL CANTIERE", colori4([
+    slide("🚧 I CARTELLI DEL CANTIERE", ill("cartelli-sicurezza.png", "QUATTRO CARTELLI DI SICUREZZA: OBBLIGO, DIVIETO, PERICOLO, EMERGENZA") + "\n" + colori4([
         ("#1f6fd1", "🔵 OBBLIGO", "DEVI! (ES. È OBBLIGATORIO IL CASCO)"), ("#d63a2f", "🔴 DIVIETO", "NON PUOI! (ES. VIETATO L'ACCESSO)"),
         ("#e0a800", "🟡 PERICOLO", "ATTENZIONE! (ES. CARICHI SOSPESI)"), ("#1e9e5a", "🟢 EMERGENZA", "QUI TROVI AIUTO (ES. USCITA, PRONTO SOCCORSO)")]) + "\n" +
         nota("CARICHI SOSPESI = SOPRA DI TE LA GRU PORTA DEI PESI. NON STARE SOTTO!")),
@@ -199,7 +199,7 @@ CUCINA_SLIDE = [
     slide("CHE COSA IMPARIAMO?", cards([
         ("🍳", "GLI OGGETTI DELLA CUCINA", "PENTOLA, PADELLA, SCOLAPASTA…"), ("🔪", "I VERBI DEL CUOCO", "PELARE, AFFETTARE, SCOLARE…"),
         ("🍽️", "APPARECCHIARE LA TAVOLA", "PIATTI, BICCHIERI, POSATE"), ("🧼", "L'IGIENE", "LE REGOLE DELLA CUCINA")])),
-    slide("👩‍🍳 CHI LAVORA IN UN RISTORANTE?", cards([
+    slide("👩‍🍳 CHI LAVORA IN UN RISTORANTE?", ill("cuoco.png", "UN AIUTO CUOCO CHE TAGLIA LE VERDURE") + "\n" + cards([
         ("👨‍🍳", "IL CUOCO / LA CUOCA", "CUCINA I PIATTI"), ("🧑‍🍳", "L'AIUTO CUOCO", "PREPARA LA VERDURA, AIUTA IL CUOCO"),
         ("🧽", "IL LAVAPIATTI", "LAVA PIATTI, PENTOLE E BICCHIERI"), ("🤵", "IL CAMERIERE / LA CAMERIERA", "PORTA I PIATTI AI TAVOLI"),
         ("🍕", "IL PIZZAIOLO", "FA LA PIZZA"), ("🧾", "IL RESPONSABILE DI SALA", "ACCOGLIE I CLIENTI")], "g3")),
@@ -296,7 +296,7 @@ CARNE_SLIDE = [
     slide("CHE COSA IMPARIAMO?", cards([
         ("🥩", "LA CARNE", "POLLO, MANZO, AGNELLO…"), ("🐟", "IL PESCE", "ORATA, ALICI, COZZE…"),
         ("🍝", "LA PASTA", "ORECCHIETTE, SPAGHETTI, PENNE…"), ("☕", "I CAFFÈ", "MACCHIATO, LUNGO, RISTRETTO…")])),
-    slide("🥩 LA CARNE", table([
+    slide("🥩 LA CARNE", ill("macelleria.png", "IL BANCONE DI UNA MACELLERIA") + "\n" + table([
         ["🐔", "IL POLLO", "IL PETTO, LA COSCIA, LE ALI"], ["🦃", "IL TACCHINO", ""],
         ["🐄", "IL MANZO / IL VITELLO", "LA BISTECCA, IL MACINATO, LO SPEZZATINO"], ["🐑", "L'AGNELLO", "LE COSTOLETTE"],
         ["🐇", "IL CONIGLIO", ""], ["🌭", "LA SALSICCIA", "DI POLLO, DI MANZO O DI MAIALE"]], head=["", "LA CARNE", "I PEZZI"]) + "\n" +
@@ -313,7 +313,7 @@ CARNE_SLIDE = [
         ("*MACELLAIO", "IL POLLO SÌ. LO VUOLE PULITO?"),
         ("FATIMA", "SÌ, GRAZIE. QUANTO VIENE?"),
         ("*MACELLAIO", "SONO 12 EURO E 50.")])),
-    slide("🐟 IL PESCE", cards([
+    slide("🐟 IL PESCE", ill("pescheria.png", "IL BANCO DEL PESCE") + "\n" + cards([
         ("🐟", "L'ORATA", ""), ("🐟", "LA SPIGOLA (IL BRANZINO)", ""), ("🐠", "LE ALICI", "PICCOLE, SI FRIGGONO"),
         ("🍣", "IL SALMONE", "ROSA"), ("🐟", "IL TONNO", "ANCHE IN SCATOLA"), ("🗡️", "IL PESCE SPADA", "")], "g3")),
     slide("🦑 I FRUTTI DI MARE", cards([
@@ -327,14 +327,14 @@ CARNE_SLIDE = [
         ("YUSUF", "NE PRENDO DUE. ME LE PULISCE?"),
         ("*PESCIVENDOLO", "CERTO. LE VUOLE PER IL FORNO?"),
         ("YUSUF", "SÌ. E UN CHILO DI COZZE, PER FAVORE.")])),
-    slide("🍝 LA PASTA", table([
+    slide("🍝 LA PASTA", ill("pasta.png", "TANTI TIPI DI PASTA") + "\n" + table([
         ["LUNGA", "SPAGHETTI, LINGUINE, TAGLIATELLE"], ["CORTA", "PENNE, FUSILLI, FARFALLE, MACCHERONI, CONCHIGLIE"],
         ["RIPIENA", "RAVIOLI, TORTELLINI (DENTRO C'È CARNE O FORMAGGIO)"], ["AL FORNO", "LASAGNE"],
         ["DI PATATE", "GNOCCHI"], ["DI BARI 💙", "ORECCHIETTE: CON LE CIME DI RAPA!"]], head=["CHE PASTA?", "I NOMI"])),
     slide("⚖️ COM'È? I CONTRARI", table([
         ["CRUDO", "↔", "COTTO"], ["FRESCO", "↔", "SURGELATO"], ["DOLCE", "↔", "AMARO"], ["CALDO", "↔", "FREDDO"],
         ["BUONO", "↔", "CATTIVO"], ["NATURALE (ACQUA)", "↔", "FRIZZANTE"], ["MAGRO", "↔", "GRASSO"]])),
-    slide("☕ I CAFFÈ", cards([
+    slide("☕ I CAFFÈ", ill("caffe.png", "SEI TIPI DI CAFFÈ") + "\n" + cards([
         ("☕", "IL CAFFÈ (ESPRESSO)", "PICCOLO E FORTE"), ("🥛", "IL CAFFÈ MACCHIATO", "CON UN PO' DI LATTE CALDO O FREDDO"),
         ("💧", "IL CAFFÈ LUNGO", "CON PIÙ ACQUA"), ("🔻", "IL CAFFÈ RISTRETTO", "CON MENO ACQUA, PIÙ FORTE"),
         ("☕☕", "IL CAFFÈ DOPPIO", "DUE CAFFÈ IN UNA TAZZA"), ("🚫", "IL DECAFFEINATO (DECA)", "SENZA CAFFEINA")], "g3")),
@@ -393,7 +393,7 @@ BAR_SLIDE = [
     slide("CHE COSA IMPARIAMO?", cards([
         ("☕", "CHE COSA PRENDO?", "CAFFÈ, CAPPUCCINO, SPREMUTA…"), ("🥐", "CHE COSA MANGIO?", "CORNETTO, PANINO, TRAMEZZINO"),
         ("🧾", "COME PAGO?", "ALLA CASSA, LO SCONTRINO"), ("🗣️", "LE FRASI", "VORREI… QUANTO PAGO?")])),
-    slide("☕ DA BERE", cards([
+    slide("☕ DA BERE", ill("bancone-bar.png", "IL BANCONE DI UN BAR CON IL BARISTA E UNA CLIENTE") + "\n" + cards([
         ("☕", "IL CAFFÈ", ""), ("🥛", "IL CAPPUCCINO", "CAFFÈ + LATTE CON LA SCHIUMA"), ("🫖", "IL TÈ", "CALDO O FREDDO"),
         ("🍊", "LA SPREMUTA D'ARANCIA", "ARANCE FRESCHE"), ("🧃", "IL SUCCO DI FRUTTA", "PESCA, PERA, ALBICOCCA"),
         ("💧", "L'ACQUA", "NATURALE O FRIZZANTE")], "g3")),
@@ -472,11 +472,11 @@ TRENO_SLIDE = [
     slide("CHE COSA IMPARIAMO?", cards([
         ("🎫", "IL BIGLIETTO", "DOVE LO COMPRO? COME LO USO?"), ("🕐", "IL TABELLONE", "PARTENZE, ARRIVI, RITARDI"),
         ("🛤️", "IL BINARIO", "DA DOVE PARTE IL TRENO?"), ("🗣️", "ALLA BIGLIETTERIA", "UN BIGLIETTO PER LECCE…")])),
-    slide("🚉 IN STAZIONE", cards([
+    slide("🚉 IN STAZIONE", ill("stazione.png", "UNA STAZIONE CON IL TRENO AL BINARIO") + "\n" + cards([
         ("🎫", "LA BIGLIETTERIA", "LO SPORTELLO PER I BIGLIETTI"), ("🤖", "LA BIGLIETTERIA AUTOMATICA", "LA MACCHINETTA"),
         ("📋", "IL TABELLONE", "GLI ORARI DEI TRENI"), ("🛤️", "IL BINARIO", "IL TRENO PARTE DAL BINARIO 3"),
         ("🪑", "LA SALA D'ATTESA", "PER ASPETTARE"), ("ℹ️", "L'UFFICIO INFORMAZIONI", "PER LE DOMANDE")], "g3")),
-    slide("🎫 IL BIGLIETTO", table([
+    slide("🎫 IL BIGLIETTO", ill("convalida.png", "UNA MANO CONVALIDA IL BIGLIETTO NELLA MACCHINETTA VERDE") + "\n" + table([
         ["SOLO ANDATA", "VADO E BASTA: BARI → LECCE"], ["ANDATA E RITORNO", "VADO E TORNO: BARI → LECCE → BARI"],
         ["REGIONALE", "TRENO LENTO, COSTA POCO, CI SONO TANTE FERMATE"], ["FRECCIA / INTERCITY", "TRENO VELOCE, COSTA DI PIÙ, HA IL POSTO"],
         ["ABBONAMENTO", "PER UN MESE: SE PRENDO IL TRENO OGNI GIORNO"]]) + "\n" +
@@ -555,7 +555,7 @@ POSTA_SLIDE = [
     slide("CHE COSA IMPARIAMO?", cards([
         ("✉️", "SPEDIRE", "LETTERA, RACCOMANDATA, PACCO"), ("🧾", "PAGARE", "IL BOLLETTINO, LE BOLLETTE"),
         ("🏦", "IL CONTO", "CONTO CORRENTE, IBAN, CARTA"), ("💳", "IL BANCOMAT", "PRELEVARE, VERSARE, IL PIN")])),
-    slide("🏤 ALLA POSTA", passi([
+    slide("🏤 ALLA POSTA", ill("ufficio-postale.png", "UN UFFICIO POSTALE CON LE PERSONE IN ATTESA") + "\n" + passi([
         "ENTRO E PRENDO IL <b>NUMERO</b> ALLA MACCHINETTA: SCELGO IL SERVIZIO (SPEDIZIONI, PAGAMENTI, CONTI…).",
         "ASPETTO. GUARDO LO <b>SCHERMO</b>: QUANDO C'È IL MIO NUMERO, VADO ALLO <b>SPORTELLO</b>.",
         "ALLO SPORTELLO DICO CHE COSA VOGLIO FARE."]) + "\n" +
@@ -578,7 +578,7 @@ POSTA_SLIDE = [
         cards([("🪪", "UN DOCUMENTO", "PASSAPORTO O CARTA D'IDENTITÀ"), ("🔢", "IL CODICE FISCALE", ""),
                ("📄", "IL PERMESSO DI SOGGIORNO", "O LA RICEVUTA"), ("🏠", "L'INDIRIZZO", "DOVE ABITO")]) + "\n    </div>\n" +
         nota("PER APRIRE UN CONTO SERVONO…", "margin-top:8px; font-size:1rem;")),
-    slide("💳 LA CARTA E IL BANCOMAT", table([
+    slide("💳 LA CARTA E IL BANCOMAT", ill("bancomat.png", "UN UOMO PRELEVA AL BANCOMAT E COPRE IL PIN") + "\n" + table([
         ["PRELEVARE", "PRENDO I SOLDI DAL BANCOMAT"], ["VERSARE", "METTO I SOLDI SUL CONTO"],
         ["IL SALDO", "QUANTI SOLDI HO SUL CONTO"], ["IL BONIFICO", "MANDO SOLDI A UN ALTRO CONTO"],
         ["IL PIN", "IL CODICE SEGRETO DELLA CARTA"], ["L'ESTRATTO CONTO", "LA LISTA DEI MOVIMENTI"]]) + "\n" +
@@ -643,7 +643,7 @@ FARMACIA_SLIDE = [
     slide("CHE COSA IMPARIAMO?", cards([
         ("💊", "LE MEDICINE", "COMPRESSE, SCIROPPO, POMATA…"), ("📝", "LA RICETTA", "QUANDO SERVE?"),
         ("🕐", "COME SI PRENDONO", "DUE VOLTE AL GIORNO, DOPO I PASTI"), ("🚑", "L'EMERGENZA", "IL 112, IL PRONTO SOCCORSO")])),
-    slide("💊 LE MEDICINE", cards([
+    slide("💊 LE MEDICINE", ill("farmacia.png", "LA FARMACISTA AL BANCO") + "\n" + cards([
         ("💊", "LE COMPRESSE", "SI INGOIANO CON L'ACQUA"), ("🧴", "LO SCIROPPO", "PER LA TOSSE"), ("💧", "LE GOCCE", "PER GLI OCCHI, IL NASO, LE ORECCHIE"),
         ("🩹", "LA POMATA / LA CREMA", "SULLA PELLE"), ("🫧", "LA BUSTINA", "SI SCIOGLIE NELL'ACQUA"), ("💉", "LA PUNTURA", "L'INIEZIONE")], "g3")),
     slide("📝 CON O SENZA RICETTA?", '    <div class="twocol2">\n' +
@@ -668,7 +668,7 @@ FARMACIA_SLIDE = [
         nota("📞 <b>112</b> È IL NUMERO UNICO PER TUTTE LE EMERGENZE: AMBULANZA, POLIZIA, POMPIERI.<br>È <b>GRATIS</b>, ANCHE SENZA CREDITO.", "") + "\n" +
         passi(["DICO CHE COSA È SUCCESSO.", "DICO DOVE SONO: VIA, NUMERO, CITTÀ.", "RISPONDO ALLE DOMANDE. NON CHIUDO PER PRIMO."]) +
         "\n    </div>\n" + nota("🌙 NON È UN'EMERGENZA MA IL MEDICO È CHIUSO (NOTTE, DOMENICA)? C'È LA <b>GUARDIA MEDICA</b>.")),
-    slide("🏥 AL PRONTO SOCCORSO", nota("AL PRONTO SOCCORSO <b>NON</b> ENTRA PRIMA CHI ARRIVA PRIMA.<br>"
+    slide("🏥 AL PRONTO SOCCORSO", ill("pronto-soccorso.png", "L'INGRESSO DEL PRONTO SOCCORSO CON L'AMBULANZA") + "\n" + nota("AL PRONTO SOCCORSO <b>NON</b> ENTRA PRIMA CHI ARRIVA PRIMA.<br>"
         "UN INFERMIERE FA IL <b>TRIAGE</b>: CONTROLLA CHI STA PIÙ MALE. CHI STA PIÙ MALE ENTRA PRIMA.", "") + "\n" +
         colori4([("#d63a2f", "ROSSO", "PERICOLO DI VITA: SUBITO"), ("#ef7d00", "ARANCIONE", "MOLTO URGENTE"),
                  ("#1f8fd1", "AZZURRO", "URGENTE, MA SI PUÒ ASPETTARE"), ("#1e9e5a", "VERDE / BIANCO", "POCO URGENTE: SI ASPETTA DI PIÙ")]) + "\n" +
@@ -730,7 +730,7 @@ COMUNE_SLIDE = [
     slide("CHE COSA IMPARIAMO?", cards([
         ("🏠", "LA RESIDENZA", "DOVE ABITO, PER LO STATO"), ("🪪", "LA CARTA D'IDENTITÀ", "LA CIE"),
         ("📄", "I CERTIFICATI", "DI RESIDENZA, STATO DI FAMIGLIA"), ("🛂", "IL PERMESSO DI SOGGIORNO", "IL RINNOVO IN QUESTURA")])),
-    slide("🏛️ IL COMUNE: L'ANAGRAFE", '    <div class="twocol2">\n' +
+    slide("🏛️ IL COMUNE: L'ANAGRAFE", ill("anagrafe.png", "LO SPORTELLO DELL'ANAGRAFE") + "\n" + '    <div class="twocol2">\n' +
         nota("L'<b>ANAGRAFE</b> È L'UFFICIO DEL COMUNE CON I DATI DI TUTTE LE PERSONE CHE ABITANO IN CITTÀ.<br><br>"
              "A BARI CI SONO TANTI UFFICI NEI <b>MUNICIPI</b>. DI SOLITO SERVE L'<b>APPUNTAMENTO</b> (ONLINE O AL TELEFONO).", "") + "\n" +
         cards([("🏠", "LA RESIDENZA", ""), ("🪪", "LA CARTA D'IDENTITÀ", ""), ("📄", "I CERTIFICATI", ""), ("👶", "LE NASCITE E I MATRIMONI", "")]) +
@@ -749,7 +749,7 @@ COMUNE_SLIDE = [
         ["CERTIFICATO DI RESIDENZA", "DICE DOVE ABITO"], ["STATO DI FAMIGLIA", "DICE CHI ABITA CON ME"],
         ["CERTIFICATO DI NASCITA", "PER UN FIGLIO NATO IN ITALIA"]]) + "\n" +
         nota("💻 MOLTI CERTIFICATI SI SCARICANO ONLINE DALL'<b>ANPR</b>, CON LA CIE O LO SPID. SONO GRATIS.")),
-    slide("🛂 IN QUESTURA: IL PERMESSO DI SOGGIORNO", '    <div class="twocol2">\n' +
+    slide("🛂 IN QUESTURA: IL PERMESSO DI SOGGIORNO", ill("questura.png", "LO SPORTELLO DELLA QUESTURA E LE IMPRONTE DIGITALI") + "\n" + '    <div class="twocol2">\n' +
         nota("LA <b>QUESTURA</b> È L'UFFICIO DELLA <b>POLIZIA</b> CHE DÀ E RINNOVA IL <b>PERMESSO DI SOGGIORNO</b>.<br><br>"
              "LA PARTE DELLA QUESTURA PER GLI STRANIERI SI CHIAMA <b>UFFICIO IMMIGRAZIONE</b>.", "") + "\n" +
         cards([("📅", "LA SCADENZA", "GUARDO SEMPRE LA DATA SUL PERMESSO"), ("⏳", "PRIMA DELLA SCADENZA", "CHIEDO IL RINNOVO IN TEMPO (MEGLIO 60 GIORNI PRIMA)"),
@@ -822,7 +822,7 @@ ASSISTENTE_SLIDE = [
     slide("CHE COSA IMPARIAMO?", cards([
         ("🧓", "IL LAVORO", "CHE COSA FA UN'ASSISTENTE FAMILIARE?"), ("📅", "LA GIORNATA", "DALLA MATTINA ALLA SERA"),
         ("🩺", "LA SALUTE", "LE DOMANDE GENTILI"), ("📝", "IL CONTRATTO", "CONVIVENTE O A ORE")])),
-    slide("🤲 CHI È L'ASSISTENTE FAMILIARE?", nota("L'<b>ASSISTENTE FAMILIARE</b> (SI DICE ANCHE <b>BADANTE</b>) AIUTA UNA PERSONA "
+    slide("🤲 CHI È L'ASSISTENTE FAMILIARE?", ill("assistente-anziana.png", "UN'ASSISTENTE FAMILIARE AIUTA UNA SIGNORA ANZIANA A CAMMINARE") + "\n" + nota("L'<b>ASSISTENTE FAMILIARE</b> (SI DICE ANCHE <b>BADANTE</b>) AIUTA UNA PERSONA "
         "ANZIANA, MALATA O CON UNA DISABILITÀ, A CASA SUA.<br>LA <b>COLF</b> INVECE PULISCE E TIENE IN ORDINE LA CASA.", "") + "\n" +
         cards([("😊", "GENTILE E PAZIENTE", ""), ("⏰", "PUNTUALE", ""), ("🤝", "AFFIDABILE", "LA FAMIGLIA SI FIDA"),
                ("👀", "ATTENTA", "VEDE SE QUALCOSA NON VA"), ("💪", "IN FORMA", "AIUTA A ALZARSI, A CAMMINARE"), ("🤫", "RISERVATA", "NON RACCONTA I FATTI DELLA FAMIGLIA")], "g3")),
@@ -831,7 +831,7 @@ ASSISTENTE_SLIDE = [
         ["8:45", "PREPARO LA COLAZIONE. LE DO LE MEDICINE"], ["10:00", "FACCIAMO UNA PASSEGGIATA. FACCIO LA SPESA"],
         ["12:30", "CUCINO IL PRANZO. MANGIAMO INSIEME"], ["15:00", "RIPOSA. IO METTO IN ORDINE LA CASA"],
         ["17:00", "LA ACCOMPAGNO DAL MEDICO"], ["20:00", "CENA, POI LA AIUTO AD ANDARE A LETTO"]], head=["ORA", "CHE COSA FACCIO?"])),
-    slide("💊 LE MEDICINE: ATTENZIONE!", passi([
+    slide("💊 LE MEDICINE: ATTENZIONE!", ill("portapillole.png", "UN PORTAPILLOLE DELLA SETTIMANA E UN QUADERNO") + "\n" + passi([
         "LE MEDICINE LE DECIDE <b>IL MEDICO</b>. IO NON CAMBIO NIENTE.",
         "SCRIVO IN UN <b>QUADERNO</b>: CHE MEDICINA, A CHE ORA, QUANTE.",
         "USO IL <b>PORTAPILLOLE</b> DELLA SETTIMANA: LUNEDÌ, MARTEDÌ…",
@@ -894,6 +894,264 @@ ASSISTENTE = {
 }
 
 
+# =====================================================================
+# 10. IN AEREO E ALL'AGENZIA DI VIAGGI (città, A2)
+# =====================================================================
+AEREO_SLIDE = [
+    cover("✈️", "IN AEREO E ALL'AGENZIA DI VIAGGI", "PRENOTARE UN VOLO, IL CHECK-IN, IL BAGAGLIO", "VIAGGI &bull; A2"),
+    slide("CHE COSA IMPARIAMO?", cards([
+        ("🧳", "ALL'AGENZIA DI VIAGGI", "CHIEDERE E PRENOTARE"), ("🛫", "IN AEROPORTO", "CHECK-IN, CONTROLLI, IMBARCO"),
+        ("🎒", "IL BAGAGLIO", "A MANO O DA STIVA"), ("🗣️", "LE FRASI", "VORREI UN VOLO PER…")])),
+    slide("🧳 ALL'AGENZIA DI VIAGGI", ill("agenzia-viaggi.png", "UN'IMPIEGATA DELL'AGENZIA MOSTRA UN VOLO A UNA COPPIA") + "\n" + dialogo([
+        ("*IMPIEGATA", "BUONGIORNO. COME POSSO AIUTARLA?"),
+        ("MOUSSA", "VORREI UN VOLO PER DAKAR, PER IL 20 DICEMBRE."),
+        ("*IMPIEGATA", "SOLO ANDATA O ANDATA E RITORNO?"),
+        ("MOUSSA", "ANDATA E RITORNO. TORNO IL 10 GENNAIO."),
+        ("*IMPIEGATA", "C'È UN VOLO DA BARI CON SCALO A ROMA. COSTA 520 EURO, CON UN BAGAGLIO DA 23 CHILI."),
+        ("MOUSSA", "C'È QUALCOSA DI MENO CARO?"),
+        ("*IMPIEGATA", "SE PARTE IL 18, COSTA 460 EURO.")])),
+    slide("📖 LE PAROLE DEL VOLO", table([
+        ["IL VOLO DIRETTO", "SENZA FERMATE"], ["LO SCALO", "UNA FERMATA IN UN ALTRO AEROPORTO: CAMBIO AEREO"],
+        ["LA PRENOTAZIONE", "IL POSTO È MIO: HO IL CODICE"], ["LA CARTA D'IMBARCO", "IL BIGLIETTO PER SALIRE SULL'AEREO"],
+        ["IL GATE (L'USCITA)", "LA PORTA PER ANDARE ALL'AEREO"], ["IN ORARIO / IN RITARDO / CANCELLATO", "COME PER IL TRENO"]])),
+    slide("🛫 IN AEROPORTO", ill("aeroporto.png", "VIAGGIATORI AL BANCO DEL CHECK-IN") + "\n" + passi([
+        "ARRIVO IN AEROPORTO <b>2 ORE PRIMA</b> (3 ORE PER I VOLI LONTANI).",
+        "FACCIO IL <b>CHECK-IN</b> (ANCHE ONLINE) E LASCIO LA VALIGIA AL BANCO: È IL <b>BAGAGLIO DA STIVA</b>.",
+        "PASSO I <b>CONTROLLI DI SICUREZZA</b>: METTO BORSA, GIACCA E TELEFONO NELLA VASCHETTA.",
+        "PER I VOLI FUORI DALL'EUROPA C'È IL <b>CONTROLLO PASSAPORTI</b>.",
+        "VADO AL <b>GATE</b> E ASPETTO L'<b>IMBARCO</b>."])),
+    slide("🎒 IL BAGAGLIO", cards([
+        ("🎒", "IL BAGAGLIO A MANO", "PICCOLO, VIENE CON ME SULL'AEREO"), ("🧳", "IL BAGAGLIO DA STIVA", "GRANDE, VA SOTTO L'AEREO"),
+        ("💧", "I LIQUIDI", "NEL BAGAGLIO A MANO: MASSIMO 100 ML PER BOTTIGLIETTA"), ("🚫", "VIETATO", "COLTELLI, FORBICI GRANDI, BOMBOLETTE")]) + "\n" +
+        nota("⚠️ VIAGGI FUORI DALL'ITALIA? PORTA IL <b>PASSAPORTO</b> E IL <b>PERMESSO DI SOGGIORNO</b> VALIDO. CONTROLLA SE SERVE IL <b>VISTO</b>.")),
+    slide("🔊 GLI ANNUNCI IN AEROPORTO", cards([
+        ("📢", "«IMBARCO IMMEDIATO AL GATE 5»", "VAI SUBITO AL GATE 5"), ("📢", "«ULTIMA CHIAMATA PER IL VOLO PER ROMA»", "CORRI: L'AEREO CHIUDE"),
+        ("📢", "«IL VOLO È IN RITARDO DI 40 MINUTI»", "ASPETTA"), ("📢", "«IL VOLO È STATO CANCELLATO»", "VAI AL BANCO DELLA COMPAGNIA")])),
+    end("ORA SAI PRENOTARE E PRENDERE L'AEREO!"),
+]
+
+AEREO = {
+ "title": "✈️ In aereo e all'agenzia di viaggi · Esercizi", "store": "aereo-viaggi", "upper": True,
+ "sections": [
+  {"part": "All'agenzia"},
+  scegli([("1. DOVE VUOLE ANDARE MOUSSA?", ["A DAKAR", "A ROMA", "A PARIGI"], "A DAKAR"),
+          ("2. QUANDO TORNA?", ["IL 10 GENNAIO", "IL 20 DICEMBRE", "IL 18 DICEMBRE"], "IL 10 GENNAIO"),
+          ("3. IL VOLO È…", ["CON SCALO A ROMA", "DIRETTO", "CON SCALO A MILANO"], "CON SCALO A ROMA"),
+          ("4. QUANTO COSTA SE PARTE IL 18?", ["460 EURO", "520 EURO", "23 EURO"], "460 EURO")],
+         "1 · All'agenzia: leggi e rispondi", "1 · All'agenzia", "e1",
+         info="IMPIEGATA: COME POSSO AIUTARLA?<br>MOUSSA: VORREI UN VOLO PER DAKAR, PER IL 20 DICEMBRE, ANDATA E RITORNO. TORNO IL 10 GENNAIO.<br>"
+              "IMPIEGATA: C'È UN VOLO DA BARI CON SCALO A ROMA. COSTA 520 EURO, CON UN BAGAGLIO DA 23 CHILI.<br>MOUSSA: C'È QUALCOSA DI MENO CARO?<br>"
+              "IMPIEGATA: SE PARTE IL 18, COSTA 460 EURO."),
+  menu(["IL VOLO DIRETTO", "LO SCALO", "LA CARTA D'IMBARCO", "IL GATE", "LA PRENOTAZIONE"],
+       [("1. LA PORTA PER ANDARE ALL'AEREO.", "IL GATE"), ("2. UN VOLO SENZA FERMATE.", "IL VOLO DIRETTO"),
+        ("3. IL BIGLIETTO PER SALIRE SULL'AEREO.", "LA CARTA D'IMBARCO"), ("4. UNA FERMATA IN UN ALTRO AEROPORTO.", "LO SCALO"),
+        ("5. IL POSTO È MIO, HO UN CODICE.", "LA PRENOTAZIONE")],
+       "2 · Le parole del volo", "2 · Le parole", "e2"),
+  {"part": "In aeroporto"},
+  ordina(["ARRIVO IN AEROPORTO DUE ORE PRIMA.", "FACCIO IL CHECK-IN E LASCIO LA VALIGIA.", "PASSO I CONTROLLI DI SICUREZZA.",
+          "VADO AL GATE.", "SALGO SULL'AEREO."], "3 · In aeroporto: metti in ordine", "3 · In ordine", "e3"),
+  menu(["BAGAGLIO A MANO", "BAGAGLIO DA STIVA", "VIETATO"],
+       [("1. UNO ZAINO PICCOLO CON IL TELEFONO E IL PASSAPORTO", "BAGAGLIO A MANO"), ("2. UNA VALIGIA GRANDE DA 23 CHILI", "BAGAGLIO DA STIVA"),
+        ("3. UN COLTELLO DA CUCINA NELLO ZAINO", "VIETATO"), ("4. UNA BOTTIGLIETTA DI CREMA DA 50 ML", "BAGAGLIO A MANO"),
+        ("5. UNA BOTTIGLIA D'ACQUA DA UN LITRO AI CONTROLLI", "VIETATO")],
+       "4 · Dove va? Si può?", "4 · Il bagaglio", "e4"),
+  menu(["VADO SUBITO AL GATE", "ASPETTO", "VADO AL BANCO DELLA COMPAGNIA"],
+       [("1. «ULTIMA CHIAMATA PER IL VOLO PER TUNISI»", "VADO SUBITO AL GATE"), ("2. «IL VOLO PER MILANO È IN RITARDO DI UN'ORA»", "ASPETTO"),
+        ("3. «IL VOLO PER ROMA È STATO CANCELLATO»", "VADO AL BANCO DELLA COMPAGNIA"), ("4. «IMBARCO IMMEDIATO AL GATE 3»", "VADO SUBITO AL GATE")],
+       "5 · Senti l'annuncio: che cosa fai?", "5 · Gli annunci", "e5"),
+  vf(["1. PER UN VOLO FUORI DALL'EUROPA PORTO IL PASSAPORTO.", "2. NEL BAGAGLIO A MANO POSSO PORTARE UNA BOTTIGLIA D'ACQUA DA UN LITRO.",
+      "3. IL BAGAGLIO DA STIVA VA SOTTO L'AEREO.", "4. CON IL PERMESSO DI SOGGIORNO SCADUTO POSSO VIAGGIARE SENZA PROBLEMI."],
+     ["VERO", "FALSO", "VERO", "FALSO"], "6 · Vero o falso?", "6 · Vero o falso", "e6"),
+  parla("e7", 7, "SEI ALL'AGENZIA DI VIAGGI. CHIEDI UN VOLO: DOVE, QUANDO PARTI E TORNI, QUANTO COSTA, SE È DIRETTO E SE C'È IL BAGAGLIO."),
+ ]
+}
+
+
+# =====================================================================
+# 11. IN ALBERGO (città, A1/A2)
+# =====================================================================
+ALBERGO_SLIDE = [
+    cover("🏨", "IN ALBERGO", "PRENOTARE, ARRIVARE, CHIEDERE", "VIAGGI &bull; A1/A2"),
+    slide("CHE COSA IMPARIAMO?", cards([
+        ("📞", "PRENOTARE", "UNA CAMERA SINGOLA, DOPPIA…"), ("🛎️", "ALLA RECEPTION", "IL CHECK-IN E LA CHIAVE"),
+        ("🛏️", "LA CAMERA", "CHE COSA C'È?"), ("🔧", "UN PROBLEMA", "NON FUNZIONA…")])),
+    slide("🛏️ CHE CAMERA?", cards([
+        ("🛏️", "LA CAMERA SINGOLA", "PER UNA PERSONA"), ("🛏️🛏️", "LA CAMERA DOPPIA", "DUE LETTI SINGOLI"),
+        ("💑", "LA CAMERA MATRIMONIALE", "UN LETTO GRANDE PER DUE"), ("👨‍👩‍👧", "LA CAMERA TRIPLA", "PER TRE PERSONE")]) + "\n" +
+        nota("☕ <b>B&amp;B</b> = PERNOTTAMENTO E COLAZIONE. <b>MEZZA PENSIONE</b> = COLAZIONE E CENA. <b>PENSIONE COMPLETA</b> = COLAZIONE, PRANZO E CENA.")),
+    slide("📞 PRENOTARE AL TELEFONO", dialogo([
+        ("*RECEPTIONIST", "HOTEL MARE, BUONASERA."),
+        ("LEILA", "BUONASERA. AVETE UNA CAMERA DOPPIA PER VENERDÌ E SABATO?"),
+        ("*RECEPTIONIST", "SÌ. SONO 85 EURO A NOTTE, CON LA COLAZIONE."),
+        ("LEILA", "LA CAMERA HA IL BAGNO E L'ARIA CONDIZIONATA?"),
+        ("*RECEPTIONIST", "SÌ, CERTO. A CHE NOME?"),
+        ("LEILA", "LEILA MANSOUR. ARRIVIAMO VERSO LE SEI."),
+        ("*RECEPTIONIST", "PERFETTO. IL CHECK-IN È DALLE DUE DEL POMERIGGIO.")])),
+    slide("🛎️ ALLA RECEPTION", ill("reception-albergo.png", "IL RECEPTIONIST DÀ LA CHIAVE A UN VIAGGIATORE") + "\n" + table([
+        ["IL CHECK-IN", "ARRIVO: DO IL DOCUMENTO, PRENDO LA CHIAVE"], ["IL CHECK-OUT", "PARTENZA: LASCIO LA CAMERA (DI SOLITO ENTRO LE 11)"],
+        ["LA CHIAVE / LA TESSERA", "PER APRIRE LA PORTA"], ["LA TASSA DI SOGGIORNO", "POCHI EURO A NOTTE PER LA CITTÀ"]])),
+    slide("🛏️ NELLA CAMERA", ill("camera-albergo.png", "UNA CAMERA D'ALBERGO CON LETTO, ARMADIO E BAGNO") + "\n" + cards([
+        ("🛏️", "IL LETTO", ""), ("🚪", "L'ARMADIO", ""), ("❄️", "L'ARIA CONDIZIONATA", ""), ("📺", "IL TELEVISORE", ""),
+        ("🚿", "IL BAGNO CON LA DOCCIA", ""), ("🧴", "GLI ASCIUGAMANI", "")], "g3")),
+    slide("🔧 C'È UN PROBLEMA!", table([
+        ["NON FUNZIONA L'ARIA CONDIZIONATA.", "MANDO SUBITO UN TECNICO."], ["NON C'È L'ACQUA CALDA.", "CONTROLLIAMO."],
+        ["MANCANO GLI ASCIUGAMANI.", "LI PORTIAMO SUBITO."], ["LA CAMERA È RUMOROSA. POSSO CAMBIARLA?", "VEDIAMO SE C'È UN'ALTRA CAMERA LIBERA."],
+        ["QUAL È LA PASSWORD DEL WI-FI?", "È SCRITTA SUL BIGLIETTO CON LA CHIAVE."]], head=["IL CLIENTE", "LA RECEPTION"])),
+    end("ORA SAI PRENOTARE E STARE IN ALBERGO!"),
+]
+
+ALBERGO = {
+ "title": "🏨 In albergo · Esercizi", "store": "albergo", "upper": True,
+ "sections": [
+  {"part": "Le camere"},
+  menu(["SINGOLA", "DOPPIA", "MATRIMONIALE", "TRIPLA"],
+       [("1. VIAGGIO DA SOLO.", "SINGOLA"), ("2. SIAMO MARITO E MOGLIE E VOGLIAMO UN LETTO GRANDE.", "MATRIMONIALE"),
+        ("3. SIAMO DUE AMICI: VOGLIAMO DUE LETTI.", "DOPPIA"), ("4. SIAMO MAMMA, PAPÀ E UN BAMBINO.", "TRIPLA")],
+       "1 · Che camera prendo?", "1 · Le camere", "e1"),
+  menu(["B&B", "MEZZA PENSIONE", "PENSIONE COMPLETA"],
+       [("1. COLAZIONE, PRANZO E CENA", "PENSIONE COMPLETA"), ("2. SOLO COLAZIONE", "B&B"), ("3. COLAZIONE E CENA", "MEZZA PENSIONE")],
+       "2 · Che cosa è compreso?", "2 · I pasti", "e2"),
+  {"part": "Prenotare"},
+  completa("RECEPTIONIST: HOTEL MARE, BUONASERA.<br>LEILA: BUONASERA. AVETE UNA CAMERA ___ PER VENERDÌ E SABATO?<br>"
+           "RECEPTIONIST: SÌ. SONO 85 EURO A ___, CON LA COLAZIONE.<br>LEILA: LA CAMERA HA IL ___?<br>RECEPTIONIST: SÌ, CERTO. A CHE ___?<br>"
+           "LEILA: LEILA MANSOUR.<br>RECEPTIONIST: IL ___ È DALLE DUE DEL POMERIGGIO.",
+           ["doppia", "notte", "bagno", "nome", "check-in"], "3 · Completa la telefonata", "3 · Prenotare", "e3",
+           "DOPPIA · NOTTE · BAGNO · NOME · CHECK-IN"),
+  vf(["1. AL CHECK-IN DO UN DOCUMENTO.", "2. IL CHECK-OUT È QUANDO ARRIVO.", "3. LA TASSA DI SOGGIORNO SI PAGA PER OGNI NOTTE.",
+      "4. DI SOLITO LASCIO LA CAMERA ENTRO LE 11."], ["VERO", "FALSO", "VERO", "VERO"], "4 · Vero o falso?", "4 · Vero o falso", "e4"),
+  {"part": "Un problema"},
+  menu(["MANDO SUBITO UN TECNICO.", "LI PORTIAMO SUBITO.", "VEDIAMO SE C'È UN'ALTRA CAMERA LIBERA.", "È SCRITTA SUL BIGLIETTO CON LA CHIAVE."],
+       [("1. MANCANO GLI ASCIUGAMANI.", "LI PORTIAMO SUBITO."), ("2. QUAL È LA PASSWORD DEL WI-FI?", "È SCRITTA SUL BIGLIETTO CON LA CHIAVE."),
+        ("3. L'ARIA CONDIZIONATA NON FUNZIONA.", "MANDO SUBITO UN TECNICO."), ("4. LA CAMERA È RUMOROSA. POSSO CAMBIARLA?", "VEDIAMO SE C'È UN'ALTRA CAMERA LIBERA.")],
+       "5 · Che cosa risponde la reception?", "5 · Le risposte", "e5"),
+  parla("e6", 6, "TELEFONI A UN ALBERGO. PRENOTA UNA CAMERA: PER QUANTE PERSONE, PER QUALI GIORNI. CHIEDI IL PREZZO E SE C'È LA COLAZIONE."),
+ ]
+}
+
+
+# =====================================================================
+# 12. DAL MECCANICO (città, A2)
+# =====================================================================
+MECCANICO_SLIDE = [
+    cover("🔧", "DAL MECCANICO", "LA MACCHINA, I GUASTI, LA RIPARAZIONE", "MACCHINA E MOTORINO &bull; A2"),
+    slide("CHE COSA IMPARIAMO?", cards([
+        ("🚗", "LE PARTI DELLA MACCHINA", "RUOTE, FRENI, BATTERIA…"), ("⚠️", "I GUASTI", "CHE COSA NON VA?"),
+        ("🗣️", "DAL MECCANICO", "SPIEGARE IL PROBLEMA"), ("📋", "LE REGOLE", "REVISIONE, ASSICURAZIONE")])),
+    slide("🚗 LE PARTI DELLA MACCHINA", ill("parti-auto.png", "UNA MACCHINA CON LE SUE PARTI: RUOTA, FRENI, BATTERIA, FARI, SPECCHIETTO, MOTORE, TERGICRISTALLI") + "\n" + cards([
+        ("🛞", "LE RUOTE / LE GOMME", ""), ("🛑", "I FRENI", "PER FERMARSI"), ("🔋", "LA BATTERIA", "PER ACCENDERE LA MACCHINA"),
+        ("💡", "I FARI", "LA LUCE DAVANTI"), ("🪞", "LO SPECCHIETTO", "PER VEDERE DIETRO"), ("🌧️", "I TERGICRISTALLI", "PULISCONO IL VETRO")], "g3")),
+    slide("⚠️ CHE COSA NON VA?", table([
+        ["LA MACCHINA NON PARTE.", "FORSE È LA BATTERIA."], ["HO UNA GOMMA A TERRA / BUCATA.", "BISOGNA CAMBIARE LA RUOTA."],
+        ["I FRENI FANNO RUMORE.", "BISOGNA CAMBIARE LE PASTIGLIE DEI FRENI."], ["SI È ACCESA UNA SPIA ROSSA.", "FERMATI E CHIAMA IL MECCANICO."],
+        ["NON FUNZIONA UN FARO.", "BISOGNA CAMBIARE LA LAMPADINA."]], head=["IL PROBLEMA", "LA SOLUZIONE"])),
+    slide("🗣️ ALL'OFFICINA", ill("officina.png", "UN MECCANICO IN OFFICINA CONTROLLA UNA RUOTA") + "\n" + dialogo([
+        ("YUSUF", "BUONGIORNO. LA MIA MACCHINA FA UN RUMORE STRANO QUANDO FRENO."),
+        ("*MECCANICO", "DA QUANTO TEMPO?"),
+        ("YUSUF", "DA UNA SETTIMANA."),
+        ("*MECCANICO", "SONO LE PASTIGLIE DEI FRENI. BISOGNA CAMBIARLE."),
+        ("YUSUF", "QUANTO COSTA? E QUANDO È PRONTA?"),
+        ("*MECCANICO", "CIRCA 120 EURO. LA PUÒ RITIRARE DOMANI POMERIGGIO."),
+        ("YUSUF", "VA BENE. MI FA LA FATTURA, PER FAVORE?")])),
+    slide("📋 LE REGOLE PER LA MACCHINA", cards([
+        ("🪪", "LA PATENTE", "PER GUIDARE IN ITALIA. QUELLA DEL TUO PAESE VALE SOLO PER UN PO': INFORMATI"),
+        ("📄", "L'ASSICURAZIONE", "OBBLIGATORIA. SENZA, NON PUOI GUIDARE"),
+        ("🔍", "LA REVISIONE", "UN CONTROLLO DELLA MACCHINA: LA PRIMA DOPO 4 ANNI, POI OGNI 2 ANNI"),
+        ("⛽", "IL BOLLO", "UNA TASSA CHE SI PAGA OGNI ANNO")]) + "\n" +
+        nota("🦺 IN MACCHINA DEVI AVERE IL <b>GILET CATARIFRANGENTE</b> E IL <b>TRIANGOLO</b>. CON LA MACCHINA FERMA PER STRADA, METTI IL GILET!")),
+    end("ORA SAI PARLARE CON IL MECCANICO!"),
+]
+
+MECCANICO = {
+ "title": "🔧 Dal meccanico · Esercizi", "store": "meccanico", "upper": True,
+ "sections": [
+  {"part": "La macchina"},
+  menu(["LE RUOTE", "I FRENI", "LA BATTERIA", "I FARI", "LO SPECCHIETTO", "I TERGICRISTALLI"],
+       [("1. PER FERMARE LA MACCHINA USO…", "I FRENI"), ("2. DI NOTTE ACCENDO…", "I FARI"), ("3. PIOVE: ACCENDO…", "I TERGICRISTALLI"),
+        ("4. PER VEDERE LE MACCHINE DIETRO GUARDO…", "LO SPECCHIETTO"), ("5. LA MACCHINA NON SI ACCENDE: FORSE È…", "LA BATTERIA"),
+        ("6. HO UNA GOMMA BUCATA: CAMBIO UNA DELLE…", "LE RUOTE")],
+       "1 · Le parti della macchina", "1 · Le parti", "e1"),
+  {"part": "I guasti"},
+  menu(["CAMBIARE LA BATTERIA", "CAMBIARE LA RUOTA", "CAMBIARE LE PASTIGLIE DEI FRENI", "CAMBIARE LA LAMPADINA"],
+       [("1. HO UNA GOMMA A TERRA.", "CAMBIARE LA RUOTA"), ("2. LA MACCHINA NON PARTE, LA BATTERIA È VECCHIA.", "CAMBIARE LA BATTERIA"),
+        ("3. I FRENI FANNO RUMORE.", "CAMBIARE LE PASTIGLIE DEI FRENI"), ("4. NON FUNZIONA UN FARO.", "CAMBIARE LA LAMPADINA")],
+       "2 · Che cosa bisogna fare?", "2 · I guasti", "e2"),
+  scegli([("1. CHE PROBLEMA HA LA MACCHINA DI YUSUF?", ["FA RUMORE QUANDO FRENA", "NON PARTE", "HA UNA GOMMA BUCATA"], "FA RUMORE QUANDO FRENA"),
+          ("2. DA QUANTO TEMPO?", ["DA UNA SETTIMANA", "DA UN MESE", "DA IERI"], "DA UNA SETTIMANA"),
+          ("3. QUANTO COSTA LA RIPARAZIONE?", ["CIRCA 120 EURO", "CIRCA 20 EURO", "NIENTE"], "CIRCA 120 EURO"),
+          ("4. QUANDO È PRONTA LA MACCHINA?", ["DOMANI POMERIGGIO", "OGGI", "TRA UNA SETTIMANA"], "DOMANI POMERIGGIO")],
+         "3 · All'officina: leggi e rispondi", "3 · All'officina", "e3",
+         info="YUSUF: LA MIA MACCHINA FA UN RUMORE STRANO QUANDO FRENO.<br>MECCANICO: DA QUANTO TEMPO?<br>YUSUF: DA UNA SETTIMANA.<br>"
+              "MECCANICO: SONO LE PASTIGLIE DEI FRENI. BISOGNA CAMBIARLE.<br>YUSUF: QUANTO COSTA? E QUANDO È PRONTA?<br>"
+              "MECCANICO: CIRCA 120 EURO. LA PUÒ RITIRARE DOMANI POMERIGGIO."),
+  {"part": "Le regole"},
+  vf(["1. L'ASSICURAZIONE DELLA MACCHINA È OBBLIGATORIA.", "2. LA REVISIONE NON SERVE MAI.", "3. IL BOLLO SI PAGA OGNI ANNO.",
+      "4. SE LA MACCHINA È FERMA PER STRADA METTO IL GILET CATARIFRANGENTE.", "5. CON LA PATENTE DEL MIO PAESE POSSO GUIDARE IN ITALIA PER SEMPRE."],
+     ["VERO", "FALSO", "VERO", "VERO", "FALSO"], "4 · Vero o falso?", "4 · Vero o falso", "e4"),
+  scrivi([("1. LA MACCHINA NON ___ (NON SI ACCENDE).", ["parte"]), ("2. HO UNA GOMMA ___ (CON UN BUCO).", ["bucata", "a terra"]),
+          ("3. SI È ACCESA UNA ___ ROSSA.", ["spia"]), ("4. MI FA LA ___, PER FAVORE? (IL FOGLIO CON IL PREZZO E L'IVA)", ["fattura"])],
+         "5 · Scrivi la parola", "5 · Le parole", "e5", bank="PARTE · BUCATA · SPIA · FATTURA"),
+  parla("e6", 6, "SEI DAL MECCANICO. SPIEGA CHE PROBLEMA HA LA TUA MACCHINA (O IL MOTORINO), DA QUANDO, E CHIEDI QUANTO COSTA E QUANDO È PRONTA."),
+ ]
+}
+
+
+# =====================================================================
+# 13. AL NEGOZIO DI CASALINGHI (casa, A1)
+# =====================================================================
+CASALINGHI_SLIDE = [
+    cover("🧹", "AL NEGOZIO DI CASALINGHI", "GLI OGGETTI PER LA CASA", "CASA &bull; A1"),
+    slide("CHE COSA IMPARIAMO?", cards([
+        ("🍽️", "PER LA CUCINA", "PIATTI, BICCHIERI, POSATE"), ("🧹", "PER PULIRE", "SCOPA, SECCHIO, MOCIO"),
+        ("💡", "PER LA LUCE", "LAMPADINA, PROLUNGA, PRESA"), ("👕", "PER I VESTITI", "STENDINO, FERRO DA STIRO")])),
+    slide("🏪 CHE COSA C'È NEL NEGOZIO?", ill("negozio-casalinghi.png", "UN NEGOZIO DI CASALINGHI CON PENTOLE, PIATTI, SCOPE E LAMPADINE") + "\n" +
+        nota("IL NEGOZIO DI <b>CASALINGHI</b> VENDE TUTTO PER LA CASA. NEI NEGOZI GRANDI C'È ANCHE IL <b>FAI DA TE</b> (ATTREZZI, VITI, VERNICE).", "")),
+    slide("🍽️ PER LA CUCINA", cards([
+        ("🍽️", "I PIATTI", ""), ("🥛", "I BICCHIERI", ""), ("🍴", "LE POSATE", "FORCHETTE, COLTELLI, CUCCHIAI"),
+        ("☕", "LE TAZZE", ""), ("🍳", "LE PENTOLE E LE PADELLE", ""), ("🫙", "I CONTENITORI", "PER IL CIBO IN FRIGORIFERO")], "g3")),
+    slide("🧹 PER PULIRE", ill("oggetti-casa.png", "SCOPA, PALETTA, SECCHIO, MOCIO, LAMPADINA, PROLUNGA, FERRO DA STIRO, STENDINO, APPENDIABITI, FORBICI") + "\n" + cards([
+        ("🧹", "LA SCOPA E LA PALETTA", "PER IL PAVIMENTO"), ("🪣", "IL SECCHIO E IL MOCIO", "PER LAVARE IL PAVIMENTO"),
+        ("🧽", "LA SPUGNA", "PER I PIATTI"), ("🧴", "IL DETERSIVO", "PER PIATTI, PAVIMENTI, VESTITI")])),
+    slide("💡 PER LA CASA", cards([
+        ("💡", "LA LAMPADINA", "SI È BRUCIATA? LA CAMBIO"), ("🔌", "LA PROLUNGA / LA CIABATTA", "PIÙ PRESE PER LA CORRENTE"),
+        ("👕", "LO STENDINO", "PER ASCIUGARE I VESTITI"), ("♨️", "IL FERRO DA STIRO", "PER STIRARE"),
+        ("🧥", "LE GRUCCE (GLI APPENDIABITI)", "PER L'ARMADIO"), ("✂️", "LE FORBICI", "")], "g3")),
+    slide("🗣️ AL NEGOZIO", dialogo([
+        ("*COMMESSO", "BUONGIORNO, CERCA QUALCOSA?"),
+        ("SAFIYA", "SÌ. HO BISOGNO DI UNA SCOPA, UN SECCHIO E SEI BICCHIERI."),
+        ("*COMMESSO", "LE SCOPE SONO LÌ IN FONDO. I BICCHIERI DI VETRO O DI PLASTICA?"),
+        ("SAFIYA", "DI VETRO. E UNA LAMPADINA PER LA CUCINA: QUESTA."),
+        ("*COMMESSO", "ECCO. ALTRO?"),
+        ("SAFIYA", "NO, GRAZIE. QUANTO SPENDO IN TUTTO?"),
+        ("*COMMESSO", "SONO 24 EURO. VUOLE UNA BUSTA?")])),
+    end("ORA SAI COMPRARE GLI OGGETTI PER LA CASA!"),
+]
+
+CASALINGHI = {
+ "title": "🧹 Al negozio di casalinghi · Esercizi", "store": "casalinghi", "upper": True,
+ "sections": [
+  {"part": "Gli oggetti"},
+  menu(["PER LA CUCINA", "PER PULIRE", "PER I VESTITI", "PER LA LUCE E LA CORRENTE"],
+       [("1. LA SCOPA", "PER PULIRE"), ("2. LE POSATE", "PER LA CUCINA"), ("3. LO STENDINO", "PER I VESTITI"), ("4. LA LAMPADINA", "PER LA LUCE E LA CORRENTE"),
+        ("5. IL MOCIO", "PER PULIRE"), ("6. LE TAZZE", "PER LA CUCINA"), ("7. IL FERRO DA STIRO", "PER I VESTITI"), ("8. LA PROLUNGA", "PER LA LUCE E LA CORRENTE")],
+       "1 · A che cosa serve?", "1 · Gli oggetti", "e1"),
+  scrivi([("1. 🧹 LA S C _ P A", ["scopa", "la scopa"]), ("2. 🪣 IL S E C C H _ O", ["secchio", "il secchio"]),
+          ("3. 💡 LA L A M P A D _ N A", ["lampadina", "la lampadina"]), ("4. 🧽 LA S P U G N _", ["spugna", "la spugna"]),
+          ("5. ✂️ LE F O R B _ C I", ["forbici", "le forbici"]), ("6. 🧴 IL D E T E R S I V _", ["detersivo", "il detersivo"])],
+         "2 · Scrivi la parola", "2 · Le parole", "e2", cons="MANCA UNA LETTERA. SCRIVI TUTTA LA PAROLA."),
+  {"part": "Al negozio"},
+  menu(["LA LAMPADINA", "LO STENDINO", "IL DETERSIVO", "LE GRUCCE", "LA PROLUNGA"],
+       [("1. LA LUCE IN BAGNO NON FUNZIONA. COMPRO…", "LA LAMPADINA"), ("2. HO LAVATO I VESTITI E LI VOGLIO ASCIUGARE. COMPRO…", "LO STENDINO"),
+        ("3. LA PRESA È LONTANA DAL LETTO. COMPRO…", "LA PROLUNGA"), ("4. VOGLIO APPENDERE LE CAMICIE NELL'ARMADIO. COMPRO…", "LE GRUCCE"),
+        ("5. VOGLIO LAVARE I PIATTI. COMPRO…", "IL DETERSIVO")],
+       "3 · Che cosa compro?", "3 · Che cosa compro", "e3"),
+  completa("COMMESSO: BUONGIORNO, ___ QUALCOSA?<br>SAFIYA: SÌ. HO ___ DI UNA SCOPA E SEI BICCHIERI.<br>COMMESSO: LE SCOPE SONO LÌ IN ___.<br>"
+           "SAFIYA: GRAZIE. QUANTO ___ IN TUTTO?<br>COMMESSO: 24 EURO. VUOLE UNA ___?",
+           ["cerca", "bisogno", "fondo", "spendo", "busta"], "4 · Completa il dialogo", "4 · Il dialogo", "e4", "CERCA · BISOGNO · FONDO · SPENDO · BUSTA"),
+  parla("e5", 5, "SEI NELLA TUA CASA NUOVA. DI' CHE COSA TI SERVE PER LA CUCINA E PER PULIRE. POI CHIEDI AL COMMESSO DOVE SONO LE COSE E QUANTO COSTANO."),
+ ]
+}
+
+
 # ---------------------------------------------------------------------
 SLIDE_DRIVE = [
     ("cantiere/index.html", "IN CANTIERE", "LAVORO", CANTIERE_SLIDE, ILL_CSS),
@@ -905,6 +1163,11 @@ SLIDE_DRIVE = [
     ("farmacia/index.html", "IN FARMACIA E AL PRONTO SOCCORSO", "SALUTE", FARMACIA_SLIDE, ILL_CSS),
     ("comune-questura/index.html", "AL COMUNE E IN QUESTURA", "EDUCAZIONE CIVICA", COMUNE_SLIDE, ILL_CSS),
     ("assistente-familiare/index.html", "L'ASSISTENTE FAMILIARE", "LAVORO", ASSISTENTE_SLIDE, ILL_CSS),
+    ("aereo-viaggi/index.html", "IN AEREO E ALL'AGENZIA DI VIAGGI", "IN CITTÀ", AEREO_SLIDE, ILL_CSS),
+    ("albergo/index.html", "IN ALBERGO", "IN CITTÀ", ALBERGO_SLIDE, ILL_CSS),
+    ("meccanico/index.html", "DAL MECCANICO", "IN CITTÀ", MECCANICO_SLIDE, ILL_CSS),
+    ("casalinghi/index.html", "AL NEGOZIO DI CASALINGHI", "LA CASA", CASALINGHI_SLIDE, ILL_CSS),
 ]
 ESERCIZI_DRIVE = [("cantiere", CANTIERE), ("cucina-lavoro", CUCINA), ("carne-pesce", CARNE), ("bar", BAR), ("treno", TRENO),
-                  ("posta-banca", POSTA), ("farmacia", FARMACIA), ("comune-questura", COMUNE), ("assistente-familiare", ASSISTENTE)]
+                  ("posta-banca", POSTA), ("farmacia", FARMACIA), ("comune-questura", COMUNE), ("assistente-familiare", ASSISTENTE),
+                  ("aereo-viaggi", AEREO), ("albergo", ALBERGO), ("meccanico", MECCANICO), ("casalinghi", CASALINGHI)]
