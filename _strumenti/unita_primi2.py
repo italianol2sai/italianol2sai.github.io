@@ -238,8 +238,10 @@ SUONI_SLIDE = [
           esempi([("BAGNO", "🛁"), ("LASAGNA", "🍝"), ("SIGNORA", "👩"), ("GNOCCHI", "🥟"), ("FIGLIO", "👦"), ("MOGLIE", "👰"), ("AGLIO", "🧄"), ("FOGLIO", "📄")])),
     slide("SC: SCE, SCI, SCHE, SCHI", regola("SCE · SCI", "COME «SCIARPA»", "SCA · SCO · SCU · SCHE · SCHI", "COME «S» + «K»") + "\n" +
           esempi([("PESCE", "🐟"), ("SCIARPA", "🧣"), ("USCITA", "🚪"), ("SCENDERE", "⬇️"), ("SCUOLA", "🏫"), ("TASCA", "👖"), ("SCHIENA", "🔙"), ("SCHERMO", "🖥️")])),
-    slide("QU", regola("QU", "Q + U + A, E, I, O", "CQU", "SOLO IN POCHE PAROLE") + "\n" +
-          esempi([("QUADERNO", "📓"), ("QUATTRO", "4️⃣"), ("QUESTO", "👉"), ("QUANDO", "🕐"), ("QUI", "📍"), ("ACQUA", "💧")])),
+    slide("QU", regola("QU", "Q + U + A, E, I, O", "QUA · QUE · QUI · QUO", "QUADERNO, QUESTO, QUI") + "\n" +
+          esempi([("QUADERNO", "📓"), ("QUATTRO", "4️⃣"), ("QUESTO", "👉"), ("QUANDO", "🕐"), ("QUI", "📍"), ("QUADRO", "🖼️")])),
+    slide("CQU", regola("CQU", "SOLO IN POCHE PAROLE", "ACQUA · ACQUISTO", "E LE PAROLE DELLA LORO FAMIGLIA") + "\n" +
+          esempi([("ACQUA", "💧"), ("ACQUARIO", "🐠"), ("ACQUAZZONE", "🌧️"), ("ACQUEDOTTO", "🚰"), ("ACQUISTO", "🛍️"), ("SCIACQUARE", "🚿")])),
     slide("📌 RICORDA", table([
         ["CA · CO · CU · <b>CHE · CHI</b>", "CASA · <b>CHIAVE</b>"], ["<b>CE · CI</b> · CIA · CIO · CIU", "<b>CENA</b> · CIAO"],
         ["GA · GO · GU · <b>GHE · GHI</b>", "GATTO · <b>SPAGHETTI</b>"], ["<b>GE · GI</b> · GIA · GIO · GIU", "<b>GELATO</b> · GIALLO"],
