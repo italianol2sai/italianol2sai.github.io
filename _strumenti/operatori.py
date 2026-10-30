@@ -2,10 +2,12 @@
 tipo Giovanni, Cristian, Michele, Silvia (un'altra), Saleah, Eneida»). Stesso stile dei ritratti di missione-casa e missione-lavoro.
 Usato da missioni.py: OPERATORI_JS viene aggiunto a persone.js."""
 
-def ritratto(k, sfondo, pelle, ombra, capelli, maglia, stile, barba=False, occhiali=False, orecchini=None, occhi="#3A2416"):
+def ritratto(k, sfondo, pelle, ombra, capelli, maglia, stile, barba=False, occhiali=False, orecchini=None, occhi="#3A2416", ciglia=None):
     p = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 68 68" aria-hidden="true" focusable="false">'
          '<defs><clipPath id="%s-c"><circle cx="50" cy="50" r="34"/></clipPath></defs><g clip-path="url(#%s-c)">' % (k, k),
          '<rect width="100" height="100" fill="%s"/>' % sfondo]
+    if stile == "velo":
+        p.append('<path d="M50 26 Q28 26 29 50 Q27 66 22 82 L78 82 Q73 66 71 50 Q72 26 50 26 Z" fill="%s"/>' % capelli)
     if stile == "lunghi":
         p.append('<path d="M50 28 Q30 28 31 50 Q29 64 27 80 L73 80 Q71 64 69 50 Q70 28 50 28 Z" fill="%s"/>' % capelli)
     if stile == "chignon":
@@ -26,12 +28,13 @@ def ritratto(k, sfondo, pelle, ombra, capelli, maglia, stile, barba=False, occhi
         "lunghi": '<path d="M34 50 Q32 31 50 31 Q68 31 66 50 Q60 38 50 37 Q42 39 34 50 Z" fill="%s"/>',
         "chignon": '<path d="M34 49 Q33 33 50 33 Q67 33 66 49 Q62 39 50 39 Q38 39 34 49 Z" fill="%s"/>',
         "turbante": '<path d="M33 50 Q30 26 50 24 Q70 26 67 50 Q64 38 50 37 Q36 38 33 50 Z" fill="%s"/><path d="M38 33 Q50 27 62 33 M36 40 Q50 33 64 40" stroke="#fff" stroke-opacity=".45" stroke-width="1.6" fill="none"/>',
+        "velo": '<path d="M33 52 Q31 31 50 31 Q69 31 67 52 Q64 41 50 40 Q36 41 33 52 Z" fill="%s"/>',
         "mossi": '<path d="M34 49 Q34 33 50 33 Q66 33 66 49 Q62 40 54 39 Q50 43 46 39 Q38 40 34 49 Z" fill="%s"/>',
     }[stile]
     p.append(tetto % capelli)
     if barba:
         p.append('<path d="M34.5 55 Q35 71 50 72 Q65 71 65.5 55 Q63 63 57 61.5 Q50 60 43 61.5 Q37 63 34.5 55 Z" fill="%s" opacity=".9"/>' % capelli)
-    p.append('<path d="M39 45 Q43 43.5 46 45 M54 45 Q57 43.5 61 45" stroke="%s" stroke-width="1.7" fill="none" stroke-linecap="round"/>' % capelli)
+    p.append('<path d="M39 45 Q43 43.5 46 45 M54 45 Q57 43.5 61 45" stroke="%s" stroke-width="1.7" fill="none" stroke-linecap="round"/>' % (ciglia or capelli))
     p.append('<ellipse cx="43" cy="51" rx="2.3" ry="2.6" fill="%s"/><ellipse cx="57" cy="51" rx="2.3" ry="2.6" fill="%s"/>'
              '<circle cx="43.7" cy="50.2" r=".7" fill="#fff"/><circle cx="57.7" cy="50.2" r=".7" fill="#fff"/>' % (occhi, occhi))
     p.append('<path d="M50 52 Q51.5 58 49 59" stroke="%s" stroke-width="1.3" fill="none" stroke-linecap="round"/>' % ombra)
@@ -57,6 +60,8 @@ OPERATORI = {
 PROTAGONISTI = {
  "kwame":   ("KWAME", "24 ANNI · GHANA", ritratto("kw", "#E8F1DC", "#7A4A2E", "#61391F", "#141010", "#2D6CB5", "rasati")),
  "fatou":   ("FATOU", "29 ANNI · SENEGAL", ritratto("fa", "#FFE9DF", "#6E4228", "#56321C", "#D1495B", "#F2A93B", "turbante", orecchini="#F2C14E")),
+ "maryam2": ("MARYAM", "25 ANNI · SUDAN", ritratto("m2", "#F3ECFF", "#7E4E31", "#653C24", "#4B2E83", "#F6F1E9", "velo", ciglia="#1A120D")),
+ "makari":  ("MAKARI", "IL FIDANZATO DI MARYAM", ritratto("mk", "#FFF0E0", "#5E3A22", "#4A2C18", "#120D0A", "#1E3A5F", "rasati", barba=True)),
  "lin":     ("LIN", "31 ANNI · CINA", ritratto("li", "#FDEFF3", "#F3D2B3", "#DDB08C", "#16110F", "#C2185B", "lunghi")),
  "ravi":    ("RAVI", "27 ANNI · INDIA", ritratto("ra", "#EAE6F7", "#B98257", "#9C673F", "#16110F", "#5C6BC0", "corti", barba=True)),
  "mariela": ("MARIELA", "22 ANNI · PERÙ", ritratto("me", "#E3F4EC", "#C8936B", "#AE7A53", "#3B2416", "#E64A19", "mossi", orecchini="#E7C35A", occhi="#2B1A12")),
