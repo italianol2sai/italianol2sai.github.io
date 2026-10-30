@@ -3,33 +3,33 @@ window.MISSIONE = {
  "titolo": "MISSIONE FAMIGLIA",
  "sottotitolo": "PREPARA LA FESTA DELLA NONNA!",
  "parolaSegreta": "BACI",
- "guida": "serena",
- "protagonista": "maryam",
+ "guida": "eneida",
+ "protagonista": "lin",
  "etichetta": "ITALIANO L2 · LA FAMIGLIA",
  "portaFinale": "LA PORTA DELLA FESTA",
  "grazie": "GRAZIE! È UNA FESTA BELLISSIMA!",
  "imparato": "HAI IMPARATO I NOMI DEI PARENTI, I POSSESSIVI E A DESCRIVERE LE PERSONE.",
  "intro": [
   [
-   "maryam",
+   "lin",
    "OGGI LA MIA NONNA COMPIE 80 ANNI! FACCIAMO UNA FESTA IN VIDEOCHIAMATA CON TUTTA LA FAMIGLIA."
   ],
   [
-   "serena",
+   "eneida",
    "CHE BELLO! TI AIUTO A PREPARARE TUTTO."
   ],
   [
-   "serena",
+   "eneida",
    "CI SONO 4 PORTE. CON LE 4 LETTERE SCOPRI CHE COSA MANDA LA FAMIGLIA ALLA NONNA!"
   ]
  ],
  "finale": [
   [
-   "maryam",
+   "lin",
    "TUTTI SONO IN VIDEOCHIAMATA. LA NONNA È FELICE!"
   ],
   [
-   "serena",
+   "eneida",
    "CHE COSA MANDANO TUTTI ALLA NONNA? SCRIVI LA PAROLA SEGRETA."
   ]
  ],
@@ -40,19 +40,19 @@ window.MISSIONE = {
    "titolo": "I PARENTI",
    "icona": "👨‍👩‍👧",
    "lettera": "B",
-   "chi": "serena",
+   "chi": "eneida",
    "lezione": {
     "titolo": "LA FAMIGLIA",
     "link": "letture/famiglia.html"
    },
    "storia": [
     [
-     "serena",
+     "eneida",
      "CHI C'È NELLA TUA FAMIGLIA?"
     ]
    ],
    "fine": [
-    "maryam",
+    "lin",
     "CONOSCO TUTTI I PARENTI!"
    ],
    "prove": [
@@ -121,19 +121,19 @@ window.MISSIONE = {
    "titolo": "MIO, TUO, SUO",
    "icona": "🔑",
    "lettera": "A",
-   "chi": "serena",
+   "chi": "eneida",
    "lezione": {
     "titolo": "I POSSESSIVI",
     "link": "possessivi/esercizi.html"
    },
    "storia": [
     [
-     "serena",
+     "eneida",
      "ORA PARLIAMO DEI REGALI: DI CHI SONO?"
     ]
    ],
    "fine": [
-    "maryam",
+    "lin",
     "CHE FACILE!"
    ],
    "prove": [
@@ -180,19 +180,19 @@ window.MISSIONE = {
    "titolo": "COM'È?",
    "icona": "🪞",
    "lettera": "C",
-   "chi": "serena",
+   "chi": "eneida",
    "lezione": {
     "titolo": "GLI AGGETTIVI",
     "link": "aggettivi/esercizi.html"
    },
    "storia": [
     [
-     "maryam",
-     "DESCRIVO LA MIA FAMIGLIA A SERENA."
+     "lin",
+     "DESCRIVO LA MIA FAMIGLIA A ENEIDA."
     ]
    ],
    "fine": [
-    "serena",
+    "eneida",
     "CHE BELLA FAMIGLIA!"
    ],
    "prove": [
@@ -261,19 +261,19 @@ window.MISSIONE = {
    "titolo": "LA FESTA",
    "icona": "🎂",
    "lettera": "I",
-   "chi": "serena",
+   "chi": "eneida",
    "lezione": {
     "titolo": "FESTE E TRADIZIONI",
     "link": "feste/"
    },
    "storia": [
     [
-     "serena",
+     "eneida",
      "ULTIMA PORTA: GLI AUGURI!"
     ]
    ],
    "fine": [
-    "maryam",
+    "lin",
     "LA FESTA COMINCIA!"
    ],
    "prove": [

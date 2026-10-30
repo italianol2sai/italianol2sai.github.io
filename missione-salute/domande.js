@@ -1,58 +1,58 @@
 // Contenuti del gioco «MISSIONE SALUTE» (generati da _strumenti/missioni.py: modificare lì).
 window.MISSIONE = {
  "titolo": "MISSIONE SALUTE",
- "sottotitolo": "AIUTA MOHAMMAD A STARE MEGLIO!",
+ "sottotitolo": "AIUTA KWAME A STARE MEGLIO!",
  "parolaSegreta": "CURA",
- "guida": "silvia",
- "protagonista": "mohammad",
+ "guida": "michele",
+ "protagonista": "kwame",
  "etichetta": "ITALIANO L2 · LA SALUTE",
  "portaFinale": "LA PORTA DELLA FARMACIA",
  "grazie": "GRAZIE! ADESSO STO MEGLIO!",
  "imparato": "HAI IMPARATO LE PARTI DEL CORPO, A DIRE CHE COSA TI FA MALE, A PARLARE CON IL MEDICO E IN FARMACIA.",
  "intro": [
   [
-   "mohammad",
-   "CIAO, SONO MOHAMMAD. STAMATTINA NON STO BENE: HO MAL DI TESTA E MAL DI GOLA."
+   "kwame",
+   "CIAO, SONO KWAME. STAMATTINA NON STO BENE: HO MAL DI TESTA E MAL DI GOLA."
   ],
   [
-   "silvia",
-   "IO SONO SILVIA. TI AIUTO IO, MOHAMMAD! ANDIAMO INSIEME DAL MEDICO E IN FARMACIA."
+   "michele",
+   "IO SONO MICHELE. TI AIUTO IO, KWAME! ANDIAMO INSIEME DAL MEDICO E IN FARMACIA."
   ],
   [
-   "silvia",
+   "michele",
    "CI SONO 4 PORTE. DIETRO OGNI PORTA C'È UNA LETTERA. CON LE 4 LETTERE SCOPRI LA PAROLA SEGRETA!"
   ]
  ],
  "finale": [
   [
-   "mohammad",
+   "kwame",
    "SONO IN FARMACIA CON LA RICETTA DEL MEDICO."
   ],
   [
-   "silvia",
+   "michele",
    "CHE COSA TI SERVE PER GUARIRE? SCRIVI LA PAROLA SEGRETA CON LE 4 LETTERE."
   ]
  ],
- "vittoria": "IL FARMACISTA DICE: «ECCO LA TUA CURA, MOHAMMAD. PRENDI LO SCIROPPO TRE VOLTE AL GIORNO. GUARISCI PRESTO!»",
+ "vittoria": "IL FARMACISTA DICE: «ECCO LA TUA CURA, KWAME. PRENDI LO SCIROPPO TRE VOLTE AL GIORNO. GUARISCI PRESTO!»",
  "stanze": [
   {
    "id": "corpo",
    "titolo": "IL CORPO",
    "icona": "🧍",
    "lettera": "C",
-   "chi": "silvia",
+   "chi": "michele",
    "lezione": {
     "titolo": "IL CORPO E IL DOTTORE",
     "link": "corpo-dottore/"
    },
    "storia": [
     [
-     "silvia",
+     "michele",
      "PRIMA RIPASSIAMO LE PARTI DEL CORPO."
     ]
    ],
    "fine": [
-    "mohammad",
+    "kwame",
     "CONOSCO LE PARTI DEL CORPO!"
    ],
    "prove": [
@@ -121,25 +121,25 @@ window.MISSIONE = {
    "titolo": "CHE COSA TI FA MALE?",
    "icona": "🤕",
    "lettera": "U",
-   "chi": "silvia",
+   "chi": "michele",
    "lezione": {
     "titolo": "IL CORPO E IL DOTTORE",
     "link": "corpo-dottore/"
    },
    "storia": [
     [
-     "mohammad",
-     "SILVIA, COME DICO AL MEDICO CHE STO MALE?"
+     "kwame",
+     "MICHELE, COME DICO AL MEDICO CHE STO MALE?"
     ]
    ],
    "fine": [
-    "silvia",
+    "michele",
     "BRAVO! ADESSO SAI DIRE CHE COSA TI FA MALE."
    ],
    "prove": [
     {
      "tipo": "scelta",
-     "domanda": "MOHAMMAD DICE: «MI FA MALE…»",
+     "domanda": "KWAME DICE: «MI FA MALE…»",
      "icona": "🤕",
      "risposte": [
       {
@@ -188,25 +188,25 @@ window.MISSIONE = {
    "titolo": "DAL MEDICO",
    "icona": "🩺",
    "lettera": "R",
-   "chi": "silvia",
+   "chi": "michele",
    "lezione": {
     "titolo": "IL CORPO E IL DOTTORE",
     "link": "corpo-dottore/"
    },
    "storia": [
     [
-     "silvia",
+     "michele",
      "ECCO LO STUDIO DEL MEDICO DI BASE. ENTRIAMO!"
     ]
    ],
    "fine": [
-    "mohammad",
+    "kwame",
     "IL MEDICO MI HA DATO LA RICETTA!"
    ],
    "prove": [
     {
      "tipo": "scelta",
-     "domanda": "IL MEDICO CHIEDE: «CHE COSA SI SENTE?» MOHAMMAD RISPONDE:",
+     "domanda": "IL MEDICO CHIEDE: «CHE COSA SI SENTE?» KWAME RISPONDE:",
      "icona": "🩺",
      "risposte": [
       {
@@ -263,20 +263,20 @@ window.MISSIONE = {
    "titolo": "IN FARMACIA",
    "icona": "💊",
    "lettera": "A",
-   "chi": "silvia",
+   "chi": "michele",
    "lezione": {
     "titolo": "IN FARMACIA E AL PRONTO SOCCORSO",
     "link": "farmacia/"
    },
    "storia": [
     [
-     "silvia",
+     "michele",
      "ULTIMA PORTA: LA FARMACIA. C'È LA CROCE VERDE!"
     ]
    ],
    "fine": [
-    "mohammad",
-    "HO TUTTO! GRAZIE, SILVIA."
+    "kwame",
+    "HO TUTTO! GRAZIE, MICHELE."
    ],
    "prove": [
     {

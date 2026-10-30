@@ -1,58 +1,58 @@
 // Contenuti del gioco «MISSIONE CUCINA» (generati da _strumenti/missioni.py: modificare lì).
 window.MISSIONE = {
  "titolo": "MISSIONE CUCINA",
- "sottotitolo": "PREPARA LA CENA CON MARYAM!",
+ "sottotitolo": "PREPARA LA CENA CON FATOU!",
  "parolaSegreta": "PANE",
- "guida": "francesco",
- "protagonista": "maryam",
+ "guida": "giovanni",
+ "protagonista": "fatou",
  "etichetta": "ITALIANO L2 · IL CIBO",
  "portaFinale": "LA PORTA DELLA CUCINA",
  "grazie": "GRAZIE! LA CENA È PRONTA!",
  "imparato": "HAI IMPARATO I NEGOZI, LA FRUTTA E LA VERDURA, I VERBI DELLA CUCINA E COME SI ORDINA AL RISTORANTE.",
  "intro": [
   [
-   "maryam",
+   "fatou",
    "STASERA INVITO A CENA LE MIE AMICHE! DEVO FARE LA SPESA E CUCINARE."
   ],
   [
-   "francesco",
-   "IO SONO FRANCESCO. TI AIUTO IO, MARYAM!"
+   "giovanni",
+   "IO SONO GIOVANNI. TI AIUTO IO, FATOU!"
   ],
   [
-   "francesco",
+   "giovanni",
    "CI SONO 4 PORTE. CON LE 4 LETTERE SCOPRI CHE COSA NON PUÒ MANCARE A TAVOLA!"
   ]
  ],
  "finale": [
   [
-   "maryam",
+   "fatou",
    "LA TAVOLA È PRONTA. MA MANCA UNA COSA…"
   ],
   [
-   "francesco",
+   "giovanni",
    "CHE COSA MANCA? SCRIVI LA PAROLA SEGRETA."
   ]
  ],
- "vittoria": "LE AMICHE DICONO: «CHE BUONO IL PANE CALDO, MARYAM! E ANCHE LA CENA È BUONISSIMA!»",
+ "vittoria": "LE AMICHE DICONO: «CHE BUONO IL PANE CALDO, FATOU! E ANCHE LA CENA È BUONISSIMA!»",
  "stanze": [
   {
    "id": "negozi",
    "titolo": "I NEGOZI",
    "icona": "🏪",
    "lettera": "P",
-   "chi": "francesco",
+   "chi": "giovanni",
    "lezione": {
     "titolo": "AL MERCATO",
     "link": "mercato/"
    },
    "storia": [
     [
-     "francesco",
+     "giovanni",
      "PRIMA ANDIAMO A FARE LA SPESA."
     ]
    ],
    "fine": [
-    "maryam",
+    "fatou",
     "HO COMPRATO TUTTO!"
    ],
    "prove": [
@@ -121,19 +121,19 @@ window.MISSIONE = {
    "titolo": "FRUTTA E VERDURA",
    "icona": "🍅",
    "lettera": "A",
-   "chi": "francesco",
+   "chi": "giovanni",
    "lezione": {
     "titolo": "IL CIBO E LA CUCINA",
     "link": "parole/cucina.html"
    },
    "storia": [
     [
-     "francesco",
+     "giovanni",
      "ORA IL FRUTTIVENDOLO!"
     ]
    ],
    "fine": [
-    "maryam",
+    "fatou",
     "CHE BELLA FRUTTA!"
    ],
    "prove": [
@@ -196,19 +196,19 @@ window.MISSIONE = {
    "titolo": "CUCINIAMO!",
    "icona": "🍳",
    "lettera": "N",
-   "chi": "francesco",
+   "chi": "giovanni",
    "lezione": {
     "titolo": "LAVORO IN CUCINA",
     "link": "cucina-lavoro/"
    },
    "storia": [
     [
-     "francesco",
+     "giovanni",
      "A CASA! ADESSO SI CUCINA."
     ]
    ],
    "fine": [
-    "maryam",
+    "fatou",
     "LA PASTA È PRONTA!"
    ],
    "prove": [
@@ -277,20 +277,20 @@ window.MISSIONE = {
    "titolo": "A TAVOLA",
    "icona": "🍽️",
    "lettera": "E",
-   "chi": "francesco",
+   "chi": "giovanni",
    "lezione": {
     "titolo": "AL RISTORANTE",
     "link": "ristorante/"
    },
    "storia": [
     [
-     "maryam",
+     "fatou",
      "ARRIVANO LE AMICHE! PREPARIAMO LA TAVOLA."
     ]
    ],
    "fine": [
-    "francesco",
-    "BRAVISSIMA, MARYAM!"
+    "giovanni",
+    "BRAVISSIMA, FATOU!"
    ],
    "prove": [
     {
