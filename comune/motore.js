@@ -38,7 +38,7 @@ if(D.name !== false){
   const s=el("section"); s.append(el("h2",{},"👤 Nome e cognome")); const i=el("input",{type:"text",class:"w",id:"nome",autocomplete:"name"}); saveable(i); s.append(i); main.append(s);
 }
 
-const results={}, graded=[], answers={};
+const results={}, graded=[], answers={}, runners=[];
 const recordings={};
 
 function addChecker(sec, ex, items, k){
@@ -46,6 +46,7 @@ function addChecker(sec, ex, items, k){
   const btn=el("button",{class:"btn chk",type:"button"},"✅ Controlla");
   const fb=el("p",{class:"fb","aria-live":"polite"});
   sec.append(btn,fb);
+  if(D.exam){ btn.hidden=true; fb.hidden=true; }
   const run=(save)=>{
     let good=0; const seen=new Set();
     items.forEach((it,i)=>{ let g=grade(it.get(),k[i]);
@@ -65,6 +66,7 @@ function addChecker(sec, ex, items, k){
     run(true);
   };
   items.forEach(it=>(it.inputs||[]).forEach(x=>x.addEventListener("input",()=>{ x.classList.remove("ok","no"); it.mark.textContent=""; })));
+  runners.push(run);
   return ()=>{ if(store.get("chk-"+ex.id)) run(false); };
 }
 
@@ -160,8 +162,10 @@ function player(sec, ex){
   go.onclick=()=>play(.95); slow.onclick=()=>play(.7); stop.onclick=()=>speechSynthesis.cancel();
 }
 
-const restore=[];
+const restore=[], prove=[]; let dest=main;
 D.sections.forEach(ex=>{
+  if(ex.part && D.exam){ dest=el("div",{class:"prova"}); dest.dataset.min=ex.min||0; dest.dataset.nome=ex.part;
+    dest.append(el("div",{class:"part"},ex.part+(ex.min?" · "+ex.min+" minuti":""))); prove.push(dest); main.append(dest); return; }
   if(ex.part){ main.append(el("div",{class:"part"},ex.part)); return; }
   const sec=el("section",{id:"ex-"+ex.id});
   const h=el("h2"); h.append(ex.title||""); if(ex.badge) h.append(" ",el("span",{class:"pts"},ex.badge)); sec.append(h);
@@ -172,7 +176,7 @@ D.sections.forEach(ex=>{
   if(ex.bank) sec.append(html("p",{class:"bank"},"Parole: "+ex.bank));
   const items=BUILD[ex.type](sec, ex);
   if(items){ const k=dec(ex.k); graded.push(ex); answers[ex.id]=()=>items.map((it,i)=>(i+1)+". "+(it.get()||"-")); restore.push(addChecker(sec, ex, items, k)); }
-  main.append(sec);
+  dest.append(sec);
 });
 
 // risultato finale
@@ -186,6 +190,49 @@ if(!D.once){ const reset=el("button",{class:"btn sec",type:"button",style:"margi
   fin.append(reset); }
 main.append(fin);
 
+// ===== modalità esame: prove una dopo l'altra, cronometro, consegna alla fine =====
+let examDone=false;
+if(D.exam){
+  examDone=store.get("consegnato")==="1";
+  fin.hidden=!examDone;
+  const intro=el("section",{class:"esame-intro"});
+  intro.append(el("h2",{},"📋 Come funziona l'esame"));
+  const tb=el("table"); tb.append(html("tr",{},"<th>Prova</th><th>Tempo</th>"));
+  prove.forEach(p=>tb.append(html("tr",{},"<td>"+p.dataset.nome+"</td><td>"+(+p.dataset.min?p.dataset.min+" min":"—")+"</td>")));
+  intro.append(tb, html("p",{class:"cons"},D.exam.regole||"Fai le prove in ordine. Ogni prova ha un tempo: quando finisce passi alla prova dopo. Non puoi tornare indietro. Il risultato lo vedi solo alla fine, quando consegni."));
+  const go=el("button",{class:"btn",type:"button"},"▶️ Inizia l'esame"); intro.append(go);
+  main.insertBefore(intro, prove[0]);
+  const bar=el("div",{class:"esame-bar"}); bar.hidden=true; document.body.prepend(bar);
+  let cur=+(store.get("prova")||0), timer=null;
+  const lockAll=()=>{ main.querySelectorAll(".prova input, .prova select, .prova textarea, .prova button.tog").forEach(x=>x.disabled=true); };
+  const show=()=>{
+    prove.forEach((p,i)=>p.hidden=!(examDone || i===cur));
+    if(examDone){ bar.hidden=true; intro.hidden=true; lockAll(); return; }
+    const started=store.get("start-"+cur);
+    intro.hidden=store.get("start-0")!==null;
+    if(store.get("start-0")===null){ prove.forEach(p=>p.hidden=true); return; }
+    const p=prove[cur], min=+p.dataset.min, t0=+started;
+    clearInterval(timer);
+    const tick=()=>{ if(!min){ bar.textContent="✏️ "+p.dataset.nome; return; }
+      const left=Math.max(0, Math.round(t0/1000+min*60-Date.now()/1000));
+      bar.textContent="⏱️ "+p.dataset.nome+" · "+String(Math.floor(left/60)).padStart(2,"0")+":"+String(left%60).padStart(2,"0");
+      bar.classList.toggle("poco", left<=120);
+      if(left===0){ clearInterval(timer); alert("⏰ Il tempo è finito! Passiamo alla prova successiva."); next(); } };
+    bar.hidden=false; tick(); timer=setInterval(tick,1000); window.scrollTo(0,0);
+  };
+  const next=()=>{
+    if(cur<prove.length-1){ cur++; store.set("prova",cur); store.set("start-"+cur, Date.now()); show(); }
+    else consegna();
+  };
+  const consegna=()=>{ clearInterval(timer); runners.forEach(r=>r(true)); examDone=true; store.set("consegnato","1"); fin.hidden=false; show(); updateFinal(); fin.scrollIntoView(); };
+  prove.forEach((p,i)=>{ const last=i===prove.length-1;
+    const b=el("button",{class:"btn",type:"button",style:"margin-top:14px"}, last?"📤 Consegna l'esame":"✅ Ho finito: prova successiva ▶");
+    b.onclick=()=>{ if(!confirm(last?"Vuoi consegnare l'esame? Dopo non puoi più cambiare le risposte.":"Vuoi passare alla prova successiva? Non puoi tornare indietro.")) return; next(); };
+    p.append(b); });
+  go.onclick=()=>{ store.set("start-0", Date.now()); store.set("prova",0); cur=0; show(); };
+  show();
+}
+
 function updateFinal(){
   const done=graded.filter(ex=>results[ex.id]);
   const got=done.reduce((s,ex)=>s+results[ex.id].got,0);
@@ -193,9 +240,10 @@ function updateFinal(){
   box.innerHTML="";
   if(done.length<graded.length){ hint.textContent="Hai controllato "+done.length+" esercizi su "+graded.length+". Quando li controlli tutti vedi il risultato finale."; }
   else { const pc=Math.round(got/max*100);
-    const band=pc>=90?"Ottimo 🌟":pc>=75?"Buono 👍":pc>=60?"Sufficiente ✅":"Da ripassare 📚";
+    const soglia=D.exam?(D.exam.soglia||60):60;
+    const band=D.exam?(pc>=soglia?"✅ ESAME SUPERATO":"❌ ESAME NON SUPERATO (serve il "+soglia+"%)"):pc>=90?"Ottimo 🌟":pc>=75?"Buono 👍":pc>=60?"Sufficiente ✅":"Da ripassare 📚";
     hint.textContent="Ecco il tuo risultato.";
-    box.append(el("div",{class:"big"},got+" / "+max), el("p",{class:"fb "+(pc>=60?"ok":"no")},band+" · "+pc+"%")); }
+    box.append(el("div",{class:"big"},got+" / "+max), el("p",{class:"fb "+(pc>=(D.exam?(D.exam.soglia||60):60)?"ok":"no")},band+" · "+pc+"%")); }
   const tb=el("table"); tb.append(html("tr",{},"<th>Esercizio</th><th>Punti</th>"));
   graded.forEach(ex=>{ const tr=el("tr"); tr.append(el("td",{},ex.short||ex.title), el("td",{},results[ex.id]?results[ex.id].got+" / "+results[ex.id].max:"—")); tb.append(tr); });
   box.append(tb);

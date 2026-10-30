@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎓 Simulazione d'esame A2 integrazione · n. 2</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🎓 Simulazione d'esame A2 integrazione · n. 2",
+ "store": "sim-a2i-2",
+ "upper": true,
+ "exam": {
+  "soglia": 80,
+  "regole": "FAI LE 3 PROVE IN ORDINE. OGNI PROVA HA UN TEMPO: QUANDO FINISCE PASSI ALLA PROVA DOPO. NON PUOI TORNARE INDIETRO. GLI ASCOLTI LI PUOI SENTIRE DUE VOLTE. IL RISULTATO LO VEDI SOLO ALLA FINE. PER SUPERARE IL TEST SERVE L'80%."
+ },
+ "sub": "SIMULAZIONE DEL TEST A2 PER IL PERMESSO DI LUNGO PERIODO. LEGGI LE REGOLE E PREMI «INIZIA L'ESAME».",
+ "sections": [
+  {
+   "part": "Prova 1 · Comprensione orale",
+   "min": 25
+  },
+  {
+   "id": "a1",
+   "title": "1 · Al centro per l'impiego",
+   "short": "1 · Al centro per l'impiego",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siRiIsICJCVU9OR0lPUk5PLCBTSSBTSUVEQS4gSEEgUE9SVEFUTyBJIERPQ1VNRU5UST8iXSwgWyJNIiwgIlPDjCwgRUNDTyBJTCBQRVJNRVNTTyBESSBTT0dHSU9STk8gRSBJTCBDT0RJQ0UgRklTQ0FMRS4iXSwgWyJGIiwgIkJFTkUuIENIRSBMQVZPUk8gSEEgRkFUVE8gRklOT1JBPyJdLCBbIk0iLCAiSE8gTEFWT1JBVE8gRFVFIEFOTkkgSU4gVU4gTUFHQVpaSU5PIEEgTU9EVUdOTywgTUEgSUwgQ09OVFJBVFRPIMOIIEZJTklUTyBBIFNFVFRFTUJSRS4iXSwgWyJGIiwgIkxFIElOVEVSRVNTQSBVTiBDT1JTTyBESSBGT1JNQVpJT05FPyBDJ8OIIFVOIENPUlNPIEdSQVRVSVRPIFBFUiBDQVJSRUxMSVNUSSwgREkgUVVBVFRSTyBTRVRUSU1BTkUuIl0sIFsiTSIsICJTw4wsIE1JIElOVEVSRVNTQSBNT0xUTy4gUVVBTkRPIENPTUlOQ0lBPyJdLCBbIkYiLCAiSUwgRElFQ0kgTk9WRU1CUkUuIExFIExFWklPTkkgU09OTyBEQUwgTFVORUTDjCBBTCBWRU5FUkTDjCwgREFMTEUgT1RUTyBBTExFIERPRElDSS4iXV0=",
+   "items": [
+    {
+     "q": "1. CHE DOCUMENTI HA PORTATO L'UOMO?",
+     "opts": [
+      "PERMESSO DI SOGGIORNO E CODICE FISCALE",
+      "PASSAPORTO E PATENTE",
+      "CONTRATTO E BUSTA PAGA"
+     ]
+    },
+    {
+     "q": "2. DOVE HA LAVORATO?",
+     "opts": [
+      "IN UN MAGAZZINO",
+      "IN UN RISTORANTE",
+      "IN UN CANTIERE"
+     ]
+    },
+    {
+     "q": "3. QUANTO DURA IL CORSO?",
+     "opts": [
+      "QUATTRO SETTIMANE",
+      "DUE ANNI",
+      "DIECI GIORNI"
+     ]
+    },
+    {
+     "q": "4. IL CORSO COSTA…",
+     "opts": [
+      "NIENTE",
+      "DIECI EURO",
+      "MOLTO"
+     ]
+    },
+    {
+     "q": "5. LE LEZIONI SONO…",
+     "opts": [
+      "LA MATTINA",
+      "LA SERA",
+      "IL SABATO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQRVJNRVNTTyBESSBTT0dHSU9STk8gRSBDT0RJQ0UgRklTQ0FMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklOIFVOIE1BR0FaWklOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlFVQVRUUk8gU0VUVElNQU5FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTklFTlRFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEEgTUFUVElOQSJdfV0=",
+   "cons": "ASCOLTA IL DIALOGO DUE VOLTE E SCEGLI LA RISPOSTA GIUSTA."
+  },
+  {
+   "id": "a2",
+   "title": "2 · La segreteria della ASL",
+   "short": "2 · La segreteria della ASL",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siTSIsICJCVU9OR0lPUk5PLCBBVkVURSBDSElBTUFUTyBJTCBDRU5UUk8gVU5JQ08gREkgUFJFTk9UQVpJT05FLiBQRVIgUFJFTk9UQVJFIFVOQSBWSVNJVEEgUFJFTUVURSBVTk8uIFBFUiBESVNESVJFIFVOQSBQUkVOT1RBWklPTkUgUFJFTUVURSBEVUUuIFBFUiBJTkZPUk1BWklPTkkgU1VHTEkgT1JBUkkgUFJFTUVURSBUUkUuIFJJQ09SREFURSBESSBBVkVSRSBWSUNJTk8gTEEgVEVTU0VSQSBTQU5JVEFSSUEgRSBMQSBSSUNFVFRBIERFTCBNRURJQ08uIl1d",
+   "items": [
+    {
+     "q": "1. PER PRENOTARE UNA VISITA PREMI…",
+     "opts": [
+      "1",
+      "2",
+      "3"
+     ]
+    },
+    {
+     "q": "2. NON PUOI ANDARE ALLA VISITA: PREMI…",
+     "opts": [
+      "2",
+      "1",
+      "3"
+     ]
+    },
+    {
+     "q": "3. CHE COSA DEVI AVERE VICINO?",
+     "opts": [
+      "TESSERA SANITARIA E RICETTA",
+      "PASSAPORTO E SOLDI",
+      "IL CONTRATTO DI LAVORO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlRFU1NFUkEgU0FOSVRBUklBIEUgUklDRVRUQSJdfV0=",
+   "cons": "ASCOLTA IL MESSAGGIO E SCEGLI."
+  },
+  {
+   "id": "a3",
+   "title": "3 · Che cosa chiedono?",
+   "short": "3 · Che cosa chiedono?",
+   "type": "select",
+   "opts": [
+    "UN'INFORMAZIONE STRADALE",
+    "UN PREZZO",
+    "UN ORARIO",
+    "UN AIUTO"
+   ],
+   "items": [
+    {
+     "q": "DOMANDA 1"
+    },
+    {
+     "q": "DOMANDA 2"
+    },
+    {
+     "q": "DOMANDA 3"
+    },
+    {
+     "q": "DOMANDA 4"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJVTidJTkZPUk1BWklPTkUgU1RSQURBTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiBPUkFSSU8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiBQUkVaWk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTiBBSVVUTyJdfV0=",
+   "audio": "W1siRiIsICJET01BTkRBIFVOTy4gU0NVU0ksIFBFUiBBTkRBUkUgQUxMQSBRVUVTVFVSQSBERVZPIEdJUkFSRSBBIERFU1RSQSBPIEEgU0lOSVNUUkE/Il0sIFsiTSIsICJET01BTkRBIERVRS4gQSBDSEUgT1JBIFBBUlRFIEwnVUxUSU1PIEFVVE9CVVMgUEVSIElMIFFVQVJUSUVSRSBTQU4gUEFPTE8/Il0sIFsiRiIsICJET01BTkRBIFRSRS4gUVVBTlRPIENPU1RBIEwnQUJCT05BTUVOVE8gTUVOU0lMRSBERUxMJ0FVVE9CVVM/Il0sIFsiTSIsICJET01BTkRBIFFVQVRUUk8uIE1JIFNDVVNJLCBNSSBQVcOSIEFJVVRBUkUgQSBQT1JUQVJFIFFVRVNUQSBWQUxJR0lBIFNVTExFIFNDQUxFPyJdXQ==",
+   "cons": "ASCOLTA LE 4 DOMANDE. CHE COSA CHIEDE LA PERSONA?"
+  },
+  {
+   "part": "Prova 2 · Comprensione scritta",
+   "min": 25
+  },
+  {
+   "id": "l1",
+   "title": "1 · Il regolamento del condominio",
+   "short": "1 · Il regolamento del condominio",
+   "type": "choice",
+   "full": true,
+   "info": "<b>REGOLE DEL CONDOMINIO</b><br>1. DALLE 14 ALLE 16 E DALLE 22 ALLE 7 NON SI FA RUMORE.<br>2. LA SPAZZATURA SI METTE NEI CONTENITORI IN CORTILE, DIVISA: CARTA, PLASTICA, VETRO, UMIDO, INDIFFERENZIATO.<br>3. I PANNI NON SI STENDONO SUL BALCONE CHE DÀ SULLA STRADA PRINCIPALE.<br>4. LE BICICLETTE SI LASCIANO NEL GARAGE, NON NELL'INGRESSO.<br>5. PER LAVORI IN CASA BISOGNA AVVISARE L'AMMINISTRATORE.",
+   "items": [
+    {
+     "q": "1. ALLE 15 POSSO USARE IL TRAPANO."
+    },
+    {
+     "q": "2. LA SPAZZATURA VA DIVISA."
+    },
+    {
+     "q": "3. POSSO STENDERE I PANNI SUL BALCONE SULLA STRADA PRINCIPALE."
+    },
+    {
+     "q": "4. LA BICICLETTA VA NEL GARAGE."
+    },
+    {
+     "q": "5. PER RIFARE IL BAGNO DEVO AVVISARE L'AMMINISTRATORE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ==",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "cons": "LEGGI LE REGOLE. VERO O FALSO?"
+  },
+  {
+   "id": "l2",
+   "title": "2 · Il volantino",
+   "short": "2 · Il volantino",
+   "type": "choice",
+   "full": true,
+   "info": "<b>SPORTELLO GRATUITO PER CITTADINI STRANIERI</b><br>AIUTO PER: PERMESSO DI SOGGIORNO, RICONGIUNGIMENTO FAMILIARE, ISCRIZIONE AL SERVIZIO SANITARIO, CONTRATTI DI LAVORO.<br>DOVE: CASA DEL QUARTIERE, VIA ARCIDIACONO GIOVINE 10.<br>QUANDO: MERCOLEDÌ 16-19 E SABATO 10-13.<br>NON SERVE L'APPUNTAMENTO. SI PARLA ITALIANO, INGLESE, FRANCESE E ARABO.",
+   "items": [
+    {
+     "q": "1. LO SPORTELLO COSTA…",
+     "opts": [
+      "NIENTE",
+      "5 EURO",
+      "10 EURO"
+     ]
+    },
+    {
+     "q": "2. LO SPORTELLO AIUTA ANCHE PER…",
+     "opts": [
+      "IL RICONGIUNGIMENTO FAMILIARE",
+      "TROVARE CASA",
+      "LA PATENTE"
+     ]
+    },
+    {
+     "q": "3. IL SABATO È APERTO…",
+     "opts": [
+      "LA MATTINA",
+      "IL POMERIGGIO",
+      "LA SERA"
+     ]
+    },
+    {
+     "q": "4. PER ANDARE ALLO SPORTELLO…",
+     "opts": [
+      "NON SERVE L'APPUNTAMENTO",
+      "BISOGNA TELEFONARE",
+      "BISOGNA PRENOTARE ONLINE"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJOSUVOVEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCBSSUNPTkdJVU5HSU1FTlRPIEZBTUlMSUFSRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxBIE1BVFRJTkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJOT04gU0VSVkUgTCdBUFBVTlRBTUVOVE8iXX1d",
+   "cons": "LEGGI IL VOLANTINO E SCEGLI."
+  },
+  {
+   "id": "l3",
+   "title": "3 · Dove trovi queste frasi?",
+   "short": "3 · Dove trovi queste frasi?",
+   "type": "select",
+   "opts": [
+    "SU UNA BOLLETTA",
+    "SU UNA RICETTA MEDICA",
+    "SU UNO SCONTRINO",
+    "SU UN BIGLIETTO DELL'AUTOBUS"
+   ],
+   "items": [
+    {
+     "q": "1. «IMPORTO DA PAGARE ENTRO IL 16/11: 74,30 €»"
+    },
+    {
+     "q": "2. «1 COMPRESSA 2 VOLTE AL GIORNO PER 6 GIORNI»"
+    },
+    {
+     "q": "3. «TOTALE 12,80 € · CONTANTI 20,00 € · RESTO 7,20 €»"
+    },
+    {
+     "q": "4. «VALIDO 90 MINUTI DALLA CONVALIDA»"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTVSBVTkEgQk9MTEVUVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTVSBVTkEgUklDRVRUQSBNRURJQ0EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTVSBVTk8gU0NPTlRSSU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU1UgVU4gQklHTElFVFRPIERFTEwnQVVUT0JVUyJdfV0=",
+   "cons": "SCEGLI IL DOCUMENTO GIUSTO."
+  },
+  {
+   "part": "Prova 3 · Interazione scritta",
+   "min": 25
+  },
+  {
+   "id": "s1",
+   "title": "1 · Il modulo della palestra",
+   "short": "1 · Il modulo della palestra",
+   "type": "text",
+   "w": "m",
+   "cons": "COMPILA IL MODULO DELLA PALESTRA CON I DATI DI OMAR.",
+   "info": "LEGGI: <i>SONO OMAR TOURÉ. SONO NATO IL 21 LUGLIO 1999 A BAMAKO, IN MALI. ABITO A BARI IN VIA CALEFATI 45. VOGLIO FARE L'ABBONAMENTO DI TRE MESI E VORREI ANDARE IN PALESTRA LA SERA.</i>",
+   "items": [
+    {
+     "q": "COGNOME"
+    },
+    {
+     "q": "NOME"
+    },
+    {
+     "q": "DATA DI NASCITA"
+    },
+    {
+     "q": "LUOGO DI NASCITA"
+    },
+    {
+     "q": "INDIRIZZO"
+    },
+    {
+     "q": "ABBONAMENTO (QUANTI MESI?)"
+    },
+    {
+     "q": "ORARIO PREFERITO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ0b3VyZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm9tYXIiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyMS83LzE5OTkiLCAiMjEvMDcvMTk5OSIsICIyMSBsdWdsaW8gMTk5OSIsICIyMS0wNy0xOTk5Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiYmFtYWtvIiwgImJhbWFrbyBtYWxpIiwgImJhbWFrbyAobWFsaSkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2aWEgY2FsZWZhdGkgNDUiLCAidmlhIGNhbGVmYXRpLCA0NSIsICJ2aWEgY2FsZWZhdGkgNDUgYmFyaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMiLCAidHJlIiwgIjMgbWVzaSIsICJ0cmUgbWVzaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNlcmEiLCAibGEgc2VyYSJdfV0="
+  },
+  {
+   "id": "s2",
+   "title": "2 · Completa il messaggio",
+   "short": "2 · Completa il messaggio",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "parts": [
+    "CIAO GIULIA, OGGI NON ",
+    {},
+    " VENIRE AL CORSO PERCHÉ MIO FIGLIO HA LA FEBBRE. ",
+    {},
+    " DI ANDARE DAL PEDIATRA. PUOI DIRE ALL'INSEGNANTE CHE SONO ",
+    {},
+    "? MI MANDI LE FOTO DEI COMPITI? GRAZIE, A ",
+    {},
+    "! KHADIJA"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJwb3NzbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRldm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJtYWxhdGEiLCAiYXNzZW50ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInByZXN0byIsICJkb21hbmkiXX1d",
+   "bank": "POSSO · DEVO · ASSENTE · PRESTO"
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

@@ -38,7 +38,7 @@ INTRO = {"part": "Come funziona"}
 # A1 · SIMULAZIONE 1
 # =====================================================================
 A1_1 = {
- "title": "📝 Simulazione d'esame A1 · n. 1", "store": "esame-a1-1", "upper": True,
+ "title": "📝 Verifica A1 · n. 1", "store": "esame-a1-1", "upper": True,
  "sections": [
   {"part": "Prova 1 · Ascolto"},
   ascolto("a1", "A1 · L'annuncio alla stazione",
@@ -104,7 +104,7 @@ A1_1 = {
 # A1 · SIMULAZIONE 2
 # =====================================================================
 A1_2 = {
- "title": "📝 Simulazione d'esame A1 · n. 2", "store": "esame-a1-2", "upper": True,
+ "title": "📝 Verifica A1 · n. 2", "store": "esame-a1-2", "upper": True,
  "sections": [
   {"part": "Prova 1 · Ascolto"},
   ascolto("a1", "A1 · Dal medico: l'appuntamento",
@@ -170,7 +170,7 @@ A1_2 = {
 # A2 · SIMULAZIONE 1
 # =====================================================================
 A2_1 = {
- "title": "📝 Simulazione d'esame A2 · n. 1", "store": "esame-a2-1", "upper": True,
+ "title": "📝 Verifica A2 · n. 1", "store": "esame-a2-1", "upper": True,
  "sections": [
   {"part": "Prova 1 · Ascolto"},
   ascolto("a1", "A1 · Alla radio: il tempo",
@@ -246,7 +246,7 @@ A2_1 = {
 # A2 · SIMULAZIONE 2
 # =====================================================================
 A2_2 = {
- "title": "📝 Simulazione d'esame A2 · n. 2", "store": "esame-a2-2", "upper": True,
+ "title": "📝 Verifica A2 · n. 2", "store": "esame-a2-2", "upper": True,
  "sections": [
   {"part": "Prova 1 · Ascolto"},
   ascolto("a1", "A1 · In farmacia",
@@ -307,4 +307,199 @@ A2_2 = {
  ]
 }
 
-ESAMI = [("esami/a1-1.html", A1_1), ("esami/a1-2.html", A1_2), ("esami/a2-1.html", A2_1), ("esami/a2-2.html", A2_2)]
+
+# =====================================================================
+# PRE-A1 (A0) · SIMULAZIONE
+# =====================================================================
+A0_1 = {
+ "title": "📝 Verifica Pre-A1 (A0)", "store": "esame-a0-1", "upper": True,
+ "sections": [
+  {"part": "Prova 1 · Ascolto"},
+  ascolto("a1", "A1 · Ascolta il numero",
+          [("F", "IL MIO NUMERO DI TELEFONO È: TRE, QUATTRO, SETTE. UNO, DUE, DUE. OTTO, NOVE, ZERO, CINQUE.")],
+          [("1. IL NUMERO È…", ["347 122 8905", "347 112 8905", "374 122 8905"], "347 122 8905")],
+          cons="ASCOLTA E SCEGLI IL NUMERO GIUSTO.", p=1),
+  ascolto("a2", "A2 · Ascolta e scegli",
+          [("M", "CIAO, MI CHIAMO KARIM. SONO DEL MAROCCO. HO VENTICINQUE ANNI. ABITO A BARI.")],
+          [("1. COME SI CHIAMA?", ["KARIM", "KAMAL", "KADER"], "KARIM"),
+           ("2. DI DOV'È?", ["DEL MAROCCO", "DELL'EGITTO", "DEL SENEGAL"], "DEL MAROCCO"),
+           ("3. QUANTI ANNI HA?", ["25", "35", "52"], "25"),
+           ("4. DOVE ABITA?", ["A BARI", "A ROMA", "A LECCE"], "A BARI")],
+          cons="ASCOLTA KARIM E SCEGLI.", p=4),
+  ascolto("a3", "A3 · Che ore sono?",
+          [("F", "UNO: SONO LE OTTO. DUE: È MEZZOGIORNO. TRE: SONO LE TRE E MEZZA.")],
+          [("1. UNO", ["🕗 8:00", "🕒 3:00", "🕛 12:00"], "🕗 8:00"),
+           ("2. DUE", ["🕛 12:00", "🕗 8:00", "🕞 3:30"], "🕛 12:00"),
+           ("3. TRE", ["🕞 3:30", "🕒 3:00", "🕗 8:00"], "🕞 3:30")],
+          cons="ASCOLTA E SCEGLI L'ORA.", p=3),
+  {"part": "Prova 2 · Lettura"},
+  abbina("l1", "L1 · Leggi i cartelli", ["POSSO ENTRARE", "NON POSSO ENTRARE", "NON POSSO FUMARE", "ESCO DI QUI"],
+         [("1. APERTO", "POSSO ENTRARE"), ("2. CHIUSO", "NON POSSO ENTRARE"), ("3. VIETATO FUMARE", "NON POSSO FUMARE"), ("4. USCITA", "ESCO DI QUI")],
+         cons="CHE COSA VUOL DIRE?", p=4),
+  lettura("l2", "L2 · Leggi il documento",
+          "COGNOME: <b>DIALLO</b><br>NOME: <b>AMINATA</b><br>NATA IL: <b>12/05/1998</b><br>A: <b>CONAKRY (GUINEA)</b><br>"
+          "INDIRIZZO: <b>VIA NAPOLI 15, BARI</b>",
+          [("1. IL NOME È…", ["AMINATA", "DIALLO", "BARI"], "AMINATA"),
+           ("2. IL COGNOME È…", ["DIALLO", "AMINATA", "GUINEA"], "DIALLO"),
+           ("3. È NATA IN…", ["GUINEA", "ITALIA", "MAROCCO"], "GUINEA"),
+           ("4. ABITA IN…", ["VIA NAPOLI", "VIA ROMA", "VIA BARI"], "VIA NAPOLI")],
+          cons="LEGGI E SCEGLI.", p=4),
+  lettura("l3", "L3 · Quanto costa?",
+          "🍞 PANE: <b>2 €</b> &nbsp; 🥛 LATTE: <b>1,50 €</b> &nbsp; 🍎 MELE: <b>3 €</b> &nbsp; 🍚 RISO: <b>2,50 €</b>",
+          [("1. IL LATTE COSTA…", ["1,50 €", "2 €", "3 €"], "1,50 €"),
+           ("2. IL PANE COSTA…", ["2 €", "2,50 €", "1,50 €"], "2 €"),
+           ("3. CHE COSA COSTA DI PIÙ?", ["LE MELE", "IL PANE", "IL LATTE"], "LE MELE")],
+          cons="LEGGI I PREZZI E SCEGLI.", p=3),
+  {"part": "Prova 3 · Scrittura"},
+  {"id": "s1", "title": "S1 ✎ · I tuoi dati", "type": "free", "rows": 1,
+   "cons": "SCRIVI IN STAMPATELLO. PUOI USARE DATI INVENTATI.",
+   "items": ["NOME", "COGNOME", "DATA DI NASCITA", "PAESE", "INDIRIZZO", "TELEFONO"]},
+  {"id": "s2", "title": "S2 ✎ · Scrivi la parola", "short": "S2 · Scrivi", "type": "text", "badge": badge(4),
+   "cons": "GUARDA E SCRIVI LA PAROLA.",
+   "items": [{"q": "1. 🍞"}, {"q": "2. 🏠"}, {"q": "3. 🚌"}, {"q": "4. 💧"}],
+   "k": [eq("pane", "il pane"), eq("casa", "la casa"), eq("autobus", "l'autobus", "bus"), eq("acqua", "l'acqua")]},
+  {"part": "Prova 4 · Parlato"},
+  {"id": "p1", "title": "P1 🎤 · Presentati", "type": "record",
+   "items": ["DI': COME TI CHIAMI, DI DOVE SEI, QUANTI ANNI HAI, DOVE ABITI."]},
+ ]
+}
+
+
+# =====================================================================
+# B1 · SIMULAZIONE 1 (maiuscolo e minuscolo)
+# =====================================================================
+B1_1 = {
+ "title": "📝 Verifica B1 · n. 1", "store": "esame-b1-1",
+ "sections": [
+  {"part": "Prova 1 · Ascolto"},
+  ascolto("a1", "A1 · Il notiziario regionale",
+          [("M", "Buonasera, ecco le notizie dalla Puglia. A Bari da lunedì cambiano gli orari degli autobus: le linee del centro "
+                 "passeranno ogni dieci minuti anche la domenica. Il Comune ha deciso di aumentare le corse dopo le proteste di molti cittadini. "
+                 "A Taranto è stato inaugurato un nuovo centro per l'impiego: offrirà corsi gratuiti di informatica e di lingua. "
+                 "Infine, il tempo: domani temporali al nord della regione, sole e temperature in aumento nel Salento.")],
+          [("1. Da lunedì gli autobus del centro di Bari passeranno…", ["ogni dieci minuti, anche la domenica", "solo nei giorni feriali", "ogni mezz'ora"], "ogni dieci minuti, anche la domenica"),
+           ("2. Perché il Comune ha aumentato le corse?", ["Per le proteste dei cittadini", "Per i turisti", "Per un nuovo ospedale"], "Per le proteste dei cittadini"),
+           ("3. Il nuovo centro per l'impiego si trova a…", ["Taranto", "Bari", "Lecce"], "Taranto"),
+           ("4. Che cosa offrirà il centro?", ["Corsi gratuiti di informatica e lingua", "Case in affitto", "Visite mediche"], "Corsi gratuiti di informatica e lingua"),
+           ("5. Domani nel Salento…", ["ci sarà il sole", "ci saranno temporali", "nevicherà"], "ci sarà il sole")],
+          cons="Ascolta il notiziario e scegli la risposta giusta.", p=5),
+  ascolto("a2", "A2 · Una conversazione tra colleghi",
+          [("F", "Ciao Ahmed, hai saputo? L'azienda cerca un capo reparto per il magazzino."),
+           ("M", "Sì, me l'ha detto il direttore. Mi piacerebbe provarci, ma non so se ho abbastanza esperienza."),
+           ("F", "Ma dai! Lavori qui da quattro anni e conosci tutti. Secondo me dovresti mandare la domanda."),
+           ("M", "Il problema è che bisogna fare un corso di sicurezza di quaranta ore, il sabato."),
+           ("F", "E allora? È pagato dall'azienda, e poi lo stipendio è più alto."),
+           ("M", "Hai ragione. Se mi aiuti con la lettera di presentazione, la mando entro venerdì.")],
+          [("1. Ahmed lavora nell'azienda da quattro anni.", None, "VERO"), ("2. Il direttore non ha parlato del nuovo posto ad Ahmed.", None, "FALSO"),
+           ("3. Il corso di sicurezza si fa il sabato.", None, "VERO"), ("4. Il corso lo deve pagare Ahmed.", None, "FALSO"),
+           ("5. Ahmed vuole mandare la domanda entro venerdì.", None, "VERO")],
+          opts=VF, cons="Ascolta e scegli: vero o falso?", p=5),
+  {"part": "Prova 2 · Lettura"},
+  lettura("l1", "L1 · Un articolo",
+          "<b>Orti urbani: a Bari la terra unisce le persone</b><br>Nel quartiere San Paolo un terreno abbandonato è diventato un orto "
+          "condiviso. Trenta famiglie, italiane e straniere, coltivano pomodori, melanzane e erbe aromatiche. «All'inizio ci conoscevamo poco», "
+          "racconta Fatima, che vive in Italia da otto anni, «adesso ci scambiamo ricette e semi del nostro paese». Il progetto è nato da "
+          "un'associazione di quartiere e ha ricevuto un piccolo contributo dal Comune. Chi vuole partecipare deve iscriversi e "
+          "impegnarsi a curare il proprio pezzo di terra almeno due volte alla settimana. Le verdure non si vendono: si dividono tra le famiglie "
+          "e una parte va alla mensa dei poveri.",
+          [("1. Prima l'orto era…", ["un terreno abbandonato", "un parcheggio", "un parco giochi"], "un terreno abbandonato"),
+           ("2. Chi coltiva l'orto?", ["Famiglie italiane e straniere", "Solo gli anziani", "Gli studenti di una scuola"], "Famiglie italiane e straniere"),
+           ("3. Secondo Fatima, l'orto ha…", ["aiutato le persone a conoscersi", "creato problemi tra vicini", "fatto guadagnare soldi"], "aiutato le persone a conoscersi"),
+           ("4. Chi partecipa deve…", ["curare la terra almeno due volte a settimana", "pagare un affitto", "vendere le verdure"], "curare la terra almeno due volte a settimana"),
+           ("5. Che cosa succede alle verdure?", ["Si dividono e una parte va alla mensa dei poveri", "Si vendono al mercato", "Le prende il Comune"], "Si dividono e una parte va alla mensa dei poveri")],
+          cons="Leggi l'articolo e scegli la risposta giusta.", p=5),
+  {"id": "l2", "title": "L2 · Il congiuntivo", "short": "L2 · Completa", "type": "cloze", "badge": badge(5),
+   "cons": "Completa con il verbo al congiuntivo presente.",
+   "parts": ["1. Penso che Marco ", {}, " (avere) ragione.<br>2. È importante che tu ", {}, " (arrivare) in orario.<br>"
+             "3. Spero che domani non ", {}, " (piovere).<br>4. Credo che loro ", {}, " (essere) già partiti.<br>5. Bisogna che voi ", {}, " (studiare) di più."],
+   "k": [eq("abbia"), eq("arrivi"), eq("piova"), eq("siano"), eq("studiate")]},
+  {"id": "l3", "title": "L3 · Scegli il connettivo", "short": "L3 · Connettivi", "type": "choice", "full": True, "badge": badge(4),
+   "items": [{"q": "1. Ho studiato molto, ___ non ho passato l'esame.", "opts": ["ma", "perché", "quindi"]},
+             {"q": "2. Era tardi, ___ abbiamo preso un taxi.", "opts": ["quindi", "anche se", "mentre"]},
+             {"q": "3. ___ fosse stanco, ha continuato a lavorare.", "opts": ["Benché", "Perciò", "Siccome"]},
+             {"q": "4. Non sono uscito ___ pioveva.", "opts": ["perché", "invece", "però"]}],
+   "k": [eq(a) for a in ["ma", "quindi", "Benché", "perché"]]},
+  {"part": "Prova 3 · Scrittura"},
+  {"id": "s1", "title": "S1 ✎ · Una lettera di reclamo", "type": "free", "rows": 8,
+   "cons": "Hai comprato online una lavatrice. È arrivata rotta e nessuno risponde al telefono. Scrivi un'email al servizio clienti "
+           "(80-100 parole): racconta che cosa è successo, spiega il problema e di' che cosa vuoi (cambio o rimborso).",
+   "items": ["La tua email"]},
+  {"id": "s2", "title": "S2 ✎ · La tua opinione", "type": "free", "rows": 8,
+   "cons": "«Imparare la lingua del paese dove si vive è il primo passo per sentirsi a casa.» Sei d'accordo? Scrivi la tua opinione (80-100 parole) con esempi della tua esperienza.",
+   "items": ["Il tuo testo"]},
+  {"part": "Prova 4 · Parlato"},
+  {"id": "p1", "title": "P1 🎤 · Racconta", "type": "record",
+   "items": ["Racconta un momento difficile dei tuoi primi mesi in Italia: che cosa è successo, come ti sentivi, chi ti ha aiutato."]},
+  {"id": "p2", "title": "P2 🎤 · Discuti", "type": "record",
+   "items": ["È meglio vivere in una grande città o in un piccolo paese? Spiega la tua opinione con almeno due motivi."]},
+ ]
+}
+
+
+# =====================================================================
+# B1 · SIMULAZIONE 2
+# =====================================================================
+B1_2 = {
+ "title": "📝 Verifica B1 · n. 2", "store": "esame-b1-2",
+ "sections": [
+  {"part": "Prova 1 · Ascolto"},
+  ascolto("a1", "A1 · Alla radio: un'intervista",
+          [("F", "Oggi abbiamo con noi Daniel, che è arrivato dall'Eritrea sette anni fa e adesso fa l'infermiere. Daniel, com'è andata?"),
+           ("M", "All'inizio è stato difficile. Nel mio paese avevo studiato infermieristica, ma qui il titolo non era riconosciuto."),
+           ("F", "E che cosa hai fatto?"),
+           ("M", "Ho lavorato per due anni in un ristorante e intanto ho imparato l'italiano. Poi ho chiesto il riconoscimento del titolo: "
+                 "ci è voluto più di un anno e ho dovuto fare alcuni esami."),
+           ("F", "E adesso?"),
+           ("M", "Lavoro in ospedale, nel reparto di pediatria. Mi piace molto, anche se i turni di notte sono pesanti. "
+                 "Il mio consiglio? Non arrendersi e chiedere informazioni agli sportelli giusti.")],
+          [("1. Da dove viene Daniel?", ["Dall'Eritrea", "Dall'Etiopia", "Dal Sudan"], "Dall'Eritrea"),
+           ("2. Che cosa aveva studiato?", ["Infermieristica", "Cucina", "Lingue"], "Infermieristica"),
+           ("3. Quanto tempo ha lavorato al ristorante?", ["Due anni", "Un anno", "Sette anni"], "Due anni"),
+           ("4. Per il riconoscimento del titolo ha dovuto…", ["fare alcuni esami", "tornare nel suo paese", "pagare un avvocato"], "fare alcuni esami"),
+           ("5. Che cosa trova pesante nel suo lavoro?", ["I turni di notte", "I bambini", "I colleghi"], "I turni di notte")],
+          cons="Ascolta l'intervista e scegli la risposta giusta.", p=5),
+  abbina("a2", "A2 · Che cosa vogliono fare?", ["Lamentarsi", "Chiedere un'informazione", "Invitare qualcuno", "Scusarsi"],
+         [("Messaggio 1", "Invitare qualcuno"), ("Messaggio 2", "Lamentarsi"), ("Messaggio 3", "Scusarsi"), ("Messaggio 4", "Chiedere un'informazione")],
+         audio=[("F", "Messaggio uno. Ciao Sara, sabato organizziamo una cena a casa nostra per il compleanno di Luca. Ti andrebbe di venire?"),
+                ("M", "Messaggio due. Buongiorno, chiamo per la terza volta: il riscaldamento nel mio appartamento non funziona da una settimana e nessuno è ancora venuto."),
+                ("F", "Messaggio tre. Professoressa, mi dispiace moltissimo per ieri: non sono potuta venire a lezione perché mia figlia aveva la febbre."),
+                ("M", "Messaggio quattro. Salve, volevo sapere se il corso di cucina comincia a novembre e quanto costa l'iscrizione.")],
+         cons="Ascolta i 4 messaggi. Che cosa vuole fare chi parla?", p=4),
+  {"part": "Prova 2 · Lettura"},
+  lettura("l1", "L1 · Le regole del contratto",
+          "<b>Estratto dal contratto di affitto</b><br>Il contratto dura quattro anni e si rinnova automaticamente per altri quattro. "
+          "L'inquilino può lasciare l'appartamento prima della scadenza, ma deve avvisare il proprietario con una lettera raccomandata "
+          "almeno sei mesi prima. Il deposito cauzionale, pari a due mensilità, sarà restituito alla fine del contratto se l'appartamento "
+          "non presenta danni. Le piccole riparazioni sono a carico dell'inquilino; quelle importanti (tetto, impianti) a carico del proprietario.",
+          [("1. Il contratto dura quattro anni più altri quattro.", None, "VERO"), ("2. Per andare via prima bisogna avvisare con un messaggio WhatsApp.", None, "FALSO"),
+           ("3. Il preavviso è di almeno sei mesi.", None, "VERO"), ("4. Il deposito è di tre mensilità.", None, "FALSO"),
+           ("5. Se si rompe l'impianto del riscaldamento paga il proprietario.", None, "VERO")],
+          opts=VF, cons="Leggi e scegli: vero o falso?", p=5),
+  {"id": "l2", "title": "L2 · Il periodo ipotetico", "short": "L2 · Completa", "type": "cloze", "badge": badge(4),
+   "cons": "Completa con il verbo giusto.",
+   "parts": ["1. Se ", {}, " (io, avere) più tempo, farei un corso di informatica.<br>2. Se domani piove, ", {}, " (noi, restare) a casa.<br>"
+             "3. Se tu ", {}, " (studiare) di più, passeresti l'esame.<br>4. Se avessi soldi, ", {}, " (io, comprare) una macchina."],
+   "k": [eq("avessi"), eq("restiamo", "resteremo"), eq("studiassi"), eq("comprerei")]},
+  {"id": "l3", "title": "L3 · I pronomi relativi", "short": "L3 · Relativi", "type": "choice", "full": True, "badge": badge(4),
+   "items": [{"q": "1. Il ragazzo ___ hai conosciuto ieri è mio cugino.", "opts": ["che", "cui", "il quale di"]},
+             {"q": "2. La città in ___ abito è sul mare.", "opts": ["cui", "che", "chi"]},
+             {"q": "3. ___ arriva tardi non può entrare.", "opts": ["Chi", "Che", "Cui"]},
+             {"q": "4. Questa è la collega con ___ lavoro.", "opts": ["cui", "che", "quale"]}],
+   "k": [eq(a) for a in ["che", "cui", "Chi", "cui"]]},
+  {"part": "Prova 3 · Scrittura"},
+  {"id": "s1", "title": "S1 ✎ · Una lettera di presentazione", "type": "free", "rows": 8,
+   "cons": "Hai visto un annuncio: un hotel di Polignano cerca personale per la reception. Scrivi una lettera di presentazione (80-100 parole): "
+           "chi sei, che esperienze hai, quali lingue parli, perché vuoi questo lavoro.",
+   "items": ["La tua lettera"]},
+  {"id": "s2", "title": "S2 ✎ · Un ricordo", "type": "free", "rows": 8,
+   "cons": "Racconta una festa importante della tua infanzia (80-100 parole). Usa l'imperfetto e il passato prossimo.",
+   "items": ["Il tuo testo"]},
+  {"part": "Prova 4 · Parlato"},
+  {"id": "p1", "title": "P1 🎤 · Descrivi", "type": "record",
+   "items": ["Descrivi il lavoro dei tuoi sogni: che cosa faresti, dove, con chi, e che cosa ti servirebbe per arrivarci."]},
+  {"id": "p2", "title": "P2 🎤 · Risolvi un problema", "type": "record",
+   "items": ["Il tuo vicino ascolta la musica ad alto volume ogni notte. Vai a parlargli: spiega il problema in modo gentile e proponi una soluzione."]},
+ ]
+}
+
+ESAMI = [("esami/a0-1.html", A0_1), ("esami/a1-1.html", A1_1), ("esami/a1-2.html", A1_2), ("esami/a2-1.html", A2_1), ("esami/a2-2.html", A2_2), ("esami/b1-1.html", B1_1), ("esami/b1-2.html", B1_2)]

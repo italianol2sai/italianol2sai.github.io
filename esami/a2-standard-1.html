@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎓 Simulazione d'esame A2 · n. 1</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🎓 Simulazione d'esame A2 · n. 1",
+ "store": "sim-a2s-1",
+ "upper": true,
+ "exam": {
+  "soglia": 60,
+  "regole": "FAI LE 5 PROVE IN ORDINE. OGNI PROVA HA UN TEMPO: QUANDO FINISCE PASSI ALLA PROVA DOPO E NON PUOI TORNARE INDIETRO. IL PUNTEGGIO AUTOMATICO CONTA ASCOLTO, LETTURA E STRUTTURE; LA SCRITTURA E IL PARLATO LI VALUTA L'INSEGNANTE. PER SUPERARE LA SIMULAZIONE SERVE IL 60%."
+ },
+ "sub": "SIMULAZIONE DI UN ESAME DI CERTIFICAZIONE A2. LEGGI LE REGOLE E PREMI «INIZIA L'ESAME».",
+ "sections": [
+  {
+   "part": "Prova 1 · Ascolto",
+   "min": 30
+  },
+  {
+   "id": "a1",
+   "title": "1 · In agenzia immobiliare",
+   "short": "1 · In agenzia immobiliare",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siRiIsICJCVU9OR0lPUk5PLCBITyBWSVNUTyBMJ0FOTlVOQ0lPIERFTEwnQVBQQVJUQU1FTlRPIElOIFZJQSBQSUNDSU5OSS4gw4ggQU5DT1JBIExJQkVSTz8iXSwgWyJNIiwgIlPDjCwgU0lHTk9SQS4gw4ggQUwgVEVSWk8gUElBTk8sIENPTiBBU0NFTlNPUkU6IERVRSBDQU1FUkUsIENVQ0lOQSBBQklUQUJJTEUsIEJBR05PIEUgVU4gUElDQ09MTyBCQUxDT05FLiJdLCBbIkYiLCAiUVVBTlRPIENPU1RBIEFMIE1FU0U/Il0sIFsiTSIsICJTRUlDRU5UT0NJTlFVQU5UQSBFVVJPLCBQScOZIFNFVFRBTlRBIEVVUk8gREkgU1BFU0UgQ09ORE9NSU5JQUxJLiJdLCBbIkYiLCAiw4ggQVJSRURBVE8/Il0sIFsiTSIsICJTT0xPIExBIENVQ0lOQS4gTEUgQ0FNRVJFIFNPTk8gVlVPVEUuIFNFIFZVT0xFLCBQT1NTSUFNTyBWRURFUkxPIERPTUFOSSBQT01FUklHR0lPIEFMTEUgQ0lOUVVFLiJdLCBbIkYiLCAiUEVSRkVUVE8sIFZFTkdPIENPTiBNSU8gTUFSSVRPLiJdXQ==",
+   "items": [
+    {
+     "q": "1. A CHE PIANO È L'APPARTAMENTO?",
+     "opts": [
+      "AL TERZO",
+      "AL PRIMO",
+      "AL QUINTO"
+     ]
+    },
+    {
+     "q": "2. QUANTE CAMERE HA?",
+     "opts": [
+      "DUE",
+      "UNA",
+      "TRE"
+     ]
+    },
+    {
+     "q": "3. QUANTO COSTA L'AFFITTO SENZA SPESE?",
+     "opts": [
+      "650 EURO",
+      "720 EURO",
+      "570 EURO"
+     ]
+    },
+    {
+     "q": "4. CHE COSA È ARREDATO?",
+     "opts": [
+      "SOLO LA CUCINA",
+      "TUTTA LA CASA",
+      "NIENTE"
+     ]
+    },
+    {
+     "q": "5. QUANDO VANNO A VEDERE LA CASA?",
+     "opts": [
+      "DOMANI ALLE 17",
+      "OGGI ALLE 17",
+      "DOMANI MATTINA"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBTCBURVJaTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRVRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjY1MCBFVVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU09MTyBMQSBDVUNJTkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJET01BTkkgQUxMRSAxNyJdfV0=",
+   "cons": "ASCOLTA IL DIALOGO DUE VOLTE E SCEGLI LA RISPOSTA GIUSTA."
+  },
+  {
+   "id": "a2",
+   "title": "2 · Il racconto di Lin",
+   "short": "2 · Il racconto di Lin",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siRiIsICJNSSBDSElBTU8gTElOIEUgVkVOR08gREFMTEEgQ0lOQS4gU09OTyBBUlJJVkFUQSBBIEJBUkkgVFJFIEFOTkkgRkEgUEVSIFNUVURJQVJFIEFSQ0hJVEVUVFVSQS4gQUxMJ0lOSVpJTyDDiCBTVEFUTyBESUZGSUNJTEU6IE5PTiBDQVBJVk8gTklFTlRFIEUgTUkgTUFOQ0FWQSBMQSBNSUEgRkFNSUdMSUEuIFBPSSBITyBDT05PU0NJVVRPIERVRSBSQUdBWlpFIERFTCBNSU8gQ09SU08gQ0hFIE1JIEhBTk5PIEFJVVRBVEEgTU9MVE8uIEFERVNTTyBMQVZPUk8gSUwgU0FCQVRPIElOIFVOIE5FR09aSU8gREkgU0NBUlBFIEUgTEEgRE9NRU5JQ0EgVkFETyBBTCBNQVJFIENPTiBMRSBNSUUgQU1JQ0hFLiBMJ0FOTk8gUFJPU1NJTU8gTUkgTEFVUkVPLiJdXQ==",
+   "items": [
+    {
+     "q": "1. LIN È VENUTA IN ITALIA PER LAVORARE."
+    },
+    {
+     "q": "2. ALL'INIZIO LE MANCAVA LA FAMIGLIA."
+    },
+    {
+     "q": "3. DUE COMPAGNE DI CORSO L'HANNO AIUTATA."
+    },
+    {
+     "q": "4. LAVORA IN UN NEGOZIO TUTTI I GIORNI."
+    },
+    {
+     "q": "5. SI LAUREA L'ANNO PROSSIMO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ==",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "cons": "ASCOLTA. VERO O FALSO?"
+  },
+  {
+   "part": "Prova 2 · Comprensione della lettura",
+   "min": 40
+  },
+  {
+   "id": "l1",
+   "title": "1 · Una gita a Matera",
+   "short": "1 · Una gita a Matera",
+   "type": "choice",
+   "full": true,
+   "info": "SABATO SCORSO SIAMO ANDATI A MATERA CON LA SCUOLA DI ITALIANO. SIAMO PARTITI ALLE OTTO CON IL PULLMAN E SIAMO ARRIVATI DOPO UN'ORA E MEZZA. LA GUIDA CI HA ACCOMPAGNATI NEI SASSI, LE ANTICHE CASE SCAVATE NELLA ROCCIA, DOVE FINO AGLI ANNI CINQUANTA VIVEVANO FAMIGLIE MOLTO POVERE. OGGI I SASSI SONO PATRIMONIO DELL'UNESCO E CI SONO ALBERGHI, RISTORANTI E MUSEI. A PRANZO ABBIAMO MANGIATO LE ORECCHIETTE E IL PANE DI MATERA. NEL POMERIGGIO HA PIOVUTO UN PO', MA ERAVAMO TUTTI CONTENTI.",
+   "items": [
+    {
+     "q": "1. COME SONO ANDATI A MATERA?",
+     "opts": [
+      "IN PULLMAN",
+      "IN TRENO",
+      "IN MACCHINA"
+     ]
+    },
+    {
+     "q": "2. QUANTO DURA IL VIAGGIO?",
+     "opts": [
+      "UN'ORA E MEZZA",
+      "OTTO ORE",
+      "MEZZ'ORA"
+     ]
+    },
+    {
+     "q": "3. CHE COSA SONO I SASSI?",
+     "opts": [
+      "ANTICHE CASE NELLA ROCCIA",
+      "MONTAGNE",
+      "CHIESE MODERNE"
+     ]
+    },
+    {
+     "q": "4. CHI VIVEVA NEI SASSI FINO AGLI ANNI CINQUANTA?",
+     "opts": [
+      "FAMIGLIE POVERE",
+      "TURISTI",
+      "STUDENTI"
+     ]
+    },
+    {
+     "q": "5. COM'ERA IL TEMPO NEL POMERIGGIO?",
+     "opts": [
+      "HA PIOVUTO UN PO'",
+      "C'ERA IL SOLE",
+      "HA NEVICATO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTiBQVUxMTUFOIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVU4nT1JBIEUgTUVaWkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBTlRJQ0hFIENBU0UgTkVMTEEgUk9DQ0lBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFNSUdMSUUgUE9WRVJFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSEEgUElPVlVUTyBVTiBQTyciXX1d",
+   "cons": "LEGGI IL TESTO E SCEGLI LA RISPOSTA GIUSTA."
+  },
+  {
+   "id": "l2",
+   "title": "2 · Le persone e i corsi",
+   "short": "2 · Le persone e i corsi",
+   "type": "select",
+   "opts": [
+    "CORSO A",
+    "CORSO B",
+    "CORSO C",
+    "CORSO D"
+   ],
+   "items": [
+    {
+     "q": "1. MARIA VUOLE IMPARARE A USARE IL COMPUTER."
+    },
+    {
+     "q": "2. SAID LAVORA DI GIORNO E PUÒ STUDIARE SOLO LA SERA."
+    },
+    {
+     "q": "3. ELENA VUOLE PREPARARE TORTE E BISCOTTI."
+    },
+    {
+     "q": "4. PEDRO VUOLE FARE SPORT CON ALTRE PERSONE."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDT1JTTyBCIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09SU08gRCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNPUlNPIEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT1JTTyBDIl19XQ==",
+   "info": "<b>A</b> · LABORATORIO DI PASTICCERIA, GIOVEDÌ 10-12.<br><b>B</b> · INFORMATICA DI BASE: EMAIL, INTERNET, SPID. LUNEDÌ 15-17.<br><b>C</b> · CALCETTO E PALLAVOLO NEL CAMPO DEL QUARTIERE, SABATO MATTINA.<br><b>D</b> · ITALIANO SERALE, MARTEDÌ E VENERDÌ 19-21.",
+   "cons": "LEGGI GLI ANNUNCI. QUALE CORSO VA BENE?"
+  },
+  {
+   "part": "Prova 3 · Analisi delle strutture",
+   "min": 30
+  },
+  {
+   "id": "g1",
+   "title": "1 · Passato prossimo o imperfetto?",
+   "short": "1 · Passato prossimo o imperfetto?",
+   "type": "cloze",
+   "cons": "SCRIVI IL VERBO AL TEMPO GIUSTO.",
+   "parts": [
+    "QUANDO ",
+    {},
+    " (IO, ESSERE) PICCOLO, ",
+    {},
+    " (IO, ABITARE) IN UN VILLAGGIO VICINO AL MARE. OGNI GIORNO ",
+    {},
+    " (IO, ANDARE) A SCUOLA A PIEDI. UN GIORNO MIO PADRE ",
+    {},
+    " (COMPRARE) UNA BICICLETTA E DA QUEL GIORNO ",
+    {},
+    " (IO, ANDARE) A SCUOLA IN BICI."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJlcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJhYml0YXZvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYW5kYXZvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaGEgY29tcHJhdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzb25vIGFuZGF0byIsICJzb25vIGFuZGF0YSIsICJhbmRhdm8iXX1d"
+  },
+  {
+   "id": "g2",
+   "title": "2 · Scegli la parola giusta",
+   "short": "2 · Scegli",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. HAI VISTO LE CHIAVI? SÌ, ___ HO VISTE SUL TAVOLO.",
+     "opts": [
+      "LE",
+      "LI",
+      "LA"
+     ]
+    },
+    {
+     "q": "2. DOMANI ___ AL CINEMA CON I MIEI AMICI.",
+     "opts": [
+      "VADO",
+      "SONO ANDATO",
+      "ANDAVO"
+     ]
+    },
+    {
+     "q": "3. QUESTO VESTITO È ___ BELLO DI QUELLO.",
+     "opts": [
+      "PIÙ",
+      "MOLTO",
+      "TROPPO"
+     ]
+    },
+    {
+     "q": "4. A MIA SORELLA ___ PIACCIONO I GATTI.",
+     "opts": [
+      "LE",
+      "GLI",
+      "LA"
+     ]
+    },
+    {
+     "q": "5. CI VEDIAMO ___ STAZIONE ALLE TRE.",
+     "opts": [
+      "ALLA",
+      "IN LA",
+      "DALLA"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZBRE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJQScOZIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBTExBIl19XQ=="
+  },
+  {
+   "part": "Prova 4 · Produzione scritta",
+   "min": 45
+  },
+  {
+   "id": "s1",
+   "title": "1 ✎ · Un'email a un amico",
+   "type": "free",
+   "rows": 6,
+   "cons": "SEI IN VACANZA. SCRIVI UN'EMAIL A UN AMICO (40-50 PAROLE): DOVE SEI, CON CHI, CHE COSA HAI FATTO, CHE TEMPO FA.",
+   "items": [
+    "LA TUA EMAIL"
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "2 ✎ · Racconta",
+   "type": "free",
+   "rows": 6,
+   "cons": "RACCONTA IL TUO PRIMO GIORNO IN ITALIA (50-60 PAROLE).",
+   "items": [
+    "IL TUO TESTO"
+   ]
+  },
+  {
+   "part": "Prova 5 · Produzione orale",
+   "min": 10
+  },
+  {
+   "id": "p1",
+   "title": "1 🎤 · Parla di te",
+   "type": "record",
+   "items": [
+    "PRESENTATI E PARLA DELLA TUA GIORNATA TIPICA."
+   ]
+  },
+  {
+   "id": "p2",
+   "title": "2 🎤 · Descrivi",
+   "type": "record",
+   "items": [
+    "DESCRIVI LA CASA DOVE ABITI E IL TUO QUARTIERE."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

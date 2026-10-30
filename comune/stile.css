@@ -58,3 +58,15 @@ td:last-child, th:last-child { text-align:right; }
 .grid td { width:2em; height:2em; text-align:center !important; font-weight:700; border:1px solid var(--line); padding:0; font-size:18px; }
 .big { font-size:46px; font-weight:800; margin:6px 0; }
 .note { color:var(--muted); font-size:14px; }
+/* modalità esame */
+.esame-bar { position:sticky; top:0; z-index:20; background:var(--accent); color:#fff; font-weight:800; font-size:17px;
+  text-align:center; padding:10px 14px; box-shadow:0 2px 8px rgba(0,0,0,.15); font-variant-numeric:tabular-nums; }
+.esame-bar.poco { background:var(--no); }
+.esame-bar[hidden] { display:none; }
+.esame-intro { border:2px solid var(--accent); }
+.esame-intro h2 { margin:0 0 10px; font-size:20px; }
+.esame-intro table { width:100%; border-collapse:collapse; margin:0 0 14px; font-size:16px; }
+.esame-intro th, .esame-intro td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); }
+.esame-intro td:last-child, .esame-intro th:last-child { text-align:right; white-space:nowrap; }
+.prova[hidden] { display:none; }
+.prova > .part { font-size:15px; background:var(--soft); border-radius:10px; padding:8px 12px; }

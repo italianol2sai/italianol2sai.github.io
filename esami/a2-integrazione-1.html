@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎓 Simulazione d'esame A2 integrazione · n. 1</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🎓 Simulazione d'esame A2 integrazione · n. 1",
+ "store": "sim-a2i-1",
+ "upper": true,
+ "exam": {
+  "soglia": 80,
+  "regole": "FAI LE 3 PROVE IN ORDINE. OGNI PROVA HA UN TEMPO: QUANDO FINISCE PASSI ALLA PROVA DOPO. NON PUOI TORNARE INDIETRO. GLI ASCOLTI LI PUOI SENTIRE DUE VOLTE. IL RISULTATO LO VEDI SOLO ALLA FINE. PER SUPERARE IL TEST SERVE L'80%."
+ },
+ "sub": "SIMULAZIONE DEL TEST A2 PER IL PERMESSO DI LUNGO PERIODO. LEGGI LE REGOLE E PREMI «INIZIA L'ESAME».",
+ "sections": [
+  {
+   "part": "Prova 1 · Comprensione orale",
+   "min": 25
+  },
+  {
+   "id": "a1",
+   "title": "1 · Il messaggio del medico",
+   "short": "1 · Il messaggio del medico",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siRiIsICJCVU9OR0lPUk5PIFNJR05PUiBLT1VBU1NJLCBTT05PIEwnSU5GRVJNSUVSQSBERUxMTyBTVFVESU8gREVMIERPVFRPUiBMT1NJVE8uIExFIEFOQUxJU0kgREVMIFNBTkdVRSBTT05PIFBST05URS4gSUwgRE9UVE9SRSBMQSBBU1BFVFRBIEdJT1ZFRMOMIEFMTEUgRElFQ0kgRSBNRVpaQSBQRVIgTEVHR0VSTEUgSU5TSUVNRS4gU0UgTk9OIFBVw5IgVkVOSVJFLCBDSSBDSElBTUkgQUxMTyBaRVJPIE9UVEFOVEEsIENJTlFVRSBDSU5RVUUgU0VJLCBEVUUgVFJFLCBRVUFUVFJPIENJTlFVRS4gQlVPTkEgR0lPUk5BVEEuIl1d",
+   "items": [
+    {
+     "q": "1. CHI TELEFONA?",
+     "opts": [
+      "L'INFERMIERA",
+      "IL DOTTORE",
+      "IL FARMACISTA"
+     ]
+    },
+    {
+     "q": "2. CHE COSA È PRONTO?",
+     "opts": [
+      "LE ANALISI DEL SANGUE",
+      "LA RICETTA",
+      "IL CERTIFICATO"
+     ]
+    },
+    {
+     "q": "3. QUANDO È L'APPUNTAMENTO?",
+     "opts": [
+      "GIOVEDÌ ALLE 10:30",
+      "MARTEDÌ ALLE 10:30",
+      "GIOVEDÌ ALLE 12:30"
+     ]
+    },
+    {
+     "q": "4. SE NON PUÒ ANDARE, CHE COSA DEVE FARE?",
+     "opts": [
+      "TELEFONARE ALLO STUDIO",
+      "ANDARE IN FARMACIA",
+      "MANDARE UN'EMAIL"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMJ0lORkVSTUlFUkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMRSBBTkFMSVNJIERFTCBTQU5HVUUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSU9WRUTDjCBBTExFIDEwOjMwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVEVMRUZPTkFSRSBBTExPIFNUVURJTyJdfV0=",
+   "cons": "ASCOLTA IL MESSAGGIO DUE VOLTE E SCEGLI LA RISPOSTA GIUSTA."
+  },
+  {
+   "id": "a2",
+   "title": "2 · All'ufficio postale",
+   "short": "2 · All'ufficio postale",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siTSIsICJCVU9OR0lPUk5PLiBERVZPIFNQRURJUkUgUVVFU1RPIFBBQ0NPIElOIFNFTkVHQUwuIl0sIFsiRiIsICJRVUFOVE8gUEVTQT8gTE8gTUVUVEEgU1VMTEEgQklMQU5DSUEuIl0sIFsiTSIsICJFQ0NPLiJdLCBbIkYiLCAiVFJFIENISUxJIEUgTUVaWk8uIENPTiBJTCBTRVJWSVpJTyBOT1JNQUxFIEFSUklWQSBJTiBEVUUgTyBUUkUgU0VUVElNQU5FIEUgQ09TVEEgVFJFTlRBRFVFIEVVUk8uIl0sIFsiTSIsICJDJ8OIIFVOIFNFUlZJWklPIFBJw5kgVkVMT0NFPyJdLCBbIkYiLCAiU8OMLCBDT04gSUwgQ09SUklFUkUgRVNQUkVTU08gQVJSSVZBIElOIENJTlFVRSBHSU9STkksIE1BIENPU1RBIFNFVFRBTlRBIEVVUk8uIl0sIFsiTSIsICJWQSBCRU5FIElMIFNFUlZJWklPIE5PUk1BTEUuIFBPU1NPIFBBR0FSRSBDT04gSUwgQkFOQ09NQVQ/Il0sIFsiRiIsICJDRVJUTy4gREVWRSBTT0xPIENPTVBJTEFSRSBRVUVTVE8gTU9EVUxPIENPTiBMJ0lORElSSVpaTy4iXV0=",
+   "items": [
+    {
+     "q": "1. IL PACCO VA IN SENEGAL."
+    },
+    {
+     "q": "2. IL PACCO PESA CINQUE CHILI."
+    },
+    {
+     "q": "3. CON IL SERVIZIO NORMALE COSTA 32 EURO."
+    },
+    {
+     "q": "4. L'UOMO SCEGLIE IL CORRIERE ESPRESSO."
+    },
+    {
+     "q": "5. PAGA CON IL BANCOMAT."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ==",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "cons": "ASCOLTA IL DIALOGO. VERO O FALSO?"
+  },
+  {
+   "id": "a3",
+   "title": "3 · Gli annunci",
+   "short": "3 · Gli annunci",
+   "type": "select",
+   "opts": [
+    "IN UN SUPERMERCATO",
+    "IN STAZIONE",
+    "IN AEROPORTO",
+    "IN OSPEDALE"
+   ],
+   "items": [
+    {
+     "q": "ANNUNCIO 1"
+    },
+    {
+     "q": "ANNUNCIO 2"
+    },
+    {
+     "q": "ANNUNCIO 3"
+    },
+    {
+     "q": "ANNUNCIO 4"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTiBTVEFaSU9ORSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklOIFVOIFNVUEVSTUVSQ0FUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklOIE9TUEVEQUxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSU4gQUVST1BPUlRPIl19XQ==",
+   "audio": "W1siRiIsICJBTk5VTkNJTyBVTk8uIElMIFRSRU5PIFJFR0lPTkFMRSBQRVIgQlJJTkRJU0kgw4ggSU4gQVJSSVZPIEFMIEJJTkFSSU8gRFVFLiBBTExPTlRBTkFSU0kgREFMTEEgTElORUEgR0lBTExBLiJdLCBbIk0iLCAiQU5OVU5DSU8gRFVFLiBHRU5USUxJIENMSUVOVEksIEFMIFJFUEFSVE8gRlJVVFRBIE9HR0kgTEUgQVJBTkNFIFNPTk8gSU4gT0ZGRVJUQSBBIFVOIEVVUk8gQUwgQ0hJTE8uIl0sIFsiRiIsICJBTk5VTkNJTyBUUkUuIFNJIFJJQ09SREEgQUkgVklTSVRBVE9SSSBDSEUgTCdPUkFSSU8gREkgVklTSVRBIEFJIFJJQ09WRVJBVEkgVEVSTUlOQSBBTExFIFZFTlRJLiJdLCBbIk0iLCAiQU5OVU5DSU8gUVVBVFRSTy4gSSBQQVNTRUdHRVJJIERFTCBWT0xPIFBFUiBUSVJBTkEgU09OTyBQUkVHQVRJIERJIFBSRVNFTlRBUlNJIEFMTCdVU0NJVEEgU0VJLiJdXQ==",
+   "cons": "ASCOLTA I 4 ANNUNCI. DOVE SEI?"
+  },
+  {
+   "part": "Prova 2 · Comprensione scritta",
+   "min": 25
+  },
+  {
+   "id": "l1",
+   "title": "1 · L'avviso del Comune",
+   "short": "1 · L'avviso del Comune",
+   "type": "choice",
+   "full": true,
+   "info": "<b>COMUNE DI BARI · SERVIZI DEMOGRAFICI</b><br>DAL 1° DICEMBRE L'UFFICIO ANAGRAFE DI VIA FRATELLI RUGGIERO SI SPOSTA IN PIAZZA CHIURLIA 27. L'UFFICIO È APERTO DAL LUNEDÌ AL VENERDÌ DALLE 9 ALLE 12; IL MARTEDÌ E IL GIOVEDÌ ANCHE DALLE 15:30 ALLE 17:30. PER LA CARTA D'IDENTITÀ ELETTRONICA SI PRENOTA ONLINE. I CERTIFICATI SI POSSONO SCARICARE GRATIS DAL SITO ANPR.",
+   "items": [
+    {
+     "q": "1. DAL 1° DICEMBRE L'UFFICIO…",
+     "opts": [
+      "CAMBIA INDIRIZZO",
+      "CHIUDE",
+      "APRE IL SABATO"
+     ]
+    },
+    {
+     "q": "2. IL MERCOLEDÌ POMERIGGIO L'UFFICIO È…",
+     "opts": [
+      "CHIUSO",
+      "APERTO DALLE 15:30",
+      "APERTO FINO ALLE 20"
+     ]
+    },
+    {
+     "q": "3. PER LA CARTA D'IDENTITÀ BISOGNA…",
+     "opts": [
+      "PRENOTARE ONLINE",
+      "TELEFONARE",
+      "ANDARE SENZA APPUNTAMENTO"
+     ]
+    },
+    {
+     "q": "4. I CERTIFICATI SI POSSONO…",
+     "opts": [
+      "SCARICARE GRATIS DA INTERNET",
+      "CHIEDERE SOLO IN POSTA",
+      "PAGARE 10 EURO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDQU1CSUEgSU5ESVJJWlpPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0hJVVNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUFJFTk9UQVJFIE9OTElORSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDQVJJQ0FSRSBHUkFUSVMgREEgSU5URVJORVQiXX1d",
+   "cons": "LEGGI L'AVVISO E SCEGLI LA RISPOSTA GIUSTA."
+  },
+  {
+   "id": "l2",
+   "title": "2 · Gli annunci di lavoro",
+   "short": "2 · Gli annunci di lavoro",
+   "type": "select",
+   "opts": [
+    "ANNUNCIO A",
+    "ANNUNCIO B",
+    "ANNUNCIO C",
+    "ANNUNCIO D"
+   ],
+   "items": [
+    {
+     "q": "1. RAHIM HA LA PATENTE C E VUOLE GUIDARE."
+    },
+    {
+     "q": "2. GRACE HA ESPERIENZA CON GLI ANZIANI."
+    },
+    {
+     "q": "3. YOUSSEF HA LAVORATO COME CAMERIERE E PARLA INGLESE."
+    },
+    {
+     "q": "4. FATIMA CERCA UN LAVORO DI PULIZIE LA MATTINA PRESTO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBTk5VTkNJTyBDIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQU5OVU5DSU8gQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFOTlVOQ0lPIEQiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBTk5VTkNJTyBCIl19XQ==",
+   "info": "<b>A</b> · CERCASI ASSISTENTE FAMILIARE PER SIGNORA DI 85 ANNI, CONVIVENTE, CON ESPERIENZA.<br><b>B</b> · IMPRESA DI PULIZIE CERCA PERSONALE PER UFFICI, ORARIO 5:30-8:30.<br><b>C</b> · DITTA DI TRASPORTI CERCA AUTISTA CON PATENTE C PER CONSEGNE IN PUGLIA.<br><b>D</b> · HOTEL A POLIGNANO CERCA CAMERIERE DI SALA, RICHIESTO INGLESE.",
+   "cons": "LEGGI GLI ANNUNCI. QUALE VA BENE PER OGNI PERSONA?"
+  },
+  {
+   "id": "l3",
+   "title": "3 · La lettera della scuola",
+   "short": "3 · La lettera della scuola",
+   "type": "choice",
+   "full": true,
+   "info": "GENTILI GENITORI, LUNEDÌ 15 COMINCIA IL SERVIZIO DI MENSA. IL PRANZO COSTA 3 EURO AL GIORNO E SI PAGA CON L'APP DEL COMUNE. LE FAMIGLIE CON REDDITO BASSO POSSONO CHIEDERE UNO SCONTO PORTANDO L'ISEE IN SEGRETERIA ENTRO IL 30. SE IL BAMBINO HA ALLERGIE O NON MANGIA ALCUNI CIBI (PER ESEMPIO PER MOTIVI RELIGIOSI), I GENITORI DEVONO COMPILARE IL MODULO PER LA DIETA SPECIALE. LA DIRIGENTE SCOLASTICA",
+   "items": [
+    {
+     "q": "1. IL SERVIZIO DI MENSA È GRATIS PER TUTTI."
+    },
+    {
+     "q": "2. SI PAGA CON L'APP DEL COMUNE."
+    },
+    {
+     "q": "3. PER LO SCONTO SERVE L'ISEE."
+    },
+    {
+     "q": "4. IL BAMBINO CHE NON MANGIA LA CARNE DI MAIALE NON PUÒ ANDARE IN MENSA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX1d",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "cons": "LEGGI LA LETTERA. VERO O FALSO?"
+  },
+  {
+   "part": "Prova 3 · Interazione scritta",
+   "min": 25
+  },
+  {
+   "id": "s1",
+   "title": "1 · Compila il modulo",
+   "short": "1 · Compila il modulo",
+   "type": "text",
+   "w": "m",
+   "cons": "SEI ALL'ASSOCIAZIONE. COMPILA IL MODULO DI ISCRIZIONE CON I DATI DI NADIA.",
+   "info": "LEGGI: <i>MI CHIAMO NADIA BENALI. SONO NATA A ORANO, IN ALGERIA, IL 3 MARZO 1994. ABITO A BARI IN VIA DANTE 120. IL MIO TELEFONO È 333 4567890. VORREI ISCRIVERMI AL CORSO DI CUCITO DEL MARTEDÌ.</i>",
+   "items": [
+    {
+     "q": "COGNOME"
+    },
+    {
+     "q": "NOME"
+    },
+    {
+     "q": "LUOGO DI NASCITA"
+    },
+    {
+     "q": "DATA DI NASCITA"
+    },
+    {
+     "q": "INDIRIZZO"
+    },
+    {
+     "q": "CORSO"
+    },
+    {
+     "q": "GIORNO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiZW5hbGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJuYWRpYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm9yYW5vIiwgIm9yYW5vIGFsZ2VyaWEiLCAib3Jhbm8gKGFsZ2VyaWEpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMy8zLzE5OTQiLCAiMDMvMDMvMTk5NCIsICIzIG1hcnpvIDE5OTQiLCAiMDMtMDMtMTk5NCIsICIzLTMtMTk5NCJdfSwgeyJ0IjogImVxIiwgImEiOiBbInZpYSBkYW50ZSAxMjAiLCAidmlhIGRhbnRlIDEyMCBiYXJpIiwgInZpYSBkYW50ZSwgMTIwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY3VjaXRvIiwgImNvcnNvIGRpIGN1Y2l0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm1hcnRlZGkiLCAiaWwgbWFydGVkaSJdfV0="
+  },
+  {
+   "id": "s2",
+   "title": "2 · Completa l'email",
+   "short": "2 · Completa l'email",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "parts": [
+    "GENTILE SIGNOR ROSSI,<br>SONO L'INQUILINA DEL SECONDO PIANO. LE ",
+    {},
+    " PERCHÉ IN CUCINA C'È UN PROBLEMA: IL RUBINETTO ",
+    {},
+    " ACQUA DA TRE GIORNI. POTREBBE ",
+    {},
+    " UN IDRAULICO? IO SONO A CASA TUTTI I GIORNI ",
+    {},
+    " LE 15. GRAZIE MILLE.<br>CORDIALI ",
+    {},
+    ",<br>AMINA"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzY3Jpdm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJwZXJkZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm1hbmRhcmUiLCAiY2hpYW1hcmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkb3BvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2FsdXRpIl19XQ==",
+   "bank": "SCRIVO · PERDE · MANDARE · DOPO · SALUTI"
+  },
+  {
+   "id": "s3",
+   "title": "3 · Scegli la risposta giusta",
+   "short": "3 · Rispondi",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. IL TUO COLLEGA SCRIVE: «DOMANI PUOI FARE IL TURNO DI MATTINA AL POSTO MIO?» RISPONDI DI SÌ:",
+     "opts": [
+      "SÌ, NESSUN PROBLEMA. A CHE ORA COMINCIO?",
+      "NO, DOMANI È DOMENICA.",
+      "SÌ, IERI HO LAVORATO."
+     ]
+    },
+    {
+     "q": "2. UN'AMICA SCRIVE: «STO MALE, NON VENGO A SCUOLA». RISPONDI:",
+     "opts": [
+      "MI DISPIACE! RIPOSATI. TI MANDO I COMPITI.",
+      "CHE BELLO! A DOMANI.",
+      "SONO LE OTTO."
+     ]
+    },
+    {
+     "q": "3. IL PROPRIETARIO SCRIVE: «L'AFFITTO DI QUESTO MESE NON È ARRIVATO». RISPONDI:",
+     "opts": [
+      "MI SCUSI, HO FATTO IL BONIFICO IERI. LE MANDO LA RICEVUTA.",
+      "VA BENE, ARRIVEDERCI.",
+      "IL MIO NUMERO È 333..."
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTw4wsIE5FU1NVTiBQUk9CTEVNQS4gQSBDSEUgT1JBIENPTUlOQ0lPPyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1JIERJU1BJQUNFISBSSVBPU0FUSS4gVEkgTUFORE8gSSBDT01QSVRJLiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1JIFNDVVNJLCBITyBGQVRUTyBJTCBCT05JRklDTyBJRVJJLiBMRSBNQU5ETyBMQSBSSUNFVlVUQS4iXX1d"
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

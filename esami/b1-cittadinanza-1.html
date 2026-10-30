@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎓 Simulazione d'esame B1 cittadinanza · n. 1</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🎓 Simulazione d'esame B1 cittadinanza · n. 1",
+ "store": "sim-b1c-1",
+ "exam": {
+  "soglia": 60,
+  "regole": "Fai le 5 prove in ordine. Ogni prova ha un tempo: quando finisce passi alla prova dopo e non puoi tornare indietro. Il punteggio automatico conta ascolto, lettura e strutture; la produzione scritta e orale la valuta l'insegnante (premi «Invia le risposte all'insegnante» alla fine). Per superare la simulazione serve il 60% nelle prove automatiche."
+ },
+ "sub": "Simulazione dell'esame B1 per la cittadinanza italiana. Leggi le regole e premi «Inizia l'esame».",
+ "sections": [
+  {
+   "part": "Prova 1 · Ascolto",
+   "min": 30
+  },
+  {
+   "id": "a1",
+   "title": "1 · Brevi notizie",
+   "short": "1 · Brevi notizie",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siRiIsICJOb3RpemlhIHVuby4gRGEgZ2VubmFpbyBpbCBDb211bmUgZGkgQmFyaSBhcHJpcsOgIHRyZSBudW92aSBhc2lsaSBuaWRvIG5laSBxdWFydGllcmkgcGVyaWZlcmljaS4gTGUgaXNjcml6aW9uaSBzaSBmYXJhbm5vIHNvbG8gb25saW5lLiJdLCBbIk0iLCAiTm90aXppYSBkdWUuIERvbWFuaSBzY2lvcGVybyBkZWkgbWV6emkgcHViYmxpY2kgZGFsbGUgbm92ZSBhbGxlIGRpY2lhc3NldHRlLiBTYXJhbm5vIGdhcmFudGl0ZSBzb2xvIGxlIGNvcnNlIGRlbCBtYXR0aW5vIHByZXN0byBlIGRlbGxhIHNlcmEuIl0sIFsiRiIsICJOb3RpemlhIHRyZS4gTCdBZ2VuemlhIGRlbGxlIEVudHJhdGUgcmljb3JkYSBjaGUgbGEgZGljaGlhcmF6aW9uZSBkZWkgcmVkZGl0aSBwcmVjb21waWxhdGEgw6ggZGlzcG9uaWJpbGUgb25saW5lIGRhIGZpbmUgYXByaWxlLiJdLCBbIk0iLCAiTm90aXppYSBxdWF0dHJvLiBOZWwgZmluZSBzZXR0aW1hbmEgc29ubyBwcmV2aXN0ZSBmb3J0aSBwaW9nZ2Ugc3UgdHV0dGEgbGEgcmVnaW9uZTogbGEgUHJvdGV6aW9uZSBjaXZpbGUgY29uc2lnbGlhIGRpIG5vbiB1c2FyZSBpIHNvdHRvcGFzc2FnZ2kuIl1d",
+   "items": [
+    {
+     "q": "1. Come ci si iscrive ai nuovi asili nido?",
+     "opts": [
+      "Solo online",
+      "In Comune",
+      "A scuola"
+     ]
+    },
+    {
+     "q": "2. Durante lo sciopero gli autobus…",
+     "opts": [
+      "passano solo la mattina presto e la sera",
+      "non passano mai",
+      "passano tutto il giorno"
+     ]
+    },
+    {
+     "q": "3. La dichiarazione precompilata è disponibile…",
+     "opts": [
+      "da fine aprile",
+      "da gennaio",
+      "da settembre"
+     ]
+    },
+    {
+     "q": "4. Che cosa consiglia la Protezione civile?",
+     "opts": [
+      "Di non usare i sottopassaggi",
+      "Di restare a casa tutta la settimana",
+      "Di chiamare il 112"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTb2xvIG9ubGluZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBhc3Nhbm8gc29sbyBsYSBtYXR0aW5hIHByZXN0byBlIGxhIHNlcmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkYSBmaW5lIGFwcmlsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRpIG5vbiB1c2FyZSBpIHNvdHRvcGFzc2FnZ2kiXX1d",
+   "cons": "Ascolta le notizie e scegli la risposta giusta."
+  },
+  {
+   "id": "a2",
+   "title": "2 · Un'intervista",
+   "short": "2 · Un'intervista",
+   "type": "choice",
+   "full": true,
+   "audio": "W1siRiIsICJPZ2dpIHBhcmxpYW1vIGNvbiBBbmEsIGNoZSDDqCBhcnJpdmF0YSBkYWwgUGVyw7kgcXVpbmRpY2kgYW5uaSBmYSBlIGRhIHBvY28gw6ggZGl2ZW50YXRhIGNpdHRhZGluYSBpdGFsaWFuYS4gQW5hLCBjaGUgY29zYSBoYSBzaWduaWZpY2F0byBwZXIgdGU/Il0sIFsiTSIsICJQZXIgbWUgw6ggc3RhdG8gdW4gbW9tZW50byBtb2x0byBlbW96aW9uYW50ZS4gSG8gZ2l1cmF0byBzdWxsYSBDb3N0aXR1emlvbmUgZGF2YW50aSBhbCBzaW5kYWNvLCBjb24gaSBtaWVpIGZpZ2xpIHZpY2luby4iXSwgWyJGIiwgIsOIIHN0YXRvIGRpZmZpY2lsZSBvdHRlbmVyZSBsYSBjaXR0YWRpbmFuemE/Il0sIFsiTSIsICJDaSBzb25vIHZvbHV0aSBwacO5IGRpIGR1ZSBhbm5pLiBIbyBkb3Z1dG8gcmFjY29nbGllcmUgbW9sdGkgZG9jdW1lbnRpLCB0cmFkdXJsaSBlIGZhcmUgbCdlc2FtZSBkaSBpdGFsaWFubyBkaSBsaXZlbGxvIEIxLiJdLCBbIkYiLCAiQ2hlIGNvc2EgY2FtYmlhIGFkZXNzbyBuZWxsYSB0dWEgdml0YT8iXSwgWyJNIiwgIlBvc3NvIHZvdGFyZSwgZmluYWxtZW50ZSEgRSBwb3NzbyB2aWFnZ2lhcmUgcGnDuSBmYWNpbG1lbnRlLiBNYSBzb3ByYXR0dXR0byBtaSBzZW50byBwYXJ0ZSBkaSBxdWVzdGEgY29tdW5pdMOgLCBjaGUgw6ggYW5jaGUgbWlhLiJdXQ==",
+   "items": [
+    {
+     "q": "1. Ana vive in Italia da quindici anni."
+    },
+    {
+     "q": "2. Ha giurato davanti al giudice."
+    },
+    {
+     "q": "3. Per la cittadinanza ci sono voluti più di due anni."
+    },
+    {
+     "q": "4. Non ha dovuto fare l'esame di italiano."
+    },
+    {
+     "q": "5. Ora può votare."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ==",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "cons": "Ascolta l'intervista e scegli: vero o falso?"
+  },
+  {
+   "part": "Prova 2 · Comprensione della lettura",
+   "min": 50
+  },
+  {
+   "id": "l1",
+   "title": "1 · La Costituzione",
+   "short": "1 · La Costituzione",
+   "type": "choice",
+   "full": true,
+   "info": "La Costituzione italiana è entrata in vigore il 1° gennaio 1948, dopo la fine della Seconda guerra mondiale e il referendum del 1946, con cui gli italiani hanno scelto la Repubblica al posto della monarchia. Per la prima volta hanno votato anche le donne. La Costituzione afferma che l'Italia è una Repubblica democratica fondata sul lavoro e che tutti i cittadini sono uguali davanti alla legge, senza distinzione di sesso, razza, lingua, religione e opinioni politiche. Riconosce diritti come la libertà di parola, il diritto all'istruzione e alla salute, ma anche doveri, come pagare le tasse in proporzione a quello che si guadagna.",
+   "items": [
+    {
+     "q": "1. La Costituzione è entrata in vigore nel…",
+     "opts": [
+      "1948",
+      "1946",
+      "1861"
+     ]
+    },
+    {
+     "q": "2. Nel referendum del 1946 gli italiani hanno scelto…",
+     "opts": [
+      "la Repubblica",
+      "la monarchia",
+      "un nuovo re"
+     ]
+    },
+    {
+     "q": "3. Che cosa è successo per la prima volta nel 1946?",
+     "opts": [
+      "Hanno votato le donne",
+      "Si è votato per il Papa",
+      "È finita la scuola obbligatoria"
+     ]
+    },
+    {
+     "q": "4. Secondo la Costituzione la Repubblica è fondata…",
+     "opts": [
+      "sul lavoro",
+      "sulla religione",
+      "sull'esercito"
+     ]
+    },
+    {
+     "q": "5. Quale è un dovere dei cittadini?",
+     "opts": [
+      "Pagare le tasse in base al reddito",
+      "Andare in chiesa",
+      "Avere una casa"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxOTQ4Il19LCB7InQiOiAiZXEiLCAiYSI6IFsibGEgUmVwdWJibGljYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkhhbm5vIHZvdGF0byBsZSBkb25uZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInN1bCBsYXZvcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJQYWdhcmUgbGUgdGFzc2UgaW4gYmFzZSBhbCByZWRkaXRvIl19XQ==",
+   "cons": "Leggi il testo e scegli la risposta giusta."
+  },
+  {
+   "id": "l2",
+   "title": "2 · Le istituzioni",
+   "short": "2 · Le istituzioni",
+   "type": "select",
+   "opts": [
+    "Il Parlamento",
+    "Il Presidente della Repubblica",
+    "Il Governo",
+    "La Magistratura",
+    "Il Comune"
+   ],
+   "items": [
+    {
+     "q": "1. Fa le leggi; è formato da Camera dei deputati e Senato."
+    },
+    {
+     "q": "2. È il capo dello Stato e rappresenta l'unità nazionale."
+    },
+    {
+     "q": "3. È guidato dal Presidente del Consiglio e mette in pratica le leggi."
+    },
+    {
+     "q": "4. È indipendente e giudica chi non rispetta la legge."
+    },
+    {
+     "q": "5. Si occupa dei servizi della città, come anagrafe, asili e trasporti."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJbCBQYXJsYW1lbnRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSWwgUHJlc2lkZW50ZSBkZWxsYSBSZXB1YmJsaWNhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSWwgR292ZXJubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxhIE1hZ2lzdHJhdHVyYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklsIENvbXVuZSJdfV0=",
+   "cons": "Leggi le descrizioni e scegli l'istituzione giusta."
+  },
+  {
+   "part": "Prova 3 · Analisi delle strutture di comunicazione",
+   "min": 40
+  },
+  {
+   "id": "g1",
+   "title": "1 · Completa con i verbi",
+   "short": "1 · Completa con i verbi",
+   "type": "cloze",
+   "cons": "Scrivi il verbo al tempo e modo giusto.",
+   "parts": [
+    "Quando sono arrivata in Italia non ",
+    {},
+    " (io, conoscere) nessuno. Per fortuna una vicina mi ",
+    {},
+    " (aiutare) a trovare un corso di italiano. Credo che imparare la lingua ",
+    {},
+    " (essere) fondamentale. Se non ",
+    {},
+    " (io, studiare), oggi non potrei lavorare come mediatrice. L'anno prossimo ",
+    {},
+    " (io, chiedere) la cittadinanza."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjb25vc2Nldm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJoYSBhaXV0YXRhIiwgImhhIGFpdXRhdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzaWEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJhdmVzc2kgc3R1ZGlhdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJjaGllZGVyw7IiXX1d"
+  },
+  {
+   "id": "g2",
+   "title": "2 · Scegli la forma giusta",
+   "short": "2 · Scegli",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. È necessario che i genitori ___ i figli a scuola fino a 16 anni.",
+     "opts": [
+      "mandino",
+      "mandano",
+      "manderanno"
+     ]
+    },
+    {
+     "q": "2. Il sindaco, ___ è stato eletto a giugno, ha presentato il programma.",
+     "opts": [
+      "che",
+      "cui",
+      "il quale di"
+     ]
+    },
+    {
+     "q": "3. ___ fossi cittadino, voterei alle elezioni.",
+     "opts": [
+      "Se",
+      "Quando",
+      "Perché"
+     ]
+    },
+    {
+     "q": "4. Le tasse ___ pagate entro il 30 novembre.",
+     "opts": [
+      "devono essere",
+      "devono avere",
+      "hanno dovuto"
+     ]
+    },
+    {
+     "q": "5. Mi ha detto che ___ il giorno dopo.",
+     "opts": [
+      "sarebbe venuto",
+      "viene",
+      "venga"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJtYW5kaW5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY2hlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU2UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkZXZvbm8gZXNzZXJlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2FyZWJiZSB2ZW51dG8iXX1d"
+  },
+  {
+   "part": "Prova 4 · Produzione scritta",
+   "min": 60
+  },
+  {
+   "id": "s1",
+   "title": "1 ✎ · Un'email all'ufficio",
+   "type": "free",
+   "rows": 8,
+   "cons": "Devi rinnovare la carta d'identità ma online non trovi appuntamenti liberi prima di due mesi. Scrivi un'email all'ufficio anagrafe (80-100 parole): spiega la situazione, di' perché ti serve presto il documento e chiedi una soluzione.",
+   "items": [
+    "La tua email"
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "2 ✎ · Un testo personale",
+   "type": "free",
+   "rows": 8,
+   "cons": "Che cosa significa per te diventare cittadino italiano? Scrivi un testo (80-100 parole) con la tua esperienza e le tue ragioni.",
+   "items": [
+    "Il tuo testo"
+   ]
+  },
+  {
+   "part": "Prova 5 · Produzione orale",
+   "min": 10
+  },
+  {
+   "id": "p1",
+   "title": "1 🎤 · Presentati",
+   "type": "record",
+   "items": [
+    "Presentati: da quanto tempo vivi in Italia, che cosa fai, com'è la tua vita a Bari, i tuoi progetti per il futuro."
+   ]
+  },
+  {
+   "id": "p2",
+   "title": "2 🎤 · Esprimi un'opinione",
+   "type": "record",
+   "items": [
+    "Secondo te, quali sono i diritti e i doveri più importanti di chi vive in Italia? Spiega con esempi."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
