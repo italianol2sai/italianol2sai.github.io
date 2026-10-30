@@ -86,30 +86,31 @@ GIOCHI["cucina"] = dict(
 
 # ------------------------------------------------------------------ FAMIGLIA
 GIOCHI["famiglia"] = dict(
-  titolo="MISSIONE FAMIGLIA", sottotitolo="PREPARA LA FESTA DELLA NONNA!", parolaSegreta="BACI", guida="eneida", protagonista="lin",
-  etichetta="ITALIANO L2 · LA FAMIGLIA", portaFinale="LA PORTA DELLA FESTA", grazie="GRAZIE! È UNA FESTA BELLISSIMA!",
+  titolo="MISSIONE FAMIGLIA", sottotitolo="ORGANIZZA IL MATRIMONIO DI MARYAM E MAKARI!", parolaSegreta="FEDE", guida="eneida", protagonista="maryam2",
+  etichetta="ITALIANO L2 · LA FAMIGLIA", portaFinale="LA PORTA DELLA FESTA", grazie="GRAZIE! È UN MATRIMONIO BELLISSIMO!",
   imparato="HAI IMPARATO I NOMI DEI PARENTI, I POSSESSIVI E A DESCRIVERE LE PERSONE.",
-  intro=[["lin", "OGGI LA MIA NONNA COMPIE 80 ANNI! FACCIAMO UNA FESTA IN VIDEOCHIAMATA CON TUTTA LA FAMIGLIA."], ["eneida", "CHE BELLO! SONO ENEIDA, LA COORDINATRICE. TI AIUTO A PREPARARE TUTTO."],
-         ["eneida", "CI SONO 4 PORTE. CON LE 4 LETTERE SCOPRI CHE COSA MANDA LA FAMIGLIA ALLA NONNA!"]],
-  finale=[["lin", "TUTTI SONO IN VIDEOCHIAMATA. LA NONNA È FELICE!"], ["eneida", "CHE COSA MANDANO TUTTI ALLA NONNA? SCRIVI LA PAROLA SEGRETA."]],
-  vittoria="TUTTI DICONO: «TANTI AUGURI, NONNA! TANTI BACI DA TUTTA LA FAMIGLIA!»",
+  intro=[["maryam2", "GRANDE NOTIZIA: IO E MAKARI CI SPOSIAMO! MA C'È TANTO DA ORGANIZZARE…"], ["makari", "CIAO, SONO MAKARI. DOBBIAMO INVITARE TUTTE LE NOSTRE FAMIGLIE!"],
+         ["eneida", "CHE BELLO! SONO ENEIDA, LA COORDINATRICE. VI AIUTO A ORGANIZZARE TUTTO."],
+         ["eneida", "CI SONO 4 PORTE. CON LE 4 LETTERE SCOPRI CHE COSA SI SCAMBIANO GLI SPOSI!"]],
+  finale=[["maryam2", "SIAMO DAVANTI AL SINDACO. È IL MOMENTO DEGLI ANELLI!"], ["eneida", "COME SI CHIAMA L'ANELLO DEL MATRIMONIO? SCRIVI LA PAROLA SEGRETA."]],
+  vittoria="TUTTI DICONO: «VIVA GLI SPOSI! AUGURI, MARYAM E MAKARI!»",
   stanze=[
-    porta("parenti", "I PARENTI", "👨‍👩‍👧", "B", "eneida", ("LA FAMIGLIA", "letture/famiglia.html"), [["eneida", "CHI C'È NELLA TUA FAMIGLIA?"]], ["lin", "CONOSCO TUTTI I PARENTI!"], [
-      S("LA MADRE DI MIA MADRE È MIA…", "👵", [("NONNA", "👵"), ("ZIA", "👩"), ("SORELLA", "👧")], "È LA FESTEGGIATA DI OGGI!", "LA MADRE DELLA MAMMA È LA NONNA."),
+    porta("parenti", "GLI INVITATI", "👨‍👩‍👧", "F", "eneida", ("LA FAMIGLIA", "letture/famiglia.html"), [["eneida", "PRIMA LA LISTA DEGLI INVITATI. CHI C'È NELLA VOSTRA FAMIGLIA?"]], ["maryam2", "ABBIAMO INVITATO TUTTI I PARENTI!"], [
+      S("LA MADRE DI MIA MADRE È MIA…", "👵", [("NONNA", "👵"), ("ZIA", "👩"), ("SORELLA", "👧")], "È ANZIANA E MOLTO IMPORTANTE ALLA FESTA!", "LA MADRE DELLA MAMMA È LA NONNA."),
       S("IL FRATELLO DI MIO PADRE È MIO…", "👨", [("ZIO", "👨"), ("CUGINO", "👦"), ("NONNO", "👴")], "È DELLA GENERAZIONE DEI GENITORI.", "IL FRATELLO DEL PAPÀ È LO ZIO."),
-      C("COMPLETA.", "IL FIGLIO DI MIO ZIO È MIO ___.", "👦", ["CUGINO", "NIPOTE", "FRATELLO"], "È DELLA MIA GENERAZIONE.", "IL FIGLIO DELLO ZIO È IL CUGINO.")]),
-    porta("possessivi", "MIO, TUO, SUO", "🔑", "A", "eneida", ("I POSSESSIVI", "possessivi/esercizi.html"), [["eneida", "ORA PARLIAMO DEI REGALI: DI CHI SONO?"]], ["lin", "CHE FACILE!"], [
+      C("COMPLETA.", "LA MADRE DI MAKARI È LA ___ DI MARYAM.", "👩", ["SUOCERA", "SORELLA", "CUGINA"], "È LA MAMMA DEL MARITO.", "LA MADRE DEL MARITO È LA SUOCERA.")]),
+    porta("possessivi", "MIO, TUO, SUO", "🔑", "E", "eneida", ("I POSSESSIVI", "possessivi/esercizi.html"), [["eneida", "ORA I REGALI: DI CHI SONO?"]], ["makari", "CHE FACILE!"], [
       C("COMPLETA.", "___ NONNA SI CHIAMA FATIMA.", "👵", ["MIA", "LA MIA", "MIO"], "CON I PARENTI AL SINGOLARE: NIENTE ARTICOLO.", "MIA NONNA (SENZA «LA»)."),
-      C("COMPLETA.", "___ FRATELLI ABITANO IN FRANCIA.", "👬", ["I MIEI", "MIEI", "LE MIE"], "AL PLURALE CI VUOLE L'ARTICOLO.", "I MIEI FRATELLI."),
+      C("COMPLETA.", "___ FRATELLI ARRIVANO DALLA FRANCIA.", "👬", ["I MIEI", "MIEI", "LE MIE"], "AL PLURALE CI VUOLE L'ARTICOLO.", "I MIEI FRATELLI."),
       VF("«SUA SORELLA» PUÒ ESSERE LA SORELLA DI LUI O DI LEI.", "👧", True, "SUO/SUA DIPENDE DALLA COSA, NON DALLA PERSONA.", "VERO.")]),
-    porta("descrivere", "COM'È?", "🪞", "C", "eneida", ("GLI AGGETTIVI", "aggettivi/esercizi.html"), [["lin", "DESCRIVO LA MIA FAMIGLIA A ENEIDA."]], ["eneida", "CHE BELLA FAMIGLIA!"], [
-      S("IL NONNO HA 90 ANNI. È…", "👴", [("ANZIANO", "👴"), ("GIOVANE", "🧒"), ("PICCOLO", "👶")], "HA TANTI ANNI.", "CON TANTI ANNI SI È ANZIANI."),
-      C("COMPLETA.", "LE MIE CUGINE SONO ALT___.", "👭", ["E", "I", "A"], "CUGINE: FEMMINILE PLURALE.", "LE CUGINE SONO ALTE."),
-      S("RIDE SEMPRE ED È CONTENTA. È…", "😄", [("ALLEGRA", "😄"), ("TRISTE", "😢"), ("ARRABBIATA", "😠")], "IL CONTRARIO DI TRISTE.", "È ALLEGRA.")]),
-    porta("festa", "LA FESTA", "🎂", "I", "eneida", ("FESTE E TRADIZIONI", "feste/"), [["eneida", "ULTIMA PORTA: GLI AUGURI!"]], ["lin", "LA FESTA COMINCIA!"], [
-      S("PER IL COMPLEANNO SI DICE…", "🎂", [("TANTI AUGURI!", "🎉"), ("BUON NATALE!", "🎄"), ("BUON VIAGGIO!", "✈️")], "È IL GIORNO IN CUI SEI NATO.", "TANTI AUGURI! / BUON COMPLEANNO!"),
-      C("COMPLETA.", "LA NONNA ___ 80 ANNI.", "👵", ["HA", "È", "FA"], "L'ETÀ SI DICE CON AVERE.", "HA 80 ANNI."),
-      VF("SULLA TORTA CI SONO LE CANDELINE.", "🕯️", True, "SI SOFFIANO!", "VERO.")]),
+    porta("descrivere", "COM'È?", "🪞", "D", "eneida", ("GLI AGGETTIVI", "aggettivi/esercizi.html"), [["maryam2", "ENEIDA, TI DESCRIVO IL MIO VESTITO E LA FAMIGLIA DI MAKARI."]], ["eneida", "CHE BELLO TUTTO!"], [
+      S("IL VESTITO DA SPOSA È…", "👰", [("BIANCO E LUNGO", "👰"), ("NERO E CORTO", "🖤"), ("VERDE E VECCHIO", "🟢")], "È IL COLORE PIÙ CLASSICO.", "IL VESTITO DA SPOSA È SPESSO BIANCO E LUNGO."),
+      C("COMPLETA.", "LE SORELLE DI MAKARI SONO ALT___.", "👭", ["E", "I", "A"], "SORELLE: FEMMINILE PLURALE.", "LE SORELLE SONO ALTE."),
+      S("MAKARI RIDE SEMPRE ED È CONTENTO. È…", "😄", [("ALLEGRO", "😄"), ("TRISTE", "😢"), ("ARRABBIATO", "😠")], "IL CONTRARIO DI TRISTE.", "È ALLEGRO.")]),
+    porta("festa", "IL MATRIMONIO", "💍", "E", "eneida", ("FESTE E TRADIZIONI", "feste/"), [["eneida", "ULTIMA PORTA: IL GRANDE GIORNO!"]], ["makari", "LA FESTA COMINCIA!"], [
+      S("AGLI SPOSI SI DICE…", "💐", [("AUGURI E FIGLI MASCHI… O FEMMINE!", "🎉"), ("BUON NATALE!", "🎄"), ("BUON VIAGGIO!", "✈️")], "È UN AUGURIO PER LA NUOVA FAMIGLIA.", "AGLI SPOSI SI FANNO GLI AUGURI. «VIVA GLI SPOSI!»"),
+      C("COMPLETA.", "MARYAM E MAKARI ___ SPOSANO IN COMUNE.", "🏛️", ["SI", "CI", "LO"], "SPOSARSI È UN VERBO RIFLESSIVO.", "SI SPOSANO."),
+      VF("AL MATRIMONIO GLI SPOSI REGALANO I CONFETTI AGLI INVITATI.", "🍬", True, "SONO DOLCI BIANCHI CON LA MANDORLA.", "VERO: È LA BOMBONIERA CON I CONFETTI.")]),
   ])
 
 # ------------------------------------------------------------------ VESTITI

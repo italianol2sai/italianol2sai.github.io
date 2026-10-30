@@ -1,45 +1,49 @@
 // Contenuti del gioco «MISSIONE FAMIGLIA» (generati da _strumenti/missioni.py: modificare lì).
 window.MISSIONE = {
  "titolo": "MISSIONE FAMIGLIA",
- "sottotitolo": "PREPARA LA FESTA DELLA NONNA!",
- "parolaSegreta": "BACI",
+ "sottotitolo": "ORGANIZZA IL MATRIMONIO DI MARYAM E MAKARI!",
+ "parolaSegreta": "FEDE",
  "guida": "eneida",
- "protagonista": "lin",
+ "protagonista": "maryam2",
  "etichetta": "ITALIANO L2 · LA FAMIGLIA",
  "portaFinale": "LA PORTA DELLA FESTA",
- "grazie": "GRAZIE! È UNA FESTA BELLISSIMA!",
+ "grazie": "GRAZIE! È UN MATRIMONIO BELLISSIMO!",
  "imparato": "HAI IMPARATO I NOMI DEI PARENTI, I POSSESSIVI E A DESCRIVERE LE PERSONE.",
  "intro": [
   [
-   "lin",
-   "OGGI LA MIA NONNA COMPIE 80 ANNI! FACCIAMO UNA FESTA IN VIDEOCHIAMATA CON TUTTA LA FAMIGLIA."
+   "maryam2",
+   "GRANDE NOTIZIA: IO E MAKARI CI SPOSIAMO! MA C'È TANTO DA ORGANIZZARE…"
+  ],
+  [
+   "makari",
+   "CIAO, SONO MAKARI. DOBBIAMO INVITARE TUTTE LE NOSTRE FAMIGLIE!"
   ],
   [
    "eneida",
-   "CHE BELLO! SONO ENEIDA, LA COORDINATRICE. TI AIUTO A PREPARARE TUTTO."
+   "CHE BELLO! SONO ENEIDA, LA COORDINATRICE. VI AIUTO A ORGANIZZARE TUTTO."
   ],
   [
    "eneida",
-   "CI SONO 4 PORTE. CON LE 4 LETTERE SCOPRI CHE COSA MANDA LA FAMIGLIA ALLA NONNA!"
+   "CI SONO 4 PORTE. CON LE 4 LETTERE SCOPRI CHE COSA SI SCAMBIANO GLI SPOSI!"
   ]
  ],
  "finale": [
   [
-   "lin",
-   "TUTTI SONO IN VIDEOCHIAMATA. LA NONNA È FELICE!"
+   "maryam2",
+   "SIAMO DAVANTI AL SINDACO. È IL MOMENTO DEGLI ANELLI!"
   ],
   [
    "eneida",
-   "CHE COSA MANDANO TUTTI ALLA NONNA? SCRIVI LA PAROLA SEGRETA."
+   "COME SI CHIAMA L'ANELLO DEL MATRIMONIO? SCRIVI LA PAROLA SEGRETA."
   ]
  ],
- "vittoria": "TUTTI DICONO: «TANTI AUGURI, NONNA! TANTI BACI DA TUTTA LA FAMIGLIA!»",
+ "vittoria": "TUTTI DICONO: «VIVA GLI SPOSI! AUGURI, MARYAM E MAKARI!»",
  "stanze": [
   {
    "id": "parenti",
-   "titolo": "I PARENTI",
+   "titolo": "GLI INVITATI",
    "icona": "👨‍👩‍👧",
-   "lettera": "B",
+   "lettera": "F",
    "chi": "eneida",
    "lezione": {
     "titolo": "LA FAMIGLIA",
@@ -48,12 +52,12 @@ window.MISSIONE = {
    "storia": [
     [
      "eneida",
-     "CHI C'È NELLA TUA FAMIGLIA?"
+     "PRIMA LA LISTA DEGLI INVITATI. CHI C'È NELLA VOSTRA FAMIGLIA?"
     ]
    ],
    "fine": [
-    "lin",
-    "CONOSCO TUTTI I PARENTI!"
+    "maryam2",
+    "ABBIAMO INVITATO TUTTI I PARENTI!"
    ],
    "prove": [
     {
@@ -75,7 +79,7 @@ window.MISSIONE = {
       }
      ],
      "correct": 0,
-     "aiuto": "È LA FESTEGGIATA DI OGGI!",
+     "aiuto": "È ANZIANA E MOLTO IMPORTANTE ALLA FESTA!",
      "spiega": "LA MADRE DELLA MAMMA È LA NONNA."
     },
     {
@@ -103,16 +107,16 @@ window.MISSIONE = {
     {
      "tipo": "completa",
      "domanda": "COMPLETA.",
-     "frase": "IL FIGLIO DI MIO ZIO È MIO ___.",
-     "icona": "👦",
+     "frase": "LA MADRE DI MAKARI È LA ___ DI MARYAM.",
+     "icona": "👩",
      "risposte": [
-      "CUGINO",
-      "NIPOTE",
-      "FRATELLO"
+      "SUOCERA",
+      "SORELLA",
+      "CUGINA"
      ],
      "correct": 0,
-     "aiuto": "È DELLA MIA GENERAZIONE.",
-     "spiega": "IL FIGLIO DELLO ZIO È IL CUGINO."
+     "aiuto": "È LA MAMMA DEL MARITO.",
+     "spiega": "LA MADRE DEL MARITO È LA SUOCERA."
     }
    ]
   },
@@ -120,7 +124,7 @@ window.MISSIONE = {
    "id": "possessivi",
    "titolo": "MIO, TUO, SUO",
    "icona": "🔑",
-   "lettera": "A",
+   "lettera": "E",
    "chi": "eneida",
    "lezione": {
     "titolo": "I POSSESSIVI",
@@ -129,11 +133,11 @@ window.MISSIONE = {
    "storia": [
     [
      "eneida",
-     "ORA PARLIAMO DEI REGALI: DI CHI SONO?"
+     "ORA I REGALI: DI CHI SONO?"
     ]
    ],
    "fine": [
-    "lin",
+    "makari",
     "CHE FACILE!"
    ],
    "prove": [
@@ -154,7 +158,7 @@ window.MISSIONE = {
     {
      "tipo": "completa",
      "domanda": "COMPLETA.",
-     "frase": "___ FRATELLI ABITANO IN FRANCIA.",
+     "frase": "___ FRATELLI ARRIVANO DALLA FRANCIA.",
      "icona": "👬",
      "risposte": [
       "I MIEI",
@@ -179,7 +183,7 @@ window.MISSIONE = {
    "id": "descrivere",
    "titolo": "COM'È?",
    "icona": "🪞",
-   "lettera": "C",
+   "lettera": "D",
    "chi": "eneida",
    "lezione": {
     "titolo": "GLI AGGETTIVI",
@@ -187,41 +191,41 @@ window.MISSIONE = {
    },
    "storia": [
     [
-     "lin",
-     "DESCRIVO LA MIA FAMIGLIA A ENEIDA."
+     "maryam2",
+     "ENEIDA, TI DESCRIVO IL MIO VESTITO E LA FAMIGLIA DI MAKARI."
     ]
    ],
    "fine": [
     "eneida",
-    "CHE BELLA FAMIGLIA!"
+    "CHE BELLO TUTTO!"
    ],
    "prove": [
     {
      "tipo": "scelta",
-     "domanda": "IL NONNO HA 90 ANNI. È…",
-     "icona": "👴",
+     "domanda": "IL VESTITO DA SPOSA È…",
+     "icona": "👰",
      "risposte": [
       {
-       "t": "ANZIANO",
-       "i": "👴"
+       "t": "BIANCO E LUNGO",
+       "i": "👰"
       },
       {
-       "t": "GIOVANE",
-       "i": "🧒"
+       "t": "NERO E CORTO",
+       "i": "🖤"
       },
       {
-       "t": "PICCOLO",
-       "i": "👶"
+       "t": "VERDE E VECCHIO",
+       "i": "🟢"
       }
      ],
      "correct": 0,
-     "aiuto": "HA TANTI ANNI.",
-     "spiega": "CON TANTI ANNI SI È ANZIANI."
+     "aiuto": "È IL COLORE PIÙ CLASSICO.",
+     "spiega": "IL VESTITO DA SPOSA È SPESSO BIANCO E LUNGO."
     },
     {
      "tipo": "completa",
      "domanda": "COMPLETA.",
-     "frase": "LE MIE CUGINE SONO ALT___.",
+     "frase": "LE SORELLE DI MAKARI SONO ALT___.",
      "icona": "👭",
      "risposte": [
       "E",
@@ -229,16 +233,16 @@ window.MISSIONE = {
       "A"
      ],
      "correct": 0,
-     "aiuto": "CUGINE: FEMMINILE PLURALE.",
-     "spiega": "LE CUGINE SONO ALTE."
+     "aiuto": "SORELLE: FEMMINILE PLURALE.",
+     "spiega": "LE SORELLE SONO ALTE."
     },
     {
      "tipo": "scelta",
-     "domanda": "RIDE SEMPRE ED È CONTENTA. È…",
+     "domanda": "MAKARI RIDE SEMPRE ED È CONTENTO. È…",
      "icona": "😄",
      "risposte": [
       {
-       "t": "ALLEGRA",
+       "t": "ALLEGRO",
        "i": "😄"
       },
       {
@@ -246,21 +250,21 @@ window.MISSIONE = {
        "i": "😢"
       },
       {
-       "t": "ARRABBIATA",
+       "t": "ARRABBIATO",
        "i": "😠"
       }
      ],
      "correct": 0,
      "aiuto": "IL CONTRARIO DI TRISTE.",
-     "spiega": "È ALLEGRA."
+     "spiega": "È ALLEGRO."
     }
    ]
   },
   {
    "id": "festa",
-   "titolo": "LA FESTA",
-   "icona": "🎂",
-   "lettera": "I",
+   "titolo": "IL MATRIMONIO",
+   "icona": "💍",
+   "lettera": "E",
    "chi": "eneida",
    "lezione": {
     "titolo": "FESTE E TRADIZIONI",
@@ -269,21 +273,21 @@ window.MISSIONE = {
    "storia": [
     [
      "eneida",
-     "ULTIMA PORTA: GLI AUGURI!"
+     "ULTIMA PORTA: IL GRANDE GIORNO!"
     ]
    ],
    "fine": [
-    "lin",
+    "makari",
     "LA FESTA COMINCIA!"
    ],
    "prove": [
     {
      "tipo": "scelta",
-     "domanda": "PER IL COMPLEANNO SI DICE…",
-     "icona": "🎂",
+     "domanda": "AGLI SPOSI SI DICE…",
+     "icona": "💐",
      "risposte": [
       {
-       "t": "TANTI AUGURI!",
+       "t": "AUGURI E FIGLI MASCHI… O FEMMINE!",
        "i": "🎉"
       },
       {
@@ -296,30 +300,30 @@ window.MISSIONE = {
       }
      ],
      "correct": 0,
-     "aiuto": "È IL GIORNO IN CUI SEI NATO.",
-     "spiega": "TANTI AUGURI! / BUON COMPLEANNO!"
+     "aiuto": "È UN AUGURIO PER LA NUOVA FAMIGLIA.",
+     "spiega": "AGLI SPOSI SI FANNO GLI AUGURI. «VIVA GLI SPOSI!»"
     },
     {
      "tipo": "completa",
      "domanda": "COMPLETA.",
-     "frase": "LA NONNA ___ 80 ANNI.",
-     "icona": "👵",
+     "frase": "MARYAM E MAKARI ___ SPOSANO IN COMUNE.",
+     "icona": "🏛️",
      "risposte": [
-      "HA",
-      "È",
-      "FA"
+      "SI",
+      "CI",
+      "LO"
      ],
      "correct": 0,
-     "aiuto": "L'ETÀ SI DICE CON AVERE.",
-     "spiega": "HA 80 ANNI."
+     "aiuto": "SPOSARSI È UN VERBO RIFLESSIVO.",
+     "spiega": "SI SPOSANO."
     },
     {
      "tipo": "vf",
-     "domanda": "SULLA TORTA CI SONO LE CANDELINE.",
-     "icona": "🕯️",
+     "domanda": "AL MATRIMONIO GLI SPOSI REGALANO I CONFETTI AGLI INVITATI.",
+     "icona": "🍬",
      "correct": true,
-     "aiuto": "SI SOFFIANO!",
-     "spiega": "VERO."
+     "aiuto": "SONO DOLCI BIANCHI CON LA MANDORLA.",
+     "spiega": "VERO: È LA BOMBONIERA CON I CONFETTI."
     }
    ]
   }
