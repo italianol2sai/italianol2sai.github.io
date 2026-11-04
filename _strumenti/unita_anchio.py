@@ -786,3 +786,56 @@ SLIDE_ANCHIO = [
 ESERCIZI_ANCHIO = [("condominio", COND), ("autocertificazione", AUTO), ("piatti-dal-mondo", PIATTI), ("volontariato", VOL),
                    ("in-strada", STRADA), ("cup-specialisti", CUP), ("tasse", TASSE), ("centro-periferia", CP),
                    ("feste-repubblica", FR), ("unione-europea", UE), ("stato-italiano", STATO), ("enti-locali", ENTI)]
+
+# ---------------------------------------------------------------- 2026-11-04, Erila: la teoria semplice anche prima degli altri esercizi
+# (lessico e letture): un riquadro «La regola» in ogni parte, non solo in quelle di grammatica
+_TEORIA_EXTRA = {
+  ("condominio", "Il palazzo"): tab(("IL PORTONE", "L'ENTRATA"), ("LE SCALE / L'ASCENSORE", "PER SALIRE"), ("IL PIANEROTTOLO", "DAVANTI ALLA PORTA"),
+      ("IL CORTILE", "LO SPAZIO FUORI"), ("IL CITOFONO", "SUONO E PARLO")) + "LE PARTI COMUNI SONO DI <b>TUTTI</b>: PER QUESTO CI SONO LE REGOLE." +
+      es("IL SILENZIO: DALLE 22 ALLE 8."),
+  ("condominio", "Sul pianerottolo"): tab(("SALUTARE", "BUONGIORNO! PIACERE!"), ("PRESENTARSI", "MI CHIAMO… ABITO AL TERZO PIANO."),
+      ("SCUSARSI", "MI DISPIACE! LO SPOSTO SUBITO.")) + "CON UN VICINO CHE NON CONOSCI USA <b>LEI</b>: «LEI È IL NUOVO VICINO?»",
+  ("autocertificazione", "Leggo il modulo"): tab(("COGNOME E NOME", "DIALLO AMADOU"), ("LUOGO DI NASCITA", "DOVE SEI NATO"),
+      ("DATA DI NASCITA", "GIORNO / MESE / ANNO"), ("PARENTELA", "CHI È PER TE: MOGLIE, FIGLIO…")) +
+      "NEI MODULI SI SCRIVE PRIMA IL <b>COGNOME</b>, POI IL <b>NOME</b>. ALLA FINE: <b>DATA E FIRMA</b>.",
+  ("autocertificazione", "La parentela"): tab(("MARITO", "MOGLIE"), ("FIGLIO", "FIGLIA"), ("SUOCERO", "SUOCERA"), ("NIPOTE", "NIPOTE"),
+      head=("UOMO", "DONNA")) + "IL <b>NIPOTE</b> È IL FIGLIO DI MIO FIGLIO O DI MIO FRATELLO / MIA SORELLA." + es("AISSATOU È LA MOGLIE DI AMADOU."),
+  ("piatti-dal-mondo", "Di dov'è?"): tab(("LA PIZZA", "ITALIA (NAPOLI)"), ("IL SUSHI", "GIAPPONE"), ("IL KEBAB", "TURCHIA"),
+      ("IL CUSCUS", "MAROCCO, TUNISIA, ALGERIA"), ("L'INJERA", "ETIOPIA, ERITREA"), ("IL BIRYANI", "PAKISTAN, INDIA")) +
+      "PER DIRE DA DOVE VIENE: «È UN PIATTO <b>DEL</b> GIAPPONE», «<b>DELLA</b> TURCHIA», «<b>DELL'</b>ITALIA»." + es("IL SUSHI È UN PIATTO DEL GIAPPONE."),
+  ("volontariato", "Le associazioni"): tab(("CROCE ROSSA", "AMBULANZE, EMERGENZE"), ("AVIS", "DONARE IL SANGUE"), ("CARITAS", "MENSA, VESTITI"),
+      ("AUSER", "ANZIANI"), ("UNICEF", "BAMBINI")) + "IL <b>VOLONTARIO</b> AIUTA <b>GRATIS</b>, NEL TEMPO LIBERO." + es("ALL'AVIS DONO IL SANGUE."),
+  ("in-strada", "Le parole della strada"): tab(("🔴 ROSSO", "STOP, ASPETTA"), ("🟡 GIALLO", "ATTENZIONE"), ("🟢 VERDE", "ATTRAVERSA")) +
+      "IL PEDONE CAMMINA SUL <b>MARCIAPIEDE</b> E ATTRAVERSA SULLE <b>STRISCE</b>. LA BICI VA SULLA <b>PISTA CICLABILE</b>, CON IL <b>CASCO</b>.",
+  ("cup-specialisti", "Gli specialisti"): tab(("CUORE", "CARDIOLOGO"), ("DENTI", "DENTISTA"), ("OCCHI", "OCULISTA"), ("GOLA, NASO", "OTORINO"),
+      ("PELLE", "DERMATOLOGO"), ("OSSA", "ORTOPEDICO"), ("BAMBINI", "PEDIATRA")) + "PER ANDARE DALLO SPECIALISTA DI SOLITO SERVE L'<b>IMPEGNATIVA</b> DEL MEDICO DI BASE." +
+      es("MI FA MALE UN DENTE: VADO DAL DENTISTA."),
+  ("cup-specialisti", "Prenoto la visita"): "1. MEDICO DI BASE → 2. IMPEGNATIVA → 3. CUP (TELEFONO, SPORTELLO O FARMACIA) → 4. TICKET → 5. VISITA." +
+      "<br>IL GIORNO DELLA VISITA PORTO: IMPEGNATIVA, <b>TESSERA SANITARIA</b>, RICEVUTA DEL TICKET.",
+  ("tasse", "Le tasse"): tab(("IRPEF", "sullo stipendio"), ("IVA", "nel prezzo delle cose"), ("TARI", "sui rifiuti, per chi abita in una casa"),
+      ("bollo auto", "per la macchina"), ("ticket", "per visite ed esami")) + "Con le tasse lo Stato paga <b>scuole, ospedali, strade</b>. Chi guadagna di più paga di più (art. 53).",
+  ("centro-periferia", "Centro e periferia"): tab(("centro", "servizi vicini, tanti autobus", "case care, traffico, rumore"),
+      ("periferia", "affitti bassi, case grandi, verde", "pochi servizi, serve la macchina"), head=("", "👍 vantaggi", "👎 svantaggi")) +
+      "Per dare un'opinione: <b>secondo me</b>…, <b>per me</b>…, <b>dipende</b>." + es("Secondo me il centro è comodo ma caro."),
+  ("feste-repubblica", "Le date"): tab(("25 aprile", "Liberazione"), ("1° maggio", "Festa dei lavoratori"), ("2 giugno", "Festa della Repubblica"),
+      ("7-8 maggio", "San Nicola a Bari"), ("febbraio", "Carnevale")) + "<b>Festivo</b> = giorno di festa (uffici chiusi). <b>Feriale</b> = giorno di lavoro." +
+      es("Il 2 giugno è un giorno festivo."),
+  ("feste-repubblica", "Leggo il testo"): "Prima di leggere guarda le <b>date</b> e i <b>nomi</b>: ti aiutano a capire. Poi leggi tutto e rispondi." +
+      tab(("patrono", "il santo protettore della città"), ("corteo", "tante persone che camminano insieme"), ("pellegrino", "chi viaggia per motivi religiosi")),
+  ("unione-europea", "Le istituzioni"): tab(("Parlamento europeo", "votato dai cittadini ogni 5 anni"), ("Commissione europea", "propone le leggi"),
+      ("Consiglio dell'Unione", "i ministri dei 27 paesi"), ("Corte di giustizia", "controlla il rispetto delle leggi")) +
+      "Le leggi europee le approvano <b>insieme</b> il Parlamento e il Consiglio.",
+  ("stato-italiano", "I poteri dello Stato"): tab(("legislativo", "Parlamento (Camera + Senato)", "fa le leggi"),
+      ("esecutivo", "Governo", "mette in pratica le leggi"), ("giudiziario", "magistratura", "giudica"), head=("potere", "chi", "che cosa fa")) +
+      "Il <b>Presidente della Repubblica</b> rappresenta l'unità del paese e firma le leggi.",
+  ("enti-locali", "Chi fa che cosa?"): tab(("Comune", "anagrafe, carta d'identità, rifiuti, TARI"), ("Città metropolitana", "strade provinciali, scuole superiori"),
+      ("Regione", "ospedali, ASL, formazione"), ("Stato", "Questura, permesso di soggiorno")) +
+      "Dal più piccolo al più grande: <b>Comune → città metropolitana → Regione → Stato</b>.",
+}
+for _d, _p in ESERCIZI_ANCHIO:
+    for _s in _p["sections"]:
+        _t = _TEORIA_EXTRA.get((_d, _s.get("part")))
+        if _t:
+            assert "teoria" not in _s
+            _s["teoria"] = _t
+assert all(any(s.get("part") == part for s in dict(ESERCIZI_ANCHIO)[d]["sections"]) for d, part in _TEORIA_EXTRA)
