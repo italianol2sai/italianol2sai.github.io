@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌍 Piatti dal mondo · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🌍 Piatti dal mondo · Esercizi",
+ "store": "piatti-dal-mondo",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Di dov'è?",
+   "teoria": "<table><tr><td>LA PIZZA</td><td>ITALIA (NAPOLI)</td></tr><tr><td>IL SUSHI</td><td>GIAPPONE</td></tr><tr><td>IL KEBAB</td><td>TURCHIA</td></tr><tr><td>IL CUSCUS</td><td>MAROCCO, TUNISIA, ALGERIA</td></tr><tr><td>L'INJERA</td><td>ETIOPIA, ERITREA</td></tr><tr><td>IL BIRYANI</td><td>PAKISTAN, INDIA</td></tr></table>PER DIRE DA DOVE VIENE: «È UN PIATTO <b>DEL</b> GIAPPONE», «<b>DELLA</b> TURCHIA», «<b>DELL'</b>ITALIA».<span class=\"esempio\">👉 IL SUSHI È UN PIATTO DEL GIAPPONE.</span>"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Di che paese è il piatto?",
+   "short": "1 · Di dov'è",
+   "type": "select",
+   "opts": [
+    "ITALIA",
+    "GIAPPONE",
+    "TURCHIA",
+    "MAROCCO",
+    "ETIOPIA",
+    "PAKISTAN"
+   ],
+   "items": [
+    {
+     "q": "1. LA PIZZA"
+    },
+    {
+     "q": "2. IL SUSHI"
+    },
+    {
+     "q": "3. IL KEBAB"
+    },
+    {
+     "q": "4. IL CUSCUS"
+    },
+    {
+     "q": "5. L'INJERA"
+    },
+    {
+     "q": "6. IL BIRYANI"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJVEFMSUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSUFQUE9ORSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlRVUkNISUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNQVJPQ0NPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRVRJT1BJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBBS0lTVEFOIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Vero o falso?",
+   "short": "2 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. LA PIZZA È NATA A ROMA."
+    },
+    {
+     "q": "2. LA MARGHERITA HA POMODORO, MOZZARELLA E BASILICO."
+    },
+    {
+     "q": "3. IL SUSHI È FATTO CON IL RISO."
+    },
+    {
+     "q": "4. IL KEBAB È FATTO CON IL PESCE."
+    },
+    {
+     "q": "5. LE ORECCHIETTE SONO UNA PASTA DELLA PUGLIA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ=="
+  },
+  {
+   "part": "È fatto con…",
+   "teoria": "<table><tr><th>IL PIATTO</th><th></th><th>INGREDIENTE</th></tr><tr><td>IL KEBAB</td><td>È FATTO</td><td>CON LA CARNE</td></tr><tr><td>LA PIZZA</td><td>È FATTA</td><td>CON LA FARINA</td></tr><tr><td>GLI SPAGHETTI</td><td>SONO FATTI</td><td>CON LA FARINA</td></tr><tr><td>LE ORECCHIETTE</td><td>SONO FATTE</td><td>CON LA SEMOLA</td></tr></table><b>FATTO</b> CAMBIA COME UN AGGETTIVO: FATTO · FATTA · FATTI · FATTE.<span class=\"esempio\">👉 IL CUSCUS È FATT<b>O</b> CON LA SEMOLA.</span>"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Fatto, fatta, fatti o fatte?",
+   "short": "3 · È fatto con",
+   "type": "select",
+   "opts": [
+    "FATTO",
+    "FATTA",
+    "FATTI",
+    "FATTE"
+   ],
+   "items": [
+    {
+     "q": "1. IL SUSHI È ___ CON IL RISO."
+    },
+    {
+     "q": "2. LA PIZZA È ___ CON LA FARINA."
+    },
+    {
+     "q": "3. GLI SPAGHETTI SONO ___ CON LA FARINA."
+    },
+    {
+     "q": "4. LE ORECCHIETTE SONO ___ CON LA SEMOLA."
+    },
+    {
+     "q": "5. L'INJERA È ___ CON UN CEREALE CHE SI CHIAMA TEFF."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQVRUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBVFRBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFUVEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQVRURSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBVFRBIl19XQ=="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Com'è?",
+   "short": "4 · Com'è",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. C'È IL PEPERONCINO: È ___.",
+     "opts": [
+      "PICCANTE",
+      "DOLCE",
+      "FREDDO"
+     ]
+    },
+    {
+     "q": "2. C'È TANTO ZUCCHERO: È ___.",
+     "opts": [
+      "DOLCE",
+      "SALATO",
+      "PICCANTE"
+     ]
+    },
+    {
+     "q": "3. IL GELATO È ___.",
+     "opts": [
+      "FREDDO",
+      "CALDO",
+      "PICCANTE"
+     ]
+    },
+    {
+     "q": "4. IL LIMONE È ___.",
+     "opts": [
+      "ASPRO",
+      "DOLCE",
+      "SALATO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQSUNDQU5URSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRPTENFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRlJFRERPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQVNQUk8iXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa il dialogo",
+   "short": "5 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "BIRYANI · FATTO · PICCANTE · POCO",
+   "parts": [
+    "SALEAH: STASERA CUCINO IL ",
+    {},
+    ".<br>CRISTIAN: CHE COS'È?<br>SALEAH: È UN PIATTO DEL PAKISTAN. È ",
+    {},
+    " CON RISO, POLLO E SPEZIE.<br>CRISTIAN: È ",
+    {},
+    "?<br>SALEAH: UN PO'. PER TE METTO ",
+    {},
+    " PEPERONCINO."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiaXJ5YW5pIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZmF0dG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJwaWNjYW50ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBvY28iXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 ✎ · Il piatto del mio paese",
+   "type": "free",
+   "rows": 4,
+   "cons": "SCRIVI UN PIATTO DEL TUO PAESE: COME SI CHIAMA? CON CHE COSA È FATTO? COM'È? QUANDO SI MANGIA?",
+   "items": [
+    "IL PIATTO DEL MIO PAESE"
+   ]
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "SPIEGA A UN AMICO ITALIANO IL TUO PIATTO PREFERITO: INGREDIENTI E COME SI CUCINA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

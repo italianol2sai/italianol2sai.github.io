@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🗺️ Gli enti locali · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🗺️ Gli enti locali · Esercizi",
+ "store": "enti-locali",
+ "sections": [
+  {
+   "part": "Chi fa che cosa?",
+   "teoria": "<table><tr><td>Comune</td><td>anagrafe, carta d'identità, rifiuti, TARI</td></tr><tr><td>Città metropolitana</td><td>strade provinciali, scuole superiori</td></tr><tr><td>Regione</td><td>ospedali, ASL, formazione</td></tr><tr><td>Stato</td><td>Questura, permesso di soggiorno</td></tr></table>Dal più piccolo al più grande: <b>Comune → città metropolitana → Regione → Stato</b>."
+  },
+  {
+   "id": "e1",
+   "title": "1 · Chi se ne occupa?",
+   "short": "1 · Chi fa che cosa",
+   "type": "select",
+   "opts": [
+    "Comune",
+    "Regione",
+    "Stato",
+    "città metropolitana"
+   ],
+   "items": [
+    {
+     "q": "1. La carta d'identità."
+    },
+    {
+     "q": "2. Gli ospedali e le ASL."
+    },
+    {
+     "q": "3. Il permesso di soggiorno."
+    },
+    {
+     "q": "4. La raccolta dei rifiuti."
+    },
+    {
+     "q": "5. Le strade provinciali."
+    },
+    {
+     "q": "6. I corsi di formazione professionale."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDb211bmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJSZWdpb25lIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU3RhdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDb211bmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjaXR0w6AgbWV0cm9wb2xpdGFuYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlJlZ2lvbmUiXX1d",
+   "cons": "Scegli l'ente giusto."
+  },
+  {
+   "id": "e2",
+   "title": "2 · Scegli la risposta giusta",
+   "short": "2 · Gli enti",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Quante regioni ha l'Italia?",
+     "opts": [
+      "20",
+      "27",
+      "41"
+     ]
+    },
+    {
+     "q": "2. Qual è il capoluogo della Puglia?",
+     "opts": [
+      "Bari",
+      "Lecce",
+      "Foggia"
+     ]
+    },
+    {
+     "q": "3. Chi è il capo del Comune?",
+     "opts": [
+      "il sindaco",
+      "il prefetto",
+      "il ministro"
+     ]
+    },
+    {
+     "q": "4. Ogni quanti anni si vota il sindaco?",
+     "opts": [
+      "5",
+      "7",
+      "2"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyMCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkJhcmkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJpbCBzaW5kYWNvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfV0="
+  },
+  {
+   "part": "I pronomi diretti",
+   "teoria": "<table><tr><td>lo</td><td>il sindaco → <b>lo</b> votano i cittadini</td></tr><tr><td>la</td><td>la carta d'identità → <b>la</b> fa il Comune</td></tr><tr><td>li</td><td>i corsi → <b>li</b> organizza la Regione</td></tr><tr><td>le</td><td>le strade → <b>le</b> controlla il Comune</td></tr></table>Per non ripetere una parola usiamo il <b>pronome</b>, prima del verbo.<span class=\"esempio\">👉 Il permesso di soggiorno? Lo rinnova la Questura.</span>"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Lo, la, li o le?",
+   "short": "3 · Pronomi",
+   "type": "select",
+   "opts": [
+    "lo",
+    "la",
+    "li",
+    "le"
+   ],
+   "items": [
+    {
+     "q": "1. Il sindaco? ___ votano i cittadini."
+    },
+    {
+     "q": "2. La TARI? ___ paghiamo al Comune."
+    },
+    {
+     "q": "3. I corsi di formazione? ___ organizza la Regione."
+    },
+    {
+     "q": "4. Le scuole superiori? ___ gestisce la città metropolitana."
+    },
+    {
+     "q": "5. Il permesso? ___ rinnova la Questura."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxvIl19XQ=="
+  },
+  {
+   "id": "e4",
+   "title": "4 · Completa il testo",
+   "short": "4 · A chi chiedo",
+   "type": "cloze",
+   "cons": "Scrivi la parola giusta.",
+   "bank": "buche · Comune · Regione · Questura",
+   "parts": [
+    "Tesfaye vuole segnalare le ",
+    {},
+    " nella strada: deve scrivere al ",
+    {},
+    ". Per il corso da saldatore deve chiedere alla ",
+    {},
+    " Puglia. Per il rinnovo del permesso va in ",
+    {},
+    "."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJidWNoZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNvbXVuZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInJlZ2lvbmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJxdWVzdHVyYSJdfV0="
+  },
+  {
+   "id": "e5",
+   "title": "5 ✎ · Il mio Comune",
+   "type": "free",
+   "rows": 5,
+   "cons": "Scrivi 4-5 frasi: in che Comune abiti? Chi è il sindaco? Quali servizi del Comune usi?",
+   "items": [
+    "Il mio Comune"
+   ]
+  },
+  {
+   "id": "e6",
+   "title": "6 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "Che cosa vorresti cambiare nel tuo quartiere? A chi devi chiedere: al Comune, alla Regione o allo Stato?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

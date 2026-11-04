@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💶 Pagare le tasse · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "💶 Pagare le tasse · Esercizi",
+ "store": "tasse",
+ "sections": [
+  {
+   "part": "Le tasse",
+   "teoria": "<table><tr><td>IRPEF</td><td>sullo stipendio</td></tr><tr><td>IVA</td><td>nel prezzo delle cose</td></tr><tr><td>TARI</td><td>sui rifiuti, per chi abita in una casa</td></tr><tr><td>bollo auto</td><td>per la macchina</td></tr><tr><td>ticket</td><td>per visite ed esami</td></tr></table>Con le tasse lo Stato paga <b>scuole, ospedali, strade</b>. Chi guadagna di più paga di più (art. 53)."
+  },
+  {
+   "id": "e1",
+   "title": "1 · Quale tassa?",
+   "short": "1 · Le tasse",
+   "type": "select",
+   "opts": [
+    "IRPEF",
+    "IVA",
+    "TARI",
+    "bollo auto",
+    "ticket"
+   ],
+   "items": [
+    {
+     "q": "1. È dentro il prezzo del pane e dei vestiti."
+    },
+    {
+     "q": "2. Si toglie dallo stipendio."
+    },
+    {
+     "q": "3. Serve per la raccolta dei rifiuti."
+    },
+    {
+     "q": "4. Si paga ogni anno per la macchina."
+    },
+    {
+     "q": "5. Una piccola parte per una visita medica."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJVkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJUlBFRiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlRBUkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJib2xsbyBhdXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidGlja2V0Il19XQ==",
+   "cons": "Scegli la tassa giusta."
+  },
+  {
+   "id": "e2",
+   "title": "2 · Vero o falso?",
+   "short": "2 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Le tasse le pagano solo gli italiani."
+    },
+    {
+     "q": "2. Chi guadagna di più paga di più."
+    },
+    {
+     "q": "3. Con le tasse si pagano scuole e ospedali."
+    },
+    {
+     "q": "4. La TARI la paga anche chi abita in affitto."
+    },
+    {
+     "q": "5. Il 730 è un documento per l'affitto."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19XQ=="
+  },
+  {
+   "part": "Il si impersonale",
+   "teoria": "<table><tr><td>si paga</td><td>+ una cosa</td><td>La TARI si paga con l'F24.</td></tr><tr><td>si pagano</td><td>+ tante cose</td><td>Le tasse si pagano ogni anno.</td></tr><tr><td>si può / si deve</td><td>+ infinito</td><td>Si può pagare in posta.</td></tr></table>Con <b>si</b> parliamo in generale, per tutte le persone. Il verbo è alla 3ª persona: singolare con una cosa, plurale con tante cose.<span class=\"esempio\">👉 In Italia si pagano le tasse. Il 730 si fa al CAF.</span>"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Si paga o si pagano?",
+   "short": "3 · Si impersonale",
+   "type": "select",
+   "opts": [
+    "si paga",
+    "si pagano"
+   ],
+   "items": [
+    {
+     "q": "1. La TARI ___ al Comune."
+    },
+    {
+     "q": "2. Le tasse ___ in base allo stipendio."
+    },
+    {
+     "q": "3. Il bollo auto ___ una volta all'anno."
+    },
+    {
+     "q": "4. Le multe ___ entro 60 giorni."
+    },
+    {
+     "q": "5. L'IVA ___ quando compri qualcosa."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzaSBwYWdhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2kgcGFnYW5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2kgcGFnYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNpIHBhZ2FubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNpIHBhZ2EiXX1d"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Scrivi il verbo con si",
+   "short": "4 · Si + verbo",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. Il 730 (fare) si ___ al CAF."
+    },
+    {
+     "q": "2. Le ricevute del dentista (portare) si ___ al CAF."
+    },
+    {
+     "q": "3. La lettera della TARI (ricevere) si ___ a casa."
+    },
+    {
+     "q": "4. I moduli (compilare) si ___ con i dati personali."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJmYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBvcnRhbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJyaWNldmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjb21waWxhbm8iXX1d",
+   "cons": "Scrivi il verbo alla 3ª persona (singolare o plurale).",
+   "w": "m"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa il testo",
+   "short": "5 · Al CAF",
+   "type": "cloze",
+   "cons": "Scrivi la parola giusta.",
+   "bank": "ristorante · Unica · dentista · TARI",
+   "parts": [
+    "Ravi ha lavorato tutto l'anno in un ",
+    {},
+    ". Al CAF porta la Certificazione ",
+    {},
+    ", il documento e il codice fiscale. Porta anche le ricevute del ",
+    {},
+    ": le spese mediche si possono detrarre. La ",
+    {},
+    " invece si paga con l'F24 o con PagoPA."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJyaXN0b3JhbnRlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidW5pY2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkZW50aXN0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInRhcmkiXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 ✎ · Le tasse nel mio paese",
+   "type": "free",
+   "rows": 5,
+   "cons": "Scrivi 4-5 frasi: nel tuo paese si pagano le tasse? Quali? Che cosa paga lo Stato con le tasse?",
+   "items": [
+    "Nel mio paese…"
+   ]
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "Spiega a un amico appena arrivato che cos'è la TARI e come si paga."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
