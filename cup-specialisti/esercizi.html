@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏥 Il CUP e gli specialisti · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🏥 Il CUP e gli specialisti · Esercizi",
+ "store": "cup-specialisti",
+ "upper": true,
+ "sections": [
+  {
+   "part": "Gli specialisti"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Da quale specialista vai?",
+   "short": "1 · Gli specialisti",
+   "type": "select",
+   "opts": [
+    "IL CARDIOLOGO",
+    "IL DENTISTA",
+    "L'OCULISTA",
+    "L'OTORINO",
+    "IL DERMATOLOGO",
+    "L'ORTOPEDICO",
+    "IL PEDIATRA"
+   ],
+   "items": [
+    {
+     "q": "1. HO MALE A UN DENTE."
+    },
+    {
+     "q": "2. NON VEDO BENE."
+    },
+    {
+     "q": "3. HO UNA MACCHIA SULLA PELLE."
+    },
+    {
+     "q": "4. MIO FIGLIO DI 3 ANNI HA LA FEBBRE."
+    },
+    {
+     "q": "5. MI FA MALE IL CUORE."
+    },
+    {
+     "q": "6. MI FA MALE LA GOLA E NON SENTO BENE."
+    },
+    {
+     "q": "7. SONO CADUTO: FORSE HO UN OSSO ROTTO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTCBERU5USVNUQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwnT0NVTElTVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJTCBERVJNQVRPTE9HTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIklMIFBFRElBVFJBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUwgQ0FSRElPTE9HTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwnT1RPUklOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwnT1JUT1BFRElDTyJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Vero o falso?",
+   "short": "2 · Vero o falso",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. LA SALUTE È UN DIRITTO SOLO PER GLI ITALIANI."
+    },
+    {
+     "q": "2. IL MEDICO DI BASE È GRATIS."
+    },
+    {
+     "q": "3. IL PEDIATRA È IL MEDICO DEI BAMBINI."
+    },
+    {
+     "q": "4. CHI NON HA IL PERMESSO DI SOGGIORNO PUÒ AVERE IL TESSERINO STP."
+    },
+    {
+     "q": "5. PER PRENOTARE AL CUP SERVE L'IMPEGNATIVA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX1d"
+  },
+  {
+   "part": "Prenoto la visita"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Metti in ordine",
+   "short": "3 · In ordine",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "IL MEDICO MI SCRIVE L'IMPEGNATIVA.",
+    "CHIAMO IL CUP.",
+    "DICO IL CODICE FISCALE E IL NUMERO DELL'IMPEGNATIVA.",
+    "PAGO IL TICKET.",
+    "IL GIORNO DELLA VISITA VADO IN OSPEDALE CON LA TESSERA SANITARIA.",
+    "VADO DAL MEDICO DI BASE."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX1d"
+  },
+  {
+   "part": "Devo, bisogna",
+   "teoria": "<table><tr><th></th><th>DOVERE</th></tr><tr><td>IO</td><td>DEVO</td></tr><tr><td>TU</td><td>DEVI</td></tr><tr><td>LUI / LEI</td><td>DEVE</td></tr><tr><td>NOI</td><td>DOBBIAMO</td></tr><tr><td>VOI</td><td>DOVETE</td></tr><tr><td>LORO</td><td>DEVONO</td></tr></table>DOPO <b>DOVERE</b> C'È L'INFINITO. <b>BISOGNA</b> + INFINITO È PER TUTTI (NON CAMBIA).<span class=\"esempio\">👉 DEVO CHIAMARE IL CUP. BISOGNA PORTARE LA TESSERA.</span>"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Scrivi il verbo dovere",
+   "short": "4 · Dovere",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. IO ___ PRENOTARE UNA VISITA."
+    },
+    {
+     "q": "2. TU ___ PORTARE L'IMPEGNATIVA."
+    },
+    {
+     "q": "3. MARIELA ___ ANDARE AL POLICLINICO."
+    },
+    {
+     "q": "4. NOI ___ PAGARE IL TICKET."
+    },
+    {
+     "q": "5. I BAMBINI ___ ANDARE DAL PEDIATRA."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJkZXZvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZGV2aSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRldmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkb2JiaWFtbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRldm9ubyJdfV0=",
+   "w": "s"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa il dialogo",
+   "short": "5 · Il CUP",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "FISCALE · IMPEGNATIVA · DEVO · SANITARIA · TICKET",
+   "parts": [
+    "OPERATRICE: CUP, BUONGIORNO. MI DICE IL CODICE ",
+    {},
+    "?<br>MARIELA: ECCO. HO UN'",
+    {},
+    " PER UNA VISITA.<br>OPERATRICE: C'È UN POSTO IL 12 DICEMBRE ALLE 9:30.<br>MARIELA: VA BENE. ",
+    {},
+    " PORTARE QUALCOSA?<br>OPERATRICE: LA TESSERA ",
+    {},
+    " E LA RICEVUTA DEL ",
+    {},
+    "."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJmaXNjYWxlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaW1wZWduYXRpdmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkZXZvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2FuaXRhcmlhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidGlja2V0Il19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 ✎ · La mia visita",
+   "type": "free",
+   "rows": 4,
+   "cons": "SCRIVI: CHE SPECIALISTA TI SERVE? PERCHÉ? CHE COSA DEVI FARE PER PRENOTARE?",
+   "items": [
+    "LA MIA VISITA"
+   ]
+  },
+  {
+   "id": "e7",
+   "title": "7 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "TELEFONA AL CUP: DI' IL TUO NOME, CHE VISITA VUOI PRENOTARE E QUANDO SEI LIBERO."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
