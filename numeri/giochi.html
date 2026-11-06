@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giochi: i numeri 1-1000</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../comune/giochi.css">
+<style>
+  .livello { display: flex; gap: 8px; justify-content: center; margin: 0 0 12px; flex-wrap: wrap; }
+  .livello button { border: 2px solid var(--g-line); background: var(--g-card); color: var(--g-ink); border-radius: 999px;
+                    padding: 8px 14px; font: inherit; font-weight: 700; cursor: pointer; }
+  .livello button.on { border-color: var(--g-ok); background: var(--g-ok); color: #fff; }
+  .g-ascolta { display: block; margin: 8px auto 12px; font-size: 2.4rem; width: 96px; height: 96px; border-radius: 50%; }
+  .g-quiz.n4 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .g-quiz.n4 .g-btn { font-size: 1.6rem; padding: 16px 0; }
+  .g-carta.num span { font-size: 1.4rem; }
+  .target { text-align: center; font-size: 1.25rem; font-weight: 700; margin: 6px 0; overflow-wrap: anywhere; }
+  .abaco { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; text-align: center; }
+  .col { background: var(--g-bg); border-radius: 14px; padding: 8px 4px; }
+  .col b { display: block; font-size: .8rem; color: var(--g-muted); }
+  .col .v { font-size: 2.6rem; font-weight: 700; line-height: 1.2; }
+  .col.c .v { color: #c8323b; } .col.d .v { color: #1f8a4c; } .col.u .v { color: #2f63ad; }
+  .col button { width: 44px; height: 40px; margin: 2px; border-radius: 10px; border: 2px solid var(--g-line);
+                background: var(--g-card); color: var(--g-ink); font: inherit; font-weight: 700; font-size: 1.2rem; cursor: pointer; }
+  .scrivi { display: flex; gap: 8px; justify-content: center; margin: 10px 0; }
+  .scrivi input { width: 140px; font: inherit; font-size: 1.8rem; text-align: center; padding: 8px; border-radius: 12px;
+                  border: 2px solid var(--g-line); background: var(--g-bg); color: var(--g-ink); }
+  .esito { text-align: center; font-weight: 700; min-height: 1.4em; }
+  .esito.ok { color: var(--g-ok); } .esito.no { color: var(--g-no); }
+</style>
+</head>
+<body>
+<div class="g-wrap">
+  <a class="back" href="./">← I NUMERI 1–1000</a>
+  <h1>🎲 GIOCHI: I NUMERI</h1>
+  <p class="sub">4 GIOCHI CORTI CON I NUMERI · LIVELLO A0/A1</p>
+  <div class="livello" id="livello">
+    <button data-max="20">FINO A 20</button>
+    <button data-max="100">FINO A 100</button>
+    <button data-max="1000">FINO A 1000</button>
+  </div>
+  <main id="giochi"></main>
+</div>
+<script src="numeri.js"></script>
+<script>
+(function () {
+  var N = window.NUMERI, main = document.getElementById("giochi");
+  function el(t, a, c) {
+    var e = document.createElement(t);
+    for (var k in a || {}) { if (k === "text") e.textContent = a[k]; else if (k === "on") e.onclick = a[k]; else e.setAttribute(k, a[k]); }
+    (c || []).forEach(function (x) { if (x) e.appendChild(typeof x === "string" ? document.createTextNode(x) : x); });
+    return e;
+  }
+  function leggi(k) { try { return +localStorage.getItem(k) || 0; } catch (e) { return 0; } }
+  function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function mescola(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  var MAX = 100;
+  try { MAX = +localStorage.getItem("numeri-max") || 100; } catch (e) {}
+  // fino a 1000: metà numeri grandi, ma ogni tanto anche le centinaia tonde
+  function caso() {
+    if (MAX <= 100) return 1 + Math.floor(Math.random() * MAX);
+    var r = Math.random();
+    if (r < .2) return 100 * (1 + Math.floor(Math.random() * 10));
+    if (r < .35) return 1 + Math.floor(Math.random() * 100);
+    return 101 + Math.floor(Math.random() * 899);
+  }
+  function diversi(n, k) { var s = {}; s[n] = 1; var out = [n], t = 0;
+    while (out.length < k && t++ < 500) {
+      // numeri simili: cambiano una cifra, così bisogna ascoltare bene
+      var x = Math.random() < .6 ? simile(n) : caso();
+      if (x >= 1 && x <= MAX && !s[x]) { s[x] = 1; out.push(x); } }
+    return out; }
+  function simile(n) {
+    var p = [1, 10, 100][Math.floor(Math.random() * (n >= 100 ? 3 : n >= 10 ? 2 : 1))];
+    return n + p * (Math.random() < .5 ? -1 : 1) * (1 + Math.floor(Math.random() * 3));
+  }
+  var parola = function (n) { return N.nome(n).toUpperCase(); };
+
+  var lv = document.getElementById("livello");
+  function segnaLivello() { [].forEach.call(lv.children, function (b) { b.classList.toggle("on", +b.getAttribute("data-max") === MAX); }); }
+  [].forEach.call(lv.children, function (b) { b.onclick = function () { MAX = +b.getAttribute("data-max"); scrivi("numeri-max", MAX); segnaLivello(); apri(aperto); }; });
+  segnaLivello();
+
+  var area = el("div", { class: "g-area" });
+  var GIOCHI = [["quiz", "⏱️", "ASCOLTA E SCEGLI"], ["memory", "🃏", "MEMORY"], ["costruisci", "🧮", "COSTRUISCI"], ["dettato", "✍️", "SCRIVI IL NUMERO"]];
+  var schede = el("div", { class: "g-schede", role: "tablist" }), aperto = "quiz";
+  GIOCHI.forEach(function (g) { schede.appendChild(el("button", { class: "g-scheda", "data-g": g[0], on: function () { apri(g[0]); } }, [el("span", { text: g[1] }), " " + g[2]])); });
+  main.appendChild(schede); main.appendChild(area);
+  function apri(nome) {
+    aperto = nome;
+    [].forEach.call(schede.children, function (b) { b.classList.toggle("on", b.getAttribute("data-g") === nome); });
+    area.innerHTML = ""; if (window._timer) clearInterval(window._timer); try { speechSynthesis.cancel(); } catch (e) {}
+    ({ quiz: quiz, memory: memory, costruisci: costruisci, dettato: dettato })[nome]();
+    try { history.replaceState(null, "", "#" + nome); } catch (e) {}
+  }
+  function fine(msg, ancora) {
+    area.appendChild(el("div", { class: "g-fine" }, [el("p", { text: msg }), el("button", { class: "g-btn", text: "GIOCA ANCORA ▶", on: ancora })]));
+  }
+
+  // ---------------- ASCOLTA E SCEGLI (60 secondi)
+  function quiz() {
+    var tempo = 60, punti = 0, partito = false, giusto;
+    var barra = el("div", { class: "g-tempo" }, [el("span")]), info = el("p", { class: "g-info" }), box = el("div", { class: "g-quiz n4" });
+    var ascolta = el("button", { class: "g-btn g-ascolta", text: "🔊", "aria-label": "ASCOLTA", on: function () { if (!partito) parti(); else N.voce(N.nome(giusto)); } });
+    area.appendChild(el("p", { class: "g-info", text: "ASCOLTA IL NUMERO E TOCCA LE CIFRE GIUSTE. HAI 60 SECONDI! TOCCA 🔊 PER COMINCIARE." }));
+    [barra, info, ascolta, box].forEach(function (x) { area.appendChild(x); });
+    function stato() { info.textContent = "⏱️ " + tempo + " SECONDI · ⭐ " + punti + " PUNTI"; barra.firstChild.style.width = (tempo / 60 * 100) + "%"; }
+    function domanda() {
+      box.innerHTML = ""; giusto = caso();
+      mescola(diversi(giusto, 4)).forEach(function (n) {
+        box.appendChild(el("button", { class: "g-btn op", text: String(n), on: function (ev) {
+          if (n === giusto) { punti++; ev.target.classList.add("ok"); setTimeout(domanda, 400); }
+          else { ev.target.classList.add("no"); tempo = Math.max(0, tempo - 3); }
+          stato();
+        } }));
+      });
+      N.voce(N.nome(giusto));
+    }
+    function parti() {
+      partito = true; domanda();
+      window._timer = setInterval(function () {
+        tempo--; stato();
+        if (tempo <= 0) { clearInterval(window._timer); box.innerHTML = ""; ascolta.remove();
+          var k = "numeri-quiz-" + MAX, r = leggi(k); if (punti > r) scrivi(k, punti);
+          fine("TEMPO FINITO! HAI FATTO " + punti + " PUNTI." + (punti > r ? " NUOVO RECORD! 🏆" : " RECORD: " + r + " PUNTI."), quiz); }
+      }, 1000);
+    }
+    stato();
+  }
+
+  // ---------------- MEMORY: cifre e parole
+  function memory() {
+    var s = {}, nums = [];
+    while (nums.length < 6) { var x = caso(); if (!s[x]) { s[x] = 1; nums.push(x); } }
+    var carte = [];
+    nums.forEach(function (n, i) { carte.push({ id: i, t: String(n), num: true }); carte.push({ id: i, t: N.pezzi(n).map(function (x) { return x.t.toUpperCase(); }).join("\u200B") }); });
+    carte = mescola(carte);
+    var aperte = [], trovate = 0, mosse = 0, griglia = el("div", { class: "g-memory" });
+    carte.forEach(function (c) {
+      var b = el("button", { class: "g-carta" + (c.num ? " num" : ""), "aria-label": "CARTA" }, [el("span", { text: c.t })]);
+      b.onclick = function () {
+        if (b.classList.contains("su") || aperte.length === 2) return;
+        b.classList.add("su"); aperte.push([b, c]); if (!c.num) N.voce(c.t.replace(/\u200B/g, ""));
+        if (aperte.length === 2) {
+          mosse++; var a = aperte;
+          if (a[0][1].id === a[1][1].id && a[0][1].num !== a[1][1].num) {
+            a.forEach(function (y) { y[0].classList.add("ok"); }); aperte = []; trovate++;
+            if (trovate === nums.length) { var k = "numeri-mem-" + MAX, r = leggi(k); if (!r || mosse < r) scrivi(k, mosse);
+              fine("BRAVO! HAI TROVATO TUTTE LE COPPIE IN " + mosse + " MOSSE." + (r ? " RECORD: " + Math.min(r, mosse) + " MOSSE." : ""), memory); }
+          } else setTimeout(function () { a.forEach(function (y) { y[0].classList.remove("su"); }); aperte = []; }, 1100);
+        }
+      };
+      griglia.appendChild(b);
+    });
+    area.appendChild(el("p", { class: "g-info", text: "GIRA DUE CARTE: TROVA IL NUMERO E LA SUA PAROLA." }));
+    area.appendChild(griglia);
+  }
+
+  // ---------------- COSTRUISCI IL NUMERO (centinaia, decine, unità)
+  function costruisci() {
+    var giro = 0, giusti = 0, TOT = 5, target, v;
+    var tgt = el("div", { class: "target" }), abaco = el("div", { class: "abaco" }), esito = el("p", { class: "esito" });
+    var cols = [["c", "CENTINAIA", 100], ["d", "DECINE", 10], ["u", "UNITÀ", 1]].map(function (c) {
+      var val = el("div", { class: "v", text: "0" });
+      var box = el("div", { class: "col " + c[0] }, [el("b", { text: c[1] }), val,
+        el("button", { text: "+", "aria-label": "PIÙ " + c[1], on: function () { cambia(c[2], 1); } }),
+        el("button", { text: "−", "aria-label": "MENO " + c[1], on: function () { cambia(c[2], -1); } })]);
+      if (MAX < 100 && c[0] === "c") box.style.opacity = .35;
+      abaco.appendChild(box); return val;
+    });
+    function cambia(p, d) {
+      var cifre = [Math.floor(v / 100) % 10, Math.floor(v / 10) % 10, v % 10], i = p === 100 ? 0 : p === 10 ? 1 : 2;
+      cifre[i] = (cifre[i] + d + 10) % 10; v = cifre[0] * 100 + cifre[1] * 10 + cifre[2]; mostra();
+    }
+    function mostra() { cols[0].textContent = Math.floor(v / 100); cols[1].textContent = Math.floor(v / 10) % 10; cols[2].textContent = v % 10; esito.textContent = ""; esito.className = "esito"; }
+    function nuovo() {
+      giro++; do { target = caso(); } while (target === 1000);
+      v = 0; mostra(); tgt.textContent = "COSTRUISCI: " + parola(target); N.voce(N.nome(target));
+    }
+    var ok = el("button", { class: "g-btn", text: "✅ CONTROLLA", on: function () {
+      if (v === target) { giusti++; esito.textContent = "BRAVO! " + target + " = " + parola(target); esito.className = "esito ok"; N.voce(N.nome(target));
+        setTimeout(function () { if (giro >= TOT) { ok.remove(); fine("HAI COSTRUITO " + giusti + " NUMERI SU " + TOT + ".", costruisci); } else nuovo(); }, 1500); }
+      else { esito.textContent = "NON ANCORA: HAI FATTO " + v + ". RIPROVA!"; esito.className = "esito no"; }
+    } });
+    var riascolta = el("button", { class: "g-btn op", text: "🔊 ASCOLTA", on: function () { N.voce(N.nome(target)); } });
+    area.appendChild(el("p", { class: "g-info", text: "LEGGI LA PAROLA E USA + E − PER FARE IL NUMERO. 345 = 3 CENTINAIA, 4 DECINE, 5 UNITÀ." }));
+    [tgt, abaco, el("div", { class: "livello" }, [riascolta, ok]), esito].forEach(function (x) { area.appendChild(x); });
+    nuovo();
+  }
+
+  // ---------------- SCRIVI IL NUMERO (dettato, 10 numeri)
+  function dettato() {
+    var giro = 0, giusti = 0, TOT = 10, n;
+    var conta = el("p", { class: "g-info" }), esito = el("p", { class: "esito" });
+    var inp = el("input", { type: "text", inputmode: "numeric", autocomplete: "off", "aria-label": "IL NUMERO" });
+    var ascolta = el("button", { class: "g-btn g-ascolta", text: "🔊", "aria-label": "ASCOLTA", on: function () { N.voce(N.nome(n)); } });
+    var piano = el("button", { class: "g-btn op", text: "🐢 PIÙ LENTO", on: function () { N.voce(N.nome(n), .55); } });
+    function nuovo() { giro++; n = caso(); inp.value = ""; inp.disabled = false; esito.textContent = ""; esito.className = "esito";
+      conta.textContent = "NUMERO " + giro + " DI " + TOT + " · ⭐ " + giusti; N.voce(N.nome(n)); try { inp.focus(); } catch (e) {} }
+    function controlla() {
+      if (inp.disabled || !inp.value.trim()) return;
+      inp.disabled = true;
+      var g = parseInt(inp.value.replace(/\D/g, ""), 10) === n; if (g) giusti++;
+      esito.textContent = (g ? "✓ GIUSTO! " : "✗ ERA ") + n + " = " + parola(n); esito.className = "esito " + (g ? "ok" : "no");
+      setTimeout(function () {
+        if (giro >= TOT) { var k = "numeri-dett-" + MAX, r = leggi(k); if (giusti > r) scrivi(k, giusti);
+          area.innerHTML = ""; fine("HAI SCRITTO " + giusti + " NUMERI GIUSTI SU " + TOT + "." + (giusti > r ? " NUOVO RECORD! 🏆" : ""), dettato); }
+        else nuovo();
+      }, 1800);
+    }
+    inp.addEventListener("keydown", function (e) { if (e.key === "Enter") controlla(); });
+    area.appendChild(el("p", { class: "g-info", text: "ASCOLTA E SCRIVI IL NUMERO CON LE CIFRE." }));
+    [conta, ascolta, el("div", { class: "scrivi" }, [inp, el("button", { class: "g-btn", text: "OK", on: controlla })]),
+     el("div", { class: "livello" }, [piano]), esito].forEach(function (x) { area.appendChild(x); });
+    nuovo();
+  }
+
+  var h = (location.hash || "").slice(1);
+  apri(["quiz", "memory", "costruisci", "dettato"].indexOf(h) >= 0 ? h : "quiz");
+})();
+</script>
+</body>
+</html>
