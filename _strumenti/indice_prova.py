@@ -8,6 +8,7 @@ Uso:  python3 _strumenti/indice_prova.py            -> prova-indice/index.html (
                                                     -> file unico con link assoluti al sito pubblicato
 """
 import html, json, os, re, sys
+from urllib.parse import urljoin
 from collections import Counter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +29,9 @@ TOPICS = [
     ("video", "🎬", "Videogrammatica"),
     ("percorsi", "📒", "Percorsi e schede"),
     ("altri", "🗂️", "Altri argomenti e letture"),
-    ("livelli-alti", "🎓", "Livelli B1, B2, C1, C2"),
+    ("attualita", "📰", "Attualità, tempo libero e società"),
+    ("scrivere", "✍️", "Scrivere e argomentare"),
+    ("lessico", "💬", "Lessico, stile e varietà dell'italiano"),
     ("verifiche", "📝", "Verifiche e simulazioni d'esame"),
 ]
 # id di sezione di index.html -> argomento (si cerca dalla sezione più interna)
@@ -42,14 +45,28 @@ SEC2TOPIC = {
     "educazione-civica": "vivere-italia", "a1-vivere-italia": "vivere-italia", "a2-vivere-italia": "vivere-italia",
     "a1-verbi": "grammatica", "a1-verbi-giochi": "grammatica", "a1-nomi": "grammatica", "a1-nomi-giochi": "grammatica",
     "a1-frase": "grammatica", "a1-preposizioni": "grammatica", "a1-grammatica-extra": "grammatica",
-    "a2-grammatica-sito": "grammatica", "a2-grammatica": "grammatica", "b1-grammatica": "livelli-alti",
+    "a2-grammatica-sito": "grammatica", "a2-grammatica": "grammatica", "b1-grammatica": "grammatica",
     "a1-videogrammatica": "video", "a2-videogrammatica": "video",
     "a1-eserciziario": "percorsi", "a1-percorso": "percorsi", "a2-percorso": "percorsi",
     "a1-argomenti": "altri", "a2-argomenti": "altri",
-    "b1": "livelli-alti", "b2": "livelli-alti", "c1": "livelli-alti", "c2": "livelli-alti",
+    "b1": "grammatica", "b2": "grammatica", "c1": "grammatica", "c2": "grammatica",
     "esami": "verifiche",
     "a1": "altri", "a2": "altri",
 }
+# livelli B1-C2: argomento scelto dalla pagina (se non c'è, resta "grammatica")
+HREF2TOPIC = {
+    "b1-cronaca/": "attualita", "b1-vacanze/": "attualita", "b1-tempo-libero/": "attualita",
+    "avanzato/b2-passivo-ambiente": "attualita", "avanzato/b2-congiuntivo-opinioni": "attualita",
+    "avanzato/b2-congiuntivo-passato-cinema": "attualita",
+    "b1-lavoro/": "lavoro", "b1-problemi/": "casa",
+    "avanzato/b2-argomentare": "scrivere", "avanzato/c1-registro-formale": "scrivere",
+    "avanzato/c1-saggio-breve": "scrivere",
+    "avanzato/c1-linguaggio-burocratico": "vivere-italia",
+    "avanzato/b2-lingua-dialetti": "lessico", "avanzato/c1-lingua-che-cambia": "lessico",
+    "avanzato/c2-modi-di-dire": "lessico", "avanzato/c2-sfumature-lessico": "lessico",
+    "avanzato/c2-varieta-italiano": "lessico", "avanzato/c2-punteggiatura-stile": "lessico",
+}
+EXERCISE_SITES = ("impariamoitaliano", "onlineitalianclub")
 TYPES = [
     ("lezione", "📘", "Lezione"),
     ("flashcard", "🃏", "Flashcard"),
@@ -98,6 +115,8 @@ def classify(it):
         ty = "video"
     elif low.startswith(("missione-", "escape-room")):
         ty = "escape"
+    elif ext and any(g in low for g in EXERCISE_SITES):
+        ty = "esercizi"
     elif ext and any(g in low for g in GAME_SITES):
         ty = "giochi"
     elif low.startswith("giochi/") or title.lower().startswith("giochi"):
@@ -116,7 +135,10 @@ def classify(it):
         if s in SEC2TOPIC:
             tp = SEC2TOPIC[s]
             break
-    if tp == "altri" and ty == "verifica":
+    for k, v in HREF2TOPIC.items():
+        if href.startswith(k):
+            tp = v
+    if ty == "verifica" and (tp == "altri" or (it["secs"] and it["secs"][0] in ("b1", "b2", "c1", "c2"))):
         tp = "verifiche"
     # livello
     lv = [x for x in LEVELS if re.search(r"\b" + x + r"\b", it["tag"])]
@@ -152,7 +174,11 @@ def main():
     page = TEMPLATE.replace("__DATA__", json.dumps(data, ensure_ascii=False))
     if "--standalone" in sys.argv:
         out = sys.argv[sys.argv.index("--standalone") + 1]
-        page = page.replace("__BASE__", SITE)
+        # pagina fuori dal sito (anteprima): niente <base>, link assoluti che si aprono in una scheda nuova
+        for it in data["items"]:
+            it["h"] = urljoin(SITE, it["h"])
+        page = TEMPLATE.replace("__DATA__", json.dumps(data, ensure_ascii=False))
+        page = page.replace('<base href="__BASE__">', '<base target="_blank">').replace('href="../"', 'href="%s"' % SITE)
     else:
         out = os.path.join(ROOT, "prova-indice", "index.html")
         os.makedirs(os.path.dirname(out), exist_ok=True)
