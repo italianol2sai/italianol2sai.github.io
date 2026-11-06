@@ -226,6 +226,8 @@ const save = () => { try { localStorage.setItem("sillabe", JSON.stringify({ l: l
 /* ===== AUDIO: prima cerca audio/<parola>.mp3, altrimenti voce del computer ===== */
 const slug = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const found = {};
+/* sillabe che la voce del computer legge male da sole: le scriviamo come si pronunciano */
+const VOCE = { chet: "ket", chie: "kie", ghet: "ghèt" };
 let current = null;
 function tryLoad(url) {
   return new Promise((ok, ko) => { const a = new Audio(); a.oncanplaythrough = () => ok(); a.onerror = ko; a.src = url; });
@@ -241,7 +243,7 @@ async function say(text) {
     }
   }
   if (found[s]) { current = new Audio(found[s]); current.play().catch(() => {}); return; }
-  const u = new SpeechSynthesisUtterance(text.toLowerCase());
+  const u = new SpeechSynthesisUtterance(VOCE[s] || text.toLowerCase());
   u.lang = "it-IT"; u.rate = 0.75;
   const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith("it"));
   if (v) u.voice = v;
