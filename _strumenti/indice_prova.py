@@ -1,0 +1,165 @@
+"""Genera una pagina di PROVA dell'indice (prova-indice/index.html) leggendo index.html.
+
+Non modifica index.html né nessun link: legge le attività dalla pagina principale,
+le classifica per argomento, livello e tipo e le mostra in 4 viste diverse.
+
+Uso:  python3 _strumenti/indice_prova.py            -> prova-indice/index.html (link relativi al sito)
+      python3 _strumenti/indice_prova.py --standalone FILE
+                                                    -> file unico con link assoluti al sito pubblicato
+"""
+import html, json, os, re, sys
+from collections import Counter
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SITE = "https://italianol2sai.github.io/"
+
+# ---- argomenti (schede) -------------------------------------------------
+TOPICS = [
+    ("primi-passi", "🔤", "Primi passi (A0)"),
+    ("casa", "🏠", "La casa"),
+    ("cucina", "🍝", "Il cibo e la cucina"),
+    ("vestiti", "👕", "I vestiti"),
+    ("salute", "🩺", "La salute"),
+    ("citta", "🏙️", "La città"),
+    ("lavoro", "💼", "Il lavoro"),
+    ("famiglia", "👨‍👩‍👧", "La famiglia"),
+    ("vivere-italia", "🇮🇹", "Vivere in Italia e educazione civica"),
+    ("grammatica", "🧩", "Grammatica"),
+    ("video", "🎬", "Videogrammatica"),
+    ("percorsi", "📒", "Percorsi e schede"),
+    ("altri", "🗂️", "Altri argomenti e letture"),
+    ("livelli-alti", "🎓", "Livelli B1, B2, C1, C2"),
+    ("verifiche", "📝", "Verifiche e simulazioni d'esame"),
+]
+# id di sezione di index.html -> argomento (si cerca dalla sezione più interna)
+SEC2TOPIC = {
+    "primi-passi": "primi-passi", "primi-passi-giochi": "primi-passi",
+    "casa": "casa", "casa-giochi": "casa", "cucina": "cucina",
+    "vestiti": "vestiti", "vestiti-giochi": "vestiti",
+    "salute": "salute", "salute-giochi": "salute",
+    "citta": "citta", "a1-orientarsi": "citta",
+    "lavoro": "lavoro", "lavoro-giochi": "lavoro", "famiglia": "famiglia",
+    "educazione-civica": "vivere-italia", "a1-vivere-italia": "vivere-italia", "a2-vivere-italia": "vivere-italia",
+    "a1-verbi": "grammatica", "a1-verbi-giochi": "grammatica", "a1-nomi": "grammatica", "a1-nomi-giochi": "grammatica",
+    "a1-frase": "grammatica", "a1-preposizioni": "grammatica", "a1-grammatica-extra": "grammatica",
+    "a2-grammatica-sito": "grammatica", "a2-grammatica": "grammatica", "b1-grammatica": "livelli-alti",
+    "a1-videogrammatica": "video", "a2-videogrammatica": "video",
+    "a1-eserciziario": "percorsi", "a1-percorso": "percorsi", "a2-percorso": "percorsi",
+    "a1-argomenti": "altri", "a2-argomenti": "altri",
+    "b1": "livelli-alti", "b2": "livelli-alti", "c1": "livelli-alti", "c2": "livelli-alti",
+    "esami": "verifiche",
+    "a1": "altri", "a2": "altri",
+}
+TYPES = [
+    ("lezione", "📘", "Lezione"),
+    ("flashcard", "🃏", "Flashcard"),
+    ("esercizi", "📱", "Esercizi"),
+    ("giochi", "🎲", "Giochi e quiz"),
+    ("escape", "🔐", "Escape room"),
+    ("video", "🎬", "Video"),
+    ("verifica", "📝", "Verifiche"),
+]
+LEVELS = ["A0", "A1", "A2", "B1", "B2", "C1", "C2"]
+GAME_SITES = ("wordwall", "kahoot", "learningapps", "languageguide", "impariamoitaliano", "onlineitalianclub",
+              "italianonline", "quizlet", "liveworksheets", "wordwall.net")
+
+
+def parse():
+    h = open(os.path.join(ROOT, "index.html"), encoding="utf8").read()
+    h = re.sub(r"<!--.*?-->", "", h, flags=re.S)
+    tok = re.compile(r'<details([^>]*)>|</details>|<a class="item([^"]*)" href="([^"]+)"[^>]*>(.*?)</a>', re.S)
+    stack, items = [], []
+    for m in tok.finditer(h):
+        s = m.group(0)
+        if s.startswith("<details"):
+            i = re.search(r'id="([^"]+)"', m.group(1))
+            stack.append(i.group(1) if i else None)
+        elif s == "</details>":
+            stack.pop()
+        else:
+            b = m.group(4)
+            t = re.search(r"<strong>(.*?)</strong>", b, re.S)
+            d = re.search(r"</strong>\s*<span>(.*?)</span>", b, re.S)
+            tag = re.search(r'class="tag">(.*?)</span>', b)
+            title = re.sub(r'<span class="tag">.*?</span>', "", t.group(1)) if t else ""
+            clean = lambda x: html.unescape(re.sub(r"<.*?>", "", x)).strip()
+            items.append(dict(secs=[x for x in stack if x], href=m.group(3), title=clean(title),
+                              desc=clean(d.group(1)) if d else "", tag=tag.group(1) if tag else ""))
+    return items
+
+
+def classify(it):
+    href, title, desc = it["href"], it["title"], it["desc"]
+    ext = href.startswith("http")
+    low = href.lower()
+    if "flashcard" in low or "flashcard" in desc.lower():
+        ty = "flashcard"
+    elif "drive.google.com" in low or "youtube.com" in low or "youtu.be" in low:
+        ty = "video"
+    elif low.startswith(("missione-", "escape-room")):
+        ty = "escape"
+    elif ext and any(g in low for g in GAME_SITES):
+        ty = "giochi"
+    elif low.startswith("giochi/") or title.lower().startswith("giochi"):
+        ty = "giochi"
+    elif low.endswith("esercizi.html") or low.startswith("eserciziario-a1/") or title.lower().startswith(("esercizi", "scheda")):
+        ty = "esercizi"
+    elif low.startswith(("esami/", "verifica-a2", "quiz/")) or title.lower().startswith(("verifica", "simulazione", "test", "quiz")):
+        ty = "verifica"
+    elif ext:
+        ty = "giochi"
+    else:
+        ty = "lezione"
+    # argomento
+    tp = "altri"
+    for s in reversed(it["secs"]):
+        if s in SEC2TOPIC:
+            tp = SEC2TOPIC[s]
+            break
+    if tp == "altri" and ty == "verifica":
+        tp = "verifiche"
+    # livello
+    lv = [x for x in LEVELS if re.search(r"\b" + x + r"\b", it["tag"])]
+    if not lv:
+        top = it["secs"][0] if it["secs"] else ""
+        fixed = {"primi-passi": ["A0"], "b1": ["B1"], "b2": ["B2"], "c1": ["C1"], "c2": ["C2"]}
+        if top in fixed:
+            lv = fixed[top]
+        elif top == "a1":
+            lv = ["A2"] if "a2" in it["secs"] else ["A1"]
+    return ty, tp, lv, ext
+
+
+def build():
+    items, seen = [], set()
+    for it in parse():
+        if it["href"] in seen:
+            continue
+        seen.add(it["href"])
+        ty, tp, lv, ext = classify(it)
+        items.append(dict(t=it["title"], h=it["href"], ty=ty, tp=tp, lv=lv, x=1 if ext else 0))
+    return dict(topics=[dict(id=a, icon=b, name=c) for a, b, c in TOPICS],
+                types=[dict(id=a, icon=b, name=c) for a, b, c in TYPES], levels=LEVELS, items=items)
+
+
+TEMPLATE = open(os.path.join(ROOT, "_strumenti", "indice_prova.html"), encoding="utf8").read()
+
+
+def main():
+    data = build()
+    c = Counter(i["ty"] for i in data["items"])
+    print(len(data["items"]), "attività;", dict(c), "senza livello:", sum(1 for i in data["items"] if not i["lv"]))
+    page = TEMPLATE.replace("__DATA__", json.dumps(data, ensure_ascii=False))
+    if "--standalone" in sys.argv:
+        out = sys.argv[sys.argv.index("--standalone") + 1]
+        page = page.replace("__BASE__", SITE)
+    else:
+        out = os.path.join(ROOT, "prova-indice", "index.html")
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        page = page.replace("__BASE__", "../")
+    open(out, "w", encoding="utf8").write(page)
+    print("scritto", out)
+
+
+if __name__ == "__main__":
+    main()
