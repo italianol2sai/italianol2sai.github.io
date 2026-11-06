@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔢 I numeri 1–1000 · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🔢 I numeri 1–1000 · Esercizi",
+ "store": "numeri1000",
+ "upper": true,
+ "sub": "PRIMA GUARDA LA REGOLA, POI SCRIVI E PREMI «CONTROLLA». LE RISPOSTE RESTANO SALVATE SU QUESTO TELEFONO.",
+ "sections": [
+  {
+   "part": "1 · Da 1 a 20",
+   "teoria": "<p>DA 1 A 20 I NUMERI SI IMPARANO A MEMORIA.</p><p>11 UNDICI · 12 DODICI · 13 TREDICI · 14 QUATTORDICI · 15 QUINDICI · 16 SEDICI · 17 DICIASSETTE · 18 DICIOTTO · 19 DICIANNOVE · 20 VENTI</p>"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Come si dice?",
+   "short": "1 · Da 11 a 20",
+   "type": "select",
+   "opts": [
+    "DICIANNOVE",
+    "DICIASSETTE",
+    "DICIOTTO",
+    "DODICI",
+    "QUATTORDICI",
+    "QUINDICI",
+    "SEDICI",
+    "TREDICI",
+    "UNDICI",
+    "VENTI"
+   ],
+   "items": [
+    {
+     "q": "1. <b>12</b>"
+    },
+    {
+     "q": "2. <b>14</b>"
+    },
+    {
+     "q": "3. <b>15</b>"
+    },
+    {
+     "q": "4. <b>17</b>"
+    },
+    {
+     "q": "5. <b>19</b>"
+    },
+    {
+     "q": "6. <b>13</b>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJET0RJQ0kiXX0sIHsidCI6ICJlcSIsICJhIjogWyJRVUFUVE9SRElDSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlFVSU5ESUNJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRElDSUFTU0VUVEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJESUNJQU5OT1ZFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVFJFRElDSSJdfV0="
+  },
+  {
+   "part": "2 · Le decine",
+   "teoria": "<p>LE DECINE: 10 DIECI · 20 VENTI · 30 TRENTA · 40 QUARANTA · 50 CINQUANTA · 60 SESSANTA · 70 SETTANTA · 80 OTTANTA · 90 NOVANTA · 100 CENTO</p><p>DECINA + UNITÀ = UNA PAROLA: VENTI + DUE = <b>VENTIDUE</b>.</p><p>CON <b>UNO</b> E <b>OTTO</b> LA DECINA PERDE L'ULTIMA LETTERA: VENT<b>UNO</b>, TRENT<b>OTTO</b>.<br>CON <b>TRE</b> C'È L'ACCENTO: VENTITRÉ, TRENTATRÉ.</p>"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Scrivi il numero con le cifre",
+   "short": "2 · Le decine",
+   "type": "text",
+   "w": "s",
+   "cons": "ESEMPIO: QUARANTA → 40",
+   "items": [
+    {
+     "q": "1. TRENTA"
+    },
+    {
+     "q": "2. CINQUANTA"
+    },
+    {
+     "q": "3. SETTANTA"
+    },
+    {
+     "q": "4. NOVANTA"
+    },
+    {
+     "q": "5. SESSANTA"
+    },
+    {
+     "q": "6. OTTANTA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzMCIsICIzMCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjUwIiwgIjUwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNzAiLCAiNzAiXX0sIHsidCI6ICJlcSIsICJhIjogWyI5MCIsICI5MCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjYwIiwgIjYwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiODAiLCAiODAiXX1d"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Scrivi il numero in lettere",
+   "short": "3 · Decine e unità",
+   "type": "text",
+   "w": "m",
+   "cons": "ESEMPIO: 22 → VENTIDUE. ATTENZIONE A UNO, OTTO E TRE!",
+   "items": [
+    {
+     "q": "1. <b>21</b>"
+    },
+    {
+     "q": "2. <b>28</b>"
+    },
+    {
+     "q": "3. <b>33</b>"
+    },
+    {
+     "q": "4. <b>46</b>"
+    },
+    {
+     "q": "5. <b>58</b>"
+    },
+    {
+     "q": "6. <b>71</b>"
+    },
+    {
+     "q": "7. <b>83</b>"
+    },
+    {
+     "q": "8. <b>99</b>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRU5UVU5PIiwgIlZFTlQgVU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVOVE9UVE8iLCAiVkVOVCBPVFRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVFJFTlRBVFLDiSIsICJUUkVOVEEgVFLDiSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlFVQVJBTlRBU0VJIiwgIlFVQVJBTlRBIFNFSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNJTlFVQU5UT1RUTyIsICJDSU5RVUFOVCBPVFRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0VUVEFOVFVOTyIsICJTRVRUQU5UIFVOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk9UVEFOVEFUUsOJIiwgIk9UVEFOVEEgVFLDiSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk5PVkFOVEFOT1ZFIiwgIk5PVkFOVEEgTk9WRSJdfV0="
+  },
+  {
+   "part": "3 · Le centinaia e i numeri grandi",
+   "teoria": "<p>100 <b>CENTO</b> · 200 DUECENTO · 300 TRECENTO · 400 QUATTROCENTO · 500 CINQUECENTO · 600 SEICENTO · 700 SETTECENTO · 800 OTTOCENTO · 900 NOVECENTO · 1000 <b>MILLE</b></p><p>I NUMERI GRANDI SI LEGGONO A PEZZI, COME UN TRENO 🚂: CENTINAIA + DECINE + UNITÀ.<br>345 = 300 + 40 + 5 = TRECENTO + QUARANTA + CINQUE = <b>TRECENTOQUARANTACINQUE</b></p><p>SI SCRIVE TUTTO ATTACCATO. CENTO + OTTO = <b>CENTOTTO</b> (O CENTOOTTO).</p>"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Le centinaia: come si dice?",
+   "short": "4 · Le centinaia",
+   "type": "select",
+   "opts": [
+    "CENTO",
+    "CINQUECENTO",
+    "DUECENTO",
+    "MILLE",
+    "MILLECENTO",
+    "NOVECENTO",
+    "OTTOCENTO",
+    "SEICENTO",
+    "SETTECENTO",
+    "TRECENTO"
+   ],
+   "items": [
+    {
+     "q": "1. <b>200</b>"
+    },
+    {
+     "q": "2. <b>500</b>"
+    },
+    {
+     "q": "3. <b>700</b>"
+    },
+    {
+     "q": "4. <b>900</b>"
+    },
+    {
+     "q": "5. <b>300</b>"
+    },
+    {
+     "q": "6. <b>1000</b>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJEVUVDRU5UTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNJTlFVRUNFTlRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0VUVEVDRU5UTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk5PVkVDRU5UTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlRSRUNFTlRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTUlMTEUiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Da 100 a 200: scrivi in lettere",
+   "short": "5 · Da 100 a 200",
+   "type": "text",
+   "w": "m",
+   "cons": "ESEMPIO: 102 → CENTODUE · 130 → CENTOTRENTA",
+   "items": [
+    {
+     "q": "1. <b>101</b>"
+    },
+    {
+     "q": "2. <b>108</b>"
+    },
+    {
+     "q": "3. <b>115</b>"
+    },
+    {
+     "q": "4. <b>123</b>"
+    },
+    {
+     "q": "5. <b>180</b>"
+    },
+    {
+     "q": "6. <b>199</b>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDRU5UT1VOTyIsICJDRU5UTyBVTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDRU5UT1RUTyIsICJDRU5UIE9UVE8iLCAiQ0VOVE9PVFRPIiwgIkNFTlRPIE9UVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDRU5UT1FVSU5ESUNJIiwgIkNFTlRPIFFVSU5ESUNJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0VOVE9WRU5USVRSw4kiLCAiQ0VOVE8gVkVOVEkgVFLDiSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNFTlRPVFRBTlRBIiwgIkNFTlQgT1RUQU5UQSIsICJDRU5UT09UVEFOVEEiLCAiQ0VOVE8gT1RUQU5UQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNFTlRPTk9WQU5UQU5PVkUiLCAiQ0VOVE8gTk9WQU5UQSBOT1ZFIl19XQ=="
+  },
+  {
+   "id": "e6",
+   "title": "6 · Leggi la parola e scrivi il numero",
+   "short": "6 · Dalla parola al numero",
+   "type": "text",
+   "w": "s",
+   "cons": "ESEMPIO: DUECENTOCINQUANTUNO → 251",
+   "items": [
+    {
+     "q": "1. TRECENTOQUARANTACINQUE"
+    },
+    {
+     "q": "2. DUECENTOSETTANTOTTO"
+    },
+    {
+     "q": "3. QUATTROCENTODODICI"
+    },
+    {
+     "q": "4. SEICENTOCINQUANTA"
+    },
+    {
+     "q": "5. OTTOCENTOTRÉ"
+    },
+    {
+     "q": "6. NOVECENTONOVANTANOVE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzNDUiLCAiMzQ1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMjc4IiwgIjI3OCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQxMiIsICI0MTIiXX0sIHsidCI6ICJlcSIsICJhIjogWyI2NTAiLCAiNjUwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiODAzIiwgIjgwMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjk5OSIsICI5OTkiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Costruisci il numero 🚂",
+   "short": "7 · Costruisci",
+   "type": "text",
+   "w": "s",
+   "cons": "METTI INSIEME I PEZZI. ESEMPIO: 200 + 30 + 4 = 234",
+   "items": [
+    {
+     "q": "1. 300 + 40 + 5 ="
+    },
+    {
+     "q": "2. 200 + 70 + 1 ="
+    },
+    {
+     "q": "3. 600 + 8 ="
+    },
+    {
+     "q": "4. 900 + 90 + 3 ="
+    },
+    {
+     "q": "5. 100 + 50 ="
+    },
+    {
+     "q": "6. 400 + 10 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzNDUiLCAiMzQ1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMjcxIiwgIjI3MSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjYwOCIsICI2MDgiXX0sIHsidCI6ICJlcSIsICJhIjogWyI5OTMiLCAiOTkzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTUwIiwgIjE1MCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQxMCIsICI0MTAiXX1d"
+  },
+  {
+   "part": "4 · Ascolta"
+  },
+  {
+   "id": "e8",
+   "title": "8 · Ascolta e scrivi il numero con le cifre",
+   "short": "8 · Ascolta",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊 E SCRIVI IL NUMERO. PUOI ASCOLTARE TANTE VOLTE.",
+   "items": [
+    {
+     "q": "1. <button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance(decodeURIComponent(escape(atob('dmVudGlxdWF0dHJv'))));u.lang='it-IT';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button>"
+    },
+    {
+     "q": "2. <button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance(decodeURIComponent(escape(atob('c2Vzc2FudGFzZXR0ZQ=='))));u.lang='it-IT';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button>"
+    },
+    {
+     "q": "3. <button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance(decodeURIComponent(escape(atob('Y2VudG9jaW5xdWFudGE='))));u.lang='it-IT';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button>"
+    },
+    {
+     "q": "4. <button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance(decodeURIComponent(escape(atob('dHJlY2VudG9zZWRpY2k='))));u.lang='it-IT';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button>"
+    },
+    {
+     "q": "5. <button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance(decodeURIComponent(escape(atob('cXVhdHRyb2NlbnRvdHRhbnRh'))));u.lang='it-IT';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button>"
+    },
+    {
+     "q": "6. <button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance(decodeURIComponent(escape(atob('c2V0dGVjZW50b3ZlbnRpY2lucXVl'))));u.lang='it-IT';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button>"
+    },
+    {
+     "q": "7. <button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance(decodeURIComponent(escape(atob('b3R0b2NlbnRvdHRhbnRvdHRv'))));u.lang='it-IT';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button>"
+    },
+    {
+     "q": "8. <button type=\"button\" class=\"say\" onclick=\"var u=new SpeechSynthesisUtterance(decodeURIComponent(escape(atob('bWlsbGU='))));u.lang='it-IT';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyNCIsICIyNCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjY3IiwgIjY3Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTUwIiwgIjE1MCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMxNiIsICIzMTYiXX0sIHsidCI6ICJlcSIsICJhIjogWyI0ODAiLCAiNDgwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNzI1IiwgIjcyNSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjg4OCIsICI4ODgiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxMDAwIiwgIjEuMDAwIl19XQ=="
+  },
+  {
+   "part": "5 · I numeri nella vita"
+  },
+  {
+   "id": "e9",
+   "title": "9 · Leggi e scrivi il numero",
+   "short": "9 · Nella vita",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL NUMERO IN CIFRE.",
+   "items": [
+    {
+     "q": "1. L'AFFITTO COSTA <b>SEICENTOCINQUANTA</b> EURO AL MESE."
+    },
+    {
+     "q": "2. GIOVANNI ABITA IN VIA SPARANO <b>CENTOQUARANTACINQUE</b>."
+    },
+    {
+     "q": "3. SILVIA PAGA LA BOLLETTA: <b>DUECENTOTRENTA</b> EURO."
+    },
+    {
+     "q": "4. IL TRENO PER LECCE COSTA <b>DICIOTTO</b> EURO."
+    },
+    {
+     "q": "5. CRISTIAN LAVORA <b>CENTOSESSANTA</b> ORE AL MESE."
+    },
+    {
+     "q": "6. SALEAH COMPRA UN TELEFONO DA <b>TRECENTONOVANTANOVE</b> EURO."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI2NTAiLCAiNjUwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTQ1IiwgIjE0NSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjIzMCIsICIyMzAiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxOCIsICIxOCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjE2MCIsICIxNjAiXX0sIHsidCI6ICJlcSIsICJhIjogWyIzOTkiLCAiMzk5Il19XQ=="
+  },
+  {
+   "id": "e10",
+   "title": "10 🎤 · Leggi ad alta voce",
+   "type": "record",
+   "items": [
+    "LEGGI QUESTI NUMERI: 17 · 45 · 100 · 128 · 360 · 799 · 1000. POI DI' QUANTO PAGHI DI AFFITTO O DI SPESA IN UN MESE."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
