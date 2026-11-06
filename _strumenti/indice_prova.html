@@ -75,7 +75,20 @@
   .stu .big .ic { font-size:40px; }
   .stu .big small { display:block; font-size:13px; font-weight:600; color:var(--muted); }
   .stu .back { min-height:52px; font-size:18px; font-weight:800; }
+  .stu .lvic { font-size:22px; font-weight:800; min-width:56px; height:56px; display:grid; place-items:center; border-radius:14px; background:var(--green); color:#fff; }
+  .stu.minu .big, .stu.minu h3 { text-transform:none; }
   .stu h3 { font-size:18px; margin:18px 0 8px; text-transform:uppercase; }
+  /* riprendi + ultime aggiunte */
+  #top { display:grid; gap:10px; margin:0 0 14px; }
+  .resume { display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:14px; text-decoration:none;
+            background:var(--green); color:#fff; font-weight:700; }
+  .resume small { display:block; font-weight:500; opacity:.85; font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+  .resume .ic { font-size:26px; }
+  .new h2 { font-size:15px; margin:4px 0 6px; }
+  .newrow { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; scroll-snap-type:x proximity; }
+  .newrow a { flex:0 0 auto; width:170px; scroll-snap-align:start; padding:10px 12px; border:1px solid var(--line); border-radius:12px;
+              background:var(--card); color:var(--ink); text-decoration:none; font-size:14px; font-weight:600; display:grid; gap:4px; }
+  .newrow a small { color:var(--muted); font-weight:500; font-size:12px; }
   .hide { display:none !important; }
   .empty { padding:30px 10px; text-align:center; color:var(--muted); }
 </style>
@@ -85,6 +98,8 @@
   <h1>Italiano L2 ETNIE</h1>
   <p class="sub">Versione di prova dell'indice: stessi link, quattro modi di sfogliarli.</p>
   <div class="banner">Pagina di prova. Non sostituisce la pagina principale e non modifica nessun link.</div>
+
+  <div id="top"></div>
 
   <div class="views" role="group" aria-label="Vista">
     <button data-view="schede" aria-pressed="true">🗂️ Per argomento</button>
@@ -105,7 +120,7 @@
 const D = __DATA__;
 const TOP = Object.fromEntries(D.topics.map(t => [t.id, t]));
 const TYP = Object.fromEntries(D.types.map(t => [t.id, t]));
-const S = { view: "schede", q: "", lv: "", ty: "", open: "", stu: "", sort: ["t", 1] };
+const S = { view: "schede", q: "", lv: "", ty: "", open: "", stu: "", stuLv: "", sort: ["t", 1] };
 try { const v = localStorage.getItem("indice-vista"); if (v) S.view = v; } catch (e) {}
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -162,10 +177,20 @@ function vLivelli(list) {
     return `<details class="lev"${open}><summary>${L || "Livello non indicato"} <span class="badge">${l.length} attività</span></summary><div class="in">${inner}</div></details>`;
   }).join("");
 }
+const LVNOME = { A0: "Primi passi", A1: "Base", A2: "Base 2", B1: "Intermedio", B2: "Intermedio 2", C1: "Avanzato", C2: "Avanzato 2" };
 function vStudenti(list) {
-  const base = list.filter(i => i.ty !== "verifica");
+  // 1) scegli il livello  2) scegli l'argomento  3) le attività
+  if (!S.stuLv) {
+    return `<div class="stu"><h2>Qual è il tuo livello?</h2>` + D.levels.map(L => {
+      const n = list.filter(i => i.ty !== "verifica" && i.lv.includes(L)).length;
+      return n ? `<button class="big" data-stulv="${L}"><span class="ic lvic">${L}</span><span>${LVNOME[L]}<small>${n} attività</small></span></button>` : "";
+    }).join("") + `<button class="big" data-stulv="*"><span class="ic">🌍</span><span>Tutti i livelli<small>${list.filter(i => i.ty !== "verifica").length} attività</small></span></button></div>`;
+  }
+  const base = list.filter(i => i.ty !== "verifica" && (S.stuLv === "*" || i.lv.includes(S.stuLv)));
+  const minu = ["A2", "B1", "B2", "C1", "C2"].includes(S.stuLv) ? " minu" : "";  // maiuscolo solo per A0 e A1
+  const lvName = S.stuLv === "*" ? "Tutti i livelli" : S.stuLv + " · " + LVNOME[S.stuLv];
   if (!S.stu) {
-    return `<div class="stu">` + D.topics.map(tp => {
+    return `<div class="stu${minu}"><button class="big back" data-stulv="">← Cambia livello</button><h2>${esc(lvName)}</h2>` + D.topics.map(tp => {
       const n = base.filter(i => i.tp === tp.id).length;
       return n ? `<button class="big" data-stu="${tp.id}"><span class="ic">${tp.icon}</span><span>${esc(tp.name)}<small>${n}</small></span></button>` : "";
     }).join("") + `</div>`;
@@ -176,7 +201,7 @@ function vStudenti(list) {
     return t.length ? `<h3>${ty.icon} ${ty.name}</h3>` + t.map(i =>
       `<a class="big" href="${esc(i.h)}"${i.x ? ' target="_blank" rel="noopener"' : ""}><span class="ic">${ty.icon}</span><span>${esc(i.t)}</span></a>`).join("") : "";
   }).join("");
-  return `<div class="stu"><button class="big back" data-stu="">← Torna agli argomenti</button><h2>${TOP[S.stu].icon} ${esc(TOP[S.stu].name)}</h2>${body}</div>`;
+  return `<div class="stu${minu}"><button class="big back" data-stu="">← Torna agli argomenti</button><h2>${TOP[S.stu].icon} ${esc(TOP[S.stu].name)} <span class="badge">${esc(lvName)}</span></h2>${body}</div>`;
 }
 function vTabella(list) {
   const [k, d] = S.sort;
@@ -186,6 +211,20 @@ function vTabella(list) {
   return `<div class="tw"><table><thead><tr>${th("t", "Attività")}${th("tp", "Argomento")}${th("lv", "Livello")}${th("ty", "Tipo")}</tr></thead><tbody>` +
     l.map(i => `<tr><td><a href="${esc(i.h)}"${i.x ? ' target="_blank" rel="noopener"' : ""}>${esc(i.t)}</a>${i.x ? " ↗" : ""}</td><td>${TOP[i.tp].icon} ${esc(TOP[i.tp].name)}</td><td>${lvTxt(i)}</td><td>${TYP[i.ty].icon} ${TYP[i.ty].name}</td></tr>`).join("") +
     `</tbody></table></div>`;
+}
+
+/* ---- riprendi da dove eri + ultime aggiunte ---- */
+const MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
+const dTxt = t => { const d = new Date(t * 1000); return d.getDate() + " " + MESI[d.getMonth()]; };
+function vTop() {
+  let last = null;
+  try { last = JSON.parse(localStorage.getItem("indice-ultima") || "null"); } catch (e) {}
+  const it = last && D.items.find(i => i.h === last);
+  const resume = it ? `<a class="resume" href="${esc(it.h)}"${it.x ? ' target="_blank" rel="noopener"' : ""}><span class="ic">▶️</span><span><small>Riprendi da dove eri</small>${esc(it.t)}</span></a>` : "";
+  const nuovi = D.items.filter(i => i.d && !/esercizi\.html$/.test(i.h)).sort((a, b) => b.d - a.d).slice(0, 8);
+  const news = nuovi.length ? `<div class="new"><h2>🆕 Ultime aggiunte</h2><div class="newrow">` + nuovi.map(i =>
+    `<a href="${esc(i.h)}"${i.x ? ' target="_blank" rel="noopener"' : ""}><span>${TYP[i.ty].icon} ${esc(i.t)}</span><small>${TOP[i.tp].icon} ${esc(TOP[i.tp].name)}${lvTxt(i) ? " · " + lvTxt(i) : ""} · ${dTxt(i.d)}</small></a>`).join("") + `</div></div>` : "";
+  return resume + news;
 }
 
 function chips() {
@@ -200,6 +239,9 @@ function render() {
   document.querySelectorAll(".views button").forEach(b => b.setAttribute("aria-pressed", b.dataset.view === S.view));
   document.getElementById("filters").classList.toggle("hide", S.view === "studenti");
   chips();
+  const top = document.getElementById("top");
+  top.innerHTML = vTop();
+  top.classList.toggle("hide", !!(S.q || S.lv || S.ty || S.stu || S.stuLv));
   const list = S.view === "studenti" ? D.items : filtered();
   const out = document.getElementById("out");
   out.innerHTML = list.length ? ({ schede: vSchede, livelli: vLivelli, studenti: vStudenti, tabella: vTabella }[S.view])(list)
@@ -209,8 +251,15 @@ function render() {
 }
 
 document.addEventListener("click", e => {
+  const a = e.target.closest("a[href]");
+  if (a && a.closest("#out, #top")) {
+    const it = D.items.find(i => a.getAttribute("href") === i.h);
+    if (it) try { localStorage.setItem("indice-ultima", JSON.stringify(it.h)); } catch (err) {}
+    setTimeout(() => { document.getElementById("top").innerHTML = vTop(); }, 300);
+  }
   const b = e.target.closest("button"); if (!b) return;
-  if (b.dataset.view) { S.view = b.dataset.view; S.stu = ""; render(); }
+  if (b.dataset.view) { S.view = b.dataset.view; S.stu = ""; S.stuLv = ""; render(); }
+  else if (b.dataset.stulv !== undefined) { S.stuLv = b.dataset.stulv; S.stu = ""; render(); window.scrollTo(0, 0); }
   else if (b.dataset.topic) { S.open = S.open === b.dataset.topic ? "" : b.dataset.topic; render();
     const c = document.querySelector(`[data-topic="${S.open}"]`); if (c) c.scrollIntoView({ block: "nearest" }); }
   else if (b.closest("#lvChips")) { S.lv = b.dataset.v; render(); }

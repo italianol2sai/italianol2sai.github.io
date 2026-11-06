@@ -29,7 +29,8 @@ TOPICS = [
     ("video", "🎬", "Videogrammatica"),
     ("percorsi", "📒", "Percorsi e schede"),
     ("altri", "🗂️", "Altri argomenti e letture"),
-    ("attualita", "📰", "Attualità, tempo libero e società"),
+    ("attualita", "📰", "Tempo libero, feste e società"),
+    ("letture", "🎧", "Letture e ascolti"),
     ("scrivere", "✍️", "Scrivere e argomentare"),
     ("lessico", "💬", "Lessico, stile e varietà dell'italiano"),
     ("verifiche", "📝", "Verifiche e simulazioni d'esame"),
@@ -55,6 +56,9 @@ SEC2TOPIC = {
 }
 # livelli B1-C2: argomento scelto dalla pagina (se non c'è, resta "grammatica")
 HREF2TOPIC = {
+    "tempo-libero/": "attualita", "feste/": "attualita", "in-vacanza/": "attualita",
+    "ristorante/": "cucina", "letture/macchina": "letture", "https://www.raiplaysound.it": "letture",
+    "https://audio-lingua.eu": "letture", "https://kahoot.it/challenge/02754690": "vivere-italia",
     "b1-cronaca/": "attualita", "b1-vacanze/": "attualita", "b1-tempo-libero/": "attualita",
     "avanzato/b2-passivo-ambiente": "attualita", "avanzato/b2-congiuntivo-opinioni": "attualita",
     "avanzato/b2-congiuntivo-passato-cinema": "attualita",
@@ -152,6 +156,25 @@ def classify(it):
     return ty, tp, lv, ext
 
 
+def folder(href):
+    return "" if href.startswith("http") else href.split("/")[0]
+
+
+def added_dates():
+    """Data (timestamp) in cui ogni file del sito è stato aggiunto, dalla storia git."""
+    import subprocess
+    out = subprocess.run(["git", "-C", ROOT, "log", "--diff-filter=A", "--name-only", "--format=@%ct", "--", "."],
+                         capture_output=True, text=True).stdout
+    dates, cur = {}, 0
+    for line in out.splitlines():
+        if line.startswith("@"):
+            cur = int(line[1:])
+        elif line:
+            dates.setdefault(line, cur)  # il log va dal più nuovo al più vecchio: teniamo la prima aggiunta
+            dates[line] = cur
+    return dates
+
+
 def build():
     items, seen = [], set()
     for it in parse():
@@ -160,6 +183,22 @@ def build():
         seen.add(it["href"])
         ty, tp, lv, ext = classify(it)
         items.append(dict(t=it["title"], h=it["href"], ty=ty, tp=tp, lv=lv, x=1 if ext else 0))
+    # livello mancante: si prende quello della lezione nella stessa cartella (es. casa/ -> casa/esercizi.html)
+    lvdir = {}
+    for i in items:
+        if i["lv"] and folder(i["h"]) and not i["h"].endswith("esercizi.html"):
+            lvdir.setdefault(folder(i["h"]), i["lv"])
+    for i in items:
+        if not i["lv"]:
+            i["lv"] = list(lvdir.get(folder(i["h"]), []))
+    # data di aggiunta, per «Ultime aggiunte»
+    dates = added_dates()
+    for i in items:
+        if not i["x"]:
+            p = i["h"].split("#")[0]
+            p = p + "index.html" if p.endswith("/") or not p else p
+            if p in dates:
+                i["d"] = dates[p]
     return dict(topics=[dict(id=a, icon=b, name=c) for a, b, c in TOPICS],
                 types=[dict(id=a, icon=b, name=c) for a, b, c in TYPES], levels=LEVELS, items=items)
 
