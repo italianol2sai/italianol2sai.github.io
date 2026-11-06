@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flashcard: il cibo</title>
+<style>
+  :root {
+    --bg: #fbf7f0; --card: #ffffff; --ink: #1f2933; --muted: #6b7280;
+    --green: #1f8a4c; --accent: #f3ece0; --line: #e5ddd0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15181c; --ink: #f1f3f5; --muted: #9aa3ad; --accent: #2a3038; --line: #333a43; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { padding: 16px; text-align: center; }
+  header a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  h1 { margin: 6px 0 4px; font-size: 26px; }
+  header p { margin: 0; color: var(--muted); font-size: 14px; }
+  main { max-width: 640px; margin: 0 auto; padding: 0 16px 40px; }
+
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 24px;
+          box-shadow: 0 8px 24px rgba(0,0,0,.08); padding: 10px; touch-action: pan-y; }
+  .card img { display: block; width: 100%; height: auto; border-radius: 16px; user-select: none; -webkit-user-drag: none; }
+
+  .controls { display: flex; gap: 12px; justify-content: center; align-items: center; margin-top: 18px; }
+  .btn { border: 1px solid var(--line); background: var(--card, #fff); color: var(--ink);
+         width: 56px; height: 56px; border-radius: 50%; font-size: 24px; cursor: pointer; padding: 0; }
+  .btn:disabled { opacity: .35; cursor: default; }
+  .play { width: 72px; height: 72px; border: none; background: var(--green); color: #fff; font-size: 30px;
+          box-shadow: 0 4px 12px rgba(31,138,76,.35); }
+  .btn:active { transform: scale(.95); }
+  .btn:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+  .counter { text-align: center; color: var(--muted); margin-top: 12px; font-size: 14px; }
+
+  .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+  .thumbs button { padding: 3px; border: 2px solid var(--line); border-radius: 12px; background: #fff; cursor: pointer; }
+  .thumbs button.cur { border-color: var(--green); }
+  .thumbs img { display: block; width: 100%; height: auto; border-radius: 8px; }
+  .tools { text-align: center; margin-top: 18px; }
+  .tools button { border: 1px solid var(--line); background: var(--card, #fff); color: var(--ink);
+                  padding: 10px 16px; border-radius: 999px; font-size: 16px; cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+  <a href="../#cucina">← ITALIANO L2</a>
+  <h1>🍝 FLASHCARD: IL CIBO</h1>
+  <p>LIVELLO A1 · GUARDA, LEGGI, ASCOLTA</p>
+</header>
+<main>
+  <div class="card" id="card"><img id="img" alt=""></div>
+  <div class="controls">
+    <button class="btn" id="prev" aria-label="Carta precedente">←</button>
+    <button class="btn play" id="say" aria-label="Ascolta la parola">🔊</button>
+    <button class="btn" id="next" aria-label="Carta successiva">→</button>
+  </div>
+  <div class="counter" id="counter"></div>
+  <div class="thumbs" id="thumbs"></div>
+  <div class="tools"><button id="shuffle">🔀 MESCOLA</button></div>
+</main>
+<script>
+const CARDS = [
+  {w: "LA PASTA", f: "img/01-la-pasta.png"},
+  {w: "IL PESCE", f: "img/02-il-pesce.png"},
+  {w: "L'UOVO", f: "img/03-l-uovo.png"},
+  {w: "IL FORMAGGIO", f: "img/04-il-formaggio.png"},
+  {w: "IL POMODORO", f: "img/05-il-pomodoro.png"},
+  {w: "LA MELA", f: "img/06-la-mela.png"},
+  {w: "IL LATTE", f: "img/07-il-latte.png"},
+  {w: "IL PANE", f: "img/08-il-pane.png"}
+];
+let order = CARDS.map((_, i) => i), pos = 0;
+const $ = id => document.getElementById(id);
+
+function say() {
+  try {
+    const u = new SpeechSynthesisUtterance(CARDS[order[pos]].w.toLowerCase());
+    u.lang = "it-IT"; u.rate = 0.8;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  } catch (e) {}
+}
+function show() {
+  const c = CARDS[order[pos]];
+  $("img").src = c.f; $("img").alt = c.w;
+  $("counter").textContent = (pos + 1) + " / " + CARDS.length;
+  $("prev").disabled = pos === 0; $("next").disabled = pos === CARDS.length - 1;
+  document.querySelectorAll(".thumbs button").forEach((b, i) => b.classList.toggle("cur", i === pos));
+}
+function build() {
+  $("thumbs").innerHTML = "";
+  order.forEach((ci, i) => {
+    const b = document.createElement("button");
+    b.setAttribute("aria-label", CARDS[ci].w);
+    b.innerHTML = '<img src="' + CARDS[ci].f + '" alt="" loading="lazy">';
+    b.onclick = () => { pos = i; show(); };
+    $("thumbs").appendChild(b);
+  });
+  show();
+}
+$("prev").onclick = () => { if (pos > 0) { pos--; show(); } };
+$("next").onclick = () => { if (pos < CARDS.length - 1) { pos++; show(); } };
+$("say").onclick = say;
+$("shuffle").onclick = () => {
+  for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+  pos = 0; build();
+};
+let x0 = null;
+$("card").addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive: true});
+$("card").addEventListener("touchend", e => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0; x0 = null;
+  if (dx < -40) $("next").click(); else if (dx > 40) $("prev").click();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") $("next").click();
+  else if (e.key === "ArrowLeft") $("prev").click();
+  else if (e.key === " ") { e.preventDefault(); say(); }
+});
+build();
+</script>
+</body>
+</html>
