@@ -59,6 +59,7 @@ HREF2TOPIC = {
     "tempo-libero/": "attualita", "feste/": "attualita", "in-vacanza/": "attualita",
     "ristorante/": "cucina", "letture/macchina": "letture", "https://www.raiplaysound.it": "letture",
     "https://audio-lingua.eu": "letture", "https://kahoot.it/challenge/02754690": "vivere-italia",
+    "giochi/c2.html": "lessico",
     "b1-cronaca/": "attualita", "b1-vacanze/": "attualita", "b1-tempo-libero/": "attualita",
     "avanzato/b2-passivo-ambiente": "attualita", "avanzato/b2-congiuntivo-opinioni": "attualita",
     "avanzato/b2-congiuntivo-passato-cinema": "attualita",
