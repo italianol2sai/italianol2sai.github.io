@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giochi C2</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../comune/giochi.css">
+<style>
+  body { text-transform: none; }
+  .g-schede.tre { grid-template-columns: repeat(3, 1fr); }
+  .g-frase { font-size: 1.25rem; font-weight: 700; text-align: center; margin: 8px 0 14px; line-height: 1.5; }
+  .g-frase .buco { display: inline-block; min-width: 3.5em; border-bottom: 3px solid var(--g-acc); color: var(--g-acc); }
+  .g-abbina { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .g-col { display: flex; flex-direction: column; gap: 8px; }
+  .g-col .g-btn { font-size: .95rem; padding: 10px; min-height: 56px; }
+  .g-btn.op.sel { border-color: var(--g-acc); background: var(--g-acc); color: #fff; }
+  .g-btn:disabled { cursor: default; }
+  .g-riga { min-height: 64px; border: 2px dashed var(--g-line); border-radius: 12px; padding: 8px; display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; }
+  .g-pezzi { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 12px 0; min-height: 48px; }
+  .g-pezzo { border: 2px solid var(--g-line); background: var(--g-bg); color: var(--g-ink); border-radius: 10px; padding: 10px 12px; font: inherit; font-weight: 700; cursor: pointer; }
+  .g-riga .g-pezzo { background: var(--g-acc); border-color: var(--g-acc); color: #fff; }
+  .g-esito { text-align: center; font-weight: 700; min-height: 1.4em; } .g-esito.ok { color: var(--g-ok); } .g-esito.no { color: var(--g-no); }
+  .g-azioni { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="g-wrap">
+  <a class="back" href="../#c2">← Tutti i materiali</a>
+  <h1>👑 Giochi C2</h1>
+  <p class="sub">Modi di dire, frasi scisse e dislocazioni, ipotesi senza se, nominalizzazione · 3 giochi corti per ripassare</p>
+  <main id="giochi"></main>
+</div>
+<script>window.GIOCHI = {"id": "c2", "quiz": [["Non vedo l'ora: sono sulle ___.", "spine", "nuvole", "ali"], ["In bocca al ___!", "lupo", "gatto", "cane"], ["È stato Giovanni ___ ha chiamato.", "che", "a", "di"], ["Il caffè, ___ prendo sempre amaro.", "lo", "la", "ne"], ["___ saputo prima, sarei venuto.", "Avessi", "Avrei", "Ho"], ["Dovesse ___, chiamami.", "piovere", "piove", "pioverà"], ["La ___ del ponte è durata tre anni.", "costruzione", "costruire", "costruito"], ["L'___ dei prezzi preoccupa le famiglie.", "aumento", "aumentare", "aumentato"], ["Questa borsa costa un occhio della ___.", "testa", "faccia", "mano"], ["Prendere due piccioni con una ___.", "fava", "pietra", "mano"], ["Ha ___ un errore grave.", "commesso", "emesso", "ammesso"], ["Acqua in ___: non dirlo a nessuno!", "bocca", "gola", "testa"], ["Ne ho fin sopra i ___: sono stufo.", "capelli", "occhi", "piedi"], ["Non mettere il carro davanti ai ___.", "buoi", "cavalli", "asini"], ["Di questo problema, ___ parleremo domani.", "ne", "ci", "lo"]], "coppie": [["essere al verde", "non avere soldi"], ["costare un occhio della testa", "costare moltissimo"], ["acqua in bocca", "non dirlo a nessuno"], ["in bocca al lupo", "buona fortuna"], ["avere le mani bucate", "spendere troppo"], ["tagliare la corda", "andare via di nascosto"], ["non avere peli sulla lingua", "dire tutto apertamente"], ["fare orecchie da mercante", "fingere di non sentire"]], "frasi": ["È stata Silvia a trovare la soluzione", "Il giornale lo compro ogni mattina", "Avessi saputo prima sarei venuto", "L'aumento dei prezzi preoccupa molti", "Ne ho fin sopra i capelli", "Dovesse servirti chiamami pure", "Di questo problema ne parleremo domani", "Non ha peli sulla lingua"]};</script>
+<script src="../comune/giochi-avanzati.js"></script>
+</body>
+</html>

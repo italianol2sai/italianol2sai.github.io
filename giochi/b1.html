@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giochi B1</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../comune/giochi.css">
+<style>
+  body { text-transform: none; }
+  .g-schede.tre { grid-template-columns: repeat(3, 1fr); }
+  .g-frase { font-size: 1.25rem; font-weight: 700; text-align: center; margin: 8px 0 14px; line-height: 1.5; }
+  .g-frase .buco { display: inline-block; min-width: 3.5em; border-bottom: 3px solid var(--g-acc); color: var(--g-acc); }
+  .g-abbina { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .g-col { display: flex; flex-direction: column; gap: 8px; }
+  .g-col .g-btn { font-size: .95rem; padding: 10px; min-height: 56px; }
+  .g-btn.op.sel { border-color: var(--g-acc); background: var(--g-acc); color: #fff; }
+  .g-btn:disabled { cursor: default; }
+  .g-riga { min-height: 64px; border: 2px dashed var(--g-line); border-radius: 12px; padding: 8px; display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; }
+  .g-pezzi { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 12px 0; min-height: 48px; }
+  .g-pezzo { border: 2px solid var(--g-line); background: var(--g-bg); color: var(--g-ink); border-radius: 10px; padding: 10px 12px; font: inherit; font-weight: 700; cursor: pointer; }
+  .g-riga .g-pezzo { background: var(--g-acc); border-color: var(--g-acc); color: #fff; }
+  .g-esito { text-align: center; font-weight: 700; min-height: 1.4em; } .g-esito.ok { color: var(--g-ok); } .g-esito.no { color: var(--g-no); }
+  .g-azioni { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="g-wrap">
+  <a class="back" href="../#b1">← Tutti i materiali</a>
+  <h1>🚀 Giochi B1</h1>
+  <p class="sub">Congiuntivo, condizionale, ci e ne, pronomi relativi, connettivi · 3 giochi corti per ripassare</p>
+  <main id="giochi"></main>
+</div>
+<script>window.GIOCHI = {"id": "b1", "quiz": [["Penso che Marco ___ ragione.", "abbia", "ha", "avesse"], ["Se avessi tempo, ___ un corso di cucina.", "farei", "faccio", "farò"], ["La ragazza ___ ti ho parlato è Silvia.", "di cui", "che", "a cui"], ["Vai al mercato? Sì, ___ vado domani.", "ci", "ne", "lo"], ["Quante mele compri? ___ compro tre.", "Ne", "Ci", "Le"], ["Spero che domani non ___.", "piova", "piove", "pioverà"], ["Al tuo posto, io ___ dal medico.", "andrei", "vado", "andassi"], ["Quando ero piccolo, ___ sempre al mare.", "andavo", "sono andato", "andrei"], ["Ieri ___ Giovanni alla stazione.", "ho incontrato", "incontravo", "incontrerei"], ["Studio molto ___ voglio superare l'esame.", "perché", "anche se", "invece"], ["È stanco, ___ continua a lavorare.", "eppure", "perciò", "quindi"], ["Il libro ___ leggo è interessante.", "che", "cui", "di cui"], ["Bisogna che tutti ___ il modulo.", "firmino", "firmano", "firmeranno"], ["Se piove, ___ a casa.", "resto", "resterei", "restassi"], ["Credo che loro ___ già partiti.", "siano", "sono", "fossero"], ["Domani ___ a Bari alle otto, se il treno è puntuale.", "arriverò", "arriverei", "arrivassi"]], "coppie": [["perciò", "quindi"], ["invece", "al contrario"], ["anche se", "nonostante questo"], ["inoltre", "in più"], ["comunque", "in ogni caso"], ["cioè", "vale a dire"], ["purtroppo", "per sfortuna"], ["finalmente", "dopo tanta attesa"]], "frasi": ["Penso che sia una buona idea", "Se avessi soldi comprerei una casa", "Ne ho comprati tre chili", "La città in cui vivo è Bari", "Vorrei prenotare un tavolo per due", "Spero che tu stia bene", "Quando sono arrivato pioveva", "Ci vado ogni giorno in autobus"]};</script>
+<script src="../comune/giochi-avanzati.js"></script>
+</body>
+</html>
