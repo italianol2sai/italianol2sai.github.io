@@ -200,7 +200,14 @@ def build():
             p = p + "index.html" if p.endswith("/") or not p else p
             if p in dates:
                 i["d"] = dates[p]
-    return dict(topics=[dict(id=a, icon=b, name=c) for a, b, c in TOPICS],
+    # link vecchi con #sezione (es. italianol2sai.github.io/#casa): che cosa aprire nella pagina nuova
+    hashes = {}
+    for sec, tp in SEC2TOPIC.items():
+        pre = sec.split("-")[0].upper()
+        hashes[sec] = ["schede", tp, pre if pre in LEVELS else ""]
+    for L in ("a1", "a2", "b1", "b2", "c1", "c2"):
+        hashes[L] = ["livelli", "", L.upper()]
+    return dict(hash=hashes, topics=[dict(id=a, icon=b, name=c) for a, b, c in TOPICS],
                 types=[dict(id=a, icon=b, name=c) for a, b, c in TYPES], levels=LEVELS, items=items)
 
 

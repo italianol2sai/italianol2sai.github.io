@@ -120,7 +120,7 @@
 const D = __DATA__;
 const TOP = Object.fromEntries(D.topics.map(t => [t.id, t]));
 const TYP = Object.fromEntries(D.types.map(t => [t.id, t]));
-const S = { view: "schede", q: "", lv: "", ty: "", open: "", stu: "", stuLv: "", sort: ["t", 1] };
+const S = { view: "studenti", openLv: "", q: "", lv: "", ty: "", open: "", stu: "", stuLv: "", sort: ["t", 1] };
 try { const v = localStorage.getItem("indice-vista"); if (v) S.view = v; } catch (e) {}
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -169,7 +169,7 @@ function vLivelli(list) {
   return lv.map(L => {
     const l = list.filter(i => (L ? i.lv[0] === L : !i.lv.length));
     if (!l.length) return "";
-    const open = (S.q || S.lv || S.ty) ? " open" : "";
+    const open = (S.q || S.lv || S.ty || S.openLv === L) ? " open" : "";
     const inner = D.topics.map(tp => {
       const t = l.filter(i => i.tp === tp.id);
       return t.length ? `<div class="grp"><h3>${tp.icon} ${esc(tp.name)} (${t.length})</h3>${t.map(row).join("")}</div>` : "";
@@ -268,7 +268,19 @@ document.addEventListener("click", e => {
   else if (b.dataset.sort) { S.sort = [b.dataset.sort, S.sort[0] === b.dataset.sort ? -S.sort[1] : 1]; render(); }
 });
 document.getElementById("q").addEventListener("input", e => { S.q = e.target.value; render(); });
+// link vecchi della pagina principale: #casa, #b1, #a1-verbi… aprono la parte giusta
+function daHash() {
+  const h = D.hash[decodeURIComponent(location.hash.slice(1))];
+  if (!h) return false;
+  S.view = h[0]; S.stu = ""; S.stuLv = ""; S.q = ""; S.ty = "";
+  if (h[0] === "livelli") { S.openLv = h[2]; S.lv = ""; }
+  else { S.open = h[1]; S.lv = h[2]; }
+  return true;
+}
+window.addEventListener("hashchange", () => { if (daHash()) { render(); window.scrollTo(0, 0); } });
+daHash();
 render();
+if (S.open) { const c = document.querySelector(`[data-topic="${S.open}"]`); if (c) c.scrollIntoView({ block: "start" }); }
 </script>
 </body>
 </html>
