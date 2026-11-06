@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Numeri 1-100</title>
+<title>I numeri 1-1000</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
 <style>
@@ -59,12 +59,44 @@
   .grid button { aspect-ratio: 1; font-size: min(3.6vw, 17px); padding: 0; font-weight: 900; font-family: "Nunito", system-ui, sans-serif;
                  border-radius: 14px; border: 1px solid var(--line); background: var(--card); color: var(--num); cursor: pointer; }
   .grid button.cur { outline: 3px solid var(--green); }
+  .lead { color: var(--muted); margin: 4px 0 0; font-size: 14px; }
+  .word, .mini, .sum, .theory, .lead, .btn, .counter { text-transform: uppercase; }
+  .c { color: #c8323b; } .d { color: #1f8a4c; } .u { color: var(--num); }
+  @media (prefers-color-scheme: dark) { .c { color: #ff7b82; } .d { color: #5fd08e; } }
+  .sum { font-family: "Nunito", system-ui, sans-serif; font-weight: 900; font-size: 22px; margin-top: 12px; text-align: center; }
+  .sum.parts { font-size: 15px; margin-top: 10px; color: var(--muted); }
+  .blocks { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: center; gap: 6px; margin-top: 16px; max-width: 300px; }
+  .blocks .h { width: 40px; height: 40px; border-radius: 4px; background:
+      repeating-linear-gradient(90deg, transparent 0 3px, rgba(255,255,255,.55) 3px 4px),
+      repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.55) 3px 4px), #c8323b; }
+  .blocks .t { width: 6px; height: 40px; border-radius: 2px; background: #1f8a4c; }
+  .blocks .o { width: 7px; height: 7px; border-radius: 2px; background: var(--num); }
+  .find { display: flex; gap: 8px; justify-content: center; margin-top: 12px; }
+  .find input { width: 120px; font-size: 18px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line);
+                background: var(--card); color: var(--ink); text-align: center; font-weight: 800; }
+  .hund { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 8px; }
+  .hund button { padding: 10px 0; font-weight: 900; font-family: "Nunito", system-ui, sans-serif; border-radius: 12px;
+                 border: 1px solid var(--line); background: var(--card); color: #c8323b; cursor: pointer; font-size: 16px; }
+  h2 { font-size: 18px; margin: 28px 0 8px; text-transform: uppercase; }
+  .theory { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; margin-top: 12px; }
+  .theory h3 { margin: 0 0 8px; font-size: 16px; }
+  .theory table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .theory td { padding: 5px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .theory td:first-child { font-weight: 900; width: 64px; color: var(--num); font-family: "Nunito", system-ui, sans-serif; }
+  .theory p { margin: 6px 0; line-height: 1.45; }
+  .theory .say { cursor: pointer; }
+  .tip { background: var(--accent); border-radius: 12px; padding: 10px 12px; margin-top: 10px; font-size: 14px; line-height: 1.5; }
+  .links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+  .links a { display: block; text-align: center; padding: 16px 8px; border-radius: 18px; text-decoration: none; font-weight: 800;
+             color: #fff; background: var(--green); font-size: 17px; }
+  .links a.g { background: #e07b24; }
 </style>
 </head>
 <body>
 <header>
   <a href="../">← Italiano L2 ETNIE</a>
-  <h1>I numeri 1–100 <span class="flag"></span></h1>
+  <h1>I NUMERI 1–1000 <span class="flag"></span></h1>
+  <p class="lead">SCEGLI UN GRUPPO, GUARDA, ASCOLTA, RIPETI.</p>
 </header>
 
 <main>
@@ -73,11 +105,13 @@
       <div class="face front">
         <div class="big" id="big"></div>
         <div class="dots" id="dots"></div>
-        <span class="hint">tocca per girare</span>
+        <div class="sum parts" id="parts"></div>
+        <span class="hint">TOCCA PER GIRARE</span>
       </div>
       <div class="face back">
         <div class="mini" id="mini"></div>
         <div class="word" id="word"></div>
+        <div class="sum" id="pieces"></div>
       </div>
     </div>
   </div>
@@ -88,142 +122,173 @@
   </div>
   <div class="controls" style="margin-top:10px">
     <select class="btn" id="groupSel" aria-label="Gruppo di numeri"></select>
-    <button class="btn" id="shuffle">🔀 Mescola</button>
-    <button class="btn" id="autoplay">Audio automatico: sì</button>
+    <button class="btn" id="shuffle">🔀 MESCOLA</button>
+    <button class="btn" id="autoplay">AUDIO AUTOMATICO: SÌ</button>
   </div>
   <div class="counter" id="counter"></div>
+  <div class="find">
+    <input id="cerca" type="number" min="1" max="1000" inputmode="numeric" placeholder="1–1000" aria-label="Scrivi un numero da 1 a 1000">
+    <button class="btn" id="vai">VEDI IL NUMERO</button>
+  </div>
+
+  <h2>Da 1 a 100</h2>
   <div class="grid" id="grid"></div>
+  <h2>Le centinaia</h2>
+  <div class="hund" id="hund"></div>
+
+
+  <h2>📘 Come si formano i numeri</h2>
+  <div class="theory">
+    <h3>1 · DA 1 A 20: SI IMPARANO A MEMORIA</h3>
+    <table id="t20"></table>
+  </div>
+  <div class="theory">
+    <h3>2 · LE DECINE</h3>
+    <table id="tdec"></table>
+    <div class="tip">DECINA + UNITÀ = UNA PAROLA SOLA:<br>
+      <span class="d">VENTI</span> + <span class="u">DUE</span> = <b><span class="d">VENTI</span><span class="u">DUE</span></b><br>
+      CON <b>UNO</b> E <b>OTTO</b> LA DECINA PERDE L'ULTIMA LETTERA:<br>
+      <span class="d">VENT</span><span class="u">UNO</span> · <span class="d">TRENT</span><span class="u">OTTO</span><br>
+      CON <b>TRE</b> C'È L'ACCENTO: <span class="d">VENTI</span><span class="u">TRÉ</span> · <span class="d">QUARANTA</span><span class="u">TRÉ</span></div>
+  </div>
+  <div class="theory">
+    <h3>3 · LE CENTINAIA</h3>
+    <table id="tcent"></table>
+    <div class="tip">100 = <b>CENTO</b> (NON «UNO CENTO») · 1000 = <b>MILLE</b><br>
+      200, 300… = NUMERO + <b>CENTO</b>: <span class="u">DUE</span><span class="c">CENTO</span></div>
+  </div>
+  <div class="theory">
+    <h3>4 · I NUMERI COMPOSTI: COME UN TRENO 🚂</h3>
+    <p>SI LEGGONO A PEZZI: PRIMA LE <span class="c">CENTINAIA</span>, POI LE <span class="d">DECINE</span>, POI LE <span class="u">UNITÀ</span>. SI SCRIVE TUTTO ATTACCATO.</p>
+    <table id="tcomp"></table>
+    <div class="tip">CENTO + OTTO → <b>CENTOTTO</b> · CENTO + OTTANTA → <b>CENTOTTANTA</b><br>
+      (SI DICE ANCHE CENTOOTTO, CENTOOTTANTA)<br>
+      NEI PREZZI E NEGLI INDIRIZZI: <b>VIA SPARANO 145</b> = CENTOQUARANTACINQUE · <b>650 €</b> = SEICENTOCINQUANTA EURO</div>
+  </div>
+
+  <p class="lead" style="text-align:center;margin-top:22px">HAI CAPITO? ORA PROVA!</p>
+  <div class="links">
+    <a href="esercizi.html">✏️ ESERCIZI</a>
+    <a class="g" href="giochi.html">🎲 GIOCHI</a>
+  </div>
 </main>
 
+<script src="numeri.js"></script>
 <script>
-// Nomi dei numeri da 1 a 100
-const UNITS = ["", "uno", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove"];
-const TEENS = ["dieci", "undici", "dodici", "tredici", "quattordici", "quindici",
-               "sedici", "diciassette", "diciotto", "diciannove"];
-const TENS = ["", "", "venti", "trenta", "quaranta", "cinquanta", "sessanta", "settanta", "ottanta", "novanta"];
-function nome(n) {
-  if (n === 100) return "cento";
-  if (n < 10) return UNITS[n];
-  if (n < 20) return TEENS[n - 10];
-  const t = Math.floor(n / 10), u = n % 10;
-  let tens = TENS[t];
-  if (u === 0) return tens;
-  if (u === 1 || u === 8) tens = tens.slice(0, -1);   // ventuno, ventotto
-  return tens + (u === 3 ? "tré" : UNITS[u]);          // ventitré
-}
-const NUMBERS = Array.from({ length: 100 }, (_, i) => ({ n: i + 1, word: nome(i + 1) }));
+const N = window.NUMERI;
 const EXTS = ["mp3", "opus", "m4a", "ogg", "wav"];
 const $ = (id) => document.getElementById(id);
+const item = (n) => ({ n, word: N.nome(n) });
+const range = (a, b, step = 1) => { const r = []; for (let i = a; i <= b; i += step) r.push(i); return r; };
 
-let group = [0, 10];          // indici del gruppo scelto (1–10 all'inizio)
-let order = [];
-let pos = 0;
-function setGroup(from, to) {
-  group = [from, to];
-  order = [];
-  for (let i = from; i < to; i++) order.push(i);
-  pos = 0;
+// Gruppi: invece di elencare tutti i numeri fino a 1000, li impariamo a gruppi
+const GROUPS = [
+  ["PRIMI PASSI", [["1–10", range(1, 10)], ["11–20", range(11, 20)]]],
+  ["FINO A 100", range(2, 9).map(g => [`${g * 10 + 1}–${g * 10 + 10}`, range(g * 10 + 1, g * 10 + 10)])
+                  .concat([["TUTTI 1–100", range(1, 100)]])],
+  ["A GRUPPI", [["LE DECINE: 10, 20 … 100", range(10, 100, 10)],
+                ["LE CENTINAIA: 100, 200 … 1000", range(100, 1000, 100)],
+                ["DA 100 A 200: COME SI FA?", [100, 101, 102, 103, 108, 110, 111, 115, 120, 121, 123, 150, 180, 188, 199, 200]],
+                ["NUMERI COMPOSTI: ESEMPI", [125, 234, 345, 408, 456, 512, 600, 650, 718, 777, 803, 850, 921, 999]],
+                ["🎲 12 NUMERI A CASO (101–999)", "caso"]]],
+];
+const FLAT = [];
+$("groupSel").innerHTML = '<option value="" hidden>IL TUO NUMERO</option>';
+GROUPS.forEach(([label, list]) => {
+  const og = document.createElement("optgroup"); og.label = label;
+  list.forEach(([name, nums]) => {
+    const o = document.createElement("option"); o.value = FLAT.length; o.textContent = name; og.appendChild(o);
+    FLAT.push({ name, nums });
+  });
+  $("groupSel").appendChild(og);
+});
+
+let order = [], pos = 0, autoplay = true;
+function setGroup(i) {
+  let nums = FLAT[i].nums;
+  if (nums === "caso") { const s = new Set(); while (s.size < 12) s.add(101 + Math.floor(Math.random() * 899)); nums = [...s]; }
+  order = nums.slice(); pos = 0; $("groupSel").value = i;
 }
-setGroup(0, 10);
-let autoplay = true;
-const foundUrl = {};
+setGroup(0);
 
-/* ---------- Audio: cerca audio/1.mp3 oppure audio/uno.mp3 ---------- */
+/* ---------- Audio: cerca audio/345.mp3 (se un giorno ci sono le registrazioni), altrimenti la voce del computer ---------- */
+const foundUrl = {};
 let current = null;
 function tryLoad(url) {
-  return new Promise((ok, ko) => {
-    const a = new Audio();
-    a.preload = "auto";
-    a.oncanplaythrough = () => ok(a);
-    a.onerror = ko;
-    a.src = url;
-  });
+  return new Promise((ok, ko) => { const a = new Audio(); a.preload = "auto"; a.oncanplaythrough = () => ok(a); a.onerror = ko; a.src = url; });
 }
-async function findAudio(item) {
-  if (item.n in foundUrl) return foundUrl[item.n];
-  const names = [String(item.n), item.word, item.word.toUpperCase(),
-                 item.word[0].toUpperCase() + item.word.slice(1)];
-  for (const name of names) {
-    for (const ext of EXTS) {
-      for (const e of [ext, ext.toUpperCase()]) {
-        const url = `audio/${name}.${e}`;
-        try { await tryLoad(url); foundUrl[item.n] = url; return url; } catch (err) {}
-      }
-    }
+async function findAudio(it) {
+  if (it.n in foundUrl) return foundUrl[it.n];
+  if (it.n <= 100) for (const name of [String(it.n), it.word]) for (const ext of EXTS) {
+    const url = `audio/${name}.${ext}`;
+    try { await tryLoad(url); foundUrl[it.n] = url; return url; } catch (err) {}
   }
-  foundUrl[item.n] = null;
-  return null;
+  foundUrl[it.n] = null; return null;
 }
-async function play(item) {
+async function play(it) {
   if (current) { current.pause(); current = null; }
   speechSynthesis.cancel();
-  const url = await findAudio(item);
-  if (url) {
-    current = new Audio(url);
-    current.play().catch(() => {});
-  } else {
-    const u = new SpeechSynthesisUtterance(item.word);
-    u.lang = "it-IT"; u.rate = 0.8;
-    const it = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith("it"));
-    if (it) u.voice = it;
-    speechSynthesis.speak(u);
-  }
+  const url = await findAudio(it);
+  if (url) { current = new Audio(url); current.play().catch(() => {}); } else N.voce(it.word);
 }
 
 /* ---------- Flashcard ---------- */
+const colored = (n) => N.pezzi(n).map(p => `<span class="${p.k}">${p.t.toUpperCase()}</span>`).join("");
 function render() {
-  const item = NUMBERS[order[pos]];
+  const it = item(order[pos]);
   $("card").classList.remove("flip");
-  $("big").textContent = item.n;
-  // fino a 10: mele; oltre: quadretti (decine piene + unità)
-  if (item.n <= 10) {
-    $("dots").className = "dots";
-    $("dots").textContent = "🍎".repeat(item.n);
-  } else {
+  $("big").textContent = it.n;
+  const sum = N.somma(it.n);
+  if (it.n <= 10) {
+    $("dots").className = "dots"; $("dots").textContent = "🍎".repeat(it.n);
+  } else if (it.n <= 100) {
     $("dots").className = "board";
-    const rows = Math.ceil(item.n / 10);
-    $("dots").innerHTML = Array.from({ length: rows * 10 }, (_, i) =>
-      `<i class="${i < item.n ? "on" : ""}"></i>`).join("");
+    const rows = Math.ceil(it.n / 10);
+    $("dots").innerHTML = Array.from({ length: rows * 10 }, (_, i) => `<i class="${i < it.n ? "on" : ""}"></i>`).join("");
+  } else {
+    // 345 = 3 quadrati da cento, 4 barre da dieci, 5 quadretti
+    const h = Math.floor(it.n / 100), t = Math.floor(it.n % 100 / 10), u = it.n % 10;
+    $("dots").className = "blocks";
+    $("dots").innerHTML = '<i class="h"></i>'.repeat(h) + '<i class="t"></i>'.repeat(t) + '<i class="o"></i>'.repeat(u);
   }
-  $("mini").textContent = item.n;
-  $("word").textContent = item.word;
+  $("parts").innerHTML = sum.length > 1 ? sum.map((x, i) => `<span class="${N.pezzi(x)[0].k}">${x}</span>`).join(" + ") : "";
+  $("mini").textContent = it.n;
+  $("word").innerHTML = colored(it.n);
+  $("word").style.fontSize = it.word.length > 11 ? `min(${(88 / it.word.length).toFixed(1)}vw, ${Math.floor(560 / it.word.length)}px)` : "";
+  const ps = N.pezzi(it.n);
+  $("pieces").innerHTML = ps.length > 1 ? ps.map(p => `<span class="${p.k}">${p.t.toUpperCase()}</span>`).join(" + ") : "";
   $("counter").textContent = `${pos + 1} / ${order.length}`;
-  document.querySelectorAll(".grid button").forEach(b =>
-    b.classList.toggle("cur", b.dataset.i == order[pos]));
+  document.querySelectorAll(".grid button, .hund button").forEach(b => b.classList.toggle("cur", +b.dataset.n === it.n));
 }
-function go(d) { pos = (pos + d + order.length) % order.length; render(); if (autoplay) play(NUMBERS[order[pos]]); }
+function go(d) { pos = (pos + d + order.length) % order.length; render(); if (autoplay) play(item(order[pos])); }
+function show(n) {
+  if (!order.includes(n)) {
+    // apre il gruppo giusto, altrimenti mostra il numero da solo
+    const g = FLAT.findIndex(f => Array.isArray(f.nums) && f.nums.length <= 16 && f.nums.includes(n));
+    if (g >= 0) setGroup(g); else { order = [n]; pos = 0; $("groupSel").value = ""; }
+  }
+  pos = order.indexOf(n); render(); play(item(n));
+}
 
 $("card").onclick = () => $("card").classList.toggle("flip");
-$("play").onclick = () => play(NUMBERS[order[pos]]);
+$("play").onclick = () => play(item(order[pos]));
 $("prev").onclick = () => go(-1);
 $("next").onclick = () => go(1);
 $("shuffle").onclick = () => {
-  for (let i = order.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]];
-  }
+  for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
   pos = 0; render();
 };
-// scelta del gruppo: 1–10, 11–20 … 91–100, tutti
-for (let g = 0; g < 10; g++) {
-  const o = document.createElement("option");
-  o.value = g; o.textContent = `${g * 10 + 1}–${g * 10 + 10}`;
-  $("groupSel").appendChild(o);
-}
-$("groupSel").insertAdjacentHTML("beforeend", `<option value="all">Tutti (1–100)</option>`);
-$("groupSel").onchange = (e) => {
-  const v = e.target.value;
-  if (v === "all") setGroup(0, 100); else setGroup(v * 10, v * 10 + 10);
-  render();
-};
-$("autoplay").onclick = () => {
-  autoplay = !autoplay;
-  $("autoplay").textContent = "Audio automatico: " + (autoplay ? "sì" : "no");
-};
+$("groupSel").onchange = (e) => { setGroup(+e.target.value); render(); };
+$("autoplay").onclick = () => { autoplay = !autoplay; $("autoplay").textContent = "AUDIO AUTOMATICO: " + (autoplay ? "SÌ" : "NO"); };
+const vai = () => { const n = parseInt($("cerca").value, 10); if (n >= 1 && n <= 1000) show(n); else $("cerca").value = ""; };
+$("vai").onclick = vai;
+$("cerca").addEventListener("keydown", e => { if (e.key === "Enter") { e.stopPropagation(); vai(); } });
 document.addEventListener("keydown", (e) => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
   if (e.key === "ArrowRight") go(1);
   if (e.key === "ArrowLeft") go(-1);
   if (e.key === " ") { e.preventDefault(); $("card").classList.toggle("flip"); }
-  if (e.key === "Enter") play(NUMBERS[order[pos]]);
+  if (e.key === "Enter") play(item(order[pos]));
 });
 let sx = null;
 $("card").addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
@@ -233,15 +298,29 @@ $("card").addEventListener("touchend", e => {
   if (Math.abs(dx) > 50) { e.preventDefault(); go(dx < 0 ? 1 : -1); }
 });
 
-NUMBERS.forEach((it, i) => {
-  const b = document.createElement("button");
-  b.textContent = it.n; b.dataset.i = i;
-  b.onclick = () => {
-    if (!order.includes(i)) { setGroup(0, 100); $("groupSel").value = "all"; }
-    pos = order.indexOf(i); render(); play(it);
-  };
+range(1, 100).forEach(n => {
+  const b = document.createElement("button"); b.textContent = n; b.dataset.n = n;
+  b.onclick = () => { if (!order.includes(n)) setGroup(n <= 20 ? (n <= 10 ? 0 : 1) : FLAT.findIndex(f => f.name.startsWith("TUTTI"))); show(n); };
   $("grid").appendChild(b);
 });
+range(100, 1000, 100).forEach(n => {
+  const b = document.createElement("button"); b.textContent = n; b.dataset.n = n;
+  b.onclick = () => { if (!order.includes(n)) setGroup(FLAT.findIndex(f => f.name.startsWith("LE CENTINAIA"))); show(n); };
+  $("hund").appendChild(b);
+});
+
+/* ---------- Teoria: tabelle a gruppi, ogni riga si può ascoltare ---------- */
+function table(id, nums) {
+  $(id).innerHTML = nums.map(n => `<tr class="say" data-n="${n}"><td>${n}</td><td>${colored(n)} 🔊</td></tr>`).join("");
+}
+table("t20", range(1, 20));
+table("tdec", range(10, 100, 10));
+table("tcent", range(100, 1000, 100));
+$("tcomp").innerHTML = [101, 115, 123, 180, 345, 408, 777, 999].map(n =>
+  `<tr class="say" data-n="${n}"><td>${n}</td><td>${N.somma(n).join(" + ")}<br>${N.pezzi(n).map(p => `<span class="${p.k}">${p.t.toUpperCase()}</span>`).join(" + ")}<br><b>${colored(n)}</b> 🔊</td></tr>`).join("");
+document.querySelectorAll(".theory").forEach(t => t.addEventListener("click", e => {
+  const r = e.target.closest("tr.say"); if (r) N.voce(N.nome(+r.dataset.n));
+}));
 
 render();
 </script>
