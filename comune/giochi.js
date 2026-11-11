@@ -30,11 +30,15 @@
   function apri(nome) {
     [].forEach.call(schede.children, function (b) { b.classList.toggle("on", b.getAttribute("data-g") === nome); });
     area.innerHTML = ""; if (window._timer) clearInterval(window._timer);
+    giocoOra = GIOCHI.filter(function (g) { return g[0] === nome; })[0][2];
     ({ memory: memory, impiccato: impiccato, quiz: quiz, cerca: cerca })[nome]();
     try { history.replaceState(null, "", "#" + nome); } catch (e) {}
   }
+  var giocoOra = "";
   function fine(msg, ancora) {
-    area.appendChild(el("div", { class: "g-fine" }, [el("p", { text: msg }), el("button", { class: "g-btn", text: "GIOCA ANCORA ▶", on: ancora })]));
+    var fb = el("p", { class: "fb" });
+    area.appendChild(el("div", { class: "g-fine" }, [el("p", { text: msg }), el("button", { class: "g-btn", text: "GIOCA ANCORA ▶", on: ancora }), " ",
+      el("button", { class: "g-btn", text: "📤 INVIA ALL'INSEGNANTE", on: function () { condividi(G.titolo + " · " + giocoOra, [msg], fb); } }), fb]));
   }
 
   // ---------------- MEMORY
