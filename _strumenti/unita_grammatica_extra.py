@@ -83,6 +83,43 @@ P["preposizioni-tempo"] = ("A1", pagina("🕰️", "Le preposizioni di tempo", "
   libero("e3", 3, "Da quanto tempo?", "DA QUANTO TEMPO ABITI IN ITALIA? DA QUANTO TEMPO STUDI L'ITALIANO? CHE COSA FARAI FRA UN ANNO?", ["LE MIE RISPOSTE"], rows=3),
 ]))
 
+P["preposizioni-luogo"] = ("A1", pagina("📍", "Dove? Preposizioni e avverbi di luogo", "A1", [
+  {"part": "Con il nome o senza il nome", "teoria":
+     "<!--MAPPA-->"
+     "PAROLA + <b>NOME</b> → SERVE LA PREPOSIZIONE (SPESSO CON L'ARTICOLO). <b>NIENTE NOME</b> → LA PAROLA DA SOLA (AVVERBIO)." +
+     tab(("SOTTO <b>IL</b> DIVANO", "È SOTTO"), ("SOPRA <b>IL</b> TAVOLO", "È SOPRA"), ("DENTRO <b>LA</b> BORSA", "RESTA DENTRO"),
+         ("FUORI <b>DAL</b> NEGOZIO", "ANDIAMO FUORI"), ("VICINO <b>ALLA</b> STAZIONE", "È VICINO"), ("DAVANTI <b>ALLA</b> SCUOLA", "MI SIEDO DAVANTI"),
+         ("DIETRO <b>LA</b> CUCINA", "È DIETRO"), ("TRA LA POSTA E IL BAR", "—"),
+         head=("CON IL NOME", "SENZA NOME")) +
+     "ATTENZIONE: VICINO <b>A</b>, DAVANTI <b>A</b>, ACCANTO <b>A</b>, DI FRONTE <b>A</b> · LONTANO <b>DA</b>, FUORI <b>DA</b>.<br>"
+     "<b>QUI / QUA</b> = VICINO A ME · <b>LÌ / LÀ</b> = LONTANO DA ME · <b>SU</b> = IN ALTO · <b>GIÙ</b> = IN BASSO · <b>A DESTRA / A SINISTRA</b>." +
+     es("VIENI QUI! · LA PENNA È LÌ, SUL TAVOLO. · MIA SORELLA ABITA GIÙ, AL PRIMO PIANO.")},
+  scegli([("1. IL GATTO DORME ___ DIVANO.", ["SOTTO", "SOTTO IL"], "SOTTO IL"),
+          ("2. DOV'È IL MIO TELEFONO? È ___ TAVOLO.", ["SOPRA", "SOPRA IL"], "SOPRA IL"),
+          ("3. NON VEDO LA PENNA. GUARDA MEGLIO: È ___, ACCANTO AL LIBRO!", ["LÌ", "LÌ IL"], "LÌ"),
+          ("4. PIOVE MOLTO, NON USCIRE! RESTA ___ CASA.", ["DENTRO", "DENTRO LA"], "DENTRO"),
+          ("5. FA TROPPO CALDO IN UFFICIO: ANDIAMO ___ A PRENDERE UN CAFFÈ.", ["FUORI", "FUORI DAL"], "FUORI"),
+          ("6. LA FARMACIA È MOLTO ___ STAZIONE DEI TRENI.", ["VICINO", "VICINO ALLA"], "VICINO ALLA"),
+          ("7. IO ABITO AL QUARTO PIANO, MIA SORELLA ABITA ___, AL PRIMO PIANO.", ["GIÙ", "GIÙ IL"], "GIÙ"),
+          ("8. CRISTIAN, VIENI ___ VICINO A ME: TI FACCIO VEDERE UNA FOTO.", ["QUI", "LÌ"], "QUI")],
+         "1 · Preposizione o avverbio?", "1 · Scegli", "e1",
+         cons="C'È UN NOME DOPO? ALLORA SERVE LA PREPOSIZIONE. NON C'È IL NOME? LA PAROLA VA DA SOLA. NELLA FRASE 4: «DENTRO CASA», SENZA ARTICOLO."),
+  completa("SILVIA: SCUSA MICHELE, SAI DOV'È LA CARTELLA ROSSA CON I DOCUMENTI?<br>"
+           "MICHELE: SÌ, L'HO VISTA PRIMA. È ___ LA SCRIVANIA DEL DIRETTORE.<br>"
+           "SILVIA: HO GIÀ GUARDATO, MA NON C'È. FORSE È ___ IL CASSETTO?<br>"
+           "MICHELE: NO. ALLORA GUARDA ___ COMPUTER, VICINO ALLA STAMPANTE.<br>"
+           "SILVIA: NIENTE... ASPETTA! ECCOLA, È ___ LE DUE SEDIE!<br>"
+           "MICHELE: BENE! E LA TUA PENNA È ___, SUL MIO TAVOLO: VIENI A PRENDERLA.<br>"
+           "SILVIA: GRAZIE. DOVE METTO LA CARTELLA?<br>"
+           "MICHELE: METTILA NELL'ARMADIO. È ___, IN FONDO ALLA STANZA.<br>"
+           "SILVIA: QUALE ARMADIO? QUELLO ___ DELLA PORTA?<br>"
+           "MICHELE: SÌ, QUELLO VICINO ALLA FINESTRA.",
+           ["sopra", "dentro", "davanti al", "tra", "qui", ("lì", "li", "là", "la"), "a sinistra"],
+           "2 · Completa il dialogo in ufficio", "2 · Il dialogo", "e2",
+           "DAVANTI AL · DENTRO · QUI · TRA · SOPRA · A SINISTRA · LÌ", cons="SCRIVI LE PAROLE DELLA LISTA NEGLI SPAZI."),
+  libero("e3", 3, "La mia stanza", "DOVE SONO LE COSE NELLA TUA STANZA? SCRIVI 4 FRASI CON SOPRA, SOTTO, VICINO A, DAVANTI A, DENTRO.", ["LA MIA STANZA"], rows=4),
+]))
+
 # ================================================================ A2 (minuscolo)
 P["comparativi"] = ("A2", pagina("⚖️", "Comparativi e superlativi", "A2", [
   {"part": "Il comparativo", "teoria":
