@@ -119,7 +119,8 @@ P["preposizioni-luogo"] = ("A1", pagina("📍", "Dove? Preposizioni e avverbi di
   {"part": "Guarda la mappa", "teoria":
      '<img src="img/mappa-citta.jpg" alt="MAPPA DELLA CITTÀ: STAZIONE, FARMACIA, POSTA, BANCA, BAR, SCUOLA, PARCO, FERMATA DEL BUS, SUPERMERCATO" '
      'style="width:100%;height:auto;border-radius:12px;display:block;margin:0 0 8px">'
-     "GUARDA BENE LA MAPPA: DOV'È LA BANCA? DOV'È IL PARCO? POI FAI GLI ESERCIZI 3 E 4."},
+     "GUARDA BENE LA MAPPA: DOV'È LA BANCA? DOV'È IL PARCO? POI FAI GLI ESERCIZI 3 E 4.<br>"
+     '🎮 <a href="mappa-gioco.html"><b>GIOCA CON LA MAPPA: ASCOLTA LA FRASE E TOCCA IL POSTO GIUSTO</b></a>'},
   vf(["1. LA FARMACIA È VICINO ALLA STAZIONE.", "2. LA BANCA È TRA LA POSTA E IL BAR.", "3. IL PARCO È DAVANTI ALLA SCUOLA.",
       "4. LA FERMATA DEL BUS È DAVANTI ALLA SCUOLA.", "5. LA POSTA È A DESTRA DELLA BANCA.", "6. IL TRENO È DENTRO LA SCUOLA."],
      ["VERO", "VERO", "FALSO", "VERO", "FALSO", "FALSO"], "3 · Guarda la mappa: vero o falso?", "3 · Vero o falso", "e3"),

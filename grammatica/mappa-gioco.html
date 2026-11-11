@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gioco: dov'è? La mappa della città</title>
+<style>
+  :root { --bg:#fbf7f0; --card:#fff; --ink:#1f2933; --muted:#6b7280; --green:#1f8a4c; --red:#c53030; --line:#e5ddd0; --acc:#e07b24; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#15181c; --card:#1f242b; --ink:#f1f3f5; --muted:#9aa3ad; --line:#333a43; } }
+  :root[data-theme="dark"] { --bg:#15181c; --card:#1f242b; --ink:#f1f3f5; --muted:#9aa3ad; --line:#333a43; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  header { padding:16px; text-align:center; }
+  header a { color:var(--muted); text-decoration:none; font-size:14px; }
+  h1 { margin:6px 0 4px; font-size:24px; }
+  header p { margin:0; color:var(--muted); font-size:14px; }
+  main { max-width:820px; margin:0 auto; padding:0 16px 40px; }
+  .clue { background:var(--card); border:2px solid var(--line); border-radius:16px; padding:14px 16px; display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+  .clue .txt { flex:1; font-size:20px; font-weight:700; letter-spacing:.3px; }
+  .clue .n { color:var(--muted); font-size:13px; font-weight:600; display:block; margin-bottom:2px; }
+  .say { border:none; background:var(--green); color:#fff; width:52px; height:52px; border-radius:50%; font-size:22px; cursor:pointer; flex:none; }
+  .map { position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.1); cursor:pointer; touch-action:manipulation; }
+  .map img { display:block; width:100%; height:auto; user-select:none; -webkit-user-drag:none; }
+  .mark { position:absolute; border:4px solid var(--green); border-radius:14px; background:rgba(31,138,76,.18); pointer-events:none; transition:opacity .2s; }
+  .mark.no { border-color:var(--red); background:rgba(197,48,48,.15); }
+  .fb { min-height:30px; margin:12px 0 0; font-size:18px; font-weight:700; text-align:center; }
+  .fb.ok { color:var(--green); } .fb.no { color:var(--red); }
+  .bar { display:flex; justify-content:space-between; align-items:center; margin-top:10px; color:var(--muted); font-size:15px; }
+  .btn { border:1px solid var(--line); background:var(--card); color:var(--ink); padding:10px 18px; border-radius:999px; font-size:16px; cursor:pointer; font-weight:600; }
+  .btn.main { background:var(--green); color:#fff; border-color:var(--green); }
+  .end { display:none; background:var(--card); border:2px solid var(--line); border-radius:16px; padding:20px; text-align:center; margin-top:14px; }
+  .end h2 { margin:0 0 6px; font-size:26px; }
+  .end .row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
+  .end input { font-size:16px; padding:10px 12px; border:2px solid var(--line); border-radius:10px; width:100%; max-width:320px; background:var(--bg); color:var(--ink); }
+</style>
+</head>
+<body>
+<header>
+  <a href="preposizioni-luogo.html">← DOVE? PREPOSIZIONI E AVVERBI DI LUOGO</a>
+  <h1>🗺️ GIOCO: DOV'È?</h1>
+  <p>LIVELLO A1 · ASCOLTA, LEGGI E TOCCA IL POSTO GIUSTO SULLA MAPPA</p>
+</header>
+<main>
+  <div class="clue"><div class="txt"><span class="n" id="num"></span><span id="clue"></span></div>
+    <button class="say" id="say" aria-label="Ascolta la frase">🔊</button></div>
+  <div class="map" id="map"><img src="img/mappa-citta.jpg" alt="Mappa della città" id="img"></div>
+  <div class="fb" id="fb" aria-live="polite"></div>
+  <div class="bar"><span id="score"></span><button class="btn" id="skip">SALTA →</button></div>
+  <div class="end" id="end">
+    <h2 id="tot"></h2>
+    <p id="msg"></p>
+    <input id="nome" placeholder="NOME E COGNOME" autocomplete="name">
+    <div class="row">
+      <button class="btn main" id="send">📤 INVIA ALL'INSEGNANTE</button>
+      <button class="btn" id="again">🔄 GIOCA ANCORA</button>
+    </div>
+  </div>
+</main>
+<script>
+/* Zone della mappa (immagine 1200 x 800): [sinistra, alto, destra, basso] */
+const PLACES = {
+  treno:        { name: "IL TRENO",        r: [[0, 90, 100, 195]] },
+  stazione:     { name: "LA STAZIONE",     r: [[100, 15, 362, 255]] },
+  farmacia:     { name: "LA FARMACIA",     r: [[362, 70, 505, 235]] },
+  scuola:       { name: "LA SCUOLA",       r: [[750, 135, 1100, 340]] },
+  parco:        { name: "IL PARCO",        r: [[610, 0, 1180, 135], [1100, 135, 1185, 300]] },
+  posta:        { name: "LA POSTA",        r: [[145, 300, 342, 505]] },
+  banca:        { name: "LA BANCA",        r: [[342, 285, 550, 470]] },
+  bar:          { name: "IL BAR",          r: [[550, 240, 740, 455]] },
+  fermata:      { name: "LA FERMATA DEL BUS", r: [[880, 345, 1048, 450]] },
+  supermercato: { name: "IL SUPERMERCATO", r: [[625, 500, 985, 725]] }
+};
+const CLUES = [
+  ["È TRA LA POSTA E IL BAR.", "banca"],
+  ["È A DESTRA DELLA STAZIONE. HA UNA CROCE VERDE.", "farmacia"],
+  ["È DIETRO LA SCUOLA. CI SONO GLI ALBERI E UN LAGHETTO.", "parco"],
+  ["È DAVANTI ALLA SCUOLA. ASPETTI L'AUTOBUS QUI.", "fermata"],
+  ["È A SINISTRA DELLA BANCA.", "posta"],
+  ["È A DESTRA DELLA BANCA. FUORI CI SONO I TAVOLINI.", "bar"],
+  ["È A SINISTRA DELLA STAZIONE, SUI BINARI.", "treno"],
+  ["È DALL'ALTRA PARTE DELLA STRADA, DI FRONTE AL BAR.", "supermercato"],
+  ["È DAVANTI AL PARCO. I BAMBINI STUDIANO QUI.", "scuola"],
+  ["È VICINO ALLA FARMACIA. ARRIVANO E PARTONO I TRENI.", "stazione"]
+];
+const $ = id => document.getElementById(id);
+let order, pos, points, tries, done;
+
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function speak(t) {
+  try { const u = new SpeechSynthesisUtterance(t.toLowerCase()); u.lang = "it-IT"; u.rate = 0.85;
+        const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith("it")); if (v) u.voice = v;
+        speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {}
+}
+function clearMarks() { document.querySelectorAll(".mark").forEach(m => m.remove()); }
+function mark(key, cls) {
+  const W = 1200, H = 800;
+  PLACES[key].r.forEach(([l, t, r, b]) => {
+    const d = document.createElement("div"); d.className = "mark" + (cls ? " " + cls : "");
+    d.style.left = (l / W * 100) + "%"; d.style.top = (t / H * 100) + "%";
+    d.style.width = ((r - l) / W * 100) + "%"; d.style.height = ((b - t) / H * 100) + "%";
+    $("map").appendChild(d);
+  });
+}
+function hit(x, y) {
+  for (const k in PLACES) for (const [l, t, r, b] of PLACES[k].r) if (x >= l && x <= r && y >= t && y <= b) return k;
+  return null;
+}
+function show() {
+  clearMarks(); done = false; tries = 0;
+  const c = CLUES[order[pos]];
+  $("num").textContent = "FRASE " + (pos + 1) + " DI " + CLUES.length;
+  $("clue").textContent = c[0];
+  $("fb").textContent = "DOV'È? TOCCA LA MAPPA."; $("fb").className = "fb";
+  $("score").textContent = "⭐ PUNTI: " + points;
+  $("skip").textContent = "SALTA →";
+  speak(c[0]);
+}
+function next() { pos++; if (pos >= CLUES.length) finish(); else show(); }
+$("map").addEventListener("click", e => {
+  if (done || pos >= CLUES.length) return;
+  const box = $("img").getBoundingClientRect();
+  const x = (e.clientX - box.left) / box.width * 1200, y = (e.clientY - box.top) / box.height * 800;
+  const k = hit(x, y), right = CLUES[order[pos]][1];
+  clearMarks();
+  if (k === right) {
+    done = true; const p = tries === 0 ? 2 : 1; points += p;
+    mark(k); $("fb").textContent = "✅ BRAVO! È " + PLACES[k].name + ". +" + p; $("fb").className = "fb ok";
+    $("score").textContent = "⭐ PUNTI: " + points; $("skip").textContent = "AVANTI →";
+    speak("bravo! è " + PLACES[k].name);
+    setTimeout(() => { if (done) next(); }, 1800);
+  } else {
+    tries++;
+    if (k) { mark(k, "no"); $("fb").textContent = "❌ NO, QUESTO È " + PLACES[k].name + ". RIPROVA!"; }
+    else $("fb").textContent = "❌ QUI NON C'È NIENTE. RIPROVA!";
+    $("fb").className = "fb no";
+  }
+});
+$("say").onclick = () => speak(CLUES[order[pos]][0]);
+$("skip").onclick = () => { done = false; next(); };
+
+function finish() {
+  clearMarks();
+  const max = CLUES.length * 2;
+  $("tot").textContent = "⭐ " + points + " / " + max;
+  $("msg").textContent = points >= max * 0.8 ? "BRAVISSIMO! CONOSCI BENE LA CITTÀ." : points >= max / 2 ? "BENE! GIOCA ANCORA PER FARE MEGLIO." : "GUARDA DI NUOVO LA REGOLA E GIOCA ANCORA.";
+  $("end").style.display = "block"; $("skip").style.display = "none";
+  $("fb").textContent = ""; $("num").textContent = ""; $("clue").textContent = "FINE DEL GIOCO!";
+  try { $("nome").value = localStorage.getItem("studente-nome") || ""; } catch (e) {}
+  $("end").scrollIntoView({ behavior: "smooth" });
+}
+$("send").onclick = async () => {
+  let nome = $("nome").value.trim();
+  if (!nome) { nome = (prompt("COME TI CHIAMI?") || "").trim(); $("nome").value = nome; }
+  try { localStorage.setItem("studente-nome", nome); } catch (e) {}
+  const testo = "GIOCO: DOV'È? (MAPPA DELLA CITTÀ, A1)\n" + (nome ? "NOME: " + nome + "\n" : "") + "PUNTI: " + points + " / " + CLUES.length * 2;
+  if (navigator.share) { try { await navigator.share({ title: "Gioco: dov'è?", text: testo }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
+  try { await navigator.clipboard.writeText(testo); } catch (e) {}
+  window.open("https://wa.me/?text=" + encodeURIComponent(testo), "_blank");
+};
+$("again").onclick = start;
+function start() {
+  order = shuffle(CLUES.map((_, i) => i)); pos = 0; points = 0;
+  $("end").style.display = "none"; $("skip").style.display = "";
+  show(); window.scrollTo({ top: 0, behavior: "smooth" });
+}
+start();
+</script>
+</body>
+</html>
