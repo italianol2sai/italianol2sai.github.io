@@ -85,7 +85,6 @@ P["preposizioni-tempo"] = ("A1", pagina("🕰️", "Le preposizioni di tempo", "
 
 P["preposizioni-luogo"] = ("A1", pagina("📍", "Dove? Preposizioni e avverbi di luogo", "A1", [
   {"part": "Con il nome o senza il nome", "teoria":
-     "<!--MAPPA-->"
      "PAROLA + <b>NOME</b> → SERVE LA PREPOSIZIONE (SPESSO CON L'ARTICOLO). <b>NIENTE NOME</b> → LA PAROLA DA SOLA (AVVERBIO)." +
      tab(("SOTTO <b>IL</b> DIVANO", "È SOTTO"), ("SOPRA <b>IL</b> TAVOLO", "È SOPRA"), ("DENTRO <b>LA</b> BORSA", "RESTA DENTRO"),
          ("FUORI <b>DAL</b> NEGOZIO", "ANDIAMO FUORI"), ("VICINO <b>ALLA</b> STAZIONE", "È VICINO"), ("DAVANTI <b>ALLA</b> SCUOLA", "MI SIEDO DAVANTI"),
@@ -117,7 +116,23 @@ P["preposizioni-luogo"] = ("A1", pagina("📍", "Dove? Preposizioni e avverbi di
            ["sopra", "dentro", "davanti al", "tra", "qui", ("lì", "li", "là", "la"), "a sinistra"],
            "2 · Completa il dialogo in ufficio", "2 · Il dialogo", "e2",
            "DAVANTI AL · DENTRO · QUI · TRA · SOPRA · A SINISTRA · LÌ", cons="SCRIVI LE PAROLE DELLA LISTA NEGLI SPAZI."),
-  libero("e3", 3, "La mia stanza", "DOVE SONO LE COSE NELLA TUA STANZA? SCRIVI 4 FRASI CON SOPRA, SOTTO, VICINO A, DAVANTI A, DENTRO.", ["LA MIA STANZA"], rows=4),
+  {"part": "Guarda la mappa", "teoria":
+     '<img src="img/mappa-citta.png" alt="MAPPA DELLA CITTÀ: STAZIONE, FARMACIA, POSTA, BANCA, BAR, SCUOLA, PARCO, FERMATA DEL BUS, SUPERMERCATO" '
+     'style="width:100%;height:auto;border-radius:12px;display:block;margin:0 0 8px">'
+     "GUARDA BENE LA MAPPA: DOV'È LA BANCA? DOV'È IL PARCO? POI FAI GLI ESERCIZI 3 E 4."},
+  vf(["1. LA FARMACIA È VICINO ALLA STAZIONE.", "2. LA BANCA È TRA LA POSTA E IL BAR.", "3. IL PARCO È DAVANTI ALLA SCUOLA.",
+      "4. LA FERMATA DEL BUS È DAVANTI ALLA SCUOLA.", "5. LA POSTA È A DESTRA DELLA BANCA.", "6. IL TRENO È DENTRO LA SCUOLA."],
+     ["VERO", "VERO", "FALSO", "VERO", "FALSO", "FALSO"], "3 · Guarda la mappa: vero o falso?", "3 · Vero o falso", "e3"),
+  scegli([("1. LA FARMACIA È ___ STAZIONE.", ["VICINO ALLA", "DENTRO LA", "SOTTO LA"], "VICINO ALLA"),
+          ("2. LA BANCA È ___ LA POSTA E IL BAR.", ["TRA", "SOPRA", "DIETRO"], "TRA"),
+          ("3. IL PARCO È ___ SCUOLA.", ["DIETRO LA", "DENTRO LA", "SOTTO LA"], "DIETRO LA"),
+          ("4. LA FERMATA DEL BUS È ___ SCUOLA.", ["DAVANTI ALLA", "DIETRO LA", "SOPRA LA"], "DAVANTI ALLA"),
+          ("5. LA POSTA È ___ BANCA.", ["A SINISTRA DELLA", "A DESTRA DELLA"], "A SINISTRA DELLA"),
+          ("6. IL BAR È ___ BANCA.", ["A DESTRA DELLA", "A SINISTRA DELLA"], "A DESTRA DELLA"),
+          ("7. IL TRENO È ___ STAZIONE.", ["VICINO ALLA", "SOPRA LA", "DENTRO LA"], "VICINO ALLA")],
+         "4 · Guarda la mappa e scegli", "4 · Dov'è?", "e4", cons="GUARDA LA MAPPA SOPRA E SCEGLI LA PAROLA GIUSTA."),
+  libero("e5", 5, "Dov'è la posta?", "SEI ALLA FERMATA DEL BUS. UN AMICO TI CHIEDE: «DOV'È LA POSTA? E DOV'È LA FARMACIA?» RISPONDI CON 2 O 3 FRASI. GUARDA LA MAPPA.", ["LA MIA RISPOSTA"], rows=3),
+  libero("e6", 6, "La mia stanza", "DOVE SONO LE COSE NELLA TUA STANZA? SCRIVI 4 FRASI CON SOPRA, SOTTO, VICINO A, DAVANTI A, DENTRO.", ["LA MIA STANZA"], rows=4),
 ]))
 
 # ================================================================ A2 (minuscolo)
