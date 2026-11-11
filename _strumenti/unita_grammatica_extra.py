@@ -117,7 +117,7 @@ P["preposizioni-luogo"] = ("A1", pagina("📍", "Dove? Preposizioni e avverbi di
            "2 · Completa il dialogo in ufficio", "2 · Il dialogo", "e2",
            "DAVANTI AL · DENTRO · QUI · TRA · SOPRA · A SINISTRA · LÌ", cons="SCRIVI LE PAROLE DELLA LISTA NEGLI SPAZI."),
   {"part": "Guarda la mappa", "teoria":
-     '<img src="img/mappa-citta.png" alt="MAPPA DELLA CITTÀ: STAZIONE, FARMACIA, POSTA, BANCA, BAR, SCUOLA, PARCO, FERMATA DEL BUS, SUPERMERCATO" '
+     '<img src="img/mappa-citta.jpg" alt="MAPPA DELLA CITTÀ: STAZIONE, FARMACIA, POSTA, BANCA, BAR, SCUOLA, PARCO, FERMATA DEL BUS, SUPERMERCATO" '
      'style="width:100%;height:auto;border-radius:12px;display:block;margin:0 0 8px">'
      "GUARDA BENE LA MAPPA: DOV'È LA BANCA? DOV'È IL PARCO? POI FAI GLI ESERCIZI 3 E 4."},
   vf(["1. LA FARMACIA È VICINO ALLA STAZIONE.", "2. LA BANCA È TRA LA POSTA E IL BAR.", "3. IL PARCO È DAVANTI ALLA SCUOLA.",
