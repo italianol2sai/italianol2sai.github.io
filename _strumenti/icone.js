@@ -16,7 +16,7 @@ await shot(1200,630,`<div style="width:1200px;height:630px;background:#fbf7f0;di
 <div style="position:absolute;right:120px;bottom:-160px;width:360px;height:360px;border-radius:50%;background:#e04a3f22"></div>
 <div style="position:absolute;left:0;bottom:0;width:100%;height:18px;background:linear-gradient(90deg,#22a35a 0 33%,#fff 33% 66%,#e04a3f 66%)"></div>
 <div style="width:280px;height:280px;flex:none;filter:drop-shadow(0 18px 30px #0f6b4a44)">${svg}</div>
-<div style="position:relative"><div style="font-size:34px;font-weight:700;color:#0f6b4a;letter-spacing:.12em">ETNIE · BARI</div>
+<div style="position:relative"><div style="font-size:34px;font-weight:700;color:#0f6b4a;letter-spacing:.12em">ITALIANO L2 · BARI</div>
 <div style="font-size:68px;font-weight:900;color:#1f2933;line-height:1;margin:10px 0 18px;letter-spacing:-.03em">autoapprendimento</div>
-<div style="font-size:34px;color:#4b5563">Italiano L2 · esercizi, giochi e video<br>da fare da soli, su telefono e computer</div></div></div>`,'icone/condividi.png');
+<div style="font-size:34px;color:#4b5563">Esercizi, giochi e video<br>da fare da soli, su telefono e computer</div></div></div>`,'icone/condividi.png');
 await b.close()})()
