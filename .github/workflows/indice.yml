@@ -1,9 +1,10 @@
-# Rigenera la pagina principale (index.html) quando cambia elenco.html o lo script dell'indice.
+# Rigenera la pagina principale (index.html) quando cambia elenco.html o lo script dell'indice,
+# e mette la favicon (_strumenti/favicon.py) in ogni pagina .html nuova o modificata.
 name: Aggiorna indice
 on:
   push:
     branches: [main]
-    paths: ["elenco.html", "_strumenti/indice.py", "_strumenti/indice.html"]
+    paths: ["**.html", "_strumenti/indice.py", "_strumenti/favicon.py"]
   workflow_dispatch:
 permissions:
   contents: write
@@ -15,10 +16,11 @@ jobs:
         with:
           fetch-depth: 0
       - run: python3 _strumenti/indice.py
+      - run: python3 _strumenti/favicon.py
       - run: |
-          if git diff --quiet index.html; then echo "index.html già aggiornato"; exit 0; fi
+          if git diff --quiet; then echo "tutto già aggiornato"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Aggiorna index.html da elenco.html"
+          git add -A
+          git commit -m "Aggiorna index.html e favicon"
           git push
