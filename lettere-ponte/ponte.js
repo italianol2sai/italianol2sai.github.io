@@ -29,12 +29,17 @@ async function say(text) {
   }
   if (found[s]) { current = new Audio(found[s]); current.play().catch(() => {}); return; }
   if (!window.speechSynthesis) return;
-  let t = text.toLowerCase(); t = t.charAt(0).toUpperCase() + t.slice(1);
+  // una lettera da sola: si dice il SUONO (lll, mmm), mai il nome (elle, emme)
+  const SUONO = { L: "lll", M: "mmm", N: "nnn", R: "rrr" };
+  let t = SUONO[text] || text.toLowerCase(); t = t.charAt(0).toUpperCase() + t.slice(1);
   const u = new SpeechSynthesisUtterance(t); u.lang = "it-IT"; u.rate = 0.75;
   const v = speechSynthesis.getVoices().find((v) => v.lang && v.lang.startsWith("it")); if (v) u.voice = v;
   speechSynthesis.speak(u);
 }
 if (window.speechSynthesis) speechSynthesis.getVoices();
+
+/* illustrazione Canva (img/…) se c'è, altrimenti l'emoji */
+const fig = (o) => o.im ? `<img class="pic" src="${o.im}" alt="" loading="lazy" onerror="this.outerHTML='${o.e}'">` : o.e;
 
 /* la lettera ponte evidenziata: vocale + L/M/N/R + consonante diversa */
 function ponte(w) {

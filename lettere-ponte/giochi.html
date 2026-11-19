@@ -74,17 +74,17 @@ function turno() {
   const b = G.lista[G.i % G.lista.length]; G.prova = true; G.b = b; G.lock = false;
   let h = testa() + (gioco === "tempo" ? `<div class="timer" id="timer" style="text-align:center"></div>` : barra()) + `<div class="play">`;
   if (gioco === "quale" || gioco === "tempo") {
-    h += `<div class="e">${b.e}</div><div class="word" id="w">${gap(b)}</div>
+    h += `<div class="e">${fig(b)}</div><div class="word" id="w">${gap(b)}</div>
       <button class="say" data-say="${b.w}">🔊</button>
       <div class="lbtns">${L4.map(l => `<button class="${l}" data-l="${l}">${l}</button>`).join("")}</div>`;
   } else if (gioco === "ascolta") {
-    h += `<button class="big-play" data-say="${b.w}">🔊</button><div class="e" id="em" style="visibility:hidden">${b.e}</div>
+    h += `<button class="big-play" data-say="${b.w}">🔊</button><div class="e" id="em" style="visibility:hidden">${fig(b)}</div>
       <div class="word" id="w" style="visibility:hidden">${gap(b, true)}</div>
       <div class="lbtns">${L4.map(l => `<button class="${l}" data-l="${l}">${l}</button>`).join("")}</div>`;
   } else if (gioco === "parola") {
     const altre = shuffle(L4.filter(l => l !== b.l)).slice(0, 2);
     const opts = shuffle([b.l, ...altre]).map(l => [l, b.w.slice(0, b.i) + l + b.w.slice(b.i + 1)]);
-    h += `<div class="e">${b.e}</div><button class="say" data-say="${b.w}">🔊</button>
+    h += `<div class="e">${fig(b)}</div><button class="say" data-say="${b.w}">🔊</button>
       <div class="wbtns">${opts.map(([l, w]) => `<button data-l="${l}">${w}</button>`).join("")}</div>`;
   }
   h += `<div class="msg" id="msg"></div><p class="score">${gioco === "tempo" ? "GIUSTE: " + G.punti : "DOMANDA " + (G.i + 1) + " DI " + N + " · ⭐ " + G.punti}</p></div>`;
@@ -132,7 +132,7 @@ function tick() {
 /* memory */
 function memory() {
   const sei = shuffle(P.bank).slice(0, 6);
-  G = { carte: shuffle(sei.flatMap((b, k) => [{ k, t: b.e, em: true, b }, { k, t: b.w, b }])), su: [], fatte: 0, mosse: 0 };
+  G = { carte: shuffle(sei.flatMap((b, k) => [{ k, t: fig(b), em: true, b }, { k, t: b.w, b }])), su: [], fatte: 0, mosse: 0 };
   disegnaMemory();
 }
 function disegnaMemory() {
