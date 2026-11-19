@@ -421,25 +421,29 @@ window.PONTE = {
    "CA",
    "CAL",
    "CALDO",
-   "🥵"
+   "🥵",
+   null
   ],
   [
    "CA",
    "CAM",
    "CAMPO",
-   "🌾"
+   "🌾",
+   null
   ],
   [
    "CA",
    "CAN",
    "CANTO",
-   "🎤"
+   "🎤",
+   null
   ],
   [
    "CA",
    "CAR",
    "CARTA",
-   "📄"
+   "📄",
+   null
   ]
  ],
  "frasi": [

@@ -5,7 +5,7 @@ Scrive:
   /mnt/project-files/lettere-ponte/DA-REGISTRARE.txt  (se la cartella esiste) elenco dei file audio che mancano
 Audio: le pagine cercano prima lettere-ponte/audio/, poi ../sillabe/audio/ e ../sillabe-difficili/audio/, poi la voce del computer.
 Uso: python3 _strumenti/lettere_ponte.py   (dalla cartella principale del sito)"""
-import base64, json, os, re, unicodedata
+import base64, hashlib, json, os, re, sys, unicodedata
 
 def enc(k): return base64.b64encode(json.dumps(k, ensure_ascii=False).encode()).decode()
 
@@ -31,7 +31,62 @@ def parola(s):
     i = w.index("[")
     return {"w": w.replace("[", "").replace("]", ""), "i": i, "l": w[i + 1], "e": e}
 
-bank = [parola(s) for l in "LMNR" for s in BANCA[l]]
+BANCA_P = [parola(s) for l in "LMNR" for s in BANCA[l]]
+
+def con_im(d, w):
+    f = im(w)
+    if f: d["im"] = f
+    return d
+
+# ===== ILLUSTRAZIONI CANVA (2026-11-19): 11 tavole 3x2, progetto Canva «Le lettere ponte – illustrazioni» =====
+# pagina 1 del PDF = titolo, pagine 2-12 = tavole in questo ordine (da sinistra a destra, riga sopra poi riga sotto)
+TAVOLE = [
+ ["ALBERO", "CALDO", "PALMA", "CALZA", "VOLPE", "POLPO"],
+ ["DOLCE", "FALCO", "CALCIO", "SOLDI", "SALTO", "DELFINO"],
+ ["COLTELLO", "ALBA", "SALSA", "PALCO", "CAMPO", "GAMBA"],
+ ["LAMPADA", "BOMBA", "LAMPO", "BAMBINO", "CAMPANA", "TROMBA"],
+ ["POMPIERE", "OMBRELLO", "COMPUTER", "GAMBERO", "COLOMBA", "ZAMPA"],
+ ["TEMPO", "LAMPONE", "DENTE", "VENTO", "MONDO", "PONTE"],
+ ["TENDA", "PANDA", "BANCA", "MENTA", "FONTANA", "CANDELA"],
+ ["ARANCIA", "ANCORA", "MONTAGNA", "GUANTO", "SANDALO", "ONDA"],
+ ["PORTA", "BARCA", "TORTA", "CARTA", "BORSA", "VERDE"],
+ ["CARNE", "ORSO", "CERVO", "FORMAGGIO", "SCARPA", "FARFALLA"],
+ ["MARTELLO", "TARTARUGA", "FORCHETTA", "ARCOBALENO", "CANTANTE", "SERPENTE"],
+]
+ALIAS = {"CANTO": "CANTANTE"}
+# nome del file «nascosto» (negli esercizi il nome della parola darebbe la risposta)
+def nomefile(w): return "img/" + hashlib.md5(("ponte-" + w).encode()).hexdigest()[:10] + ".webp"
+def im(w):
+    w = ALIAS.get(w, w)
+    f = nomefile(w)
+    return f if os.path.exists("lettere-ponte/" + f) else None
+
+def ritaglia(pdf):
+    """Estrae le tavole dal PDF scaricato da Canva e salva una immagine per parola in lettere-ponte/img/."""
+    import subprocess, tempfile
+    from PIL import Image, ImageChops
+    d = tempfile.mkdtemp()
+    subprocess.run(["pdfimages", "-png", pdf, d + "/t"], check=True)
+    files = sorted(os.listdir(d))
+    imgs = [Image.open(os.path.join(d, f)).convert("RGB") for f in files]
+    tav = [x for x in imgs if x.width > x.height * 1.3]          # le tavole 3:2 (salta il fondo del titolo)
+    print(len(tav), "tavole trovate", [x.size for x in tav])
+    os.makedirs("lettere-ponte/img", exist_ok=True)
+    for t, nomi in zip(tav, TAVOLE):
+        W, H = t.size
+        for k, w in enumerate(nomi):
+            c, r = k % 3, k // 3
+            m = int(W / 3 * 0.03)
+            cell = t.crop((int(c * W / 3) + m, int(r * H / 2) + m, int((c + 1) * W / 3) - m, int((r + 1) * H / 2) - m))
+            bg = Image.new("RGB", cell.size, (255, 255, 255))
+            diff = ImageChops.difference(cell, bg).convert("L").point(lambda v: 255 if v > 18 else 0)
+            box = diff.getbbox() or (0, 0) + cell.size
+            cell = cell.crop(box)
+            s = max(cell.size) + 24
+            sq = Image.new("RGB", (s, s), (255, 255, 255)); sq.paste(cell, ((s - cell.width) // 2, (s - cell.height) // 2))
+            sq = sq.resize((320, 320), Image.LANCZOS)
+            sq.save("lettere-ponte/" + nomefile(w), "WEBP", quality=82)
+    print("immagini salvate in lettere-ponte/img/")
 
 # ===== ESERCIZI (index.html) =====
 SILLABE = {l: [v + l for v in "AEIOU"] for l in "LMNR"}
@@ -57,16 +112,17 @@ FRASI = ["GIOVANNI APRE LA PORTA.", "SILVIA MANGIA LA TORTA.", "CRISTIAN HA UNA 
          "MICHELE VA AL PARCO CON IL BAMBINO.", "SALEAH COMPRA IL FORMAGGIO.", "ENEIDA HA UN OMBRELLO ROSSO."]
 
 def dati():
+    bank = [con_im(b, b["w"]) for b in BANCA_P]
     f_opts = []
     for (a, b), o in zip(F, F_ORD):
         f_opts.append([a, b] if o == 0 else [b, a])
     return {
-        "bank": bank, "sillabe": SILLABE, "scala": SCALA, "frasi": FRASI,
-        "B": [{"e": e, "pre": p, "post": q} for e, p, q, _ in B], "kB": enc([k for *_, k in B]),
-        "C": [{"e": e, "w": w.replace("-", "")} for e, w in C],
+        "bank": bank, "sillabe": SILLABE, "scala": [s + [im(s[2])] for s in SCALA], "frasi": FRASI,
+        "B": [con_im({"e": e, "pre": p, "post": q}, p + k + q) for e, p, q, k in B], "kB": enc([k for *_, k in B]),
+        "C": [con_im({"e": e, "w": w.replace("-", "")}, w.replace("-", "")) for e, w in C],
         "kC": enc([[len("".join(w.split("-")[:j + 1])) for j in range(len(w.split("-")) - 1)] for _, w in C]),
         "D": [ws for ws, _ in D], "kD": enc([k for _, k in D]),
-        "E": [{"e": e, "pre": p, "post": q} for e, p, q, _ in E], "kE": enc([k for *_, k in E]),
+        "E": [con_im({"e": e, "pre": p, "post": q}, p + k + q) for e, p, q, k in E], "kE": enc([k for *_, k in E]),
         "F": [{"a": enc(a), "opts": o} for (a, _), o in zip(F, f_opts)], "kF": enc(F_ORD),
     }
 
@@ -76,7 +132,8 @@ def da_registrare():
     def add(sez, t):
         sl = slug(t)
         if sl not in seen: seen.add(sl); out.append([sez, sl, t])
-    for n in ["ELLE", "EMME", "ENNE", "ERRE"]: add("SILLABE", n)       # i nomi delle lettere (griglia A)
+    # il suono della lettera da sola (griglia A): Erila vuole il SUONO «lll», mai il nome «elle»
+    for l in "LMNR": out.append(["SILLABE", l.lower(), l + " (SOLO IL SUONO: " + l * 3 + "…)"]); seen.add(l.lower())
     for l in "LMNR": [add("SILLABE", s) for s in SILLABE[l]]
     for s in SCALA: [add("SILLABE", x) for x in s[:2]]
     for s in SCALA: add("PAROLE", s[2])
@@ -85,16 +142,17 @@ def da_registrare():
     for ws, _ in D: [add("PAROLE", w) for w in ws]
     for e, p, q, k in E: add("PAROLE", p + k + q)
     for a, _ in F: add("PAROLE", a)
-    for b in bank: add("ALTRE PAROLE", b["w"])
+    for b in BANCA_P: add("ALTRE PAROLE", b["w"])
     for f in FRASI: add("FRASI", f)
     return out
 
 def build():
     os.makedirs("lettere-ponte/audio", exist_ok=True)
     with open("lettere-ponte/parole.js", "w", encoding="utf-8") as f:
+        D = dati()
         f.write("/* creato da _strumenti/lettere_ponte.py: non modificare a mano */\nwindow.PONTE = "
-                + json.dumps(dati(), ensure_ascii=False, indent=1) + ";\n")
-    print("scritto lettere-ponte/parole.js:", len(bank), "parole nella banca")
+                + json.dumps(D, ensure_ascii=False, indent=1) + ";\n")
+    print("scritto lettere-ponte/parole.js:", len(D["bank"]), "parole,", sum(1 for b in D["bank"] if "im" in b), "con illustrazione")
     have = set()
     for d in ["sillabe/audio", "sillabe-difficili/audio", "lettere-ponte/audio"]:
         have |= {os.path.splitext(x)[0] for x in os.listdir(d)}
@@ -130,4 +188,5 @@ def build():
         print("scritto", dest + "/DA-REGISTRARE.txt:", len(manca), "audio mancanti")
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1: ritaglia(sys.argv[1])     # python3 _strumenti/lettere_ponte.py tavole.pdf
     build()

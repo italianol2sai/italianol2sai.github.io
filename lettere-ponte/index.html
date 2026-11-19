@@ -115,20 +115,20 @@
 const P = window.PONTE, L4 = ["L", "M", "N", "R"];
 
 /* ===== A: griglia e scala ===== */
-$("griglia").innerHTML = L4.map(l => `<div class="grid5 ${l}"><button class="head" data-say="${l === "L" ? "ELLE" : l === "M" ? "EMME" : l === "N" ? "ENNE" : "ERRE"}">${l}</button>` +
+$("griglia").innerHTML = L4.map(l => `<div class="grid5 ${l}"><button class="head" data-say="${l}">${l}</button>` +
   P.sillabe[l].map(s => `<button class="s" data-say="${s}">${s}</button>`).join("") + `</div>`).join("");
-$("scala").innerHTML = P.scala.map(([a, b, w, e]) => {
+$("scala").innerHTML = P.scala.map(([a, b, w, e, im]) => {
   const l = b.slice(-1);
   return `<div class="st ${l}"><button class="sylb" data-say="${a}">${a}</button><span class="ar">→</span>
     <button class="sylb on" data-say="${b}">${b}</button><span class="ar">→</span>
-    <button class="sylb" data-say="${w}">${b}·${w.slice(b.length)}</button><span class="em">${e}</span></div>`; }).join("");
+    <button class="sylb" data-say="${w}">${b}·${w.slice(b.length)}</button><span class="em">${fig({ e, im })}</span></div>`; }).join("");
 
 /* ===== banca di parole ===== */
 let tab = mem.get("tab") || "L";
 function banca() {
   $("tabs").innerHTML = L4.map(l => `<button class="${l} ${l === tab ? "on" : ""}" data-tab="${l}">${l}</button>`).join("");
   $("banca").innerHTML = P.bank.filter(b => b.l === tab).map(b =>
-    `<button class="wc ${b.l}" data-say="${b.w}"><div class="e">${b.e}</div><div class="w">${b.w.slice(0, b.i)}<b>${b.l}</b>${b.w.slice(b.i + 1)}</div></button>`).join("");
+    `<button class="wc ${b.l}" data-say="${b.w}"><div class="e">${fig(b)}</div><div class="w">${b.w.slice(0, b.i)}<b>${b.l}</b>${b.w.slice(b.i + 1)}</div></button>`).join("");
 }
 document.addEventListener("click", e => { const t = e.target.closest("[data-tab]"); if (t) { tab = t.dataset.tab; mem.set("tab", tab); banca(); } });
 banca();
@@ -174,7 +174,7 @@ function letto(id, i) { return mem.get(id + "-" + i) || ""; }
 /* B: tocco la lettera */
 const exB = esercizio("B", "COMPLETO LA PAROLA", P.kB, P.B.length, (it, i) => {
   const d = P.B[i], v = letto("B", i);
-  it.innerHTML += `<div class="e">${d.e}</div><button class="say">🔊</button>
+  it.innerHTML += `<div class="e">${fig(d)}</div><button class="say">🔊</button>
     <div class="word">${d.pre}<span class="gap ${v}">${v || "&nbsp;"}</span>${d.post}</div>
     <div class="picks">${L4.map(l => `<button class="pick ${l} ${v === l ? "on" : ""}" data-l="${l}">${l}</button>`).join("")}</div>`;
   it.querySelector(".say").onclick = () => say(P.B[i].pre + dec(P.kB)[i] + P.B[i].post);
@@ -188,7 +188,7 @@ const exB = esercizio("B", "COMPLETO LA PAROLA", P.kB, P.B.length, (it, i) => {
 /* E: scrivo la lettera */
 const exE = esercizio("E", "SCRIVO LA LETTERA PONTE", P.kE, P.E.length, (it, i) => {
   const d = P.E[i];
-  it.innerHTML += `<div class="e">${d.e}</div><div class="word">${d.pre}<span class="gap"><input maxlength="1" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="LETTERA"></span>${d.post}</div>`;
+  it.innerHTML += `<div class="e">${fig(d)}</div><div class="word">${d.pre}<span class="gap"><input maxlength="1" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="LETTERA"></span>${d.post}</div>`;
   const inp = it.querySelector("input"); inp.value = letto("E", i);
   inp.oninput = () => { inp.value = inp.value.toUpperCase().replace(/[^A-Z]/g, ""); scelta("E", i, inp.value); exE.clear(i); };
 }, i => letto("E", i).toUpperCase());
@@ -198,7 +198,7 @@ const exC = esercizio("C", "DIVIDO IN SILLABE", P.kC, P.C.length, (it, i) => {
   const d = P.C[i]; const on = (letto("C", i) || "").split(",").filter(Boolean).map(Number);
   let h = "";
   [...d.w].forEach((ch, j) => { if (j) h += `<button class="gp ${on.includes(j) ? "on" : ""}" data-j="${j}" aria-label="TAGLIA"></button>`; h += `<span class="ch">${ch}</span>`; });
-  it.innerHTML += `<div class="e">${d.e}</div><button class="say" data-say="${d.w}">🔊</button><div class="cut">${h}</div>`;
+  it.innerHTML += `<div class="e">${fig(d)}</div><button class="say" data-say="${d.w}">🔊</button><div class="cut">${h}</div>`;
   it.querySelectorAll(".gp").forEach(g => g.onclick = () => {
     g.classList.toggle("on"); exC.clear(i);
     scelta("C", i, [...it.querySelectorAll(".gp.on")].map(x => x.dataset.j).join(","));

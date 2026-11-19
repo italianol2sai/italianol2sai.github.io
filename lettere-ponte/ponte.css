@@ -121,3 +121,11 @@ table.res td:last-child { text-align: right; }
 @keyframes pop { 0% { transform: scale(.6); } 70% { transform: scale(1.12); } 100% { transform: scale(1); } }
 .pop { animation: pop .35s; }
 @media (max-width: 420px) { .lbtns button { width: 60px; height: 60px; } .grid5 { grid-template-columns: 40px repeat(5, 1fr); gap: 4px; } }
+
+/* illustrazioni Canva */
+img.pic { display: block; margin: 0 auto; width: 1.9em; height: 1.9em; object-fit: contain; }
+.wc img.pic { width: 84px; height: 84px; }
+.it img.pic { width: 96px; height: 96px; }
+.play img.pic { width: 180px; height: 180px; }
+.scala .em img.pic { width: 48px; height: 48px; }
+.mem img.pic { width: 90%; height: 90%; }
