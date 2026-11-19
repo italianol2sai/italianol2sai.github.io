@@ -51,6 +51,7 @@
   <div id="griglia"></div>
   <p class="cons" style="margin-top:16px">🪜 LA SCALA: CA → CAL → CALDO. IL PONTE SI ATTACCA ALLA SILLABA.</p>
   <div class="scala" id="scala"></div>
+  <div class="mia">🗣️ LEGGO LA GRIGLIA E LA SCALA. MI REGISTRO E MI ASCOLTO: <span id="rec-A"></span></div>
 </section>
 
 <section class="card">
@@ -58,6 +59,7 @@
   <p class="cons">👆 SCELGO LA LETTERA. TOCCO LA PAROLA E ASCOLTO.</p>
   <div class="tabs" id="tabs"></div>
   <div class="cards" id="banca"></div>
+  <div class="mia">🗣️ DICO LE PAROLE. MI REGISTRO E MI ASCOLTO: <span id="rec-banca"></span></div>
 </section>
 
 <section class="card" id="ex-B">
@@ -94,6 +96,7 @@
 <section class="card frasi">
   <h2><span class="n">📖</span> LEGGO LE FRASI</h2>
   <p class="cons">🗣️ LEGGO AD ALTA VOCE. POI ASCOLTO 🔊. LE LETTERE PONTE SONO <b style="color:var(--R)">ROSSE</b>.</p>
+  <div class="hint">🎙️ MI REGISTRO · ▶️ MI ASCOLTO · 🔊 ASCOLTO L'INSEGNANTE. LA MIA VOCE È UGUALE?</div>
   <div id="frasi"></div>
 </section>
 
@@ -228,7 +231,9 @@ const exF = esercizio("F", "ASCOLTO E SCELGO", P.kF, P.F.length, (it, i) => {
 }, i => letto("F", i) === "" ? "" : Number(letto("F", i)));
 
 /* ===== frasi ===== */
-$("frasi").innerHTML = P.frasi.map(f => `<div class="fr"><button class="say" data-say="${f}">🔊</button><span>${ponte(f)}</span></div>`).join("");
+$("frasi").innerHTML = P.frasi.map((f, i) => `<div class="fr"><button class="say" data-say="${f}">🔊</button><span class="t">${ponte(f)}</span>${recBtns("frase-" + i)}</div>`).join("");
+$("rec-A").innerHTML = recBtns("griglia", "REGISTRO");
+$("rec-banca").innerHTML = recBtns("banca", "REGISTRO");
 
 /* ===== risultato ===== */
 function risultato() {
