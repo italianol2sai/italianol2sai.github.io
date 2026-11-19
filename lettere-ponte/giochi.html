@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GIOCHI: LE LETTERE PONTE</title>
+<meta name="description" content="Pre-alfa / A0: giochi per indovinare la lettera ponte L M N R.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ponte.css">
+<!-- icone -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icone/favicon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/icone/apple-touch-icon.png">
+<link rel="manifest" href="/icone/manifest.webmanifest">
+<meta name="theme-color" content="#1f8a4c">
+<meta name="apple-mobile-web-app-title" content="Autoapprendimento">
+<meta property="og:site_name" content="Autoapprendimento · Italiano L2 ETNIE">
+<meta property="og:image" content="https://italianol2sai.github.io/icone/condividi.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /icone -->
+</head>
+<body>
+<header>
+  <a href="./">← LE LETTERE PONTE</a>
+  <h1>🎲 INDOVINA LA LETTERA</h1>
+  <p class="lead">L · M · N · R · PRE-ALFA · A0</p>
+</header>
+<main>
+  <div class="tabs" id="giochi"></div>
+  <div id="area"></div>
+</main>
+
+<script src="parole.js"></script>
+<script src="ponte.js"></script>
+<script>
+const P = window.PONTE, L4 = ["L", "M", "N", "R"];
+const GIOCHI = [
+  ["quale", "🔤 QUALE LETTERA?", "GUARDO IL DISEGNO E TOCCO LA LETTERA CHE MANCA."],
+  ["ascolta", "👂 ASCOLTO", "ASCOLTO LA PAROLA. QUALE PONTE SENTO?"],
+  ["parola", "✅ LA PAROLA GIUSTA", "QUALE PAROLA È SCRITTA BENE?"],
+  ["tempo", "⏱️ A TEMPO", "60 SECONDI: QUANTE LETTERE INDOVINO?"],
+  ["memory", "🧠 MEMORY", "TROVO LE COPPIE: DISEGNO E PAROLA."],
+];
+let gioco = mem.get("gioco-ultimo") || "quale";
+const N = 10;
+let G = {};   // stato della partita
+
+function menu() {
+  $("giochi").innerHTML = GIOCHI.map(([k, t]) => `<button class="${k === gioco ? "on" : ""}" data-g="${k}">${t}</button>`).join("");
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-g]"); if (b) { gioco = b.dataset.g; mem.set("gioco-ultimo", gioco); menu(); inizia(); }
+});
+const gap = (b, x) => `${b.w.slice(0, b.i)}<span class="gap ${x ? b.l : ""}">${x ? b.l : "&nbsp;"}</span>${b.w.slice(b.i + 1)}`;
+const testa = () => { const [, t, c] = GIOCHI.find(g => g[0] === gioco); return `<p class="cons" style="text-align:center">${c}</p>`; };
+const barra = () => `<div class="bar"><i style="width:${G.i / N * 100}%"></i></div>`;
+
+function inizia() {
+  G = { i: 0, punti: 0, prova: true, lista: shuffle(P.bank).slice(0, N) };
+  if (gioco === "tempo") { G.lista = shuffle(P.bank); G.fine = 0; }
+  if (gioco === "memory") return memory();
+  if (gioco === "tempo") return startTempo();
+  if (gioco === "ascolta") return $("area").innerHTML = testa() + `<div class="play"><button class="big-play" id="via">▶️</button><p class="score">TOCCO ▶️ PER INIZIARE</p></div>`,
+    $("via").onclick = () => turno();
+  turno();
+}
+
+/* una domanda */
+function turno() {
+  if (G.i >= N && gioco !== "tempo") return fine(G.punti, N);
+  const b = G.lista[G.i % G.lista.length]; G.prova = true; G.b = b; G.lock = false;
+  let h = testa() + (gioco === "tempo" ? `<div class="timer" id="timer" style="text-align:center"></div>` : barra()) + `<div class="play">`;
+  if (gioco === "quale" || gioco === "tempo") {
+    h += `<div class="e">${b.e}</div><div class="word" id="w">${gap(b)}</div>
+      <button class="say" data-say="${b.w}">🔊</button>
+      <div class="lbtns">${L4.map(l => `<button class="${l}" data-l="${l}">${l}</button>`).join("")}</div>`;
+  } else if (gioco === "ascolta") {
+    h += `<button class="big-play" data-say="${b.w}">🔊</button><div class="e" id="em" style="visibility:hidden">${b.e}</div>
+      <div class="word" id="w" style="visibility:hidden">${gap(b, true)}</div>
+      <div class="lbtns">${L4.map(l => `<button class="${l}" data-l="${l}">${l}</button>`).join("")}</div>`;
+  } else if (gioco === "parola") {
+    const altre = shuffle(L4.filter(l => l !== b.l)).slice(0, 2);
+    const opts = shuffle([b.l, ...altre]).map(l => [l, b.w.slice(0, b.i) + l + b.w.slice(b.i + 1)]);
+    h += `<div class="e">${b.e}</div><button class="say" data-say="${b.w}">🔊</button>
+      <div class="wbtns">${opts.map(([l, w]) => `<button data-l="${l}">${w}</button>`).join("")}</div>`;
+  }
+  h += `<div class="msg" id="msg"></div><p class="score">${gioco === "tempo" ? "GIUSTE: " + G.punti : "DOMANDA " + (G.i + 1) + " DI " + N + " · ⭐ " + G.punti}</p></div>`;
+  $("area").innerHTML = h;
+  if (gioco === "tempo") tick();
+  if (gioco === "ascolta") say(b.w);
+  $("area").querySelectorAll("[data-l]").forEach(x => x.onclick = () => risposta(x));
+}
+function risposta(x) {
+  if (G.lock) return;
+  const b = G.b, ok = x.dataset.l === b.l;
+  if (!ok) {
+    x.classList.add("ko"); x.disabled = true; G.prova = false;
+    $("msg").className = "msg no"; $("msg").textContent = "NO! RIPROVO 🙂";
+    if (gioco === "tempo") { G.lock = true; setTimeout(() => { G.i++; turno(); }, 700); }
+    return;
+  }
+  G.lock = true;
+  if (G.prova) G.punti++;
+  x.classList.add("ok");
+  if ($("w")) { $("w").innerHTML = gap(b, true); $("w").classList.add("pop"); $("w").style.visibility = "visible"; }
+  if ($("em")) $("em").style.visibility = "visible";
+  $("msg").className = "msg"; $("msg").textContent = G.prova ? "BRAVO! 👏 " + b.w : "SÌ! " + b.w;
+  say(b.w);
+  setTimeout(() => { G.i++; turno(); }, gioco === "tempo" ? 700 : 1600);
+}
+
+/* a tempo */
+function startTempo() {
+  $("area").innerHTML = testa() + `<div class="play"><div class="e">⏱️</div><p class="cons">RECORD: ${mem.get("gioco-record") || 0}</p>
+    <button class="btn" id="via">▶️ VIA!</button></div>`;
+  $("via").onclick = () => { G.fine = Date.now() + 60000; turno(); clearInterval(G.iv); G.iv = setInterval(tick, 250); };
+}
+function tick() {
+  if (gioco !== "tempo" || !G.fine) return clearInterval(G.iv);
+  const left = Math.max(0, Math.ceil((G.fine - Date.now()) / 1000));
+  if ($("timer")) { $("timer").textContent = "⏱️ " + left; $("timer").classList.toggle("poco", left <= 10); }
+  if (left === 0) {
+    clearInterval(G.iv); G.fine = 0;
+    const rec = +(mem.get("gioco-record") || 0); if (G.punti > rec) mem.set("gioco-record", G.punti);
+    fine(G.punti, null, G.punti > rec);
+  }
+}
+
+/* memory */
+function memory() {
+  const sei = shuffle(P.bank).slice(0, 6);
+  G = { carte: shuffle(sei.flatMap((b, k) => [{ k, t: b.e, em: true, b }, { k, t: b.w, b }])), su: [], fatte: 0, mosse: 0 };
+  disegnaMemory();
+}
+function disegnaMemory() {
+  $("area").innerHTML = testa() + `<div class="play"><div class="mem">${G.carte.map((c, j) =>
+    `<button data-c="${j}" class="${c.ok ? "up done" : G.su.includes(j) ? "up" : ""} ${c.em ? "em" : ""}">${c.ok || G.su.includes(j) ? c.t : "?"}</button>`).join("")}</div>
+    <p class="score">MOSSE: ${G.mosse} · COPPIE: ${G.fatte} / 6</p></div>`;
+  $("area").querySelectorAll("[data-c]").forEach(x => x.onclick = () => gira(+x.dataset.c));
+}
+function gira(j) {
+  const c = G.carte[j];
+  if (c.ok || G.su.includes(j) || G.su.length === 2) return;
+  G.su.push(j); if (!c.em) say(c.b.w);
+  disegnaMemory();
+  if (G.su.length < 2) return;
+  G.mosse++;
+  const [a, b] = G.su.map(x => G.carte[x]);
+  setTimeout(() => {
+    if (a.k === b.k) { a.ok = b.ok = true; G.fatte++; say(a.b.w); }
+    G.su = []; disegnaMemory();
+    if (G.fatte === 6) setTimeout(() => fine(6, 6, false, G.mosse), 700);
+  }, a.k === b.k ? 400 : 1100);
+}
+
+/* fine partita */
+function fine(p, n, record, mosse) {
+  const nome = GIOCHI.find(g => g[0] === gioco)[1];
+  const stelle = n === null ? (p >= 20 ? 3 : p >= 12 ? 2 : p >= 5 ? 1 : 0) : gioco === "memory" ? (mosse <= 9 ? 3 : mosse <= 13 ? 2 : 1) : (p / n >= .9 ? 3 : p / n >= .7 ? 2 : p / n >= .4 ? 1 : 0);
+  const testo = gioco === "memory" ? "6 COPPIE IN " + mosse + " MOSSE" : n === null ? p + " GIUSTE IN 60 SECONDI" : p + " GIUSTE SU " + n;
+  $("area").innerHTML = `<div class="play"><div class="e pop">${"⭐".repeat(stelle) || "💪"}</div>
+    <div class="total">${testo}</div>${record ? `<p class="msg">🏆 NUOVO RECORD!</p>` : ""}
+    <button class="btn" id="ancora">🔁 GIOCO ANCORA</button>
+    <button class="btn sec" id="invia">📤 INVIA ALL'INSEGNANTE</button><p class="fb" id="inviafb"></p></div>`;
+  $("ancora").onclick = inizia;
+  $("invia").onclick = () => condividi("GIOCHI: LE LETTERE PONTE (A0)", [nome + ": " + testo], $("inviafb"));
+}
+
+menu(); inizia();
+</script>
+</body>
+</html>

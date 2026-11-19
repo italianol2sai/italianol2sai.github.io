@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LE LETTERE PONTE</title>
+<meta name="description" content="Pre-alfa / A0: le lettere ponte L M N R. Ascolto, leggo, completo, divido in sillabe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ponte.css">
+<!-- icone -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icone/favicon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/icone/apple-touch-icon.png">
+<link rel="manifest" href="/icone/manifest.webmanifest">
+<meta name="theme-color" content="#1f8a4c">
+<meta name="apple-mobile-web-app-title" content="Autoapprendimento">
+<meta property="og:site_name" content="Autoapprendimento · Italiano L2 ETNIE">
+<meta property="og:image" content="https://italianol2sai.github.io/icone/condividi.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /icone -->
+</head>
+<body>
+<header>
+  <a href="../">← ITALIANO L2 ETNIE</a>
+  <h1>LE LETTERE PONTE</h1>
+  <p class="lead">PRE-ALFA · A0 · L M N R</p>
+  <a class="swap" href="giochi.html">🎲 GIOCHI: INDOVINA LA LETTERA</a>
+</header>
+<main>
+
+<section class="card">
+  <h2><span class="n">📘</span> LA REGOLA</h2>
+  <p class="cons">LE LETTERE PONTE SONO 4:</p>
+  <div class="bigl"><span class="L">L</span><span class="M">M</span><span class="N">N</span><span class="R">R</span></div>
+  <div class="rule">
+    <div class="hint">🌉 DOPO LA LETTERA PONTE NON C'È UNA VOCALE: C'È UN'ALTRA CONSONANTE.</div>
+    <div class="ex"><button class="say" data-say="SALTO">🔊</button> SA<span class="pv">L</span>TO</div>
+    <div class="hint">✂️ IL PONTE STA CON LA SILLABA PRIMA.</div>
+    <div class="ex"><button class="say" data-say="SALTO">🔊</button> <span class="sylb on R">SAL</span> | <span class="sylb">TO</span></div>
+    <div class="hint">⚠️ PRIMA DI <b>P</b> E <b>B</b> SCRIVO <b>M</b>, NON N.</div>
+    <div class="ex"><button class="say" data-say="CAMPO">🔊</button> CA<span class="pv">M</span>PO · GA<span class="pv">M</span>BA <button class="say" data-say="GAMBA">🔊</button></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2><span class="n">A</span> ASCOLTO E LEGGO</h2>
+  <p class="cons">👆 TOCCO LA SILLABA E ASCOLTO. POI LEGGO AD ALTA VOCE 🗣️</p>
+  <div id="griglia"></div>
+  <p class="cons" style="margin-top:16px">🪜 LA SCALA: CA → CAL → CALDO. IL PONTE SI ATTACCA ALLA SILLABA.</p>
+  <div class="scala" id="scala"></div>
+</section>
+
+<section class="card">
+  <h2><span class="n">🌉</span> TANTE PAROLE CON IL PONTE</h2>
+  <p class="cons">👆 SCELGO LA LETTERA. TOCCO LA PAROLA E ASCOLTO.</p>
+  <div class="tabs" id="tabs"></div>
+  <div class="cards" id="banca"></div>
+</section>
+
+<section class="card" id="ex-B">
+  <h2><span class="n">B</span> COMPLETO LA PAROLA</h2>
+  <p class="cons">✏️ GUARDO IL DISEGNO, ASCOLTO 🔊 E TOCCO LA LETTERA PONTE.</p>
+  <div class="items" id="B"></div>
+</section>
+
+<section class="card" id="ex-E">
+  <h2><span class="n">C</span> SCRIVO LA LETTERA PONTE</h2>
+  <p class="cons">⌨️ SCRIVO UNA LETTERA: L, M, N O R.</p>
+  <div class="items" id="E"></div>
+</section>
+
+<section class="card" id="ex-C">
+  <h2><span class="n">D</span> DIVIDO IN SILLABE</h2>
+  <p class="cons">✂️ TOCCO TRA LE LETTERE PER TAGLIARE. 👏 BATTO LE MANI A OGNI SILLABA.</p>
+  <div class="hint">ESEMPIO: SAL | TO</div>
+  <div class="items" id="C"></div>
+</section>
+
+<section class="card" id="ex-D">
+  <h2><span class="n">E</span> TROVO L'INTRUSO</h2>
+  <p class="cons">⭕ UNA PAROLA NON HA LA LETTERA PONTE: LA TOCCO.</p>
+  <div class="items" id="D"></div>
+</section>
+
+<section class="card" id="ex-F">
+  <h2><span class="n">F</span> ASCOLTO E SCELGO</h2>
+  <p class="cons">🎧 ASCOLTO. C'È IL PONTE O NO? TOCCO LA PAROLA GIUSTA.</p>
+  <div class="items" id="F"></div>
+</section>
+
+<section class="card frasi">
+  <h2><span class="n">📖</span> LEGGO LE FRASI</h2>
+  <p class="cons">🗣️ LEGGO AD ALTA VOCE. POI ASCOLTO 🔊. LE LETTERE PONTE SONO <b style="color:var(--R)">ROSSE</b>.</p>
+  <div id="frasi"></div>
+</section>
+
+<section class="card" id="fine">
+  <h2><span class="n">📊</span> IL MIO RISULTATO</h2>
+  <p class="cons">👤 IL MIO NOME</p>
+  <input class="nome" id="nome" autocomplete="name">
+  <div id="ris"></div>
+  <button class="btn" id="invia">📤 INVIA ALL'INSEGNANTE</button>
+  <button class="btn sec" id="reset">🗑️ RICOMINCIA</button>
+  <p class="fb" id="inviafb"></p>
+  <a class="swap" href="giochi.html" style="margin-top:14px">🎲 ADESSO GIOCO!</a>
+</section>
+</main>
+
+<script src="parole.js"></script>
+<script src="ponte.js"></script>
+<script>
+const P = window.PONTE, L4 = ["L", "M", "N", "R"];
+
+/* ===== A: griglia e scala ===== */
+$("griglia").innerHTML = L4.map(l => `<div class="grid5 ${l}"><button class="head" data-say="${l === "L" ? "ELLE" : l === "M" ? "EMME" : l === "N" ? "ENNE" : "ERRE"}">${l}</button>` +
+  P.sillabe[l].map(s => `<button class="s" data-say="${s}">${s}</button>`).join("") + `</div>`).join("");
+$("scala").innerHTML = P.scala.map(([a, b, w, e]) => {
+  const l = b.slice(-1);
+  return `<div class="st ${l}"><button class="sylb" data-say="${a}">${a}</button><span class="ar">→</span>
+    <button class="sylb on" data-say="${b}">${b}</button><span class="ar">→</span>
+    <button class="sylb" data-say="${w}">${b}·${w.slice(b.length)}</button><span class="em">${e}</span></div>`; }).join("");
+
+/* ===== banca di parole ===== */
+let tab = mem.get("tab") || "L";
+function banca() {
+  $("tabs").innerHTML = L4.map(l => `<button class="${l} ${l === tab ? "on" : ""}" data-tab="${l}">${l}</button>`).join("");
+  $("banca").innerHTML = P.bank.filter(b => b.l === tab).map(b =>
+    `<button class="wc ${b.l}" data-say="${b.w}"><div class="e">${b.e}</div><div class="w">${b.w.slice(0, b.i)}<b>${b.l}</b>${b.w.slice(b.i + 1)}</div></button>`).join("");
+}
+document.addEventListener("click", e => { const t = e.target.closest("[data-tab]"); if (t) { tab = t.dataset.tab; mem.set("tab", tab); banca(); } });
+banca();
+
+/* ===== esercizi con punteggio ===== */
+const EX = [];   // {id, titolo, n, get(i), key, items}
+function esercizio(id, titolo, key, n, build, get) {
+  const box = $(id), items = [];
+  for (let i = 0; i < n; i++) {
+    const it = document.createElement("div"); it.className = "it";
+    it.innerHTML = `<span class="num">${i + 1}</span><span class="mk"></span>`;
+    build(it, i); box.append(it); items.push(it);
+  }
+  const btn = document.createElement("button"); btn.className = "chk"; btn.textContent = "✅ CONTROLLA";
+  const fb = document.createElement("p"); fb.className = "fb";
+  box.after(btn, fb);
+  const ex = { id, titolo, n, items, key: dec(key), get, got: null };
+  ex.check = (save) => {
+    let good = 0;
+    items.forEach((it, i) => {
+      const v = get(i), k = ex.key[i];
+      const ok = v !== "" && v !== null && JSON.stringify(v) === JSON.stringify(k);
+      if (ok) good++;
+      it.classList.toggle("ok", ok); it.classList.toggle("ko", !ok);
+      it.querySelector(".mk").textContent = ok ? "✓" : "✗";
+    });
+    ex.got = good;
+    const r = good / n;
+    fb.className = "fb " + (r === 1 ? "ok" : r >= .6 ? "mid" : "no");
+    fb.textContent = (r === 1 ? "👏 PERFETTO! " : r >= .6 ? "👍 BENE! " : "📚 RIPROVA! ") + good + " GIUSTE SU " + n + "." +
+      (r < 1 ? " CORREGGO LE ✗ E CONTROLLO DI NUOVO." : "");
+    if (save) mem.set("chk-" + id, "1");
+    risultato();
+  };
+  ex.clear = (i) => { const it = items[i]; it.classList.remove("ok", "ko"); it.querySelector(".mk").textContent = ""; };
+  btn.onclick = () => ex.check(true);
+  EX.push(ex);
+  return ex;
+}
+function scelta(id, i, val) { mem.set(id + "-" + i, val); }
+function letto(id, i) { return mem.get(id + "-" + i) || ""; }
+
+/* B: tocco la lettera */
+const exB = esercizio("B", "COMPLETO LA PAROLA", P.kB, P.B.length, (it, i) => {
+  const d = P.B[i], v = letto("B", i);
+  it.innerHTML += `<div class="e">${d.e}</div><button class="say">🔊</button>
+    <div class="word">${d.pre}<span class="gap ${v}">${v || "&nbsp;"}</span>${d.post}</div>
+    <div class="picks">${L4.map(l => `<button class="pick ${l} ${v === l ? "on" : ""}" data-l="${l}">${l}</button>`).join("")}</div>`;
+  it.querySelector(".say").onclick = () => say(P.B[i].pre + dec(P.kB)[i] + P.B[i].post);
+  it.querySelectorAll(".pick").forEach(b => b.onclick = () => {
+    scelta("B", i, b.dataset.l); exB.clear(i);
+    it.querySelectorAll(".pick").forEach(x => x.classList.toggle("on", x === b));
+    const g = it.querySelector(".gap"); g.className = "gap pop " + b.dataset.l; g.textContent = b.dataset.l;
+  });
+}, i => letto("B", i));
+
+/* E: scrivo la lettera */
+const exE = esercizio("E", "SCRIVO LA LETTERA PONTE", P.kE, P.E.length, (it, i) => {
+  const d = P.E[i];
+  it.innerHTML += `<div class="e">${d.e}</div><div class="word">${d.pre}<span class="gap"><input maxlength="1" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="LETTERA"></span>${d.post}</div>`;
+  const inp = it.querySelector("input"); inp.value = letto("E", i);
+  inp.oninput = () => { inp.value = inp.value.toUpperCase().replace(/[^A-Z]/g, ""); scelta("E", i, inp.value); exE.clear(i); };
+}, i => letto("E", i).toUpperCase());
+
+/* C: divido in sillabe */
+const exC = esercizio("C", "DIVIDO IN SILLABE", P.kC, P.C.length, (it, i) => {
+  const d = P.C[i]; const on = (letto("C", i) || "").split(",").filter(Boolean).map(Number);
+  let h = "";
+  [...d.w].forEach((ch, j) => { if (j) h += `<button class="gp ${on.includes(j) ? "on" : ""}" data-j="${j}" aria-label="TAGLIA"></button>`; h += `<span class="ch">${ch}</span>`; });
+  it.innerHTML += `<div class="e">${d.e}</div><button class="say" data-say="${d.w}">🔊</button><div class="cut">${h}</div>`;
+  it.querySelectorAll(".gp").forEach(g => g.onclick = () => {
+    g.classList.toggle("on"); exC.clear(i);
+    scelta("C", i, [...it.querySelectorAll(".gp.on")].map(x => x.dataset.j).join(","));
+  });
+}, i => (letto("C", i) || "").split(",").filter(Boolean).map(Number).sort((a, b) => a - b));
+
+/* D: trovo l'intruso */
+const exD = esercizio("D", "TROVO L'INTRUSO", P.kD, P.D.length, (it, i) => {
+  const v = letto("D", i);
+  it.innerHTML += `<div class="intr">${P.D[i].map((w, j) => `<button class="${v === String(j) ? "on" : ""}" data-j="${j}">${w}</button>`).join("")}</div>`;
+  it.querySelectorAll(".intr button").forEach(b => b.onclick = () => {
+    scelta("D", i, b.dataset.j); exD.clear(i); say(b.textContent);
+    it.querySelectorAll(".intr button").forEach(x => x.classList.toggle("on", x === b));
+  });
+}, i => letto("D", i) === "" ? "" : Number(letto("D", i)));
+
+/* F: ascolto e scelgo */
+const exF = esercizio("F", "ASCOLTO E SCELGO", P.kF, P.F.length, (it, i) => {
+  const d = P.F[i], v = letto("F", i);
+  it.innerHTML += `<button class="big-play" style="width:64px;height:64px;font-size:28px;margin-top:14px">🔊</button>
+    <div class="lis">${d.opts.map((w, j) => `<button class="opt ${v === String(j) ? "on" : ""}" data-j="${j}">${w}</button>`).join("")}</div>`;
+  it.querySelector(".big-play").onclick = () => say(dec(d.a));
+  it.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    scelta("F", i, b.dataset.j); exF.clear(i);
+    it.querySelectorAll(".opt").forEach(x => x.classList.toggle("on", x === b));
+  });
+}, i => letto("F", i) === "" ? "" : Number(letto("F", i)));
+
+/* ===== frasi ===== */
+$("frasi").innerHTML = P.frasi.map(f => `<div class="fr"><button class="say" data-say="${f}">🔊</button><span>${ponte(f)}</span></div>`).join("");
+
+/* ===== risultato ===== */
+function risultato() {
+  const fatti = EX.filter(x => x.got !== null), tot = EX.reduce((s, x) => s + x.n, 0), got = fatti.reduce((s, x) => s + x.got, 0);
+  let h = "";
+  if (fatti.length < EX.length) h += `<p class="cons">HO CONTROLLATO ${fatti.length} ESERCIZI SU ${EX.length}.</p>`;
+  else { const pc = Math.round(got / tot * 100);
+    h += `<div class="total">${got} / ${tot}</div><p class="fb ${pc >= 60 ? "ok" : "no"}" style="text-align:center">${pc >= 90 ? "OTTIMO 🌟" : pc >= 75 ? "BUONO 👍" : pc >= 60 ? "SUFFICIENTE ✅" : "DA RIPASSARE 📚"} · ${pc}%</p>`; }
+  h += `<table class="res">` + EX.map(x => `<tr><td>${x.titolo}</td><td>${x.got === null ? "—" : x.got + " / " + x.n}</td></tr>`).join("") + `</table>`;
+  $("ris").innerHTML = h;
+}
+EX.forEach(x => { if (mem.get("chk-" + x.id)) x.check(false); });
+risultato();
+
+$("nome").value = nomeStudente();
+$("nome").oninput = () => salvaNome($("nome").value);
+$("invia").onclick = () => {
+  if ($("nome").value.trim()) salvaNome($("nome").value);
+  const righe = EX.map(x => x.titolo + ": " + (x.got === null ? "NON CONTROLLATO" : x.got + "/" + x.n));
+  const tot = EX.reduce((s, x) => s + x.n, 0), got = EX.reduce((s, x) => s + (x.got || 0), 0);
+  righe.push("", "TOTALE: " + got + "/" + tot);
+  condividi("LE LETTERE PONTE (A0)", righe, $("inviafb"));
+};
+$("reset").onclick = () => {
+  if (!confirm("VUOI CANCELLARE TUTTE LE RISPOSTE?")) return;
+  try { Object.keys(localStorage).filter(k => k.startsWith("ponte:") && !k.startsWith("ponte:gioco")).forEach(k => localStorage.removeItem(k)); } catch (e) {}
+  location.reload();
+};
+</script>
+</body>
+</html>
