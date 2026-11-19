@@ -84,7 +84,7 @@ def ritaglia(pdf):
             cell = cell.crop(box)
             s = max(cell.size) + 24
             sq = Image.new("RGB", (s, s), (255, 255, 255)); sq.paste(cell, ((s - cell.width) // 2, (s - cell.height) // 2))
-            sq = sq.resize((320, 320), Image.LANCZOS)
+            sq = sq.resize((256, 256), Image.LANCZOS)
             sq.save("lettere-ponte/" + nomefile(w), "WEBP", quality=82)
     print("immagini salvate in lettere-ponte/img/")
 
