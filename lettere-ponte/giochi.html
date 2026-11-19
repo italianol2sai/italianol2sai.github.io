@@ -71,6 +71,7 @@ function inizia() {
 /* una domanda */
 function turno() {
   if (G.i >= N && gioco !== "tempo") return fine(G.punti, N);
+  if (rec) rec.mr.stop();
   const b = G.lista[G.i % G.lista.length]; G.prova = true; G.b = b; G.lock = false;
   let h = testa() + (gioco === "tempo" ? `<div class="timer" id="timer" style="text-align:center"></div>` : barra()) + `<div class="play">`;
   if (gioco === "quale" || gioco === "tempo") {
@@ -87,6 +88,7 @@ function turno() {
     h += `<div class="e">${fig(b)}</div><button class="say" data-say="${b.w}">🔊</button>
       <div class="wbtns">${opts.map(([l, w]) => `<button data-l="${l}">${w}</button>`).join("")}</div>`;
   }
+  if (gioco === "quale" || gioco === "parola") h += `<div class="mia">🗣️ DICO LA PAROLA: ${recBtns("g-" + b.w)}</div>`;
   h += `<div class="msg" id="msg"></div><p class="score">${gioco === "tempo" ? "GIUSTE: " + G.punti : "DOMANDA " + (G.i + 1) + " DI " + N + " · ⭐ " + G.punti}</p></div>`;
   $("area").innerHTML = h;
   if (gioco === "tempo") tick();
