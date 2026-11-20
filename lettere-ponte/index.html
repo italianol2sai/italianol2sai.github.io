@@ -77,7 +77,7 @@
 <section class="card" id="ex-C">
   <h2><span class="n">D</span> DIVIDO IN SILLABE</h2>
   <p class="cons">✂️ TOCCO TRA LE LETTERE PER TAGLIARE. 👏 BATTO LE MANI A OGNI SILLABA.</p>
-  <div class="hint">ESEMPIO: SAL | TO</div>
+  <div class="hint">DIVIDO TUTTA LA PAROLA, NON SOLO IL PONTE. ESEMPI: SAL | TO (2 SILLABE) · CAM | PA | NA (3 SILLABE)</div>
   <div class="items" id="C"></div>
 </section>
 
@@ -157,6 +157,9 @@ function esercizio(id, titolo, key, n, build, get) {
       if (ok) good++;
       it.classList.toggle("ok", ok); it.classList.toggle("ko", !ok);
       it.querySelector(".mk").textContent = ok ? "✓" : "✗";
+      const nota = it.querySelector(".nota");
+      if (nota) nota.textContent = (!ok && Array.isArray(v) && v.length && v.length < k.length && v.every(x => k.includes(x)))
+        ? "✂️ GIUSTO! MA MANCA UN TAGLIO: " + (k.length + 1) + " SILLABE" : "";
     });
     ex.got = good;
     const r = good / n;
@@ -166,7 +169,8 @@ function esercizio(id, titolo, key, n, build, get) {
     if (save) mem.set("chk-" + id, "1");
     risultato();
   };
-  ex.clear = (i) => { const it = items[i]; it.classList.remove("ok", "ko"); it.querySelector(".mk").textContent = ""; };
+  ex.clear = (i) => { const it = items[i]; it.classList.remove("ok", "ko"); it.querySelector(".mk").textContent = "";
+    const nota = it.querySelector(".nota"); if (nota) nota.textContent = ""; };
   btn.onclick = () => ex.check(true);
   EX.push(ex);
   return ex;
@@ -201,7 +205,8 @@ const exC = esercizio("C", "DIVIDO IN SILLABE", P.kC, P.C.length, (it, i) => {
   const d = P.C[i]; const on = (letto("C", i) || "").split(",").filter(Boolean).map(Number);
   let h = "";
   [...d.w].forEach((ch, j) => { if (j) h += `<button class="gp ${on.includes(j) ? "on" : ""}" data-j="${j}" aria-label="TAGLIA"></button>`; h += `<span class="ch">${ch}</span>`; });
-  it.innerHTML += `<div class="e">${fig(d)}</div><button class="say" data-say="${d.w}">🔊</button><div class="cut">${h}</div>`;
+  it.innerHTML += `<div class="e">${fig(d)}</div><button class="say" data-say="${d.w}">🔊</button><div class="cut">${h}</div>
+    <div class="nsil">${"👏".repeat(P.nC[i])} ${P.nC[i]} SILLABE</div><div class="nota"></div>`;
   it.querySelectorAll(".gp").forEach(g => g.onclick = () => {
     g.classList.toggle("on"); exC.clear(i);
     scelta("C", i, [...it.querySelectorAll(".gp.on")].map(x => x.dataset.j).join(","));

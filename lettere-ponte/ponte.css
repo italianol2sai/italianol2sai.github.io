@@ -69,9 +69,9 @@ section.card h2 .n { background: var(--c); color: #fff; width: 32px; height: 32p
 .pick.on { background: var(--lc); color: #fff; }
 .cut { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin: 6px 0 2px; }
 .cut .ch { font-size: 28px; font-weight: 900; padding: 0 1px; }
-.cut .gp { width: 18px; height: 44px; border: none; background: none; padding: 0; position: relative; }
-.cut .gp::after { content: ""; position: absolute; left: 7px; top: 8px; width: 4px; height: 28px; border-radius: 2px; background: var(--line); }
-.cut .gp.on::after { background: var(--R); left: 5px; width: 8px; top: 2px; height: 40px; }
+.cut .gp { width: 22px; height: 44px; border: none; background: none; padding: 0; position: relative; }
+.cut .gp::after { content: ""; position: absolute; left: 9px; top: 8px; width: 4px; height: 28px; border-radius: 2px; background: var(--line); }
+.cut .gp.on::after { background: var(--R); left: 7px; width: 8px; top: 2px; height: 40px; }
 .intr { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin-top: 18px; }
 .intr button { border: 2px solid var(--line); background: var(--card); border-radius: 14px; padding: 8px 10px; font-size: 18px; font-weight: 900; }
 .intr button.on { border-color: var(--R); box-shadow: 0 0 0 3px color-mix(in srgb, var(--R) 35%, transparent); border-radius: 999px; }
@@ -139,3 +139,7 @@ img.pic { display: block; margin: 0 auto; border-radius: 16px; background: #fff;
 @keyframes pulse { 50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--R) 30%, transparent); } }
 .mia { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; background: color-mix(in srgb, var(--R) 8%, var(--card)); border: 2px dashed color-mix(in srgb, var(--R) 45%, var(--line)); border-radius: 16px; padding: 10px; margin-top: 14px; font-weight: 900; }
 .frasi .fr span.t { flex: 1; min-width: 0; }
+
+.nsil { font-size: 14px; font-weight: 900; color: var(--muted); margin-top: 4px; }
+.nota { font-size: 14px; font-weight: 900; color: #b07800; min-height: 0; }
+.cut { flex-wrap: nowrap; } .cut .ch { font-size: min(5.4vw, 28px); }
