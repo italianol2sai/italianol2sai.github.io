@@ -12,22 +12,19 @@ const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) {
 const slug = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const found = {};
 let current = null;
-function tryLoad(url) {
-  return new Promise((ok, ko) => { const a = new Audio(); a.preload = "auto"; a.oncanplaythrough = () => ok(); a.onerror = ko; a.src = url; });
-}
-async function say(text) {
+function say(text) {
   if (current) { current.pause(); current = null; }
   if (window.speechSynthesis) speechSynthesis.cancel();
-  const s = slug(text);
-  if (!(s in found)) {
-    found[s] = null;
-    for (const d of ["audio", "../sillabe/audio", "../sillabe-difficili/audio"])
-      for (const ext of ["wav", "mp3", "m4a"]) {
-        if (found[s]) break;
-        try { await tryLoad(`${d}/${s}.${ext}`); found[s] = `${d}/${s}.${ext}`; } catch (e) {}
-      }
+  // l'elenco dei file audio è in parole.js: si suona subito, nello stesso tocco (necessario su iPhone)
+  const url = ((window.PONTE && window.PONTE.audio) || {})[slug(text)];
+  if (url) {
+    current = new Audio(url);
+    current.play().catch(() => parla(text));
+    return;
   }
-  if (found[s]) { current = new Audio(found[s]); current.play().catch(() => {}); return; }
+  parla(text);
+}
+function parla(text) {
   if (!window.speechSynthesis) return;
   // una lettera da sola: si dice il SUONO (lll, mmm), mai il nome (elle, emme)
   const SUONO = { L: "lll", M: "mmm", N: "nnn", R: "rrr" };

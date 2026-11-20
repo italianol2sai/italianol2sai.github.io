@@ -124,7 +124,19 @@ def dati():
         "D": [ws for ws, _ in D], "kD": enc([k for _, k in D]),
         "E": [con_im({"e": e, "pre": p, "post": q}, p + k + q) for e, p, q, k in E], "kE": enc([k for *_, k in E]),
         "F": [{"a": enc(a), "opts": o} for (a, _), o in zip(F, f_opts)], "kF": enc(F_ORD),
+        "nC": [len(w.split("-")) for _, w in C],
+        "audio": mappa_audio(),
     }
+
+def mappa_audio():
+    """slug -> file audio che esiste davvero. Così la pagina suona subito (su iPhone l'audio deve partire
+    nello stesso tocco: niente prove di caricamento prima)."""
+    out = {}
+    for d, rel in [("lettere-ponte/audio", "audio"), ("sillabe/audio", "../sillabe/audio"), ("sillabe-difficili/audio", "../sillabe-difficili/audio")]:
+        files = {os.path.splitext(f)[0]: f for f in sorted(os.listdir(d)) if f.endswith((".wav", ".mp3", ".m4a"))}
+        for _, sl, _t in da_registrare() + [["", slug(b["w"]), ""] for b in BANCA_P]:
+            if sl not in out and sl in files: out[sl] = rel + "/" + files[sl]
+    return out
 
 def da_registrare():
     """[sezione, slug, testo] in ordine di importanza."""
