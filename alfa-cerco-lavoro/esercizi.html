@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔎 Cerco lavoro · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🔎 Cerco lavoro · Esercizi",
+ "store": "alfa-cerco-lavoro",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"LAVORO\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "LAVORO",
+      "COGNOME",
+      "FIGLI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"COGNOME\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "OGNI",
+      "COGNOME",
+      "FIGLI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FIGLI\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "OGNI",
+      "MOGLIE",
+      "FIGLI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"OGNI\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "OGNI",
+      "MOGLIE",
+      "LAVORO"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MOGLIE\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "COGNOME",
+      "MOGLIE",
+      "LAVORO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMQVZPUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT0dOT01FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRklHTEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJPR05JIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTU9HTElFIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Che cos'è?",
+   "short": "2 · Che cos'è?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>🪪</span>"
+    },
+    {
+     "q": "<span class='emo'>👪</span>"
+    },
+    {
+     "q": "<span class='emo'>📞</span>"
+    },
+    {
+     "q": "<span class='emo'>🏠</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJOT01FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09HTk9NRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlRFTEVGT05PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSU5ESVJJWlpPIl19XQ==",
+   "opts": [
+    "NOME",
+    "COGNOME",
+    "TELEFONO",
+    "INDIRIZZO"
+   ],
+   "cons": "GUARDA. SCEGLI LA PAROLA."
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🏢 AL CENTRO PER L'IMPIEGO",
+   "short": "3 · AL CENTRO PER L'IM",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. IL COGNOME DI GIOVANNI È…",
+     "opts": [
+      "OKAFOR",
+      "ROSSI"
+     ]
+    },
+    {
+     "q": "2. GIOVANNI CERCA LAVORO COME…",
+     "opts": [
+      "MAGAZZINIERE",
+      "CUOCO"
+     ]
+    },
+    {
+     "q": "3. GIOVANNI HA…",
+     "opts": [
+      "DUE FIGLI",
+      "TRE FIGLI"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJPS0FGT1IiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNQUdBWlpJTklFUkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJEVUUgRklHTEkiXX1d"
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e4",
+   "title": "4 · ✍️ Copia la parola",
+   "short": "4 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "LAVORO"
+    },
+    {
+     "q": "COGNOME"
+    },
+    {
+     "q": "FIGLI"
+    },
+    {
+     "q": "OGNI"
+    },
+    {
+     "q": "MOGLIE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMQVZPUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT0dOT01FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRklHTEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJPR05JIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTU9HTElFIl19XQ=="
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🧩 Componi la parola",
+   "short": "5 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>LA</span> + <span class='sill'>VO</span> + <span class='sill'>RO</span> ="
+    },
+    {
+     "q": "<span class='sill'>CO</span> + <span class='sill'>GNO</span> + <span class='sill'>ME</span> ="
+    },
+    {
+     "q": "<span class='sill'>FI</span> + <span class='sill'>GLI</span> ="
+    },
+    {
+     "q": "<span class='sill'>O</span> + <span class='sill'>GNI</span> ="
+    },
+    {
+     "q": "<span class='sill'>MO</span> + <span class='sill'>GLIE</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMQVZPUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT0dOT01FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRklHTEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJPR05JIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTU9HTElFIl19XQ=="
+  },
+  {
+   "part": "Le lettere GLI, GN"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Con che lettera comincia?",
+   "short": "6 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>GLI</b> O CON <b>GN</b>?",
+   "opts": [
+    "GLI",
+    "GN"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>👨‍👦</span> <button type=\"button\" class=\"say\" data-say=\"FIGLIO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🛁</span> <button type=\"button\" class=\"say\" data-say=\"BAGNO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🎫</span> <button type=\"button\" class=\"say\" data-say=\"BIGLIETTO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🕷️</span> <button type=\"button\" class=\"say\" data-say=\"RAGNO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🍃</span> <button type=\"button\" class=\"say\" data-say=\"FOGLIA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>⛰️</span> <button type=\"button\" class=\"say\" data-say=\"MONTAGNA\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJHTEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHTiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdMSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdOIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiR0xJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiR04iXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 Ascolta e scrivi la lettera",
+   "short": "7 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI GLI OPPURE GN.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FIGLIO\" aria-label=\"ascolta\">🔊</button> FI _ _ _ O"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"BAGNO\" aria-label=\"ascolta\">🔊</button> BA _ _ O"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MOGLIE\" aria-label=\"ascolta\">🔊</button> MO _ _ _ E"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"LAVAGNA\" aria-label=\"ascolta\">🔊</button> LAVA _ _ A"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJHTEkiLCAiRyBMIEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHTiIsICJHIE4iXX0sIHsidCI6ICJlcSIsICJhIjogWyJHTEkiLCAiRyBMIEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHTiIsICJHIE4iXX1d"
+  },
+  {
+   "part": "Parlo"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🗣️ Completa il dialogo",
+   "short": "8 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "CHIAMA · COGNOME · LAVORO",
+   "parts": [
+    "IMPIEGATA: COME SI ",
+    {},
+    "?<br>GIOVANNI: MI CHIAMO GIOVANNI. IL ",
+    {},
+    " È OKAFOR.<br>IMPIEGATA: CHE ",
+    {},
+    " CERCA?"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjaGlhbWEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjb2dub21lIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGF2b3JvIl19XQ=="
+  },
+  {
+   "part": "I numeri"
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🔊 Ascolta il pezzo di numero di telefono",
+   "short": "9 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"TRE QUATTRO SETTE\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"UNO DUE TRE\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"QUATTRO CINQUE SEI\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"TRE TRE TRE\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"OTTO NOVE ZERO\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzNDciXX0sIHsidCI6ICJlcSIsICJhIjogWyIxMjMiXX0sIHsidCI6ICJlcSIsICJhIjogWyI0NTYiXX0sIHsidCI6ICJlcSIsICJhIjogWyIzMzMiXX0sIHsidCI6ICJlcSIsICJhIjogWyI4OTAiXX1d"
+  },
+  {
+   "id": "e10",
+   "title": "10 ✎ · I miei dati",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI I TUOI DATI: NOME, COGNOME, TELEFONO.",
+   "items": [
+    "NOME",
+    "COGNOME",
+    "TELEFONO"
+   ]
+  },
+  {
+   "id": "e11",
+   "title": "11 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "SEI AL CENTRO PER L'IMPIEGO. DI' COME TI CHIAMI E CHE LAVORO CERCHI."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
