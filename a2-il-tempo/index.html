@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il tempo - ITALIANO L2</title>
+<style>
+  :root{
+    --blu:#E07A1F; --blu-scuro:#3B2410; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FFF6EC; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#E07A1F,#F6B44C); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+
+  .parla, [data-say]{cursor:pointer;} .bubble.parla::after, .card.parla b::after{content:" 🔊"; font-size:.8em; opacity:.55;}
+  .parlando{outline:4px solid var(--arancio); outline-offset:2px;}
+  .card, .card b, .cover h1, .bubble, table.plur td{overflow-wrap:anywhere;}
+  @media (max-width:900px){ .cover h1{font-size:2.1rem;} .card b{font-size:1.05rem;} .card{padding:12px;} }
+  @media (max-width:520px){ .g3{grid-template-columns:1fr;} .g3 .card{flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:12px;} .g3 .card .emoji{font-size:2rem;} .g3 .card span:last-child{flex-basis:100%;} }
+  .passi{display:flex; flex-direction:column; gap:12px; max-width:1000px;}
+  .passi div{background:#fff; border:3px solid #e3edf8; border-radius:14px; padding:12px 16px; font-size:1.45rem; display:flex; gap:14px; align-items:center;}
+  .passi .n{flex:none; width:44px; height:44px; line-height:44px; text-align:center; border-radius:50%; background:var(--blu); color:#fff; font-weight:bold;}
+  .cf{display:flex; flex-wrap:wrap; gap:8px; font-family:monospace; font-size:2rem; font-weight:bold; margin:8px 0 14px;}
+  .cf span{background:#fff; border:3px solid var(--teal); border-radius:12px; padding:8px 12px; text-align:center;}
+  .cf small{display:block; font-family:inherit; font-size:.85rem; font-weight:normal; color:#5b6b7b; margin-top:4px;}
+  .pin{font-family:monospace; font-size:2.3rem; font-weight:bold; letter-spacing:4px;}
+  .card, .card b, table.plur td, table.plur th{overflow-wrap:normal; word-break:normal; hyphens:none;}
+  table.plur td b{white-space:nowrap;}
+  @media (max-width:520px){ .g2, .g4{grid-template-columns:1fr;} }
+  @media (max-width:900px){ .passi div{font-size:1.1rem;} .cf{font-size:1.3rem;} .cf small{font-size:.7rem;} .pin{font-size:1.5rem; letter-spacing:2px;} }
+  .ill{display:block; margin:0 auto 14px; max-width:100%; max-height:46vh; border-radius:18px; border:3px solid #e3edf8; background:#fff;}
+  .twocol2 .ill{max-height:52vh;}
+  .colori4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+  .colori4 div{border-radius:14px; padding:14px; color:#fff; font-weight:bold; font-size:1.3rem; text-align:center;}
+  .colori4 span{display:block; font-weight:normal; font-size:1rem; margin-top:6px;}
+  @media (max-width:900px){ .colori4{grid-template-columns:1fr 1fr;} .colori4 div{font-size:1.05rem;} }
+  :root{ --blu:#c2410c; --blu-scuro:#5a1d06; --teal:#0e7490; --arancio:#fbbf24; }
+  body, .btn, button{ text-transform:none !important; font-family:Nunito, "Segoe UI", sans-serif !important; }
+  h2{ font-size:2rem; } .lead{ font-size:1.4rem; }
+  .bubble{ font-size:1.15rem; } table.plur td, table.plur th{ font-size:1.1rem; }
+</style>
+<!-- icone -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icone/favicon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/icone/apple-touch-icon.png">
+<link rel="manifest" href="/icone/manifest.webmanifest">
+<meta name="theme-color" content="#1f8a4c">
+<meta name="apple-mobile-web-app-title" content="Autoapprendimento">
+<meta property="og:site_name" content="Autoapprendimento · Italiano L2 ETNIE">
+<meta property="og:image" content="https://italianol2sai.github.io/icone/condividi.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /icone -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap">
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; A2</span>
+  <span>Il tempo</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">🌦️</div>
+    <h1>Il tempo</h1>
+    <p class="lead" style="margin-top:14px;">Il tempo atmosferico · Il tempo libero</p>
+    <span class="badge">A2 &bull; Modulo 1 &bull; Unità 3</span>
+  </section>
+
+  <section class="slide">
+    <h2>In questa unità impari a…</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">☀️</span><b>Parlare del tempo</b><span>Che tempo fa? Piove, fa freddo</span></div>
+      <div class="card"><span class="emoji">🧭</span><b>Capire il meteo</b><span>al nord, al sud, le temperature</span></div>
+      <div class="card"><span class="emoji">🎨</span><b>Dire cosa stai facendo</b><span>Sto leggendo, sto cucinando</span></div>
+      <div class="card"><span class="emoji">⚽</span><b>Parlare del tempo libero</b><span>Mi piace il calcio, mi piacciono i film</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>☀️ Che tempo fa?</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">☀️</span><b>c'è il sole</b><span>è sereno</span></div>
+      <div class="card"><span class="emoji">☁️</span><b>è nuvoloso</b><span>ci sono le nuvole</span></div>
+      <div class="card"><span class="emoji">🌧️</span><b>piove</b><span>la pioggia</span></div>
+      <div class="card"><span class="emoji">❄️</span><b>nevica</b><span>la neve</span></div>
+      <div class="card"><span class="emoji">💨</span><b>c'è vento</b><span>tira vento</span></div>
+      <div class="card"><span class="emoji">🌫️</span><b>c'è nebbia</b><span>non si vede niente</span></div>
+      <div class="card"><span class="emoji">🔥</span><b>fa caldo</b><span>30 gradi</span></div>
+      <div class="card"><span class="emoji">🥶</span><b>fa freddo</b><span>2 gradi</span></div>
+      <div class="card"><span class="emoji">⛈️</span><b>c'è un temporale</b><span>tuoni e fulmini</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🧭 Le stagioni e i punti cardinali</h2>
+    <table class="plur"><tr><th>stagione</th><th>mesi</th><th>punti cardinali</th></tr><tr><td>la primavera</td><td>marzo, aprile, maggio</td><td>il nord ⬆️</td></tr><tr><td>l'estate</td><td>giugno, luglio, agosto</td><td>il sud ⬇️</td></tr><tr><td>l'autunno</td><td>settembre, ottobre, novembre</td><td>l'est ➡️</td></tr><tr><td>l'inverno</td><td>dicembre, gennaio, febbraio</td><td>l'ovest ⬅️</td></tr></table>
+    <div class="nota" style="margin-top:20px;">Bari è <b>al sud</b>, sul mare Adriatico, a <b>est</b>. Milano è <b>al nord</b>.</div>
+  </section>
+
+  <section class="slide">
+    <h2>📺 Lezione A · Le previsioni del tempo</h2>
+    <div class="testo"><p>Buonasera dalla redazione meteo. Domani al nord il cielo sarà nuvoloso e pioverà in Liguria e in Piemonte.</p><p>Al centro tempo variabile, con vento forte sulla costa.</p><p>Al sud e sulle isole bel tempo: c'è il sole e fa caldo, con temperature fino a ventiquattro gradi a Bari e Palermo.</p><p>Attenzione alla nebbia la mattina presto nella pianura padana.</p></div>
+  </section>
+
+  <section class="slide">
+    <h2>📘 Stare + gerundio</h2>
+    <table class="plur"><tr><th>verbo</th><th>gerundio</th><th>esempio</th></tr><tr><td>-are</td><td>parlare → parl<b>ando</b></td><td>Sto parlando al telefono.</td></tr><tr><td>-ere</td><td>leggere → legg<b>endo</b></td><td>Saleah sta leggendo il giornale.</td></tr><tr><td>-ire</td><td>dormire → dorm<b>endo</b></td><td>I bambini stanno dormendo.</td></tr><tr><td>irregolari</td><td>fare → facendo · bere → bevendo · dire → dicendo</td><td>Cosa stai facendo?</td></tr></table>
+    <div class="nota" style="margin-top:20px;"><b>sto, stai, sta, stiamo, state, stanno</b> + gerundio = un'azione <b>adesso</b>, in questo momento.</div>
+  </section>
+
+  <section class="slide">
+    <h2>⚽ Lezione B · Il tempo libero</h2>
+    <div class="dialogo">
+      <div class="bubble"><span class="who">Cristian:</span> Silvia, cosa fai il fine settimana?</div>
+      <div class="bubble med"><span class="who">Silvia:</span> Il sabato faccio volontariato in una biblioteca di quartiere. E tu?</div>
+      <div class="bubble"><span class="who">Cristian:</span> Io gioco a calcetto con i colleghi. Mi piace molto lo sport.</div>
+      <div class="bubble med"><span class="who">Silvia:</span> A me non piace il calcio, ma mi piacciono le passeggiate sul lungomare.</div>
+      <div class="bubble"><span class="who">Cristian:</span> Allora domenica, se c'è il sole, andiamo tutti a Pane e Pomodoro?</div>
+      <div class="bubble med"><span class="who">Silvia:</span> Che bella idea! Porto un buon dolce.</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>📘 Mi piace / mi piacciono</h2>
+    <table class="plur"><tr><th></th><th></th><th>esempio</th></tr><tr><td>mi piace</td><td>+ una cosa / un verbo</td><td>Mi piace <b>il mare</b>. Mi piace <b>ballare</b>.</td></tr><tr><td>mi piacciono</td><td>+ più cose</td><td>Mi piacciono <b>i film</b>.</td></tr><tr><td>non mi piace</td><td></td><td>Non mi piace <b>la pioggia</b>.</td></tr></table>
+    <div class="nota" style="margin-top:20px;">a me = mi · a te = ti · a lui = gli · a lei = le · a noi = ci · a voi = vi · a loro = gli</div>
+  </section>
+
+  <section class="slide">
+    <h2>📘 Bello, buono, grande</h2>
+    <table class="plur"><tr><th>aggettivo</th><th>prima del nome</th></tr><tr><td>bello</td><td>un bel libro · un bello spettacolo · un bell'albero · dei bei film · dei begli occhi</td></tr><tr><td>buono</td><td>un buon caffè · una buona idea · un buon amico</td></tr><tr><td>grande</td><td>un gran lavoro · una grande festa (gran = molto)</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>🌍 Educazione civica · I centri interculturali</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🗣️</span><b>corsi di lingua</b><span>italiano e lingue madri</span></div>
+      <div class="card"><span class="emoji">🎉</span><b>feste e incontri</b><span>musica, cucina, cultura</span></div>
+      <div class="card"><span class="emoji">📚</span><b>biblioteca</b><span>libri in tante lingue</span></div>
+      <div class="card"><span class="emoji">🤝</span><b>volontariato</b><span>puoi aiutare anche tu</span></div>
+    </div>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">Ora sai parlare del tempo e del tempo libero!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+<script>
+(function(){
+  const sel='.bubble, .card, .cartelli div, .orologi div, .mondo div, .regola div, table.plur td, .nota, .lead, .big2';
+  document.querySelectorAll(sel).forEach(e=>e.classList.add('parla'));
+  document.addEventListener('click',ev=>{ const d=ev.target.closest('[data-say], .parla'); if(!d||!window.speechSynthesis||ev.target.closest('a,button')) return;
+    ev.stopPropagation();
+    const t=(d.dataset.say||d.innerText).replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\uFE0F\u200D]/gu,' ').replace(/[←→▶◀•…_]/g,' ').toLowerCase();
+    const u=new SpeechSynthesisUtterance(t); u.lang='it-IT'; u.rate=.85; speechSynthesis.cancel(); speechSynthesis.speak(u);
+    document.querySelectorAll('.parlando').forEach(x=>x.classList.remove('parlando')); d.classList.add('parlando');
+    u.onend=()=>d.classList.remove('parlando'); });
+})();
+</script>
+</body>
+</html>
