@@ -81,3 +81,28 @@ td:last-child, th:last-child { text-align:right; }
 .teoria th{background:#d9ece6;}
 .teoria .esempio{display:block; margin-top:6px; font-style:italic;}
 @media (prefers-color-scheme: dark){ .teoria{background:#1d2e2a; border-left-color:#5fb39d;} .teoria > b:first-child{color:#7fd0b9;} .teoria th{background:#25403a;} .teoria td,.teoria th{border-color:#355a51;} }
+/* ---- stile per livello (D.livello) ---- */
+button.say { font:inherit; font-size:1.1em; border:2px solid var(--line); background:var(--card); border-radius:50%; width:2.2em; height:2.2em; cursor:pointer; padding:0; vertical-align:middle; }
+.libro { font-size:.85em; color:var(--muted); }
+/* ALFABETIZZAZIONE: caratteri grandi ad alta leggibilità, una cosa per riga, pulsanti grandi */
+body.liv-alfa { --accent:#0b7a75; --bg:#f2fbf9; --soft:#e3f4f0; font-family:"Atkinson Hyperlegible", Verdana, sans-serif; font-size:24px; letter-spacing:.03em; }
+body.liv-alfa main { max-width:760px; }
+body.liv-alfa h1 { font-size:34px; } body.liv-alfa h2 { font-size:26px; }
+body.liv-alfa .cons { font-size:21px; color:var(--ink); font-weight:700; }
+body.liv-alfa .tog { min-height:64px; min-width:72px; font-size:26px; border-width:3px; }
+body.liv-alfa input[type=text], body.liv-alfa select { font-size:26px; padding:10px 14px; border-width:3px; }
+body.liv-alfa .row { padding:14px 0; } body.liv-alfa .q { font-size:28px; }
+body.liv-alfa .sill { display:inline-block; background:#ffe9a8; border-radius:10px; padding:2px 10px; margin:0 3px; font-weight:700; }
+body.liv-alfa .emo { font-size:44px; line-height:1; }
+@media (prefers-color-scheme: dark){ body.liv-alfa { --bg:#10201e; --soft:#1b302d; } body.liv-alfa .sill{ background:#5b4a12; } }
+/* A2: carattere tondo, minuscolo, tabelle e dialoghi */
+body.liv-a2 { --accent:#c2410c; --bg:#fff7f2; --soft:#fdebe1; font-family:Nunito, "Segoe UI", sans-serif; font-size:19px; }
+body.liv-a2 h1 { font-size:30px; } body.liv-a2 .part { color:#c2410c; font-size:14px; }
+body.liv-a2 .teoria { border-left:6px solid #c2410c; }
+@media (prefers-color-scheme: dark){ body.liv-a2 { --bg:#1e1612; --soft:#2c211b; --accent:#fb923c; } }
+/* B1: testi più lunghi, lettura con carattere graziato, pagina più larga */
+body.liv-b1 { --accent:#5b3fa3; --bg:#f7f5fc; --soft:#ece8f7; font-family:"Source Sans 3", "Segoe UI", sans-serif; font-size:18px; }
+body.liv-b1 main { max-width:800px; }
+body.liv-b1 .box { font-family:Merriweather, Georgia, serif; font-size:16px; line-height:1.75; }
+body.liv-b1 h1 { font-family:Merriweather, Georgia, serif; font-size:28px; }
+@media (prefers-color-scheme: dark){ body.liv-b1 { --bg:#17141f; --soft:#241f31; --accent:#a78bfa; } }

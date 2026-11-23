@@ -51,7 +51,7 @@ SEC2TOPIC = {
     "a1-frase": "grammatica", "a1-preposizioni": "grammatica", "a1-grammatica-extra": "grammatica",
     "a2-grammatica-sito": "grammatica", "a2-grammatica": "grammatica", "b1-grammatica": "grammatica",
     "a1-videogrammatica": "video", "a2-videogrammatica": "video",
-    "a1-eserciziario": "percorsi", "a1-percorso": "percorsi", "a2-percorso": "percorsi",
+    "a1-eserciziario": "percorsi", "alfa-percorso": "percorsi", "a2-vivere-insieme": "percorsi", "b1-cittadini": "percorsi", "a1-percorso": "percorsi", "a2-percorso": "percorsi",
     "a1-argomenti": "altri", "a2-argomenti": "altri",
     "b1": "grammatica", "b2": "grammatica", "c1": "grammatica", "c2": "grammatica",
     "esami": "verifiche",

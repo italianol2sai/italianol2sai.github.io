@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🇮🇹 La cittadinanza italiana · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🇮🇹 La cittadinanza italiana · Esercizi",
+ "store": "b1-cittadinanza",
+ "livello": "b1",
+ "sections": [
+  {
+   "part": "Le parole"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che cos'è?",
+   "short": "1 · Il lessico",
+   "type": "select",
+   "opts": [
+    "lo SPID",
+    "il patronato",
+    "l'atto di nascita",
+    "la procedura telematica",
+    "il certificato penale",
+    "la marca da bollo"
+   ],
+   "items": [
+    {
+     "q": "1. Un ufficio gratuito che aiuta i lavoratori con pratiche e domande."
+    },
+    {
+     "q": "2. Le credenziali per entrare nei siti della Pubblica Amministrazione."
+    },
+    {
+     "q": "3. Una procedura che si fa su internet."
+    },
+    {
+     "q": "4. Il documento che dice dove e quando sei nato."
+    },
+    {
+     "q": "5. Il documento che dice se una persona ha avuto condanne."
+    },
+    {
+     "q": "6. Un bollo che si compra dal tabaccaio e serve per alcune domande."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJpbCBwYXRyb25hdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJsbyBTUElEIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGEgcHJvY2VkdXJhIHRlbGVtYXRpY2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsJ2F0dG8gZGkgbmFzY2l0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImlsIGNlcnRpZmljYXRvIHBlbmFsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxhIG1hcmNhIGRhIGJvbGxvIl19XQ=="
+  },
+  {
+   "part": "Lezione A · Al patronato"
+  },
+  {
+   "id": "e2",
+   "title": "2 · 🎧 Ascolta il dialogo: vero o falso?",
+   "short": "2 · Al patronato",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Youssef chiede informazioni sul permesso di soggiorno."
+    },
+    {
+     "q": "2. Youssef vive in Italia da più di dieci anni."
+    },
+    {
+     "q": "3. Ha abitato in tre città diverse."
+    },
+    {
+     "q": "4. Ha già la certificazione di italiano B1."
+    },
+    {
+     "q": "5. La domanda si presenta allo sportello della prefettura, su carta."
+    },
+    {
+     "q": "6. I documenti del Marocco devono essere tradotti e legalizzati."
+    },
+    {
+     "q": "7. Il patronato può aiutarlo a compilare la domanda."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ==",
+   "audio": "W1siTSIsICJCdW9uZ2lvcm5vLCBzaSBhY2NvbW9kaS4gQ29tZSBzaSBjaGlhbWE/Il0sIFsiTSIsICJZb3Vzc2VmIEVsIEFtcmFuaS4gVm9ycmVpIGluZm9ybWF6aW9uaSBzdWxsYSBkb21hbmRhIGRpIGNpdHRhZGluYW56YS4iXSwgWyJNIiwgIkRhIHF1YW50aSBhbm5pIHZpdmUgaW4gSXRhbGlhPyJdLCBbIk0iLCAiU29ubyBhcnJpdmF0byBuZWwgZHVlbWlsYWRvZGljaSwgcXVpbmRpIGRhIHBpw7kgZGkgZGllY2kgYW5uaS4gSG8gc2VtcHJlIGFiaXRhdG8gYSBCYXJpLiJdLCBbIk0iLCAiQmVuZS4gSGEgZ2nDoCBmYXR0byBsJ2VzYW1lIGRpIGl0YWxpYW5vPyJdLCBbIk0iLCAiU8OsLCBsJ2hvIHN1cGVyYXRvIGwnYW5ubyBzY29yc286IGhvIGxhIGNlcnRpZmljYXppb25lIEIxLiJdLCBbIk0iLCAiUGVyZmV0dG8uIExhIGRvbWFuZGEgc2kgcHJlc2VudGEgb25saW5lLCBzdWwgcG9ydGFsZSBkZWwgTWluaXN0ZXJvIGRlbGwnSW50ZXJubywgY29uIGxvIFNQSUQuIExlIHNlcnZvbm8gbCdhdHRvIGRpIG5hc2NpdGEgZSBpbCBjZXJ0aWZpY2F0byBwZW5hbGUgZGVsIE1hcm9jY28sIHRyYWRvdHRpIGUgbGVnYWxpenphdGksIGxhIHJpY2V2dXRhIGRlbCBjb250cmlidXRvIGUgdW5hIG1hcmNhIGRhIGJvbGxvLiJdLCBbIk0iLCAiRSBzZSBobyBwcm9ibGVtaSBjb24gaWwgc2l0bz8iXSwgWyJNIiwgIlByZW5kYSB1biBhcHB1bnRhbWVudG86IGxhIGNvbXBpbGlhbW8gaW5zaWVtZSBxdWkuIl1d"
+  },
+  {
+   "id": "e3",
+   "title": "3 · Collega domande e risposte",
+   "short": "3 · Domande e risposte",
+   "type": "select",
+   "opts": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e"
+   ],
+   "items": [
+    {
+     "q": "1. Scusi, è qui che posso chiedere informazioni sulla cittadinanza?"
+    },
+    {
+     "q": "2. Quando è arrivato in Italia?"
+    },
+    {
+     "q": "3. La domanda si può fare in posta?"
+    },
+    {
+     "q": "4. Quali documenti devo presentare?"
+    },
+    {
+     "q": "5. Ha fatto l'esame di lingua?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYiJdfV0=",
+   "cons": "a. No, si fa solo online, sul portale del Ministero dell'Interno.<br>b. Sì, ho la certificazione B1 da marzo.<br>c. Sì, certo. Prendiamo un appuntamento?<br>d. L'atto di nascita, il certificato penale, la ricevuta del pagamento…<br>e. Sono arrivato undici anni fa."
+  },
+  {
+   "part": "Il passato prossimo",
+   "teoria": "<table><tr><th>ausiliare</th><th>esempi</th></tr><tr><td>avere</td><td>ho compilato, ho fatto, ho letto</td></tr><tr><td>essere</td><td>sono arrivato/a, sono nato/a, mi sono trasferito/a</td></tr></table>Con <b>essere</b> il participio cambia (-o, -a, -i, -e). Attenzione ai participi irregolari: fatto, detto, chiesto, letto, nato, vissuto, preso.<span class=\"esempio\">👉 Sara è nat<b>a</b> a Shiraz. · Abbiamo chiest<b>o</b> un appuntamento.</span>"
+  },
+  {
+   "id": "e4",
+   "title": "4 · La storia di Karim: scrivi il passato prossimo",
+   "short": "4 · Passato prossimo",
+   "type": "cloze",
+   "cons": "Scrivi il verbo al passato prossimo.",
+   "bank": null,
+   "parts": [
+    "Karim ",
+    {},
+    " (nascere) a Casablanca nel 1985. Da bambino ",
+    {},
+    " (frequentare) la scuola nel suo quartiere. Nel 2009 ",
+    {},
+    " (partire) per l'Italia e ",
+    {},
+    " (arrivare) a Bari. All'inizio ",
+    {},
+    " (lavorare) come aiuto cuoco, poi ",
+    {},
+    " (fare) un corso di elettricista. Nel 2015 ",
+    {},
+    " (conoscere) Zineb e nel 2017 ",
+    {},
+    " (sposarsi). L'anno scorso ",
+    {},
+    " (superare) l'esame B1."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyLDqCBuYXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaGEgZnJlcXVlbnRhdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyLDqCBwYXJ0aXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiw6ggYXJyaXZhdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJoYSBsYXZvcmF0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImhhIGZhdHRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaGEgY29ub3NjaXV0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNpIHNvbm8gc3Bvc2F0aSIsICJzaSDDqCBzcG9zYXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaGEgc3VwZXJhdG8iXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Avere o essere? Scrivi il verbo",
+   "short": "5 · Avere o essere",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. Sara (nascere) … a Teheran."
+    },
+    {
+     "q": "2. Noi (chiedere) … l'atto di nascita."
+    },
+    {
+     "q": "3. Le mie sorelle (trasferirsi) … a Milano."
+    },
+    {
+     "q": "4. Tu (leggere) … le istruzioni?"
+    },
+    {
+     "q": "5. Mio padre (vivere) … per vent'anni in Germania."
+    },
+    {
+     "q": "6. Voi (rispondere) … all'email?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyLDqCBuYXRhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYWJiaWFtbyBjaGllc3RvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2kgc29ubyB0cmFzZmVyaXRlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaGFpIGxldHRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaGEgdmlzc3V0byIsICLDqCB2aXNzdXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYXZldGUgcmlzcG9zdG8iXX1d",
+   "w": "m"
+  },
+  {
+   "part": "Il registro formale"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Dal tu al Lei",
+   "short": "6 · Il Lei",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. Come ti chiami? →"
+    },
+    {
+     "q": "2. Da dove vieni? →"
+    },
+    {
+     "q": "3. Dove vivi? →"
+    },
+    {
+     "q": "4. Che lavoro fai? →"
+    },
+    {
+     "q": "5. Quando sei arrivato in Italia? →"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjb21lIHNpIGNoaWFtYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRhIGRvdmUgdmllbmUiLCAiZGkgZG92J8OoIiwgImRpIGRvdmUgw6giXX0sIHsidCI6ICJlcSIsICJhIjogWyJkb3ZlIHZpdmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjaGUgbGF2b3JvIGZhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicXVhbmRvIMOoIGFycml2YXRvIGluIGl0YWxpYSIsICJxdWFuZG8gw6ggYXJyaXZhdG8iXX1d",
+   "cons": "Trasforma la domanda informale in formale.",
+   "w": "w"
+  },
+  {
+   "part": "Lezione B · Documenti e nostalgia",
+   "teoria": "<table><tr><th>verbo</th><th>imperfetto</th></tr><tr><td>-are</td><td>abitavo, abitava</td></tr><tr><td>-ere</td><td>vivevo, viveva</td></tr><tr><td>-ire</td><td>dormivo, dormiva</td></tr><tr><td>essere</td><td>ero, era, erano</td></tr></table><b>Imperfetto</b> per descrivere e per le abitudini del passato; <b>passato prossimo</b> per un fatto finito.<span class=\"esempio\">👉 Quando <b>ero</b> piccolo <b>vivevo</b> con i nonni. · A ottobre <b>sono tornato</b> in Marocco.</span>"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Completa con l'imperfetto",
+   "short": "7 · Imperfetto",
+   "type": "cloze",
+   "cons": "Scrivi il verbo all'imperfetto.",
+   "bank": null,
+   "parts": [
+    "Quando ",
+    {},
+    " (essere) piccola, ",
+    {},
+    " (abitare) in un villaggio vicino al mare. Ogni mattina mio padre ",
+    {},
+    " (andare) a pescare e mia madre ",
+    {},
+    " (preparare) il pane. Noi bambini ",
+    {},
+    " (giocare) sulla spiaggia fino a sera."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJlcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJhYml0YXZvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYW5kYXZhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicHJlcGFyYXZhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ2lvY2F2YW1vIl19XQ=="
+  },
+  {
+   "id": "e8",
+   "title": "8 · Imperfetto o passato prossimo?",
+   "short": "8 · Imperfetto o passato",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Ieri ___ in comune per il certificato.",
+     "opts": [
+      "andavo",
+      "sono andato"
+     ]
+    },
+    {
+     "q": "2. Da bambino ___ sempre a calcio con i miei cugini.",
+     "opts": [
+      "giocavo",
+      "ho giocato"
+     ]
+    },
+    {
+     "q": "3. La casa dei miei nonni ___ grande e luminosa.",
+     "opts": [
+      "era",
+      "è stata"
+     ]
+    },
+    {
+     "q": "4. Nel 2019 ___ il permesso di lungo periodo.",
+     "opts": [
+      "ricevevo",
+      "ho ricevuto"
+     ]
+    },
+    {
+     "q": "5. Mentre ___ la domanda, è suonato il telefono.",
+     "opts": [
+      "compilavo",
+      "ho compilato"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzb25vIGFuZGF0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImdpb2Nhdm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJlcmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJobyByaWNldnV0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNvbXBpbGF2byJdfV0="
+  },
+  {
+   "part": "Educazione civica"
+  },
+  {
+   "id": "e9",
+   "title": "9 · Leggi il testo e rispondi",
+   "short": "9 · Lettura",
+   "type": "choice",
+   "full": true,
+   "info": "<p>La cittadinanza italiana si può chiedere per <b>residenza</b> (in genere dopo 10 anni di residenza legale per chi non è cittadino UE) oppure per <b>matrimonio</b> con un cittadino o una cittadina italiana. Chi chiede la cittadinanza deve dimostrare di conoscere l'italiano almeno al livello <b>B1</b>, di avere un reddito sufficiente e di non avere condanne gravi.</p><p>La domanda si presenta <b>online</b> sul portale del Ministero dell'Interno. Quando la cittadinanza è concessa, la persona <b>giura</b> fedeltà alla Repubblica davanti al sindaco del suo Comune. Da quel giorno è cittadina italiana e anche <b>cittadina dell'Unione europea</b>: può votare e circolare liberamente in tutti i Paesi dell'UE.</p>",
+   "items": [
+    {
+     "q": "1. Per chiedere la cittadinanza per residenza servono in genere…",
+     "opts": [
+      "5 anni",
+      "10 anni",
+      "20 anni"
+     ]
+    },
+    {
+     "q": "2. Il livello minimo di italiano è…",
+     "opts": [
+      "A2",
+      "B1",
+      "C1"
+     ]
+    },
+    {
+     "q": "3. La domanda si presenta…",
+     "opts": [
+      "in comune",
+      "in questura",
+      "online"
+     ]
+    },
+    {
+     "q": "4. Il giuramento si fa davanti…",
+     "opts": [
+      "al sindaco",
+      "al prefetto",
+      "al giudice"
+     ]
+    },
+    {
+     "q": "5. Un nuovo cittadino italiano è anche…",
+     "opts": [
+      "cittadino europeo",
+      "cittadino del Consiglio d'Europa",
+      "residente all'estero"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxMCBhbm5pIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQjEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJvbmxpbmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJhbCBzaW5kYWNvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY2l0dGFkaW5vIGV1cm9wZW8iXX1d"
+  },
+  {
+   "id": "e10",
+   "title": "10 ✎ · Una cartolina dal mio Paese",
+   "type": "free",
+   "rows": 6,
+   "cons": "Scrivi una breve cartolina (60-80 parole) a un compagno: racconta un ricordo della tua infanzia (imperfetto) e una cosa che hai fatto l'ultima volta che sei tornato/a nel tuo Paese (passato prossimo).",
+   "items": [
+    "Caro/a …"
+   ]
+  },
+  {
+   "id": "e11",
+   "title": "11 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "Che cosa significa per te essere cittadino? Quali diritti e quali doveri sono più importanti? (1-2 minuti)"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

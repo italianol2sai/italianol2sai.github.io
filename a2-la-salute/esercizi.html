@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🩺 La salute · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🩺 La salute · Esercizi",
+ "store": "a2-la-salute",
+ "livello": "a2",
+ "sections": [
+  {
+   "part": "Il corpo e i sintomi"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Dove fa male?",
+   "short": "1 · I sintomi",
+   "type": "select",
+   "opts": [
+    "testa",
+    "gola",
+    "denti",
+    "schiena",
+    "pancia",
+    "orecchie"
+   ],
+   "items": [
+    {
+     "q": "1. Ho mangiato troppo: ho mal di …"
+    },
+    {
+     "q": "2. Non posso parlare: ho mal di …"
+    },
+    {
+     "q": "3. Devo andare dal dentista: ho mal di …"
+    },
+    {
+     "q": "4. Ho portato una scatola pesante: ho mal di …"
+    },
+    {
+     "q": "5. La musica era troppo forte: mi fanno male le …"
+    },
+    {
+     "q": "6. Ho studiato tutta la notte: ho mal di …"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJwYW5jaWEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnb2xhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZGVudGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzY2hpZW5hIl19LCB7InQiOiAiZXEiLCAiYSI6IFsib3JlY2NoaWUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0ZXN0YSJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Collega domande e risposte",
+   "short": "2 · Domande e risposte",
+   "type": "select",
+   "opts": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e"
+   ],
+   "items": [
+    {
+     "q": "1. Come stai?"
+    },
+    {
+     "q": "2. Dove ti fa male?"
+    },
+    {
+     "q": "3. Signora Bianchi, come si sente?"
+    },
+    {
+     "q": "4. Che sintomi ha?"
+    },
+    {
+     "q": "5. Come va oggi?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJiIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZCJdfV0=",
+   "cons": "a. Non molto bene, dottore: mi sento debole.<br>b. Ho la febbre e la tosse.<br>c. Benissimo, grazie! E tu?<br>d. Insomma… ho ancora un po' di mal di testa.<br>e. Mi fa male il ginocchio destro."
+  },
+  {
+   "id": "e3",
+   "title": "3 · Fa o fanno?",
+   "short": "3 · Fa / fanno",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Mi … male le gambe.",
+     "opts": [
+      "fa",
+      "fanno",
+      "ha"
+     ]
+    },
+    {
+     "q": "2. Mi … male il collo.",
+     "opts": [
+      "fa",
+      "fanno",
+      "sono"
+     ]
+    },
+    {
+     "q": "3. Ho mal … denti.",
+     "opts": [
+      "di",
+      "ai",
+      "la"
+     ]
+    },
+    {
+     "q": "4. Dottore, mi fanno male le …",
+     "opts": [
+      "ginocchio",
+      "ginocchia",
+      "ginocchie"
+     ]
+    },
+    {
+     "q": "5. Mi fa male il braccio; anzi, mi fanno male tutte e due le …",
+     "opts": [
+      "bracci",
+      "braccia",
+      "braccie"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJmYW5ubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImZhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJnaW5vY2NoaWEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJicmFjY2lhIl19XQ=="
+  },
+  {
+   "part": "Dal medico"
+  },
+  {
+   "id": "e4",
+   "title": "4 · 🎧 Ascolta il dialogo: vero o falso?",
+   "short": "4 · Dal medico",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Jawad sta bene."
+    },
+    {
+     "q": "2. Jawad ha la febbre."
+    },
+    {
+     "q": "3. Ha mal di gola da una settimana."
+    },
+    {
+     "q": "4. Gli fanno male anche le orecchie."
+    },
+    {
+     "q": "5. Deve prendere le compresse prima di mangiare."
+    },
+    {
+     "q": "6. Se la febbre non passa, torna dalla dottoressa."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX1d",
+   "audio": "W1siRiIsICJCdW9uZ2lvcm5vLCBzaWdub3IgSGFpZGFyaS4gQ29tZSBzaSBzZW50ZSBvZ2dpPyJdLCBbIk0iLCAiTm9uIG1vbHRvIGJlbmUsIGRvdHRvcmVzc2EuIEhvIG1hbCBkaSBnb2xhIGUgbGEgZmViYnJlIGEgdHJlbnRvdHRvLiJdLCBbIkYiLCAiRGEgcXVhbnRvIHRlbXBvPyJdLCBbIk0iLCAiRGEgZHVlIGdpb3JuaS4gRSBtaSBmYW5ubyBtYWxlIGFuY2hlIGxlIG9yZWNjaGllLiJdLCBbIkYiLCAiVmVkaWFtby4gTGEgZ29sYSDDqCByb3NzYS4gTGUgc2NyaXZvIHVubyBzY2lyb3BwbyBlIGRlbGxlIGNvbXByZXNzZSBwZXIgbGEgZmViYnJlLiJdLCBbIk0iLCAiTGUgY29tcHJlc3NlIHF1YW5kbyBsZSBwcmVuZG8/Il0sIFsiRiIsICJMZSBwcmVuZGUgZG9wbyBpIHBhc3RpLCBkdWUgdm9sdGUgYWwgZ2lvcm5vLiBTZSB0cmEgdHJlIGdpb3JuaSBsYSBmZWJicmUgbm9uIHBhc3NhLCB0b3JuaSBkYSBtZS4iXV0="
+  },
+  {
+   "part": "I pronomi diretti lo, la, li, le",
+   "teoria": "<table><tr><th>parola</th><th>pronome</th></tr><tr><td>il / lo …</td><td>lo</td></tr><tr><td>la …</td><td>la</td></tr><tr><td>i / gli …</td><td>li</td></tr><tr><td>le …</td><td>le</td></tr><tr><td>Lei (formale)</td><td>La</td></tr></table>Il pronome sostituisce una cosa o una persona e va <b>prima del verbo</b>.<span class=\"esempio\">👉 Lo sciroppo? <b>Lo</b> prendo la sera.</span><span class=\"esempio\">👉 Le compresse? Non <b>le</b> prendo.</span>"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Completa con lo, la, li, le",
+   "short": "5 · lo, la, li, le",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. Il foglietto illustrativo? Sì, … leggo sempre."
+    },
+    {
+     "q": "2. La ricetta? Il medico … scrive adesso."
+    },
+    {
+     "q": "3. I farmaci? … compro in farmacia."
+    },
+    {
+     "q": "4. Le iniezioni? No, non … faccio."
+    },
+    {
+     "q": "5. Lo sciroppo? … bevo dopo cena."
+    },
+    {
+     "q": "6. Signora Rossi, … chiamo domani per i risultati."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGEiXX1d",
+   "bank": "lo · la · li · le",
+   "w": "s"
+  },
+  {
+   "part": "In farmacia"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🎧 In farmacia: scegli la risposta giusta",
+   "short": "6 · In farmacia",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Mariam ha…",
+     "opts": [
+      "la tosse e la febbre",
+      "la tosse senza febbre",
+      "mal di stomaco"
+     ]
+    },
+    {
+     "q": "2. La farmacista le dà…",
+     "opts": [
+      "delle compresse",
+      "una pomata",
+      "uno sciroppo"
+     ]
+    },
+    {
+     "q": "3. Deve prenderlo…",
+     "opts": [
+      "tre volte al giorno",
+      "una volta al giorno",
+      "solo la sera"
+     ]
+    },
+    {
+     "q": "4. Per comprarlo…",
+     "opts": [
+      "serve la ricetta",
+      "non serve la ricetta",
+      "serve l'impegnativa"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsYSB0b3NzZSBzZW56YSBmZWJicmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ1bm8gc2Npcm9wcG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0cmUgdm9sdGUgYWwgZ2lvcm5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibm9uIHNlcnZlIGxhIHJpY2V0dGEiXX1d",
+   "audio": "W1siRiIsICJCdW9uYXNlcmEuIFZvcnJlaSBxdWFsY29zYSBwZXIgbGEgdG9zc2UsIHBlciBmYXZvcmUuIl0sIFsiRiIsICJUb3NzZSBzZWNjYSBvIGdyYXNzYT8gSGEgYW5jaGUgbGEgZmViYnJlPyJdLCBbIkYiLCAiU2VjY2EsIHNlbnphIGZlYmJyZS4gTm9uIGRvcm1vIGxhIG5vdHRlLiJdLCBbIkYiLCAiQWxsb3JhIGxlIGRvIHF1ZXN0byBzY2lyb3Bwby4gTG8gcHJlbmRlIHRyZSB2b2x0ZSBhbCBnaW9ybm8sIGxvbnRhbm8gZGFpIHBhc3RpLiJdLCBbIkYiLCAiU2VydmUgbGEgcmljZXR0YT8iXSwgWyJGIiwgIk5vLCDDqCB1biBmYXJtYWNvIGRhIGJhbmNvLiBMZWdnYSBpbCBmb2dsaWV0dG8gaWxsdXN0cmF0aXZvIHByaW1hIGRpIHByZW5kZXJsby4iXV0="
+  },
+  {
+   "id": "e7",
+   "title": "7 · Leggi le scatole: giusto o sbagliato?",
+   "short": "7 · Le scatole",
+   "type": "choice",
+   "opts": [
+    "GIUSTO",
+    "SBAGLIATO"
+   ],
+   "full": true,
+   "info": "<b>DOLORSTOP</b> · Perché si usa: mal di testa, mal di denti · Come si prende: 1 compressa dopo i pasti, massimo 3 al giorno<br><b>TOSSIFEN</b> · sciroppo per la tosse secca · 10 ml 2 volte al giorno, lontano dai pasti<br><b>GASTROL</b> · per il mal di stomaco · 2 compresse prima dei pasti",
+   "items": [
+    {
+     "q": "1. Per il mal di denti Sami prende Dolorstop dopo pranzo."
+    },
+    {
+     "q": "2. Lucia prende 5 compresse di Dolorstop al giorno."
+    },
+    {
+     "q": "3. Per il mal di stomaco Omar prende Gastrol dopo cena."
+    },
+    {
+     "q": "4. Per la tosse secca Amina prende Tossifen la mattina e la sera."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJHSVVTVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJTQkFHTElBVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJTQkFHTElBVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSVVTVE8iXX1d"
+  },
+  {
+   "part": "I pronomi diretti mi, ti, ci, vi",
+   "teoria": "<table><tr><th>soggetto</th><th>pronome</th></tr><tr><td>io</td><td>mi</td></tr><tr><td>tu</td><td>ti</td></tr><tr><td>noi</td><td>ci</td></tr><tr><td>voi</td><td>vi</td></tr></table><span class=\"esempio\">👉 Il medico <b>mi</b> visita. · <b>Ti</b> accompagno io.</span>"
+  },
+  {
+   "id": "e8",
+   "title": "8 · Completa con mi, ti, ci, vi",
+   "short": "8 · mi, ti, ci, vi",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. Mi aiuti? Sì, … aiuto."
+    },
+    {
+     "q": "2. Ci aspettate? Sì, … aspettiamo."
+    },
+    {
+     "q": "3. (io) Silvia … accompagna dal dentista."
+    },
+    {
+     "q": "4. (noi) Il dottore … chiama quando è il nostro turno."
+    },
+    {
+     "q": "5. (voi) … porto in ospedale con la macchina."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJ0aSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInZpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibWkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInZpIl19XQ==",
+   "bank": "mi · ti · ci · vi",
+   "w": "s"
+  },
+  {
+   "id": "e9",
+   "title": "9 · Quale specialista?",
+   "short": "9 · Gli specialisti",
+   "type": "select",
+   "opts": [
+    "il dentista",
+    "l'oculista",
+    "l'ortopedico",
+    "il pediatra",
+    "il dermatologo",
+    "l'otorino"
+   ],
+   "items": [
+    {
+     "q": "1. Mio figlio ha la febbre: chiamo …"
+    },
+    {
+     "q": "2. Non vedo bene da lontano: vado da …"
+    },
+    {
+     "q": "3. Mi sono rotto la gamba: mi visita …"
+    },
+    {
+     "q": "4. Ho una macchia rossa sulla pelle: prenoto …"
+    },
+    {
+     "q": "5. Ho sempre mal di orecchie: vado da …"
+    },
+    {
+     "q": "6. Mi fa male un dente: telefono a …"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJpbCBwZWRpYXRyYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImwnb2N1bGlzdGEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsJ29ydG9wZWRpY28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJpbCBkZXJtYXRvbG9nbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImwnb3RvcmlubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImlsIGRlbnRpc3RhIl19XQ=="
+  },
+  {
+   "part": "Educazione civica"
+  },
+  {
+   "id": "e10",
+   "title": "10 · I servizi della salute: vero o falso?",
+   "short": "10 · I servizi",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Per una ricetta normale vado al Pronto Soccorso."
+    },
+    {
+     "q": "2. Il medico di base scrive l'impegnativa per una visita specialistica."
+    },
+    {
+     "q": "3. Con il CUP prenoto visite ed esami."
+    },
+    {
+     "q": "4. La guardia medica lavora di notte e nei giorni festivi."
+    },
+    {
+     "q": "5. Il numero per un'emergenza è il 181."
+    },
+    {
+     "q": "6. Al consultorio familiare vanno spesso le donne in gravidanza."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfV0="
+  },
+  {
+   "id": "e11",
+   "title": "11 · Che cosa devono fare?",
+   "short": "11 · Che cosa fare",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. È domenica sera e Fatou ha la febbre alta. Chiama…",
+     "opts": [
+      "il medico di base",
+      "la guardia medica"
+     ]
+    },
+    {
+     "q": "2. Ali ha avuto un incidente con la bici e perde sangue. Chiama…",
+     "opts": [
+      "il 112 / 118",
+      "il CUP"
+     ]
+    },
+    {
+     "q": "3. Rosa è incinta e vuole fare un controllo. Va…",
+     "opts": [
+      "al consultorio familiare",
+      "al Pronto Soccorso"
+     ]
+    },
+    {
+     "q": "4. Igor ha l'impegnativa per l'oculista. Telefona…",
+     "opts": [
+      "al CUP",
+      "in farmacia"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsYSBndWFyZGlhIG1lZGljYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImlsIDExMiAvIDExOCJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFsIGNvbnN1bHRvcmlvIGZhbWlsaWFyZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFsIENVUCJdfV0="
+  },
+  {
+   "id": "e12",
+   "title": "12 ✎ · Un dialogo",
+   "type": "free",
+   "rows": 6,
+   "cons": "Scrivi un piccolo dialogo dal medico o in farmacia (6 battute). Usa: mi fa male / ho mal di / lo, la, li, le.",
+   "items": [
+    "Il mio dialogo"
+   ]
+  },
+  {
+   "id": "e13",
+   "title": "13 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "Racconta: quando stai male, che cosa fai? Dove vai? Com'è il servizio sanitario nel tuo Paese?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
