@@ -6,7 +6,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from genera import eq, build as build_es
 from unita_primi import cover, slide, cards, table, nota, dialogo, end
-from unita_drive import vf, scegli, menu, ordina, parla, libero
+from unita_drive import ill, vf, scegli, menu, ordina, parla, libero
 from teoria import tab, es
 from unita_sf import scrivi, ascolto, testo, build_slide, build_giochi
 
@@ -32,7 +32,7 @@ ESAME_SLIDE = [
         ("🗓️", "il calendario degli esami", "le date delle sessioni"), ("✍️", "il modulo di iscrizione", "si compila online"),
         ("🔒", "la privacy", "la protezione dei dati personali"), ("✅", "il consenso", "l'autorizzazione firmata a usare i dati"),
         ("🏅", "la certificazione", "il diploma che dimostra il tuo livello")], "g3")),
-    slide("☎️ Lezione A · L'iscrizione", dialogo([("*Saleah (ente)" if i % 2 == 0 else "Ana", t) for i, (_, t) in enumerate(ISCR)])),
+    slide("☎️ Lezione A · L'iscrizione", ill("b1-esame-iscrizione.jpg", "Una donna al telefono compila un modulo online sul computer") + "\n" + dialogo([("*Saleah (ente)" if i % 2 == 0 else "Ana", t) for i, (_, t) in enumerate(ISCR)])),
     slide("📘 Il condizionale presente", table([
         ["io", "vorr<b>ei</b>", "potr<b>ei</b>", "parler<b>ei</b>"], ["tu", "vorr<b>esti</b>", "potr<b>esti</b>", "parler<b>esti</b>"],
         ["lui / lei / Lei", "vorr<b>ebbe</b>", "potr<b>ebbe</b>", "parler<b>ebbe</b>"], ["noi", "vorr<b>emmo</b>", "potr<b>emmo</b>", "parler<b>emmo</b>"],
@@ -152,7 +152,7 @@ DIG_SLIDE = [
         ["fatto concluso, una volta", "passato prossimo", "L'app <b>si è bloccata</b>."], ["azione in corso (sfondo)", "imperfetto", "<b>Stavo inserendo</b> / <b>inserivo</b> il codice…"],
         ["descrizione, stato", "imperfetto", "<b>C'erano</b> dei lavori sul sistema."], ["intenzione non realizzata", "imperfetto", "<b>Volevo</b> fare un bonifico, ma…"]],
         head=["situazione", "tempo", "esempio"]) + "\n" + nota("<b>Mentre</b> + imperfetto · <b>quando</b> / <b>all'improvviso</b> + passato prossimo: Mentre pagavo, è andata via la linea.")),
-    slide("🎥 Lezione B · La videochiamata", testo(
+    slide("🎥 Lezione B · La videochiamata", ill("b1-digitale-videochiamata.jpg", "Una donna fa una videochiamata con la famiglia sul tablet") + "\n" + testo(
         "Domenica scorsa ho fatto una videochiamata con la mia famiglia in Perù. Avevo preparato tutto: <b>avevo caricato</b> il tablet e "
         "<b>avevo scaricato</b> la nuova versione dell'app. Quando mia madre ha risposto, però, mio fratello non era ancora arrivato: "
         "<b>aveva perso</b> l'autobus!",
@@ -240,7 +240,7 @@ DEN_SLIDE = [
         ("👜", "lo scippo", "qualcuno ti strappa la borsa e scappa"), ("🏠", "il furto", "qualcuno ruba qualcosa, anche in casa"),
         ("🔎", "lo smarrimento", "hai perso qualcosa"), ("🕵️", "il truffatore", "ti inganna per avere soldi"),
         ("📝", "il verbale", "il documento scritto dalla polizia"), ("🏢", "il commissariato / la caserma", "polizia / carabinieri")], "g3")),
-    slide("🚓 Lezione A · Al commissariato", dialogo([("*Agente Michele" if v == "M" else "Eneida", t) for v, t in POLIZIA])),
+    slide("🚓 Lezione A · Al commissariato", ill("b1-denuncia-commissariato.jpg", "Un agente di polizia ascolta una donna e scrive la denuncia") + "\n" + dialogo([("*Agente Michele" if v == "M" else "Eneida", t) for v, t in POLIZIA])),
     slide("📘 Le particelle ci e ne", table([
         ["ci = lì, in quel posto", "Vai in commissariato? Sì, <b>ci</b> vado domani."], ["ci = a questa cosa", "Il bancomat? <b>Ci</b> ho pensato subito."],
         ["ne = di questo, di questa cosa", "Della rapina? Non <b>ne</b> so niente."], ["ne = una quantità", "Documenti? <b>Ne</b> avevo tre nella borsa."]],

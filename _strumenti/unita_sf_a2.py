@@ -31,7 +31,7 @@ CONV_SLIDE = [
         ["l'Ucraina", "ucraino / ucraina"], ["la Costa d'Avorio", "ivoriano / ivoriana"], ["il Pakistan", "pakistano / pakistana"],
         ["il Bangladesh", "bengalese"], ["la Tunisia", "tunisino / tunisina"]], head=["vengo da…", "sono…"]) + "\n" +
         nota("Vengo <b>dal</b> Marocco · <b>dalla</b> Tunisia · <b>dall'</b>Albania · <b>dagli</b> Stati Uniti. Sono di Casablanca.")),
-    slide("🏢 Lezione A · Le abitudini", dialogo([("*" + a if i % 2 else a, b) for i, (a, b) in enumerate(CONV_DIAL)])),
+    slide("🏢 Lezione A · Le abitudini", ill("a2-convivenza-vicine.jpg", "Due vicine di casa si parlano sul pianerottolo") + "\n" + dialogo([("*" + a if i % 2 else a, b) for i, (a, b) in enumerate(CONV_DIAL)])),
     slide("📘 Gli avverbi in -mente", table([
         ["tranquillo → tranquilla", "tranquillamente"], ["regolare", "regolarmente"], ["gentile", "gentilmente"],
         ["veloce", "velocemente"], ["facile", "facilmente"], ["raro → rara", "raramente"]], head=["aggettivo", "avverbio"]) + "\n" +
@@ -133,7 +133,7 @@ TEMPO_SLIDE = [
         ["la primavera", "marzo, aprile, maggio", "il nord ⬆️"], ["l'estate", "giugno, luglio, agosto", "il sud ⬇️"],
         ["l'autunno", "settembre, ottobre, novembre", "l'est ➡️"], ["l'inverno", "dicembre, gennaio, febbraio", "l'ovest ⬅️"]],
         head=["stagione", "mesi", "punti cardinali"]) + "\n" + nota("Bari è <b>al sud</b>, sul mare Adriatico, a <b>est</b>. Milano è <b>al nord</b>.")),
-    slide("📺 Lezione A · Le previsioni del tempo", '    <div class="testo">' + "".join("<p>%s</p>" % t for _, t in METEO) + "</div>"),
+    slide("📺 Lezione A · Le previsioni del tempo", ill("a2-tempo-meteo.jpg", "Cartina dell'Italia con i simboli del meteo") + "\n" + '    <div class="testo">' + "".join("<p>%s</p>" % t for _, t in METEO) + "</div>"),
     slide("📘 Stare + gerundio", table([
         ["-are", "parlare → parl<b>ando</b>", "Sto parlando al telefono."], ["-ere", "leggere → legg<b>endo</b>", "Saleah sta leggendo il giornale."],
         ["-ire", "dormire → dorm<b>endo</b>", "I bambini stanno dormendo."], ["irregolari", "fare → facendo · bere → bevendo · dire → dicendo", "Cosa stai facendo?"]],
@@ -245,7 +245,7 @@ LAV_SLIDE = [
         ["a lui", "gli", "Il capo <b>gli</b> telefona domani."], ["a lei", "le", "Silvia <b>le</b> manda il curriculum."],
         ["a Lei (formale)", "Le", "<b>Le</b> mando una email, signor Diallo."], ["a loro", "gli", "<b>Gli</b> spiego il lavoro."]],
         head=["a chi?", "pronome", "esempio"]) + "\n" + nota("Il pronome indiretto risponde alla domanda <b>a chi?</b> e va <b>prima del verbo</b>.")),
-    slide("🤝 Lezione B · Il colloquio", dialogo([("*Responsabile" if v == "F" else "Mamadou", t) for v, t in COLLOQUIO])),
+    slide("🤝 Lezione B · Il colloquio", ill("a2-lavoro-colloquio.jpg", "Un colloquio di lavoro in un ufficio") + "\n" + dialogo([("*Responsabile" if v == "F" else "Mamadou", t) for v, t in COLLOQUIO])),
     slide("📘 I pronomi indiretti: mi, ti, ci, vi", table([
         ["a me", "mi", "<b>Mi</b> parla un po' di Lei?"], ["a te", "ti", "<b>Ti</b> scrivo dopo il colloquio."],
         ["a noi", "ci", "Il capo <b>ci</b> dà i turni il lunedì."], ["a voi", "vi", "<b>Vi</b> mando il contratto."]], head=["a chi?", "pronome", "esempio"])),

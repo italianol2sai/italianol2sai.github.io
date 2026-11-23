@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La mia storia - ITALIANO L2</title>
+<style>
+  :root{
+    --blu:#E07A1F; --blu-scuro:#3B2410; --teal:#2BA6B8; --arancio:#F2B705;
+    --bg:#FFF6EC; --card:#FFFFFF; --ok:#2E9E5B; --no:#E0533D; --giallo:#FFE9A8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+    background:var(--bg); color:var(--blu-scuro);
+    text-transform:uppercase; letter-spacing:.5px;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  /* ---- BARRA ALTO ---- */
+  .topbar{
+    background:var(--blu); color:#fff; padding:10px 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:1.1rem; font-weight:bold; flex:0 0 auto;
+  }
+  .topbar .unit{letter-spacing:1px;}
+  .progress{height:8px; background:#cfe0f3; flex:0 0 auto;}
+  .progress > div{height:100%; background:var(--arancio); width:0; transition:width .3s;}
+  /* ---- AREA SLIDE ---- */
+  .stage{flex:1 1 auto; position:relative; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; padding:28px 40px 16px;
+    display:none; flex-direction:column; overflow:auto;
+  }
+  .slide.active{display:flex; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;}}
+  h1{font-size:3rem; color:var(--blu); line-height:1.1;}
+  h2{font-size:2.2rem; color:var(--blu); margin-bottom:14px; border-bottom:5px solid var(--arancio); padding-bottom:8px;}
+  .lead{font-size:1.6rem; line-height:1.5;}
+  .center{align-items:center; justify-content:center; text-align:center;}
+  /* COPERTINA */
+  .cover{background:linear-gradient(135deg,#E07A1F,#F6B44C); color:#fff;}
+  .cover h1{color:#fff; font-size:3.6rem;}
+  .cover .big{font-size:7rem; margin:10px;}
+  .badge{background:#fff; color:var(--blu); border-radius:40px; padding:10px 26px; font-size:1.4rem; font-weight:bold; display:inline-block; margin-top:18px;}
+  /* CARD GRID */
+  .grid{display:grid; gap:18px; margin-top:8px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--card); border-radius:18px; padding:18px;
+    box-shadow:0 6px 16px rgba(13,43,69,.10); border:3px solid #e3edf8;
+    font-size:1.5rem; display:flex; flex-direction:column; gap:6px;
+  }
+  .card .emoji{font-size:3rem;}
+  .card b{color:var(--blu); font-size:1.7rem;}
+  .tag{display:inline-block; background:var(--giallo); border-radius:10px; padding:3px 12px; font-size:1.1rem;}
+  /* FIGURA + LISTA */
+  .twocol{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:flex-start;}
+  .figura{max-width:330px;}
+  .figura svg{width:100%; height:auto;}
+  .wordlist{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; font-size:1.5rem;}
+  .wordlist div{background:#fff; border:3px solid #e3edf8; border-radius:12px; padding:8px 14px;}
+  .wordlist .n{display:inline-block; min-width:34px; height:34px; line-height:34px; text-align:center; background:var(--blu); color:#fff; border-radius:50%; margin-right:10px; font-weight:bold;}
+  /* DIALOGO */
+  .dialogo{font-size:1.7rem; line-height:1.7; max-width:1000px;}
+  .bubble{background:#fff; border-radius:16px; padding:14px 20px; margin:12px 0; box-shadow:0 4px 10px rgba(13,43,69,.08); border-left:10px solid var(--teal);}
+  .bubble.med{border-left-color:var(--arancio);}
+  .who{font-size:1.1rem; color:var(--blu); font-weight:bold;}
+  /* PLURALE TABELLA */
+  table.plur{width:100%; border-collapse:collapse; font-size:1.5rem;}
+  table.plur th,table.plur td{border:3px solid #e3edf8; padding:12px 16px; text-align:center; background:#fff;}
+  table.plur th{background:var(--blu); color:#fff;}
+  table.plur .irr{color:var(--no); font-weight:bold;}
+  /* ESERCIZIO */
+  .ex-tag{background:var(--arancio); color:#fff; border-radius:30px; padding:6px 20px; font-size:1.2rem; font-weight:bold; display:inline-block; margin-bottom:10px;}
+  .opts{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+  .opt{
+    background:#fff; border:4px solid var(--blu); color:var(--blu);
+    border-radius:14px; padding:14px 22px; font-size:1.5rem; font-weight:bold;
+    cursor:pointer; transition:.15s; text-transform:uppercase;
+  }
+  .opt:hover{background:#e8f1fc;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+  .opt.no{background:var(--no); border-color:var(--no); color:#fff;}
+  .q{font-size:1.9rem; margin:10px 0; line-height:1.4;}
+  .feedback{font-size:1.5rem; font-weight:bold; margin-top:14px; min-height:34px;}
+  .feedback.good{color:var(--ok);} .feedback.bad{color:var(--no);}
+  .match-area{display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:1.4rem;}
+  .chip{background:#fff; border:4px solid #ccd; border-radius:12px; padding:12px; margin:8px 0; cursor:pointer; text-align:center;}
+  .chip.sel{border-color:var(--arancio); background:#fff4e6;}
+  .chip.done{border-color:var(--ok); background:#e8f7ee; cursor:default;}
+  /* NOTA */
+  .nota{background:var(--giallo); border-radius:18px; padding:22px; font-size:1.6rem; line-height:1.5; border:4px dashed var(--arancio);}
+  /* CONTROLLI */
+  .controls{
+    flex:0 0 auto; background:#fff; border-top:3px solid #e3edf8;
+    display:flex; align-items:center; justify-content:space-between; padding:10px 22px;
+  }
+  .btn{
+    background:var(--blu); color:#fff; border:none; border-radius:12px;
+    padding:12px 26px; font-size:1.3rem; font-weight:bold; cursor:pointer;
+    font-family:inherit; text-transform:uppercase; letter-spacing:1px;
+  }
+  .btn:disabled{background:#bcd; cursor:not-allowed;}
+  .btn.alt{background:var(--arancio);}
+  .counter{font-size:1.2rem; font-weight:bold; color:var(--blu);}
+  .hint{font-size:1.1rem; color:#5b6b7b; text-transform:none; letter-spacing:0;}
+  @media (max-width:900px){
+    .g3,.g4{grid-template-columns:1fr 1fr;} .twocol{grid-template-columns:1fr;}
+    h1{font-size:2.4rem;} h2{font-size:1.8rem;} .figura{max-width:260px; margin:0 auto;}
+  }
+
+  .video{position:relative; width:100%; max-width:900px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.15); background:#000;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .vcard{align-items:center; text-align:center;}
+  .vcard svg{width:72px; height:72px;}
+  .vcard .art{font-size:1.1rem; color:#7a6470;}
+  .vcard b{font-size:1.4rem;}
+  .colori .col{background:#fff; border:3px solid #f0dde4; border-radius:16px; padding:14px; font-size:1.4rem; font-weight:bold; display:flex; align-items:center; gap:14px;}
+  .colori .col span{width:46px; height:46px; border-radius:50%; border:3px solid #ddd; flex:none;}
+  .twocol2{display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;}
+  @media (max-width:900px){ .twocol2{grid-template-columns:1fr;} .slide{padding:18px 16px 12px;} .card{font-size:1.15rem;} .card b{font-size:1.25rem;} .dialogo{font-size:1.25rem;} .lead{font-size:1.25rem;} table.plur{font-size:1.15rem;} .nota{font-size:1.2rem;} .colori .col{font-size:1.1rem;} table.plur th, table.plur td{padding:8px 6px; font-size:1rem;} .btn{padding:10px 14px; font-size:1rem;} .topbar{font-size:.85rem; padding:8px 14px;} .counter{font-size:1rem;} }
+
+  .giorno{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .giorno div{border-radius:18px; min-height:150px; padding:16px; color:#fff; font-size:1.6rem; font-weight:bold; display:flex; flex-direction:column; justify-content:space-between; text-shadow:0 2px 4px rgba(0,0,0,.35);}
+  .giorno .e{font-size:3rem; text-shadow:none;}
+  .giorno small{font-size:1rem; opacity:.95;}
+  .mondo{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .mondo div{background:#fff; border:3px solid #f3e1cc; border-radius:16px; padding:14px; text-align:center; font-size:1.5rem; font-weight:bold;}
+  .mondo span{display:block; font-size:1rem; color:#8a6a4a; font-weight:normal;}
+  .big2{font-size:2.6rem; color:var(--blu); font-weight:bold;}
+  .freccia{font-size:1.8rem; line-height:2.2;}
+  @media (max-width:900px){ .giorno{grid-template-columns:1fr 1fr;} .giorno div{min-height:110px; font-size:1.2rem;} .mondo{grid-template-columns:1fr 1fr;} .mondo div{font-size:1.15rem;} .big2{font-size:1.8rem;} .freccia{font-size:1.25rem;} }
+
+  .parla, [data-say]{cursor:pointer;} .bubble.parla::after, .card.parla b::after{content:" 🔊"; font-size:.8em; opacity:.55;}
+  .parlando{outline:4px solid var(--arancio); outline-offset:2px;}
+  .card, .card b, .cover h1, .bubble, table.plur td{overflow-wrap:anywhere;}
+  @media (max-width:900px){ .cover h1{font-size:2.1rem;} .card b{font-size:1.05rem;} .card{padding:12px;} }
+  @media (max-width:520px){ .g3{grid-template-columns:1fr;} .g3 .card{flex-direction:row; flex-wrap:wrap; align-items:center; column-gap:12px;} .g3 .card .emoji{font-size:2rem;} .g3 .card span:last-child{flex-basis:100%;} }
+  .passi{display:flex; flex-direction:column; gap:12px; max-width:1000px;}
+  .passi div{background:#fff; border:3px solid #e3edf8; border-radius:14px; padding:12px 16px; font-size:1.45rem; display:flex; gap:14px; align-items:center;}
+  .passi .n{flex:none; width:44px; height:44px; line-height:44px; text-align:center; border-radius:50%; background:var(--blu); color:#fff; font-weight:bold;}
+  .cf{display:flex; flex-wrap:wrap; gap:8px; font-family:monospace; font-size:2rem; font-weight:bold; margin:8px 0 14px;}
+  .cf span{background:#fff; border:3px solid var(--teal); border-radius:12px; padding:8px 12px; text-align:center;}
+  .cf small{display:block; font-family:inherit; font-size:.85rem; font-weight:normal; color:#5b6b7b; margin-top:4px;}
+  .pin{font-family:monospace; font-size:2.3rem; font-weight:bold; letter-spacing:4px;}
+  .card, .card b, table.plur td, table.plur th{overflow-wrap:normal; word-break:normal; hyphens:none;}
+  table.plur td b{white-space:nowrap;}
+  @media (max-width:520px){ .g2, .g4{grid-template-columns:1fr;} }
+  @media (max-width:900px){ .passi div{font-size:1.1rem;} .cf{font-size:1.3rem;} .cf small{font-size:.7rem;} .pin{font-size:1.5rem; letter-spacing:2px;} }
+  .ill{display:block; margin:0 auto 14px; max-width:100%; max-height:46vh; border-radius:18px; border:3px solid #e3edf8; background:#fff;}
+  .twocol2 .ill{max-height:52vh;}
+  .colori4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+  .colori4 div{border-radius:14px; padding:14px; color:#fff; font-weight:bold; font-size:1.3rem; text-align:center;}
+  .colori4 span{display:block; font-weight:normal; font-size:1rem; margin-top:6px;}
+  @media (max-width:900px){ .colori4{grid-template-columns:1fr 1fr;} .colori4 div{font-size:1.05rem;} }
+  :root{ --blu:#c2410c; --blu-scuro:#5a1d06; --teal:#0e7490; --arancio:#fbbf24; }
+  body, .btn, button{ text-transform:none !important; font-family:Nunito, "Segoe UI", sans-serif !important; }
+  h2{ font-size:2rem; } .lead{ font-size:1.4rem; }
+  .bubble{ font-size:1.15rem; } table.plur td, table.plur th{ font-size:1.1rem; }
+</style>
+<!-- icone -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icone/favicon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/icone/apple-touch-icon.png">
+<link rel="manifest" href="/icone/manifest.webmanifest">
+<meta name="theme-color" content="#1f8a4c">
+<meta name="apple-mobile-web-app-title" content="Autoapprendimento">
+<meta property="og:site_name" content="Autoapprendimento · Italiano L2 ETNIE">
+<meta property="og:image" content="https://italianol2sai.github.io/icone/condividi.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /icone -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap">
+</head>
+<body>
+<div class="topbar">
+  <span class="unit">ITALIANO L2 &bull; A2</span>
+  <span>La mia storia</span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="stage" id="stage">
+
+  <section class="slide center cover">
+    <div class="big">📖</div>
+    <h1>La mia storia</h1>
+    <p class="lead" style="margin-top:14px;">Ho lasciato il mio Paese · Sono diventata assistente familiare</p>
+    <span class="badge">A2 &bull; Modulo 2 &bull; Unità 1</span>
+  </section>
+
+  <section class="slide">
+    <h2>In questa unità impari a…</h2>
+    <div class="grid g2">
+      <div class="card"><span class="emoji">🧳</span><b>Raccontare la tua storia</b><span>Sono nato… ho lavorato… sono arrivato…</span></div>
+      <div class="card"><span class="emoji">🛠️</span><b>Parlare dei lavori</b><span>il sarto, il muratore, la badante</span></div>
+      <div class="card"><span class="emoji">⏳</span><b>Dire quando</b><span>per tanti anni, un giorno, prima… poi…</span></div>
+      <div class="card"><span class="emoji">🎓</span><b>Conoscere i corsi di qualifica</b><span>OSS, assistente familiare, cuoco</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>🛠️ Mestieri e luoghi di lavoro</h2>
+    <table class="plur"><tr><th>chi?</th><th>dove?</th></tr><tr><td>il sarto / la sarta</td><td>la sartoria</td></tr><tr><td>il falegname</td><td>la falegnameria</td></tr><tr><td>il muratore</td><td>il cantiere</td></tr><tr><td>la lavandaia / l'addetto</td><td>la lavanderia</td></tr><tr><td>l'assistente familiare</td><td>la casa della persona anziana</td></tr><tr><td>il cuoco / la cuoca</td><td>la cucina del ristorante</td></tr><tr><td>il bracciante</td><td>i campi</td></tr></table>
+  </section>
+
+  <section class="slide">
+    <h2>🧳 Lezione A · Ho lasciato il mio Paese</h2>
+    <div class="testo"><p>Mi chiamo Fatima, ho quarantadue anni e sono nata in Marocco, vicino a Marrakech.</p><p>Per tanti anni ho lavorato in una sartoria: cucivo vestiti da sposa. Ho imparato il mestiere da mia zia.</p><p>Un giorno ho deciso di partire: mio marito lavorava già a Bari da due anni.</p></div>
+  </section>
+
+  <section class="slide">
+    <h2>📘 Il passato prossimo con avere</h2>
+    <table class="plur"><tr><th>verbo</th><th>participio</th><th>esempio</th></tr><tr><td>-are → -ato</td><td>lavorare → lavor<b>ato</b></td><td><b>Ho lavorato</b> in una sartoria.</td></tr><tr><td>-ere → -uto</td><td>ricevere → ricev<b>uto</b></td><td><b>Ho ricevuto</b> il permesso.</td></tr><tr><td>-ire → -ito</td><td>finire → fin<b>ito</b></td><td><b>Abbiamo finito</b> il corso.</td></tr></table>
+    <div class="nota" style="margin-top:20px;"><b>ho, hai, ha, abbiamo, avete, hanno</b> + participio. Con <b>già, mai, ancora, appena</b>: Non ho <b>ancora</b> trovato casa. Ho <b>già</b> mangiato.</div>
+  </section>
+
+  <section class="slide">
+    <h2>⏳ Le espressioni di tempo</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">🔁</span><b>per tanti anni</b><span>una cosa lunga nel passato</span></div>
+      <div class="card"><span class="emoji">☝️</span><b>un giorno</b><span>un momento preciso</span></div>
+      <div class="card"><span class="emoji">1️⃣</span><b>prima… poi…</b><span>l'ordine dei fatti</span></div>
+      <div class="card"><span class="emoji">🚪</span><b>all'inizio</b><span>nei primi tempi</span></div>
+      <div class="card"><span class="emoji">🏁</span><b>alla fine</b><span>l'ultima cosa</span></div>
+      <div class="card"><span class="emoji">📅</span><b>nel 2018</b><span>l'anno</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>👩‍🦳 Lezione B · Sono diventata assistente familiare</h2>
+    <div class="testo"><p>Sono arrivata in Italia nel duemiladiciotto. All'inizio sono rimasta a casa con i bambini.</p><p>Poi ho fatto un corso di qualifica come assistente familiare e sono diventata assistente di una signora anziana.</p><p>Adesso lavoro sei ore al giorno. Sono contenta: la signora Rosa è come una nonna per i miei figli.</p></div>
+  </section>
+
+  <section class="slide">
+    <h2>📘 Il passato prossimo con essere</h2>
+    <table class="plur"><tr><th></th><th>arrivare</th></tr><tr><td>io</td><td>sono arrivat<b>o/a</b></td></tr><tr><td>tu</td><td>sei arrivat<b>o/a</b></td></tr><tr><td>lui / lei</td><td>è arrivat<b>o/a</b></td></tr><tr><td>noi</td><td>siamo arrivat<b>i/e</b></td></tr><tr><td>voi</td><td>siete arrivat<b>i/e</b></td></tr><tr><td>loro</td><td>sono arrivat<b>i/e</b></td></tr></table>
+    <div class="nota" style="margin-top:20px;">Con <b>essere</b>: andare, venire, arrivare, partire, tornare, restare, rimanere, nascere, diventare, entrare, uscire. Il participio si accorda: Fatima è arrivat<b>a</b>.</div>
+  </section>
+
+  <section class="slide">
+    <h2>🎓 Educazione civica · I corsi di qualifica professionale</h2>
+    <div class="grid g3">
+      <div class="card"><span class="emoji">👩‍⚕️</span><b>OSS</b><span>operatore socio-sanitario: ospedali e RSA</span></div>
+      <div class="card"><span class="emoji">🏠</span><b>assistente familiare</b><span>aiuto agli anziani a casa</span></div>
+      <div class="card"><span class="emoji">🍳</span><b>aiuto cuoco</b><span>ristoranti e mense</span></div>
+      <div class="card"><span class="emoji">⚡</span><b>elettricista, idraulico</b><span>impianti nelle case</span></div>
+      <div class="card"><span class="emoji">📍</span><b>dove informarsi</b><span>Regione, Centro per l'impiego, enti di formazione</span></div>
+      <div class="card"><span class="emoji">💶</span><b>quanto costa</b><span>molti corsi sono gratuiti con l'attestato finale</span></div>
+    </div>
+  </section>
+
+  <section class="slide center cover">
+    <div class="big">🎉</div>
+    <h1>BRAVI!</h1>
+    <p class="lead" style="margin-top:14px;">Ora sai raccontare la tua storia!</p>
+    <a class="badge" href="esercizi.html" style="text-decoration:none">ADESSO FACCIAMO GLI ESERCIZI 📱</a>
+  </section>
+
+</div>
+
+<div class="controls">
+  <button class="btn" id="prev">◀ INDIETRO</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn alt" id="next">AVANTI ▶</button>
+</div>
+
+<script>
+/* ====== NAVIGAZIONE SLIDE ====== */
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const bar=document.getElementById('bar');
+const counter=document.getElementById('counter');
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  bar.style.width=((cur+1)/slides.length*100)+'%';
+  document.getElementById('prev').disabled=(cur===0);
+  document.getElementById('next').disabled=(cur===slides.length-1);
+}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='IFRAME') return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1);}
+  if(e.key==='ArrowLeft'){show(cur-1);}
+});
+let tx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>60) show(cur+(dx<0?1:-1)); tx=null; });
+show(0);
+</script>
+<script>
+(function(){
+  const sel='.bubble, .card, .cartelli div, .orologi div, .mondo div, .regola div, table.plur td, .nota, .lead, .big2';
+  document.querySelectorAll(sel).forEach(e=>e.classList.add('parla'));
+  document.addEventListener('click',ev=>{ const d=ev.target.closest('[data-say], .parla'); if(!d||!window.speechSynthesis||ev.target.closest('a,button')) return;
+    ev.stopPropagation();
+    const t=(d.dataset.say||d.innerText).replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\uFE0F\u200D]/gu,' ').replace(/[←→▶◀•…_]/g,' ').toLowerCase();
+    const u=new SpeechSynthesisUtterance(t); u.lang='it-IT'; u.rate=.85; speechSynthesis.cancel(); speechSynthesis.speak(u);
+    document.querySelectorAll('.parlando').forEach(x=>x.classList.remove('parlando')); d.classList.add('parlando');
+    u.onend=()=>d.classList.remove('parlando'); });
+})();
+</script>
+</body>
+</html>
