@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>😊 Le mie emozioni · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "😊 Le mie emozioni · Esercizi",
+ "store": "alfa-le-mie-emozioni",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FELICE\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "FELICE",
+      "FERMATA",
+      "SOFIA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FAMIGLIA\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "FERMATA",
+      "FAMIGLIA",
+      "FELICE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FERMATA\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "SOFIA",
+      "FELICE",
+      "FERMATA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SOFIA\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "SOFIA",
+      "FAMIGLIA",
+      "FERMATA"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGRUxJQ0UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQU1JR0xJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZFUk1BVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTT0ZJQSJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · 😊 Come sta?",
+   "short": "2 · Come sta?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>😊</span>"
+    },
+    {
+     "q": "<span class='emo'>😢</span>"
+    },
+    {
+     "q": "<span class='emo'>😠</span>"
+    },
+    {
+     "q": "<span class='emo'>😴</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGRUxJQ0UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJUUklTVEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBUlJBQkJJQVRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU1RBTkNPIl19XQ==",
+   "opts": [
+    "FELICE",
+    "TRISTE",
+    "ARRABBIATO",
+    "STANCO"
+   ],
+   "cons": "GUARDA LA FACCIA. SCEGLI."
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🚏 Alla fermata",
+   "short": "3 · Alla fermata",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. YUSUF È…",
+     "opts": [
+      "FELICE",
+      "TRISTE"
+     ]
+    },
+    {
+     "q": "2. LA SUA FAMIGLIA È…",
+     "opts": [
+      "VICINA",
+      "LONTANA"
+     ]
+    },
+    {
+     "q": "3. STASERA YUSUF…",
+     "opts": [
+      "TELEFONA ALLA FAMIGLIA",
+      "VA AL LAVORO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJUUklTVEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMT05UQU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVEVMRUZPTkEgQUxMQSBGQU1JR0xJQSJdfV0="
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e4",
+   "title": "4 · ✍️ Copia la parola",
+   "short": "4 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "FELICE"
+    },
+    {
+     "q": "FAMIGLIA"
+    },
+    {
+     "q": "FERMATA"
+    },
+    {
+     "q": "SOFIA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGRUxJQ0UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQU1JR0xJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZFUk1BVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTT0ZJQSJdfV0="
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🧩 Componi la parola",
+   "short": "5 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>FE</span> + <span class='sill'>LI</span> + <span class='sill'>CE</span> ="
+    },
+    {
+     "q": "<span class='sill'>FA</span> + <span class='sill'>MI</span> + <span class='sill'>GLIA</span> ="
+    },
+    {
+     "q": "<span class='sill'>FER</span> + <span class='sill'>MA</span> + <span class='sill'>TA</span> ="
+    },
+    {
+     "q": "<span class='sill'>SO</span> + <span class='sill'>FI</span> + <span class='sill'>A</span> ="
+    },
+    {
+     "q": "<span class='sill'>FA</span> + <span class='sill'>RI</span> + <span class='sill'>NA</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGRUxJQ0UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQU1JR0xJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZFUk1BVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTT0ZJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBUklOQSJdfV0="
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Ascolta e scrivi la lettera",
+   "short": "6 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI LA LETTERA CHE MANCA.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FELICE\" aria-label=\"ascolta\">🔊</button> _ ELICE"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FOTO\" aria-label=\"ascolta\">🔊</button> _ OTO"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CAFFÈ\" aria-label=\"ascolta\">🔊</button> CA _ _ È"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FIORE\" aria-label=\"ascolta\">🔊</button> _ IORE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGIiwgIkYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGIiwgIkYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGRiIsICJGIEYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJGIiwgIkYiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 C'è la F?",
+   "short": "7 · C'è la F?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FIORE\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MELA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FUOCO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"LUNA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"TELEFONO\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTw4wiXX0sIHsidCI6ICJlcSIsICJhIjogWyJOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlPDjCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU8OMIl19XQ==",
+   "opts": [
+    "SÌ",
+    "NO"
+   ],
+   "cons": "TOCCA 🔊. SENTI LA <b>F</b>?"
+  },
+  {
+   "part": "Come stai?"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🗣️ Completa il dialogo",
+   "short": "8 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "STAI · BENE · TRISTE · DISPIACE",
+   "parts": [
+    "SOFIA: CIAO! COME ",
+    {},
+    "?<br>YUSUF: NON MOLTO ",
+    {},
+    ". SONO ",
+    {},
+    ".<br>SOFIA: MI ",
+    {},
+    "."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzdGFpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYmVuZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInRyaXN0ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRpc3BpYWNlIl19XQ=="
+  },
+  {
+   "part": "I numeri"
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🔊 Ascolta e scrivi il numero",
+   "short": "9 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DUECENTO\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CENTOCINQUANTA\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"QUATTROCENTO\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"TRECENTOVENTI\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CINQUECENTO\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyMDAiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxNTAiXX0sIHsidCI6ICJlcSIsICJhIjogWyI0MDAiXX0sIHsidCI6ICJlcSIsICJhIjogWyIzMjAiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1MDAiXX1d"
+  },
+  {
+   "id": "e10",
+   "title": "10 · ➕ Fai il conto",
+   "short": "10 · I conti",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL RISULTATO.",
+   "items": [
+    {
+     "q": "100 + 100 ="
+    },
+    {
+     "q": "200 + 50 ="
+    },
+    {
+     "q": "300 + 200 ="
+    },
+    {
+     "q": "150 + 150 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyMDAiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyNTAiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1MDAiXX0sIHsidCI6ICJlcSIsICJhIjogWyIzMDAiXX1d"
+  },
+  {
+   "id": "e11",
+   "title": "11 ✎ · Come stai oggi?",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI: COME STAI OGGI? PERCHÉ?",
+   "items": [
+    "OGGI STO… / SONO…"
+   ]
+  },
+  {
+   "id": "e12",
+   "title": "12 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "DI' COME STAI OGGI E PERCHÉ."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

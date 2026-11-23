@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏫 Vado al corso · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🏫 Vado al corso · Esercizi",
+ "store": "alfa-vado-al-corso",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SCUOLA\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "SCUOLA",
+      "LIBRO",
+      "DUE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"LIBRO\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "VADO",
+      "LIBRO",
+      "STUDENTI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"STUDENTI\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "STUDENTI",
+      "SCUOLA",
+      "DUE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"VADO\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "DUE",
+      "LIBRO",
+      "VADO"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DUE\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "DUE",
+      "VADO",
+      "SCUOLA"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTQ1VPTEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMSUJSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNUVURFTlRJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkFETyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRVRSJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Che cosa fa Ibrahim?",
+   "short": "2 · Che cosa fa Ibrahi",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>✍️</span>"
+    },
+    {
+     "q": "<span class='emo'>📖</span>"
+    },
+    {
+     "q": "<span class='emo'>👂</span>"
+    },
+    {
+     "q": "<span class='emo'>🗣️</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTQ1JJVkUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMRUdHRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFTQ09MVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJQQVJMQSJdfV0=",
+   "opts": [
+    "SCRIVE",
+    "LEGGE",
+    "ASCOLTA",
+    "PARLA"
+   ],
+   "cons": "GUARDA IL DISEGNO. SCEGLI."
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e3",
+   "title": "3 · ✍️ Copia la parola",
+   "short": "3 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "SCUOLA"
+    },
+    {
+     "q": "LIBRO"
+    },
+    {
+     "q": "VADO"
+    },
+    {
+     "q": "DUE"
+    },
+    {
+     "q": "STUDENTI"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTQ1VPTEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMSUJSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZBRE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJEVUUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTVFVERU5USSJdfV0="
+  },
+  {
+   "id": "e4",
+   "title": "4 · 🧩 Componi la parola",
+   "short": "4 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>SCUO</span> + <span class='sill'>LA</span> ="
+    },
+    {
+     "q": "<span class='sill'>LI</span> + <span class='sill'>BRO</span> ="
+    },
+    {
+     "q": "<span class='sill'>VA</span> + <span class='sill'>DO</span> ="
+    },
+    {
+     "q": "<span class='sill'>STU</span> + <span class='sill'>DEN</span> + <span class='sill'>TI</span> ="
+    },
+    {
+     "q": "<span class='sill'>MO</span> + <span class='sill'>TO</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTQ1VPTEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMSUJSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZBRE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJTVFVERU5USSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1PVE8iXX1d"
+  },
+  {
+   "part": "Le lettere U, D, M"
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🔊 Ascolta e scrivi la lettera",
+   "short": "5 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI LA LETTERA CHE MANCA.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"UVA\" aria-label=\"ascolta\">🔊</button> _ VA"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DUE\" aria-label=\"ascolta\">🔊</button> D _ E"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"UNO\" aria-label=\"ascolta\">🔊</button> _ NO"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MURO\" aria-label=\"ascolta\">🔊</button> M _ RO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJVIiwgIlUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJVIiwgIlUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJVIiwgIlUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJVIiwgIlUiXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Con che lettera comincia?",
+   "short": "6 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>D</b> O CON <b>M</b>?",
+   "opts": [
+    "D",
+    "M"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>🍎</span> <button type=\"button\" class=\"say\" data-say=\"MELA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🎲</span> <button type=\"button\" class=\"say\" data-say=\"DADO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>✋</span> <button type=\"button\" class=\"say\" data-say=\"MANO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🦷</span> <button type=\"button\" class=\"say\" data-say=\"DENTE\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🏍️</span> <button type=\"button\" class=\"say\" data-say=\"MOTO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>💶</span> <button type=\"button\" class=\"say\" data-say=\"DENARO\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJEIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkQiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 Ascolta e scrivi la lettera",
+   "short": "7 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI <b>D</b> OPPURE <b>M</b>.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MANO\" aria-label=\"ascolta\">🔊</button> _ ANO"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DADO\" aria-label=\"ascolta\">🔊</button> _ A _ O"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MOTO\" aria-label=\"ascolta\">🔊</button> _ OTO"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DOVE\" aria-label=\"ascolta\">🔊</button> _ OVE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNIiwgIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJERCIsICJEIEQiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNIiwgIk0iXX0sIHsidCI6ICJlcSIsICJhIjogWyJEIiwgIkQiXX1d"
+  },
+  {
+   "part": "Il volantino"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 📄 Leggi il volantino",
+   "short": "8 · Leggi il volantino",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. IL CORSO È…",
+     "opts": [
+      "LUNEDÌ E MERCOLEDÌ",
+      "MARTEDÌ E GIOVEDÌ"
+     ]
+    },
+    {
+     "q": "2. A CHE ORA?",
+     "opts": [
+      "9:00 - 11:00",
+      "15:00 - 17:00"
+     ]
+    },
+    {
+     "q": "3. QUANTO COSTA?",
+     "opts": [
+      "10 EURO",
+      "GRATIS"
+     ]
+    },
+    {
+     "q": "4. CHE COSA PORTO?",
+     "opts": [
+      "UN DOCUMENTO",
+      "UNA FOTO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMVU5FRMOMIEUgTUVSQ09MRUTDjCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjk6MDAgLSAxMTowMCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdSQVRJUyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOIERPQ1VNRU5UTyJdfV0="
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🗣️ Completa il dialogo",
+   "short": "9 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "CORSO · ORE · COSTA · GRATIS",
+   "parts": [
+    "IBRAHIM: VORREI FARE IL ",
+    {},
+    " DI ITALIANO.<br>SALEAH: È IL LUNEDÌ. ",
+    {},
+    " DALLE 9 ALLE 11.<br>IBRAHIM: QUANTO ",
+    {},
+    "?<br>SALEAH: È ",
+    {},
+    "."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjb3JzbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm9yZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNvc3RhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ3JhdGlzIl19XQ=="
+  },
+  {
+   "part": "I numeri"
+  },
+  {
+   "id": "e10",
+   "title": "10 · 🔢 Conta e scrivi il numero",
+   "short": "10 · Conta",
+   "type": "text",
+   "w": "s",
+   "cons": "CONTA. SCRIVI IL NUMERO CON LE CIFRE.",
+   "items": [
+    {
+     "q": "<span class='emo'>✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️✏️</span>"
+    },
+    {
+     "q": "<span class='emo'>📕📕📕📕📕📕📕📕📕📕📕📕📕📕📕</span>"
+    },
+    {
+     "q": "<span class='emo'>🪑🪑🪑🪑🪑🪑🪑🪑🪑🪑🪑</span>"
+    },
+    {
+     "q": "<span class='emo'>🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxMiIsICJET0RJQ0kiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxNSIsICJRVUlORElDSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjExIiwgIlVORElDSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjIwIiwgIlZFTlRJIl19XQ=="
+  },
+  {
+   "id": "e11",
+   "title": "11 · 🔊 Ascolta e scrivi il numero",
+   "short": "11 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"TREDICI\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DICIOTTO\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"VENTIDUE\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SEDICI\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DICIANNOVE\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjE4Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMjIiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjE5Il19XQ=="
+  },
+  {
+   "id": "e12",
+   "title": "12 ✎ · Il mio corso",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI: IL GIORNO E L'ORA DEL TUO CORSO.",
+   "items": [
+    "GIORNO",
+    "ORA"
+   ]
+  },
+  {
+   "id": "e13",
+   "title": "13 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "DI' CHE COSA FAI A SCUOLA: «A SCUOLA LEGGO, SCRIVO…»"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

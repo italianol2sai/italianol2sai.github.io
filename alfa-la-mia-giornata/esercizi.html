@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>☀️ La mia giornata · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "☀️ La mia giornata · Esercizi",
+ "store": "alfa-la-mia-giornata",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"OGGI\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "OGGI",
+      "IERI",
+      "SERA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MATTINA\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "SERA",
+      "MATTINA",
+      "OGGI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SERA\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "SERA",
+      "IERI",
+      "MATTINA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"POMERIGGIO\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "MATTINA",
+      "POMERIGGIO",
+      "OGGI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"IERI\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "OGGI",
+      "SERA",
+      "IERI"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJPR0dJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTUFUVElOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNFUkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJQT01FUklHR0lPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSUVSSSJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Mattina, pomeriggio o sera?",
+   "short": "2 · Mattina, pomeriggi",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>🌅</span> ☕"
+    },
+    {
+     "q": "<span class='emo'>🌙</span> 😴"
+    },
+    {
+     "q": "<span class='emo'>🌇</span> 🧹"
+    },
+    {
+     "q": "<span class='emo'>🌅</span> 🏫"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNQVRUSU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0VSQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBPTUVSSUdHSU8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJNQVRUSU5BIl19XQ==",
+   "opts": [
+    "MATTINA",
+    "POMERIGGIO",
+    "SERA"
+   ],
+   "cons": "GUARDA. SCEGLI."
+  },
+  {
+   "part": "I giorni"
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🔊 Ascolta e scegli la parola",
+   "short": "3 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"LUNEDÌ\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "LUNEDÌ",
+      "MARTEDÌ",
+      "SABATO"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"GIOVEDÌ\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "VENERDÌ",
+      "GIOVEDÌ",
+      "DOMENICA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SABATO\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "SABATO",
+      "MERCOLEDÌ",
+      "LUNEDÌ"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DOMENICA\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "MARTEDÌ",
+      "DOMENICA",
+      "GIOVEDÌ"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMVU5FRMOMIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiR0lPVkVEw4wiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTQUJBVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJET01FTklDQSJdfV0="
+  },
+  {
+   "id": "e4",
+   "title": "4 · 📅 Che giorno viene dopo?",
+   "short": "4 · Dopo",
+   "type": "select",
+   "opts": [
+    "LUNEDÌ",
+    "MARTEDÌ",
+    "MERCOLEDÌ",
+    "GIOVEDÌ",
+    "VENERDÌ",
+    "SABATO",
+    "DOMENICA"
+   ],
+   "cons": "SCEGLI IL GIORNO CHE VIENE DOPO.",
+   "items": [
+    {
+     "q": "LUNEDÌ → "
+    },
+    {
+     "q": "MERCOLEDÌ → "
+    },
+    {
+     "q": "VENERDÌ → "
+    },
+    {
+     "q": "SABATO → "
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNQVJURUTDjCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdJT1ZFRMOMIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0FCQVRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRE9NRU5JQ0EiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🗓️ La settimana di Mariama",
+   "short": "5 · La settimana di Ma",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. LUNEDÌ MARIAMA VA…",
+     "opts": [
+      "A SCUOLA",
+      "AL MERCATO"
+     ]
+    },
+    {
+     "q": "2. GIOVEDÌ VA…",
+     "opts": [
+      "AL LAVORO",
+      "DAL MEDICO"
+     ]
+    },
+    {
+     "q": "3. SABATO VA…",
+     "opts": [
+      "AL MERCATO",
+      "A SCUOLA"
+     ]
+    },
+    {
+     "q": "4. DOMENICA…",
+     "opts": [
+      "LAVORA",
+      "RIPOSA"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBIFNDVU9MQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRBTCBNRURJQ08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJBTCBNRVJDQVRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUklQT1NBIl19XQ=="
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e6",
+   "title": "6 · ✍️ Copia la parola",
+   "short": "6 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "OGGI"
+    },
+    {
+     "q": "MATTINA"
+    },
+    {
+     "q": "SERA"
+    },
+    {
+     "q": "LUNEDÌ"
+    },
+    {
+     "q": "SABATO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJPR0dJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTUFUVElOQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNFUkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJMVU5FRMOMIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0FCQVRPIl19XQ=="
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🧩 Componi la parola",
+   "short": "7 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>MAT</span> + <span class='sill'>TI</span> + <span class='sill'>NA</span> ="
+    },
+    {
+     "q": "<span class='sill'>SE</span> + <span class='sill'>RA</span> ="
+    },
+    {
+     "q": "<span class='sill'>PO</span> + <span class='sill'>ME</span> + <span class='sill'>RIG</span> + <span class='sill'>GIO</span> ="
+    },
+    {
+     "q": "<span class='sill'>DO</span> + <span class='sill'>ME</span> + <span class='sill'>NI</span> + <span class='sill'>CA</span> ="
+    },
+    {
+     "q": "<span class='sill'>SA</span> + <span class='sill'>BA</span> + <span class='sill'>TO</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNQVRUSU5BIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0VSQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBPTUVSSUdHSU8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJET01FTklDQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNBQkFUTyJdfV0="
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🔊 Con che lettera comincia?",
+   "short": "8 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>A</b> O CON <b>I</b>?",
+   "opts": [
+    "A",
+    "I"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>🐝</span> <button type=\"button\" class=\"say\" data-say=\"APE\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🏝️</span> <button type=\"button\" class=\"say\" data-say=\"ISOLA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🍍</span> <button type=\"button\" class=\"say\" data-say=\"ANANAS\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🧑‍🤝‍🧑</span> <button type=\"button\" class=\"say\" data-say=\"AMICI\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>💉</span> <button type=\"button\" class=\"say\" data-say=\"INIEZIONE\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSSJdfV0="
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🔊 Ascolta e scrivi la lettera",
+   "short": "9 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI LA LETTERA CHE MANCA.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DIECI\" aria-label=\"ascolta\">🔊</button> D _ ECI"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CASA\" aria-label=\"ascolta\">🔊</button> C _ S _"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"OGGI\" aria-label=\"ascolta\">🔊</button> OGG _"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MAMMA\" aria-label=\"ascolta\">🔊</button> M _ MM _"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJIiwgIkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBQSIsICJBIEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJIiwgIkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBQSIsICJBIEEiXX1d"
+  },
+  {
+   "part": "Il compleanno e i numeri"
+  },
+  {
+   "id": "e10",
+   "title": "10 · 🗣️ Completa il dialogo",
+   "short": "10 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "COMPLEANNO · OGGI · ANNI · AUGURI",
+   "parts": [
+    "CRISTIAN: QUANDO È IL TUO ",
+    {},
+    "?<br>MARIAMA: ",
+    {},
+    "! HO 34 ",
+    {},
+    ".<br>CRISTIAN: ",
+    {},
+    "!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjb21wbGVhbm5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsib2dnaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFubmkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJhdWd1cmkiXX1d"
+  },
+  {
+   "id": "e11",
+   "title": "11 · 🔊 Ascolta e scrivi il numero",
+   "short": "11 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"TRENTA\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"QUARANTACINQUE\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"VENTISETTE\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CINQUANTA\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SESSANTA\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzMCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQ1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMjciXX0sIHsidCI6ICJlcSIsICJhIjogWyI1MCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjYwIl19XQ=="
+  },
+  {
+   "id": "e12",
+   "title": "12 · ➕ Fai il conto",
+   "short": "12 · I conti",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL RISULTATO.",
+   "items": [
+    {
+     "q": "20 + 10 ="
+    },
+    {
+     "q": "25 + 5 ="
+    },
+    {
+     "q": "30 + 30 ="
+    },
+    {
+     "q": "40 + 12 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzMCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNjAiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1MiJdfV0="
+  },
+  {
+   "id": "e13",
+   "title": "13 ✎ · La mia giornata",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI CHE COSA FAI: LA MATTINA… IL POMERIGGIO… LA SERA…",
+   "items": [
+    "LA MATTINA",
+    "IL POMERIGGIO",
+    "LA SERA"
+   ]
+  },
+  {
+   "id": "e14",
+   "title": "14 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "RACCONTA LA TUA SETTIMANA: «LUNEDÌ VADO A SCUOLA…»"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

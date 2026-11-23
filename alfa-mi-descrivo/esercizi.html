@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🧥 Mi descrivo · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🧥 Mi descrivo · Esercizi",
+ "store": "alfa-mi-descrivo",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CAPELLI\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "CAPELLI",
+      "COLORE",
+      "BORSA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"GUANTI\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "PANTALONI",
+      "GUANTI",
+      "COLORE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"BORSA\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "BORSA",
+      "CAPELLI",
+      "GUANTI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"PANTALONI\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "COLORE",
+      "BORSA",
+      "PANTALONI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"COLORE\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "COLORE",
+      "GUANTI",
+      "CAPELLI"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDQVBFTExJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiR1VBTlRJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQk9SU0EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJQQU5UQUxPTkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT0xPUkUiXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Che cos'è?",
+   "short": "2 · Che cos'è?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>👖</span>"
+    },
+    {
+     "q": "<span class='emo'>🧤</span>"
+    },
+    {
+     "q": "<span class='emo'>👜</span>"
+    },
+    {
+     "q": "<span class='emo'>🧥</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQQU5UQUxPTkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHVUFOVEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJCT1JTQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdJQUNDQSJdfV0=",
+   "opts": [
+    "PANTALONI",
+    "GUANTI",
+    "BORSA",
+    "GIACCA"
+   ],
+   "cons": "GUARDA. SCEGLI LA PAROLA."
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🎨 Che colore è?",
+   "short": "3 · Che colore è?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>🍅</span>"
+    },
+    {
+     "q": "<span class='emo'>🌿</span>"
+    },
+    {
+     "q": "<span class='emo'>🍌</span>"
+    },
+    {
+     "q": "<span class='emo'>🫐</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJST1NTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUkRFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiR0lBTExPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQkxVIl19XQ==",
+   "opts": [
+    "ROSSO",
+    "VERDE",
+    "GIALLO",
+    "BLU"
+   ],
+   "cons": "GUARDA. SCEGLI IL COLORE."
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e4",
+   "title": "4 · ✍️ Copia la parola",
+   "short": "4 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='emo'>💇</span> CAPELLI"
+    },
+    {
+     "q": "<span class='emo'>👜</span> BORSA"
+    },
+    {
+     "q": "<span class='emo'>🧤</span> GUANTI"
+    },
+    {
+     "q": "<span class='emo'>👖</span> PANTALONI"
+    },
+    {
+     "q": "<span class='emo'>🎨</span> COLORE"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDQVBFTExJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQk9SU0EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHVUFOVEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJQQU5UQUxPTkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT0xPUkUiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🧩 Componi la parola",
+   "short": "5 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>CA</span> + <span class='sill'>PEL</span> + <span class='sill'>LI</span> ="
+    },
+    {
+     "q": "<span class='sill'>BOR</span> + <span class='sill'>SA</span> ="
+    },
+    {
+     "q": "<span class='sill'>GUAN</span> + <span class='sill'>TI</span> ="
+    },
+    {
+     "q": "<span class='sill'>PAN</span> + <span class='sill'>TA</span> + <span class='sill'>LO</span> + <span class='sill'>NI</span> ="
+    },
+    {
+     "q": "<span class='sill'>CO</span> + <span class='sill'>LO</span> + <span class='sill'>RE</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDQVBFTExJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQk9SU0EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHVUFOVEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJQQU5UQUxPTkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDT0xPUkUiXX1d"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Con che lettera comincia?",
+   "short": "6 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>L</b> O CON <b>S</b>?",
+   "opts": [
+    "L",
+    "S"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>🍋</span> <button type=\"button\" class=\"say\" data-say=\"LIMONE\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>☀️</span> <button type=\"button\" class=\"say\" data-say=\"SOLE\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🌙</span> <button type=\"button\" class=\"say\" data-say=\"LUNA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🪑</span> <button type=\"button\" class=\"say\" data-say=\"SEDIA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>📖</span> <button type=\"button\" class=\"say\" data-say=\"LIBRO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🧂</span> <button type=\"button\" class=\"say\" data-say=\"SALE\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkwiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlMiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 Ascolta e scrivi la lettera",
+   "short": "7 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI LA LETTERA CHE MANCA.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"LUNA\" aria-label=\"ascolta\">🔊</button> _ UNA"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SOLE\" aria-label=\"ascolta\">🔊</button> _ OLE"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"GUANTI\" aria-label=\"ascolta\">🔊</button> G _ ANTI"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SALE\" aria-label=\"ascolta\">🔊</button> _ A _ E"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMIiwgIkwiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTIiwgIlMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJVIiwgIlUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTTCIsICJTIEwiXX1d"
+  },
+  {
+   "part": "Quanto costa?"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🛍️ Al mercato",
+   "short": "8 · Al mercato",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. I GUANTI COSTANO…",
+     "opts": [
+      "8 EURO",
+      "20 EURO"
+     ]
+    },
+    {
+     "q": "2. LA BORSA È…",
+     "opts": [
+      "ROSSA",
+      "NERA"
+     ]
+    },
+    {
+     "q": "3. GRACE PRENDE…",
+     "opts": [
+      "LA BORSA",
+      "I GUANTI"
+     ]
+    },
+    {
+     "q": "4. IL RESTO È…",
+     "opts": [
+      "2 EURO",
+      "12 EURO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI4IEVVUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJST1NTQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkkgR1VBTlRJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMiBFVVJPIl19XQ=="
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🗣️ Completa il dialogo",
+   "short": "9 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "COSTA · COSTANO · EURO",
+   "parts": [
+    "GRACE: QUANTO ",
+    {},
+    " LA BORSA?<br>VENDITORE: 20 ",
+    {},
+    ".<br>GRACE: E I GUANTI?<br>VENDITORE: ",
+    {},
+    " 8 EURO."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjb3N0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImV1cm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJjb3N0YW5vIl19XQ=="
+  },
+  {
+   "part": "I numeri e i conti"
+  },
+  {
+   "id": "e10",
+   "title": "10 · 🔊 Ascolta e scrivi il numero",
+   "short": "10 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SETTANTA\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"OTTANTACINQUE\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"NOVANTA\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SESSANTAQUATTRO\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CENTO\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI3MCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjg1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiOTAiXX0sIHsidCI6ICJlcSIsICJhIjogWyI2NCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEwMCJdfV0="
+  },
+  {
+   "id": "e11",
+   "title": "11 · ➕ Fai il conto",
+   "short": "11 · I conti",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL RISULTATO.",
+   "items": [
+    {
+     "q": "60 + 20 ="
+    },
+    {
+     "q": "45 + 30 ="
+    },
+    {
+     "q": "50 + 50 ="
+    },
+    {
+     "q": "72 + 8 ="
+    },
+    {
+     "q": "35 + 35 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI4MCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjc1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTAwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiODAiXX0sIHsidCI6ICJlcSIsICJhIjogWyI3MCJdfV0="
+  },
+  {
+   "id": "e12",
+   "title": "12 ✎ · Come sono",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI: COME SEI? CHE VESTITI HAI OGGI?",
+   "items": [
+    "IO SONO… HO I CAPELLI…",
+    "OGGI HO…"
+   ]
+  },
+  {
+   "id": "e13",
+   "title": "13 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "DESCRIVI UN COMPAGNO O UNA COMPAGNA: È ALTO? HA I CAPELLI…? CHE VESTITI HA?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
