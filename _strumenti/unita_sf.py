@@ -35,7 +35,8 @@ CSS = {
   .parola div{ background:#fff; border:4px solid var(--teal); border-radius:22px; padding:18px 26px; text-align:center; min-width:180px; }
   .parola b{ display:block; font-size:3rem; color:var(--blu-scuro); letter-spacing:.08em; }
   .parola small{ display:block; font-size:1.6rem; color:#555; text-transform:lowercase; margin-top:4px; }
-  .sill{ display:inline-block; background:#ffe9a8; border-radius:12px; padding:0 12px; margin:0 4px; }
+  .sill{ background:#ffe9a8; border-radius:10px; padding:0 2px; }
+  .parola .sill{ letter-spacing:.08em; }
   .lettera{ font-size:9rem; font-weight:bold; color:var(--blu); line-height:1; }
   .lettera small{ font-size:4rem; text-transform:lowercase; margin-left:20px; color:var(--teal); }
   .numeri{ display:grid; grid-template-columns:repeat(6,1fr); gap:12px; }
