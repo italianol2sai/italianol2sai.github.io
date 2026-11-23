@@ -379,10 +379,10 @@ function orderStage(s,i){
 function finalLock(){
   stage.innerHTML = `<p class="where">ULTIMA FERMATA: PIAZZA ALDO MORO</p><h2>🔒 LA STAZIONE CENTRALE</h2>
     <p class="instr">IL CANCELLO È CHIUSO! SCRIVETE I 6 NUMERI DEL BIGLIETTO, IN ORDINE.</p>
-    <div class="lock"><input id="code" inputmode="numeric" maxlength="6" autocomplete="off" aria-label="CODICE">
+    <div class="lock"><input id="code" inputmode="numeric" maxlength="12" autocomplete="off" aria-label="CODICE">
     <button class="go" id="open">🔓 APRI</button></div><p class="fb" id="lfb" aria-live="polite"></p>`;
   const tryOpen=()=>{
-    if($("code").value.trim()===CODE){
+    if($("code").value.replace(/\s+/g,"")===CODE){
       clearInterval(timerId);finished=true;found.length=STAGES.length;current=STAGES.length+1;renderLine();
       const used=total-Math.max(secs,0);
       stage.innerHTML=`<div class="win"><h2>🎉 CE L'AVETE FATTA!</h2><div class="big">🚆</div>

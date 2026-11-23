@@ -9,7 +9,7 @@ const store = { get(k){ try{ return localStorage.getItem(ST+k); }catch(e){ retur
                 del(k){ try{ localStorage.removeItem(ST+k); }catch(e){} } };
 const dec = s => JSON.parse(decodeURIComponent(escape(atob(s))));
 const norm = s => String(s).toUpperCase().replace(/[’`´]/g,"'").normalize("NFD").replace(/[̀-ͯ]/g,"")
-  .replace(/[.,!?;:«»"()]/g," ").replace(/\s+/g," ").trim();
+  .replace(/[.,!?;:«»"()]/g," ").replace(/\s+/g," ").replace(/ ?' ?/g,"'").trim();
 const $ = id => document.getElementById(id);
 function el(tag, attrs={}, text){ const e=document.createElement(tag); for(const k in attrs) e.setAttribute(k,attrs[k]); if(text!==undefined) e.textContent=text; return e; }
 function html(tag, attrs, h){ const e=el(tag,attrs); e.innerHTML=h; return e; }
