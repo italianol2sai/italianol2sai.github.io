@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💻 Il mondo digitale · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "💻 Il mondo digitale · Esercizi",
+ "store": "b1-mondo-digitale",
+ "livello": "b1",
+ "sections": [
+  {
+   "part": "Le parole del digitale"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che cos'è?",
+   "short": "1 · Le parole",
+   "type": "select",
+   "opts": [
+    "l'home banking",
+    "il codice OTP",
+    "la piattaforma",
+    "il forum",
+    "il link",
+    "l'operatore"
+   ],
+   "items": [
+    {
+     "q": "1. Lo clicchi per aprire una pagina."
+    },
+    {
+     "q": "2. La banca sul telefono."
+    },
+    {
+     "q": "3. Ti risponde al servizio clienti."
+    },
+    {
+     "q": "4. Arriva per SMS e vale pochi minuti."
+    },
+    {
+     "q": "5. Qui le persone fanno domande e rispondono."
+    },
+    {
+     "q": "6. La usi per le lezioni online."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJpbCBsaW5rIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibCdob21lIGJhbmtpbmciXX0sIHsidCI6ICJlcSIsICJhIjogWyJsJ29wZXJhdG9yZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImlsIGNvZGljZSBPVFAiXX0sIHsidCI6ICJlcSIsICJhIjogWyJpbCBmb3J1bSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxhIHBpYXR0YWZvcm1hIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Metti in ordine le istruzioni",
+   "short": "2 · Le istruzioni",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "Scegli «Bonifico».",
+    "Inserisci l'IBAN del destinatario.",
+    "Scrivi l'importo e la causale.",
+    "Conferma con il codice dell'SMS.",
+    "Salva la ricevuta.",
+    "Apri l'app e accedi con le credenziali."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX1d"
+  },
+  {
+   "part": "Lezione A · Al servizio clienti"
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🎧 Ascolta la telefonata: vero o falso?",
+   "short": "3 · La telefonata",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Nadia voleva pagare con l'home banking."
+    },
+    {
+     "q": "2. L'app si è bloccata stamattina."
+    },
+    {
+     "q": "3. Stava inserendo il codice dell'SMS."
+    },
+    {
+     "q": "4. I soldi sono usciti dal conto."
+    },
+    {
+     "q": "5. È la prima volta che ha un problema."
+    },
+    {
+     "q": "6. Un tecnico la richiamerà."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZFUk8iXX1d",
+   "audio": "W1siTSIsICJTZXJ2aXppbyBjbGllbnRpLCBzb25vIENyaXN0aWFuLiBNaSBkaWNhLiJdLCBbIkYiLCAiQnVvbmdpb3Juby4gSWVyaSBzZXJhIHZvbGV2byBmYXJlIHVuIGJvbmlmaWNvIGNvbiBsJ2hvbWUgYmFua2luZywgbWEgbCdhcHAgc2kgw6ggYmxvY2NhdGEuIEUgYWRlc3NvIGlsIHBhZ2FtZW50byByaXN1bHRhIGluIHNvc3Blc28hIl0sIFsiTSIsICJNaSBkaXNwaWFjZS4gQ2hlIGNvc2Egc3RhdmEgZmFjZW5kbyBxdWFuZG8gc2kgw6ggYmxvY2NhdGE/Il0sIFsiRiIsICJTdGF2byBpbnNlcmVuZG8gaWwgY29kaWNlIGNoZSBtaSBlcmEgYXJyaXZhdG8gcGVyIFNNUy4gUG9pIMOoIGFwcGFyc28gdW4gbWVzc2FnZ2lvIGRpIGVycm9yZS4iXSwgWyJNIiwgIkNhcGlzY28uIElsIGJvbmlmaWNvIG5vbiDDqCBwYXJ0aXRvOiBpIHNvbGRpIHNvbm8gYW5jb3JhIHN1bCBTdW8gY29udG8uIFB1w7Igcmlwcm92YXJlIHRyYSB1bidvcmEuIl0sIFsiRiIsICJOb24gw6ggbGEgcHJpbWEgdm9sdGEsIHBlcsOyISBBbmNoZSBsYSBzZXR0aW1hbmEgc2NvcnNhIGwnYXBwIG5vbiBmdW56aW9uYXZhLiJdLCBbIk0iLCAiSGEgcmFnaW9uZSwgYydlcmFubyBkZWkgbGF2b3JpIHN1bCBzaXN0ZW1hLiBMZSBhcHJvIHVuYSBzZWduYWxhemlvbmUsIGNvc8OsIHVuIHRlY25pY28gTGEgcmljaGlhbWEuIl1d"
+  },
+  {
+   "part": "Passato prossimo o imperfetto?",
+   "teoria": "<table><tr><th>situazione</th><th>tempo</th></tr><tr><td>fatto concluso</td><td>passato prossimo</td></tr><tr><td>azione in corso, descrizione</td><td>imperfetto</td></tr><tr><td>intenzione non realizzata</td><td>imperfetto (volevo…)</td></tr></table><b>Mentre</b> + imperfetto; <b>quando, all'improvviso</b> + passato prossimo.<span class=\"esempio\">👉 <b>Mentre pagavo</b>, <b>è andata via</b> la linea.</span>"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Scegli il tempo giusto",
+   "short": "4 · Pass. prossimo / imperfetto",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Mentre … la password, è suonato il telefono.",
+     "opts": [
+      "scrivevo",
+      "ho scritto"
+     ]
+    },
+    {
+     "q": "2. Ieri … un nuovo account.",
+     "opts": [
+      "creavo",
+      "ho creato"
+     ]
+    },
+    {
+     "q": "3. … comprare i biglietti online, ma il sito non funzionava.",
+     "opts": [
+      "Volevo",
+      "Ho voluto"
+     ]
+    },
+    {
+     "q": "4. Quando ero piccola, non … il computer.",
+     "opts": [
+      "avevo",
+      "ho avuto"
+     ]
+    },
+    {
+     "q": "5. All'improvviso lo schermo … nero.",
+     "opts": [
+      "diventava",
+      "è diventato"
+     ]
+    },
+    {
+     "q": "6. C'… molte persone collegate alla lezione.",
+     "opts": [
+      "erano",
+      "sono state"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzY3JpdmV2byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImhvIGNyZWF0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlZvbGV2byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImF2ZXZvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiw6ggZGl2ZW50YXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZXJhbm8iXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Protestare con cortesia",
+   "short": "5 · Protestare",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Vuoi dire che il problema si ripete.",
+     "opts": [
+      "Non è la prima volta!",
+      "Che bella giornata!",
+      "Va bene così."
+     ]
+    },
+    {
+     "q": "2. Vuoi una soluzione.",
+     "opts": [
+      "Che cosa potete fare per me?",
+      "Arrivederci.",
+      "Non importa."
+     ]
+    },
+    {
+     "q": "3. Sei arrabbiato ma vuoi restare cortese.",
+     "opts": [
+      "Capisco, però sono molto deluso.",
+      "Siete tutti incapaci!",
+      "Non mi interessa niente."
+     ]
+    },
+    {
+     "q": "4. Vuoi parlare con qualcun altro.",
+     "opts": [
+      "Potrei parlare con un responsabile?",
+      "Mi passi chiunque!",
+      "Basta!"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJOb24gw6ggbGEgcHJpbWEgdm9sdGEhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ2hlIGNvc2EgcG90ZXRlIGZhcmUgcGVyIG1lPyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNhcGlzY28sIHBlcsOyIHNvbm8gbW9sdG8gZGVsdXNvLiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBvdHJlaSBwYXJsYXJlIGNvbiB1biByZXNwb25zYWJpbGU/Il19XQ=="
+  },
+  {
+   "part": "Lezione B · La videochiamata"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Leggi il racconto delle slide: vero o falso?",
+   "short": "6 · Il racconto",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. La videochiamata era con la famiglia in Perù."
+    },
+    {
+     "q": "2. Il tablet era scarico."
+    },
+    {
+     "q": "3. Il fratello non era ancora arrivato."
+    },
+    {
+     "q": "4. La nipote aveva fatto un disegno."
+    },
+    {
+     "q": "5. Hanno parlato per dieci minuti."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19XQ==",
+   "info": "Domenica scorsa ho fatto una videochiamata con la mia famiglia in Perù. Avevo preparato tutto: avevo caricato il tablet e avevo scaricato la nuova versione dell'app. Quando mia madre ha risposto, però, mio fratello non era ancora arrivato: aveva perso l'autobus! Abbiamo parlato per un'ora. Mia nipote mi ha fatto vedere il disegno che aveva fatto per me a scuola."
+  },
+  {
+   "part": "Il trapassato prossimo",
+   "teoria": "<table><tr><th>ausiliare all'imperfetto</th><th></th></tr><tr><td>avevo, avevi, aveva…</td><td>+ participio</td></tr><tr><td>ero, eri, era…</td><td>+ participio (accordato)</td></tr></table>Un fatto <b>prima</b> di un altro fatto passato.<span class=\"esempio\">👉 Quando sono arrivato, la lezione <b>era già cominciata</b>.</span>"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Completa con il trapassato prossimo",
+   "short": "7 · Trapassato",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. (io – scaricare) Non potevo entrare perché non … l'app."
+    },
+    {
+     "q": "2. (la lezione – cominciare) Quando mi sono collegata, la lezione … già …"
+    },
+    {
+     "q": "3. (noi – dimenticare) … la password, così abbiamo chiamato l'assistenza."
+    },
+    {
+     "q": "4. (Michele – uscire) Ho telefonato a casa, ma Michele … già …"
+    },
+    {
+     "q": "5. (loro – ricevere) Non … il link, quindi non sono entrati."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJhdmV2byBzY2FyaWNhdG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJlcmEgY29taW5jaWF0YSIsICJlcmEgZ2nDoCBjb21pbmNpYXRhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYXZldmFtbyBkaW1lbnRpY2F0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImVyYSB1c2NpdG8iLCAiZXJhIGdpw6AgdXNjaXRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYXZldmFubyByaWNldnV0byJdfV0=",
+   "w": "l"
+  },
+  {
+   "part": "Educazione civica · Internet e gli italiani"
+  },
+  {
+   "id": "e8",
+   "title": "8 · Internet in Italia: vero o falso?",
+   "short": "8 · Internet",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Lo smartphone è lo strumento più usato per internet."
+    },
+    {
+     "q": "2. Tutti gli anziani usano facilmente i servizi online."
+    },
+    {
+     "q": "3. Biblioteche e centri offrono corsi di informatica."
+    },
+    {
+     "q": "4. È meglio usare la stessa password per tutto."
+    },
+    {
+     "q": "5. Prima di condividere una notizia, bisogna controllare la fonte."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19XQ=="
+  },
+  {
+   "id": "e9",
+   "title": "9 ✎ · Racconta un problema digitale",
+   "type": "free",
+   "rows": 6,
+   "cons": "Racconta un problema che hai avuto con un'app, un sito o il telefono. Usa passato prossimo, imperfetto e trapassato.",
+   "items": [
+    "Il mio racconto"
+   ]
+  },
+  {
+   "id": "e10",
+   "title": "10 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "Come usi internet ogni giorno? Quali servizi online usi in Italia? Ti piacciono le videochiamate?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

@@ -498,10 +498,10 @@ GIOCHI_SF = {
   ["IL DIRITTO", "⚖️", "UNA COSA CHE PUOI FARE PER LEGGE"], ["IL DOVERE", "📌", "UNA COSA CHE DEVI FARE PER LEGGE"]]),
 }
 
-def build_giochi():
+def build_giochi(giochi=None):
     import json
     from giochi_pagine import PAGINA
-    for cartella, (sezione, liv, titolo, parole) in GIOCHI_SF.items():
+    for cartella, (sezione, liv, titolo, parole) in (giochi or GIOCHI_SF).items():
         dati = json.dumps({"id": cartella, "titolo": titolo, "parole": parole}, ensure_ascii=False)
         html = (PAGINA % {"titolo": titolo, "titolo_breve": titolo.split(" ", 1)[1].title(), "sezione": sezione, "dati": dati}).replace("LIVELLO A1", "LIVELLO " + liv)
         open(cartella + "/giochi.html", "w", encoding="utf-8").write(html)

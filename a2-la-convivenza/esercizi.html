@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏘️ La convivenza · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🏘️ La convivenza · Esercizi",
+ "store": "a2-la-convivenza",
+ "livello": "a2",
+ "sections": [
+  {
+   "part": "Paesi e nazionalità"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Di che nazionalità è?",
+   "short": "1 · Nazionalità",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. Karim viene dal Marocco: è …"
+    },
+    {
+     "q": "2. Olena viene dall'Ucraina: è …"
+    },
+    {
+     "q": "3. Moussa viene dal Senegal: è …"
+    },
+    {
+     "q": "4. Blessing viene dalla Nigeria: è …"
+    },
+    {
+     "q": "5. Amir viene dal Pakistan: è …"
+    },
+    {
+     "q": "6. Ines viene dalla Tunisia: è …"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJtYXJvY2NoaW5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidWNyYWluYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInNlbmVnYWxlc2UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJuaWdlcmlhbmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJwYWtpc3Rhbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJ0dW5pc2luYSJdfV0=",
+   "w": "m"
+  },
+  {
+   "id": "e2",
+   "title": "2 · Vengo da…",
+   "short": "2 · Vengo da",
+   "type": "select",
+   "opts": [
+    "dal",
+    "dalla",
+    "dall'",
+    "dagli"
+   ],
+   "items": [
+    {
+     "q": "1. Rokia viene … Costa d'Avorio."
+    },
+    {
+     "q": "2. Eneida viene … Albania."
+    },
+    {
+     "q": "3. Jamal viene … Bangladesh."
+    },
+    {
+     "q": "4. Grace viene … Stati Uniti."
+    },
+    {
+     "q": "5. Yusuf viene … Egitto."
+    },
+    {
+     "q": "6. Mariam viene … Somalia."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJkYWxsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRhbGwnIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZGFsIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZGFnbGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkYWxsJyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRhbGxhIl19XQ=="
+  },
+  {
+   "part": "Lezione A · Le abitudini"
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🎧 Ascolta le vicine: vero o falso?",
+   "short": "3 · Le vicine",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Rokia abita al terzo piano."
+    },
+    {
+     "q": "2. Eneida è di Durazzo."
+    },
+    {
+     "q": "3. Eneida abita a Bari da due anni."
+    },
+    {
+     "q": "4. La spazzatura si porta giù la mattina."
+    },
+    {
+     "q": "5. Rokia può stendere il bucato sul balcone."
+    },
+    {
+     "q": "6. La vicina di sotto è severa sul bucato."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfV0=",
+   "audio": "W1siRiIsICJDaWFvISBUdSBzZWkgbGEgbnVvdmEgdmljaW5hIGRlbCB0ZXJ6byBwaWFubywgdmVybz8gSW8gc29ubyBFbmVpZGEuIl0sIFsiRiIsICJTw6wsIHBpYWNlcmUsIHNvbm8gUm9raWEuIFZlbmdvIGRhbGxhIENvc3RhIGQnQXZvcmlvLCBzb25vIGl2b3JpYW5hLiBFIHR1PyJdLCBbIkYiLCAiSW8gc29ubyBhbGJhbmVzZSwgZGkgRHVyYXp6bywgbWEgYWJpdG8gYSBCYXJpIGRhIHNlaSBhbm5pLiJdLCBbIkYiLCAiU2VudGksIGEgY2hlIG9yYSBzaSBwb3J0YSBnacO5IGxhIHNwYXp6YXR1cmEgcXVpPyJdLCBbIkYiLCAiTGEgc2VyYSwgZG9wbyBsZSBvdHRvLiBEaSBzb2xpdG8gaW8gbGEgcG9ydG8gZ2nDuSBxdWFuZG8gdG9ybm8gZGFsIGxhdm9yby4iXSwgWyJGIiwgIkUgaWwgYnVjYXRvPyBQb3NzbyBzdGVuZGVybG8gc3VsIGJhbGNvbmU/Il0sIFsiRiIsICJTw6wsIG1hIGF0dGVudGEgYSBub24gYmFnbmFyZSBpIHBhbm5pIGRlbGxhIHNpZ25vcmEgZGkgc290dG8hIExlaSDDqCBtb2x0byBnZW50aWxlLCBtYSBzdSBxdWVzdG8gw6ggc2V2ZXJhLiJdLCBbIkYiLCAiR3JhemllLCBzZWkgcHJvcHJpbyBnZW50aWxlLiBTZSB0aSBzZXJ2ZSBxdWFsY29zYSwgY29udGEgc3UgZGkgbWUhIl1d"
+  },
+  {
+   "part": "Gli avverbi in -mente",
+   "teoria": "<table><tr><th>aggettivo</th><th>avverbio</th></tr><tr><td>tranquillo</td><td>tranquillamente</td></tr><tr><td>gentile</td><td>gentilmente</td></tr><tr><td>regolare</td><td>regolarmente</td></tr></table>Aggettivo in -o → femminile in <b>-a</b> + mente. Aggettivo in -le o -re → togli la <b>-e</b> + mente.<span class=\"esempio\">👉 Parla <b>lentamente</b>, per favore.</span>"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Scrivi l'avverbio",
+   "short": "4 · Avverbi in -mente",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. (lento) Il signor Russo cammina …"
+    },
+    {
+     "q": "2. (regolare) Pago l'affitto …"
+    },
+    {
+     "q": "3. (gentile) La portinaia risponde sempre …"
+    },
+    {
+     "q": "4. (veloce) Michele sale le scale …"
+    },
+    {
+     "q": "5. (raro) Nel nostro palazzo ci sono … problemi: quasi mai."
+    },
+    {
+     "q": "6. (facile) Con il navigatore trovo … la strada."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsZW50YW1lbnRlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicmVnb2xhcm1lbnRlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZ2VudGlsbWVudGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2ZWxvY2VtZW50ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInJhcmFtZW50ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImZhY2lsbWVudGUiXX1d",
+   "w": "m"
+  },
+  {
+   "part": "I pronomi dopo le preposizioni",
+   "teoria": "<table><tr><th>soggetto</th><th>dopo la preposizione</th></tr><tr><td>io</td><td>me</td></tr><tr><td>tu</td><td>te</td></tr><tr><td>lui / lei / Lei</td><td>lui / lei / Lei</td></tr><tr><td>noi / voi / loro</td><td>noi / voi / loro</td></tr></table>Dopo <b>con, per, da, a, di, senza, vicino a…</b> usiamo questi pronomi.<span class=\"esempio\">👉 Vieni con <b>me</b>? · Questo regalo è per <b>te</b>.</span>"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Scegli il pronome",
+   "short": "5 · me, te, lei…",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Rokia, vieni al mercato con …?",
+     "opts": [
+      "io",
+      "me",
+      "mi"
+     ]
+    },
+    {
+     "q": "2. Eneida, questo dolce è per …!",
+     "opts": [
+      "te",
+      "tu",
+      "ti"
+     ]
+    },
+    {
+     "q": "3. La signora di sotto è gentile: abito vicino a …",
+     "opts": [
+      "la",
+      "lei",
+      "le"
+     ]
+    },
+    {
+     "q": "4. Ragazzi, stasera venite da …?",
+     "opts": [
+      "noi",
+      "ci",
+      "nostri"
+     ]
+    },
+    {
+     "q": "5. Signor Russo, conto su di …",
+     "opts": [
+      "La",
+      "Lei",
+      "Le"
+     ]
+    },
+    {
+     "q": "6. I bambini sono al parco: non parto senza di …",
+     "opts": [
+      "li",
+      "gli",
+      "loro"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJtZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInRlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGVpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibm9pIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTGVpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibG9ybyJdfV0="
+  },
+  {
+   "part": "Lezione B · Le regole"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Leggi il regolamento: vero o falso?",
+   "short": "6 · Il regolamento",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Alle 15 posso usare il trapano."
+    },
+    {
+     "q": "2. Lascio la bicicletta nell'androne."
+    },
+    {
+     "q": "3. La spazzatura va nei bidoni del cortile."
+    },
+    {
+     "q": "4. Il cane può stare libero sulle scale."
+    },
+    {
+     "q": "5. Bisogna chiudere il portone."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQUxTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfV0=",
+   "info": "<b>Regolamento del condominio</b><br>È vietato fare rumore dalle 14 alle 16 e dalle 22 alle 8. · È vietato lasciare biciclette e passeggini nell'androne. · La spazzatura si porta nei bidoni del cortile, divisa per tipo. · I cani devono stare al guinzaglio nelle scale e nel cortile. · Si prega di chiudere sempre il portone."
+  },
+  {
+   "part": "Le preposizioni articolate",
+   "teoria": "<table><tr><th>preposizione + articolo</th><th></th></tr><tr><td>a + il</td><td>al</td></tr><tr><td>di + la</td><td>della</td></tr><tr><td>da + i</td><td>dai</td></tr><tr><td>in + l'</td><td>nell'</td></tr><tr><td>su + le</td><td>sulle</td></tr></table>Le preposizioni <b>a, di, da, in, su</b> si uniscono all'articolo.<span class=\"esempio\">👉 La spazzatura va <b>nei</b> bidoni. · Il bucato è <b>sul</b> balcone.</span>"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Completa con la preposizione articolata",
+   "short": "7 · Preposizioni",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. (in + i) La carta va … bidoni blu."
+    },
+    {
+     "q": "2. (su + il) Non stendere i panni … balcone del vicino."
+    },
+    {
+     "q": "3. (di + il) La riunione … condominio è giovedì."
+    },
+    {
+     "q": "4. (a + la) Porto i rifiuti … isola ecologica il sabato."
+    },
+    {
+     "q": "5. (da + l') Le chiavi sono … amministratore."
+    },
+    {
+     "q": "6. (in + la) Il regolamento è … bacheca, all'ingresso."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJuZWkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzdWwiXX0sIHsidCI6ICJlcSIsICJhIjogWyJkZWwiXX0sIHsidCI6ICJlcSIsICJhIjogWyJhbGwnIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZGFsbCciXX0sIHsidCI6ICJlcSIsICJhIjogWyJuZWxsYSJdfV0=",
+   "w": "s"
+  },
+  {
+   "part": "Educazione civica · Segnali e cartelli"
+  },
+  {
+   "id": "e8",
+   "title": "8 · Quale cartello?",
+   "short": "8 · I cartelli",
+   "type": "select",
+   "opts": [
+    "vietato fumare",
+    "cani al guinzaglio",
+    "silenzio",
+    "attenzione bambini",
+    "raccolta differenziata",
+    "vietato l'accesso"
+   ],
+   "items": [
+    {
+     "q": "1. Sei nel corridoio dell'ospedale."
+    },
+    {
+     "q": "2. Sei vicino a una scuola elementare e guidi."
+    },
+    {
+     "q": "3. Sei in un bar e vuoi accendere una sigaretta."
+    },
+    {
+     "q": "4. Porti Fido al parco."
+    },
+    {
+     "q": "5. C'è un cantiere e una porta chiusa."
+    },
+    {
+     "q": "6. Hai bottiglie di plastica e giornali vecchi."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzaWxlbnppbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImF0dGVuemlvbmUgYmFtYmluaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInZpZXRhdG8gZnVtYXJlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY2FuaSBhbCBndWluemFnbGlvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidmlldGF0byBsJ2FjY2Vzc28iXX0sIHsidCI6ICJlcSIsICJhIjogWyJyYWNjb2x0YSBkaWZmZXJlbnppYXRhIl19XQ=="
+  },
+  {
+   "id": "e9",
+   "title": "9 · Metti in ordine il dialogo",
+   "short": "9 · Il dialogo",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "Piacere! Io sono Giovanni. Abita qui da tanto?",
+    "No, da una settimana. Posso chiederLe una cosa?",
+    "Certo, mi dica.",
+    "Dove si mette la bicicletta?",
+    "Nel cortile, vicino ai bidoni.",
+    "Buongiorno, sono la nuova vicina del secondo piano."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX1d"
+  },
+  {
+   "id": "e10",
+   "title": "10 ✎ · Per scrivere: le regole per i bambini",
+   "type": "free",
+   "rows": 5,
+   "cons": "Scrivi 5 regole per i bambini della tua casa o del tuo palazzo. Usa: è vietato… / bisogna… / si deve…",
+   "items": [
+    "Le regole"
+   ]
+  },
+  {
+   "id": "e11",
+   "title": "11 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "Racconta: com'è il tuo palazzo? Conosci i vicini? Quali regole ci sono? E nel tuo Paese?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🚓 La denuncia · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🚓 La denuncia · Esercizi",
+ "store": "b1-la-denuncia",
+ "livello": "b1",
+ "sections": [
+  {
+   "part": "Le parole"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che cos'è successo?",
+   "short": "1 · Le parole",
+   "type": "select",
+   "opts": [
+    "lo scippo",
+    "il furto",
+    "lo smarrimento",
+    "il truffatore",
+    "il verbale",
+    "la caserma"
+   ],
+   "items": [
+    {
+     "q": "1. Ho perso il portafoglio: è uno …"
+    },
+    {
+     "q": "2. Un ragazzo in motorino mi ha strappato la borsa: è uno …"
+    },
+    {
+     "q": "3. Sono entrati in casa e hanno preso la TV: è un …"
+    },
+    {
+     "q": "4. Mi ha venduto un telefono falso: è un …"
+    },
+    {
+     "q": "5. Il documento che scrive l'agente: …"
+    },
+    {
+     "q": "6. L'ufficio dei carabinieri: …"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsbyBzbWFycmltZW50byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxvIHNjaXBwbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImlsIGZ1cnRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiaWwgdHJ1ZmZhdG9yZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImlsIHZlcmJhbGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsYSBjYXNlcm1hIl19XQ=="
+  },
+  {
+   "part": "Lezione A · Al commissariato"
+  },
+  {
+   "id": "e2",
+   "title": "2 · 🎧 Ascolta la denuncia",
+   "short": "2 · La denuncia",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Il fatto è successo…",
+     "opts": [
+      "stamattina",
+      "ieri sera verso le nove",
+      "una settimana fa"
+     ]
+    },
+    {
+     "q": "2. Eneida stava…",
+     "opts": [
+      "aspettando l'autobus",
+      "facendo la spesa",
+      "tornando dal lavoro in bici"
+     ]
+    },
+    {
+     "q": "3. Il ragazzo…",
+     "opts": [
+      "era a piedi",
+      "era in motorino",
+      "era in macchina"
+     ]
+    },
+    {
+     "q": "4. Nella borsa non c'erano…",
+     "opts": [
+      "i documenti",
+      "le chiavi di casa",
+      "i soldi"
+     ]
+    },
+    {
+     "q": "5. Con la copia della denuncia può…",
+     "opts": [
+      "avere i soldi indietro",
+      "chiedere il duplicato dei documenti",
+      "non pagare l'autobus"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJpZXJpIHNlcmEgdmVyc28gbGUgbm92ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFzcGV0dGFuZG8gbCdhdXRvYnVzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZXJhIGluIG1vdG9yaW5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibGUgY2hpYXZpIGRpIGNhc2EiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjaGllZGVyZSBpbCBkdXBsaWNhdG8gZGVpIGRvY3VtZW50aSJdfV0=",
+   "audio": "W1siTSIsICJCdW9uZ2lvcm5vLCBzaSBzaWVkYS4gQ2hlIGNvc2Egw6ggc3VjY2Vzc28/Il0sIFsiRiIsICJNaSBoYW5ubyBydWJhdG8gbGEgYm9yc2EgaWVyaSBzZXJhLCB2ZXJzbyBsZSBub3ZlLCBpbiBjb3JzbyBWaXR0b3JpbyBFbWFudWVsZS4iXSwgWyJNIiwgIk1pIHJhY2NvbnRpIGNvbiBjYWxtYS4iXSwgWyJGIiwgIlN0YXZvIGFzcGV0dGFuZG8gbCdhdXRvYnVzLiBBbGwnaW1wcm92dmlzbyB1biByYWdhenpvIGluIG1vdG9yaW5vIHNpIMOoIGF2dmljaW5hdG8gZSBtaSBoYSBzdHJhcHBhdG8gbGEgYm9yc2EuIFBvaSDDqCBzY2FwcGF0byB2ZXJzbyBpbCBsdW5nb21hcmUuIl0sIFsiTSIsICJDaGUgY29zYSBjJ2VyYSBuZWxsYSBib3JzYT8iXSwgWyJGIiwgIklsIHBvcnRhZm9nbGlvIGNvbiBjaW5xdWFudGEgZXVybywgbGEgY2FydGEgZCdpZGVudGl0w6AgZSBpbCBwZXJtZXNzbyBkaSBzb2dnaW9ybm8uIExlIGNoaWF2aSBkaSBjYXNhIG5vLCBwZXIgZm9ydHVuYTogbGUgYXZldm8gaW4gdGFzY2EuIl0sIFsiTSIsICJIYSBnacOgIGJsb2NjYXRvIGxhIGNhcnRhIGRlbCBiYW5jb21hdD8iXSwgWyJGIiwgIlPDrCwgY2kgaG8gcGVuc2F0byBzdWJpdG8sIGFwcGVuYSBzb25vIHRvcm5hdGEgYSBjYXNhLiJdLCBbIk0iLCAiQmVuZS4gQWRlc3NvIHNjcml2aWFtbyBpbCB2ZXJiYWxlLiBDb24gbGEgY29waWEgZGVsbGEgZGVudW5jaWEgcG90csOgIGNoaWVkZXJlIGlsIGR1cGxpY2F0byBkZWkgZG9jdW1lbnRpLiJdXQ=="
+  },
+  {
+   "id": "e3",
+   "title": "3 · Metti in ordine il racconto",
+   "short": "3 · Il racconto",
+   "type": "order",
+   "cons": "METTI IN ORDINE: 1, 2, 3…",
+   "items": [
+    "All'improvviso è arrivato un ragazzo in motorino.",
+    "Mi ha strappato la borsa.",
+    "È scappato verso il lungomare.",
+    "Sono tornata a casa e ho bloccato il bancomat.",
+    "La mattina dopo sono andata in commissariato.",
+    "Stavo aspettando l'autobus."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEiXX1d"
+  },
+  {
+   "part": "Le particelle ci e ne",
+   "teoria": "<table><tr><th>particella</th><th>sostituisce</th></tr><tr><td>ci</td><td>in quel posto / a quella cosa</td></tr><tr><td>ne</td><td>di quella cosa / una quantità</td></tr></table><span class=\"esempio\">👉 In questura? <b>Ci</b> vado domani.</span><span class=\"esempio\">👉 Quanti documenti hai perso? <b>Ne</b> ho persi due.</span>"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Ci o ne?",
+   "short": "4 · ci / ne",
+   "type": "select",
+   "opts": [
+    "ci",
+    "ne"
+   ],
+   "items": [
+    {
+     "q": "1. Sei mai stato in commissariato? Sì, … sono stato una volta."
+    },
+    {
+     "q": "2. Hai parlato del furto con il padrone di casa? Sì, … ho parlato."
+    },
+    {
+     "q": "3. Quante chiavi avevi? … avevo due."
+    },
+    {
+     "q": "4. Hai pensato a bloccare la carta? Sì, … ho pensato subito."
+    },
+    {
+     "q": "5. Torni in Comune domani? Sì, … torno alle nove."
+    },
+    {
+     "q": "6. Vuoi del caffè? No grazie, non … voglio."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJjaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm5lIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJjaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibmUiXX1d"
+  },
+  {
+   "part": "I connettivi",
+   "teoria": "<table><tr><th>tipo</th><th>esempi</th></tr><tr><td>tempo</td><td>prima, poi, mentre, quando, appena</td></tr><tr><td>causa</td><td>perché, siccome</td></tr><tr><td>conseguenza</td><td>quindi, perciò</td></tr><tr><td>scopo</td><td>per + infinito</td></tr><tr><td>ipotesi</td><td>se</td></tr></table><span class=\"esempio\">👉 <b>Siccome</b> avevo paura, ho chiamato il 112.</span>"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Scegli il connettivo",
+   "short": "5 · Connettivi",
+   "type": "select",
+   "opts": [
+    "mentre",
+    "siccome",
+    "quindi",
+    "per",
+    "se",
+    "appena"
+   ],
+   "items": [
+    {
+     "q": "1. … aspettavo l'autobus, è arrivato un motorino."
+    },
+    {
+     "q": "2. … sono tornata a casa, ho bloccato la carta."
+    },
+    {
+     "q": "3. … era buio, non ho visto bene la faccia."
+    },
+    {
+     "q": "4. Ho perso i documenti, … devo fare la denuncia."
+    },
+    {
+     "q": "5. Sono andata in Comune … rifare la carta d'identità."
+    },
+    {
+     "q": "6. … vedi qualcosa di strano, chiama il 112."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJtZW50cmUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJhcHBlbmEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJzaWNjb21lIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicXVpbmRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicGVyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic2UiXX1d"
+  },
+  {
+   "part": "Lezione B · Messaggi ed emoji"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Leggi la chat delle slide: vero o falso?",
+   "short": "6 · La chat",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Eneida ha avuto paura."
+    },
+    {
+     "q": "2. Silvia propone di accompagnarla."
+    },
+    {
+     "q": "3. Eneida non ha ancora fatto la denuncia."
+    },
+    {
+     "q": "4. Per la carta d'identità deve prendere appuntamento in Comune."
+    },
+    {
+     "q": "5. Giovanni domani lavora tutto il giorno."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19XQ==",
+   "info": "<b>Eneida:</b> Ragazzi, ieri mi hanno scippato la borsa 😢 Sto bene, solo tanta paura 😰<br><b>Silvia:</b> Nooo 😱 Hai fatto la denuncia? Se vuoi, ti accompagno io per rifare i documenti 🤗<br><b>Eneida:</b> Sì, l'ho fatta stamattina ✅ Grazie, sei un tesoro ❤️ Per rifare la carta d'identità devo prendere appuntamento in Comune.<br><b>Giovanni:</b> Che brutta storia 😔 Siccome domani sono libero, posso darti un passaggio 🚗"
+  },
+  {
+   "part": "I pronomi con l'infinito",
+   "teoria": "Con l'infinito il pronome si attacca alla fine e cade la <b>-e</b>.<span class=\"esempio\">👉 accompagnare + ti → <b>accompagnarti</b></span><span class=\"esempio\">👉 Devo fare la denuncia → Devo <b>farla</b>.</span>"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Riscrivi con il pronome",
+   "short": "7 · Pronomi + infinito",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. Devo fare la denuncia → Devo …"
+    },
+    {
+     "q": "2. Posso aiutare te? → Posso …"
+    },
+    {
+     "q": "3. Vado in Comune per rifare i documenti → per …"
+    },
+    {
+     "q": "4. Voglio ringraziare Silvia → Voglio …"
+    },
+    {
+     "q": "5. Puoi chiamare noi stasera? → Puoi …"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJmYXJsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImFpdXRhcnRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicmlmYXJsaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInJpbmdyYXppYXJsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNoaWFtYXJjaSJdfV0=",
+   "w": "m"
+  },
+  {
+   "part": "Educazione civica · Gli emoji"
+  },
+  {
+   "id": "e8",
+   "title": "8 · Emoji e messaggi: che cosa è giusto?",
+   "short": "8 · Gli emoji",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Scrivi una email al datore di lavoro. Usi gli emoji?",
+     "opts": [
+      "Sì, tanti",
+      "Meglio di no"
+     ]
+    },
+    {
+     "q": "2. 🙏 significa sempre «grazie»?",
+     "opts": [
+      "Sì, in tutto il mondo",
+      "No, può avere più significati"
+     ]
+    },
+    {
+     "q": "3. Puoi condividere nel gruppo la foto di un amico senza chiedere?",
+     "opts": [
+      "Sì, se è divertente",
+      "No, serve il suo permesso"
+     ]
+    },
+    {
+     "q": "4. Un messaggio offensivo in un gruppo può essere…",
+     "opts": [
+      "un reato",
+      "sempre uno scherzo"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNZWdsaW8gZGkgbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJObywgcHXDsiBhdmVyZSBwacO5IHNpZ25pZmljYXRpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiTm8sIHNlcnZlIGlsIHN1byBwZXJtZXNzbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInVuIHJlYXRvIl19XQ=="
+  },
+  {
+   "id": "e9",
+   "title": "9 ✎ · Il momento più brutto (o più bello) in Italia",
+   "type": "free",
+   "rows": 6,
+   "cons": "Racconta un fatto improvviso che ti è successo. Usa i connettivi: mentre, all'improvviso, siccome, quindi, alla fine.",
+   "items": [
+    "Il mio racconto"
+   ]
+  },
+  {
+   "id": "e10",
+   "title": "10 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "Che cosa fai se perdi i documenti in Italia? E nel tuo Paese, come si fa una denuncia?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌦️ Il tempo · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🌦️ Il tempo · Esercizi",
+ "store": "a2-il-tempo",
+ "livello": "a2",
+ "sections": [
+  {
+   "part": "Che tempo fa?"
+  },
+  {
+   "id": "e1",
+   "title": "1 · Che tempo fa?",
+   "short": "1 · Il tempo",
+   "type": "select",
+   "opts": [
+    "piove",
+    "nevica",
+    "fa caldo",
+    "fa freddo",
+    "c'è nebbia",
+    "c'è vento"
+   ],
+   "items": [
+    {
+     "q": "1. Prendo l'ombrello perché …"
+    },
+    {
+     "q": "2. Metto il cappotto e i guanti perché …"
+    },
+    {
+     "q": "3. Non vedo le macchine davanti a me: …"
+    },
+    {
+     "q": "4. I bambini fanno il pupazzo bianco: …"
+    },
+    {
+     "q": "5. Vado al mare e faccio il bagno: …"
+    },
+    {
+     "q": "6. Il cappello vola via: …"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJwaW92ZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImZhIGZyZWRkbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImMnw6ggbmViYmlhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsibmV2aWNhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiZmEgY2FsZG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJjJ8OoIHZlbnRvIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · Le stagioni",
+   "short": "2 · Le stagioni",
+   "type": "select",
+   "opts": [
+    "primavera",
+    "estate",
+    "autunno",
+    "inverno"
+   ],
+   "items": [
+    {
+     "q": "1. Agosto è in …"
+    },
+    {
+     "q": "2. Gennaio è in …"
+    },
+    {
+     "q": "3. Aprile è in …"
+    },
+    {
+     "q": "4. Ottobre è in …"
+    },
+    {
+     "q": "5. Natale è in …"
+    },
+    {
+     "q": "6. Luglio è in …"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJlc3RhdGUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJpbnZlcm5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicHJpbWF2ZXJhIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYXV0dW5ubyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImludmVybm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJlc3RhdGUiXX1d"
+  },
+  {
+   "part": "Lezione A · Le previsioni"
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🎧 Ascolta le previsioni del tempo",
+   "short": "3 · Le previsioni",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Domani al nord…",
+     "opts": [
+      "c'è il sole",
+      "è nuvoloso e piove",
+      "nevica"
+     ]
+    },
+    {
+     "q": "2. Al centro…",
+     "opts": [
+      "c'è vento forte sulla costa",
+      "fa molto freddo",
+      "c'è nebbia"
+     ]
+    },
+    {
+     "q": "3. A Bari…",
+     "opts": [
+      "piove",
+      "fa caldo, 24 gradi",
+      "fa freddo, 4 gradi"
+     ]
+    },
+    {
+     "q": "4. La nebbia c'è…",
+     "opts": [
+      "la sera al sud",
+      "la mattina presto in pianura padana",
+      "tutto il giorno al centro"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyLDqCBudXZvbG9zbyBlIHBpb3ZlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYyfDqCB2ZW50byBmb3J0ZSBzdWxsYSBjb3N0YSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImZhIGNhbGRvLCAyNCBncmFkaSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImxhIG1hdHRpbmEgcHJlc3RvIGluIHBpYW51cmEgcGFkYW5hIl19XQ==",
+   "audio": "W1siTSIsICJCdW9uYXNlcmEgZGFsbGEgcmVkYXppb25lIG1ldGVvLiBEb21hbmkgYWwgbm9yZCBpbCBjaWVsbyBzYXLDoCBudXZvbG9zbyBlIHBpb3ZlcsOgIGluIExpZ3VyaWEgZSBpbiBQaWVtb250ZS4iXSwgWyJNIiwgIkFsIGNlbnRybyB0ZW1wbyB2YXJpYWJpbGUsIGNvbiB2ZW50byBmb3J0ZSBzdWxsYSBjb3N0YS4iXSwgWyJNIiwgIkFsIHN1ZCBlIHN1bGxlIGlzb2xlIGJlbCB0ZW1wbzogYyfDqCBpbCBzb2xlIGUgZmEgY2FsZG8sIGNvbiB0ZW1wZXJhdHVyZSBmaW5vIGEgdmVudGlxdWF0dHJvIGdyYWRpIGEgQmFyaSBlIFBhbGVybW8uIl0sIFsiTSIsICJBdHRlbnppb25lIGFsbGEgbmViYmlhIGxhIG1hdHRpbmEgcHJlc3RvIG5lbGxhIHBpYW51cmEgcGFkYW5hLiJdXQ=="
+  },
+  {
+   "part": "Stare + gerundio",
+   "teoria": "<table><tr><th>verbo</th><th>gerundio</th></tr><tr><td>parlare</td><td>parlando</td></tr><tr><td>leggere</td><td>leggendo</td></tr><tr><td>dormire</td><td>dormendo</td></tr><tr><td>fare / bere / dire</td><td>facendo / bevendo / dicendo</td></tr></table><b>stare</b> (sto, stai, sta, stiamo, state, stanno) + <b>gerundio</b> = azione in corso, adesso.<span class=\"esempio\">👉 Che cosa <b>stai facendo</b>? <b>Sto cucinando</b>.</span>"
+  },
+  {
+   "id": "e4",
+   "title": "4 · Che cosa stanno facendo?",
+   "short": "4 · Stare + gerundio",
+   "type": "text",
+   "items": [
+    {
+     "q": "1. (io – cucinare) Adesso non posso, …"
+    },
+    {
+     "q": "2. (Michele – lavorare) Michele … in magazzino."
+    },
+    {
+     "q": "3. (noi – guardare) … le previsioni del tempo."
+    },
+    {
+     "q": "4. (i bambini – dormire) Silenzio, …"
+    },
+    {
+     "q": "5. (tu – fare) Che cosa …?"
+    },
+    {
+     "q": "6. (voi – bere) … un caffè al bar?"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJzdG8gY3VjaW5hbmRvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsic3RhIGxhdm9yYW5kbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInN0aWFtbyBndWFyZGFuZG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzdGFubm8gZG9ybWVuZG8iLCAiaSBiYW1iaW5pIHN0YW5ubyBkb3JtZW5kbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInN0YWkgZmFjZW5kbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInN0YXRlIGJldmVuZG8iXX1d",
+   "w": "m"
+  },
+  {
+   "part": "Lezione B · Il tempo libero"
+  },
+  {
+   "id": "e5",
+   "title": "5 · Leggi il dialogo delle slide: vero o falso?",
+   "short": "5 · Il fine settimana",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Silvia fa volontariato il sabato."
+    },
+    {
+     "q": "2. Cristian gioca a calcetto."
+    },
+    {
+     "q": "3. A Silvia piace molto il calcio."
+    },
+    {
+     "q": "4. A Silvia piacciono le passeggiate sul lungomare."
+    },
+    {
+     "q": "5. Domenica vanno al mare se piove."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZBTFNPIl19XQ==",
+   "info": "<b>Cristian:</b> Silvia, cosa fai il fine settimana? · <b>Silvia:</b> Il sabato faccio volontariato in una biblioteca di quartiere. E tu? · <b>Cristian:</b> Io gioco a calcetto con i colleghi. Mi piace molto lo sport. · <b>Silvia:</b> A me non piace il calcio, ma mi piacciono le passeggiate sul lungomare. · <b>Cristian:</b> Allora domenica, se c'è il sole, andiamo tutti a Pane e Pomodoro? · <b>Silvia:</b> Che bella idea!"
+  },
+  {
+   "part": "Mi piace / mi piacciono",
+   "teoria": "<table><tr><th>che cosa?</th><th></th></tr><tr><td>una cosa, un verbo</td><td>mi piace</td></tr><tr><td>più cose</td><td>mi piacciono</td></tr></table>a me = <b>mi</b>, a te = <b>ti</b>, a lui = <b>gli</b>, a lei = <b>le</b>, a noi = <b>ci</b>, a voi = <b>vi</b>, a loro = <b>gli</b>.<span class=\"esempio\">👉 Mi piace il mare. · Ti piacciono i gatti?</span>"
+  },
+  {
+   "id": "e6",
+   "title": "6 · Piace o piacciono?",
+   "short": "6 · Piace / piacciono",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Mi … le canzoni italiane.",
+     "opts": [
+      "piace",
+      "piacciono"
+     ]
+    },
+    {
+     "q": "2. A Saleah … ballare.",
+     "opts": [
+      "piace",
+      "piacciono"
+     ]
+    },
+    {
+     "q": "3. Ci … molto il parco di Bari.",
+     "opts": [
+      "piace",
+      "piacciono"
+     ]
+    },
+    {
+     "q": "4. Ti … i film d'azione?",
+     "opts": [
+      "piace",
+      "piacciono"
+     ]
+    },
+    {
+     "q": "5. A Giovanni non … la pioggia.",
+     "opts": [
+      "piace",
+      "piacciono"
+     ]
+    },
+    {
+     "q": "6. Ai bambini … i giochi in cortile.",
+     "opts": [
+      "piace",
+      "piacciono"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJwaWFjY2lvbm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJwaWFjZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBpYWNlIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicGlhY2Npb25vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsicGlhY2UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJwaWFjY2lvbm8iXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · Scegli il pronome",
+   "short": "7 · mi, ti, gli…",
+   "type": "select",
+   "opts": [
+    "mi",
+    "ti",
+    "gli",
+    "le",
+    "ci",
+    "vi"
+   ],
+   "items": [
+    {
+     "q": "1. (a lui) Ad Ahmed … piace cucinare."
+    },
+    {
+     "q": "2. (a lei) A Eneida … piacciono i fiori."
+    },
+    {
+     "q": "3. (a noi) … piace fare volontariato."
+    },
+    {
+     "q": "4. (a te) … piace il calcetto?"
+    },
+    {
+     "q": "5. (a voi) … piacciono le feste del centro?"
+    },
+    {
+     "q": "6. (a me) … piace molto la primavera."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJnbGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJsZSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNpIl19LCB7InQiOiAiZXEiLCAiYSI6IFsidGkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJ2aSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm1pIl19XQ=="
+  },
+  {
+   "part": "Bello, buono, grande",
+   "teoria": "<table><tr><th>forma</th><th>esempio</th></tr><tr><td>bel / bello / bell'</td><td>un bel giorno · un bello spettacolo · un bell'albero</td></tr><tr><td>buon / buona</td><td>un buon caffè · una buona idea</td></tr></table>Prima del nome <b>bello</b> e <b>buono</b> cambiano come l'articolo.<span class=\"esempio\">👉 Che <b>bel</b> tempo oggi!</span>"
+  },
+  {
+   "id": "e8",
+   "title": "8 · Scegli la forma giusta",
+   "short": "8 · bello, buono",
+   "type": "choice",
+   "full": true,
+   "items": [
+    {
+     "q": "1. Oggi è una … giornata: c'è il sole.",
+     "opts": [
+      "bella",
+      "bel",
+      "bello"
+     ]
+    },
+    {
+     "q": "2. Al centro c'è un … corso di cucina.",
+     "opts": [
+      "buono",
+      "buon",
+      "buona"
+     ]
+    },
+    {
+     "q": "3. Abbiamo visto un … spettacolo.",
+     "opts": [
+      "bel",
+      "bello",
+      "bell'"
+     ]
+    },
+    {
+     "q": "4. Che … idea!",
+     "opts": [
+      "buon",
+      "buona",
+      "buono"
+     ]
+    },
+    {
+     "q": "5. In piazza c'è un … albero di Natale.",
+     "opts": [
+      "bel",
+      "bello",
+      "bell'"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiZWxsYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImJ1b24iXX0sIHsidCI6ICJlcSIsICJhIjogWyJiZWxsbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbImJ1b25hIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiYmVsbCciXX1d"
+  },
+  {
+   "part": "Educazione civica · I centri interculturali"
+  },
+  {
+   "id": "e9",
+   "title": "9 · I centri interculturali: vero o falso?",
+   "short": "9 · I centri",
+   "type": "choice",
+   "opts": [
+    "VERO",
+    "FALSO"
+   ],
+   "full": true,
+   "items": [
+    {
+     "q": "1. Nei centri interculturali ci sono corsi di lingua."
+    },
+    {
+     "q": "2. Sono solo per le persone italiane."
+    },
+    {
+     "q": "3. Si organizzano feste e incontri."
+    },
+    {
+     "q": "4. Anche tu puoi fare volontariato."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkFMU08iXX0sIHsidCI6ICJlcSIsICJhIjogWyJWRVJPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVkVSTyJdfV0="
+  },
+  {
+   "id": "e10",
+   "title": "10 ✎ · Per parlare: cosa facciamo?",
+   "type": "free",
+   "rows": 4,
+   "cons": "Scrivi un messaggio a un amico: proponi un'attività per il fine settimana. Pensa al tempo (se piove…, se c'è il sole…).",
+   "items": [
+    "Il messaggio"
+   ]
+  },
+  {
+   "id": "e11",
+   "title": "11 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "Che tempo fa oggi? Che cosa ti piace fare nel tempo libero? Com'è il clima nel tuo Paese?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
