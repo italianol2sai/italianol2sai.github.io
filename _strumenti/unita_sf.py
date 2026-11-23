@@ -90,7 +90,7 @@ ALFA1_SLIDE = [
         ("🔤", "O · E", "LE VOCALI O ED E"), ("🔢", "0 → 10", "I NUMERI")])),
     slide("🗣️ LE PAROLE", parole([("CIAO", "ciao"), ("IO", "io"), ("SONO", "sono"), ("PIACERE", "piacere"), ("VENGO", "vengo")]) + "\n" +
           nota("👆 TOCCA LA PAROLA E ASCOLTA.")),
-    slide("🏫 IL PRIMO GIORNO DI SCUOLA", ill("alfa1-classe.png", "UNA CLASSE DI ADULTI: UNA INSEGNANTE E TRE STUDENTI SI SALUTANO") + "\n" + dialogo([
+    slide("🏫 IL PRIMO GIORNO DI SCUOLA", ill("alfa1-classe.jpg", "UNA CLASSE DI ADULTI: UNA INSEGNANTE E TRE STUDENTI SI SALUTANO") + "\n" + dialogo([
         ("*SILVIA", "CIAO! IO SONO SILVIA, L'INSEGNANTE."),
         ("BAKARY", "CIAO SILVIA. IO SONO BAKARY."),
         ("*SILVIA", "PIACERE, BAKARY! DA DOVE VIENI?"),
@@ -117,7 +117,7 @@ ALFA1_SLIDE = [
         nota("📞 320 456 71 89")),
     slide("🎂 LA DATA DI NASCITA", table([["GIORNO", "MESE", "ANNO"], ["<b>7</b>", "<b>3</b>", "<b>1990</b>"]]) + "\n" +
           nota("BAKARY È NATO IL 7 / 3 / 1990.<br>PRIMA IL GIORNO, POI IL MESE, POI L'ANNO.")),
-    slide("🪪 IL MIO CARTELLINO", ill("alfa1-cartellino.png", "UN CARTELLINO CON NOME E COGNOME SUL BANCO") + "\n" +
+    slide("🪪 IL MIO CARTELLINO", ill("alfa1-cartellino.jpg", "UN CARTELLINO CON NOME E COGNOME SUL BANCO") + "\n" +
           parole([("NOME", "bakary"), ("COGNOME", "keita")]) + "\n" + nota("✍️ SCRIVO IL MIO NOME E COGNOME.")),
     end("ORA SAI DIRE CHI SEI E DA DOVE VIENI!"),
 ]
@@ -210,7 +210,7 @@ A2SAL_SLIDE = [
     slide("In questa unità impari a…", cards([
         ("🤒", "Dire come stai", "Ho mal di testa, mi fa male la schiena"), ("👨‍⚕️", "Parlare con il medico", "Che sintomi ha? Da quanto tempo?"),
         ("💊", "Chiedere in farmacia", "Le compresse? Le prendo dopo i pasti"), ("🏥", "Scegliere il servizio giusto", "Medico di base, guardia medica, 118, CUP")])),
-    slide("🧍 Le parti del corpo", ill("a2-salute-corpo.png", "Illustrazione del corpo umano con le parti principali") + "\n" + cards([
+    slide("🧍 Le parti del corpo", ill("a2-salute-corpo.jpg", "Illustrazione del corpo umano con le parti principali") + "\n" + cards([
         ("🗣️", "la testa, la gola, il collo", ""), ("💪", "il braccio → le braccia", "plurale irregolare"),
         ("🖐️", "la mano → le mani", ""), ("🦵", "il ginocchio → le ginocchia", "plurale irregolare"),
         ("👂", "l'orecchio → le orecchie", ""), ("🦴", "la schiena, la pancia, lo stomaco", "")], "g3")),
@@ -222,7 +222,7 @@ A2SAL_SLIDE = [
         ["Come stai? Come va?", "Come sta? Come si sente?"], ["Dove ti fa male?", "Dove le fa male?"], ["Che sintomi hai?", "Che sintomi ha?"]],
         head=["informale (tu) 🧑‍🤝‍🧑", "formale (Lei) 🩺"]) + "\n" +
         nota("Non sto tanto bene: ho mal di schiena. · Sto malissimo: mi fanno male le orecchie. · Sto meglio, grazie!")),
-    slide("🩺 Lezione A · Dal medico", ill("a2-salute-medico.png", "Un medico visita un uomo nell'ambulatorio") + "\n" + dialogo([
+    slide("🩺 Lezione A · Dal medico", ill("a2-salute-medico.jpg", "Un medico visita un uomo nell'ambulatorio") + "\n" + dialogo([
         ("*Dottoressa Lorusso", "Buongiorno, signor Haidari. Come si sente oggi?"),
         ("Jawad", "Non molto bene, dottoressa. Ho mal di gola e la febbre a 38."),
         ("*Dottoressa Lorusso", "Da quanto tempo?"),
@@ -349,7 +349,7 @@ B1CIT_SLIDE = [
         ("⚖️", "il certificato penale", "dice che non hai condanne; serve anche quello del Paese d'origine"),
         ("🎓", "la certificazione B1", "l'esame di italiano: CILS, CELI, PLIDA, Roma Tre"),
         ("🤝", "il patronato", "un ufficio gratuito che aiuta con pratiche e domande")], "g3")),
-    slide("🏢 Lezione A · Al patronato", ill("b1-cittadinanza-patronato.png", "Un operatore del patronato aiuta un uomo davanti al computer") + "\n" + dialogo([
+    slide("🏢 Lezione A · Al patronato", ill("b1-cittadinanza-patronato.jpg", "Un operatore del patronato aiuta un uomo davanti al computer") + "\n" + dialogo([
         ("*Michele (patronato)", "Buongiorno, si accomodi. Come si chiama?"),
         ("Youssef", "Youssef El Amrani. Vorrei informazioni sulla domanda di cittadinanza."),
         ("*Michele (patronato)", "Da quanti anni vive in Italia?"),
