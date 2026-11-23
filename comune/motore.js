@@ -31,6 +31,12 @@ function grade(val, k){
 
 const main=$("app");
 if(D.upper) document.body.classList.add("upper");
+// stile per livello (alfa, a2, b1): caratteri e impaginazione diversi; [data-say] = 🔊 tocca e ascolta
+const FONTI={alfa:"Atkinson+Hyperlegible:wght@400;700", a2:"Nunito:wght@400;700;800", b1:"Source+Sans+3:wght@400;600;700&family=Merriweather:wght@400;700"};
+if(D.livello){ document.body.classList.add("liv-"+D.livello);
+  if(FONTI[D.livello]) document.head.append(el("link",{rel:"stylesheet",href:"https://fonts.googleapis.com/css2?family="+FONTI[D.livello]+"&display=swap"})); }
+document.addEventListener("click",ev=>{ const b=ev.target.closest("[data-say]"); if(!b||!window.speechSynthesis) return; ev.preventDefault();
+  const u=new SpeechSynthesisUtterance(b.dataset.say.toLowerCase()); u.lang="it-IT"; u.rate=.75; speechSynthesis.cancel(); speechSynthesis.speak(u); });
 main.append(html("a",{class:"back",href:"../"},"← Tutti i materiali"));
 main.append(el("h1",{},D.title));
 main.append(html("p",{class:"sub"}, D.sub || "Scrivi le risposte e premi «Controlla» alla fine di ogni esercizio. Vedi quante sono giuste. Le risposte restano salvate su questo telefono."));
