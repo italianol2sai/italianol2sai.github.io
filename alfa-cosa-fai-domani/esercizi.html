@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📅 Cosa fai domani? · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "📅 Cosa fai domani? · Esercizi",
+ "store": "alfa-cosa-fai-domani",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DOMANI\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "DOMANI",
+      "CINEMA",
+      "MARE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CINEMA\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "HO",
+      "CINEMA",
+      "MARE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MARE\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "HO",
+      "FESTA",
+      "MARE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"HO\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "HO",
+      "FESTA",
+      "DOMANI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FESTA\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "CINEMA",
+      "FESTA",
+      "DOMANI"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJET01BTkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSU5FTUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNQVJFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGRVNUQSJdfV0="
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Che cos'è?",
+   "short": "2 · Che cos'è?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>⚽</span>"
+    },
+    {
+     "q": "<span class='emo'>🎬</span>"
+    },
+    {
+     "q": "<span class='emo'>🏖️</span>"
+    },
+    {
+     "q": "<span class='emo'>🚶</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDQUxDSU8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSU5FTUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNQVJFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUEFTU0VHR0lBVEEiXX1d",
+   "opts": [
+    "CALCIO",
+    "CINEMA",
+    "MARE",
+    "PASSEGGIATA"
+   ],
+   "cons": "GUARDA. SCEGLI LA PAROLA."
+  },
+  {
+   "id": "e3",
+   "title": "3 · 📱 AL TELEFONO",
+   "short": "3 · AL TELEFONO",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. DOMANI ENEIDA HA…",
+     "opts": [
+      "IL CORSO",
+      "IL LAVORO"
+     ]
+    },
+    {
+     "q": "2. MICHELE VA AL MARE CON…",
+     "opts": [
+      "I FIGLI",
+      "LA MOGLIE"
+     ]
+    },
+    {
+     "q": "3. VANNO AL MARE ALLE…",
+     "opts": [
+      "10",
+      "4"
+     ]
+    },
+    {
+     "q": "4. ENEIDA PORTA…",
+     "opts": [
+      "UN PALLONE",
+      "UNA TORTA"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJJTCBDT1JTTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkkgRklHTEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxMCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlVOIFBBTExPTkUiXX1d"
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e4",
+   "title": "4 · ✍️ Copia la parola",
+   "short": "4 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "DOMANI"
+    },
+    {
+     "q": "CINEMA"
+    },
+    {
+     "q": "MARE"
+    },
+    {
+     "q": "HO"
+    },
+    {
+     "q": "FESTA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJET01BTkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSU5FTUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNQVJFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJGRVNUQSJdfV0="
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🧩 Componi la parola",
+   "short": "5 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>DO</span> + <span class='sill'>MA</span> + <span class='sill'>NI</span> ="
+    },
+    {
+     "q": "<span class='sill'>CI</span> + <span class='sill'>NE</span> + <span class='sill'>MA</span> ="
+    },
+    {
+     "q": "<span class='sill'>MA</span> + <span class='sill'>RE</span> ="
+    },
+    {
+     "q": "<span class='sill'>FE</span> + <span class='sill'>STA</span> ="
+    },
+    {
+     "q": "<span class='sill'>PAS</span> + <span class='sill'>SEG</span> + <span class='sill'>GIA</span> + <span class='sill'>TA</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJET01BTkkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSU5FTUEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNQVJFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRkVTVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJQQVNTRUdHSUFUQSJdfV0="
+  },
+  {
+   "part": "Le lettere H"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Con che lettera comincia?",
+   "short": "6 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>H</b> O CON <b>A</b>?",
+   "opts": [
+    "H",
+    "A"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>🫴</span> <button type=\"button\" class=\"say\" data-say=\"HO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🐝</span> <button type=\"button\" class=\"say\" data-say=\"APE\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🫴</span> <button type=\"button\" class=\"say\" data-say=\"HANNO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🧑‍🤝‍🧑</span> <button type=\"button\" class=\"say\" data-say=\"AMICI\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🫴</span> <button type=\"button\" class=\"say\" data-say=\"HAI\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🍍</span> <button type=\"button\" class=\"say\" data-say=\"ANANAS\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJIIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkgiXX0sIHsidCI6ICJlcSIsICJhIjogWyJBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiSCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkEiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 Ascolta e scrivi la lettera",
+   "short": "7 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI LE LETTERE CHE MANCANO. ATTENZIONE ALLA H!",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"HO\" aria-label=\"ascolta\">🔊</button> _ O"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"HAI\" aria-label=\"ascolta\">🔊</button> _ AI"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"HANNO\" aria-label=\"ascolta\">🔊</button> _ A _ _ O"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"HA\" aria-label=\"ascolta\">🔊</button> _ A"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJIIiwgIkgiXX0sIHsidCI6ICJlcSIsICJhIjogWyJIIiwgIkgiXX0sIHsidCI6ICJlcSIsICJhIjogWyJITk4iLCAiSCBOIE4iXX0sIHsidCI6ICJlcSIsICJhIjogWyJIIiwgIkgiXX1d"
+  },
+  {
+   "part": "Parlo"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🗣️ Completa il dialogo",
+   "short": "8 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "DOMANI · HO · MARE",
+   "parts": [
+    "MICHELE: COSA FAI ",
+    {},
+    "?<br>ENEIDA: DOMANI ",
+    {},
+    " IL CORSO.<br>MICHELE: VIENI AL ",
+    {},
+    " DOPODOMANI?<br>ENEIDA: SÌ!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJkb21hbmkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJobyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIm1hcmUiXX1d"
+  },
+  {
+   "part": "I numeri"
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🔊 Ascolta la data: scrivi il giorno",
+   "short": "9 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"IL VENTICINQUE DICEMBRE\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"L'OTTO MARZO\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"IL DUE GIUGNO\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"IL SEI DICEMBRE\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"IL QUINDICI AGOSTO\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyNSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjgiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjE1Il19XQ=="
+  },
+  {
+   "id": "e10",
+   "title": "10 · ➕ Fai il conto",
+   "short": "10 · I conti",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL RISULTATO.",
+   "items": [
+    {
+     "q": "7 + 7 ="
+    },
+    {
+     "q": "25 + 5 ="
+    },
+    {
+     "q": "15 + 15 ="
+    },
+    {
+     "q": "30 + 1 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxNCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjMwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMzAiXX0sIHsidCI6ICJlcSIsICJhIjogWyIzMSJdfV0="
+  },
+  {
+   "id": "e11",
+   "title": "11 ✎ · Il mio fine settimana",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI: COSA FAI DOMANI? E SABATO?",
+   "items": [
+    "DOMANI… SABATO…"
+   ]
+  },
+  {
+   "id": "e12",
+   "title": "12 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "INVITA UN COMPAGNO: «VIENI CON ME…?» DI' QUANDO E DOVE."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

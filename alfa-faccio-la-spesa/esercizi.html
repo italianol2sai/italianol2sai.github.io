@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🛒 Faccio la spesa · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🛒 Faccio la spesa · Esercizi",
+ "store": "alfa-faccio-la-spesa",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CHILO\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "CHILO",
+      "PESCHE",
+      "FUNGHI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"PESCHE\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "ZUCCHINE",
+      "PESCHE",
+      "FUNGHI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FUNGHI\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "ZUCCHINE",
+      "SPESA",
+      "FUNGHI"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"ZUCCHINE\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "ZUCCHINE",
+      "SPESA",
+      "CHILO"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SPESA\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "PESCHE",
+      "SPESA",
+      "CHILO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSElMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBFU0NIRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZVTkdISSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlpVQ0NISU5FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU1BFU0EiXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Che cos'è?",
+   "short": "2 · Che cos'è?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>🍎</span>"
+    },
+    {
+     "q": "<span class='emo'>🍑</span>"
+    },
+    {
+     "q": "<span class='emo'>🍄</span>"
+    },
+    {
+     "q": "<span class='emo'>🥒</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJNRUxFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUEVTQ0hFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRlVOR0hJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiWlVDQ0hJTkUiXX1d",
+   "opts": [
+    "MELE",
+    "PESCHE",
+    "FUNGHI",
+    "ZUCCHINE"
+   ],
+   "cons": "GUARDA. SCEGLI LA PAROLA."
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🛒 AL MERCATO",
+   "short": "3 · AL MERCATO",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. SALEAH COMPRA UN CHILO DI…",
+     "opts": [
+      "PESCHE",
+      "MELE"
+     ]
+    },
+    {
+     "q": "2. DI FUNGHI PRENDE…",
+     "opts": [
+      "MEZZO CHILO",
+      "DUE CHILI"
+     ]
+    },
+    {
+     "q": "3. LE ZUCCHINE COSTANO…",
+     "opts": [
+      "2 EURO AL CHILO",
+      "5 EURO AL CHILO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJQRVNDSEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJNRVpaTyBDSElMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjIgRVVSTyBBTCBDSElMTyJdfV0="
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e4",
+   "title": "4 · ✍️ Copia la parola",
+   "short": "4 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "CHILO"
+    },
+    {
+     "q": "PESCHE"
+    },
+    {
+     "q": "FUNGHI"
+    },
+    {
+     "q": "ZUCCHINE"
+    },
+    {
+     "q": "SPESA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSElMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBFU0NIRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZVTkdISSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlpVQ0NISU5FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU1BFU0EiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🧩 Componi la parola",
+   "short": "5 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>CHI</span> + <span class='sill'>LO</span> ="
+    },
+    {
+     "q": "<span class='sill'>PE</span> + <span class='sill'>SCHE</span> ="
+    },
+    {
+     "q": "<span class='sill'>FUN</span> + <span class='sill'>GHI</span> ="
+    },
+    {
+     "q": "<span class='sill'>ZUC</span> + <span class='sill'>CHI</span> + <span class='sill'>NE</span> ="
+    },
+    {
+     "q": "<span class='sill'>SPE</span> + <span class='sill'>SA</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSElMTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBFU0NIRSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkZVTkdISSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlpVQ0NISU5FIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU1BFU0EiXX1d"
+  },
+  {
+   "part": "Le lettere CHI, CHE, GHI, GHE"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Con che lettera comincia?",
+   "short": "6 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>CHI</b> O CON <b>CI</b>?",
+   "opts": [
+    "CHI",
+    "CI"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>🔑</span> <button type=\"button\" class=\"say\" data-say=\"CHIAVE\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🧅</span> <button type=\"button\" class=\"say\" data-say=\"CIPOLLA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>⛪</span> <button type=\"button\" class=\"say\" data-say=\"CHIESA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🏙️</span> <button type=\"button\" class=\"say\" data-say=\"CITTÀ\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🎸</span> <button type=\"button\" class=\"say\" data-say=\"CHITARRA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🍪</span> <button type=\"button\" class=\"say\" data-say=\"CIBO\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNISSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0hJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0kiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 Ascolta e scrivi la lettera",
+   "short": "7 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI CHI, CHE, GHI OPPURE GHE.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CHILO\" aria-label=\"ascolta\">🔊</button> _ _ _ LO"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FUNGHI\" aria-label=\"ascolta\">🔊</button> FUN _ _ _"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"PESCHE\" aria-label=\"ascolta\">🔊</button> PES _ _ _"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SPAGHETTI\" aria-label=\"ascolta\">🔊</button> SPA _ _ _ TTI"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSEkiLCAiQyBIIEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSEkiLCAiRyBIIEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSEUiLCAiQyBIIEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSEUiLCAiRyBIIEUiXX1d"
+  },
+  {
+   "part": "Parlo"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🗣️ Completa il dialogo",
+   "short": "8 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "DESIDERA · CHILO · COSTANO",
+   "parts": [
+    "FRUTTIVENDOLO: CHE COSA ",
+    {},
+    "?<br>SALEAH: UN ",
+    {},
+    " DI PESCHE.<br>FRUTTIVENDOLO: ALTRO?<br>SALEAH: QUANTO ",
+    {},
+    " LE ZUCCHINE?"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJkZXNpZGVyYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImNoaWxvIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY29zdGFubyJdfV0="
+  },
+  {
+   "part": "I numeri"
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🔊 Ascolta il prezzo e scrivi il numero",
+   "short": "9 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"TRE EURO\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SETTE EURO\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DODICI EURO\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"QUINDICI EURO\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"VENTI EURO\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTUiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyMCJdfV0="
+  },
+  {
+   "id": "e10",
+   "title": "10 · ➕ Fai il conto",
+   "short": "10 · I conti",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL RISULTATO.",
+   "items": [
+    {
+     "q": "2 + 3 ="
+    },
+    {
+     "q": "4 + 4 ="
+    },
+    {
+     "q": "5 + 7 ="
+    },
+    {
+     "q": "10 + 5 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyI1Il19LCB7InQiOiAiZXEiLCAiYSI6IFsiOCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTUiXX1d"
+  },
+  {
+   "id": "e11",
+   "title": "11 ✎ · La mia lista della spesa",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI LA TUA LISTA DELLA SPESA.",
+   "items": [
+    "UN CHILO DI… MEZZO CHILO DI…"
+   ]
+  },
+  {
+   "id": "e12",
+   "title": "12 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "SEI AL MERCATO. CHIEDI FRUTTA E VERDURA E IL PREZZO."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

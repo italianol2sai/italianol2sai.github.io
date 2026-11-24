@@ -158,7 +158,7 @@
 </main>
 
 <script>
-const norm = s => s.toUpperCase().trim().replace(/\s+/g," ").replace(/[’`]/g,"'")
+const norm = s => s.toUpperCase().trim().replace(/[’`]/g,"'").replace(/\s+/g," ").replace(/ ?' ?/g,"'")
   .normalize("NFD").replace(/[̀-ͯ]/g,"");
 const KEY = "abbigliamento-a1:";
 const store = {

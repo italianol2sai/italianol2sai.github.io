@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🧭 Mi scusi, dov'è…? · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🧭 Mi scusi, dov'è…? · Esercizi",
+ "store": "alfa-mi-scusi-dove",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"FARMACIA\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "FARMACIA",
+      "DESTRA",
+      "SINISTRA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DESTRA\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "VICINO",
+      "DESTRA",
+      "SINISTRA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SINISTRA\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "VICINO",
+      "PIAZZA",
+      "SINISTRA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"VICINO\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "VICINO",
+      "PIAZZA",
+      "FARMACIA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"PIAZZA\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "DESTRA",
+      "PIAZZA",
+      "FARMACIA"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQVJNQUNJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFU1RSQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNJTklTVFJBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVklDSU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUElBWlpBIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Che cos'è?",
+   "short": "2 · Che cos'è?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>💊</span>"
+    },
+    {
+     "q": "<span class='emo'>🏦</span>"
+    },
+    {
+     "q": "<span class='emo'>📮</span>"
+    },
+    {
+     "q": "<span class='emo'>🏥</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQVJNQUNJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkJBTkNBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUE9TVEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJPU1BFREFMRSJdfV0=",
+   "opts": [
+    "FARMACIA",
+    "BANCA",
+    "POSTA",
+    "OSPEDALE"
+   ],
+   "cons": "GUARDA. SCEGLI LA PAROLA."
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🧭 PER STRADA",
+   "short": "3 · PER STRADA",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. ENEIDA CERCA…",
+     "opts": [
+      "LA FARMACIA",
+      "LA POSTA"
+     ]
+    },
+    {
+     "q": "2. PRIMA VA…",
+     "opts": [
+      "DRITTO",
+      "A SINISTRA"
+     ]
+    },
+    {
+     "q": "3. POI GIRA…",
+     "opts": [
+      "A DESTRA",
+      "A SINISTRA"
+     ]
+    },
+    {
+     "q": "4. LA FARMACIA CHIUDE ALLE…",
+     "opts": [
+      "OTTO",
+      "DUE"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMQSBGQVJNQUNJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRSSVRUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkEgREVTVFJBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiT1RUTyJdfV0="
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e4",
+   "title": "4 · ✍️ Copia la parola",
+   "short": "4 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "FARMACIA"
+    },
+    {
+     "q": "DESTRA"
+    },
+    {
+     "q": "SINISTRA"
+    },
+    {
+     "q": "VICINO"
+    },
+    {
+     "q": "PIAZZA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQVJNQUNJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFU1RSQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNJTklTVFJBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVklDSU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUElBWlpBIl19XQ=="
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🧩 Componi la parola",
+   "short": "5 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>FAR</span> + <span class='sill'>MA</span> + <span class='sill'>CI</span> + <span class='sill'>A</span> ="
+    },
+    {
+     "q": "<span class='sill'>DE</span> + <span class='sill'>STRA</span> ="
+    },
+    {
+     "q": "<span class='sill'>SI</span> + <span class='sill'>NI</span> + <span class='sill'>STRA</span> ="
+    },
+    {
+     "q": "<span class='sill'>VI</span> + <span class='sill'>CI</span> + <span class='sill'>NO</span> ="
+    },
+    {
+     "q": "<span class='sill'>PIAZ</span> + <span class='sill'>ZA</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJGQVJNQUNJQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkRFU1RSQSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNJTklTVFJBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVklDSU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUElBWlpBIl19XQ=="
+  },
+  {
+   "part": "Le lettere V, Z"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Con che lettera comincia?",
+   "short": "6 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>V</b> O CON <b>Z</b>?",
+   "opts": [
+    "V",
+    "Z"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>🍷</span> <button type=\"button\" class=\"say\" data-say=\"VINO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🎒</span> <button type=\"button\" class=\"say\" data-say=\"ZAINO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🦓</span> <button type=\"button\" class=\"say\" data-say=\"ZEBRA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🌋</span> <button type=\"button\" class=\"say\" data-say=\"VULCANO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🍬</span> <button type=\"button\" class=\"say\" data-say=\"ZUCCHERO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>👗</span> <button type=\"button\" class=\"say\" data-say=\"VESTITO\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiWiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIloiXX0sIHsidCI6ICJlcSIsICJhIjogWyJWIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiWiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlYiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 Ascolta e scrivi la lettera",
+   "short": "7 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI LE LETTERE CHE MANCANO.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"VINO\" aria-label=\"ascolta\">🔊</button> _ INO"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"ZAINO\" aria-label=\"ascolta\">🔊</button> _ AINO"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"PIAZZA\" aria-label=\"ascolta\">🔊</button> PIA _ _ A"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"VIA\" aria-label=\"ascolta\">🔊</button> _ IA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJWIiwgIlYiXX0sIHsidCI6ICJlcSIsICJhIjogWyJaIiwgIloiXX0sIHsidCI6ICJlcSIsICJhIjogWyJaWiIsICJaIFoiXX0sIHsidCI6ICJlcSIsICJhIjogWyJWIiwgIlYiXX1d"
+  },
+  {
+   "part": "Parlo"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🗣️ Completa il dialogo",
+   "short": "8 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "FARMACIA · DRITTO · DESTRA",
+   "parts": [
+    "ENEIDA: MI SCUSI, DOV'È LA ",
+    {},
+    "?<br>SIGNORE: VADA ",
+    {},
+    " E POI GIRI A ",
+    {},
+    ".<br>ENEIDA: GRAZIE!"
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJmYXJtYWNpYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRyaXR0byJdfSwgeyJ0IjogImVxIiwgImEiOiBbImRlc3RyYSJdfV0="
+  },
+  {
+   "part": "I numeri"
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🔊 Che ore sono? Scrivi il numero",
+   "short": "9 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SONO LE TRE\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SONO LE OTTO\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SONO LE DIECI\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"È L'UNA\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SONO LE SEI\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiOCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEwIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjYiXX1d"
+  },
+  {
+   "id": "e10",
+   "title": "10 · ➕ Fai il conto",
+   "short": "10 · I conti",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL RISULTATO.",
+   "items": [
+    {
+     "q": "8 + 2 ="
+    },
+    {
+     "q": "3 + 4 ="
+    },
+    {
+     "q": "9 + 3 ="
+    },
+    {
+     "q": "6 + 6 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxMCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjciXX0sIHsidCI6ICJlcSIsICJhIjogWyIxMiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEyIl19XQ=="
+  },
+  {
+   "id": "e11",
+   "title": "11 ✎ · Vicino a casa mia",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI: CHE COSA C'È VICINO A CASA TUA?",
+   "items": [
+    "VICINO A CASA MIA C'È…"
+   ]
+  },
+  {
+   "id": "e12",
+   "title": "12 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "SPIEGA A UN COMPAGNO COME ARRIVARE DALLA SCUOLA ALLA FARMACIA."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

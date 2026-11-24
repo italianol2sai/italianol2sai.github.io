@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>👷 Quale lavoro? · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "👷 Quale lavoro? · Esercizi",
+ "store": "alfa-quale-lavoro",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CUOCO\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "CUOCO",
+      "MURATORE",
+      "PESCE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MURATORE\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "QUADERNO",
+      "MURATORE",
+      "PESCE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"PESCE\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "QUADERNO",
+      "SCIARPA",
+      "PESCE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"QUADERNO\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "QUADERNO",
+      "SCIARPA",
+      "CUOCO"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SCIARPA\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "MURATORE",
+      "SCIARPA",
+      "CUOCO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDVU9DTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1VUkFUT1JFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUEVTQ0UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJRVUFERVJOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDSUFSUEEiXX1d"
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Che cos'è?",
+   "short": "2 · Che cos'è?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>👨‍🍳</span>"
+    },
+    {
+     "q": "<span class='emo'>👷</span>"
+    },
+    {
+     "q": "<span class='emo'>🧑‍🌾</span>"
+    },
+    {
+     "q": "<span class='emo'>🧹</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDVU9DTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1VUkFUT1JFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09OVEFESU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ09MRiJdfV0=",
+   "opts": [
+    "CUOCO",
+    "MURATORE",
+    "CONTADINO",
+    "COLF"
+   ],
+   "cons": "GUARDA. SCEGLI LA PAROLA."
+  },
+  {
+   "id": "e3",
+   "title": "3 · 💬 CHE LAVORO FAI?",
+   "short": "3 · CHE LAVORO FAI?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. CRISTIAN FA IL…",
+     "opts": [
+      "CUOCO",
+      "MURATORE"
+     ]
+    },
+    {
+     "q": "2. IL RISTORANTE È DI…",
+     "opts": [
+      "PESCE",
+      "CARNE"
+     ]
+    },
+    {
+     "q": "3. SILVIA FA LA…",
+     "opts": [
+      "BADANTE",
+      "CUOCA"
+     ]
+    },
+    {
+     "q": "4. SILVIA HA LE FERIE A…",
+     "opts": [
+      "AGOSTO",
+      "MARZO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDVU9DTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBFU0NFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQkFEQU5URSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFHT1NUTyJdfV0="
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e4",
+   "title": "4 · ✍️ Copia la parola",
+   "short": "4 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "CUOCO"
+    },
+    {
+     "q": "MURATORE"
+    },
+    {
+     "q": "PESCE"
+    },
+    {
+     "q": "QUADERNO"
+    },
+    {
+     "q": "SCIARPA"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDVU9DTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1VUkFUT1JFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUEVTQ0UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJRVUFERVJOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDSUFSUEEiXX1d"
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🧩 Componi la parola",
+   "short": "5 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>CUO</span> + <span class='sill'>CO</span> ="
+    },
+    {
+     "q": "<span class='sill'>MU</span> + <span class='sill'>RA</span> + <span class='sill'>TO</span> + <span class='sill'>RE</span> ="
+    },
+    {
+     "q": "<span class='sill'>PE</span> + <span class='sill'>SCE</span> ="
+    },
+    {
+     "q": "<span class='sill'>QUA</span> + <span class='sill'>DER</span> + <span class='sill'>NO</span> ="
+    },
+    {
+     "q": "<span class='sill'>SCIAR</span> + <span class='sill'>PA</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDVU9DTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIk1VUkFUT1JFIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUEVTQ0UiXX0sIHsidCI6ICJlcSIsICJhIjogWyJRVUFERVJOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDSUFSUEEiXX1d"
+  },
+  {
+   "part": "Le lettere SCI, SCE, QU"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Con che lettera comincia?",
+   "short": "6 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>SC</b> O CON <b>QU</b>?",
+   "opts": [
+    "SC",
+    "QU"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>🧣</span> <button type=\"button\" class=\"say\" data-say=\"SCIARPA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>📓</span> <button type=\"button\" class=\"say\" data-say=\"QUADERNO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🪜</span> <button type=\"button\" class=\"say\" data-say=\"SCALA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>4️⃣</span> <button type=\"button\" class=\"say\" data-say=\"QUATTRO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>👟</span> <button type=\"button\" class=\"say\" data-say=\"SCARPE\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🖼️</span> <button type=\"button\" class=\"say\" data-say=\"QUADRO\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTQyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlFVIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiU0MiXX0sIHsidCI6ICJlcSIsICJhIjogWyJRVSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNDIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUVUiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 Ascolta e scrivi la lettera",
+   "short": "7 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI SC OPPURE QU.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"PESCE\" aria-label=\"ascolta\">🔊</button> PE _ _ E"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"QUATTRO\" aria-label=\"ascolta\">🔊</button> _ _ ATTRO"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SCIARPA\" aria-label=\"ascolta\">🔊</button> _ _ IARPA"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"QUESTO\" aria-label=\"ascolta\">🔊</button> _ _ ESTO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJTQyIsICJTIEMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJRVSIsICJRIFUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJTQyIsICJTIEMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJRVSIsICJRIFUiXX1d"
+  },
+  {
+   "part": "Parlo"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🗣️ Completa il dialogo",
+   "short": "8 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "LAVORO · CUOCO · PIACE",
+   "parts": [
+    "SILVIA: CHE ",
+    {},
+    " FAI?<br>CRISTIAN: FACCIO IL ",
+    {},
+    ".<br>SILVIA: TI ",
+    {},
+    "?<br>CRISTIAN: SÌ, MOLTO."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJsYXZvcm8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJjdW9jbyJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBpYWNlIl19XQ=="
+  },
+  {
+   "part": "I numeri"
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🔊 Ascolta il mese: che numero è?",
+   "short": "9 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MARZO\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"AGOSTO\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DICEMBRE\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"MAGGIO\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"OTTOBRE\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiOCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEwIl19XQ=="
+  },
+  {
+   "id": "e10",
+   "title": "10 · ➕ Fai il conto",
+   "short": "10 · I conti",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL RISULTATO.",
+   "items": [
+    {
+     "q": "12 + 1 ="
+    },
+    {
+     "q": "6 + 6 ="
+    },
+    {
+     "q": "3 + 9 ="
+    },
+    {
+     "q": "7 + 5 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjEyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMTIiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxMiJdfV0="
+  },
+  {
+   "id": "e11",
+   "title": "11 ✎ · Il mio lavoro",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI: CHE LAVORO FAI? CHE LAVORO VUOI FARE?",
+   "items": [
+    "FACCIO… / VORREI FARE…"
+   ]
+  },
+  {
+   "id": "e12",
+   "title": "12 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "DI' CHE LAVORO FAI O CHE LAVORO FACEVI NEL TUO PAESE."
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

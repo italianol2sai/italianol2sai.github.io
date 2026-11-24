@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏠 La mia casa · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🏠 La mia casa · Esercizi",
+ "store": "alfa-la-mia-casa",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CUCINA\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "CUCINA",
+      "CAMERA",
+      "BAGNO"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CAMERA\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "LETTO",
+      "CAMERA",
+      "BAGNO"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"BAGNO\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "LETTO",
+      "TAVOLO",
+      "BAGNO"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"LETTO\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "LETTO",
+      "TAVOLO",
+      "CUCINA"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"TAVOLO\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "CAMERA",
+      "TAVOLO",
+      "CUCINA"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDVUNJTkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDQU1FUkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJCQUdOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFVFRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVEFWT0xPIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Che cos'è?",
+   "short": "2 · Che cos'è?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>🛏️</span>"
+    },
+    {
+     "q": "<span class='emo'>🪑</span>"
+    },
+    {
+     "q": "<span class='emo'>🛋️</span>"
+    },
+    {
+     "q": "<span class='emo'>🚿</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMRVRUTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlNFRElBIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRElWQU5PIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiRE9DQ0lBIl19XQ==",
+   "opts": [
+    "LETTO",
+    "SEDIA",
+    "DIVANO",
+    "DOCCIA"
+   ],
+   "cons": "GUARDA. SCEGLI LA PAROLA."
+  },
+  {
+   "id": "e3",
+   "title": "3 · 📞 AL TELEFONO",
+   "short": "3 · AL TELEFONO",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. CRISTIAN ABITA AL…",
+     "opts": [
+      "TERZO PIANO",
+      "PRIMO PIANO"
+     ]
+    },
+    {
+     "q": "2. LA CASA È…",
+     "opts": [
+      "PICCOLA",
+      "GRANDE"
+     ]
+    },
+    {
+     "q": "3. QUANTE CAMERE?",
+     "opts": [
+      "UNA",
+      "TRE"
+     ]
+    },
+    {
+     "q": "4. SUL BALCONE CI SONO…",
+     "opts": [
+      "I FIORI",
+      "LE BICI"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJURVJaTyBQSUFOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIlBJQ0NPTEEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJVTkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJJIEZJT1JJIl19XQ=="
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e4",
+   "title": "4 · ✍️ Copia la parola",
+   "short": "4 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "CUCINA"
+    },
+    {
+     "q": "CAMERA"
+    },
+    {
+     "q": "BAGNO"
+    },
+    {
+     "q": "LETTO"
+    },
+    {
+     "q": "TAVOLO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDVUNJTkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDQU1FUkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJCQUdOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFVFRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVEFWT0xPIl19XQ=="
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🧩 Componi la parola",
+   "short": "5 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>CU</span> + <span class='sill'>CI</span> + <span class='sill'>NA</span> ="
+    },
+    {
+     "q": "<span class='sill'>CA</span> + <span class='sill'>ME</span> + <span class='sill'>RA</span> ="
+    },
+    {
+     "q": "<span class='sill'>BA</span> + <span class='sill'>GNO</span> ="
+    },
+    {
+     "q": "<span class='sill'>LET</span> + <span class='sill'>TO</span> ="
+    },
+    {
+     "q": "<span class='sill'>TA</span> + <span class='sill'>VO</span> + <span class='sill'>LO</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDVUNJTkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDQU1FUkEiXX0sIHsidCI6ICJlcSIsICJhIjogWyJCQUdOTyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkxFVFRPIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVEFWT0xPIl19XQ=="
+  },
+  {
+   "part": "Le lettere C, R"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Con che lettera comincia?",
+   "short": "6 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>C</b> O CON <b>R</b>?",
+   "opts": [
+    "C",
+    "R"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>🏠</span> <button type=\"button\" class=\"say\" data-say=\"CASA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🌹</span> <button type=\"button\" class=\"say\" data-say=\"ROSA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🥕</span> <button type=\"button\" class=\"say\" data-say=\"CAROTA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>📻</span> <button type=\"button\" class=\"say\" data-say=\"RADIO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🎁</span> <button type=\"button\" class=\"say\" data-say=\"REGALO\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>☕</span> <button type=\"button\" class=\"say\" data-say=\"CAFFÈ\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJSIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiUiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkMiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 Ascolta e scrivi la lettera",
+   "short": "7 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI LE LETTERE CHE MANCANO.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CASA\" aria-label=\"ascolta\">🔊</button> _ ASA"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"ROSA\" aria-label=\"ascolta\">🔊</button> _ OSA"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CUCINA\" aria-label=\"ascolta\">🔊</button> _ U _ INA"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CAMERA\" aria-label=\"ascolta\">🔊</button> CAME _ A"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDIiwgIkMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJSIiwgIlIiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDQyIsICJDIEMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJSIiwgIlIiXX1d"
+  },
+  {
+   "part": "Parlo"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🗣️ Completa il dialogo",
+   "short": "8 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "ABITI · PIANO · CASA · PICCOLA",
+   "parts": [
+    "SILVIA: DOVE ",
+    {},
+    "?<br>CRISTIAN: IN VIA CAPRUZZI, AL TERZO ",
+    {},
+    ".<br>SILVIA: COM'È LA ",
+    {},
+    "?<br>CRISTIAN: È ",
+    {},
+    "."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJhYml0aSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBpYW5vIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiY2FzYSJdfSwgeyJ0IjogImVxIiwgImEiOiBbInBpY2NvbGEiXX1d"
+  },
+  {
+   "part": "I numeri"
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🔊 Ascolta: che piano è? Scrivi il numero",
+   "short": "9 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"PRIMO\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"TERZO\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"QUINTO\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"SECONDO\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"QUARTO\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjUiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNCJdfV0="
+  },
+  {
+   "id": "e10",
+   "title": "10 · ➕ Fai il conto",
+   "short": "10 · I conti",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL RISULTATO.",
+   "items": [
+    {
+     "q": "1 + 2 ="
+    },
+    {
+     "q": "3 + 2 ="
+    },
+    {
+     "q": "2 + 2 ="
+    },
+    {
+     "q": "4 + 1 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIzIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjQiXX0sIHsidCI6ICJlcSIsICJhIjogWyI1Il19XQ=="
+  },
+  {
+   "id": "e11",
+   "title": "11 ✎ · La mia casa",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI: COM'È LA TUA CASA? A CHE PIANO ABITI?",
+   "items": [
+    "LA MIA CASA È… ABITO AL…"
+   ]
+  },
+  {
+   "id": "e12",
+   "title": "12 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "DESCRIVI LA TUA CASA: QUANTE STANZE? CHE MOBILI CI SONO?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🚌 In giro per la città · Esercizi</title>
+<link rel="stylesheet" href="../comune/stile.css">
+</head>
+<body>
+<main id="app"></main>
+<script>window.DATA = {
+ "title": "🚌 In giro per la città · Esercizi",
+ "store": "alfa-in-giro-per-la-citta",
+ "upper": true,
+ "livello": "alfa",
+ "sub": "🔊 TOCCA E ASCOLTA. ✍️ SCRIVI O 👆 SCEGLI. POI PREMI «CONTROLLA».",
+ "sections": [
+  {
+   "part": "Ascolto e leggo"
+  },
+  {
+   "id": "e1",
+   "title": "1 · 🔊 Ascolta e scegli la parola",
+   "short": "1 · Ascolta",
+   "type": "choice",
+   "cons": "TOCCA 🔊. SCEGLI LA PAROLA CHE SENTI.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CITTÀ\" aria-label=\"ascolta\">🔊</button> 1.",
+     "opts": [
+      "CITTÀ",
+      "BIGLIETTO",
+      "STAZIONE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"BIGLIETTO\" aria-label=\"ascolta\">🔊</button> 2.",
+     "opts": [
+      "AUTOBUS",
+      "BIGLIETTO",
+      "STAZIONE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"STAZIONE\" aria-label=\"ascolta\">🔊</button> 3.",
+     "opts": [
+      "AUTOBUS",
+      "GIRO",
+      "STAZIONE"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"AUTOBUS\" aria-label=\"ascolta\">🔊</button> 4.",
+     "opts": [
+      "AUTOBUS",
+      "GIRO",
+      "CITTÀ"
+     ]
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"GIRO\" aria-label=\"ascolta\">🔊</button> 5.",
+     "opts": [
+      "BIGLIETTO",
+      "GIRO",
+      "CITTÀ"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSVRUw4AiXX0sIHsidCI6ICJlcSIsICJhIjogWyJCSUdMSUVUVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJTVEFaSU9ORSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFVVE9CVVMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSVJPIl19XQ=="
+  },
+  {
+   "id": "e2",
+   "title": "2 · 👀 Che cos'è?",
+   "short": "2 · Che cos'è?",
+   "type": "choice",
+   "items": [
+    {
+     "q": "<span class='emo'>🚌</span>"
+    },
+    {
+     "q": "<span class='emo'>🚆</span>"
+    },
+    {
+     "q": "<span class='emo'>🚲</span>"
+    },
+    {
+     "q": "<span class='emo'>🚕</span>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJBVVRPQlVTIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVFJFTk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJCSUNJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiVEFYSSJdfV0=",
+   "opts": [
+    "AUTOBUS",
+    "TRENO",
+    "BICI",
+    "TAXI"
+   ],
+   "cons": "GUARDA. SCEGLI LA PAROLA."
+  },
+  {
+   "id": "e3",
+   "title": "3 · 🎫 IN TABACCHERIA",
+   "short": "3 · IN TABACCHERIA",
+   "type": "choice",
+   "items": [
+    {
+     "q": "1. YUSUF COMPRA UN BIGLIETTO PER…",
+     "opts": [
+      "L'AUTOBUS",
+      "IL TRENO"
+     ]
+    },
+    {
+     "q": "2. IL BIGLIETTO COSTA…",
+     "opts": [
+      "1,50 EURO",
+      "3 EURO"
+     ]
+    },
+    {
+     "q": "3. PER LA STAZIONE PRENDE IL…",
+     "opts": [
+      "12",
+      "21"
+     ]
+    },
+    {
+     "q": "4. IL RESTO È…",
+     "opts": [
+      "50 CENTESIMI",
+      "1 EURO"
+     ]
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJMJ0FVVE9CVVMiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxLDUwIEVVUk8iXX0sIHsidCI6ICJlcSIsICJhIjogWyIxMiJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjUwIENFTlRFU0lNSSJdfV0="
+  },
+  {
+   "part": "Scrivo"
+  },
+  {
+   "id": "e4",
+   "title": "4 · ✍️ Copia la parola",
+   "short": "4 · Copia",
+   "type": "text",
+   "w": "m",
+   "cons": "GUARDA E SCRIVI LA STESSA PAROLA.",
+   "items": [
+    {
+     "q": "CITTÀ"
+    },
+    {
+     "q": "BIGLIETTO"
+    },
+    {
+     "q": "STAZIONE"
+    },
+    {
+     "q": "AUTOBUS"
+    },
+    {
+     "q": "GIRO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSVRUw4AiXX0sIHsidCI6ICJlcSIsICJhIjogWyJCSUdMSUVUVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJTVEFaSU9ORSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFVVE9CVVMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSVJPIl19XQ=="
+  },
+  {
+   "id": "e5",
+   "title": "5 · 🧩 Componi la parola",
+   "short": "5 · Le sillabe",
+   "type": "text",
+   "w": "m",
+   "cons": "UNISCI I PEZZI. SCRIVI LA PAROLA.",
+   "items": [
+    {
+     "q": "<span class='sill'>CIT</span> + <span class='sill'>TÀ</span> ="
+    },
+    {
+     "q": "<span class='sill'>BI</span> + <span class='sill'>GLIET</span> + <span class='sill'>TO</span> ="
+    },
+    {
+     "q": "<span class='sill'>STA</span> + <span class='sill'>ZIO</span> + <span class='sill'>NE</span> ="
+    },
+    {
+     "q": "<span class='sill'>AU</span> + <span class='sill'>TO</span> + <span class='sill'>BUS</span> ="
+    },
+    {
+     "q": "<span class='sill'>GI</span> + <span class='sill'>RO</span> ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSVRUw4AiXX0sIHsidCI6ICJlcSIsICJhIjogWyJCSUdMSUVUVE8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJTVEFaSU9ORSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkFVVE9CVVMiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSVJPIl19XQ=="
+  },
+  {
+   "part": "Le lettere CI, CE, GI, GE"
+  },
+  {
+   "id": "e6",
+   "title": "6 · 🔊 Con che lettera comincia?",
+   "short": "6 · Comincia con",
+   "type": "choice",
+   "cons": "TOCCA 🔊. LA PAROLA COMINCIA CON <b>CI</b> O CON <b>GI</b>?",
+   "opts": [
+    "CI",
+    "GI"
+   ],
+   "items": [
+    {
+     "q": "<span class='emo'>🧅</span> <button type=\"button\" class=\"say\" data-say=\"CIPOLLA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🦒</span> <button type=\"button\" class=\"say\" data-say=\"GIRAFFA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🏙️</span> <button type=\"button\" class=\"say\" data-say=\"CITTÀ\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🧥</span> <button type=\"button\" class=\"say\" data-say=\"GIACCA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🍒</span> <button type=\"button\" class=\"say\" data-say=\"CILIEGIA\" aria-label=\"ascolta\">🔊</button>"
+    },
+    {
+     "q": "<span class='emo'>🎮</span> <button type=\"button\" class=\"say\" data-say=\"GIOCO\" aria-label=\"ascolta\">🔊</button>"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkdJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiQ0kiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSSJdfSwgeyJ0IjogImVxIiwgImEiOiBbIkNJIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiR0kiXX1d"
+  },
+  {
+   "id": "e7",
+   "title": "7 · 🔊 Ascolta e scrivi la lettera",
+   "short": "7 · La lettera",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI CI, CE, GI OPPURE GE.",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CENA\" aria-label=\"ascolta\">🔊</button> _ _ NA"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"GELATO\" aria-label=\"ascolta\">🔊</button> _ _ LATO"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CITTÀ\" aria-label=\"ascolta\">🔊</button> _ _ TTÀ"
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"GIRO\" aria-label=\"ascolta\">🔊</button> _ _ RO"
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJDRSIsICJDIEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHRSIsICJHIEUiXX0sIHsidCI6ICJlcSIsICJhIjogWyJDSSIsICJDIEkiXX0sIHsidCI6ICJlcSIsICJhIjogWyJHSSIsICJHIEkiXX1d"
+  },
+  {
+   "part": "Parlo"
+  },
+  {
+   "id": "e8",
+   "title": "8 · 🗣️ Completa il dialogo",
+   "short": "8 · Il dialogo",
+   "type": "cloze",
+   "cons": "SCRIVI LA PAROLA GIUSTA.",
+   "bank": "BIGLIETTO · STAZIONE",
+   "parts": [
+    "YUSUF: UN ",
+    {},
+    " PER L'AUTOBUS, PER FAVORE.<br>TABACCAIA: COSTA 1 EURO E 50.<br>YUSUF: QUALE AUTOBUS VA ALLA ",
+    {},
+    "?<br>TABACCAIA: IL NUMERO 12."
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyJiaWdsaWV0dG8iXX0sIHsidCI6ICJlcSIsICJhIjogWyJzdGF6aW9uZSJdfV0="
+  },
+  {
+   "part": "I numeri"
+  },
+  {
+   "id": "e9",
+   "title": "9 · 🔊 Ascolta il prezzo e scrivi il numero",
+   "short": "9 · I numeri",
+   "type": "text",
+   "w": "s",
+   "cons": "TOCCA 🔊. SCRIVI IL NUMERO CON LE CIFRE: 0, 1, 2…",
+   "items": [
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DUE EURO\" aria-label=\"ascolta\">🔊</button> 1."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CINQUANTA CENTESIMI\" aria-label=\"ascolta\">🔊</button> 2."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"VENTI CENTESIMI\" aria-label=\"ascolta\">🔊</button> 3."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"CINQUE EURO\" aria-label=\"ascolta\">🔊</button> 4."
+    },
+    {
+     "q": "<button type=\"button\" class=\"say\" data-say=\"DIECI EURO\" aria-label=\"ascolta\">🔊</button> 5."
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIyIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiNTAiXX0sIHsidCI6ICJlcSIsICJhIjogWyIyMCJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjUiXX0sIHsidCI6ICJlcSIsICJhIjogWyIxMCJdfV0="
+  },
+  {
+   "id": "e10",
+   "title": "10 · ➖ Fai il conto",
+   "short": "10 · I conti",
+   "type": "text",
+   "w": "s",
+   "cons": "SCRIVI IL RISULTATO.",
+   "items": [
+    {
+     "q": "2 - 1 ="
+    },
+    {
+     "q": "5 - 2 ="
+    },
+    {
+     "q": "10 - 3 ="
+    },
+    {
+     "q": "20 - 5 ="
+    }
+   ],
+   "k": "W3sidCI6ICJlcSIsICJhIjogWyIxIl19LCB7InQiOiAiZXEiLCAiYSI6IFsiMyJdfSwgeyJ0IjogImVxIiwgImEiOiBbIjciXX0sIHsidCI6ICJlcSIsICJhIjogWyIxNSJdfV0="
+  },
+  {
+   "id": "e11",
+   "title": "11 ✎ · Come vai al corso?",
+   "type": "free",
+   "rows": 1,
+   "cons": "SCRIVI: COME VAI AL CORSO? IN AUTOBUS, A PIEDI…?",
+   "items": [
+    "VADO AL CORSO…"
+   ]
+  },
+  {
+   "id": "e12",
+   "title": "12 🎤 · Parla tu",
+   "type": "record",
+   "items": [
+    "COMPRI UN BIGLIETTO. CHE COSA DICI?"
+   ]
+  }
+ ]
+};</script>
+<script src="../comune/motore.js"></script>
+</body>
+</html>
