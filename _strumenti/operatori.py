@@ -64,8 +64,8 @@ OPERATORI = {
  "michele":  ("MICHELE", "OPERATORE · SAI BARI", ritratto("mi", "#E4F2E0", "#F0CBAA", "#D6A784", "#6E5A4A", "#3F7F4F", "calvo", barba=True, occhiali=True)),
  "silvia2":  ("SILVIA", "OPERATRICE · SAI BARI", ritratto("s2", "#EFE3F6", "#F2CFB4", "#D9AE8E", "#C9A04E", "#7B4FA0", "lunghi", orecchini="#E7C35A", occhi="#4E7A9E")),
  "saleah":   ("SALEAH", "OPERATRICE · SAI BARI", ritratto("sa", "#FFF1D6", "#B47A55", "#966042", "#1B120D", "#E0A21B", "chignon", orecchini="#C9A227")),
- "erica":    ("ERICA", "INSEGNANTE DI ITALIANO", ritratto("er", "#FDEDEA", "#F4D3BC", "#DDAE90", "#B8321F", "#3E8E5E", "ricci", occhiali=True, ciglia="#8E2616")),
- "luciana":  ("LUCIANA", "INSEGNANTE DI ITALIANO", ritratto("lu", "#FFF0E6", "#F3D0B5", "#DAAD8C", "#E8641E", "#2F6DB5", "caschetto", occhiali="grandi", orecchini="#2F6DB5", ciglia="#B8501A")),
+ "erica":    ("ERICA", "INSEGNANTE DI ITALIANO", '<img src="../comune/ritratti/erica.png" alt="" style="width:100%;height:100%;display:block;border-radius:50%;object-fit:cover">'),
+ "luciana":  ("LUCIANA", "INSEGNANTE DI ITALIANO", '<img src="../comune/ritratti/luciana.png" alt="" style="width:100%;height:100%;display:block;border-radius:50%;object-fit:cover">'),
  "eneida":   ("ENEIDA", "COORDINATRICE · SAI BARI", ritratto("en", "#E0F0F4", "#EFC6A6", "#D4A381", "#8A3B1E", "#2A8C8C", "mossi", occhi="#4C6B3A")),
 }
 
