@@ -551,7 +551,11 @@
       ]),
       liste[0], liste[1],
       silvia(ripassa.length ? "PUOI RIPROVARE PER MIGLIORARE IL TUO PUNTEGGIO." : "COMPLIMENTI! ADESSO TOCCA A TE. IN BOCCA AL LUPO!"),
-      el("p", { class: "nota", text: "IL PUNTEGGIO È SOLO PER TE. NON È UN CERTIFICATO E NON VA ALL’INSEGNANTE." }),
+      el("p", { class: "nota", text: "MANDA IL TUO RISULTATO ALL’INSEGNANTE." }),
+      window.bottoniInvio ? window.bottoniInvio(document.title, function () {
+        return ["PUNTI: " + puntiFatti() + " SU " + n * PUNTI_PRIMO, "PROVE SUPERATE: " + fatte + "/" + n, "GIUSTE AL PRIMO TENTATIVO: " + perc + "%",
+          ripassa.length ? "DA RIPASSARE: " + ripassa.map(function (st) { return st.titolo; }).join(", ") : "TUTTO BENE ✅"];
+      }, { classe: "btn btn-vai", maiuscolo: true }) : null,
       btn("GIOCA DI NUOVO ↻", "btn-vai", function () { S = statoVuoto(); salva(); copertina(); }),
       el("a", { class: "btn btn-piano", href: M.sito, style: "text-decoration:none", text: "TORNA AL SITO" })
     ]);

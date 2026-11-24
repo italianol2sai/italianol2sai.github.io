@@ -34,6 +34,7 @@
 </main>
 
 <script src="parole.js"></script>
+<script src="../comune/condividi.js"></script>
 <script src="ponte.js"></script>
 <script>
 const P = window.PONTE, L4 = ["L", "M", "N", "R"];
@@ -166,9 +167,10 @@ function fine(p, n, record, mosse) {
   $("area").innerHTML = `<div class="play"><div class="e pop">${"⭐".repeat(stelle) || "💪"}</div>
     <div class="total">${testo}</div>${record ? `<p class="msg">🏆 NUOVO RECORD!</p>` : ""}
     <button class="btn" id="ancora">🔁 GIOCO ANCORA</button>
-    <button class="btn sec" id="invia">📤 INVIA ALL'INSEGNANTE</button><p class="fb" id="inviafb"></p></div>`;
+    <button class="btn sec" id="invia">📤 INVIA ALL'INSEGNANTE</button> <button class="btn sec" id="inviawa" style="background:#25D366;border-color:#1ea952;color:#fff">💬 INVIA CON WHATSAPP</button><p class="fb" id="inviafb"></p></div>`;
   $("ancora").onclick = inizia;
-  $("invia").onclick = () => condividi("GIOCHI: LE LETTERE PONTE (A0)", [nome + ": " + testo], $("inviafb"));
+  $("invia").onclick = () => invia("GIOCHI: LE LETTERE PONTE (A0)", [nome + ": " + testo], $("inviafb"));
+  $("inviawa").onclick = () => inviaWA("GIOCHI: LE LETTERE PONTE (A0)", [nome + ": " + testo], $("inviafb"));
 }
 
 menu(); inizia();

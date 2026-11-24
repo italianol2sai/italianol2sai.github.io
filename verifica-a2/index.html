@@ -182,7 +182,7 @@
     <h2>📊 Il tuo risultato</h2>
     <p class="cons" id="finalhint">Controlla tutti gli esercizi per vedere il risultato finale.</p>
     <div id="finalbox"></div>
-    <button class="btn" id="send" style="margin-top:12px">📤 Invia tutto all'insegnante</button>
+    <button class="btn" id="send" style="margin-top:12px">📤 Invia tutto all'insegnante</button> <button class="btn" id="sendwa" style="margin-top:12px;background:#25D366;border-color:#1ea952;color:#fff">💬 Invia con WhatsApp</button>
     <p class="fb" id="sendfb"></p>
   </section>
 </main>
@@ -423,7 +423,7 @@ function updateFinal(){
 updateFinal();
 
 // --- invio ---
-$("send").onclick=async()=>{
+const testoVer=()=>{
   const lines=["VERIFICA ITALIANO A2 — "+($("nome").value||"(senza nome)")];
   ORDER.forEach(id=>{ const r=results[id]; lines.push("");
     lines.push(NAMES[id]+": "+(r?r.got+"/"+r.max:"non controllato"));
@@ -434,20 +434,13 @@ $("send").onclick=async()=>{
   lines.push("","5 SCRITTURA:",$("scritto").value||"-");
   const files=Object.values(recordings);
   lines.push("","PROVA ORALE: "+files.length+" registrazioni");
-  const text=lines.join("\n"); const fb=$("sendfb");
-  try{
-    if(navigator.share){
-      const data={title:"Verifica A2", text};
-      if(files.length && navigator.canShare && navigator.canShare({files})) data.files=files;
-      await navigator.share(data);
-      if(files.length && !data.files){ fb.className="fb mid"; fb.textContent="Testo inviato. Le registrazioni mandale con il pulsante «Scarica»."; }
-      return;
-    }
-  }catch(e){ if(e.name==="AbortError") return; }
-  try{ await navigator.clipboard.writeText(text); fb.className="fb ok";
-       fb.textContent="📋 Risposte copiate: incollale in un messaggio all'insegnante."+(files.length?" Le registrazioni mandale con «Scarica».":""); }
-  catch(e){ fb.className="fb no"; fb.textContent="Non riesco a copiare. Fai uno screenshot del risultato."; }
+  return lines.join("\n");
 };
+$("send").onclick=async()=>{ const files=Object.values(recordings); const fb=$("sendfb");
+  const r=await window.condividi("Verifica A2", testoVer(), fb, files);
+  if(r==="share" && files.length && !(navigator.canShare && navigator.canShare({files}))){ fb.className="fb mid"; fb.textContent="Testo inviato. Le registrazioni mandale con il pulsante «Scarica»."; } };
+$("sendwa").onclick=()=>window.whatsapp("Verifica A2", testoVer(), $("sendfb"));
 </script>
+<script src="../comune/condividi.js"></script>
 </body>
 </html>

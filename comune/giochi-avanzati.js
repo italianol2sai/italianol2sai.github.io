@@ -1,3 +1,6 @@
+/* carica comune/condividi.js (pulsanti di invio all'insegnante) */
+(function(){ if(window.condividi) return; var me=document.currentScript; var s=document.createElement("script");
+  s.src=(me&&me.src?me.src.replace(/[^\/]*$/,""):"../comune/")+"condividi.js"; document.head.appendChild(s); })();
 // Giochi per i livelli B1-C2: quiz a tempo (frasi con lo spazio), abbina, riordina la frase.
 // La pagina definisce window.GIOCHI = {id, quiz: [[frase con ___, giusta, sbagliata, sbagliata], …],
 //   coppie: [[a, b], …], frasi: ["frase da riordinare", …]}. Testi in minuscolo (livello A2 e oltre).
@@ -22,14 +25,16 @@
   });
   main.appendChild(schede); main.appendChild(area);
 
+  var giocoOra = "";
   function apri(nome) {
     [].forEach.call(schede.children, function (b) { b.classList.toggle("on", b.getAttribute("data-g") === nome); });
-    area.innerHTML = ""; if (window._timer) clearInterval(window._timer);
+    area.innerHTML = ""; giocoOra = nome; if (window._timer) clearInterval(window._timer);
     ({ quiz: quiz, abbina: abbina, riordina: riordina })[nome]();
     try { history.replaceState(null, "", "#" + nome); } catch (e) {}
   }
   function fine(msg, ancora) {
-    area.appendChild(el("div", { class: "g-fine" }, [el("p", { text: msg }), el("button", { class: "g-btn", text: "Gioca ancora ▶", on: ancora })]));
+    area.appendChild(el("div", { class: "g-fine" }, [el("p", { text: msg }), el("button", { class: "g-btn", text: "Gioca ancora ▶", on: ancora }),
+      window.bottoniInvio ? window.bottoniInvio(G.titolo, function () { var g = GIOCHI.filter(function (x) { return x[0] === giocoOra; })[0]; return [(g ? g[2] : giocoOra), msg]; }, { classe: "g-btn", maiuscolo: false }) : null]));
   }
 
   // ---------------- QUIZ A TEMPO: completa la frase
