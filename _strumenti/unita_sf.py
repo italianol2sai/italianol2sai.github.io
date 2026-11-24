@@ -61,7 +61,25 @@ CSS = {
 def font_link(liv):
     return '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=%s&display=swap">' % FONT[liv]
 
+def _immagini_sf2():
+    """cartella → file jpg delle illustrazioni Canva del 2026-11-24 (_strumenti/immagini_sf2.txt)"""
+    m = {}
+    f = os.path.join(os.path.dirname(os.path.abspath(__file__)), "immagini_sf2.txt")
+    if os.path.exists(f):
+        for r in open(f, encoding="utf-8"):
+            p = r.split()
+            if len(p) == 3 and not r.startswith("#"):
+                m[p[0]] = p[1] + ".jpg"
+    return m
+
 def build_slide(path, unit, topbar, slides, liv):
+    cartella = os.path.dirname(path)
+    img = _immagini_sf2().get(cartella)
+    if img and not any("img/" + img in x for x in slides):
+        # l'illustrazione va nella prima slide con un dialogo (se manca il file, onerror la toglie)
+        i = next((k for k, x in enumerate(slides) if 'class="dialogo"' in x), 2)
+        slides = list(slides)
+        slides[i] = slides[i].replace("</h2>\n", "</h2>\n" + ill(img, unit) + "\n", 1)
     SL.build(path, unit, topbar, slides, CSS[liv])
     s = open(path, encoding="utf-8").read().replace("</head>", font_link(liv) + "\n</head>", 1)
     open(path, "w", encoding="utf-8").write(s)
