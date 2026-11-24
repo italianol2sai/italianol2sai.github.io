@@ -1,6 +1,9 @@
 /* carica comune/condividi.js (pulsanti di invio all'insegnante) */
 (function(){ if(window.condividi) return; var me=document.currentScript; var s=document.createElement("script");
   s.src=(me&&me.src?me.src.replace(/[^\/]*$/,""):"../comune/")+"condividi.js"; document.head.appendChild(s); })();
+/* carica comune/stampa.js (pulsante «🖨️ Stampa la scheda»): per ora le unità con D.livello (Nuovo Senza frontiere) */
+(function(){ if(window.__stampa||!window.DATA||!window.DATA.livello) return; var me=document.currentScript; var s=document.createElement("script");
+  s.src=(me&&me.src?me.src.replace(/[^\/]*$/,""):"../comune/")+"stampa.js"; document.head.appendChild(s); })();
 /* Motore degli esercizi interattivi — Italiano L2 ETNIE Bari
    Ogni pagina definisce window.DATA e poi carica questo file.
    Le risposte (campo k di ogni esercizio) sono codificate in base64 e non vengono mai mostrate. */

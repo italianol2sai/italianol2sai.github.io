@@ -34,11 +34,12 @@ CSS = {
   .parola{ display:flex; flex-wrap:wrap; gap:18px; justify-content:center; margin:10px 0; }
   .parola div{ background:#fff; border:4px solid var(--teal); border-radius:22px; padding:18px 26px; text-align:center; min-width:180px; }
   .parola b{ display:block; font-size:3rem; color:var(--blu-scuro); letter-spacing:.08em; }
-  .parola small{ display:block; font-size:1.6rem; color:#555; text-transform:lowercase; margin-top:4px; }
+  .parola small{ display:none; }  /* Erila 2026-11-24: Alfa/A1 sempre e solo in STAMPATELLO MAIUSCOLO */
   .sill{ background:#ffe9a8; border-radius:10px; padding:0 2px; }
   .parola .sill{ letter-spacing:.08em; }
   .lettera{ font-size:9rem; font-weight:bold; color:var(--blu); line-height:1; }
-  .lettera small{ font-size:4rem; text-transform:lowercase; margin-left:20px; color:var(--teal); }
+  .lettera small{ display:none; }
+  small, .nota, .bubble, .card span{ text-transform:uppercase; }
   .numeri{ display:grid; grid-template-columns:repeat(6,1fr); gap:12px; }
   .numeri div{ background:#fff; border-radius:16px; border:3px solid #cfe9e6; text-align:center; padding:10px; }
   .numeri b{ display:block; font-size:2.8rem; color:var(--blu); } .numeri span{ font-size:1.1rem; }
@@ -82,6 +83,8 @@ def build_slide(path, unit, topbar, slides, liv):
         slides[i] = slides[i].replace("</h2>\n", "</h2>\n" + ill(img, unit) + "\n", 1)
     SL.build(path, unit, topbar, slides, CSS[liv])
     s = open(path, encoding="utf-8").read().replace("</head>", font_link(liv) + "\n</head>", 1)
+    # pulsante «🖨️ STAMPA» (regola di Erila 2026-11-24: sempre nelle pagine di teoria)
+    s = s.replace("</body>", '<script src="../comune/stampa.js"></script>\n</body>', 1)
     open(path, "w", encoding="utf-8").write(s)
 
 def say(t, label="🔊"):
