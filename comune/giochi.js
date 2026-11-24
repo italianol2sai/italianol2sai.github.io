@@ -1,3 +1,6 @@
+/* carica comune/condividi.js (pulsanti di invio all'insegnante) */
+(function(){ if(window.condividi) return; var me=document.currentScript; var s=document.createElement("script");
+  s.src=(me&&me.src?me.src.replace(/[^\/]*$/,""):"../comune/")+"condividi.js"; document.head.appendChild(s); })();
 // Giochi corti sulle parole di un argomento: memory, impiccato, quiz a tempo, cerca la parola.
 // La pagina definisce window.GIOCHI = {titolo, parole: [[PAROLA, emoji, indizio], …]}. Testi in MAIUSCOLO.
 (function () {
@@ -27,14 +30,16 @@
   });
   main.appendChild(schede); main.appendChild(area);
 
+  var giocoOra = "";
   function apri(nome) {
     [].forEach.call(schede.children, function (b) { b.classList.toggle("on", b.getAttribute("data-g") === nome); });
-    area.innerHTML = ""; if (window._timer) clearInterval(window._timer);
+    area.innerHTML = ""; giocoOra = nome; if (window._timer) clearInterval(window._timer);
     ({ memory: memory, impiccato: impiccato, quiz: quiz, cerca: cerca })[nome]();
     try { history.replaceState(null, "", "#" + nome); } catch (e) {}
   }
   function fine(msg, ancora) {
-    area.appendChild(el("div", { class: "g-fine" }, [el("p", { text: msg }), el("button", { class: "g-btn", text: "GIOCA ANCORA ▶", on: ancora })]));
+    area.appendChild(el("div", { class: "g-fine" }, [el("p", { text: msg }), el("button", { class: "g-btn", text: "GIOCA ANCORA ▶", on: ancora }),
+      window.bottoniInvio ? window.bottoniInvio(G.titolo, function () { var g = GIOCHI.filter(function (x) { return x[0] === giocoOra; })[0]; return [(g ? g[2] : giocoOra), msg]; }, { classe: "g-btn", maiuscolo: true }) : null]));
   }
 
   // ---------------- MEMORY

@@ -256,6 +256,8 @@ mark{background:var(--c); color:#fff; padding:0 .25em; border-radius:.25em}
   </div>
   <div class="score comic" id="score">⭐ <span id="pts">0</span> PUNTI</div>
   <button id="btnReset" title="Azzera i punti">AZZERA</button>
+  <button id="btnInvia" title="Invia i punti all'insegnante">📤 INVIA</button>
+  <button id="btnWa" title="Invia i punti con WhatsApp" style="background:#25D366;color:#fff">💬 WHATSAPP</button>
   <button id="btnHome">🏠 MENU</button>
   <button id="btnFull" title="Schermo intero">⛶</button>
 </header>
@@ -573,6 +575,8 @@ function show(v){
 }
 document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go));
 $('#btnHome').onclick=()=>show('home');
+$('#btnInvia').onclick=()=>window.condividi(document.title,['PUNTI: '+score]);
+$('#btnWa').onclick=()=>window.whatsapp(document.title,['PUNTI: '+score]);
 $('#btnFull').onclick=()=>{
   try{ if(!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }catch(e){}
 };
@@ -710,5 +714,6 @@ document.addEventListener('keydown',e=>{
 });
 try{ speechSynthesis.getVoices(); }catch(e){}
 </script>
+<script src="../comune/condividi.js"></script>
 </body>
 </html>

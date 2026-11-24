@@ -50,17 +50,14 @@ function nomeStudente() {
 }
 function salvaNome(n) { try { localStorage.setItem("studente-nome", n.trim().toUpperCase()); } catch (e) {} }
 
-/* un solo pulsante: Condividi (cellulare) oppure copia + WhatsApp (computer) */
-async function condividi(titolo, righe, fb) {
+/* invio: menu Condividi (con ripiego WhatsApp) oppure WhatsApp diretto — vedi comune/condividi.js */
+function testoPonte(titolo, righe) {
   let nome = nomeStudente();
   if (!nome) { nome = (prompt("COME TI CHIAMI?") || "").trim().toUpperCase(); if (nome) salvaNome(nome); }
-  const text = [titolo + " — " + (nome || "(SENZA NOME)"), ""].concat(righe).join("\n");
-  try { if (navigator.share) { await navigator.share({ title: titolo, text }); return; } }
-  catch (e) { if (e.name === "AbortError") return; }
-  try { await navigator.clipboard.writeText(text); } catch (e) {}
-  if (fb) { fb.className = "fb ok"; fb.textContent = "📋 RISULTATO COPIATO. SI APRE WHATSAPP: SCEGLI L'INSEGNANTE."; }
-  window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
+  return [titolo + " — " + (nome || "(SENZA NOME)"), ""].concat(righe).join("\n");
 }
+function invia(titolo, righe, fb) { window.condividi(titolo, testoPonte(titolo, righe), fb); }
+function inviaWA(titolo, righe, fb) { window.whatsapp(titolo, testoPonte(titolo, righe), fb); }
 
 /* REGISTRATORE dello studente: 🎙️ registra, ▶️ riascolta. La voce resta solo su questo telefono (non si invia). */
 const voci = {};           // chiave -> URL della registrazione

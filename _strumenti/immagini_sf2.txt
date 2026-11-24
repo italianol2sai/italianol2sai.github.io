@@ -1,0 +1,29 @@
+# Illustrazioni Canva 2026-11-24 (ordine nelle 3 presentazioni da scaricare in PDF) → <cartella>/img/<file>.jpg
+# Progetto 1 · Alfabetizzazione
+alfa-la-mia-salute alfa6-medico MAHbz3UEHjA
+alfa-la-mia-casa alfa7-casa MAHbz_AyvKQ
+alfa-cerco-casa alfa8-annuncio MAHbzze7Wpc
+alfa-mi-scusi-dove alfa9-piazza MAHbzxfpHFo
+alfa-in-giro-per-la-citta alfa10-autobus MAHbz2cdNj0
+alfa-faccio-la-spesa alfa11-mercato MAHbzxSzryU
+alfa-cerco-lavoro alfa12-impiego MAHbzxKOXgM
+alfa-quale-lavoro alfa13-mestieri MAHbz8ox_Rs
+alfa-cosa-fai-domani alfa14-tempo-libero MAHbz42K-G0
+# Progetto 2 · A2
+a2-la-mia-storia a2-storia MAHbz6OSbVM
+a2-racconti a2-racconti MAHbzwMrMgQ
+a2-come-eravamo a2-album MAHbz5MixlE
+a2-cambiare-vita a2-bivio MAHbzzEWHTw
+a2-i-desideri a2-ricongiungimento MAHbz5A7BI4
+a2-i-progetti a2-volontari MAHbz557GYI
+a2-la-tecnologia a2-tecnologia MAHbz9IQ1BY
+a2-l-ambiente a2-spiaggia-pulita MAHbz2WebEA
+# Progetto 3 · B1
+b1-mediatrice b1-mediatrice MAHbz8mkT5M
+b1-trasferirsi b1-trasloco MAHbz2NNNis
+b1-elettricista b1-elettricista MAHbz86T3Kc
+b1-diritti-lavoro b1-manifestazione MAHbz-mIkLk
+b1-studiando b1-classe-serale MAHbz8AgWOE
+b1-scuola-famiglia b1-colloquio MAHbz85E2ws
+b1-scuola-superiore b1-scelta-scuola MAHbz3r3iu0
+b1-libri-viaggi b1-biblioteca MAHbz5mB06w

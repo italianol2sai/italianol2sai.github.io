@@ -55,6 +55,7 @@
   </div>
   <main id="giochi"></main>
 </div>
+<script src="../comune/condividi.js"></script>
 <script src="numeri.js"></script>
 <script>
 (function () {
@@ -108,7 +109,8 @@
     try { history.replaceState(null, "", "#" + nome); } catch (e) {}
   }
   function fine(msg, ancora) {
-    area.appendChild(el("div", { class: "g-fine" }, [el("p", { text: msg }), el("button", { class: "g-btn", text: "GIOCA ANCORA ▶", on: ancora })]));
+    area.appendChild(el("div", { class: "g-fine" }, [el("p", { text: msg }), el("button", { class: "g-btn", text: "GIOCA ANCORA ▶", on: ancora }),
+      window.bottoniInvio ? window.bottoniInvio(document.title, function () { return [msg]; }, { classe: "g-btn", maiuscolo: true }) : null]));
   }
 
   // ---------------- ASCOLTA E SCEGLI (60 secondi)

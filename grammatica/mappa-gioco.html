@@ -65,6 +65,7 @@
     <input id="nome" placeholder="NOME E COGNOME" autocomplete="name">
     <div class="row">
       <button class="btn main" id="send">📤 INVIA ALL'INSEGNANTE</button>
+      <button class="btn" id="sendwa" style="background:#25D366;border-color:#1ea952;color:#fff">💬 INVIA CON WHATSAPP</button>
       <button class="btn" id="again">🔄 GIOCA ANCORA</button>
     </div>
   </div>
@@ -161,15 +162,15 @@ function finish() {
   try { $("nome").value = localStorage.getItem("studente-nome") || ""; } catch (e) {}
   $("end").scrollIntoView({ behavior: "smooth" });
 }
-$("send").onclick = async () => {
+const testoMappa = () => {
   let nome = $("nome").value.trim();
   if (!nome) { nome = (prompt("COME TI CHIAMI?") || "").trim(); $("nome").value = nome; }
   try { localStorage.setItem("studente-nome", nome); } catch (e) {}
   const testo = "GIOCO: DOV'È? (MAPPA DELLA CITTÀ, A1)\n" + (nome ? "NOME: " + nome + "\n" : "") + "PUNTI: " + points + " / " + CLUES.length * 2;
-  if (navigator.share) { try { await navigator.share({ title: "Gioco: dov'è?", text: testo }); return; } catch (e) { if (e && e.name === "AbortError") return; } }
-  try { await navigator.clipboard.writeText(testo); } catch (e) {}
-  window.open("https://wa.me/?text=" + encodeURIComponent(testo), "_blank");
+  return testo;
 };
+$("send").onclick = () => window.condividi("Gioco: dov'è?", testoMappa());
+$("sendwa").onclick = () => window.whatsapp("Gioco: dov'è?", testoMappa());
 $("again").onclick = start;
 function start() {
   order = shuffle(CLUES.map((_, i) => i)); pos = 0; points = 0;
@@ -178,5 +179,6 @@ function start() {
 }
 start();
 </script>
+<script src="../comune/condividi.js"></script>
 </body>
 </html>

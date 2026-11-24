@@ -1,3 +1,6 @@
+/* carica comune/condividi.js (pulsanti di invio all'insegnante) */
+(function(){ if(window.condividi) return; var me=document.currentScript; var s=document.createElement("script");
+  s.src=(me&&me.src?me.src.replace(/[^\/]*$/,""):"../comune/")+"condividi.js"; document.head.appendChild(s); })();
 /* Motore degli esercizi interattivi — Italiano L2 ETNIE Bari
    Ogni pagina definisce window.DATA e poi carica questo file.
    Le risposte (campo k di ogni esercizio) sono codificate in base64 e non vengono mai mostrate. */
@@ -201,7 +204,8 @@ D.sections.forEach(ex=>{
 const fin=el("section",{id:"final"}); fin.append(el("h2",{},"📊 Il tuo risultato"));
 const hint=el("p",{class:"cons"}); const box=el("div"); fin.append(hint, box);
 const send=el("button",{class:"btn",type:"button",style:"margin-top:12px"},"📤 Invia le risposte all'insegnante");
-const sendfb=el("p",{class:"fb"}); fin.append(send, sendfb);
+const sendwa=el("button",{class:"btn",type:"button",style:"margin-top:12px;background:#25D366;border-color:#1ea952;color:#fff"},"💬 Invia con WhatsApp");
+const sendfb=el("p",{class:"fb"}); fin.append(send," ",sendwa, sendfb);
 if(!D.once){ const reset=el("button",{class:"btn sec",type:"button",style:"margin:12px 0 0 8px"},"🗑️ Ricomincia da capo");
   reset.onclick=()=>{ if(!confirm("Vuoi cancellare tutte le risposte?")) return;
     try{ Object.keys(localStorage).filter(k=>k.startsWith(ST)).forEach(k=>localStorage.removeItem(k)); }catch(e){} location.reload(); };
@@ -269,20 +273,18 @@ function updateFinal(){
 }
 restore.forEach(f=>f()); updateFinal();
 
-send.onclick=async()=>{
+const testoRisposte=()=>{
   const lines=[D.title.toUpperCase()+" — "+((($("nome")||{}).value)||"(senza nome)")];
   D.sections.forEach(ex=>{ if(ex.part||!answers[ex.id]) return; const r=results[ex.id];
     lines.push("", (ex.short||ex.title)+(r?" — "+r.got+"/"+r.max:"")); answers[ex.id]().forEach(a=>lines.push("  "+a)); });
   const files=Object.values(recordings);
   if(files.length) lines.push("","REGISTRAZIONI: "+files.length);
-  const text=lines.join("\n");
-  try{ if(navigator.share){ const data={title:D.title,text};
-      if(files.length && navigator.canShare && navigator.canShare({files})) data.files=files;
-      await navigator.share(data);
-      if(files.length && !data.files){ sendfb.className="fb mid"; sendfb.textContent="Testo inviato. Le registrazioni mandale con «Scarica»."; }
-      return; } }
-  catch(e){ if(e.name==="AbortError") return; }
-  try{ await navigator.clipboard.writeText(text); sendfb.className="fb ok"; sendfb.textContent="📋 Risposte copiate: incollale in un messaggio all'insegnante."+(files.length?" Le registrazioni mandale con «Scarica».":""); }
-  catch(e){ sendfb.className="fb no"; sendfb.textContent="Non riesco a copiare. Fai uno screenshot."; }
+  return lines.join("\n");
 };
+send.onclick=async()=>{
+  const files=Object.values(recordings);
+  const r=await window.condividi(D.title, testoRisposte(), sendfb, files);
+  if(r==="share" && files.length && !(navigator.canShare && navigator.canShare({files}))){ sendfb.className="fb mid"; sendfb.textContent="Testo inviato. Le registrazioni mandale con «Scarica»."; }
+};
+sendwa.onclick=()=>window.whatsapp(D.title, testoRisposte(), sendfb);
 })();

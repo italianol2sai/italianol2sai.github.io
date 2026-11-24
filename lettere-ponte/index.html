@@ -105,7 +105,7 @@
   <p class="cons">👤 IL MIO NOME</p>
   <input class="nome" id="nome" autocomplete="name">
   <div id="ris"></div>
-  <button class="btn" id="invia">📤 INVIA ALL'INSEGNANTE</button>
+  <button class="btn" id="invia">📤 INVIA ALL'INSEGNANTE</button> <button class="btn" id="inviawa" style="background:#25D366;border-color:#1ea952;color:#fff">💬 INVIA CON WHATSAPP</button>
   <button class="btn sec" id="reset">🗑️ RICOMINCIA</button>
   <p class="fb" id="inviafb"></p>
   <a class="swap" href="giochi.html" style="margin-top:14px">🎲 ADESSO GIOCO!</a>
@@ -113,6 +113,7 @@
 </main>
 
 <script src="parole.js"></script>
+<script src="../comune/condividi.js"></script>
 <script src="ponte.js"></script>
 <script>
 const P = window.PONTE, L4 = ["L", "M", "N", "R"];
@@ -251,13 +252,15 @@ risultato();
 
 $("nome").value = nomeStudente();
 $("nome").oninput = () => salvaNome($("nome").value);
-$("invia").onclick = () => {
+const righeTutte = () => {
   if ($("nome").value.trim()) salvaNome($("nome").value);
   const righe = EX.map(x => x.titolo + ": " + (x.got === null ? "NON CONTROLLATO" : x.got + "/" + x.n));
   const tot = EX.reduce((s, x) => s + x.n, 0), got = EX.reduce((s, x) => s + (x.got || 0), 0);
   righe.push("", "TOTALE: " + got + "/" + tot);
-  condividi("LE LETTERE PONTE (A0)", righe, $("inviafb"));
+  return righe;
 };
+$("invia").onclick = () => invia("LE LETTERE PONTE (A0)", righeTutte(), $("inviafb"));
+$("inviawa").onclick = () => inviaWA("LE LETTERE PONTE (A0)", righeTutte(), $("inviafb"));
 $("reset").onclick = () => {
   if (!confirm("VUOI CANCELLARE TUTTE LE RISPOSTE?")) return;
   try { Object.keys(localStorage).filter(k => k.startsWith("ponte:") && !k.startsWith("ponte:gioco")).forEach(k => localStorage.removeItem(k)); } catch (e) {}

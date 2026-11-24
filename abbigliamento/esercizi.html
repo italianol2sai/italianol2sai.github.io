@@ -152,7 +152,7 @@
   <section>
     <h2>📤 Hai finito?</h2>
     <p class="hint">Manda le tue risposte all'insegnante (WhatsApp, email…).</p>
-    <button class="check send" id="send">📤 Invia le risposte</button>
+    <button class="check send" id="send">📤 Invia le risposte</button> <button class="check send" id="sendwa" style="background:#25D366;border-color:#1ea952;color:#fff">💬 Invia con WhatsApp</button>
     <p class="fb" id="sendfb"></p>
   </section>
 </main>
@@ -303,7 +303,7 @@ function choice(row, id, labels){
 document.querySelectorAll("[data-save]").forEach(saveable);
 
 // Invia
-document.getElementById("send").onclick = async () => {
+const testoAbb = () => {
   const v = id => (document.getElementById(id) || {}).value || "";
   const list = (pfx,n) => Array.from({length:n},(_,i)=>v(pfx+i)).join(", ");
   const txt = [
@@ -318,13 +318,11 @@ document.getElementById("send").onclick = async () => {
     "ES. 8: " + v("w8"),
     "ES. 9: " + v("w9")
   ].join("\n").toUpperCase();
-  const fb = document.getElementById("sendfb");
-  try {
-    if (navigator.share) { await navigator.share({title:"L'abbigliamento A1", text:txt}); return; }
-  } catch(e) { if (e.name === "AbortError") return; }
-  try { await navigator.clipboard.writeText(txt); fb.className="fb ok"; fb.textContent="📋 Risposte copiate! Incollale in un messaggio all'insegnante."; }
-  catch(e) { fb.className="fb no"; fb.textContent="Non riesco a copiare. Fai uno screenshot delle risposte."; }
+  return txt;
 };
+document.getElementById("send").onclick = () => window.condividi("L'abbigliamento A1", testoAbb(), document.getElementById("sendfb"));
+document.getElementById("sendwa").onclick = () => window.whatsapp("L'abbigliamento A1", testoAbb(), document.getElementById("sendfb"));
 </script>
+<script src="../comune/condividi.js"></script>
 </body>
 </html>
