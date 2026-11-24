@@ -56,6 +56,12 @@
     "#libro .piede{margin-top:16px;font-size:.7em;color:#888;text-align:center;text-transform:none;letter-spacing:0}" +
     // ---------------- teoria (le slide diventano pagine di libro)
     "#libro .teoria-slide{zoom:.72}" +
+    // Alfa: quaderno semplice (caratteri grandi, una colonna, più spazio per scrivere)
+    "#libro.l-alfa{font-size:17pt;line-height:1.6} #libro.l-alfa ol.due{columns:1}" +
+    "#libro.l-alfa .apertura{border-radius:10px} #libro.l-alfa .num{background:#fff;color:var(--acc);border:2.5px solid var(--acc)}" +
+    "#libro.l-alfa ol>li{margin:12px 0} #libro.l-alfa .riga{height:1.4em;min-width:9em} #libro.l-alfa .righe div{height:2.6em}" +
+    "#libro.l-alfa .opz{gap:6px 26px} #libro.l-alfa .es{margin:18px 0 22px}" +
+    "#libro.l-alfa .teoria-slide{zoom:.85}" +
     "#libro .teoria-slide .slide{display:block!important;position:static!important;inset:auto!important;overflow:visible!important;height:auto!important;min-height:0!important;padding:0 0 14px!important;animation:none!important;break-inside:auto}" +
     "#libro .teoria-slide .slide h2{break-after:avoid;margin-top:10px}" +
     "#libro .teoria-slide .card,#libro .teoria-slide .bubble,#libro .teoria-slide table,#libro .teoria-slide .nota,#libro .teoria-slide img,#libro .teoria-slide .grid>*{break-inside:avoid}" +
