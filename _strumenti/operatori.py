@@ -14,6 +14,10 @@ def ritratto(k, sfondo, pelle, ombra, capelli, maglia, stile, barba=False, occhi
         p.append('<circle cx="50" cy="27" r="9" fill="%s"/>' % capelli)
     if stile == "caschetto":
         p.append('<path d="M50 29 Q30 29 30.5 50 Q30.5 60 33 65 L67 65 Q69.5 60 69.5 50 Q70 29 50 29 Z" fill="%s"/>' % capelli)
+    if stile == "ricci":
+        p.append('<g fill="%s">' % capelli + "".join('<circle cx="%s" cy="%s" r="%s"/>' % c for c in [
+            (35, 37, 8), (42, 30, 8), (50, 27, 8.5), (58, 30, 8), (65, 37, 8), (31, 47, 8), (69, 47, 8),
+            (30, 57, 7.5), (70, 57, 7.5), (32, 67, 6.5), (68, 67, 6.5), (35, 75, 5.5), (65, 75, 5.5)]) + '</g>')
     if stile == "mossi":
         p.append('<g fill="%s"><circle cx="33" cy="48" r="9"/><circle cx="67" cy="48" r="9"/><circle cx="31" cy="62" r="8"/><circle cx="69" cy="62" r="8"/>'
                  '<circle cx="34" cy="73" r="6"/><circle cx="66" cy="73" r="6"/><circle cx="50" cy="32" r="16"/></g>' % capelli)
@@ -32,6 +36,7 @@ def ritratto(k, sfondo, pelle, ombra, capelli, maglia, stile, barba=False, occhi
         "turbante": '<path d="M33 50 Q30 26 50 24 Q70 26 67 50 Q64 38 50 37 Q36 38 33 50 Z" fill="%s"/><path d="M38 33 Q50 27 62 33 M36 40 Q50 33 64 40" stroke="#fff" stroke-opacity=".45" stroke-width="1.6" fill="none"/>',
         "velo": '<path d="M33 52 Q31 31 50 31 Q69 31 67 52 Q64 41 50 40 Q36 41 33 52 Z" fill="%s"/>',
         "caschetto": '<path d="M33 52 Q31 31 50 31 Q69 31 67 52 Q66 41 60 39 Q50 44 40 39 Q34 42 33 52 Z" fill="%s"/>',
+        "ricci": '<path d="M34 49 Q34 35 50 35 Q66 35 66 49 Q63 41 57 40 Q53 44 50 40 Q46 44 42 40 Q37 42 34 49 Z" fill="%s"/>',
         "mossi": '<path d="M34 49 Q34 33 50 33 Q66 33 66 49 Q62 40 54 39 Q50 43 46 39 Q38 40 34 49 Z" fill="%s"/>',
     }[stile]
     p.append(tetto % capelli)
@@ -59,6 +64,7 @@ OPERATORI = {
  "michele":  ("MICHELE", "OPERATORE · SAI BARI", ritratto("mi", "#E4F2E0", "#F0CBAA", "#D6A784", "#6E5A4A", "#3F7F4F", "calvo", barba=True, occhiali=True)),
  "silvia2":  ("SILVIA", "OPERATRICE · SAI BARI", ritratto("s2", "#EFE3F6", "#F2CFB4", "#D9AE8E", "#C9A04E", "#7B4FA0", "lunghi", orecchini="#E7C35A", occhi="#4E7A9E")),
  "saleah":   ("SALEAH", "OPERATRICE · SAI BARI", ritratto("sa", "#FFF1D6", "#B47A55", "#966042", "#1B120D", "#E0A21B", "chignon", orecchini="#C9A227")),
+ "erica":    ("ERICA", "INSEGNANTE DI ITALIANO", ritratto("er", "#FDEDEA", "#F4D3BC", "#DDAE90", "#B8321F", "#3E8E5E", "ricci", occhiali=True, ciglia="#8E2616")),
  "luciana":  ("LUCIANA", "INSEGNANTE DI ITALIANO", ritratto("lu", "#FFF0E6", "#F3D0B5", "#DAAD8C", "#E8641E", "#2F6DB5", "caschetto", occhiali="grandi", orecchini="#2F6DB5", ciglia="#B8501A")),
  "eneida":   ("ENEIDA", "COORDINATRICE · SAI BARI", ritratto("en", "#E0F0F4", "#EFC6A6", "#D4A381", "#8A3B1E", "#2A8C8C", "mossi", occhi="#4C6B3A")),
 }
