@@ -48,7 +48,7 @@ STU_SLIDE = [
         nota("Plurale: vad<b>ano</b>, facci<b>ano</b>, possi<b>amo</b>… · Voglio che tu <b>venga</b> a lezione!")),
     slide("📖 Educazione civica · L'analfabetismo in Italia", cards([
         ("📜", "nel 1951", "quasi 1 italiano su 7 non sapeva leggere e scrivere"), ("🏫", "l'UNLA", "Unione Nazionale per la Lotta contro l'Analfabetismo, nata nel 1947"),
-        ("📺", "«Non è mai troppo tardi»", "il maestro Alberto Manzi insegnava in TV (1960-68)"), ("🧑‍🏫", "i CPIA oggi", "corsi gratuiti per adulti italiani e stranieri"),
+        ("📺", "«Non è mai troppo tardi»", "il maestro Alberto Manzi insegnava in TV (1960-68)"), ("🧑‍🏫", "i CPIA oggi", "corsi per adulti italiani e stranieri, con una piccola quota di iscrizione"),
         ("🔤", "analfabetismo funzionale", "saper leggere, ma non capire un testo"), ("💪", "mai troppo tardi", "si può imparare a ogni età")], "g3")),
     end("Ora sai dare la tua opinione con il congiuntivo!"),
 ]
@@ -86,7 +86,7 @@ B1STU = {
          "5 · Completa con il congiuntivo irregolare", "5 · Irregolari", "e5", w="s"),
   {"part": "Educazione civica · L'analfabetismo"},
   vf(["1. Nel 1951 molti italiani non sapevano leggere.", "2. L'UNLA è nata nel 1947.", "3. Alberto Manzi insegnava alla radio.",
-      "4. I CPIA offrono corsi gratuiti per adulti.", "5. L'analfabetismo funzionale è non capire bene un testo."], ["VERO", "VERO", "FALSO", "VERO", "VERO"],
+      "4. Ai CPIA si paga una piccola quota di iscrizione.", "5. L'analfabetismo funzionale è non capire bene un testo."], ["VERO", "VERO", "FALSO", "VERO", "VERO"],
      "6 · L'analfabetismo: vero o falso?", "6 · Analfabetismo", "e6"),
   libero("e7", 7, "La trama di un film", "Racconta la trama di un film che ti è piaciuto e di' che cosa ne pensi (Penso che… Credo che…).", ["Il mio film"], rows=7),
   parla("e8", 8, "Perché studi l'italiano? Che cosa speri che cambi nella tua vita quando lo parlerai bene?"),
@@ -125,7 +125,7 @@ FAM_SLIDE = [
         ["è meglio che", "È meglio che tu <b>parli</b> con l'insegnante."], ["è possibile che / può darsi che", "Può darsi che <b>abbia</b> l'insufficienza."],
         ["è un peccato che", "È un peccato che non <b>venga</b> al doposcuola."]], head=["espressione", "esempio"])),
     slide("🎒 Educazione civica · Ritornare studenti", cards([
-        ("🏫", "il CPIA", "terza media e italiano per adulti, gratis"), ("🌙", "i corsi serali", "diploma superiore per chi lavora"),
+        ("🏫", "il CPIA", "terza media e italiano per adulti, con una piccola quota"), ("🌙", "i corsi serali", "diploma superiore per chi lavora"),
         ("📜", "il riconoscimento dei titoli", "far valere il diploma preso all'estero"), ("🧾", "la dichiarazione di valore", "si chiede al consolato italiano"),
         ("💼", "la formazione professionale", "corsi per un mestiere, spesso gratuiti"), ("🎓", "l'università", "anche da adulti, con borse di studio")], "g3")),
     end("Ora sai parlare con la scuola dei tuoi figli!"),

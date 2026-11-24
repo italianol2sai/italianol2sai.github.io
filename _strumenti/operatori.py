@@ -12,6 +12,8 @@ def ritratto(k, sfondo, pelle, ombra, capelli, maglia, stile, barba=False, occhi
         p.append('<path d="M50 28 Q30 28 31 50 Q29 64 27 80 L73 80 Q71 64 69 50 Q70 28 50 28 Z" fill="%s"/>' % capelli)
     if stile == "chignon":
         p.append('<circle cx="50" cy="27" r="9" fill="%s"/>' % capelli)
+    if stile == "caschetto":
+        p.append('<path d="M50 29 Q30 29 30.5 50 Q30.5 60 33 65 L67 65 Q69.5 60 69.5 50 Q70 29 50 29 Z" fill="%s"/>' % capelli)
     if stile == "mossi":
         p.append('<g fill="%s"><circle cx="33" cy="48" r="9"/><circle cx="67" cy="48" r="9"/><circle cx="31" cy="62" r="8"/><circle cx="69" cy="62" r="8"/>'
                  '<circle cx="34" cy="73" r="6"/><circle cx="66" cy="73" r="6"/><circle cx="50" cy="32" r="16"/></g>' % capelli)
@@ -29,6 +31,7 @@ def ritratto(k, sfondo, pelle, ombra, capelli, maglia, stile, barba=False, occhi
         "chignon": '<path d="M34 49 Q33 33 50 33 Q67 33 66 49 Q62 39 50 39 Q38 39 34 49 Z" fill="%s"/>',
         "turbante": '<path d="M33 50 Q30 26 50 24 Q70 26 67 50 Q64 38 50 37 Q36 38 33 50 Z" fill="%s"/><path d="M38 33 Q50 27 62 33 M36 40 Q50 33 64 40" stroke="#fff" stroke-opacity=".45" stroke-width="1.6" fill="none"/>',
         "velo": '<path d="M33 52 Q31 31 50 31 Q69 31 67 52 Q64 41 50 40 Q36 41 33 52 Z" fill="%s"/>',
+        "caschetto": '<path d="M33 52 Q31 31 50 31 Q69 31 67 52 Q66 41 60 39 Q50 44 40 39 Q34 42 33 52 Z" fill="%s"/>',
         "mossi": '<path d="M34 49 Q34 33 50 33 Q66 33 66 49 Q62 40 54 39 Q50 43 46 39 Q38 40 34 49 Z" fill="%s"/>',
     }[stile]
     p.append(tetto % capelli)
@@ -39,7 +42,10 @@ def ritratto(k, sfondo, pelle, ombra, capelli, maglia, stile, barba=False, occhi
              '<circle cx="43.7" cy="50.2" r=".7" fill="#fff"/><circle cx="57.7" cy="50.2" r=".7" fill="#fff"/>' % (occhi, occhi))
     p.append('<path d="M50 52 Q51.5 58 49 59" stroke="%s" stroke-width="1.3" fill="none" stroke-linecap="round"/>' % ombra)
     p.append('<path d="M44.5 63.5 Q50 67 55.5 63.5" stroke="#A04A3E" stroke-width="1.8" fill="none" stroke-linecap="round"/>')
-    if occhiali:
+    if occhiali == "grandi":
+        p.append('<g fill="#ffffff" fill-opacity=".18" stroke="#1F2A36" stroke-width="1.8"><rect x="35.5" y="44.5" width="13" height="12" rx="4.5"/><rect x="51.5" y="44.5" width="13" height="12" rx="4.5"/>'
+                 '<path d="M48.5 49.5 L51.5 49.5 M35.5 49 L32.5 48 M64.5 49 L67.5 48" fill="none"/></g>')
+    elif occhiali:
         p.append('<g fill="none" stroke="#1F2A36" stroke-width="1.4"><circle cx="43" cy="51" r="5"/><circle cx="57" cy="51" r="5"/>'
                  '<path d="M48 50.5 L52 50.5 M38 50.5 L34.5 49.5 M62 50.5 L65.5 49.5"/></g>')
     if orecchini:
@@ -53,6 +59,7 @@ OPERATORI = {
  "michele":  ("MICHELE", "OPERATORE · SAI BARI", ritratto("mi", "#E4F2E0", "#F0CBAA", "#D6A784", "#6E5A4A", "#3F7F4F", "calvo", barba=True, occhiali=True)),
  "silvia2":  ("SILVIA", "OPERATRICE · SAI BARI", ritratto("s2", "#EFE3F6", "#F2CFB4", "#D9AE8E", "#C9A04E", "#7B4FA0", "lunghi", orecchini="#E7C35A", occhi="#4E7A9E")),
  "saleah":   ("SALEAH", "OPERATRICE · SAI BARI", ritratto("sa", "#FFF1D6", "#B47A55", "#966042", "#1B120D", "#E0A21B", "chignon", orecchini="#C9A227")),
+ "luciana":  ("LUCIANA", "INSEGNANTE DI ITALIANO", ritratto("lu", "#FFF0E6", "#F3D0B5", "#DAAD8C", "#E8641E", "#2F6DB5", "caschetto", occhiali="grandi", orecchini="#2F6DB5", ciglia="#B8501A")),
  "eneida":   ("ENEIDA", "COORDINATRICE · SAI BARI", ritratto("en", "#E0F0F4", "#EFC6A6", "#D4A381", "#8A3B1E", "#2A8C8C", "mossi", occhi="#4C6B3A")),
 }
 

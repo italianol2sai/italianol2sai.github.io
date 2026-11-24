@@ -204,45 +204,45 @@ GIOCHI["civica"] = dict(
 
 # ------------------------------------------------------------------ ALFABETIZZAZIONE (Nuovo Senza frontiere, unità 1-14; Erila 2026-11-24)
 GIOCHI["alfa"] = dict(
-  titolo="MISSIONE ALFABETO", sottotitolo="AIUTA TESFAYE A LEGGERE E SCRIVERE!", parolaSegreta="SCRIVO", guida="saleah", protagonista="tesfaye",
+  titolo="MISSIONE ALFABETO", sottotitolo="AIUTA TESFAYE A LEGGERE E SCRIVERE!", parolaSegreta="SCRIVO", guida="luciana", protagonista="tesfaye",
   etichetta="ITALIANO L2 · ALFABETIZZAZIONE", portaFinale="LA PORTA DELLA CLASSE", grazie="GRAZIE! ADESSO SO LEGGERE E SCRIVERE!",
   imparato="HAI RIPASSATO LE LETTERE, LE SILLABE, I NUMERI, I GIORNI, LA CASA, LA CITTÀ, LA SPESA E IL LAVORO.",
   intro=[["tesfaye", "CIAO! MI CHIAMO TESFAYE. VENGO DALL'ERITREA. ABITO A BARI."],
          ["tesfaye", "VOGLIO IMPARARE A LEGGERE E A SCRIVERE IN ITALIANO."],
-         ["saleah", "IO SONO SALEAH. TI AIUTO IO! CI SONO 6 PORTE. DIETRO OGNI PORTA C'È UNA LETTERA."],
-         ["saleah", "👆 TOCCA 🔊 PER ASCOLTARE. CON LE 6 LETTERE SCOPRI LA PAROLA SEGRETA!"]],
+         ["luciana", "IO SONO LUCIANA, L'INSEGNANTE DI ITALIANO. TI AIUTO IO! CI SONO 6 PORTE. DIETRO OGNI PORTA C'È UNA LETTERA."],
+         ["luciana", "👆 TOCCA 🔊 PER ASCOLTARE. CON LE 6 LETTERE SCOPRI LA PAROLA SEGRETA!"]],
   finale=[["tesfaye", "È L'ULTIMO GIORNO DEL CORSO. HO UN FOGLIO E UNA PENNA."],
-          ["saleah", "CHE COSA FA ADESSO TESFAYE CON LA PENNA? SCRIVI LA PAROLA SEGRETA CON LE 6 LETTERE."]],
+          ["luciana", "CHE COSA FA ADESSO TESFAYE CON LA PENNA? SCRIVI LA PAROLA SEGRETA CON LE 6 LETTERE."]],
   vittoria="TESFAYE DICE: «IO SCRIVO! SCRIVO IL MIO NOME: T-E-S-F-A-Y-E. È BELLISSIMO!»",
   stanze=[
-    porta("ciao", "CIAO, IO SONO…", "👋", "S", "saleah", ("CIAO, IO SONO", "alfa-ciao-io-sono/"),
-          [["saleah", "PRIMA PORTA: CI PRESENTIAMO!"]], ["tesfaye", "SO DIRE IL MIO NOME!"], [
-      S("SALEAH DICE: «CIAO! COME TI CHIAMI?» TESFAYE RISPONDE:", "👋", [("MI CHIAMO TESFAYE.", "🙂"), ("HO FAME.", "🍞"), ("SONO LE TRE.", "🕒")], "DICE IL SUO NOME.", "MI CHIAMO… = IL MIO NOME È…"),
+    porta("ciao", "CIAO, IO SONO…", "👋", "S", "luciana", ("CIAO, IO SONO", "alfa-ciao-io-sono/"),
+          [["luciana", "PRIMA PORTA: CI PRESENTIAMO!"]], ["tesfaye", "SO DIRE IL MIO NOME!"], [
+      S("LUCIANA DICE: «CIAO! COME TI CHIAMI?» TESFAYE RISPONDE:", "👋", [("MI CHIAMO TESFAYE.", "🙂"), ("HO FAME.", "🍞"), ("SONO LE TRE.", "🕒")], "DICE IL SUO NOME.", "MI CHIAMO… = IL MIO NOME È…"),
       S("QUALE PAROLA COMINCIA CON «O»?", "🔤", [("OCCHIO", "👁️"), ("MANO", "✋"), ("PANE", "🍞")], "ASCOLTA IL PRIMO SUONO: O…", "OCCHIO COMINCIA CON O."),
       S("QUANTI SONO? ✋✋", "🔢", [("DIECI", "🔟"), ("CINQUE", "5️⃣"), ("DUE", "2️⃣")], "CONTA LE DITA: 5 + 5.", "5 + 5 = 10, DIECI.")]),
-    porta("scuola", "VADO AL CORSO", "🏫", "C", "saleah", ("VADO AL CORSO", "alfa-vado-al-corso/"),
-          [["tesfaye", "SALEAH, CHE COSA SERVE PER IL CORSO?"]], ["saleah", "BRAVO! HAI TUTTO NELLO ZAINO."], [
+    porta("scuola", "VADO AL CORSO", "🏫", "C", "luciana", ("VADO AL CORSO", "alfa-vado-al-corso/"),
+          [["tesfaye", "LUCIANA, CHE COSA SERVE PER IL CORSO?"]], ["luciana", "BRAVO! HAI TUTTO NELLO ZAINO."], [
       S("CON CHE COSA SCRIVO?", "✍️", [("CON LA PENNA", "🖊️"), ("CON IL LIBRO", "📖"), ("CON LA GOMMA", "🧽")], "HA L'INCHIOSTRO.", "SCRIVO CON LA PENNA O CON LA MATITA."),
       C("COMPLETA.", "MA + NO = ___", "✋", ["MANO", "MONA", "NOMA"], "UNISCI: PRIMA MA, POI NO.", "MA + NO = MANO."),
-      VF("IL CORSO DI ITALIANO PER ADULTI AL CPIA È GRATIS.", "💶", True, "NON SI PAGA.", "VERO. IL CORSO È GRATIS: SERVE UN DOCUMENTO.")]),
-    porta("giornata", "LA MIA GIORNATA", "☀️", "R", "saleah", ("LA MIA GIORNATA", "alfa-la-mia-giornata/"),
-          [["saleah", "QUANDO FAI LE COSE? MATTINA, POMERIGGIO, SERA…"]], ["tesfaye", "CONOSCO I GIORNI DELLA SETTIMANA!"], [
+      VF("IL CORSO DI ITALIANO PER ADULTI AL CPIA È GRATIS.", "💶", False, "C'È UNA QUOTA DI ISCRIZIONE.", "FALSO. SI PAGA UNA PICCOLA QUOTA DI ISCRIZIONE. SERVE ANCHE UN DOCUMENTO.")]),
+    porta("giornata", "LA MIA GIORNATA", "☀️", "R", "luciana", ("LA MIA GIORNATA", "alfa-la-mia-giornata/"),
+          [["luciana", "QUANDO FAI LE COSE? MATTINA, POMERIGGIO, SERA…"]], ["tesfaye", "CONOSCO I GIORNI DELLA SETTIMANA!"], [
       S("DOPO LUNEDÌ C'È…", "📅", [("MARTEDÌ", "2️⃣"), ("DOMENICA", "7️⃣"), ("VENERDÌ", "5️⃣")], "LUNEDÌ, MARTEDÌ, MERCOLEDÌ…", "LUNEDÌ → MARTEDÌ."),
       S("🌙 LA SERA IO…", "🌙", [("CENO", "🍽️"), ("FACCIO COLAZIONE", "☕"), ("VADO AL LAVORO ALLE 7", "🌅")], "È BUIO. MANGIO.", "LA SERA CENO E POI DORMO."),
       C("COMPLETA.", "20 + 10 = ___", "🔢", ["TRENTA", "VENTI", "DIECI"], "VENTI E DIECI…", "20 + 10 = 30, TRENTA.")]),
-    porta("vestiti", "MI DESCRIVO E STO BENE", "🧥", "I", "saleah", ("MI DESCRIVO", "alfa-mi-descrivo/"),
-          [["tesfaye", "OGGI È FREDDO. CHE COSA METTO?"]], ["saleah", "BENE! E ADESSO COME STAI?"], [
+    porta("vestiti", "MI DESCRIVO E STO BENE", "🧥", "I", "luciana", ("MI DESCRIVO", "alfa-mi-descrivo/"),
+          [["tesfaye", "OGGI È FREDDO. CHE COSA METTO?"]], ["luciana", "BENE! E ADESSO COME STAI?"], [
       S("FA FREDDO. PER LE MANI METTO…", "🧤", [("I GUANTI", "🧤"), ("LE SCARPE", "👟"), ("I PANTALONI", "👖")], "SONO PER LE MANI.", "PER LE MANI METTO I GUANTI."),
       S("😊 TESFAYE È…", "😊", [("FELICE", "😊"), ("TRISTE", "😢"), ("STANCO", "😴")], "GUARDA LA FACCIA: SORRIDE.", "😊 = FELICE."),
       S("TESFAYE DICE: «HO MAL DI…» E TOCCA LA TESTA.", "🤕", [("TESTA", "🗣️"), ("PIEDE", "🦶"), ("PANCIA", "🤰")], "TOCCA LA TESTA.", "HO MAL DI TESTA: VADO DAL MEDICO.")]),
-    porta("casa", "LA CASA E LA CITTÀ", "🏠", "V", "saleah", ("MI SCUSI, DOV'È…?", "alfa-mi-scusi-dove/"),
-          [["saleah", "ADESSO GIRIAMO PER BARI. DOVE SONO LE COSE?"]], ["tesfaye", "SO CHIEDERE LA STRADA!"], [
+    porta("casa", "LA CASA E LA CITTÀ", "🏠", "V", "luciana", ("MI SCUSI, DOV'È…?", "alfa-mi-scusi-dove/"),
+          [["luciana", "ADESSO GIRIAMO PER BARI. DOVE SONO LE COSE?"]], ["tesfaye", "SO CHIEDERE LA STRADA!"], [
       S("DOVE DORMO?", "🛏️", [("IN CAMERA", "🛏️"), ("IN CUCINA", "🍳"), ("IN BAGNO", "🚿")], "C'È IL LETTO.", "DORMO IN CAMERA DA LETTO."),
       S("COMPRO LE MEDICINE IN…", "💊", [("FARMACIA", "💊"), ("BANCA", "🏦"), ("POSTA", "📮")], "C'È LA CROCE VERDE.", "LE MEDICINE SI COMPRANO IN FARMACIA."),
       S("➡️ È A…", "➡️", [("DESTRA", "➡️"), ("SINISTRA", "⬅️"), ("DRITTO", "⬆️")], "GUARDA LA FRECCIA.", "➡️ = A DESTRA."),
       VF("PER PRENDERE L'AUTOBUS SERVE IL BIGLIETTO.", "🎫", True, "SI COMPRA IN TABACCHERIA.", "VERO. PRIMA COMPRO IL BIGLIETTO.")]),
-    porta("lavoro", "LA SPESA E IL LAVORO", "🛒", "O", "saleah", ("CERCO LAVORO", "alfa-cerco-lavoro/"),
-          [["tesfaye", "ULTIMA PORTA! VADO AL MERCATO E POI CERCO LAVORO."]], ["saleah", "BRAVISSIMO, TESFAYE! APRI L'ULTIMA PORTA."], [
+    porta("lavoro", "LA SPESA E IL LAVORO", "🛒", "O", "luciana", ("CERCO LAVORO", "alfa-cerco-lavoro/"),
+          [["tesfaye", "ULTIMA PORTA! VADO AL MERCATO E POI CERCO LAVORO."]], ["luciana", "BRAVISSIMO, TESFAYE! APRI L'ULTIMA PORTA."], [
       S("UN ___ DI MELE, PER FAVORE.", "🍎", [("CHILO", "⚖️"), ("LITRO", "🥛"), ("METRO", "📏")], "LE MELE SI PESANO.", "UN CHILO DI MELE."),
       S("CHI LAVORA IN CUCINA?", "👨‍🍳", [("IL CUOCO", "👨‍🍳"), ("IL MURATORE", "👷"), ("IL MECCANICO", "🧑‍🔧")], "PREPARA DA MANGIARE.", "IL CUOCO LAVORA IN CUCINA."),
       C("COMPLETA IL MODULO.", "NOME: TESFAYE · ___: HAILE", "📝", ["COGNOME", "TELEFONO", "VIA"], "IL NOME DELLA FAMIGLIA.", "NOME = TESFAYE, COGNOME = HAILE."),

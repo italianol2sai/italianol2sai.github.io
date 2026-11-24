@@ -3,7 +3,7 @@ window.MISSIONE = {
  "titolo": "MISSIONE ALFABETO",
  "sottotitolo": "AIUTA TESFAYE A LEGGERE E SCRIVERE!",
  "parolaSegreta": "SCRIVO",
- "guida": "saleah",
+ "guida": "luciana",
  "protagonista": "tesfaye",
  "etichetta": "ITALIANO L2 · ALFABETIZZAZIONE",
  "portaFinale": "LA PORTA DELLA CLASSE",
@@ -19,11 +19,11 @@ window.MISSIONE = {
    "VOGLIO IMPARARE A LEGGERE E A SCRIVERE IN ITALIANO."
   ],
   [
-   "saleah",
-   "IO SONO SALEAH. TI AIUTO IO! CI SONO 6 PORTE. DIETRO OGNI PORTA C'È UNA LETTERA."
+   "luciana",
+   "IO SONO LUCIANA, L'INSEGNANTE DI ITALIANO. TI AIUTO IO! CI SONO 6 PORTE. DIETRO OGNI PORTA C'È UNA LETTERA."
   ],
   [
-   "saleah",
+   "luciana",
    "👆 TOCCA 🔊 PER ASCOLTARE. CON LE 6 LETTERE SCOPRI LA PAROLA SEGRETA!"
   ]
  ],
@@ -33,7 +33,7 @@ window.MISSIONE = {
    "È L'ULTIMO GIORNO DEL CORSO. HO UN FOGLIO E UNA PENNA."
   ],
   [
-   "saleah",
+   "luciana",
    "CHE COSA FA ADESSO TESFAYE CON LA PENNA? SCRIVI LA PAROLA SEGRETA CON LE 6 LETTERE."
   ]
  ],
@@ -44,14 +44,14 @@ window.MISSIONE = {
    "titolo": "CIAO, IO SONO…",
    "icona": "👋",
    "lettera": "S",
-   "chi": "saleah",
+   "chi": "luciana",
    "lezione": {
     "titolo": "CIAO, IO SONO",
     "link": "alfa-ciao-io-sono/"
    },
    "storia": [
     [
-     "saleah",
+     "luciana",
      "PRIMA PORTA: CI PRESENTIAMO!"
     ]
    ],
@@ -62,7 +62,7 @@ window.MISSIONE = {
    "prove": [
     {
      "tipo": "scelta",
-     "domanda": "SALEAH DICE: «CIAO! COME TI CHIAMI?» TESFAYE RISPONDE:",
+     "domanda": "LUCIANA DICE: «CIAO! COME TI CHIAMI?» TESFAYE RISPONDE:",
      "icona": "👋",
      "risposte": [
       {
@@ -133,7 +133,7 @@ window.MISSIONE = {
    "titolo": "VADO AL CORSO",
    "icona": "🏫",
    "lettera": "C",
-   "chi": "saleah",
+   "chi": "luciana",
    "lezione": {
     "titolo": "VADO AL CORSO",
     "link": "alfa-vado-al-corso/"
@@ -141,11 +141,11 @@ window.MISSIONE = {
    "storia": [
     [
      "tesfaye",
-     "SALEAH, CHE COSA SERVE PER IL CORSO?"
+     "LUCIANA, CHE COSA SERVE PER IL CORSO?"
     ]
    ],
    "fine": [
-    "saleah",
+    "luciana",
     "BRAVO! HAI TUTTO NELLO ZAINO."
    ],
    "prove": [
@@ -189,9 +189,9 @@ window.MISSIONE = {
      "tipo": "vf",
      "domanda": "IL CORSO DI ITALIANO PER ADULTI AL CPIA È GRATIS.",
      "icona": "💶",
-     "correct": true,
-     "aiuto": "NON SI PAGA.",
-     "spiega": "VERO. IL CORSO È GRATIS: SERVE UN DOCUMENTO."
+     "correct": false,
+     "aiuto": "C'È UNA QUOTA DI ISCRIZIONE.",
+     "spiega": "FALSO. SI PAGA UNA PICCOLA QUOTA DI ISCRIZIONE. SERVE ANCHE UN DOCUMENTO."
     }
    ]
   },
@@ -200,14 +200,14 @@ window.MISSIONE = {
    "titolo": "LA MIA GIORNATA",
    "icona": "☀️",
    "lettera": "R",
-   "chi": "saleah",
+   "chi": "luciana",
    "lezione": {
     "titolo": "LA MIA GIORNATA",
     "link": "alfa-la-mia-giornata/"
    },
    "storia": [
     [
-     "saleah",
+     "luciana",
      "QUANDO FAI LE COSE? MATTINA, POMERIGGIO, SERA…"
     ]
    ],
@@ -281,7 +281,7 @@ window.MISSIONE = {
    "titolo": "MI DESCRIVO E STO BENE",
    "icona": "🧥",
    "lettera": "I",
-   "chi": "saleah",
+   "chi": "luciana",
    "lezione": {
     "titolo": "MI DESCRIVO",
     "link": "alfa-mi-descrivo/"
@@ -293,7 +293,7 @@ window.MISSIONE = {
     ]
    ],
    "fine": [
-    "saleah",
+    "luciana",
     "BENE! E ADESSO COME STAI?"
    ],
    "prove": [
@@ -370,14 +370,14 @@ window.MISSIONE = {
    "titolo": "LA CASA E LA CITTÀ",
    "icona": "🏠",
    "lettera": "V",
-   "chi": "saleah",
+   "chi": "luciana",
    "lezione": {
     "titolo": "MI SCUSI, DOV'È…?",
     "link": "alfa-mi-scusi-dove/"
    },
    "storia": [
     [
-     "saleah",
+     "luciana",
      "ADESSO GIRIAMO PER BARI. DOVE SONO LE COSE?"
     ]
    ],
@@ -467,7 +467,7 @@ window.MISSIONE = {
    "titolo": "LA SPESA E IL LAVORO",
    "icona": "🛒",
    "lettera": "O",
-   "chi": "saleah",
+   "chi": "luciana",
    "lezione": {
     "titolo": "CERCO LAVORO",
     "link": "alfa-cerco-lavoro/"
@@ -479,7 +479,7 @@ window.MISSIONE = {
     ]
    ],
    "fine": [
-    "saleah",
+    "luciana",
     "BRAVISSIMO, TESFAYE! APRI L'ULTIMA PORTA."
    ],
    "prove": [

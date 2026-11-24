@@ -283,7 +283,7 @@ CAMB_SLIDE = [
         head=["quando", "tempo", "esempio"])),
     slide("🏠 Educazione civica · Cominciare una nuova vita", cards([
         ("🏛️", "il SAI", "Sistema di Accoglienza e Integrazione: casa, corsi, orientamento"), ("🧑‍💼", "l'operatore", "aiuta con documenti, lavoro, salute"),
-        ("📚", "il CPIA", "corsi gratuiti di italiano per adulti"), ("💼", "il Centro per l'impiego", "offerte di lavoro e corsi"),
+        ("📚", "il CPIA", "corsi di italiano per adulti, con una piccola quota di iscrizione"), ("💼", "il Centro per l'impiego", "offerte di lavoro e corsi"),
         ("🩺", "la tessera sanitaria", "per il medico di base"), ("🤲", "le associazioni", "volontari, sportelli, consulenze")], "g3")),
     end("Ora sai raccontare un cambiamento di vita!"),
 ]
@@ -324,7 +324,7 @@ A2CAMB = {
        "5 · Accordo, disaccordo o opinione?", "5 · Opinioni", "e5"),
   {"part": "Educazione civica · Una nuova vita"},
   menu(["il SAI", "il CPIA", "il Centro per l'impiego", "la tessera sanitaria", "le associazioni"],
-       [("1. Voglio un corso gratuito di italiano: vado al …", "il CPIA"), ("2. Cerco lavoro e corsi di formazione: vado al …", "il Centro per l'impiego"),
+       [("1. Voglio un corso di italiano per adulti: vado al …", "il CPIA"), ("2. Cerco lavoro e corsi di formazione: vado al …", "il Centro per l'impiego"),
         ("3. Mi serve per scegliere il medico di base: …", "la tessera sanitaria"), ("4. Casa e orientamento per chi ha protezione: …", "il SAI"),
         ("5. Volontari e sportelli gratuiti: …", "le associazioni")],
        "6 · Dove vado?", "6 · I servizi", "e6"),
@@ -360,7 +360,7 @@ GIOCHI = {
  "a2-cambiare-vita": ("a2-vivere-insieme", "A2", "🧭 GIOCHI: CAMBIARE VITA (A2)", [
   ["EMIGRARE", "🧳", "LASCIARE IL PROPRIO PAESE"], ["IL CONFINE", "🚧", "LINEA TRA DUE PAESI"], ["L'ACCOGLIENZA", "🤲", "IL PRIMO AIUTO"], ["L'INTEGRAZIONE", "🧩", "DIVENTARE PARTE DELLA SOCIETÀ"],
   ["L'ASILO", "🛡️", "LA PROTEZIONE CHE SI CHIEDE"], ["IL VIAGGIO", "🚢", "DA UN PAESE A UN ALTRO"], ["LA PARTENZA", "🛫", "IL MOMENTO IN CUI PARTI"], ["L'ARRIVO", "🛬", "IL MOMENTO IN CUI ARRIVI"],
-  ["IL SAI", "🏛️", "SISTEMA DI ACCOGLIENZA E INTEGRAZIONE"], ["IL CPIA", "📚", "CORSI GRATUITI DI ITALIANO"], ["L'OPERATORE", "🧑‍💼", "AIUTA NEL CENTRO"], ["LA NOSTALGIA", "💭", "MANCA LA CASA LONTANA"],
+  ["IL SAI", "🏛️", "SISTEMA DI ACCOGLIENZA E INTEGRAZIONE"], ["IL CPIA", "📚", "CORSI DI ITALIANO PER ADULTI"], ["L'OPERATORE", "🧑‍💼", "AIUTA NEL CENTRO"], ["LA NOSTALGIA", "💭", "MANCA LA CASA LONTANA"],
   ["IL PIZZAIOLO", "🍕", "FA LE PIZZE"], ["L'AFFITTO", "🏠", "SI PAGA OGNI MESE PER LA CASA"], ["DOVUTO", "📌", "HO … LAVORARE"], ["POTUTO", "✅", "NON HO … PARTIRE"],
   ["D'ACCORDO", "👍", "SONO … CON TE"], ["SECONDO ME", "💬", "PER DARE UN'OPINIONE"]]),
 }
