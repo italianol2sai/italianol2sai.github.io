@@ -44,7 +44,7 @@ ol.it{list-style:none;padding:0;margin:0} ol.it>li{margin:5px 0;break-inside:avo
 img{max-width:100%%;max-height:55mm}
 .risp{margin:2px 0 4px;line-height:1.7} .sol .es{margin:6px 0 10px}
 .trascr{font-size:.9em;border-left:3px solid #999;padding-left:8px;margin:4px 0}
-footer{margin-top:14px;font-size:.7em;color:#777;text-align:center;text-transform:none}
+footer{margin-top:14px;font-size:.7em;color:#777;text-align:center}
 """
 
 

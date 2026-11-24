@@ -136,11 +136,15 @@
 
   // ---------- stampa
   function stampa(html, liv, piede) {
+    // Alfa / A0 / A1: tutto in stampatello maiuscolo, anche il piè di pagina (regola di Erila)
+    var su = liv === "alfa" || (window.DATA && window.DATA.upper);
+    if (su) piede = piede.toUpperCase();
     var box = document.getElementById("libro");
     if (!box) { box = document.createElement("div"); box.id = "libro"; document.body.appendChild(box); }
     box.className = "l-" + (liv || "b1");
     box.style.setProperty("--acc", ACC[liv] || "#333");
-    box.innerHTML = html + '<p class="piede">italianol2sai.github.io · Autoapprendimento Italiano L2 ETNIE</p>';
+    var firma = "italianol2sai.github.io · Autoapprendimento Italiano L2 ETNIE";
+    box.innerHTML = html + '<p class="piede">' + (su ? firma.toUpperCase() : firma) + "</p>";
     pagina.textContent = "@media print{@page{" +
       "@bottom-left{content:\"" + esc(piede) + "\";font:8pt sans-serif;color:#888}" +
       "@bottom-right{content:counter(page);font:bold 9pt sans-serif;color:" + (ACC[liv] || "#333") + "}}}";
