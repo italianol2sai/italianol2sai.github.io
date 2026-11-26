@@ -171,33 +171,33 @@ GIOCHI["citta"] = dict(
 
 # ------------------------------------------------------------------ EDUCAZIONE CIVICA
 GIOCHI["civica"] = dict(
-  titolo="MISSIONE CITTADINO", sottotitolo="AIUTA TESFAYE CON I DOCUMENTI!", parolaSegreta="DIRITTI", guida="silvia2", protagonista="tesfaye",
+  titolo="MISSIONE CITTADINO", sottotitolo="AIUTA TESFAYE CON I DOCUMENTI!", parolaSegreta="DIRITTI", guida="nadia", protagonista="tesfaye",
   etichetta="ITALIANO L2 · EDUCAZIONE CIVICA", portaFinale="LA PORTA DEL COMUNE", grazie="GRAZIE! ORA CONOSCO I MIEI DIRITTI E I MIEI DOVERI!",
   imparato="HAI IMPARATO I DOCUMENTI, GLI UFFICI, I DIRITTI E I DOVERI E LE REGOLE DELLA CONVIVENZA.",
-  intro=[["tesfaye", "DEVO FARE TANTI DOCUMENTI: CODICE FISCALE, RESIDENZA, CARTA D'IDENTITÀ…"], ["silvia2", "NON TI PREOCCUPARE, TI AIUTO IO."],
-         ["silvia2", "CI SONO 7 PORTE. CON LE 7 LETTERE SCOPRI CHE COSA HANNO TUTTE LE PERSONE IN ITALIA!"]],
-  finale=[["tesfaye", "HO TUTTI I DOCUMENTI!"], ["silvia2", "LA COSTITUZIONE DICE CHE TUTTI HANNO DEI… SCRIVI LA PAROLA SEGRETA."]],
-  vittoria="SILVIA DICE: «TUTTE LE PERSONE HANNO DIRITTI E DOVERI. BENVENUTO, TESFAYE!»",
+  intro=[["tesfaye", "DEVO FARE TANTI DOCUMENTI: CODICE FISCALE, RESIDENZA, CARTA D'IDENTITÀ…"], ["nadia", "NON TI PREOCCUPARE, TI AIUTO IO."],
+         ["nadia", "CI SONO 7 PORTE. CON LE 7 LETTERE SCOPRI CHE COSA HANNO TUTTE LE PERSONE IN ITALIA!"]],
+  finale=[["tesfaye", "HO TUTTI I DOCUMENTI!"], ["nadia", "LA COSTITUZIONE DICE CHE TUTTI HANNO DEI… SCRIVI LA PAROLA SEGRETA."]],
+  vittoria="NADIA DICE: «TUTTE LE PERSONE HANNO DIRITTI E DOVERI. BENVENUTO, TESFAYE!»",
   stanze=[
-    porta("codice", "IL CODICE FISCALE", "🪪", "D", "silvia2", ("IL CODICE FISCALE", "codice-fiscale/"), [["silvia2", "IL PRIMO DOCUMENTO È IL CODICE FISCALE."]], ["tesfaye", "HO IL CODICE FISCALE!"], [
+    porta("codice", "IL CODICE FISCALE", "🪪", "D", "nadia", ("IL CODICE FISCALE", "codice-fiscale/"), [["nadia", "IL PRIMO DOCUMENTO È IL CODICE FISCALE."]], ["tesfaye", "HO IL CODICE FISCALE!"], [
       S("DOVE CHIEDO IL CODICE FISCALE?", "🏢", [("ALL'AGENZIA DELLE ENTRATE", "🏢"), ("AL SUPERMERCATO", "🛒"), ("IN STAZIONE", "🚉")], "È L'UFFICIO DELLE TASSE.", "IL CODICE FISCALE SI CHIEDE ALL'AGENZIA DELLE ENTRATE."),
       VF("IL CODICE FISCALE HA 16 CARATTERI: LETTERE E NUMERI.", "🔢", True, "CONTA: RSSMRA80A01A662X.", "VERO.")]),
-    porta("residenza", "LA RESIDENZA", "🏠", "I", "silvia2", ("IN COMUNE E IN QUESTURA", "comune-questura/"), [["silvia2", "ORA LA RESIDENZA, IN COMUNE."]], ["tesfaye", "HO LA RESIDENZA!"], [
+    porta("residenza", "LA RESIDENZA", "🏠", "I", "nadia", ("IN COMUNE E IN QUESTURA", "comune-questura/"), [["nadia", "ORA LA RESIDENZA, IN COMUNE."]], ["tesfaye", "HO LA RESIDENZA!"], [
       S("DOVE CHIEDO LA RESIDENZA?", "🏛️", [("ALL'ANAGRAFE DEL COMUNE", "🏛️"), ("IN QUESTURA", "👮"), ("IN BANCA", "🏦")], "È L'UFFICIO DEL COMUNE PER I CITTADINI.", "LA RESIDENZA SI CHIEDE ALL'ANAGRAFE."),
       VF("LA RESIDENZA È L'INDIRIZZO DOVE ABITO DI SOLITO.", "📍", True, "È DOVE VIVI.", "VERO.")]),
-    porta("carta", "LA CARTA D'IDENTITÀ", "🪪", "R", "silvia2", ("IN COMUNE E IN QUESTURA", "comune-questura/"), [["silvia2", "CON LA RESIDENZA PUOI CHIEDERE LA CARTA D'IDENTITÀ."]], ["tesfaye", "ECCO LA MIA CIE!"], [
+    porta("carta", "LA CARTA D'IDENTITÀ", "🪪", "R", "nadia", ("IN COMUNE E IN QUESTURA", "comune-questura/"), [["nadia", "CON LA RESIDENZA PUOI CHIEDERE LA CARTA D'IDENTITÀ."]], ["tesfaye", "ECCO LA MIA CIE!"], [
       S("LA CARTA D'IDENTITÀ ELETTRONICA SI CHIAMA…", "💳", [("CIE", "💳"), ("SPID", "📱"), ("IBAN", "🏦")], "C-I-E.", "CIE = CARTA D'IDENTITÀ ELETTRONICA."),
       VF("PER LA CIE SERVE UNA FOTO.", "📷", True, "SULLA CARTA C'È LA TUA FACCIA.", "VERO.")]),
-    porta("permesso", "IL PERMESSO DI SOGGIORNO", "📄", "I", "silvia2", ("IN COMUNE E IN QUESTURA", "comune-questura/"), [["tesfaye", "IL MIO PERMESSO SCADE FRA DUE MESI!"]], ["silvia2", "BRAVO, NON DIMENTICARE LA DATA!"], [
+    porta("permesso", "IL PERMESSO DI SOGGIORNO", "📄", "I", "nadia", ("IN COMUNE E IN QUESTURA", "comune-questura/"), [["tesfaye", "IL MIO PERMESSO SCADE FRA DUE MESI!"]], ["nadia", "BRAVO, NON DIMENTICARE LA DATA!"], [
       S("DOVE RINNOVO IL PERMESSO DI SOGGIORNO?", "👮", [("IN QUESTURA", "👮"), ("DAL MEDICO", "🩺"), ("A SCUOLA", "🏫")], "È L'UFFICIO DELLA POLIZIA.", "IL PERMESSO SI RINNOVA IN QUESTURA (CON IL KIT DELLA POSTA)."),
       VF("IL PERMESSO SI PUÒ RINNOVARE ANCHE DOPO TRE ANNI DALLA SCADENZA.", "📅", False, "BISOGNA FARLO PRIMA.", "FALSO. SI CHIEDE IL RINNOVO PRIMA DELLA SCADENZA.")]),
-    porta("diritti", "DIRITTI E DOVERI", "⚖️", "T", "silvia2", ("EDUCAZIONE CIVICA", "#educazione-civica"), [["silvia2", "IN ITALIA HAI DIRITTI E DOVERI."]], ["tesfaye", "HO CAPITO!"], [
+    porta("diritti", "DIRITTI E DOVERI", "⚖️", "T", "nadia", ("EDUCAZIONE CIVICA", "#educazione-civica"), [["nadia", "IN ITALIA HAI DIRITTI E DOVERI."]], ["tesfaye", "HO CAPITO!"], [
       S("QUALE È UN DOVERE?", "💶", [("PAGARE LE TASSE", "💶"), ("ANDARE AL MARE", "🏖️"), ("GUARDARE LA TV", "📺")], "SERVE PER LE SCUOLE E GLI OSPEDALI.", "PAGARE LE TASSE È UN DOVERE."),
       VF("TUTTI HANNO DIRITTO ALLE CURE MEDICHE URGENTI.", "🏥", True, "LO DICE LA COSTITUZIONE (ARTICOLO 32).", "VERO.")]),
-    porta("costituzione", "LA COSTITUZIONE", "📜", "T", "silvia2", ("EDUCAZIONE CIVICA", "#educazione-civica"), [["silvia2", "LA LEGGE PIÙ IMPORTANTE È LA COSTITUZIONE."]], ["tesfaye", "CHE INTERESSANTE!"], [
+    porta("costituzione", "LA COSTITUZIONE", "📜", "T", "nadia", ("EDUCAZIONE CIVICA", "#educazione-civica"), [["nadia", "LA LEGGE PIÙ IMPORTANTE È LA COSTITUZIONE."]], ["tesfaye", "CHE INTERESSANTE!"], [
       S("IL 2 GIUGNO È…", "🇮🇹", [("LA FESTA DELLA REPUBBLICA", "🇮🇹"), ("NATALE", "🎄"), ("FERRAGOSTO", "☀️")], "NEL 1946 GLI ITALIANI HANNO VOTATO.", "IL 2 GIUGNO È LA FESTA DELLA REPUBBLICA."),
       VF("LA COSTITUZIONE ITALIANA È DEL 1948.", "📜", True, "È ENTRATA IN VIGORE IL 1° GENNAIO 1948.", "VERO.")]),
-    porta("regole", "LE REGOLE DI TUTTI I GIORNI", "♻️", "I", "silvia2", ("LA RACCOLTA DIFFERENZIATA", "raccolta-differenziata/"), [["silvia2", "ULTIMA PORTA: LE REGOLE DELLA CONVIVENZA."]], ["tesfaye", "RISPETTO LE REGOLE!"], [
+    porta("regole", "LE REGOLE DI TUTTI I GIORNI", "♻️", "I", "nadia", ("LA RACCOLTA DIFFERENZIATA", "raccolta-differenziata/"), [["nadia", "ULTIMA PORTA: LE REGOLE DELLA CONVIVENZA."]], ["tesfaye", "RISPETTO LE REGOLE!"], [
       S("DOVE BUTTO LA BOTTIGLIA DI VETRO?", "🍾", [("NEL VETRO", "🟩"), ("NELL'ORGANICO", "🟫"), ("PER STRADA", "🚮")], "C'È UN BIDONE SOLO PER IL VETRO.", "IL VETRO VA NEL BIDONE DEL VETRO."),
       VF("IN AUTO TUTTI DEVONO METTERE LA CINTURA.", "🚗", True, "ANCHE DIETRO.", "VERO.")]),
   ])
