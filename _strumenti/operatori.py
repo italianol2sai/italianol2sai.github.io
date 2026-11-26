@@ -81,4 +81,11 @@ PROTAGONISTI = {
  "tesfaye": ("TESFAYE", "33 ANNI · ERITREA", ritratto("te", "#F6EBDD", "#8A5634", "#6F4226", "#1A1310", "#00897B", "corti", occhiali=True)),
 }
 
+import os as _os
+_RIT = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "comune", "ritratti")
+for _d in (OPERATORI, PROTAGONISTI):
+    for _k, (_n, _r, _s) in list(_d.items()):
+        if _os.path.exists(_os.path.join(_RIT, _k + ".png")):
+            _d[_k] = (_n, _r, '<img src="../comune/ritratti/%s.png" alt="" style="width:100%%;height:100%%;display:block;border-radius:50%%;object-fit:cover">' % _k)
+
 OPERATORI_JS = ",\n".join('  %s: { nome: "%s", ruolo: "%s", svg: \'%s\' }' % (k, n, r, s) for k, (n, r, s) in list(OPERATORI.items()) + list(PROTAGONISTI.items()))
