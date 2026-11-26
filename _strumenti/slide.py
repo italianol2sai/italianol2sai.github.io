@@ -36,7 +36,8 @@ def build(path, unit, topbar, slides, css=""):
     body += "\n\n".join(slides) + "\n\n</div>\n\n"
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
-        f.write(head + body + tail.replace("</body>", SAY + "\n</body>"))
+        # pulsante «🖨️ STAMPA L'UNITÀ» (Erila 2026-11-24 e 26: in tutte le pagine di teoria)
+        f.write(head + body + tail.replace("</body>", SAY + '\n<script src="../comune/stampa.js"></script>\n</body>'))
     print("scritto", path)
 
 if __name__ == "__main__":

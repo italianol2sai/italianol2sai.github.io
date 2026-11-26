@@ -84,7 +84,8 @@ def build_slide(path, unit, topbar, slides, liv):
     SL.build(path, unit, topbar, slides, CSS[liv])
     s = open(path, encoding="utf-8").read().replace("</head>", font_link(liv) + "\n</head>", 1)
     # pulsante «🖨️ STAMPA» (regola di Erila 2026-11-24: sempre nelle pagine di teoria)
-    s = s.replace("</body>", '<script src="../comune/stampa.js"></script>\n</body>', 1)
+    if "comune/stampa.js" not in s:
+        s = s.replace("</body>", '<script src="../comune/stampa.js"></script>\n</body>', 1)
     open(path, "w", encoding="utf-8").write(s)
 
 def say(t, label="🔊"):
