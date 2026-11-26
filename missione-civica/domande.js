@@ -3,7 +3,7 @@ window.MISSIONE = {
  "titolo": "MISSIONE CITTADINO",
  "sottotitolo": "AIUTA TESFAYE CON I DOCUMENTI!",
  "parolaSegreta": "DIRITTI",
- "guida": "silvia2",
+ "guida": "nadia",
  "protagonista": "tesfaye",
  "etichetta": "ITALIANO L2 · EDUCAZIONE CIVICA",
  "portaFinale": "LA PORTA DEL COMUNE",
@@ -15,11 +15,11 @@ window.MISSIONE = {
    "DEVO FARE TANTI DOCUMENTI: CODICE FISCALE, RESIDENZA, CARTA D'IDENTITÀ…"
   ],
   [
-   "silvia2",
+   "nadia",
    "NON TI PREOCCUPARE, TI AIUTO IO."
   ],
   [
-   "silvia2",
+   "nadia",
    "CI SONO 7 PORTE. CON LE 7 LETTERE SCOPRI CHE COSA HANNO TUTTE LE PERSONE IN ITALIA!"
   ]
  ],
@@ -29,25 +29,25 @@ window.MISSIONE = {
    "HO TUTTI I DOCUMENTI!"
   ],
   [
-   "silvia2",
+   "nadia",
    "LA COSTITUZIONE DICE CHE TUTTI HANNO DEI… SCRIVI LA PAROLA SEGRETA."
   ]
  ],
- "vittoria": "SILVIA DICE: «TUTTE LE PERSONE HANNO DIRITTI E DOVERI. BENVENUTO, TESFAYE!»",
+ "vittoria": "NADIA DICE: «TUTTE LE PERSONE HANNO DIRITTI E DOVERI. BENVENUTO, TESFAYE!»",
  "stanze": [
   {
    "id": "codice",
    "titolo": "IL CODICE FISCALE",
    "icona": "🪪",
    "lettera": "D",
-   "chi": "silvia2",
+   "chi": "nadia",
    "lezione": {
     "titolo": "IL CODICE FISCALE",
     "link": "codice-fiscale/"
    },
    "storia": [
     [
-     "silvia2",
+     "nadia",
      "IL PRIMO DOCUMENTO È IL CODICE FISCALE."
     ]
    ],
@@ -93,14 +93,14 @@ window.MISSIONE = {
    "titolo": "LA RESIDENZA",
    "icona": "🏠",
    "lettera": "I",
-   "chi": "silvia2",
+   "chi": "nadia",
    "lezione": {
     "titolo": "IN COMUNE E IN QUESTURA",
     "link": "comune-questura/"
    },
    "storia": [
     [
-     "silvia2",
+     "nadia",
      "ORA LA RESIDENZA, IN COMUNE."
     ]
    ],
@@ -146,14 +146,14 @@ window.MISSIONE = {
    "titolo": "LA CARTA D'IDENTITÀ",
    "icona": "🪪",
    "lettera": "R",
-   "chi": "silvia2",
+   "chi": "nadia",
    "lezione": {
     "titolo": "IN COMUNE E IN QUESTURA",
     "link": "comune-questura/"
    },
    "storia": [
     [
-     "silvia2",
+     "nadia",
      "CON LA RESIDENZA PUOI CHIEDERE LA CARTA D'IDENTITÀ."
     ]
    ],
@@ -199,7 +199,7 @@ window.MISSIONE = {
    "titolo": "IL PERMESSO DI SOGGIORNO",
    "icona": "📄",
    "lettera": "I",
-   "chi": "silvia2",
+   "chi": "nadia",
    "lezione": {
     "titolo": "IN COMUNE E IN QUESTURA",
     "link": "comune-questura/"
@@ -211,7 +211,7 @@ window.MISSIONE = {
     ]
    ],
    "fine": [
-    "silvia2",
+    "nadia",
     "BRAVO, NON DIMENTICARE LA DATA!"
    ],
    "prove": [
@@ -252,14 +252,14 @@ window.MISSIONE = {
    "titolo": "DIRITTI E DOVERI",
    "icona": "⚖️",
    "lettera": "T",
-   "chi": "silvia2",
+   "chi": "nadia",
    "lezione": {
     "titolo": "EDUCAZIONE CIVICA",
     "link": "#educazione-civica"
    },
    "storia": [
     [
-     "silvia2",
+     "nadia",
      "IN ITALIA HAI DIRITTI E DOVERI."
     ]
    ],
@@ -305,14 +305,14 @@ window.MISSIONE = {
    "titolo": "LA COSTITUZIONE",
    "icona": "📜",
    "lettera": "T",
-   "chi": "silvia2",
+   "chi": "nadia",
    "lezione": {
     "titolo": "EDUCAZIONE CIVICA",
     "link": "#educazione-civica"
    },
    "storia": [
     [
-     "silvia2",
+     "nadia",
      "LA LEGGE PIÙ IMPORTANTE È LA COSTITUZIONE."
     ]
    ],
@@ -358,14 +358,14 @@ window.MISSIONE = {
    "titolo": "LE REGOLE DI TUTTI I GIORNI",
    "icona": "♻️",
    "lettera": "I",
-   "chi": "silvia2",
+   "chi": "nadia",
    "lezione": {
     "titolo": "LA RACCOLTA DIFFERENZIATA",
     "link": "raccolta-differenziata/"
    },
    "storia": [
     [
-     "silvia2",
+     "nadia",
      "ULTIMA PORTA: LE REGOLE DELLA CONVIVENZA."
     ]
    ],
