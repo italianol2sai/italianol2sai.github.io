@@ -6,9 +6,10 @@
    Basta includere <script src="../comune/stampa.js"></script> (motore.js lo carica da solo). */
 (function () {
   if (window.__stampa) return; window.__stampa = true;
+  var me = document.currentScript;
 
-  var LIV = { alfa: "Alfabetizzazione", a2: "Livello A2", b1: "Livello B1" };
-  var ACC = { alfa: "#0b7a75", a2: "#c2410c", b1: "#5b3fa3" };
+  var LIV = { alfa: "Alfabetizzazione", a1: "Livello A1", a2: "Livello A2", b1: "Livello B1" };
+  var ACC = { alfa: "#0b7a75", a1: "#0369a1", a2: "#c2410c", b1: "#5b3fa3" };
 
   var CSS = "" +
     ".btn-stampa{cursor:pointer}" +
@@ -91,6 +92,7 @@
     if (ex.cons) h.push('<p class="cons">' + ex.cons.replace("TOCCA 🔊.", "ASCOLTA L'INSEGNANTE.").replace("Tocca 🔊.", "Ascolta l'insegnante.") + "</p>");
     if (ex.audio) h.push("<p><b>🎧 " + T("Ascolta l'insegnante.") + "</b></p>");
     if (ex.info) h.push('<div class="box">' + sayIcon(ex.info) + "</div>");
+    if (ex.img) h.push('<p><img src="' + ex.img + '" alt=""></p>');
     if (ex.bank) h.push('<div class="box">' + ex.bank + "</div>");
     var corti = items.length > 4 && items.every(function (it) {
       return typeof it === "object" && !it.pre && (testo(it.q) + (it.opts || ex.opts || []).join("  ")).length < 22; });
@@ -111,6 +113,14 @@
       h.push("<ol>" + items.map(function (x) { return '<li><span class="quad"></span>' + x + "</li>"; }).join("") + "</ol>");
     } else if (t === "free") {
       items.forEach(function (lab) { h.push("<p><b>" + lab + '</b></p><div class="righe">' + new Array((ex.rows || 4) + 1).join("<div></div>") + "</div>"); });
+    } else if (t === "multi") {
+      h.push("<ol" + (corti ? ' class="due"' : "") + ">" + items.map(function (x) { return '<li><span class="quad"></span>' + (typeof x === "string" ? x : x.q) + "</li>"; }).join("") + "</ol>");
+    } else if (t === "survey") {
+      h.push("<ol>" + items.map(function (x) { return "<li>" + (typeof x === "string" ? x : x.q) + " " + opz(ex.opts) + "</li>"; }).join("") + "</ol>");
+    } else if (t === "set") {
+      h.push("<ol" + ((ex.n || 4) > 4 ? ' class="due"' : "") + ">" + new Array((ex.n || 4) + 1).join("<li>" + riga("l") + "</li>") + "</ol>");
+    } else if (t === "info") {
+      // solo testo da leggere (è già nel riquadro)
     } else if (t === "record") {
       h.push('<p class="cons">🗣️ ' + T("Parla con l'insegnante o con un compagno.") + "</p>");
       items.forEach(function (x) { h.push('<p class="parla">' + x + "</p>"); });
@@ -140,14 +150,21 @@
       (ico ? '<div class="ico">' + ico + "</div>" : "") + "</div>";
   }
 
+  // livello delle schede vecchie senza D.livello: maiuscolo = A1 (quaderno), altrimenti A2/B1+
+  function livelloDati(D) {
+    if (D.livello) return D.livello;
+    if (D.upper) return "a1";
+    return /\b(B1|B2|C1|C2)\b/.test((D.title || "") + " " + (D.sub || "")) ? "b1" : "a2";
+  }
+
   // ---------- stampa
   function stampa(html, liv, piede) {
     // Alfa / A0 / A1: tutto in stampatello maiuscolo, anche il piè di pagina (regola di Erila)
-    var su = liv === "alfa" || (window.DATA && window.DATA.upper);
+    var su = liv === "alfa" || liv === "a1" || (window.DATA && window.DATA.upper);
     if (su) piede = piede.toUpperCase();
     var box = document.getElementById("libro");
     if (!box) { box = document.createElement("div"); box.id = "libro"; document.body.appendChild(box); }
-    box.className = "l-" + (liv || "b1");
+    box.className = liv === "a1" ? "l-alfa l-a1" : "l-" + (liv || "b1");
     box.style.setProperty("--acc", ACC[liv] || "#333");
     var firma = "italianol2sai.github.io · Autoapprendimento Italiano L2 ETNIE";
     box.innerHTML = html + '<p class="piede">' + (su ? firma.toUpperCase() : firma) + "</p>";
@@ -169,8 +186,9 @@
     return m ? JSON.parse(m[1]) : null;
   }
   function livelloSlide() {
-    var t = (document.querySelector(".topbar .unit") || {}).textContent || "";
-    return /ALFABETIZZAZIONE/i.test(t) ? "alfa" : /A2/.test(t) ? "a2" : /B1/.test(t) ? "b1" : "";
+    var t = ((document.querySelector(".topbar .unit") || {}).textContent || "") + " " +
+      ((document.querySelector(".stage .slide .badge") || {}).textContent || "");
+    return /ALFABETIZZAZIONE/i.test(t) ? "alfa" : /\b(B1|B2|C1|C2)\b/.test(t) ? "b1" : /\bA1\b/.test(t) ? "a1" : /\bA2\b/.test(t) ? "a2" : "a1";
   }
 
   // ---------- pagina a slide (teoria + esercizi)
@@ -190,19 +208,59 @@
       var piede = "Italiano L2 · " + titolo;
       fetch("esercizi.html").then(function (r) { return r.ok ? r.text() : ""; }).then(function (t) {
         var D = t && datiDa(t);
+        if (D && !D.sections) D = null;
         stampa(html + (D ? '<div class="capitolo">' + scheda(D, false) + "</div>" : ""), liv, piede);
       }).catch(function () { stampa(html, liv, piede); });
     }));
   }
 
-  // ---------- pagina di esercizi
+  // ---------- pagine fatte a mano (verifiche, flashcard, ascolto…): si stampa la pagina com'è,
+  // senza pulsanti; con data-scheda in cima c'è NOME / DATA
   var D = window.DATA;
+  if (!(controls && document.querySelector(".stage")) && !(D && D.sections)) {
+    var conScheda = me && me.hasAttribute("data-scheda");
+    var su2 = me && me.hasAttribute("data-maiuscolo");
+    var css2 = document.createElement("style");
+    css2.textContent = ".stampa-fissa{position:fixed;right:14px;bottom:14px;z-index:9999;font:700 15px system-ui,sans-serif;padding:10px 16px;border-radius:999px;border:0;background:#1f3a5f;color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.25)}" +
+      ".stampa-testa{display:none}" +
+      "@media print{@page{size:A4;margin:14mm}" +
+      " *{-webkit-print-color-adjust:exact;print-color-adjust:exact}" +
+      " html,body{height:auto!important;overflow:visible!important}" +
+      " .stampa-fissa,.np,nav,.no-print{display:none!important}" +
+      " .stampa-testa{display:flex!important;gap:18px;font:700 12pt sans-serif;margin:0 0 12px}" +
+      " .stampa-testa span{flex:1;border-bottom:1.5px solid #444}" +
+      " input[type=text],input:not([type]),textarea{border:0!important;border-bottom:1.5px solid #333!important;border-radius:0!important;background:none!important;box-shadow:none!important}" +
+      " section,.card,.box,img,table,li{break-inside:avoid}}";
+    // pulsanti di comando (Controlla, Invia, Avanti…): non si stampano; le risposte a scelta sì
+    var COMANDI = /controlla|invia|whatsapp|condividi|ricomincia|cancella|stampa|indietro|avanti|mescola|prossim|successiv|giochi|registr|^\s*[◀▶⏮⏭🔊🔀↺⟲]/i;
+    window.addEventListener("beforeprint", function () {
+      [].forEach.call(document.querySelectorAll("button,.btn,a.btn"), function (x) {
+        if (COMANDI.test(x.textContent) || x.classList.contains("say") || x.classList.contains("btn-stampa")) x.classList.add("np"); });
+    });
+    document.head.appendChild(css2);
+    var metti2 = function () {
+      if (conScheda) {
+        var t = document.createElement("p"); t.className = "stampa-testa";
+        t.innerHTML = (su2 ? "NOME" : "Nome") + "<span></span>" + (su2 ? "DATA" : "Data") + "<span></span>";
+        document.body.insertBefore(t, document.body.firstChild);
+      }
+      var b = bottone(su2 ? "🖨️ STAMPA" : "🖨️ Stampa", function () {
+        window.print();
+      }, "stampa-fissa");
+      b.title = su2 ? "STAMPA QUESTA PAGINA" : "Stampa questa pagina";
+      document.body.appendChild(b);
+    };
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", metti2); else metti2();
+    return;
+  }
+
+  // ---------- pagina di esercizi
   if (!D || !D.sections) return;
   function metti() {
     var app = document.getElementById("app"); if (!app) return;
     var sub = app.querySelector(".sub") || app.querySelector("h1");
     var b = bottone(D.upper ? "🖨️ STAMPA LA SCHEDA" : "🖨️ Stampa la scheda", function () {
-      stampa(scheda(D, true), D.livello, "Italiano L2 · " + String(D.title || "").replace(/\s*·\s*Esercizi$/i, ""));
+      stampa(scheda(D, true), livelloDati(D), "Italiano L2 · " + String(D.title || "").replace(/\s*·\s*Esercizi$/i, ""));
     });
     b.style.margin = "0 0 12px";
     if (sub && sub.parentNode) sub.parentNode.insertBefore(b, sub.nextSibling); else app.prepend(b);
