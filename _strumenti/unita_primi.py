@@ -213,7 +213,7 @@ ORE_SLIDE = [
           "LUNEDÌ – VENERDÌ: 9:00 – 12:30<br>MARTEDÌ E GIOVEDÌ ANCHE: 15:30 – 17:30<br>SABATO E DOMENICA: <b>CHIUSO</b></div>\n" +
           nota("L'UFFICIO È <b>APERTO</b> DAL LUNEDÌ AL VENERDÌ, DALLE 9 ALLE 12 E MEZZA.<br>"
                "IL MARTEDÌ E IL GIOVEDÌ È APERTO ANCHE IL POMERIGGIO.<br>IL SABATO È <b>CHIUSO</b>.", "") + "\n    </div>"),
-    end("ORA SAI DIRE I GIORNI, I MESI E LE ORE!"),
+    end("ORA SAI DIRE I GIORNI, I MESI E LE ORE!").replace('ADESSO FACCIAMO GLI ESERCIZI 📱</a>', 'ADESSO FACCIAMO GLI ESERCIZI 📱</a>\n    <a class="badge" href="../orologio/" style="text-decoration:none">🕰️ IMPARA L\'OROLOGIO (A1)</a>'),  # poi l'unità A1 sull'orologio
 ]
 
 ORE = {
