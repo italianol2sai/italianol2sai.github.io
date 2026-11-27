@@ -9,6 +9,7 @@
 <style>
   .clk { display: flex; justify-content: center; margin: 8px 0 12px; }
   .clk svg { width: min(62vw, 230px); height: auto; }
+  .clk svg.clk24 { width: min(80vw, 300px); }
   .g-quiz.n3 { display: grid; grid-template-columns: 1fr; gap: 8px; }
   .g-quiz.n4 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .g-quiz .g-btn { font-size: 1.15rem; padding: 14px 8px; }
@@ -45,7 +46,7 @@
   <main id="giochi"></main>
 </div>
 <script src="../comune/condividi.js"></script>
-<script src="orologio.js"></script>
+<script src="orologio.js?v=20261127b"></script>
 <script>
 (function () {
   var O = window.OROLOGIO, main = document.getElementById("giochi");
@@ -121,21 +122,23 @@
     var giro = 0, giusti = 0, TOT = 5, target, h, m, tentativi;
     var tgt = el("div", { class: "target" }), clk = el("div", { class: "clk" }), esito = el("p", { class: "esito" });
     function cambia(dh, dm) { m += dm; if (m >= 60) { m -= 60; h++; } if (m < 0) { m += 60; h--; } h = ((h - 1 + 12 + dh) % 12) + 1; mostra(); }
-    function mostra() { clk.innerHTML = O.svg(h, m); esito.textContent = ""; esito.className = "esito"; }
+    function mostra() { clk.innerHTML = O.svg24(h, m); esito.textContent = ""; esito.className = "esito"; }
     var comandi = el("div", { class: "comandi" }, [
       el("button", { class: "g-btn ore", text: "🔴 − 1 ORA", on: function () { cambia(-1, 0); } }),
       el("button", { class: "g-btn ore", text: "🔴 + 1 ORA", on: function () { cambia(1, 0); } }),
       el("button", { class: "g-btn min", text: "🔵 − 5 MINUTI", on: function () { cambia(0, -5); } }),
       el("button", { class: "g-btn min", text: "🔵 + 5 MINUTI", on: function () { cambia(0, 5); } })]);
+    // un giro sì e uno no l'ora è scritta come in stazione (24 ore): 15:20 → lancetta corta sul 3 (15)
     function nuovo() { giro++; tentativi = 0; target = caso(); h = 12; m = 0; mostra();
-      tgt.textContent = giro + "/" + TOT + " · " + O.parole(target.h, target.m); }
+      target.d24 = giro % 2 === 0; if (target.d24 && Math.random() < .7) target.h24 = target.h === 12 ? 12 : target.h + 12; else target.h24 = target.h % 12;
+      tgt.textContent = giro + "/" + TOT + " · " + (target.d24 ? "METTI: " + O.digitale(target.h24, target.m) : O.parole(target.h, target.m)); }
     var ok = el("button", { class: "g-btn", text: "✅ CONTROLLA", on: function () {
       tentativi++;
       if (h === target.h && m === target.m) { if (tentativi === 1) giusti++; esito.textContent = "BRAVO! " + O.parole(h, m) + " = " + O.digitale(h, m); esito.className = "esito ok"; O.voce(O.parole(h, m));
         setTimeout(function () { if (giro >= TOT) { area.innerHTML = ""; fine("HAI MESSO LE LANCETTE GIUSTE " + giusti + " VOLTE SU " + TOT + " AL PRIMO TENTATIVO.", lancette); } else nuovo(); }, 1600); }
       else { esito.textContent = "NON ANCORA: ORA È " + O.parole(h, m) + ". RIPROVA!"; esito.className = "esito no"; }
     } });
-    area.appendChild(el("p", { class: "g-info", text: "LEGGI LA FRASE. USA I PULSANTI: 🔴 LA LANCETTA CORTA (ORE), 🔵 LA LANCETTA LUNGA (MINUTI)." }));
+    area.appendChild(el("p", { class: "g-info", text: "LEGGI LA FRASE O L'ORA (14:35 = LANCETTA CORTA SUL 2, PERCHÉ 14 È IL NUMERO PICCOLO SOTTO IL 2). USA I PULSANTI: 🔴 LA LANCETTA CORTA (ORE), 🔵 LA LANCETTA LUNGA (MINUTI)." }));
     [tgt, clk, comandi, el("div", { class: "riga" }, [el("button", { class: "g-btn", text: "🔊 ASCOLTA", on: function () { O.voce(O.parole(target.h, target.m)); } }), ok]), esito]
       .forEach(function (x) { area.appendChild(x); });
     nuovo();
