@@ -23,7 +23,7 @@ PAGE = """<!doctype html>
 <body>
 <main id="app"></main>
 <script>window.DATA = {data};</script>
-<script src="../comune/motore.js"></script>
+<script src="../comune/motore.js?v=20261127"></script>
 </body>
 </html>
 """

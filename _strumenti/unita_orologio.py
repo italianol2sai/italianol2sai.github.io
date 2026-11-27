@@ -354,7 +354,7 @@ if __name__ == "__main__":
     for path, unit, topbar, slides, css in SLIDE_OROLOGIO:
         build_slide(path, unit, topbar, slides, css)
         t = open(path, encoding="utf-8").read()
-        tag = '<script src="../comune/stampa.js"></script>\n'
+        tag = '<script src="../comune/stampa.js?v=20261127"></script>\n'
         while t.count(tag) > 1:  # il modello ha già lo script della stampa
             i = t.rindex(tag); t = t[:i] + t[i + len(tag):]
         open(path, "w", encoding="utf-8").write(t)
