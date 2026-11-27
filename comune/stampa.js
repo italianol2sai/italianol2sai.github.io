@@ -31,13 +31,13 @@
     "#libro .apertura .ico{font-size:2.4em;line-height:1}" +
     "#libro .nome{display:flex;gap:18px;margin:0 0 12px;font-size:.9em;font-weight:700}" +
     "#libro .nome span{flex:1;border-bottom:1.5px solid #444}" +
-    "#libro .capitolo{break-before:page}" +
+    "#libro .capitolo{margin-top:18px;border-top:3px double #000;padding-top:6px}" +
     "#libro .sez{color:var(--acc);font-size:.8em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border-bottom:2.5px solid var(--acc);padding:0 0 3px;margin:16px 0 8px;break-after:avoid}" +
     "#libro .teoria{background:color-mix(in srgb,var(--acc) 9%,#fff);border:0;border-left:6px solid var(--acc);border-radius:0 10px 10px 0;padding:8px 14px;margin:6px 0 12px;break-inside:avoid;line-height:1.5}" +
     "#libro .teoria>b:first-child{display:inline-block;background:var(--acc);color:#fff;font-size:.75em;letter-spacing:.1em;text-transform:uppercase;padding:1px 8px;border-radius:4px;margin-bottom:5px}" +
     "#libro .teoria table{border-collapse:collapse;margin:6px 0;display:table;max-width:100%} #libro .teoria td,#libro .teoria th{border:1px solid color-mix(in srgb,var(--acc) 35%,#fff);padding:2px 8px;text-align:left;white-space:normal}" +
     "#libro .teoria th{background:color-mix(in srgb,var(--acc) 18%,#fff)}" +
-    "#libro .es{margin:12px 0 14px;break-inside:avoid} #libro .es.lungo{break-inside:auto}" +
+    "#libro .es{margin:10px 0 12px;break-inside:auto} #libro .es h3,#libro .es .cons,#libro .es>.box{break-after:avoid}" +
     "#libro .es h3{display:flex;align-items:baseline;gap:8px;font-size:1em;margin:0 0 4px;break-after:avoid}" +
     "#libro .num{flex:0 0 auto;display:inline-grid;place-items:center;min-width:1.7em;height:1.7em;border-radius:50%;background:var(--acc);color:#fff;font-size:.85em;font-weight:800}" +
     "#libro .cons{font-style:italic;margin:0 0 6px;color:#333}" +
@@ -56,13 +56,13 @@
     "#libro img{max-width:100%;max-height:60mm}" +
     "#libro .piede{margin-top:16px;font-size:.7em;color:#888;text-align:center;text-transform:none;letter-spacing:0}" +
     // ---------------- teoria (le slide diventano pagine di libro)
-    "#libro .teoria-slide{zoom:.72}" +
+    // niente zoom (sbagliava i salti pagina e lasciava buchi): si rimpicciolisce la base rem delle slide
+    "@media print{html:has(body.in-stampa){font-size:12px!important} html:has(#libro.l-alfa){font-size:14.5px!important}}" +
     // Alfa: quaderno semplice (caratteri grandi, una colonna, più spazio per scrivere)
     "#libro.l-alfa{font-size:17pt;line-height:1.6} #libro.l-alfa ol.due{columns:1}" +
     "#libro.l-alfa .apertura{border-radius:10px} #libro.l-alfa .num{background:#fff;color:var(--acc);border:2.5px solid var(--acc)}" +
-    "#libro.l-alfa ol>li{margin:12px 0} #libro.l-alfa .riga{height:1.4em;min-width:9em} #libro.l-alfa .righe div{height:2.6em}" +
-    "#libro.l-alfa .opz{gap:6px 26px} #libro.l-alfa .es{margin:18px 0 22px}" +
-    "#libro.l-alfa .teoria-slide{zoom:.85}" +
+    "#libro.l-alfa ol>li{margin:8px 0} #libro.l-alfa .riga{height:1.4em;min-width:9em} #libro.l-alfa .righe div{height:2.6em}" +
+    "#libro.l-alfa .opz{gap:6px 26px} #libro.l-alfa .es{margin:12px 0 14px}" +
     "#libro .teoria-slide .slide{display:block!important;position:static!important;inset:auto!important;overflow:visible!important;height:auto!important;min-height:0!important;padding:0 0 14px!important;animation:none!important;break-inside:auto}" +
     "#libro .teoria-slide .slide h2{break-after:avoid;margin-top:10px}" +
     "#libro .teoria-slide .card,#libro .teoria-slide .bubble,#libro .teoria-slide table,#libro .teoria-slide .nota,#libro .teoria-slide img,#libro .teoria-slide .grid>*{break-inside:avoid}" +
@@ -90,7 +90,21 @@
     "#libro svg line[stroke-width='5']{stroke-width:4}" +
     "#libro svg text{fill:#000}" +
     "#libro .dig{background:#fff!important;color:#000!important;border:2px solid #000!important}" +
-    "#libro img{filter:grayscale(1) contrast(1.1)}";
+    "#libro img{filter:grayscale(1) contrast(1.1)}" +
+    // meno spazi vuoti (Erila 2026-11-27): liste con disegni (orologi…) in 3 colonne, slide compatte
+    // (inline-flex e non grid: con la griglia Chrome mandava tutto alla pagina dopo)
+    "#libro ol:has(svg){display:block;font-size:0}" +
+    "#libro ol:has(svg)>li{display:inline-flex;vertical-align:top;width:33.3%;box-sizing:border-box;padding-right:12px;align-items:center;gap:6px;margin:2px 0;font-size:11.5pt}" +
+    "#libro.l-alfa ol:has(svg)>li{font-size:17pt}" +
+    "#libro ol:has(svg)>li>span:first-child{display:inline-flex!important;align-items:center;gap:4px}" +
+    "#libro ol svg{width:28mm;height:auto} #libro ol:has(svg) .riga{min-width:0;flex:1}" +
+    "#libro .teoria-slide .slide{padding:0 0 8px!important} #libro .teoria-slide .slide h2{margin:6px 0 8px!important;padding-bottom:4px!important}" +
+    "#libro .teoria-slide .grid,#libro .teoria-slide .orologi{gap:8px!important;margin-top:4px!important}" +
+    "#libro .teoria-slide .card,#libro .teoria-slide .orologi>div{padding:6px 8px!important}" +
+    "#libro .teoria-slide .nota{padding:8px 12px!important;margin-top:8px!important}" +
+    "#libro .teoria-slide .bubble{margin:5px 0!important;padding:6px 12px!important}" +
+    "#libro .teoria-slide .orologi{grid-template-columns:repeat(4,1fr)!important} #libro .teoria-slide .orologi svg{max-width:28mm}" +
+    "#libro .teoria-slide .duo{grid-template-columns:auto 1fr!important} #libro .teoria-slide .big-clk svg{width:45mm!important}";
   var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
   var pagina = document.createElement("style"); document.head.appendChild(pagina);
 
