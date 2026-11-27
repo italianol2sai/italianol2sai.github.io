@@ -108,6 +108,37 @@ def orologio(h, m, px=150, numeri=True, cls="clk"):
             '<circle cx="100" cy="100" r="7" fill="#3B2410"/></svg>'
             % (cls, px, px, "".join(tacche), num, hx, hy, mx, my))
 
+def orologio24(h, m, px=260, cls="clk clk24"):
+    """Orologio «didattico» (Erila 2026-11-27): ore 1-12 grandi, sotto in un cerchio grigio le ore 13-24,
+    fuori dal cerchio i minuti 00, 05, 10… in cerchietti. Numeri con alone bianco: le lancette non li coprono."""
+    C = 150
+    def p(ang, r): return C + r * math.sin(math.radians(ang)), C - r * math.cos(math.radians(ang))
+    s = ['<svg class="%s" viewBox="0 0 300 300" width="%d" height="%d" role="img" aria-label="OROLOGIO 24 ORE">' % (cls, px, px),
+         '<circle cx="150" cy="150" r="114" fill="#fff" stroke="#E07A1F" stroke-width="6"/>',
+         '<circle cx="150" cy="150" r="62" fill="#eeeeee" stroke="#999" stroke-width="1.5"/>']
+    for i in range(60):
+        if i % 5: (x1, y1), (x2, y2) = p(i * 6, 106), p(i * 6, 111); w = "1"
+        else: (x1, y1), (x2, y2) = p(i * 6, 100), p(i * 6, 111); w = "3"
+        s.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#3B2410" stroke-width="%s"/>' % (x1, y1, x2, y2, w))
+    # minuti fuori, in cerchietti
+    for n in range(12):
+        x, y = p(n * 30, 133)
+        s.append('<circle cx="%.1f" cy="%.1f" r="12.5" fill="#fff" stroke="#2f63ad" stroke-width="2"/>'
+                 '<text x="%.1f" y="%.1f" font-size="13" fill="#2f63ad">%02d</text>' % (x, y, x, y + 4.6, n * 5))
+    # lancette sotto ai numeri
+    hx, hy = p((h % 12) * 30 + m * 0.5, 58); mx, my = p(m * 6, 98)
+    s.append('<line x1="150" y1="150" x2="%.1f" y2="%.1f" stroke="#2f63ad" stroke-width="5" stroke-linecap="round"/>' % (mx, my))
+    s.append('<line x1="150" y1="150" x2="%.1f" y2="%.1f" stroke="#c8323b" stroke-width="10" stroke-linecap="round"/>' % (hx, hy))
+    s.append('<circle cx="150" cy="150" r="8" fill="#3B2410"/>')
+    s.append('<g font-family="Arial,sans-serif" font-weight="bold" text-anchor="middle" stroke="#fff" stroke-width="4" paint-order="stroke">')
+    for n in range(1, 13):
+        x, y = p(n * 30, 83)
+        s.append('<text x="%.1f" y="%.1f" font-size="26" fill="#3B2410">%d</text>' % (x, y + 9, n))
+        x, y = p(n * 30, 45)
+        s.append('<text x="%.1f" y="%.1f" font-size="15" fill="#c8323b" stroke="#eeeeee">%d</text>' % (x, y + 5.3, n + 12))
+    s.append('</g></svg>')
+    return "".join(s).replace('<text x', '<text text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" x')
+
 def digitale(h, m, grande=False):
     fs = "2.6rem" if grande else "1.6rem"
     return ('<span class="dig" style="display:inline-block; background:#1e2a22; color:#7CFC9A; font-family:\'Courier New\',monospace; '
@@ -127,7 +158,7 @@ CSS = """
   .orologi small{display:block; color:#8a6a4a; font-weight:normal; font-size:.95rem;}
   .orologi .dig{margin:4px 0 8px;}
   .duo{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:center;}
-  .duo .big-clk svg{width:300px; height:auto;}
+  .duo .big-clk svg{width:300px; height:auto;} .duo .big-clk svg.clk24{width:390px;}
   .legenda{font-size:1.5rem; line-height:1.8;}
   .legenda .r{color:#c8323b; font-weight:bold;} .legenda .b{color:#2f63ad; font-weight:bold;}
   .tabellone{background:#0f1b2d; color:#ffd54a; font-family:'Courier New',monospace; border-radius:14px; padding:14px 18px; font-size:1.35rem; max-width:820px; overflow-x:auto;}
@@ -172,6 +203,14 @@ SLIDE = [
           '<span class="b">▬▬ LA LANCETTA LUNGA E SOTTILE</span> = I <b>MINUTI</b><br><br>'
           '1 ORA = 60 MINUTI<br>MEZZ\'ORA = 30 MINUTI<br>UN QUARTO D\'ORA = 15 MINUTI<br><br>'
           'QUI: SONO LE <b>DIECI</b> E <b>DIECI</b>.</div>\n    </div>' % orologio(10, 10, 300)),
+    slide("🕰️ L'OROLOGIO DELLE 24 ORE",
+          '    <div class="duo">\n      <div class="big-clk" data-say="sono le quattordici e venti. sono le due e venti del pomeriggio.">%s</div>\n'
+          '      <div class="legenda" data-say="i numeri grandi sono le ore della mattina. i numeri piccoli dentro sono le ore del pomeriggio e della sera. fuori ci sono i minuti.">'
+          '<b>NUMERI GRANDI</b> = LE ORE DA 1 A 12<br><small>(LA MATTINA: 1 = 01, 2 = 02…)</small><br>'
+          '<span class="r">NUMERI PICCOLI NEL CERCHIO GRIGIO</span> = LE ORE DA 13 A 24<br><small>(IL POMERIGGIO E LA SERA)</small><br>'
+          '<span class="b">FUORI</span> = I <b>MINUTI</b>: 05, 10, 15… 55<br><br>'
+          'LA LANCETTA CORTA È SUL <b>2</b> = <b>02</b> O <b>14</b><br>LA LANCETTA LUNGA È SUL <b>4</b> = <b>20</b> MINUTI<br>'
+          '→ <b>02:20</b> DI NOTTE O <b>14:20</b> DEL POMERIGGIO</div>\n    </div>' % orologio24(2, 20, 330)),
     slide("📱 L'OROLOGIO DIGITALE",
           '    <div class="duo">\n      <div class="big-clk">%s</div>\n      <div class="legenda">%s<br><br>'
           'PRIMA LE <b>ORE</b> : POI I <b>MINUTI</b><br>8:15 = LE OTTO E QUINDICI<br>= LE OTTO E UN QUARTO</div>\n    </div>\n'
@@ -250,7 +289,9 @@ T3 = ("<p>DA 1 A 30 MINUTI → <b>E</b>: LE TRE <b>E</b> DIECI, LE TRE <b>E UN Q
       "<p>DOPO 30 MINUTI → L'ORA DOPO + <b>MENO</b>: 3:45 = LE QUATTRO <b>MENO UN QUARTO</b> · 3:50 = LE QUATTRO <b>MENO DIECI</b></p>")
 T4 = ("<table><tr><th>DI MATTINA</th><td>6:00 – 12:00</td></tr><tr><th>DEL POMERIGGIO</th><td>13:00 – 18:00</td></tr>"
       "<tr><th>DI SERA</th><td>18:00 – 23:00</td></tr><tr><th>DI NOTTE</th><td>24:00 – 5:00</td></tr></table>"
-      "<p>LE 24 ORE: DOPO MEZZOGIORNO ORA + 12 → LE TRE DEL POMERIGGIO = <b>15:00</b></p>")
+      "<p>LE 24 ORE: DOPO MEZZOGIORNO ORA + 12 → LE TRE DEL POMERIGGIO = <b>15:00</b></p>"
+      "<p style=\"display:flex;gap:12px;align-items:center;flex-wrap:wrap\">" + orologio24(3, 0, 150) +
+      "<span>SULL'OROLOGIO DELLE 24 ORE: IL NUMERO GRANDE <b>3</b> = <b>03</b> (DI NOTTE)<br>IL NUMERO PICCOLO <b>15</b> = LE TRE DEL POMERIGGIO<br>FUORI I MINUTI: <b>05, 10, 15…</b></span></p>")
 T5 = ("<p>A CHE ORA? → <b>ALLE</b> NOVE · <b>ALL'</b>UNA · <b>A</b> MEZZOGIORNO · <b>A</b> MEZZANOTTE</p>"
       "<p>QUANDO È APERTO? → <b>DALLE</b> 9 <b>ALLE</b> 13</p>"
       "<p>NEGLI ORARI (TRENI, UFFICI) USO LE 24 ORE: 14:35 = LE QUATTORDICI E TRENTACINQUE</p>")
@@ -259,6 +300,27 @@ E1 = [(3, 0), (9, 0), (6, 30), (10, 15), (2, 45), (11, 50)]
 E4 = [(5, 30), (8, 15), (1, 0), (6, 45), (12, 0), (9, 20)]
 E4_OPTS = [parole(h, m) for h, m in E4]
 E6 = [(7, 30), (4, 15), (12, 0), (9, 45), (1, 10), (5, 50)]
+E24 = [(3, 10, "POMERIGGIO"), (8, 30, "SERA"), (7, 45, "MATTINA"), (11, 5, "SERA"), (1, 20, "POMERIGGIO"), (6, 55, "MATTINA")]
+# esercizi più difficili (Erila 2026-11-27: «fai anche quelli meno facili»): minuti non tondi, niente aiuti
+EDIF = [(4, 35, "POMERIGGIO", 16), (9, 50, "SERA", 21), (2, 25, "NOTTE", 2), (5, 12, "POMERIGGIO", 17),
+        (10, 55, "MATTINA", 10), (6, 48, "SERA", 18), (12, 40, "NOTTE", 0), (1, 7, "POMERIGGIO", 13)]
+EPAR = [(16, 45), (21, 30), (13, 15), (23, 50), (7, 40), (18, 5)]
+
+def quando(h):
+    return "DI MATTINA" if 5 <= h < 12 else "DEL POMERIGGIO" if 12 <= h < 18 else "DI SERA" if 18 <= h < 24 else "DI NOTTE"
+
+def parole24(h, m):
+    """16:45 → tutte le risposte giuste, con o senza «del pomeriggio», anche «le sedici e quarantacinque»."""
+    out = set()
+    for v in varianti(h, m):
+        if "MEZZOGIORNO" in v and not 10 <= h <= 13: continue
+        if "MEZZANOTTE" in v and 2 <= h <= 21: continue
+        hh = h + 1 if " MENO " in v else h
+        out |= {v, v + " " + quando(h), v + " " + quando(hh % 24)}
+    b = "LE " + numero(h) + (" E " + numero(m) if m else "")
+    out |= {b, "SONO " + b}
+    return sorted(out)
+
 TABELLONE = ('<div style="background:#0f1b2d; color:#ffd54a; font-family:\'Courier New\',monospace; border-radius:12px; padding:10px 12px; overflow-x:auto;">'
              '<b>🚉 BARI CENTRALE · PARTENZE</b><table style="border-collapse:collapse; width:100%; margin-top:6px;">'
              '<tr style="color:#9fb3c8;"><th style="text-align:left; padding:3px 8px;">ORA</th><th style="text-align:left; padding:3px 8px;">DESTINAZIONE</th><th style="text-align:left; padding:3px 8px;">BINARIO</th></tr>'
@@ -318,8 +380,22 @@ ESERCIZI = {
                                                "4. MEZZOGIORNO", "5. LE CINQUE E UN QUARTO DEL POMERIGGIO", "6. LE OTTO MENO DIECI DI SERA"]],
    "k": [eq("21:00", "21"), eq("16:00", "16"), eq("6:30", "06:30"), eq("12:00", "12"), eq("17:15"), eq("19:50")]},
 
+  {"id": "e13", "title": "9 · L'orologio delle 24 ore: scrivi l'ora", "short": "9 · Orologio 24 ore", "type": "text", "w": "s",
+   "cons": "GUARDA L'OROLOGIO E LA PAROLA. MATTINA → NUMERO GRANDE; POMERIGGIO E SERA → NUMERO PICCOLO. ESEMPIO: 15:20",
+   "items": [{"q": '<span style="display:inline-flex; align-items:center; gap:8px;"><b>%d.</b> %s <b>%s</b></span>' % (i, orologio24(h, m, 200), q), "ph": "00:00"}
+             for i, (h, m, q) in enumerate(E24, 1)],
+   "k": [eq("%d:%02d" % (hh, m), "%02d:%02d" % (hh, m)) for hh, m in [((h % 12) + (12 if q != "MATTINA" else 0), m) for h, m, q in E24]]},
+  {"id": "e14", "title": "10 · Più difficile: dall'orologio alle 24 ore", "short": "10 · Più difficile", "type": "text", "w": "s",
+   "cons": "ORA L'OROLOGIO NON HA AIUTI. CONTA LE TACCHE DEI MINUTI (1 TACCA = 1 MINUTO). GUARDA LA PAROLA E SCRIVI L'ORA IN 24 ORE. ESEMPIO: 16:35",
+   "items": [{"q": '<span style="display:inline-flex; align-items:center; gap:8px;"><b>%d.</b> %s <b>%s</b></span>' % (i, orologio(h, m, 120), q), "ph": "00:00"}
+             for i, (h, m, q, _) in enumerate(EDIF, 1)],
+   "k": [eq("%d:%02d" % (hh, m), "%02d:%02d" % (hh, m), *(["24:%02d" % m] if hh == 0 else [])) for h, m, q, hh in EDIF]},
+  {"id": "e15", "title": "11 · Più difficile: dalle 24 ore alle parole", "short": "11 · Con le parole", "type": "text", "w": "w",
+   "cons": "SCRIVI L'ORA CON LE PAROLE, COME LA DICI A UN AMICO. ESEMPIO: 16:45 → SONO LE CINQUE MENO UN QUARTO DEL POMERIGGIO",
+   "items": [{"q": "%d. %s" % (i, digitale(h, m))} for i, (h, m) in enumerate(EPAR, 1)],
+   "k": [eq(*parole24(h, m)) for h, m in EPAR]},
   {"part": "Gli orari: treni e uffici", "teoria": T5},
-  {"id": "e9", "title": "9 · Leggi il tabellone della stazione", "short": "9 · Il tabellone", "type": "text", "w": "m",
+  {"id": "e9", "title": "12 · Leggi il tabellone della stazione", "short": "12 · Il tabellone", "type": "text", "w": "m",
    "cons": "GUARDA LE PARTENZE E RISPONDI. PUOI SCRIVERE CON I NUMERI. ESEMPIO: ALLE 6:50",
    "info": TABELLONE,
    "items": [{"q": q} for q in ["1. A CHE ORA PARTE IL TRENO PER LECCE?", "2. A CHE ORA PARTE IL TRENO PER TARANTO?",
@@ -329,19 +405,19 @@ ESERCIZI = {
          has("16:45", "16 45", "sedici e quarantacinque", "cinque meno un quarto"),
          has("monopoli"), has("4", "quattro"),
          has("21:05", "21 05", "ventuno e cinque", "nove e cinque")]},
-  {"id": "e10", "title": "10 · ALLE, ALL', A, DALLE?", "short": "10 · Alle, all', a", "type": "cloze",
+  {"id": "e10", "title": "13 · ALLE, ALL', A, DALLE?", "short": "13 · Alle, all', a", "type": "cloze",
    "cons": "COMPLETA CON: ALLE · ALL' · A · DALLE",
    "parts": ["1. IL CORSO COMINCIA ", {}, " NOVE.<br>2. GIOVANNI FINISCE DI LAVORARE ", {}, "UNA.<br>3. PRANZIAMO ",
              {}, " MEZZOGIORNO.<br>4. IL NEGOZIO È APERTO ", {}, " 9 ", {}, " 13.<br>5. LEILA VA A DORMIRE ",
              {}, " MEZZANOTTE.<br>6. IL TRENO PARTE ", {}, " 14:35."],
    "k": [eq("alle"), eq("all'", "all"), eq("a"), eq("dalle"), eq("alle"), eq("a"), eq("alle")]},
-  {"id": "e11", "title": "11 · L'orario dell'ufficio postale", "short": "11 · Vero o falso", "type": "choice",
+  {"id": "e11", "title": "14 · L'orario dell'ufficio postale", "short": "14 · Vero o falso", "type": "choice",
    "opts": ["VERO", "FALSO"], "full": True,
    "info": "📮 <b>UFFICIO POSTALE</b><br>LUNEDÌ – VENERDÌ: 8:20 – 13:35<br>SABATO: 8:20 – 12:35<br>DOMENICA: <b>CHIUSO</b>",
    "items": [{"q": q} for q in ["1. IL LUNEDÌ APRE ALLE OTTO E VENTI.", "2. LA DOMENICA È CHIUSO.", "3. IL MARTEDÌ ALLE 15:00 È APERTO.",
                                  "4. IL SABATO CHIUDE PRIMA.", "5. IL VENERDÌ CHIUDE ALLE TREDICI E TRENTACINQUE.", "6. IL SABATO APRE ALLE NOVE."]],
    "k": [eq(a) for a in ["VERO", "VERO", "FALSO", "VERO", "VERO", "FALSO"]]},
-  {"id": "e12", "title": "12 ✎ · La mia giornata", "type": "free", "rows": 5,
+  {"id": "e12", "title": "15 ✎ · La mia giornata", "type": "free", "rows": 5,
    "items": ["A CHE ORA TI SVEGLI? A CHE ORA MANGI? A CHE ORA VAI AL CORSO O AL LAVORO? A CHE ORA VAI A DORMIRE?<br>"
              "ESEMPIO: MI SVEGLIO ALLE SETTE. VADO AL CORSO ALLE NOVE E MEZZA. PRANZO ALL'UNA."]},
  ]
@@ -354,7 +430,7 @@ if __name__ == "__main__":
     for path, unit, topbar, slides, css in SLIDE_OROLOGIO:
         build_slide(path, unit, topbar, slides, css)
         t = open(path, encoding="utf-8").read()
-        tag = '<script src="../comune/stampa.js?v=20261127"></script>\n'
+        tag = '<script src="../comune/stampa.js?v=20261127b"></script>\n'
         while t.count(tag) > 1:  # il modello ha già lo script della stampa
             i = t.rindex(tag); t = t[:i] + t[i + len(tag):]
         open(path, "w", encoding="utf-8").write(t)
