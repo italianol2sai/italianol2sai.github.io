@@ -67,7 +67,30 @@
     "#libro .teoria-slide .slide h2{break-after:avoid;margin-top:10px}" +
     "#libro .teoria-slide .card,#libro .teoria-slide .bubble,#libro .teoria-slide table,#libro .teoria-slide .nota,#libro .teoria-slide img,#libro .teoria-slide .grid>*{break-inside:avoid}" +
     "#libro .teoria-slide .bubble.parla::after,#libro .teoria-slide .card.parla b::after{content:none!important}" +
-    "#libro .teoria-slide .ill{max-height:80mm;width:auto;display:block;margin:0 auto 10px}";
+    "#libro .teoria-slide .ill{max-height:80mm;width:auto;display:block;margin:0 auto 10px}" +
+    // ---------------- bianco e nero (Erila 2026-11-27): niente fondi colorati, testo nero, bordi e linee nere/grigie,
+    // titoli con bordo invece del fondo pieno → si legge bene con la stampante in b/n e si risparmia inchiostro
+    "#libro{--acc:#000!important;color:#000}" +
+    "#libro *{background:transparent!important;box-shadow:none!important;text-shadow:none!important;color:#000!important}" +
+    "#libro *:not(.riga):not(.righe div):not(.quad){border-color:#000!important}" +
+    "#libro .apertura{border:2.5px solid #000;border-radius:10px} #libro .apertura h1{font-weight:900}" +
+    "#libro .num{border:2px solid #000;background:#fff!important} #libro.l-alfa .num{border-width:2.5px}" +
+    "#libro .teoria{border:1.5px solid #000;border-left:6px solid #000;border-radius:0 8px 8px 0}" +
+    "#libro .teoria>b:first-child{border:1.5px solid #000;padding:0 6px}" +
+    "#libro .teoria th,#libro table th{background:#e6e6e6!important;font-weight:800}" +
+    "#libro .sez{border-bottom:2.5px solid #000}" +
+    "#libro .box{border:1.5px dashed #000}" +
+    "#libro b,#libro strong{font-weight:900}" +
+    "#libro .bubble{border:1.5px solid #000!important;border-left:6px solid #000!important}" +
+    "#libro .bubble.med{border-left-style:double!important}" +
+    "#libro .nota{border:2px dashed #000!important}" +
+    "#libro .card{border:1.5px solid #000!important}" +
+    // disegni SVG (orologi): tutto nero; lancetta delle ore grossa, dei minuti sottile
+    "#libro svg circle{fill:#fff} #libro svg circle[r='7']{fill:#000} #libro svg [stroke]{stroke:#000}" +
+    "#libro svg line[stroke-width='5']{stroke-width:4}" +
+    "#libro svg text{fill:#000}" +
+    "#libro .dig{background:#fff!important;color:#000!important;border:2px solid #000!important}" +
+    "#libro img{filter:grayscale(1) contrast(1.1)}";
   var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
   var pagina = document.createElement("style"); document.head.appendChild(pagina);
 
@@ -134,7 +157,7 @@
     var UP = !!D.upper, T = function (s) { return UP ? s.toUpperCase() : s; };
     var titolo = String(D.title || "").replace(/\s*·\s*Esercizi$/i, "");
     var h = [];
-    if (conApertura) h.push(apertura(D.livello, T("Esercizi"), titolo));
+    if (conApertura) h.push(apertura(livelloDati(D), T("Esercizi"), titolo));
     else h.push('<div class="sez" style="font-size:1.1em;margin-top:0">' + T("Esercizi") + "</div>");
     h.push('<p class="nome">' + T("Nome") + "<span></span>" + T("Data") + "<span></span></p>");
     D.sections.forEach(function (ex) {
@@ -169,8 +192,8 @@
     var firma = "italianol2sai.github.io · Autoapprendimento Italiano L2 ETNIE";
     box.innerHTML = html + '<p class="piede">' + (su ? firma.toUpperCase() : firma) + "</p>";
     pagina.textContent = "@media print{@page{" +
-      "@bottom-left{content:\"" + esc(piede) + "\";font:8pt sans-serif;color:#888}" +
-      "@bottom-right{content:counter(page);font:bold 9pt sans-serif;color:" + (ACC[liv] || "#333") + "}}}";
+      "@bottom-left{content:\"" + esc(piede) + "\";font:8pt sans-serif;color:#333}" +
+      "@bottom-right{content:counter(page);font:bold 9pt sans-serif;color:#000}}}";
     document.body.classList.add("in-stampa");
     var fine = function () { document.body.classList.remove("in-stampa"); window.removeEventListener("afterprint", fine); };
     window.addEventListener("afterprint", fine);
@@ -230,7 +253,10 @@
       " .stampa-testa{display:flex!important;gap:18px;font:700 12pt sans-serif;margin:0 0 12px}" +
       " .stampa-testa span{flex:1;border-bottom:1.5px solid #444}" +
       " input[type=text],input:not([type]),textarea{border:0!important;border-bottom:1.5px solid #333!important;border-radius:0!important;background:none!important;box-shadow:none!important}" +
-      " section,.card,.box,img,table,li{break-inside:avoid}}";
+      " section,.card,.box,img,table,li{break-inside:avoid}" +
+      // bianco e nero (2026-11-27): fondi bianchi, testo nero, immagini in grigi
+      " body,body *{background-color:transparent!important;background-image:none!important;box-shadow:none!important;text-shadow:none!important;color:#000!important}" +
+      " img{filter:grayscale(1) contrast(1.1)} svg [stroke]{stroke:#000} svg text{fill:#000}}";
     // pulsanti di comando (Controlla, Invia, Avanti…): non si stampano; le risposte a scelta sì
     var COMANDI = /controlla|invia|whatsapp|condividi|ricomincia|cancella|stampa|indietro|avanti|mescola|prossim|successiv|giochi|registr|^\s*[◀▶⏮⏭🔊🔀↺⟲]/i;
     window.addEventListener("beforeprint", function () {

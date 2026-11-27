@@ -168,8 +168,8 @@ SLIDE = [
     slide("🕰️ L'OROLOGIO CON LE LANCETTE",
           '    <div class="duo">\n      <div class="big-clk" data-say="sono le dieci e dieci">%s</div>\n'
           '      <div class="legenda" data-say="la lancetta corta indica le ore. la lancetta lunga indica i minuti.">'
-          '<span class="r">▬ LA LANCETTA CORTA</span> = LE <b>ORE</b><br>'
-          '<span class="b">▬▬ LA LANCETTA LUNGA</span> = I <b>MINUTI</b><br><br>'
+          '<span class="r">▬ LA LANCETTA CORTA E GROSSA</span> = LE <b>ORE</b><br>'
+          '<span class="b">▬▬ LA LANCETTA LUNGA E SOTTILE</span> = I <b>MINUTI</b><br><br>'
           '1 ORA = 60 MINUTI<br>MEZZ\'ORA = 30 MINUTI<br>UN QUARTO D\'ORA = 15 MINUTI<br><br>'
           'QUI: SONO LE <b>DIECI</b> E <b>DIECI</b>.</div>\n    </div>' % orologio(10, 10, 300)),
     slide("📱 L'OROLOGIO DIGITALE",
@@ -242,7 +242,7 @@ SLIDE = [
 def tutte(*ore):
     return [eq(*varianti(h, m)) for h, m in ore]
 
-T1 = ("<p>L'OROLOGIO HA DUE LANCETTE:</p><p>🔴 LA LANCETTA <b>CORTA</b> = LE <b>ORE</b> &nbsp; 🔵 LA LANCETTA <b>LUNGA</b> = I <b>MINUTI</b></p>"
+T1 = ("<p>L'OROLOGIO HA DUE LANCETTE:</p><p>LA LANCETTA <b>CORTA E GROSSA</b> = LE <b>ORE</b><br>LA LANCETTA <b>LUNGA E SOTTILE</b> = I <b>MINUTI</b></p>"
       "<p>1 ORA = 60 MINUTI. &nbsp; SUL TELEFONO SCRIVO PRIMA LE ORE, POI I MINUTI: <b>8:15</b></p>")
 T2 = ("<table><tr><th>1</th><td><b>È</b> L'UNA</td></tr><tr><th>12:00 · 24:00</th><td><b>È</b> MEZZOGIORNO · <b>È</b> MEZZANOTTE</td></tr>"
       "<tr><th>2, 3, 4…</th><td><b>SONO</b> LE DUE, LE TRE, LE QUATTRO…</td></tr></table>")
