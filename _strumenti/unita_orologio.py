@@ -158,7 +158,7 @@ CSS = """
   .orologi small{display:block; color:#8a6a4a; font-weight:normal; font-size:.95rem;}
   .orologi .dig{margin:4px 0 8px;}
   .duo{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:center;}
-  .duo .big-clk svg{width:300px; height:auto;} .duo .big-clk svg.clk24{width:390px;}
+  .duo .big-clk svg{width:300px; height:auto;} .duo .big-clk svg.clk24{width:min(520px,46vw);} .duo:has(.clk24) .legenda{font-size:1.35rem;}
   .legenda{font-size:1.5rem; line-height:1.8;}
   .legenda .r{color:#c8323b; font-weight:bold;} .legenda .b{color:#2f63ad; font-weight:bold;}
   .tabellone{background:#0f1b2d; color:#ffd54a; font-family:'Courier New',monospace; border-radius:14px; padding:14px 18px; font-size:1.35rem; max-width:820px; overflow-x:auto;}
@@ -166,7 +166,7 @@ CSS = """
   .tabellone td{padding:6px 10px; border-bottom:1px dashed #33475f; white-space:nowrap;}
   .cartello{background:#fff; border:5px solid var(--teal); border-radius:18px; padding:18px 24px; font-size:1.5rem; line-height:1.6; max-width:700px;}
   @media (max-width:900px){ .orologi{grid-template-columns:1fr 1fr;} .orologi div{font-size:1rem;} .duo{grid-template-columns:1fr; gap:12px;}
-    .duo .big-clk svg{width:210px;} .legenda{font-size:1.1rem;} .tabellone{font-size:.95rem; padding:10px;} .cartello{font-size:1.1rem;} }"""
+    .duo .big-clk svg{width:210px;} .duo .big-clk svg.clk24{width:min(92vw,420px);} .duo:has(.clk24) .legenda{font-size:1.1rem;} .legenda{font-size:1.1rem;} .tabellone{font-size:.95rem; padding:10px;} .cartello{font-size:1.1rem;} }"""
 
 def orologi(items):
     """items: (h, m, testo, sotto) → griglia di orologi; tocchi e senti la frase."""
@@ -290,7 +290,7 @@ T3 = ("<p>DA 1 A 30 MINUTI → <b>E</b>: LE TRE <b>E</b> DIECI, LE TRE <b>E UN Q
 T4 = ("<table><tr><th>DI MATTINA</th><td>6:00 – 12:00</td></tr><tr><th>DEL POMERIGGIO</th><td>13:00 – 18:00</td></tr>"
       "<tr><th>DI SERA</th><td>18:00 – 23:00</td></tr><tr><th>DI NOTTE</th><td>24:00 – 5:00</td></tr></table>"
       "<p>LE 24 ORE: DOPO MEZZOGIORNO ORA + 12 → LE TRE DEL POMERIGGIO = <b>15:00</b></p>"
-      "<p style=\"display:flex;gap:12px;align-items:center;flex-wrap:wrap\">" + orologio24(3, 0, 150) +
+      "<p style=\"display:flex;gap:12px;align-items:center;flex-wrap:wrap\">" + orologio24(3, 0, 280) +
       "<span>SULL'OROLOGIO DELLE 24 ORE: IL NUMERO GRANDE <b>3</b> = <b>03</b> (DI NOTTE)<br>IL NUMERO PICCOLO <b>15</b> = LE TRE DEL POMERIGGIO<br>FUORI I MINUTI: <b>05, 10, 15…</b></span></p>")
 T5 = ("<p>A CHE ORA? → <b>ALLE</b> NOVE · <b>ALL'</b>UNA · <b>A</b> MEZZOGIORNO · <b>A</b> MEZZANOTTE</p>"
       "<p>QUANDO È APERTO? → <b>DALLE</b> 9 <b>ALLE</b> 13</p>"
@@ -430,7 +430,7 @@ if __name__ == "__main__":
     for path, unit, topbar, slides, css in SLIDE_OROLOGIO:
         build_slide(path, unit, topbar, slides, css)
         t = open(path, encoding="utf-8").read()
-        tag = '<script src="../comune/stampa.js?v=20261127b"></script>\n'
+        tag = '<script src="../comune/stampa.js?v=20261127c"></script>\n'
         while t.count(tag) > 1:  # il modello ha già lo script della stampa
             i = t.rindex(tag); t = t[:i] + t[i + len(tag):]
         open(path, "w", encoding="utf-8").write(t)

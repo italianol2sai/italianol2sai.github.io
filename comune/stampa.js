@@ -97,7 +97,7 @@
     "#libro ol:has(svg)>li{display:inline-flex;vertical-align:top;width:33.3%;box-sizing:border-box;padding-right:12px;align-items:center;gap:6px;margin:2px 0;font-size:11.5pt}" +
     "#libro.l-alfa ol:has(svg)>li{font-size:17pt}" +
     "#libro ol:has(svg)>li>span:first-child{display:inline-flex!important;align-items:center;gap:4px}" +
-    "#libro ol svg{width:28mm;height:auto} #libro svg.clk24{width:44mm} #libro .teoria svg.clk24{width:40mm} #libro ol:has(svg) .riga{min-width:0;flex:1}" +
+    "#libro ol svg{width:28mm;height:auto} #libro svg.clk24{width:44mm} #libro .teoria svg.clk24{width:70mm} #libro .teoria-slide .big-clk svg.clk24{width:95mm!important} #libro ol:has(svg) .riga{min-width:0;flex:1}" +
     "#libro .teoria-slide .slide{padding:0 0 8px!important} #libro .teoria-slide .slide h2{margin:6px 0 8px!important;padding-bottom:4px!important}" +
     "#libro .teoria-slide .grid,#libro .teoria-slide .orologi{gap:8px!important;margin-top:4px!important}" +
     "#libro .teoria-slide .card,#libro .teoria-slide .orologi>div{padding:6px 8px!important}" +
