@@ -33,16 +33,16 @@
     "#libro .nome span{flex:1;border-bottom:1.5px solid #444}" +
     "#libro .capitolo{margin-top:18px;border-top:3px double #000;padding-top:6px}" +
     "#libro .sez{color:var(--acc);font-size:.8em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border-bottom:2.5px solid var(--acc);padding:0 0 3px;margin:16px 0 8px;break-after:avoid}" +
-    "#libro .teoria{background:color-mix(in srgb,var(--acc) 9%,#fff);border:0;border-left:6px solid var(--acc);border-radius:0 10px 10px 0;padding:8px 14px;margin:6px 0 12px;break-inside:avoid;line-height:1.5}" +
+    "#libro .teoria{background:color-mix(in srgb,var(--acc) 9%,#fff);border:0;border-left:6px solid var(--acc);border-radius:0 10px 10px 0;padding:8px 14px;margin:6px 0 12px;break-inside:auto;line-height:1.5}" +
     "#libro .teoria>b:first-child{display:inline-block;background:var(--acc);color:#fff;font-size:.75em;letter-spacing:.1em;text-transform:uppercase;padding:1px 8px;border-radius:4px;margin-bottom:5px}" +
     "#libro .teoria table{border-collapse:collapse;margin:6px 0;display:table;max-width:100%} #libro .teoria td,#libro .teoria th{border:1px solid color-mix(in srgb,var(--acc) 35%,#fff);padding:2px 8px;text-align:left;white-space:normal}" +
     "#libro .teoria th{background:color-mix(in srgb,var(--acc) 18%,#fff)}" +
-    "#libro .es{margin:10px 0 12px;break-inside:auto} #libro .es h3,#libro .es .cons,#libro .es>.box{break-after:avoid}" +
+    "#libro .es{margin:10px 0 12px;break-inside:auto} #libro .es h3{break-after:avoid}" +
     "#libro .es h3{display:flex;align-items:baseline;gap:8px;font-size:1em;margin:0 0 4px;break-after:avoid}" +
     "#libro .num{flex:0 0 auto;display:inline-grid;place-items:center;min-width:1.7em;height:1.7em;border-radius:50%;background:var(--acc);color:#fff;font-size:.85em;font-weight:800}" +
     "#libro .cons{font-style:italic;margin:0 0 6px;color:#333}" +
     "#libro .box{border:1.5px solid color-mix(in srgb,var(--acc) 50%,#fff);border-radius:8px;padding:5px 10px;margin:4px 0 8px;background:color-mix(in srgb,var(--acc) 5%,#fff)}" +
-    "#libro ol{list-style:none;padding:0;margin:0} #libro ol>li{margin:6px 0;break-inside:avoid}" +
+    "#libro ol{list-style:none;padding:0;margin:0;orphans:1;widows:1} #libro ol>li{margin:6px 0;break-inside:avoid}" +
     "#libro ol.due{columns:2;column-gap:24px}" +
     "#libro .opz{display:inline-flex;flex-wrap:wrap;gap:4px 16px;margin-left:8px}" +
     "#libro .opz span::before{content:'';display:inline-block;width:.8em;height:.8em;border:1.5px solid #333;border-radius:50%;margin-right:5px;vertical-align:-1px}" +
